@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { useAuthUser } from "@/hooks/use-auth-user";
 
@@ -10,10 +10,40 @@ type TopbarProps = {
   title?: string;
 };
 
+function getContextAction(pathname: string): { label: string; href: string; variant?: "primary" } | null {
+  if (pathname === "/") {
+    return { label: "Mulai belajar", href: "/dashboard", variant: "primary" };
+  }
+
+  if (pathname === "/dashboard") {
+    return { label: "Buka Roadmap", href: "/roadmap", variant: "primary" };
+  }
+
+  if (pathname === "/roadmap") {
+    return { label: "Pilih Tracks", href: "/learn", variant: "primary" };
+  }
+
+  if (pathname === "/learn" || pathname.startsWith("/learn/")) {
+    return { label: "Lihat Roadmap", href: "/roadmap" };
+  }
+
+  if (pathname.startsWith("/lesson/")) {
+    return { label: "Semua Tracks", href: "/learn" };
+  }
+
+  if (pathname === "/profile") {
+    return { label: "Dashboard", href: "/dashboard" };
+  }
+
+  return null;
+}
+
 export function Topbar({ title = "FluentStack" }: TopbarProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const { user, isLoading, isAuthenticated } = useAuthUser();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const contextAction = getContextAction(pathname);
 
   const handleLogout = async () => {
     const supabase = getSupabaseClient();
@@ -38,18 +68,18 @@ export function Topbar({ title = "FluentStack" }: TopbarProps) {
         </div>
 
         <div className="flex items-center gap-2">
-          <Link
-            href="/dashboard"
-            className="hidden rounded-lg border border-zinc-700/70 px-3.5 py-2 text-xs font-semibold text-zinc-200 transition hover:bg-zinc-800 sm:inline-flex"
-          >
-            Dashboard
-          </Link>
-          <Link
-            href="/roadmap"
-            className="hidden rounded-lg bg-cyan-500/90 px-3.5 py-2 text-xs font-semibold text-zinc-950 transition hover:bg-cyan-400 sm:inline-flex"
-          >
-            Roadmap
-          </Link>
+          {contextAction ? (
+            <Link
+              href={contextAction.href}
+              className={
+                contextAction.variant === "primary"
+                  ? "hidden rounded-lg bg-cyan-500/90 px-3.5 py-2 text-xs font-semibold text-zinc-950 transition hover:bg-cyan-400 md:inline-flex"
+                  : "hidden rounded-lg border border-zinc-700/70 px-3.5 py-2 text-xs font-semibold text-zinc-200 transition hover:bg-zinc-800 md:inline-flex"
+              }
+            >
+              {contextAction.label}
+            </Link>
+          ) : null}
 
           {isLoading ? (
             <span className="rounded-lg border border-zinc-700/70 px-3.5 py-2 text-xs text-zinc-400">
