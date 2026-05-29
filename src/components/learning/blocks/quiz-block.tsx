@@ -38,7 +38,7 @@ export function QuizBlock({
       </p>
 
       <div className="mt-4 rounded-xl border border-zinc-700/80 bg-zinc-950/60 p-4">
-        <p className="text-sm text-zinc-300">Best score tersimpan: {bestScore}</p>
+        <p className="text-sm text-zinc-300">Skor terbaik tersimpan: {bestScore}</p>
         {isCompleted ? (
           <p className="mt-2 text-sm font-semibold text-emerald-200">Blok quiz sudah selesai.</p>
         ) : null}

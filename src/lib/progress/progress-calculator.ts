@@ -25,6 +25,14 @@ export type LessonProgressSummary = {
   isCompleted: boolean;
 };
 
+export type ContinueLessonProgress = {
+  lesson: Lesson;
+  progressPercent: number;
+  status: ProgressStatus;
+  isCompleted: boolean;
+  reason: "in-progress" | "next" | "completed";
+};
+
 export function calculateLessonProgress(
   lesson: Lesson,
   completedBlockIds: string[],
@@ -122,6 +130,52 @@ export function calculateLessonProgressSummary(
     progressPercent: metrics.progressPercent,
     status: getProgressStatus(metrics.progressPercent),
     isCompleted: metrics.isCompleted,
+  };
+}
+
+export function getContinueLessonProgress(
+  lessonList: Lesson[],
+  completedBlockIds: string[],
+): ContinueLessonProgress | null {
+  if (lessonList.length === 0) {
+    return null;
+  }
+
+  const lessonSummaries = lessonList.map((lesson) => {
+    const metrics = calculateLessonProgress(lesson, completedBlockIds);
+    const status = getProgressStatus(metrics.progressPercent);
+
+    return {
+      lesson,
+      progressPercent: metrics.progressPercent,
+      status,
+      isCompleted: metrics.isCompleted,
+    };
+  });
+
+  const inProgressLesson = lessonSummaries
+    .filter((entry) => entry.status === "in-progress")
+    .sort((a, b) => b.progressPercent - a.progressPercent)[0];
+
+  if (inProgressLesson) {
+    return {
+      ...inProgressLesson,
+      reason: "in-progress",
+    };
+  }
+
+  const nextLesson = lessonSummaries.find((entry) => !entry.isCompleted);
+
+  if (nextLesson) {
+    return {
+      ...nextLesson,
+      reason: "next",
+    };
+  }
+
+  return {
+    ...lessonSummaries[0],
+    reason: "completed",
   };
 }
 

@@ -19,7 +19,7 @@ export function QuizResult({ score, passingScore, bestScore, onRetry }: QuizResu
         Passing score: <span className="font-semibold text-zinc-100">{passingScore}</span>
       </p>
       <p className="text-sm leading-7 text-zinc-300">
-        Best score: <span className="font-semibold text-zinc-100">{bestScore}</span>
+        Skor terbaik: <span className="font-semibold text-zinc-100">{bestScore}</span>
       </p>
 
       <p

@@ -2,10 +2,11 @@ import { cn } from "@/lib/utils";
 
 type XpBadgeProps = {
   value: number;
+  isLoading?: boolean;
   className?: string;
 };
 
-export function XpBadge({ value, className }: XpBadgeProps) {
+export function XpBadge({ value, isLoading = false, className }: XpBadgeProps) {
   return (
     <div
       className={cn(
@@ -14,7 +15,7 @@ export function XpBadge({ value, className }: XpBadgeProps) {
       )}
     >
       <span className="inline-block h-2 w-2 rounded-full bg-cyan-300" />
-      <span>{value} XP</span>
+      <span>{isLoading ? "Memuat XP..." : `${value} XP`}</span>
     </div>
   );
 }

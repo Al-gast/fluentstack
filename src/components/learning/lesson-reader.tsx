@@ -95,6 +95,7 @@ export function LessonReader({ lesson }: LessonReaderProps) {
             totalRequired={lessonMetrics.totalRequiredCount}
             completedRequired={lessonMetrics.completedRequiredCount}
             storageMode={storageMode}
+            isLoading={isLoading}
           />
 
           {isLoading ? (
@@ -133,6 +134,7 @@ export function LessonReader({ lesson }: LessonReaderProps) {
               totalRequired={lessonMetrics.totalRequiredCount}
               completedRequired={lessonMetrics.completedRequiredCount}
               storageMode={storageMode}
+              isLoading={isLoading}
               compact
             />
           </div>

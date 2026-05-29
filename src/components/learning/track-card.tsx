@@ -21,7 +21,7 @@ export function TrackCard({
   trackLessons,
   progressPercent,
 }: TrackCardProps) {
-  const { userProgress } = useGuestProgress();
+  const { userProgress, isLoading } = useGuestProgress();
   const trackMetrics = calculateLessonsProgress(trackLessons, userProgress.completedBlockIds);
   const resolvedProgressPercent = progressPercent ?? trackMetrics.progressPercent;
 
@@ -61,12 +61,15 @@ export function TrackCard({
         </div>
         <div className="rounded-xl border border-zinc-700/80 bg-zinc-950/60 p-3">
           <p className="text-zinc-400">Progres</p>
-          <p className="mt-1 font-semibold text-zinc-100">{resolvedProgressPercent}%</p>
+          <p className="mt-1 font-semibold text-zinc-100">
+            {isLoading ? "Memuat..." : `${resolvedProgressPercent}%`}
+          </p>
         </div>
       </div>
       <ProgressBar
         value={resolvedProgressPercent}
         className="mt-4"
+        isLoading={isLoading}
         tone={trackMetrics.isCompleted ? "success" : "primary"}
       />
     </Link>

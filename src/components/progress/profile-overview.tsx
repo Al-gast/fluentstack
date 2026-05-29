@@ -95,14 +95,16 @@ export function ProfileOverview() {
       <section className="grid gap-4 lg:grid-cols-3">
         <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
           <p className="text-sm text-zinc-400">Total XP</p>
-          <XpBadge value={totalXp} className="mt-3" />
+          <XpBadge value={totalXp} isLoading={isLoading} className="mt-3" />
         </article>
 
-        <StreakCard days={streakCount} />
+        <StreakCard days={streakCount} isLoading={isLoading} />
 
         <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
           <p className="text-sm text-zinc-400">Aktivitas terakhir</p>
-          <p className="mt-2 text-xl font-bold text-zinc-100">{formatLastActivityDate(lastActivityDate)}</p>
+          <p className="mt-2 text-xl font-bold text-zinc-100">
+            {isLoading ? "Memuat..." : formatLastActivityDate(lastActivityDate)}
+          </p>
           <p className="mt-1 text-sm text-zinc-400">Tanggal terakhir aktivitas bermakna tercatat.</p>
         </article>
       </section>
@@ -112,12 +114,15 @@ export function ProfileOverview() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="text-lg font-bold text-zinc-100">Progres keseluruhan</h2>
             <p className="text-sm text-zinc-300">
-              {overallMetrics.completedLessonCount}/{overallMetrics.totalLessonCount} lesson selesai
+              {isLoading
+                ? "Memuat progres..."
+                : `${overallMetrics.completedLessonCount}/${overallMetrics.totalLessonCount} lesson selesai`}
             </p>
           </div>
           <ProgressBar
             value={overallMetrics.progressPercent}
             className="mt-4"
+            isLoading={isLoading}
             tone={overallMetrics.isCompleted ? "success" : "primary"}
           />
         </article>
@@ -125,11 +130,14 @@ export function ProfileOverview() {
         <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
           <h3 className="text-base font-bold text-zinc-100">Frontend Engineering</h3>
           <p className="mt-2 text-sm text-zinc-300">
-            {frontendMetrics.completedLessonCount}/{frontendMetrics.totalLessonCount} lesson selesai
+            {isLoading
+              ? "Memuat progres..."
+              : `${frontendMetrics.completedLessonCount}/${frontendMetrics.totalLessonCount} lesson selesai`}
           </p>
           <ProgressBar
             value={frontendMetrics.progressPercent}
             className="mt-4"
+            isLoading={isLoading}
             tone={frontendMetrics.isCompleted ? "success" : "primary"}
           />
           {frontendTrack ? (
@@ -145,11 +153,14 @@ export function ProfileOverview() {
         <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
           <h3 className="text-base font-bold text-zinc-100">HTML & Web Fundamentals</h3>
           <p className="mt-2 text-sm text-zinc-300">
-            {htmlMetrics.completedLessonCount}/{htmlMetrics.totalLessonCount} lesson selesai
+            {isLoading
+              ? "Memuat progres..."
+              : `${htmlMetrics.completedLessonCount}/${htmlMetrics.totalLessonCount} lesson selesai`}
           </p>
           <ProgressBar
             value={htmlMetrics.progressPercent}
             className="mt-4"
+            isLoading={isLoading}
             tone={htmlMetrics.isCompleted ? "success" : "primary"}
           />
           {frontendTrack && htmlModule ? (
@@ -164,10 +175,13 @@ export function ProfileOverview() {
 
         <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
           <h3 className="text-base font-bold text-zinc-100">Status Dasar Semantic HTML</h3>
-          <p className="mt-2 text-sm text-zinc-300">Status: {statusLabel[semanticSummary.status]}</p>
+          <p className="mt-2 text-sm text-zinc-300">
+            Status: {isLoading ? "Memuat..." : statusLabel[semanticSummary.status]}
+          </p>
           <ProgressBar
             value={semanticSummary.progressPercent}
             className="mt-4"
+            isLoading={isLoading}
             tone={semanticSummary.isCompleted ? "success" : "primary"}
           />
           {semanticLesson ? (
@@ -184,7 +198,9 @@ export function ProfileOverview() {
       <section className="grid gap-4 xl:grid-cols-2">
         <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
           <h2 className="text-lg font-bold text-zinc-100">Lesson selesai</h2>
-          {completedLessons.length > 0 ? (
+          {isLoading ? (
+            <p className="mt-3 text-sm text-zinc-400">Memuat lesson selesai...</p>
+          ) : completedLessons.length > 0 ? (
             <ul className="mt-3 space-y-2 text-sm text-zinc-300">
               {completedLessons.map((lessonItem) => (
                 <li
@@ -201,8 +217,10 @@ export function ProfileOverview() {
         </article>
 
         <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
-          <h2 className="text-lg font-bold text-zinc-100">Skor quiz</h2>
-          {quizScoreEntries.length > 0 ? (
+          <h2 className="text-lg font-bold text-zinc-100">Skor terbaik quiz</h2>
+          {isLoading ? (
+            <p className="mt-3 text-sm text-zinc-400">Memuat skor terbaik...</p>
+          ) : quizScoreEntries.length > 0 ? (
             <ul className="mt-3 space-y-2 text-sm text-zinc-300">
               {quizScoreEntries.map((entry) => (
                 <li

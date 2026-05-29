@@ -19,7 +19,7 @@ export function ModuleCard({
   moduleLessons,
   progressPercent,
 }: ModuleCardProps) {
-  const { userProgress } = useGuestProgress();
+  const { userProgress, isLoading } = useGuestProgress();
   const moduleMetrics = calculateLessonsProgress(moduleLessons, userProgress.completedBlockIds);
   const resolvedProgressPercent = progressPercent ?? moduleMetrics.progressPercent;
 
@@ -50,11 +50,12 @@ export function ModuleCard({
 
       <div className="mt-6 flex items-center justify-between text-sm text-zinc-300">
         <span>{moduleLessons.length} lesson</span>
-        <span>Progres {resolvedProgressPercent}%</span>
+        <span>{isLoading ? "Progres memuat..." : `Progres ${resolvedProgressPercent}%`}</span>
       </div>
       <ProgressBar
         value={resolvedProgressPercent}
         className="mt-3"
+        isLoading={isLoading}
         tone={moduleMetrics.isCompleted ? "success" : "primary"}
       />
     </Link>

@@ -23,7 +23,7 @@ export function LessonCard({
   progressPercent,
   status,
 }: LessonCardProps) {
-  const { userProgress } = useGuestProgress();
+  const { userProgress, isLoading } = useGuestProgress();
   const lessonMetrics = calculateLessonProgress(lesson, userProgress.completedBlockIds);
   const resolvedProgressPercent = progressPercent ?? lessonMetrics.progressPercent;
   const resolvedStatus = status ?? getProgressStatus(resolvedProgressPercent);
@@ -49,17 +49,22 @@ export function LessonCard({
         </div>
         <div className="rounded-lg border border-zinc-700/80 bg-zinc-950/60 p-2.5">
           <p className="text-zinc-400">Status</p>
-          <p className="mt-1 font-semibold text-zinc-100">{statusLabel[resolvedStatus]}</p>
+          <p className="mt-1 font-semibold text-zinc-100">
+            {isLoading ? "Memuat..." : statusLabel[resolvedStatus]}
+          </p>
         </div>
         <div className="rounded-lg border border-zinc-700/80 bg-zinc-950/60 p-2.5">
           <p className="text-zinc-400">Progres</p>
-          <p className="mt-1 font-semibold text-zinc-100">{resolvedProgressPercent}%</p>
+          <p className="mt-1 font-semibold text-zinc-100">
+            {isLoading ? "Memuat..." : `${resolvedProgressPercent}%`}
+          </p>
         </div>
       </div>
 
       <ProgressBar
         value={resolvedProgressPercent}
         className="mt-4"
+        isLoading={isLoading}
         tone={resolvedStatus === "completed" ? "success" : "primary"}
       />
 

@@ -6,6 +6,7 @@ type ProgressBarProps = {
   value: number;
   label?: string;
   className?: string;
+  isLoading?: boolean;
   tone?: "primary" | "success";
 };
 
@@ -13,6 +14,7 @@ export function ProgressBar({
   value,
   label,
   className,
+  isLoading = false,
   tone = "primary",
 }: ProgressBarProps) {
   const clamped = Math.max(0, Math.min(100, value));
@@ -26,7 +28,7 @@ export function ProgressBar({
       {label ? (
         <div className="flex items-center justify-between text-xs text-zinc-300">
           <span className="font-medium">{label}</span>
-          <span className="font-medium">{Math.round(clamped)}%</span>
+          <span className="font-medium">{isLoading ? "Memuat..." : `${Math.round(clamped)}%`}</span>
         </div>
       ) : null}
       <div className="h-2 rounded-full bg-zinc-800/90 ring-1 ring-zinc-700/60">
@@ -34,8 +36,9 @@ export function ProgressBar({
           className={cn(
             "h-full rounded-full bg-gradient-to-r transition-all duration-300",
             toneClass,
+            isLoading ? "w-1/3 animate-pulse from-zinc-600 to-zinc-500" : "",
           )}
-          style={{ width: `${clamped}%` }}
+          style={isLoading ? undefined : { width: `${clamped}%` }}
         />
       </div>
     </div>

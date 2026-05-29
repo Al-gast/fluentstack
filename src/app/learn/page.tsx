@@ -7,33 +7,16 @@ import { lessons } from "@/content/lessons";
 import { modules } from "@/content/modules";
 import { tracks } from "@/content/tracks";
 import { useGuestProgress } from "@/hooks/use-progress";
-import { calculateLessonProgress } from "@/lib/progress/progress-calculator";
+import { getContinueLessonProgress } from "@/lib/progress/progress-calculator";
 
 export default function LearnPage() {
-  const { userProgress, storageMode } = useGuestProgress();
+  const { userProgress, storageMode, isLoading } = useGuestProgress();
   const hasProgress =
     userProgress.completedBlockIds.length > 0 ||
     userProgress.completedLessonIds.length > 0 ||
     userProgress.totalXp > 0;
 
-  const lessonSummaries = lessons.map((lesson) => {
-    const metrics = calculateLessonProgress(lesson, userProgress.completedBlockIds);
-    return {
-      lesson,
-      progressPercent: metrics.progressPercent,
-      isCompleted: metrics.isCompleted,
-    };
-  });
-
-  const inProgressLessons = lessonSummaries
-    .filter((entry) => entry.progressPercent > 0 && entry.progressPercent < 100)
-    .sort((a, b) => b.progressPercent - a.progressPercent);
-
-  const defaultLesson = lessons.find((lesson) => lesson.slug === "html-semantic-basics") ?? lessons[0];
-  const nextLesson =
-    inProgressLessons[0]?.lesson ??
-    lessonSummaries.find((entry) => !entry.isCompleted)?.lesson ??
-    defaultLesson;
+  const nextLesson = getContinueLessonProgress(lessons, userProgress.completedBlockIds)?.lesson ?? lessons[0];
 
   return (
     <AppShell title="Tracks">
@@ -47,7 +30,12 @@ export default function LearnPage() {
 
         <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-6">
           <h2 className="text-xl font-bold text-zinc-100">Lanjut belajar</h2>
-          {hasProgress ? (
+          {isLoading ? (
+            <>
+              <p className="mt-2 text-sm leading-6 text-zinc-300">Memuat progres terbaru kamu...</p>
+              <div className="mt-4 h-10 w-52 animate-pulse rounded-xl bg-zinc-800" />
+            </>
+          ) : hasProgress ? (
             <>
               <p className="mt-2 text-sm leading-6 text-zinc-300">
                 Lanjutkan lesson yang paling relevan dari progres kamu saat ini.
@@ -75,7 +63,9 @@ export default function LearnPage() {
             </>
           )}
           <p className="mt-3 text-xs text-zinc-400">
-            {hasProgress
+            {isLoading
+              ? "Mode progres sedang dimuat."
+              : hasProgress
               ? storageMode === "logged-in"
                 ? "Progres disimpan di akun kamu."
                 : "Progres disimpan lokal di browser ini."

@@ -13,7 +13,7 @@ type UseAuthUserResult = {
 export function useAuthUser(): UseAuthUserResult {
   const supabase = useMemo(() => getSupabaseClient(), []);
   const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(Boolean(supabase));
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!supabase) {
@@ -21,6 +21,11 @@ export function useAuthUser(): UseAuthUserResult {
     }
 
     let isSubscribed = true;
+    const loadingTimer = window.setTimeout(() => {
+      if (isSubscribed) {
+        setIsLoading(true);
+      }
+    }, 0);
 
     void supabase.auth
       .getUser()
@@ -46,6 +51,7 @@ export function useAuthUser(): UseAuthUserResult {
 
     return () => {
       isSubscribed = false;
+      window.clearTimeout(loadingTimer);
       subscription.unsubscribe();
     };
   }, [supabase]);

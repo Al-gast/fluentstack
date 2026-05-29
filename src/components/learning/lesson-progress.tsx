@@ -4,6 +4,7 @@ type LessonProgressProps = {
   totalRequired: number;
   completedRequired: number;
   storageMode?: ProgressStorageMode;
+  isLoading?: boolean;
   compact?: boolean;
 };
 
@@ -11,6 +12,7 @@ export function LessonProgress({
   totalRequired,
   completedRequired,
   storageMode = "guest",
+  isLoading = false,
   compact = false,
 }: LessonProgressProps) {
   const safeTotal = totalRequired > 0 ? totalRequired : 1;
@@ -21,23 +23,27 @@ export function LessonProgress({
     <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
       <div className="flex items-center justify-between gap-3">
         <h2 className="text-sm font-semibold text-zinc-100">Progres pelajaran</h2>
-        <span className="text-sm font-semibold text-cyan-200">{percent}%</span>
+        <span className="text-sm font-semibold text-cyan-200">{isLoading ? "Memuat..." : `${percent}%`}</span>
       </div>
 
       <div className="mt-3 h-2 rounded-full bg-zinc-800/90 ring-1 ring-zinc-700/60">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400"
-          style={{ width: `${percent}%` }}
+          className={`h-full rounded-full bg-gradient-to-r transition-all duration-300 ${
+            isLoading ? "w-1/3 animate-pulse from-zinc-600 to-zinc-500" : "from-cyan-400 to-indigo-400"
+          }`}
+          style={isLoading ? undefined : { width: `${percent}%` }}
         />
       </div>
 
       {!compact ? (
         <>
           <p className="mt-3 text-sm text-zinc-300">
-            {completedRequired} dari {totalRequired} blok wajib selesai.
+            {isLoading ? "Memuat blok wajib..." : `${completedRequired} dari ${totalRequired} blok wajib selesai.`}
           </p>
           <p className="mt-2 text-sm text-zinc-300">
-            {isCompleted
+            {isLoading
+              ? "Progres terbaru sedang dimuat."
+              : isCompleted
               ? storageMode === "logged-in"
                 ? "Lesson selesai. Progres kamu tersimpan di akun."
                 : "Lesson selesai. Progres kamu tersimpan di browser ini."
@@ -46,7 +52,7 @@ export function LessonProgress({
         </>
       ) : (
         <p className="mt-2 text-xs text-zinc-400">
-          {completedRequired}/{totalRequired} blok wajib
+          {isLoading ? "Memuat..." : `${completedRequired}/${totalRequired} blok wajib`}
         </p>
       )}
     </section>
