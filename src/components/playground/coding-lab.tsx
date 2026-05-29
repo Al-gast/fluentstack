@@ -39,6 +39,25 @@ export function CodingLab({
 }: CodingLabProps) {
   const [activeLanguage, setActiveLanguage] = useState<ChallengeLanguage>("html");
   const [showSolution, setShowSolution] = useState(false);
+  const [codeSaved, setCodeSaved] = useState(false);
+
+  const handleSaveCode = () => {
+    onSaveCode();
+    setCodeSaved(true);
+  };
+
+  const handleCodeChange = (nextValue: string) => {
+    setCodeSaved(false);
+    onChangeCode({
+      ...code,
+      [activeLanguage]: nextValue,
+    });
+  };
+
+  const handleReset = () => {
+    setCodeSaved(false);
+    onReset();
+  };
 
   return (
     <section className="space-y-5">
@@ -59,7 +78,8 @@ export function CodingLab({
       <article className="rounded-xl border border-zinc-700/80 bg-zinc-950/50 p-4">
         <h4 className="text-sm font-semibold text-zinc-100">Checklist manual</h4>
         <p className="mt-1 text-xs text-zinc-400">
-          Checklist ini sebagai panduan. Kamu bisa tetap menandai selesai setelah review hasil sendiri.
+          Checklist ini self-check untuk MVP. Review hasil di preview, centang poin yang sudah kamu cek,
+          lalu tandai selesai secara manual.
         </p>
         <ul className="mt-3 space-y-2">
           {challenge.checklist.map((item) => {
@@ -105,12 +125,7 @@ export function CodingLab({
           language={activeLanguage}
           value={code[activeLanguage]}
           height="420px"
-          onChange={(nextValue) =>
-            onChangeCode({
-              ...code,
-              [activeLanguage]: nextValue,
-            })
-          }
+          onChange={handleCodeChange}
         />
 
         <div className="space-y-3">
@@ -119,19 +134,31 @@ export function CodingLab({
         </div>
       </article>
 
-      <article className="rounded-xl border border-zinc-700/80 bg-zinc-950/50 p-4">
-        <p className="text-sm font-semibold text-zinc-100">Aksi</p>
-        <div className="mt-3 flex flex-wrap gap-2">
+      <article className="rounded-xl border border-cyan-300/20 bg-zinc-950/65 p-4">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <p className="text-sm font-semibold text-zinc-100">Simpan dan selesaikan</p>
+            <p className="mt-1 text-xs leading-6 text-zinc-400">
+              Simpan code sebelum pindah halaman. Tandai selesai setelah kamu review checklist dan preview.
+            </p>
+          </div>
+          {codeSaved ? (
+            <span className="rounded-full border border-emerald-300/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-200">
+              Code tersimpan
+            </span>
+          ) : null}
+        </div>
+        <div className="mt-4 flex flex-wrap gap-2">
           <button
             type="button"
-            onClick={onSaveCode}
-            className="rounded-lg border border-zinc-600 bg-zinc-800 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-700"
+            onClick={handleSaveCode}
+            className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/45"
           >
             Simpan code
           </button>
           <button
             type="button"
-            onClick={onReset}
+            onClick={handleReset}
             className="rounded-lg border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800"
           >
             Reset

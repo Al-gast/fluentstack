@@ -82,11 +82,13 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between text-sm text-zinc-300">
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-zinc-700/70 bg-zinc-950/50 px-4 py-3 text-sm text-zinc-300">
         <p>
           Pertanyaan {questionNumber} dari {totalQuestions}
         </p>
-        <p>Target lulus {passingScore}</p>
+        <p>
+          Target lulus: <span className="font-semibold text-cyan-100">{passingScore}</span>
+        </p>
       </div>
 
       <QuizQuestion
@@ -99,6 +101,7 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
           }
         }}
         disabled={submittedCurrent}
+        submitted={submittedCurrent}
       />
 
       {submittedCurrent ? (
@@ -122,7 +125,7 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
             type="button"
             disabled={currentAnswer === undefined || currentAnswer === ""}
             onClick={handleSubmitCurrent}
-            className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:bg-zinc-600 disabled:text-zinc-300"
+            className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/45 disabled:cursor-not-allowed disabled:bg-zinc-600 disabled:text-zinc-300"
           >
             Submit jawaban
           </button>
@@ -130,7 +133,7 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
           <button
             type="button"
             onClick={handleContinue}
-            className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300"
+            className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/45"
           >
             {questionNumber === totalQuestions ? "Lihat hasil" : "Lanjut pertanyaan"}
           </button>

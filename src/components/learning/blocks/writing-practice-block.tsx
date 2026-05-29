@@ -38,6 +38,7 @@ function WritingPracticeBlockStateful({
   const minimumCharacters = block.minimumCharacters ?? 80;
   const currentCharacters = draft.trim().length;
   const canMarkComplete = currentCharacters >= minimumCharacters;
+  const draftIsSaved = draft.trim().length > 0 && draft === initialDraft;
 
   const characterMessage = React.useMemo(() => {
     if (canMarkComplete) {
@@ -57,11 +58,19 @@ function WritingPracticeBlockStateful({
           value={draft}
           onChange={(event) => setDraft(event.target.value)}
           placeholder={block.placeholder}
-          className="min-h-44 w-full rounded-xl border border-zinc-700/80 bg-zinc-950/60 px-4 py-3 text-sm leading-7 text-zinc-100 placeholder:text-zinc-500 focus:border-cyan-300/40 focus:outline-none"
+          aria-label="Draft latihan menulis"
+          className="min-h-44 w-full rounded-xl border border-zinc-700/80 bg-zinc-950/60 px-4 py-3 text-sm leading-7 text-zinc-100 placeholder:text-zinc-500 focus:border-cyan-300/40 focus:outline-none focus:ring-2 focus:ring-cyan-300/20"
         />
         <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
           <p className={canMarkComplete ? "text-emerald-200" : "text-zinc-400"}>{characterMessage}</p>
-          <p className="text-zinc-400">Jumlah karakter: {currentCharacters}</p>
+          <div className="flex flex-wrap items-center gap-2">
+            {draftIsSaved ? (
+              <span className="rounded-full border border-emerald-300/30 bg-emerald-500/10 px-2.5 py-1 font-semibold text-emerald-200">
+                Draft tersimpan
+              </span>
+            ) : null}
+            <p className="text-zinc-400">Jumlah karakter: {currentCharacters}</p>
+          </div>
         </div>
       </div>
 

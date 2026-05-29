@@ -38,26 +38,42 @@ export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBl
       <h3 className="mt-2 text-xl font-bold text-zinc-100">Quick check</h3>
       <p className="mt-3 text-base leading-7 text-zinc-200">{block.question}</p>
 
-      <div className="mt-4 space-y-2">
+      <div className="mt-4 space-y-2" role="radiogroup" aria-label={block.question}>
         {block.options.map((option) => {
           const active = selectedAnswer === option;
+          const optionIsCorrect = option === block.correctAnswer;
+          const showCorrect = submitted && optionIsCorrect;
+          const showWrong = submitted && active && !optionIsCorrect;
+
           return (
             <button
               key={option}
               type="button"
+              role="radio"
+              aria-checked={active}
               onClick={() => {
                 setSelectedAnswer(option);
                 if (submitted) {
                   setSubmitted(false);
                 }
               }}
-              className={`w-full rounded-xl border px-4 py-3 text-left text-sm transition ${
-                active
-                  ? "border-cyan-300/50 bg-cyan-500/10 text-cyan-100"
-                  : "border-zinc-700/80 bg-zinc-950/60 text-zinc-200 hover:bg-zinc-800"
+              className={`flex w-full items-start justify-between gap-3 rounded-xl border px-4 py-3 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-cyan-300/40 ${
+                showCorrect
+                  ? "border-emerald-300/50 bg-emerald-500/10 text-emerald-50"
+                  : showWrong
+                    ? "border-rose-300/50 bg-rose-500/10 text-rose-50"
+                    : active
+                      ? "border-cyan-300/60 bg-cyan-500/10 text-cyan-50"
+                      : "border-zinc-700/80 bg-zinc-950/60 text-zinc-200 hover:border-zinc-600 hover:bg-zinc-800/80"
               }`}
             >
-              {option}
+              <span>{option}</span>
+              {showCorrect ? (
+                <span className="shrink-0 text-xs font-semibold text-emerald-200">Benar</span>
+              ) : null}
+              {showWrong ? (
+                <span className="shrink-0 text-xs font-semibold text-rose-200">Belum tepat</span>
+              ) : null}
             </button>
           );
         })}
@@ -95,6 +111,7 @@ export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBl
 
       {submitted ? (
         <div
+          aria-live="polite"
           className={`mt-4 rounded-xl border p-4 text-sm leading-7 ${
             isCorrect
               ? "border-emerald-300/35 bg-emerald-500/10 text-emerald-100"
