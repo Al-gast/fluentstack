@@ -17,7 +17,7 @@ export function CodeEditor({
   height = "420px",
 }: CodeEditorProps) {
   return (
-    <div className="overflow-hidden rounded-xl border border-zinc-700/80 bg-zinc-950/80">
+    <div className="min-w-0 overflow-hidden rounded-xl border border-zinc-700/80 bg-zinc-950/80">
       <Editor
         height={height}
         theme="vs-dark"

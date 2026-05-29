@@ -13,13 +13,13 @@ type AppShellProps = {
 export function AppShell({ children, className, title }: AppShellProps) {
   return (
     <div className="relative min-h-screen bg-[radial-gradient(1200px_circle_at_10%_-10%,rgba(8,145,178,0.28),transparent_45%),radial-gradient(1100px_circle_at_90%_0%,rgba(99,102,241,0.22),transparent_50%),#070b14] text-zinc-100">
-      <div className="mx-auto flex w-full max-w-[1640px] gap-5 px-4 pb-24 pt-4 sm:px-7 lg:px-10">
+      <div className="mx-auto flex w-full max-w-[1640px] gap-5 px-3 pb-[calc(8rem+env(safe-area-inset-bottom))] pt-3 sm:px-7 sm:pt-4 lg:px-10 lg:pb-10">
         <Sidebar />
         <div className="min-w-0 flex-1 space-y-4">
           <Topbar title={title} />
           <main
             className={cn(
-              "rounded-3xl border border-zinc-800/70 bg-zinc-900/50 p-5 sm:p-7 lg:p-8",
+              "rounded-3xl border border-zinc-800/70 bg-zinc-900/50 p-4 sm:p-7 lg:p-8",
               className,
             )}
           >

@@ -60,14 +60,14 @@ export function Topbar({ title = "FluentStack" }: TopbarProps) {
   };
 
   return (
-    <header className="sticky top-0 z-20 rounded-2xl border border-zinc-800/80 bg-zinc-950/75 px-4 py-3.5 backdrop-blur sm:px-5">
-      <div className="flex items-center justify-between gap-3">
-        <div>
+    <header className="sticky top-0 z-20 rounded-2xl border border-zinc-800/80 bg-zinc-950/75 px-3 py-3.5 backdrop-blur sm:px-5">
+      <div className="flex min-w-0 items-center justify-between gap-3">
+        <div className="min-w-0">
           <p className="text-xs font-medium text-zinc-400">Platform belajar</p>
-          <h1 className="text-base font-semibold text-zinc-100">{title}</h1>
+          <h1 className="truncate text-base font-semibold text-zinc-100">{title}</h1>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center justify-end gap-2">
           {contextAction ? (
             <Link
               href={contextAction.href}
@@ -87,7 +87,7 @@ export function Topbar({ title = "FluentStack" }: TopbarProps) {
             </span>
           ) : isAuthenticated ? (
             <>
-              <span className="max-w-[220px] truncate rounded-lg border border-zinc-700/70 px-3.5 py-2 text-xs text-zinc-300">
+              <span className="hidden max-w-[112px] truncate rounded-lg border border-zinc-700/70 px-3 py-2 text-xs text-zinc-300 min-[420px]:inline-block sm:max-w-[220px] sm:px-3.5">
                 {user?.email}
               </span>
               <button

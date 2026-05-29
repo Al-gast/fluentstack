@@ -28,9 +28,9 @@ export function ModuleCard({
       href={`/learn/${trackSlug}/${module.slug}`}
       className="group block rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-6 transition hover:border-cyan-300/40 hover:bg-zinc-900"
     >
-      <div className="flex items-start justify-between gap-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
         <h3 className="text-lg font-bold text-zinc-100">{module.title}</h3>
-        <span className="rounded-lg border border-zinc-600/80 bg-zinc-800/80 px-2.5 py-1 text-xs text-zinc-300">
+        <span className="w-fit rounded-lg border border-zinc-600/80 bg-zinc-800/80 px-2.5 py-1 text-xs text-zinc-300">
           {module.estimatedHours} jam
         </span>
       </div>
@@ -48,7 +48,7 @@ export function ModuleCard({
         ))}
       </div>
 
-      <div className="mt-6 flex items-center justify-between text-sm text-zinc-300">
+      <div className="mt-6 flex flex-col gap-1 text-sm text-zinc-300 min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between">
         <span>{moduleLessons.length} lesson</span>
         <span>{isLoading ? "Progres memuat..." : `Progres ${resolvedProgressPercent}%`}</span>
       </div>

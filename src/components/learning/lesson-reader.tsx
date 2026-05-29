@@ -44,7 +44,7 @@ export function LessonReader({ lesson }: LessonReaderProps) {
   } = useProgress(lesson);
 
   return (
-    <div className="mx-auto max-w-[1440px]">
+    <div className="mx-auto max-w-[1440px] pb-6 lg:pb-0">
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
         <article className="min-w-0 space-y-8">
           <header className="border-b border-zinc-800/80 pb-7 sm:pb-8">

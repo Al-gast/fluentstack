@@ -30,9 +30,9 @@ export function TrackCard({
       href={`/learn/${track.slug}`}
       className="group block rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-6 transition hover:border-cyan-300/40 hover:bg-zinc-900"
     >
-      <div className="flex items-start justify-between gap-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
         <h3 className="text-xl font-bold text-zinc-100">{track.title}</h3>
-        <span className="rounded-lg border border-zinc-600/80 bg-zinc-800/80 px-2.5 py-1 text-xs text-zinc-300">
+        <span className="w-fit rounded-lg border border-zinc-600/80 bg-zinc-800/80 px-2.5 py-1 text-xs text-zinc-300">
           {track.level}
         </span>
       </div>
@@ -50,7 +50,7 @@ export function TrackCard({
         ))}
       </div>
 
-      <div className="mt-6 grid grid-cols-3 gap-3 text-sm">
+      <div className="mt-6 grid gap-3 text-sm min-[420px]:grid-cols-3">
         <div className="rounded-xl border border-zinc-700/80 bg-zinc-950/60 p-3">
           <p className="text-zinc-400">Module</p>
           <p className="mt-1 font-semibold text-zinc-100">{moduleCount}</p>

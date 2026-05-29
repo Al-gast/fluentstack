@@ -102,15 +102,15 @@ export function CodingLab({
         </ul>
       </article>
 
-      <article className="space-y-4">
-        <div className="flex flex-wrap gap-2">
+      <article className="min-w-0 space-y-4">
+        <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap">
           {languageTabs.map((tab) => (
             <button
               key={tab.value}
               type="button"
               onClick={() => setActiveLanguage(tab.value)}
               className={cn(
-                "rounded-lg border px-3 py-2 text-xs font-semibold transition sm:px-4",
+                "rounded-lg border px-3 py-2 text-center text-xs font-semibold transition sm:px-4",
                 activeLanguage === tab.value
                   ? "border-cyan-300/40 bg-cyan-500/10 text-cyan-100"
                   : "border-zinc-700/80 bg-zinc-900 text-zinc-300 hover:bg-zinc-800",
@@ -130,7 +130,7 @@ export function CodingLab({
 
         <div className="space-y-3">
           <p className="text-xs font-semibold uppercase tracking-normal text-zinc-400">Preview langsung</p>
-          <PreviewPanel code={code} heightClassName="h-[320px]" />
+          <PreviewPanel code={code} heightClassName="h-[280px] sm:h-[320px]" />
         </div>
       </article>
 
@@ -148,18 +148,18 @@ export function CodingLab({
             </span>
           ) : null}
         </div>
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-4 grid gap-2 sm:flex sm:flex-wrap">
           <button
             type="button"
             onClick={handleSaveCode}
-            className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/45"
+            className="w-full rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/45 sm:w-auto"
           >
             Simpan code
           </button>
           <button
             type="button"
             onClick={handleReset}
-            className="rounded-lg border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800"
+            className="w-full rounded-lg border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 sm:w-auto"
           >
             Reset
           </button>
@@ -167,7 +167,7 @@ export function CodingLab({
             <button
               type="button"
               onClick={() => setShowSolution((previous) => !previous)}
-              className="rounded-lg border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800"
+              className="w-full rounded-lg border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 sm:w-auto"
             >
               {showSolution ? "Sembunyikan solusi" : "Lihat solusi"}
             </button>
@@ -177,7 +177,7 @@ export function CodingLab({
             onClick={onMarkCompleted}
             disabled={isCompleted}
             className={cn(
-              "rounded-lg px-4 py-2 text-sm font-semibold transition",
+              "w-full rounded-lg px-4 py-2 text-sm font-semibold transition sm:w-auto",
               isCompleted
                 ? "cursor-not-allowed border border-emerald-300/35 bg-emerald-500/20 text-emerald-100"
                 : "bg-cyan-400 text-zinc-950 hover:bg-cyan-300",

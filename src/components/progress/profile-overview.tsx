@@ -225,7 +225,7 @@ export function ProfileOverview() {
               {quizScoreEntries.map((entry) => (
                 <li
                   key={entry.quizId}
-                  className="flex items-center justify-between rounded-lg border border-zinc-700/70 bg-zinc-950/50 px-3 py-2"
+                  className="flex flex-col gap-1 rounded-lg border border-zinc-700/70 bg-zinc-950/50 px-3 py-2 min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between"
                 >
                   <span>{entry.title}</span>
                   <span className="font-semibold text-cyan-200">{entry.score}%</span>

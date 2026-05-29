@@ -38,7 +38,7 @@ export function PreviewPanel({
   }, [code.css, code.html, code.js]);
 
   return (
-    <div className="overflow-hidden rounded-xl border border-zinc-700/80 bg-white">
+    <div className="min-w-0 overflow-hidden rounded-xl border border-zinc-700/80 bg-white">
       <iframe
         title="Coding practice preview"
         sandbox="allow-scripts"

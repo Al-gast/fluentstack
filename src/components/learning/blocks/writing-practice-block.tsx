@@ -48,7 +48,7 @@ function WritingPracticeBlockStateful({
   }, [canMarkComplete, currentCharacters, minimumCharacters]);
 
   return (
-    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 p-5 sm:p-6">
+    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 p-4 sm:p-6">
       <p className="text-xs font-medium text-cyan-200">Writing practice</p>
       <h3 className="mt-2 text-xl font-bold text-zinc-100">Latihan menulis</h3>
       <p className="mt-3 whitespace-pre-line text-sm leading-7 text-zinc-200">{block.prompt}</p>
@@ -61,7 +61,7 @@ function WritingPracticeBlockStateful({
           aria-label="Draft latihan menulis"
           className="min-h-44 w-full rounded-xl border border-zinc-700/80 bg-zinc-950/60 px-4 py-3 text-sm leading-7 text-zinc-100 placeholder:text-zinc-500 focus:border-cyan-300/40 focus:outline-none focus:ring-2 focus:ring-cyan-300/20"
         />
-        <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
+        <div className="flex flex-col gap-2 text-xs sm:flex-row sm:items-center sm:justify-between">
           <p className={canMarkComplete ? "text-emerald-200" : "text-zinc-400"}>{characterMessage}</p>
           <div className="flex flex-wrap items-center gap-2">
             {draftIsSaved ? (
@@ -102,11 +102,11 @@ function WritingPracticeBlockStateful({
         </div>
       ) : null}
 
-      <div className="mt-5 flex flex-wrap gap-2">
+      <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
         <button
           type="button"
           onClick={() => onSaveDraft(draft)}
-          className="rounded-lg border border-zinc-600 bg-zinc-800 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-700"
+          className="w-full rounded-lg border border-zinc-600 bg-zinc-800 px-4 py-2 text-center text-sm font-semibold text-zinc-100 transition hover:bg-zinc-700 sm:w-auto"
         >
           Simpan draft
         </button>
@@ -115,7 +115,7 @@ function WritingPracticeBlockStateful({
           <button
             type="button"
             onClick={() => setShowModelAnswer((previous) => !previous)}
-            className="rounded-lg border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800"
+            className="w-full rounded-lg border border-zinc-600 bg-zinc-900 px-4 py-2 text-center text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 sm:w-auto"
           >
             {showModelAnswer ? "Sembunyikan contoh jawaban" : "Lihat contoh jawaban"}
           </button>
@@ -128,7 +128,7 @@ function WritingPracticeBlockStateful({
             onComplete();
           }}
           disabled={!canMarkComplete || isCompleted}
-          className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${
+          className={`w-full rounded-lg px-4 py-2 text-sm font-semibold transition sm:w-auto ${
             isCompleted
               ? "cursor-not-allowed border border-emerald-300/35 bg-emerald-500/15 text-emerald-100"
               : "bg-cyan-400 text-zinc-950 hover:bg-cyan-300 disabled:cursor-not-allowed disabled:bg-zinc-600 disabled:text-zinc-300"
@@ -138,7 +138,7 @@ function WritingPracticeBlockStateful({
         </button>
 
         {isRequired && !isCompleted ? (
-          <span className="rounded-lg border border-amber-300/35 bg-amber-500/10 px-3 py-2 text-sm text-amber-100">
+          <span className="w-full rounded-lg border border-amber-300/35 bg-amber-500/10 px-3 py-2 text-sm text-amber-100 sm:w-auto">
             Blok ini wajib diselesaikan.
           </span>
         ) : null}
