@@ -33,8 +33,9 @@ export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBl
   };
 
   return (
-    <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5 sm:p-6">
-      <h3 className="text-xl font-bold text-zinc-100">Quick check</h3>
+    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 p-5 sm:p-6">
+      <p className="text-xs font-medium text-cyan-200">Activity block</p>
+      <h3 className="mt-2 text-xl font-bold text-zinc-100">Quick check</h3>
       <p className="mt-3 text-base leading-7 text-zinc-200">{block.question}</p>
 
       <div className="mt-4 space-y-2">
@@ -87,7 +88,7 @@ export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBl
 
         {isCompleted ? (
           <span className="rounded-lg border border-emerald-300/35 bg-emerald-500/10 px-3 py-2 text-sm font-semibold text-emerald-200">
-            Blok selesai
+            Selesai
           </span>
         ) : null}
       </div>

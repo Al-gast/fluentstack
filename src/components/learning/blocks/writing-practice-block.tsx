@@ -47,8 +47,8 @@ function WritingPracticeBlockStateful({
   }, [canMarkComplete, currentCharacters, minimumCharacters]);
 
   return (
-    <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5 sm:p-6">
-      <p className="text-xs font-medium text-zinc-400">Writing practice</p>
+    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 p-5 sm:p-6">
+      <p className="text-xs font-medium text-cyan-200">Writing practice</p>
       <h3 className="mt-2 text-xl font-bold text-zinc-100">Latihan menulis</h3>
       <p className="mt-3 whitespace-pre-line text-sm leading-7 text-zinc-200">{block.prompt}</p>
 
@@ -121,11 +121,11 @@ function WritingPracticeBlockStateful({
           disabled={!canMarkComplete || isCompleted}
           className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${
             isCompleted
-              ? "cursor-not-allowed border border-emerald-300/35 bg-emerald-500/20 text-emerald-100"
+              ? "cursor-not-allowed border border-emerald-300/35 bg-emerald-500/15 text-emerald-100"
               : "bg-cyan-400 text-zinc-950 hover:bg-cyan-300 disabled:cursor-not-allowed disabled:bg-zinc-600 disabled:text-zinc-300"
           }`}
         >
-          {isCompleted ? "Latihan selesai" : "Tandai selesai"}
+          {isCompleted ? "Selesai" : "Tandai selesai"}
         </button>
 
         {isRequired && !isCompleted ? (

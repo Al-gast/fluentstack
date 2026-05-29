@@ -3,6 +3,7 @@ import type { LessonBlock } from "@/types/learning";
 type LessonOutlineProps = {
   blocks: LessonBlock[];
   completedBlockIds?: Set<string>;
+  compact?: boolean;
 };
 
 function getBlockLabel(block: LessonBlock): string {
@@ -26,11 +27,20 @@ function getBlockLabel(block: LessonBlock): string {
   }
 }
 
-export function LessonOutline({ blocks, completedBlockIds }: LessonOutlineProps) {
+export function LessonOutline({ blocks, completedBlockIds, compact = false }: LessonOutlineProps) {
   return (
-    <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
-      <h2 className="text-sm font-semibold text-zinc-100">Outline pelajaran</h2>
-      <ol className="mt-3 space-y-2 text-sm text-zinc-300">
+    <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-4 sm:p-5">
+      <div className="flex items-center justify-between gap-3">
+        <h2 className="text-sm font-semibold text-zinc-100">Outline pelajaran</h2>
+        {compact ? <span className="text-xs text-zinc-500">{blocks.length} blok</span> : null}
+      </div>
+      <ol
+        className={
+          compact
+            ? "mt-3 flex gap-2 overflow-x-auto pb-1 text-sm text-zinc-300"
+            : "mt-3 space-y-2 text-sm text-zinc-300"
+        }
+      >
         {blocks.map((block, index) => {
           const isCompleted = completedBlockIds?.has(block.id) ?? false;
           return (
@@ -39,8 +49,8 @@ export function LessonOutline({ blocks, completedBlockIds }: LessonOutlineProps)
               className={`rounded-lg border px-3 py-2 ${
                 isCompleted
                   ? "border-emerald-300/35 bg-emerald-500/10"
-                  : "border-zinc-700/60 bg-zinc-950/50"
-              }`}
+                  : "border-zinc-800/80 bg-zinc-950/40"
+              } ${compact ? "min-w-44 shrink-0" : ""}`}
             >
               <span className="mr-2 text-zinc-500">{index + 1}.</span>
               <span>{getBlockLabel(block)}</span>

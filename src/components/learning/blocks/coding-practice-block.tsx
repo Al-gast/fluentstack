@@ -69,7 +69,7 @@ function CodingPracticeBlockStateful({
   }
 
   return (
-    <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5 sm:p-6">
+    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 p-5 sm:p-6">
       <CodingLab
         challenge={challenge}
         code={code}

@@ -31,8 +31,9 @@ export function QuizBlock({
   }
 
   return (
-    <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5 sm:p-6">
-      <h3 className="text-xl font-bold text-zinc-100">{quiz.title}</h3>
+    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 p-5 sm:p-6">
+      <p className="text-xs font-medium text-cyan-200">Activity block</p>
+      <h3 className="mt-2 text-xl font-bold text-zinc-100">{quiz.title}</h3>
       <p className="mt-2 text-sm text-zinc-300">
         Selesaikan quiz ini untuk membuka progres penuh pelajaran.
       </p>
@@ -40,7 +41,7 @@ export function QuizBlock({
       <div className="mt-4 rounded-xl border border-zinc-700/80 bg-zinc-950/60 p-4">
         <p className="text-sm text-zinc-300">Skor terbaik tersimpan: {bestScore}</p>
         {isCompleted ? (
-          <p className="mt-2 text-sm font-semibold text-emerald-200">Blok quiz sudah selesai.</p>
+          <p className="mt-2 text-sm font-semibold text-emerald-200">Quiz selesai.</p>
         ) : null}
         {isRequired && !isCompleted ? (
           <p className="mt-2 text-sm text-amber-200/90">Blok ini wajib diselesaikan.</p>

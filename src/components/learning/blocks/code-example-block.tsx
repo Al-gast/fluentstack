@@ -8,7 +8,7 @@ type CodeExampleBlockProps = {
 
 export function CodeExampleBlock({ block, isCompleted, onComplete }: CodeExampleBlockProps) {
   return (
-    <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5 sm:p-6">
+    <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-5 sm:p-6">
       <h3 className="text-xl font-bold text-zinc-100">{block.title}</h3>
 
       <div className="mt-4 overflow-hidden rounded-xl border border-zinc-700/80 bg-zinc-950/80">
@@ -29,8 +29,8 @@ export function CodeExampleBlock({ block, isCompleted, onComplete }: CodeExample
           disabled={isCompleted}
           className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${
             isCompleted
-              ? "cursor-not-allowed border border-emerald-300/35 bg-emerald-500/20 text-emerald-100"
-              : "bg-cyan-400 text-zinc-950 hover:bg-cyan-300"
+              ? "cursor-not-allowed border border-emerald-300/35 bg-emerald-500/15 text-emerald-100"
+              : "border border-zinc-600 bg-zinc-900/70 text-zinc-100 hover:bg-zinc-800"
           }`}
         >
           {isCompleted ? "Selesai" : "Tandai selesai"}

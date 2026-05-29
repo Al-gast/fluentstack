@@ -20,7 +20,13 @@ export function LessonProgress({
   const isCompleted = totalRequired > 0 && completedRequired >= totalRequired;
 
   return (
-    <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
+    <section
+      className={
+        compact
+          ? "rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-5"
+          : "sticky top-[76px] z-10 rounded-2xl border border-cyan-300/20 bg-zinc-950/85 p-4 shadow-lg shadow-black/10 backdrop-blur sm:static sm:bg-zinc-950/45 sm:p-5"
+      }
+    >
       <div className="flex items-center justify-between gap-3">
         <h2 className="text-sm font-semibold text-zinc-100">Progres pelajaran</h2>
         <span className="text-sm font-semibold text-cyan-200">{isLoading ? "Memuat..." : `${percent}%`}</span>

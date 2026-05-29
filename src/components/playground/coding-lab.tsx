@@ -156,7 +156,7 @@ export function CodingLab({
                 : "bg-cyan-400 text-zinc-950 hover:bg-cyan-300",
             )}
           >
-            {isCompleted ? "Latihan selesai" : "Tandai selesai"}
+            {isCompleted ? "Selesai" : "Tandai selesai"}
           </button>
         </div>
       </article>
