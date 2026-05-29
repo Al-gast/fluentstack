@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import React from "react";
 import { CodingLab } from "@/components/playground/coding-lab";
 import { getChallengeById } from "@/lib/content/get-challenge";
-import type { CodingPracticeBlock as CodingPracticeBlockData } from "@/types/learning";
 import type { ChallengeCode } from "@/types/challenge";
+import type { CodingPracticeBlock as CodingPracticeBlockData } from "@/types/learning";
 import type { ChallengeProgress } from "@/types/progress";
 
 type CodingPracticeBlockProps = {
@@ -32,46 +32,38 @@ function resolveCode(starterCode: ChallengeCode, savedCode?: ChallengeCode): Cha
   };
 }
 
-export function CodingPracticeBlock({
-  block,
+type CodingPracticeBlockStatefulProps = {
+  challengeId: string;
+  isCompleted: boolean;
+  isRequired: boolean;
+  initialCode: ChallengeCode;
+  initialChecklist: string[];
+  onSaveCode: (code: ChallengeCode) => void;
+  onSaveChecklist: (items: string[]) => void;
+  onComplete: () => void;
+};
+
+function CodingPracticeBlockStateful({
+  challengeId,
   isCompleted,
   isRequired,
-  progress,
+  initialCode,
+  initialChecklist,
   onSaveCode,
   onSaveChecklist,
   onComplete,
-}: CodingPracticeBlockProps) {
-  const challenge = getChallengeById(block.challengeId);
-  const starterCode = challenge?.starterCode ?? EMPTY_CHALLENGE_CODE;
-  const checklist = challenge?.checklist ?? EMPTY_CHECKLIST;
-
-  const initialCode = useMemo(
-    () => resolveCode(starterCode, progress?.savedCode),
-    [starterCode, progress?.savedCode],
+}: CodingPracticeBlockStatefulProps) {
+  const challenge = getChallengeById(challengeId);
+  const [code, setCode] = React.useState<ChallengeCode>(initialCode);
+  const [completedChecklistItems, setCompletedChecklistItems] = React.useState<string[]>(
+    initialChecklist,
   );
-  const [code, setCode] = useState<ChallengeCode>(initialCode);
-
-  const initialChecklist = useMemo(
-    () => progress?.completedChecklistItems?.filter((item) => checklist.includes(item)) ?? [],
-    [checklist, progress?.completedChecklistItems],
-  );
-  const [completedChecklistItems, setCompletedChecklistItems] = useState<string[]>(initialChecklist);
-
-  useEffect(() => {
-    setCode(initialCode);
-  }, [initialCode]);
-
-  useEffect(() => {
-    setCompletedChecklistItems(initialChecklist);
-  }, [initialChecklist]);
 
   if (!challenge) {
     return (
       <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5 sm:p-6">
         <h3 className="text-xl font-bold text-zinc-100">Coding practice</h3>
-        <p className="mt-3 text-sm text-zinc-300">
-          Data challenge tidak ditemukan untuk ID {block.challengeId}.
-        </p>
+        <p className="mt-3 text-sm text-zinc-300">Data challenge tidak ditemukan untuk ID {challengeId}.</p>
       </section>
     );
   }
@@ -107,5 +99,44 @@ export function CodingPracticeBlock({
         }}
       />
     </section>
+  );
+}
+
+export function CodingPracticeBlock({
+  block,
+  isCompleted,
+  isRequired,
+  progress,
+  onSaveCode,
+  onSaveChecklist,
+  onComplete,
+}: CodingPracticeBlockProps) {
+  const challenge = getChallengeById(block.challengeId);
+  const starterCode = challenge?.starterCode ?? EMPTY_CHALLENGE_CODE;
+  const checklist = challenge?.checklist ?? EMPTY_CHECKLIST;
+
+  const initialCode = resolveCode(starterCode, progress?.savedCode);
+  const initialChecklist = progress?.completedChecklistItems?.filter((item) => checklist.includes(item)) ?? [];
+
+  const stateResetKey = [
+    block.challengeId,
+    progress?.savedCode?.html ?? "",
+    progress?.savedCode?.css ?? "",
+    progress?.savedCode?.js ?? "",
+    (progress?.completedChecklistItems ?? []).join("|"),
+  ].join("::");
+
+  return (
+    <CodingPracticeBlockStateful
+      key={stateResetKey}
+      challengeId={block.challengeId}
+      isCompleted={isCompleted}
+      isRequired={isRequired}
+      initialCode={initialCode}
+      initialChecklist={initialChecklist}
+      onSaveCode={onSaveCode}
+      onSaveChecklist={onSaveChecklist}
+      onComplete={onComplete}
+    />
   );
 }

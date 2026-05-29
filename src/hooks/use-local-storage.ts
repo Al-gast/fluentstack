@@ -1,46 +1,78 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
+
+function buildEventName(key: string) {
+  return `fluentstack:local-storage:${key}`;
+}
 
 export function useLocalStorage<T>(key: string, initialValue: T) {
-  const [value, setValue] = useState<T>(initialValue);
-
-  useEffect(() => {
+  const readValue = useCallback((): T => {
     if (typeof window === "undefined") {
-      return;
+      return initialValue;
     }
 
     try {
       const raw = window.localStorage.getItem(key);
-      if (!raw) {
-        setValue(initialValue);
-        return;
-      }
-
-      setValue(JSON.parse(raw) as T);
+      return raw ? (JSON.parse(raw) as T) : initialValue;
     } catch {
-      setValue(initialValue);
+      return initialValue;
     }
   }, [initialValue, key]);
 
-  const setStoredValue = (nextValue: T | ((prev: T) => T)) => {
-    setValue((previousValue) => {
+  const subscribe = useCallback(
+    (onStoreChange: () => void) => {
+      if (typeof window === "undefined") {
+        return () => {};
+      }
+
+      const eventName = buildEventName(key);
+
+      const handleStorage = (event: StorageEvent) => {
+        if (event.key === key) {
+          onStoreChange();
+        }
+      };
+
+      const handleCustom = () => {
+        onStoreChange();
+      };
+
+      window.addEventListener("storage", handleStorage);
+      window.addEventListener(eventName, handleCustom);
+
+      return () => {
+        window.removeEventListener("storage", handleStorage);
+        window.removeEventListener(eventName, handleCustom);
+      };
+    },
+    [key],
+  );
+
+  const value = useSyncExternalStore(subscribe, readValue, () => initialValue);
+
+  const setStoredValue = useCallback(
+    (nextValue: T | ((prev: T) => T)) => {
+      if (typeof window === "undefined") {
+        return;
+      }
+
+      const previousValue = readValue();
       const resolvedValue =
         typeof nextValue === "function"
           ? (nextValue as (prev: T) => T)(previousValue)
           : nextValue;
 
-      if (typeof window !== "undefined") {
-        try {
-          window.localStorage.setItem(key, JSON.stringify(resolvedValue));
-        } catch {
-          // Keep UI state even when localStorage fails.
-        }
+      try {
+        window.localStorage.setItem(key, JSON.stringify(resolvedValue));
+      } catch {
+        // Ignore write failures in MVP.
       }
 
-      return resolvedValue;
-    });
-  };
+      window.dispatchEvent(new Event(buildEventName(key)));
+    },
+    [key, readValue],
+  );
 
   return [value, setStoredValue] as const;
 }

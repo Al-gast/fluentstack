@@ -22,7 +22,7 @@ export default async function RegisterPage() {
       <div className="mx-auto flex min-h-[65vh] max-w-[1440px] items-center justify-center">
         <AuthCard
           title="Daftar akun FluentStack"
-          description="Buat akun untuk menyimpan progress lintas device di fase berikutnya, sambil tetap bisa pakai mode guest sekarang."
+          description="Buat akun untuk menyimpan progres lintas device, atau tetap eksplor dulu dengan mode guest."
           footerText="Sudah punya akun?"
           footerLinkLabel="Masuk"
           footerLinkHref="/login"

@@ -25,7 +25,7 @@ export default function DashboardPage() {
             Fokus hari ini: lanjutkan lesson pertama kamu.
           </h1>
           <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-300">
-            Progres kamu tersimpan otomatis di browser. Lanjutkan alur belajar dari roadmap,
+            Progres kamu tersimpan otomatis sesuai mode belajar. Lanjutkan alur dari roadmap,
             track, module, lalu tuntaskan lesson yang sedang berjalan.
           </p>
 

@@ -156,13 +156,15 @@ async function upsertUserStats(
   userId: string,
   patch: Pick<UserProgress, "totalXp" | "streakCount" | "lastActivityDate">,
 ): Promise<void> {
+  const payload: Database["public"]["Tables"]["user_stats"]["Insert"] = {
+    user_id: userId,
+    total_xp: patch.totalXp,
+    streak_count: patch.streakCount,
+    last_activity_date: patch.lastActivityDate ?? null,
+  };
+
   const { error } = await supabase.from("user_stats").upsert(
-    {
-      user_id: userId,
-      total_xp: patch.totalXp,
-      streak_count: patch.streakCount,
-      last_activity_date: patch.lastActivityDate ?? null,
-    },
+    payload,
     { onConflict: "user_id" },
   );
 
@@ -268,7 +270,7 @@ export function getSupabaseProgressService(
       quizId: string;
       score: number;
       passed: boolean;
-      answers?: Record<string, unknown>;
+      answers?: Json;
     }): Promise<UserProgress> {
       const lessonId = resolveLessonIdForQuiz(params.quizId);
 

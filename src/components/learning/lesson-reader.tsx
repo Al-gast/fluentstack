@@ -39,6 +39,7 @@ export function LessonReader({ lesson }: LessonReaderProps) {
     saveChallengeChecklist,
     getChallengeProgress,
     markCodingPracticeCompleted,
+    storageMode,
     isLoading,
   } = useProgress(lesson);
 
@@ -93,6 +94,7 @@ export function LessonReader({ lesson }: LessonReaderProps) {
           <LessonProgress
             totalRequired={lessonMetrics.totalRequiredCount}
             completedRequired={lessonMetrics.completedRequiredCount}
+            storageMode={storageMode}
           />
 
           {isLoading ? (
@@ -130,6 +132,7 @@ export function LessonReader({ lesson }: LessonReaderProps) {
             <LessonProgress
               totalRequired={lessonMetrics.totalRequiredCount}
               completedRequired={lessonMetrics.completedRequiredCount}
+              storageMode={storageMode}
               compact
             />
           </div>

@@ -1,6 +1,7 @@
 import type { Lesson } from "@/types/learning";
 import type { UserProgress, ProgressStorageMode } from "@/types/progress";
 import type { ChallengeCode } from "@/types/challenge";
+import type { Json } from "@/types/database";
 import { getLocalProgress, updateLocalProgress } from "@/lib/progress/local-progress-service";
 import {
   calculateLessonProgress,
@@ -24,7 +25,7 @@ export type ProgressService = {
     quizId: string;
     score: number;
     passed: boolean;
-    answers?: Record<string, unknown>;
+    answers?: Json;
   }) => Promise<UserProgress>;
   saveWritingDraft: (blockId: string, draft: string) => Promise<UserProgress>;
   saveChallengeCode: (challengeId: string, code: ChallengeCode) => Promise<UserProgress>;

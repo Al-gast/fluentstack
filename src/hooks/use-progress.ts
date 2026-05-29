@@ -41,11 +41,16 @@ function useResolvedProgress() {
 
   useEffect(() => {
     if (isAuthLoading) {
-      setIsProgressLoading(true);
       return;
     }
 
-    void refreshProgress();
+    const timer = window.setTimeout(() => {
+      void refreshProgress();
+    }, 0);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
   }, [isAuthLoading, refreshProgress]);
 
   useEffect(() => {

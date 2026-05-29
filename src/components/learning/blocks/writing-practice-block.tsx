@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import React from "react";
 import type { WritingPracticeBlock as WritingPracticeBlockData } from "@/types/learning";
 
 type WritingPracticeBlockProps = {
@@ -12,33 +12,34 @@ type WritingPracticeBlockProps = {
   onComplete: () => void;
 };
 
-export function WritingPracticeBlock({
+type WritingPracticeBlockStatefulProps = {
+  block: WritingPracticeBlockData;
+  isCompleted: boolean;
+  isRequired: boolean;
+  initialDraft: string;
+  onSaveDraft: (draft: string) => void;
+  onComplete: () => void;
+};
+
+function WritingPracticeBlockStateful({
   block,
   isCompleted,
   isRequired,
-  savedDraft,
+  initialDraft,
   onSaveDraft,
   onComplete,
-}: WritingPracticeBlockProps) {
-  const [draft, setDraft] = useState(savedDraft);
-  const [showModelAnswer, setShowModelAnswer] = useState(false);
-  const [checklistState, setChecklistState] = useState<boolean[]>(
+}: WritingPracticeBlockStatefulProps) {
+  const [draft, setDraft] = React.useState(initialDraft);
+  const [showModelAnswer, setShowModelAnswer] = React.useState(false);
+  const [checklistState, setChecklistState] = React.useState<boolean[]>(
     () => block.checklist?.map(() => false) ?? [],
   );
-
-  useEffect(() => {
-    setDraft(savedDraft);
-  }, [savedDraft]);
-
-  useEffect(() => {
-    setChecklistState(block.checklist?.map(() => false) ?? []);
-  }, [block.checklist]);
 
   const minimumCharacters = block.minimumCharacters ?? 80;
   const currentCharacters = draft.trim().length;
   const canMarkComplete = currentCharacters >= minimumCharacters;
 
-  const characterMessage = useMemo(() => {
+  const characterMessage = React.useMemo(() => {
     if (canMarkComplete) {
       return `Minimum karakter terpenuhi (${currentCharacters}/${minimumCharacters}).`;
     }
@@ -141,5 +142,29 @@ export function WritingPracticeBlock({
         </div>
       ) : null}
     </section>
+  );
+}
+
+export function WritingPracticeBlock({
+  block,
+  isCompleted,
+  isRequired,
+  savedDraft,
+  onSaveDraft,
+  onComplete,
+}: WritingPracticeBlockProps) {
+  const checklistKey = (block.checklist ?? []).join("|");
+  const stateResetKey = `${block.id}::${savedDraft}::${checklistKey}`;
+
+  return (
+    <WritingPracticeBlockStateful
+      key={stateResetKey}
+      block={block}
+      isCompleted={isCompleted}
+      isRequired={isRequired}
+      initialDraft={savedDraft}
+      onSaveDraft={onSaveDraft}
+      onComplete={onComplete}
+    />
   );
 }

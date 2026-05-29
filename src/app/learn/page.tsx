@@ -10,7 +10,7 @@ import { useGuestProgress } from "@/hooks/use-progress";
 import { calculateLessonProgress } from "@/lib/progress/progress-calculator";
 
 export default function LearnPage() {
-  const { userProgress } = useGuestProgress();
+  const { userProgress, storageMode } = useGuestProgress();
   const hasProgress =
     userProgress.completedBlockIds.length > 0 ||
     userProgress.completedLessonIds.length > 0 ||
@@ -62,7 +62,9 @@ export default function LearnPage() {
           ) : (
             <>
               <p className="mt-2 text-sm leading-6 text-zinc-300">
-                Kamu belum punya progres belajar tersimpan di browser ini.
+                {storageMode === "logged-in"
+                  ? "Kamu belum punya progres belajar tersimpan di akun ini."
+                  : "Kamu belum punya progres belajar tersimpan di browser ini."}
               </p>
               <Link
                 href="/learn/frontend-engineering"
@@ -74,7 +76,9 @@ export default function LearnPage() {
           )}
           <p className="mt-3 text-xs text-zinc-400">
             {hasProgress
-              ? "Progres disimpan lokal di browser ini."
+              ? storageMode === "logged-in"
+                ? "Progres disimpan di akun kamu."
+                : "Progres disimpan lokal di browser ini."
               : "Setelah mulai lesson, progres akan muncul di bagian ini."}
           </p>
         </section>

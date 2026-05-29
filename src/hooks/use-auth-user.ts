@@ -13,18 +13,16 @@ type UseAuthUserResult = {
 export function useAuthUser(): UseAuthUserResult {
   const supabase = useMemo(() => getSupabaseClient(), []);
   const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(Boolean(supabase));
 
   useEffect(() => {
     if (!supabase) {
-      setUser(null);
-      setIsLoading(false);
       return;
     }
 
     let isSubscribed = true;
 
-    supabase.auth
+    void supabase.auth
       .getUser()
       .then(({ data }) => {
         if (isSubscribed) {

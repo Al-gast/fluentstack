@@ -1,12 +1,16 @@
+import type { ProgressStorageMode } from "@/types/progress";
+
 type LessonProgressProps = {
   totalRequired: number;
   completedRequired: number;
+  storageMode?: ProgressStorageMode;
   compact?: boolean;
 };
 
 export function LessonProgress({
   totalRequired,
   completedRequired,
+  storageMode = "guest",
   compact = false,
 }: LessonProgressProps) {
   const safeTotal = totalRequired > 0 ? totalRequired : 1;
@@ -34,7 +38,9 @@ export function LessonProgress({
           </p>
           <p className="mt-2 text-sm text-zinc-300">
             {isCompleted
-              ? "Lesson selesai. Progres kamu tersimpan di browser ini."
+              ? storageMode === "logged-in"
+                ? "Lesson selesai. Progres kamu tersimpan di akun."
+                : "Lesson selesai. Progres kamu tersimpan di browser ini."
               : "Selesaikan semua blok wajib untuk menuntaskan lesson ini."}
           </p>
         </>

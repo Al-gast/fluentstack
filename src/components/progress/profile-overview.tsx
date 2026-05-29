@@ -81,8 +81,8 @@ export function ProfileOverview() {
         <h1 className="mt-2 text-3xl font-bold text-zinc-50 sm:text-4xl">Profil & Progres</h1>
         <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-300">
           {storageMode === "logged-in"
-            ? "Progress kamu tersimpan di akun dan bisa dipakai lintas device."
-            : "Progress kamu saat ini tersimpan di browser ini. Nanti login akan menyimpan progress lintas device."}
+            ? "Progres kamu tersimpan di akun dan bisa dipakai lintas device."
+            : "Progres kamu saat ini tersimpan di browser ini. Nanti login akan menyimpan progres lintas device."}
         </p>
       </section>
 
