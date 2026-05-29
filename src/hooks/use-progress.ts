@@ -3,8 +3,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Lesson } from "@/types/learning";
 import type { ChallengeCode } from "@/types/challenge";
-import { DEFAULT_USER_PROGRESS, type UserProgress } from "@/types/progress";
+import { DEFAULT_USER_PROGRESS, type ProgressStorageMode, type UserProgress } from "@/types/progress";
 import { getProgressService } from "@/lib/progress/progress-service";
+import { calculateLessonProgress } from "@/lib/progress/progress-calculator";
+import { useAuthUser } from "@/hooks/use-auth-user";
 
 const DEFAULT_BLOCK_XP = 5;
 const QUICK_CHECK_XP = 10;
@@ -19,18 +21,81 @@ type CompleteQuizParams = {
   passed: boolean;
 };
 
-export function useProgress(lesson: Lesson) {
-  const progressService = useMemo(() => getProgressService(), []);
+function useResolvedProgress() {
+  const { user, isLoading: isAuthLoading, isAuthenticated } = useAuthUser();
+  const progressService = useMemo(() => getProgressService(user?.id ?? null), [user?.id]);
 
   const [userProgress, setUserProgress] = useState<UserProgress>(DEFAULT_USER_PROGRESS);
+  const [isProgressLoading, setIsProgressLoading] = useState(true);
+
+  const refreshProgress = useCallback(async () => {
+    if (isAuthLoading) {
+      return;
+    }
+
+    setIsProgressLoading(true);
+    const nextProgress = await progressService.getProgress();
+    setUserProgress(nextProgress);
+    setIsProgressLoading(false);
+  }, [isAuthLoading, progressService]);
 
   useEffect(() => {
-    setUserProgress(progressService.getProgress());
-  }, [progressService]);
+    if (isAuthLoading) {
+      setIsProgressLoading(true);
+      return;
+    }
+
+    void refreshProgress();
+  }, [isAuthLoading, refreshProgress]);
+
+  useEffect(() => {
+    const handleFocusSync = () => {
+      void refreshProgress();
+    };
+
+    window.addEventListener("focus", handleFocusSync);
+
+    let handleStorageSync: (() => void) | null = null;
+    if (progressService.mode === "guest") {
+      handleStorageSync = () => {
+        void refreshProgress();
+      };
+      window.addEventListener("storage", handleStorageSync);
+    }
+
+    return () => {
+      window.removeEventListener("focus", handleFocusSync);
+      if (handleStorageSync) {
+        window.removeEventListener("storage", handleStorageSync);
+      }
+    };
+  }, [progressService.mode, refreshProgress]);
+
+  return {
+    userProgress,
+    setUserProgress,
+    progressService,
+    storageMode: progressService.mode as ProgressStorageMode,
+    isLoading: isAuthLoading || isProgressLoading,
+    isAuthenticated,
+    refreshProgress,
+  };
+}
+
+export function useProgress(lesson: Lesson) {
+  const {
+    userProgress,
+    setUserProgress,
+    progressService,
+    storageMode,
+    isLoading,
+    isAuthenticated,
+    refreshProgress,
+  } = useResolvedProgress();
 
   const lessonMetrics = useMemo(() => {
-    return progressService.getLessonMetrics(lesson, userProgress);
-  }, [lesson, progressService, userProgress]);
+    return calculateLessonProgress(lesson, userProgress.completedBlockIds);
+  }, [lesson, userProgress.completedBlockIds]);
 
   const completedBlockSet = useMemo(
     () => new Set(userProgress.completedBlockIds),
@@ -39,43 +104,53 @@ export function useProgress(lesson: Lesson) {
 
   const markBlockCompleted = useCallback(
     (blockId: string, options?: { xpDelta?: number }) => {
-      const nextProgress = progressService.markBlockCompleted({
-        lesson,
-        blockId,
-        xpDelta: options?.xpDelta ?? DEFAULT_BLOCK_XP,
-      });
-      setUserProgress(nextProgress);
+      void (async () => {
+        const nextProgress = await progressService.markBlockCompleted({
+          lesson,
+          blockId,
+          xpDelta: options?.xpDelta ?? DEFAULT_BLOCK_XP,
+        });
+        setUserProgress(nextProgress);
+      })();
     },
-    [lesson, progressService],
+    [lesson, progressService, setUserProgress],
   );
 
   const markQuickCheckCompleted = useCallback(
     (blockId: string) => {
-      const nextProgress = progressService.markBlockCompleted({
-        lesson,
-        blockId,
-        xpDelta: QUICK_CHECK_XP,
-      });
-      setUserProgress(nextProgress);
+      void (async () => {
+        const nextProgress = await progressService.markBlockCompleted({
+          lesson,
+          blockId,
+          xpDelta: QUICK_CHECK_XP,
+        });
+        setUserProgress(nextProgress);
+      })();
     },
-    [lesson, progressService],
+    [lesson, progressService, setUserProgress],
   );
 
   const completeQuizAttempt = useCallback(
     ({ blockId, quizId, score, passed }: CompleteQuizParams) => {
-      let nextProgress = progressService.saveQuizScore(quizId, score);
-
-      if (passed) {
-        nextProgress = progressService.markBlockCompleted({
-          lesson,
-          blockId,
-          xpDelta: QUIZ_PASS_XP,
+      void (async () => {
+        let nextProgress = await progressService.saveQuizAttempt({
+          quizId,
+          score,
+          passed,
         });
-      }
 
-      setUserProgress(nextProgress);
+        if (passed) {
+          nextProgress = await progressService.markBlockCompleted({
+            lesson,
+            blockId,
+            xpDelta: QUIZ_PASS_XP,
+          });
+        }
+
+        setUserProgress(nextProgress);
+      })();
     },
-    [lesson, progressService],
+    [lesson, progressService, setUserProgress],
   );
 
   const getBestQuizScore = useCallback(
@@ -87,10 +162,12 @@ export function useProgress(lesson: Lesson) {
 
   const saveWritingDraft = useCallback(
     (blockId: string, draft: string) => {
-      const nextProgress = progressService.saveWritingDraft(blockId, draft);
-      setUserProgress(nextProgress);
+      void (async () => {
+        const nextProgress = await progressService.saveWritingDraft(blockId, draft);
+        setUserProgress(nextProgress);
+      })();
     },
-    [progressService],
+    [progressService, setUserProgress],
   );
 
   const getWritingDraft = useCallback(
@@ -102,30 +179,36 @@ export function useProgress(lesson: Lesson) {
 
   const markWritingPracticeCompleted = useCallback(
     (blockId: string) => {
-      const nextProgress = progressService.markBlockCompleted({
-        lesson,
-        blockId,
-        xpDelta: WRITING_PRACTICE_XP,
-      });
-      setUserProgress(nextProgress);
+      void (async () => {
+        const nextProgress = await progressService.markBlockCompleted({
+          lesson,
+          blockId,
+          xpDelta: WRITING_PRACTICE_XP,
+        });
+        setUserProgress(nextProgress);
+      })();
     },
-    [lesson, progressService],
+    [lesson, progressService, setUserProgress],
   );
 
   const saveChallengeCode = useCallback(
     (challengeId: string, code: ChallengeCode) => {
-      const nextProgress = progressService.saveChallengeCode(challengeId, code);
-      setUserProgress(nextProgress);
+      void (async () => {
+        const nextProgress = await progressService.saveChallengeCode(challengeId, code);
+        setUserProgress(nextProgress);
+      })();
     },
-    [progressService],
+    [progressService, setUserProgress],
   );
 
   const saveChallengeChecklist = useCallback(
     (challengeId: string, completedChecklistItems: string[]) => {
-      const nextProgress = progressService.saveChallengeChecklist(challengeId, completedChecklistItems);
-      setUserProgress(nextProgress);
+      void (async () => {
+        const nextProgress = await progressService.saveChallengeChecklist(challengeId, completedChecklistItems);
+        setUserProgress(nextProgress);
+      })();
     },
-    [progressService],
+    [progressService, setUserProgress],
   );
 
   const getChallengeProgress = useCallback(
@@ -137,15 +220,17 @@ export function useProgress(lesson: Lesson) {
 
   const markCodingPracticeCompleted = useCallback(
     ({ blockId, challengeId }: { blockId: string; challengeId: string }) => {
-      progressService.markChallengeCompleted(challengeId);
-      const nextProgress = progressService.markBlockCompleted({
-        lesson,
-        blockId,
-        xpDelta: CODING_PRACTICE_XP,
-      });
-      setUserProgress(nextProgress);
+      void (async () => {
+        await progressService.markChallengeCompleted(challengeId);
+        const nextProgress = await progressService.markBlockCompleted({
+          lesson,
+          blockId,
+          xpDelta: CODING_PRACTICE_XP,
+        });
+        setUserProgress(nextProgress);
+      })();
     },
-    [lesson, progressService],
+    [lesson, progressService, setUserProgress],
   );
 
   return {
@@ -163,35 +248,21 @@ export function useProgress(lesson: Lesson) {
     saveChallengeChecklist,
     getChallengeProgress,
     markCodingPracticeCompleted,
+    storageMode,
+    isLoading,
+    isAuthenticated,
+    refreshProgress,
   };
 }
 
 export function useGuestProgress() {
-  const progressService = useMemo(() => getProgressService(), []);
-  const [userProgress, setUserProgress] = useState<UserProgress>(DEFAULT_USER_PROGRESS);
-
-  const refreshProgress = useCallback(() => {
-    setUserProgress(progressService.getProgress());
-  }, [progressService]);
-
-  useEffect(() => {
-    refreshProgress();
-
-    const handleStorageSync = () => {
-      refreshProgress();
-    };
-
-    window.addEventListener("storage", handleStorageSync);
-    window.addEventListener("focus", handleStorageSync);
-
-    return () => {
-      window.removeEventListener("storage", handleStorageSync);
-      window.removeEventListener("focus", handleStorageSync);
-    };
-  }, [refreshProgress]);
+  const { userProgress, refreshProgress, storageMode, isLoading, isAuthenticated } = useResolvedProgress();
 
   return {
     userProgress,
     refreshProgress,
+    storageMode,
+    isLoading,
+    isAuthenticated,
   };
 }

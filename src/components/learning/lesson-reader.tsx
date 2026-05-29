@@ -39,6 +39,7 @@ export function LessonReader({ lesson }: LessonReaderProps) {
     saveChallengeChecklist,
     getChallengeProgress,
     markCodingPracticeCompleted,
+    isLoading,
   } = useProgress(lesson);
 
   return (
@@ -93,6 +94,12 @@ export function LessonReader({ lesson }: LessonReaderProps) {
             totalRequired={lessonMetrics.totalRequiredCount}
             completedRequired={lessonMetrics.completedRequiredCount}
           />
+
+          {isLoading ? (
+            <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-4">
+              <p className="text-sm text-zinc-300">Memuat progres akun...</p>
+            </section>
+          ) : null}
 
           <section className="space-y-4">
             {lesson.blocks.map((block) => (

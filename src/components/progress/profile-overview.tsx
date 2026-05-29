@@ -39,7 +39,7 @@ function formatLastActivityDate(lastActivityDate?: string): string {
 }
 
 export function ProfileOverview() {
-  const { userProgress } = useGuestProgress();
+  const { userProgress, storageMode, isLoading } = useGuestProgress();
   const { completedBlockIds, completedLessonIds, quizScores, totalXp, streakCount, lastActivityDate } =
     userProgress;
 
@@ -75,13 +75,22 @@ export function ProfileOverview() {
   return (
     <div className="space-y-6">
       <section className="rounded-3xl border border-zinc-700/60 bg-zinc-900/70 p-6 sm:p-8">
-        <p className="text-sm text-cyan-200">Mode tamu</p>
+        <p className="text-sm text-cyan-200">
+          {storageMode === "logged-in" ? "Mode akun" : "Mode tamu"}
+        </p>
         <h1 className="mt-2 text-3xl font-bold text-zinc-50 sm:text-4xl">Profil & Progres</h1>
         <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-300">
-          Progres kamu saat ini tersimpan di browser ini. Nanti login akan menyimpan progres lintas
-          device.
+          {storageMode === "logged-in"
+            ? "Progress kamu tersimpan di akun dan bisa dipakai lintas device."
+            : "Progress kamu saat ini tersimpan di browser ini. Nanti login akan menyimpan progress lintas device."}
         </p>
       </section>
+
+      {isLoading ? (
+        <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
+          <p className="text-sm text-zinc-300">Memuat progres...</p>
+        </section>
+      ) : null}
 
       <section className="grid gap-4 lg:grid-cols-3">
         <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">

@@ -1,5 +1,5 @@
 import type { Lesson } from "@/types/learning";
-import type { UserProgress } from "@/types/progress";
+import type { UserProgress, ProgressStorageMode } from "@/types/progress";
 import type { ChallengeCode } from "@/types/challenge";
 import { getLocalProgress, updateLocalProgress } from "@/lib/progress/local-progress-service";
 import {
@@ -8,28 +8,38 @@ import {
   getLocalDateString,
   type LessonProgressMetrics,
 } from "@/lib/progress/progress-calculator";
+import { getSupabaseClient } from "@/lib/supabase/client";
+import { getSupabaseProgressService } from "@/lib/progress/supabase-progress-service";
 
 export type ProgressService = {
-  getProgress: () => UserProgress;
+  mode: ProgressStorageMode;
+  getProgress: () => Promise<UserProgress>;
   markBlockCompleted: (params: {
     lesson: Lesson;
     blockId: string;
     xpDelta: number;
     isMeaningfulActivity?: boolean;
-  }) => UserProgress;
-  saveQuizScore: (quizId: string, score: number) => UserProgress;
-  saveWritingDraft: (blockId: string, draft: string) => UserProgress;
-  saveChallengeCode: (challengeId: string, code: ChallengeCode) => UserProgress;
-  saveChallengeChecklist: (challengeId: string, completedChecklistItems: string[]) => UserProgress;
-  markChallengeCompleted: (challengeId: string) => UserProgress;
-  getChallengeProgress: (challengeId: string) => UserProgress["challengeProgress"][string] | undefined;
+  }) => Promise<UserProgress>;
+  saveQuizAttempt: (params: {
+    quizId: string;
+    score: number;
+    passed: boolean;
+    answers?: Record<string, unknown>;
+  }) => Promise<UserProgress>;
+  saveWritingDraft: (blockId: string, draft: string) => Promise<UserProgress>;
+  saveChallengeCode: (challengeId: string, code: ChallengeCode) => Promise<UserProgress>;
+  saveChallengeChecklist: (challengeId: string, completedChecklistItems: string[]) => Promise<UserProgress>;
+  markChallengeCompleted: (challengeId: string) => Promise<UserProgress>;
+  getChallengeProgress: (
+    challengeId: string,
+  ) => Promise<UserProgress["challengeProgress"][string] | undefined>;
   getLessonMetrics: (lesson: Lesson, progress?: UserProgress) => LessonProgressMetrics;
 };
 
-export function getProgressService(): ProgressService {
+function getLocalProgressServiceAsync(): Omit<ProgressService, "mode" | "getLessonMetrics"> {
   return {
-    getProgress: () => getLocalProgress(),
-    markBlockCompleted: ({ lesson, blockId, xpDelta, isMeaningfulActivity = true }) => {
+    getProgress: async () => getLocalProgress(),
+    markBlockCompleted: async ({ lesson, blockId, xpDelta, isMeaningfulActivity = true }) => {
       return updateLocalProgress((current) => {
         if (current.completedBlockIds.includes(blockId)) {
           return current;
@@ -67,7 +77,7 @@ export function getProgressService(): ProgressService {
         };
       });
     },
-    saveQuizScore: (quizId, score) => {
+    saveQuizAttempt: async ({ quizId, score }) => {
       return updateLocalProgress((current) => {
         const currentBest = current.quizScores[quizId] ?? 0;
         const nextBest = score > currentBest ? score : currentBest;
@@ -81,7 +91,7 @@ export function getProgressService(): ProgressService {
         };
       });
     },
-    saveWritingDraft: (blockId, draft) => {
+    saveWritingDraft: async (blockId, draft) => {
       return updateLocalProgress((current) => {
         return {
           ...current,
@@ -92,7 +102,7 @@ export function getProgressService(): ProgressService {
         };
       });
     },
-    saveChallengeCode: (challengeId, code) => {
+    saveChallengeCode: async (challengeId, code) => {
       return updateLocalProgress((current) => {
         const previous = current.challengeProgress[challengeId];
 
@@ -110,7 +120,7 @@ export function getProgressService(): ProgressService {
         };
       });
     },
-    saveChallengeChecklist: (challengeId, completedChecklistItems) => {
+    saveChallengeChecklist: async (challengeId, completedChecklistItems) => {
       return updateLocalProgress((current) => {
         const previous = current.challengeProgress[challengeId];
 
@@ -128,7 +138,7 @@ export function getProgressService(): ProgressService {
         };
       });
     },
-    markChallengeCompleted: (challengeId) => {
+    markChallengeCompleted: async (challengeId) => {
       return updateLocalProgress((current) => {
         const previous = current.challengeProgress[challengeId];
 
@@ -146,12 +156,52 @@ export function getProgressService(): ProgressService {
         };
       });
     },
-    getChallengeProgress: (challengeId) => {
+    getChallengeProgress: async (challengeId) => {
       const progress = getLocalProgress();
       return progress.challengeProgress[challengeId];
     },
-    getLessonMetrics: (lesson, progress = getLocalProgress()) => {
-      return calculateLessonProgress(lesson, progress.completedBlockIds);
+  };
+}
+
+export function getProgressService(userId?: string | null): ProgressService {
+  const localService = getLocalProgressServiceAsync();
+
+  if (!userId) {
+    return {
+      mode: "guest",
+      ...localService,
+      getLessonMetrics: (lesson, progress = getLocalProgress()) => {
+        return calculateLessonProgress(lesson, progress.completedBlockIds);
+      },
+    };
+  }
+
+  const supabase = getSupabaseClient();
+
+  if (!supabase) {
+    return {
+      mode: "guest",
+      ...localService,
+      getLessonMetrics: (lesson, progress = getLocalProgress()) => {
+        return calculateLessonProgress(lesson, progress.completedBlockIds);
+      },
+    };
+  }
+
+  const supabaseService = getSupabaseProgressService(supabase, userId);
+
+  return {
+    mode: "logged-in",
+    getProgress: supabaseService.getProgress,
+    markBlockCompleted: supabaseService.markBlockCompleted,
+    saveQuizAttempt: supabaseService.saveQuizAttempt,
+    saveWritingDraft: supabaseService.saveWritingDraft,
+    saveChallengeCode: supabaseService.saveChallengeCode,
+    saveChallengeChecklist: supabaseService.saveChallengeChecklist,
+    markChallengeCompleted: supabaseService.markChallengeCompleted,
+    getChallengeProgress: supabaseService.getChallengeProgress,
+    getLessonMetrics: (lesson, progress) => {
+      return calculateLessonProgress(lesson, progress?.completedBlockIds ?? []);
     },
   };
 }
