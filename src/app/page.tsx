@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <AppShell title="FluentStack">
       <div className="mx-auto max-w-[1440px] space-y-20 pb-10">
-        <section className="grid gap-10 rounded-3xl border border-zinc-700/60 bg-gradient-to-br from-zinc-950/70 via-zinc-900/70 to-cyan-950/50 p-7 sm:p-10 lg:grid-cols-[1.24fr_0.76fr] lg:p-12">
+        <section className="grid gap-10 rounded-3xl border border-zinc-800/80 bg-gradient-to-br from-zinc-950/70 via-zinc-900/70 to-cyan-950/50 p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-10 lg:grid-cols-[1.24fr_0.76fr] lg:p-12">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
@@ -52,13 +52,13 @@ export default function Home() {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/dashboard"
-                className="rounded-xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300"
+                className="rounded-xl bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
               >
                 Mulai belajar
               </Link>
               <Link
                 href="/roadmap"
-                className="rounded-xl border border-zinc-600 bg-zinc-900/70 px-5 py-3 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800"
+                className="rounded-xl border border-zinc-700/80 bg-zinc-950/55 px-5 py-3 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
               >
                 Lihat roadmap
               </Link>
@@ -68,7 +68,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.07 }}
-            className="rounded-2xl border border-zinc-700/60 bg-zinc-900/80 p-5"
+            className="rounded-2xl border border-zinc-800/80 bg-zinc-950/55 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5"
           >
             <p className="text-xs font-medium text-zinc-400">Simulasi progres</p>
             <div className="mt-4 space-y-4">
@@ -93,7 +93,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.28, delay: index * 0.06 }}
-                className="rounded-2xl border border-zinc-700/60 bg-zinc-900/70 p-6"
+                className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6"
               >
                 <h3 className="text-xl font-semibold text-zinc-100">{track.title}</h3>
                 <p className="mt-3 text-base leading-7 text-zinc-300">{track.desc}</p>
@@ -111,7 +111,7 @@ export default function Home() {
             {flow.map((step, idx) => (
               <div
                 key={step}
-                className="rounded-xl border border-zinc-700/70 bg-zinc-900/70 p-5 text-sm text-zinc-200"
+                className="rounded-xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 text-sm text-zinc-200"
               >
                 <p className="text-xs font-medium text-zinc-400">Step {idx + 1}</p>
                 <p className="mt-3 leading-7">{step}</p>
@@ -121,7 +121,7 @@ export default function Home() {
         </section>
 
         <section className="grid gap-5 lg:grid-cols-2">
-          <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-6">
+          <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6">
             <h2 className="text-2xl font-bold text-zinc-50 lg:text-3xl">Interactive practice preview</h2>
             <p className="mt-4 text-base leading-7 text-zinc-300">
               Setiap lesson menggabungkan praktik langsung. Bukan sekadar baca materi, tapi ada
@@ -133,7 +133,7 @@ export default function Home() {
               <li>Writing practice untuk komunikasi profesional</li>
             </ul>
           </article>
-          <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-6">
+          <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6">
             <h2 className="text-2xl font-bold text-zinc-50 lg:text-3xl">Contoh progres belajar</h2>
             <p className="mt-4 text-base leading-7 text-zinc-300">
               Ini simulasi tampilan progres. Progres dihitung dari aktivitas belajar bermakna,
@@ -149,7 +149,7 @@ export default function Home() {
           </article>
         </section>
 
-        <section className="rounded-3xl border border-cyan-300/25 bg-gradient-to-r from-cyan-500/15 to-indigo-500/15 p-8 text-center sm:p-10">
+        <section className="rounded-3xl border border-cyan-300/25 bg-gradient-to-r from-cyan-500/15 to-indigo-500/15 p-8 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-10">
           <h2 className="text-2xl font-bold text-zinc-50 sm:text-3xl lg:text-4xl">
             Mulai dari satu lesson. Bangun momentum harian.
           </h2>
@@ -160,13 +160,13 @@ export default function Home() {
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <Link
               href="/dashboard"
-              className="rounded-xl bg-cyan-300 px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-200"
+              className="rounded-xl bg-cyan-300 shadow-[0_0_0_1px_rgba(103,232,249,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-200 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
             >
               Mulai belajar
             </Link>
             <Link
               href="/roadmap"
-              className="rounded-xl border border-zinc-500 bg-zinc-900/60 px-5 py-3 text-sm font-semibold text-zinc-50 transition hover:bg-zinc-800"
+              className="rounded-xl border border-zinc-500 bg-zinc-900/60 px-5 py-3 text-sm font-semibold text-zinc-50 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
             >
               Lihat roadmap
             </Link>

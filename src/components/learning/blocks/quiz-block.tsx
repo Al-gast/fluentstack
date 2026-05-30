@@ -24,7 +24,7 @@ export function QuizBlock({
 
   if (!quiz) {
     return (
-      <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5 sm:p-6">
+      <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 sm:p-6">
         <h3 className="text-xl font-bold text-zinc-100">Quiz pelajaran</h3>
         <p className="mt-3 text-sm text-zinc-300">Data quiz tidak ditemukan untuk ID {block.quizId}.</p>
       </section>
@@ -34,14 +34,14 @@ export function QuizBlock({
   const passingScore = getPassingScore(quiz);
 
   return (
-    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 p-5 sm:p-6">
+    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 sm:p-6">
       <p className="text-xs font-medium text-cyan-200">Activity block</p>
       <h3 className="mt-2 text-xl font-bold text-zinc-100">{quiz.title}</h3>
       <p className="mt-2 text-sm text-zinc-300">
         Jawab pertanyaan satu per satu. Kamu bisa ulang jika belum mencapai target lulus.
       </p>
 
-      <div className="mt-4 grid gap-3 rounded-xl border border-zinc-700/80 bg-zinc-950/60 p-4 sm:grid-cols-3">
+      <div className="mt-4 grid gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950/55 p-4 sm:grid-cols-3">
         <div>
           <p className="text-xs text-zinc-400">Target lulus</p>
           <p className="mt-1 text-sm font-semibold text-zinc-100">{passingScore}/100</p>

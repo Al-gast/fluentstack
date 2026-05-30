@@ -21,14 +21,14 @@ export default function LearnPage() {
   return (
     <AppShell title="Tracks">
       <div className="mx-auto max-w-[1440px] space-y-8">
-        <section className="rounded-3xl border border-zinc-700/60 bg-zinc-900/70 p-6 sm:p-8">
+        <section className="rounded-3xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6 sm:p-8">
           <h1 className="text-3xl font-bold text-zinc-50 sm:text-4xl">Pilih Track Belajar</h1>
           <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-300">
             Pilih track yang ingin kamu pelajari atau lanjutkan progres terakhir kamu.
           </p>
         </section>
 
-        <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-6">
+        <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6">
           <h2 className="text-xl font-bold text-zinc-100">Lanjut belajar</h2>
           {isLoading ? (
             <>
@@ -42,7 +42,7 @@ export default function LearnPage() {
               </p>
               <Link
                 href={`/lesson/${nextLesson.slug}`}
-                className="mt-4 inline-flex rounded-xl bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300"
+                className="mt-4 inline-flex rounded-xl bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-4 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
               >
                 Lanjut ke {nextLesson.title}
               </Link>
@@ -56,7 +56,7 @@ export default function LearnPage() {
               </p>
               <Link
                 href="/learn/frontend-engineering"
-                className="mt-4 inline-flex rounded-xl border border-zinc-600 bg-zinc-800/80 px-4 py-2.5 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-700"
+                className="mt-4 inline-flex rounded-xl border border-zinc-700/80 bg-zinc-950/55 px-4 py-2.5 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
               >
                 Mulai dari Frontend Engineering
               </Link>

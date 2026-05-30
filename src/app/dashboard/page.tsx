@@ -53,7 +53,7 @@ export default function DashboardPage() {
   return (
     <AppShell title="Dashboard">
       <div className="mx-auto max-w-[1440px] space-y-8">
-        <section className="rounded-3xl border border-zinc-700/60 bg-zinc-900/70 p-6 sm:p-8">
+        <section className="rounded-3xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6 sm:p-8">
           <p className="text-sm text-cyan-200">Selamat datang di FluentStack</p>
           <h1 className="mt-2 text-3xl font-bold text-zinc-50 sm:text-4xl">
             {hasProgress ? "Lanjutkan progres belajar kamu." : "Mulai dari langkah pertama yang jelas."}
@@ -67,14 +67,14 @@ export default function DashboardPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/roadmap"
-              className="rounded-xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300"
+              className="rounded-xl bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
             >
               Buka roadmap
             </Link>
             {continueLesson ? (
               <Link
                 href={`/lesson/${continueLesson.slug}`}
-                className="rounded-xl border border-zinc-600 bg-zinc-900/70 px-5 py-3 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800"
+                className="rounded-xl border border-zinc-700/80 bg-zinc-950/55 px-5 py-3 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
               >
                 {hasProgress ? "Lanjut lesson" : "Buka lesson pertama"}
               </Link>
@@ -82,7 +82,7 @@ export default function DashboardPage() {
           </div>
         </section>
 
-        <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-6">
+        <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <p className="text-sm text-cyan-200">{hasProgress ? "Lanjut belajar" : "Rekomendasi pemula"}</p>
@@ -97,13 +97,13 @@ export default function DashboardPage() {
                     : "Mulai dari fondasi Frontend Engineering: HTML & Web Fundamentals."}
               </p>
             </div>
-            <span className="rounded-lg border border-zinc-600/80 bg-zinc-800/80 px-3 py-1 text-xs text-zinc-300">
+            <span className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-1 text-xs text-zinc-300">
               {isLoading ? "Memuat..." : statusLabel[continueStatus]}
             </span>
           </div>
 
           <div className="mt-5 grid gap-4 lg:grid-cols-[minmax(0,1fr)_220px]">
-            <div className="rounded-xl border border-zinc-700/80 bg-zinc-950/50 p-4">
+            <div className="rounded-xl border border-zinc-800/80 bg-zinc-950/55 p-4">
               <div className="flex flex-wrap gap-2 text-xs text-zinc-300">
                 {continueTrack ? <span>{continueTrack.title}</span> : null}
                 {continueModule ? <span>• {continueModule.title}</span> : null}
@@ -127,7 +127,7 @@ export default function DashboardPage() {
               {continueLesson ? (
                 <Link
                   href={`/lesson/${continueLesson.slug}`}
-                  className="inline-flex justify-center rounded-xl bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300"
+                  className="inline-flex justify-center rounded-xl bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-4 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
                 >
                   {hasProgress ? "Lanjutkan lesson" : "Mulai lesson"}
                 </Link>
@@ -135,7 +135,7 @@ export default function DashboardPage() {
               {continueTrack && continueModule ? (
                 <Link
                   href={`/learn/${continueTrack.slug}/${continueModule.slug}`}
-                  className="inline-flex justify-center rounded-xl border border-zinc-600 bg-zinc-800/80 px-4 py-2.5 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-700"
+                  className="inline-flex justify-center rounded-xl border border-zinc-700/80 bg-zinc-950/55 px-4 py-2.5 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
                 >
                   Lihat module
                 </Link>

@@ -61,7 +61,7 @@ function CodingPracticeBlockStateful({
 
   if (!challenge) {
     return (
-      <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5 sm:p-6">
+      <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 sm:p-6">
         <h3 className="text-xl font-bold text-zinc-100">Coding practice</h3>
         <p className="mt-3 text-sm text-zinc-300">Data challenge tidak ditemukan untuk ID {challengeId}.</p>
       </section>
@@ -69,7 +69,7 @@ function CodingPracticeBlockStateful({
   }
 
   return (
-    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 p-4 sm:p-6">
+    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-4 sm:p-6">
       <CodingLab
         challenge={challenge}
         code={code}

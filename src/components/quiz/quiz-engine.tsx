@@ -125,7 +125,7 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
             type="button"
             disabled={currentAnswer === undefined || currentAnswer === ""}
             onClick={handleSubmitCurrent}
-            className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/45 disabled:cursor-not-allowed disabled:bg-zinc-600 disabled:text-zinc-300"
+            className="rounded-lg bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40 disabled:cursor-not-allowed disabled:bg-zinc-600 disabled:text-zinc-300"
           >
             Submit jawaban
           </button>
@@ -133,7 +133,7 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
           <button
             type="button"
             onClick={handleContinue}
-            className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/45"
+            className="rounded-lg bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
           >
             {questionNumber === totalQuestions ? "Lihat hasil" : "Lanjut pertanyaan"}
           </button>

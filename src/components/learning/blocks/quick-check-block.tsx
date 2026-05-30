@@ -33,7 +33,7 @@ export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBl
   };
 
   return (
-    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 p-5 sm:p-6">
+    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 sm:p-6">
       <p className="text-xs font-medium text-cyan-200">Activity block</p>
       <h3 className="mt-2 text-xl font-bold text-zinc-100">Quick check</h3>
       <p className="mt-3 text-base leading-7 text-zinc-200">{block.question}</p>
@@ -84,7 +84,7 @@ export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBl
           type="button"
           disabled={!selectedAnswer}
           onClick={handleSubmit}
-          className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:bg-zinc-600 disabled:text-zinc-300"
+          className="rounded-lg bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40 disabled:cursor-not-allowed disabled:bg-zinc-600 disabled:text-zinc-300"
         >
           Cek jawaban
         </button>
@@ -96,7 +96,7 @@ export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBl
               setSelectedAnswer("");
               setSubmitted(false);
             }}
-            className="rounded-lg border border-zinc-600 bg-zinc-800 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-700"
+            className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
           >
             Coba lagi
           </button>

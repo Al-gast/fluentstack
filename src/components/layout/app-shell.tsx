@@ -19,7 +19,7 @@ export function AppShell({ children, className, title }: AppShellProps) {
           <Topbar title={title} />
           <main
             className={cn(
-              "rounded-3xl border border-zinc-800/70 bg-zinc-900/50 p-4 sm:p-7 lg:p-8",
+              "rounded-3xl border border-zinc-800/80 bg-zinc-950/35 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] backdrop-blur sm:p-7 lg:p-8",
               className,
             )}
           >

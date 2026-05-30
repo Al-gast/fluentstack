@@ -74,7 +74,7 @@ export function ProfileOverview() {
 
   return (
     <div className="space-y-6">
-      <section className="rounded-3xl border border-zinc-700/60 bg-zinc-900/70 p-6 sm:p-8">
+      <section className="rounded-3xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6 sm:p-8">
         <p className="text-sm text-cyan-200">
           {storageMode === "logged-in" ? "Mode akun" : "Mode tamu"}
         </p>
@@ -87,20 +87,20 @@ export function ProfileOverview() {
       </section>
 
       {isLoading ? (
-        <section className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
+        <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5">
           <p className="text-sm text-zinc-300">Memuat progres...</p>
         </section>
       ) : null}
 
       <section className="grid gap-4 lg:grid-cols-3">
-        <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
+        <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5">
           <p className="text-sm text-zinc-400">Total XP</p>
           <XpBadge value={totalXp} isLoading={isLoading} className="mt-3" />
         </article>
 
         <StreakCard days={streakCount} isLoading={isLoading} />
 
-        <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
+        <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5">
           <p className="text-sm text-zinc-400">Aktivitas terakhir</p>
           <p className="mt-2 text-xl font-bold text-zinc-100">
             {isLoading ? "Memuat..." : formatLastActivityDate(lastActivityDate)}
@@ -110,7 +110,7 @@ export function ProfileOverview() {
       </section>
 
       <section className="grid gap-4 xl:grid-cols-3">
-        <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5 xl:col-span-3">
+        <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 xl:col-span-3">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="text-lg font-bold text-zinc-100">Progres keseluruhan</h2>
             <p className="text-sm text-zinc-300">
@@ -127,7 +127,7 @@ export function ProfileOverview() {
           />
         </article>
 
-        <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
+        <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5">
           <h3 className="text-base font-bold text-zinc-100">Frontend Engineering</h3>
           <p className="mt-2 text-sm text-zinc-300">
             {isLoading
@@ -143,14 +143,14 @@ export function ProfileOverview() {
           {frontendTrack ? (
             <Link
               href={`/learn/${frontendTrack.slug}`}
-              className="mt-4 inline-flex rounded-lg border border-zinc-600 bg-zinc-800/80 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:bg-zinc-700"
+              className="mt-4 inline-flex rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
             >
               Buka track
             </Link>
           ) : null}
         </article>
 
-        <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
+        <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5">
           <h3 className="text-base font-bold text-zinc-100">HTML & Web Fundamentals</h3>
           <p className="mt-2 text-sm text-zinc-300">
             {isLoading
@@ -166,14 +166,14 @@ export function ProfileOverview() {
           {frontendTrack && htmlModule ? (
             <Link
               href={`/learn/${frontendTrack.slug}/${htmlModule.slug}`}
-              className="mt-4 inline-flex rounded-lg border border-zinc-600 bg-zinc-800/80 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:bg-zinc-700"
+              className="mt-4 inline-flex rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
             >
               Buka module
             </Link>
           ) : null}
         </article>
 
-        <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
+        <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5">
           <h3 className="text-base font-bold text-zinc-100">Status Dasar Semantic HTML</h3>
           <p className="mt-2 text-sm text-zinc-300">
             Status: {isLoading ? "Memuat..." : statusLabel[semanticSummary.status]}
@@ -187,7 +187,7 @@ export function ProfileOverview() {
           {semanticLesson ? (
             <Link
               href={`/lesson/${semanticLesson.slug}`}
-              className="mt-4 inline-flex rounded-lg border border-zinc-600 bg-zinc-800/80 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:bg-zinc-700"
+              className="mt-4 inline-flex rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
             >
               Buka lesson
             </Link>
@@ -196,7 +196,7 @@ export function ProfileOverview() {
       </section>
 
       <section className="grid gap-4 xl:grid-cols-2">
-        <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
+        <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5">
           <h2 className="text-lg font-bold text-zinc-100">Lesson selesai</h2>
           {isLoading ? (
             <p className="mt-3 text-sm text-zinc-400">Memuat lesson selesai...</p>
@@ -216,7 +216,7 @@ export function ProfileOverview() {
           )}
         </article>
 
-        <article className="rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5">
+        <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5">
           <h2 className="text-lg font-bold text-zinc-100">Skor terbaik quiz</h2>
           {isLoading ? (
             <p className="mt-3 text-sm text-zinc-400">Memuat skor terbaik...</p>

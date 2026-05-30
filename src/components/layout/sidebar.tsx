@@ -19,8 +19,8 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden w-[292px] shrink-0 rounded-3xl border border-zinc-800/80 bg-zinc-900/70 p-5 lg:block">
-      <div className="mb-6 rounded-2xl border border-zinc-700/60 bg-zinc-950/70 p-4">
+    <aside className="hidden w-[292px] shrink-0 rounded-3xl border border-zinc-800/80 bg-zinc-950/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] backdrop-blur lg:block">
+      <div className="mb-6 rounded-2xl border border-zinc-800/80 bg-zinc-950/60 p-4">
         <p className="text-sm font-semibold text-zinc-200">FluentStack</p>
         <p className="mt-2 text-sm leading-6 text-zinc-200">
           Belajar skill tech dengan flow yang jelas dan praktis.
@@ -39,7 +39,7 @@ export function Sidebar() {
                 "block rounded-xl px-3 py-2.5 text-sm font-medium transition",
                 isActive
                   ? "border border-cyan-300/35 bg-cyan-500/10 text-cyan-100 shadow-[inset_0_0_0_1px_rgba(34,211,238,0.06)]"
-                  : "text-zinc-300 hover:bg-zinc-800/80 hover:text-zinc-50",
+                  : "text-zinc-300 hover:bg-zinc-800/70 hover:text-zinc-50",
               )}
             >
               {item.label}

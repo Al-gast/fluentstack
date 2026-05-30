@@ -10,7 +10,7 @@ export function XpBadge({ value, isLoading = false, className }: XpBadgeProps) {
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-2 rounded-xl border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-sm font-medium text-cyan-100",
+        "inline-flex items-center gap-2 rounded-xl border border-cyan-300/30 bg-cyan-500/10 px-3 py-2 text-sm font-semibold text-cyan-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
         className,
       )}
     >

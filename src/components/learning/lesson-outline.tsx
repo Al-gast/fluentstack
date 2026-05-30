@@ -29,7 +29,7 @@ function getBlockLabel(block: LessonBlock): string {
 
 export function LessonOutline({ blocks, completedBlockIds, compact = false }: LessonOutlineProps) {
   return (
-    <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-4 sm:p-5">
+    <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-5">
       <div className="flex items-center justify-between gap-3">
         <h2 className="text-sm font-semibold text-zinc-100">Outline pelajaran</h2>
         {compact ? <span className="text-xs text-zinc-500">{blocks.length} blok</span> : null}
@@ -49,7 +49,7 @@ export function LessonOutline({ blocks, completedBlockIds, compact = false }: Le
               className={`rounded-lg border px-3 py-2 ${
                 isCompleted
                   ? "border-emerald-300/35 bg-emerald-500/10"
-                  : "border-zinc-800/80 bg-zinc-950/40"
+                  : "border-zinc-800/80 bg-zinc-950/55"
               } ${compact ? "min-w-44 shrink-0" : ""}`}
             >
               <span className="mr-2 text-zinc-500">{index + 1}.</span>

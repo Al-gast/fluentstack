@@ -31,7 +31,7 @@ export function ProgressBar({
           <span className="font-medium">{isLoading ? "Memuat..." : `${Math.round(clamped)}%`}</span>
         </div>
       ) : null}
-      <div className="h-2 rounded-full bg-zinc-800/90 ring-1 ring-zinc-700/60">
+      <div className="h-2 overflow-hidden rounded-full bg-zinc-900/90 ring-1 ring-zinc-800/80">
         <div
           className={cn(
             "h-full rounded-full bg-gradient-to-r transition-all duration-300",

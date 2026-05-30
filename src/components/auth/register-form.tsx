@@ -101,7 +101,7 @@ export function RegisterForm() {
         </p>
       ) : null}
 
-      <Button type="submit" disabled={isSubmitting} className="h-10 w-full bg-cyan-400 text-zinc-950 hover:bg-cyan-300">
+      <Button type="submit" disabled={isSubmitting} className="w-full">
         {isSubmitting ? "Sedang daftar..." : "Daftar"}
       </Button>
     </form>

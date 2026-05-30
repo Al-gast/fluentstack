@@ -10,7 +10,7 @@ export function StreakCard({ days, isLoading = false, className }: StreakCardPro
   return (
     <article
       className={cn(
-        "rounded-2xl border border-amber-300/25 bg-amber-500/10 p-4",
+        "rounded-2xl border border-amber-300/25 bg-amber-500/10 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
         className,
       )}
     >

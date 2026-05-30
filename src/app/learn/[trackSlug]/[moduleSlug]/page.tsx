@@ -26,7 +26,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
   return (
     <AppShell title={moduleItem.title}>
       <div className="mx-auto max-w-[1440px] space-y-8">
-        <section className="rounded-3xl border border-zinc-700/60 bg-zinc-900/70 p-6 sm:p-8">
+        <section className="rounded-3xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6 sm:p-8">
           <p className="text-sm text-cyan-200">{track.title}</p>
           <h1 className="mt-2 text-3xl font-bold text-zinc-50 sm:text-4xl">{moduleItem.title}</h1>
           <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-300">{moduleItem.description}</p>

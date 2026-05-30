@@ -55,24 +55,24 @@ export function LessonReader({ lesson }: LessonReaderProps) {
             <p className="mt-4 max-w-3xl text-base leading-8 text-zinc-300">{lesson.description}</p>
 
             <div className="mt-5 flex flex-wrap gap-2">
-              <span className="rounded-lg border border-zinc-700/80 bg-zinc-900/70 px-3 py-1 text-xs text-zinc-300">
+              <span className="rounded-lg border border-zinc-800/80 bg-zinc-950/55 px-3 py-1 text-xs text-zinc-300">
                 Level {lesson.level}
               </span>
-              <span className="rounded-lg border border-zinc-700/80 bg-zinc-900/70 px-3 py-1 text-xs text-zinc-300">
+              <span className="rounded-lg border border-zinc-800/80 bg-zinc-950/55 px-3 py-1 text-xs text-zinc-300">
                 Estimasi {lesson.estimatedMinutes} menit
               </span>
-              <span className="rounded-lg border border-zinc-700/80 bg-zinc-900/70 px-3 py-1 text-xs text-zinc-300">
+              <span className="rounded-lg border border-zinc-800/80 bg-zinc-950/55 px-3 py-1 text-xs text-zinc-300">
                 {getLanguageLabel(lesson.contentLanguage)}
               </span>
-              <span className="rounded-lg border border-zinc-700/80 bg-zinc-900/70 px-3 py-1 text-xs text-zinc-300">
+              <span className="rounded-lg border border-zinc-800/80 bg-zinc-950/55 px-3 py-1 text-xs text-zinc-300">
                 XP {userProgress.totalXp}
               </span>
-              <span className="rounded-lg border border-zinc-700/80 bg-zinc-900/70 px-3 py-1 text-xs text-zinc-300">
+              <span className="rounded-lg border border-zinc-800/80 bg-zinc-950/55 px-3 py-1 text-xs text-zinc-300">
                 Streak {userProgress.streakCount}
               </span>
             </div>
 
-            <div className="mt-7 rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-5">
+            <div className="mt-7 rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5">
               <h2 className="text-lg font-bold text-zinc-100">Tujuan belajar</h2>
               <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-zinc-300">
                 {lesson.objectives.map((objective) => (

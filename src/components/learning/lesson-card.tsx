@@ -31,11 +31,11 @@ export function LessonCard({
   return (
     <Link
       href={`/lesson/${lesson.slug}`}
-      className="group block rounded-2xl border border-zinc-700/70 bg-zinc-900/70 p-5 transition hover:border-cyan-300/40 hover:bg-zinc-900"
+      className="group block rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] transition hover:border-cyan-300/40 hover:bg-zinc-900/80 focus:outline-none focus:ring-2 focus:ring-cyan-300/30"
     >
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <h3 className="text-base font-bold text-zinc-100 sm:text-lg">{lesson.title}</h3>
-        <span className="w-fit rounded-lg border border-zinc-600/80 bg-zinc-800/80 px-2 py-1 text-xs text-zinc-300">
+        <span className="w-fit rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-2 py-1 text-xs text-zinc-300">
           {lesson.level}
         </span>
       </div>
@@ -43,17 +43,17 @@ export function LessonCard({
       <p className="mt-2 text-sm leading-6 text-zinc-300">{lesson.description}</p>
 
       <div className="mt-4 grid gap-2 text-xs min-[420px]:grid-cols-3 sm:text-sm">
-        <div className="rounded-lg border border-zinc-700/80 bg-zinc-950/60 p-2.5">
+        <div className="rounded-lg border border-zinc-800/80 bg-zinc-950/55 p-2.5">
           <p className="text-zinc-400">Estimasi</p>
           <p className="mt-1 font-semibold text-zinc-100">{lesson.estimatedMinutes} menit</p>
         </div>
-        <div className="rounded-lg border border-zinc-700/80 bg-zinc-950/60 p-2.5">
+        <div className="rounded-lg border border-zinc-800/80 bg-zinc-950/55 p-2.5">
           <p className="text-zinc-400">Status</p>
           <p className="mt-1 font-semibold text-zinc-100">
             {isLoading ? "Memuat..." : statusLabel[resolvedStatus]}
           </p>
         </div>
-        <div className="rounded-lg border border-zinc-700/80 bg-zinc-950/60 p-2.5">
+        <div className="rounded-lg border border-zinc-800/80 bg-zinc-950/55 p-2.5">
           <p className="text-zinc-400">Progres</p>
           <p className="mt-1 font-semibold text-zinc-100">
             {isLoading ? "Memuat..." : `${resolvedProgressPercent}%`}
@@ -72,7 +72,7 @@ export function LessonCard({
         {lesson.skillTags.map((tag) => (
           <span
             key={tag}
-            className="rounded-md border border-zinc-700 bg-zinc-800/70 px-2 py-1 text-xs text-zinc-300"
+            className="rounded-md border border-zinc-800/80 bg-zinc-950/55 px-2 py-1 text-xs text-zinc-300"
           >
             {tag}
           </span>

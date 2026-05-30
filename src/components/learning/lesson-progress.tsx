@@ -23,7 +23,7 @@ export function LessonProgress({
     <section
       className={
         compact
-          ? "rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-5"
+          ? "rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
           : "sticky top-[76px] z-10 rounded-2xl border border-cyan-300/20 bg-zinc-950/85 p-4 shadow-lg shadow-black/10 backdrop-blur sm:static sm:bg-zinc-950/45 sm:p-5"
       }
     >
@@ -32,7 +32,7 @@ export function LessonProgress({
         <span className="text-sm font-semibold text-cyan-200">{isLoading ? "Memuat..." : `${percent}%`}</span>
       </div>
 
-      <div className="mt-3 h-2 rounded-full bg-zinc-800/90 ring-1 ring-zinc-700/60">
+      <div className="mt-3 h-2 overflow-hidden rounded-full bg-zinc-900/90 ring-1 ring-zinc-800/80">
         <div
           className={`h-full rounded-full bg-gradient-to-r transition-all duration-300 ${
             isLoading ? "w-1/3 animate-pulse from-zinc-600 to-zinc-500" : "from-cyan-400 to-indigo-400"

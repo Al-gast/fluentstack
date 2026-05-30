@@ -66,7 +66,7 @@ export function CodingLab({
         <p className="mt-2 text-sm leading-7 text-zinc-300">{challenge.description}</p>
       </header>
 
-      <article className="rounded-xl border border-zinc-700/80 bg-zinc-950/50 p-4">
+      <article className="rounded-xl border border-zinc-800/80 bg-zinc-950/55 p-4">
         <h4 className="text-sm font-semibold text-zinc-100">Instruksi</h4>
         <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-7 text-zinc-300">
           {challenge.instructions.map((instruction) => (
@@ -75,7 +75,7 @@ export function CodingLab({
         </ul>
       </article>
 
-      <article className="rounded-xl border border-zinc-700/80 bg-zinc-950/50 p-4">
+      <article className="rounded-xl border border-zinc-800/80 bg-zinc-950/55 p-4">
         <h4 className="text-sm font-semibold text-zinc-100">Checklist manual</h4>
         <p className="mt-1 text-xs text-zinc-400">
           Checklist ini self-check untuk MVP. Review hasil di preview, centang poin yang sudah kamu cek,
@@ -152,14 +152,14 @@ export function CodingLab({
           <button
             type="button"
             onClick={handleSaveCode}
-            className="w-full rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/45 sm:w-auto"
+            className="w-full rounded-lg bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40 sm:w-auto"
           >
             Simpan code
           </button>
           <button
             type="button"
             onClick={handleReset}
-            className="w-full rounded-lg border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 sm:w-auto"
+            className="w-full rounded-lg border border-amber-300/30 bg-amber-500/10 px-4 py-2 text-sm font-semibold text-amber-100 transition hover:bg-amber-500/20 focus:outline-none focus:ring-2 focus:ring-amber-300/30 sm:w-auto"
           >
             Reset
           </button>
@@ -167,7 +167,7 @@ export function CodingLab({
             <button
               type="button"
               onClick={() => setShowSolution((previous) => !previous)}
-              className="w-full rounded-lg border border-zinc-600 bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 sm:w-auto"
+              className="w-full rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30 sm:w-auto"
             >
               {showSolution ? "Sembunyikan solusi" : "Lihat solusi"}
             </button>
@@ -180,7 +180,7 @@ export function CodingLab({
               "w-full rounded-lg px-4 py-2 text-sm font-semibold transition sm:w-auto",
               isCompleted
                 ? "cursor-not-allowed border border-emerald-300/35 bg-emerald-500/20 text-emerald-100"
-                : "bg-cyan-400 text-zinc-950 hover:bg-cyan-300",
+                : "bg-cyan-400 text-zinc-950 hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40",
             )}
           >
             {isCompleted ? "Selesai" : "Tandai selesai"}
