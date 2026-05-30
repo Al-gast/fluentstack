@@ -5,7 +5,7 @@ export const frontendEngineeringTrack: Track = {
   title: "Frontend Engineering",
   slug: "frontend-engineering",
   description:
-    "Belajar fondasi modern frontend development melalui materi terstruktur, quiz, dan praktik langsung.",
+    "Belajar fondasi frontend lewat lesson, quiz, dan coding practice yang langsung bisa dicoba.",
   level: "beginner",
   estimatedHours: 80,
   moduleIds: ["html-web-fundamentals", "css-fundamentals"],
@@ -17,7 +17,7 @@ export const englishForTechCareersTrack: Track = {
   title: "English for Tech Careers",
   slug: "english-for-tech-careers",
   description:
-    "Latih komunikasi kerja tech dalam bahasa Inggris dengan alur praktik yang relevan untuk kerja remote.",
+    "Latih English untuk kerja tech: daily update, bug explanation, PR notes, dan komunikasi remote.",
   level: "beginner",
   estimatedHours: 40,
   moduleIds: ["english-for-remote-work"],

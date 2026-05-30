@@ -10,22 +10,22 @@ import { XpBadge } from "@/components/progress/xp-badge";
 const tracks = [
   {
     title: "Frontend Engineering",
-    desc: "Bangun fondasi HTML, CSS, JavaScript sampai pola UI modern lewat lesson terstruktur.",
+    desc: "Mulai dari HTML, CSS, dan JavaScript lewat lesson singkat, quiz, dan coding practice.",
     lessons: "10 lesson awal",
   },
   {
     title: "English for Tech Careers",
-    desc: "Latihan komunikasi kerja remote: update harian, bug explanation, PR notes, dan interview intro.",
+    desc: "Latih komunikasi kerja tech: daily update, bug explanation, PR notes, dan interview intro.",
     lessons: "10 lesson awal",
   },
 ];
 
 const flow = [
-  "Pilih track di Roadmap",
-  "Buka module lalu lesson",
-  "Belajar lewat text + contoh",
-  "Kerjakan quick check dan quiz",
-  "Progres dan XP meningkat",
+  "Pilih track",
+  "Buka module",
+  "Kerjakan lesson",
+  "Jawab quick check dan quiz",
+  "Progres tersimpan",
 ];
 
 export default function Home() {
@@ -40,14 +40,14 @@ export default function Home() {
             className="space-y-6"
           >
             <p className="inline-flex rounded-full border border-cyan-300/25 bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-100">
-              Guided learning lab
+              Learning lab terarah
             </p>
             <h1 className="max-w-4xl text-3xl font-bold leading-tight text-zinc-50 sm:text-5xl lg:text-6xl">
-              Belajar skill teknologi dengan alur yang jelas.
+              Belajar skill teknologi lewat lesson, quiz, dan praktik langsung.
             </h1>
             <p className="max-w-3xl text-base leading-8 text-zinc-300 sm:text-lg">
-              FluentStack membantu kamu belajar lewat materi singkat, quick check, quiz, praktik
-              langsung, dan progres yang mudah dipantau.
+              Mulai dari track pertama, kerjakan quick check dan practice block, lalu lihat progres
+              kamu di Dashboard.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -84,7 +84,7 @@ export default function Home() {
         </section>
 
         <section className="space-y-6">
-          <h2 className="text-2xl font-bold text-zinc-50 sm:text-3xl lg:text-4xl">Track preview</h2>
+          <h2 className="text-2xl font-bold text-zinc-50 sm:text-3xl lg:text-4xl">Track yang tersedia</h2>
           <div className="grid gap-5 md:grid-cols-2">
             {tracks.map((track, index) => (
               <motion.article
@@ -105,7 +105,7 @@ export default function Home() {
 
         <section className="space-y-6">
           <h2 className="text-2xl font-bold text-zinc-50 sm:text-3xl lg:text-4xl">
-            Learning flow preview
+            Alur belajar
           </h2>
           <div className="grid gap-4 md:grid-cols-5">
             {flow.map((step, idx) => (
@@ -113,7 +113,7 @@ export default function Home() {
                 key={step}
                 className="rounded-xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 text-sm text-zinc-200"
               >
-                <p className="text-xs font-medium text-zinc-400">Step {idx + 1}</p>
+                <p className="text-xs font-medium text-zinc-400">Langkah {idx + 1}</p>
                 <p className="mt-3 leading-7">{step}</p>
               </div>
             ))}
@@ -122,10 +122,10 @@ export default function Home() {
 
         <section className="grid gap-5 lg:grid-cols-2">
           <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6">
-            <h2 className="text-2xl font-bold text-zinc-50 lg:text-3xl">Interactive practice preview</h2>
+            <h2 className="text-2xl font-bold text-zinc-50 lg:text-3xl">Praktik di dalam lesson</h2>
             <p className="mt-4 text-base leading-7 text-zinc-300">
-              Setiap lesson menggabungkan praktik langsung. Bukan sekadar baca materi, tapi ada
-              quick check, quiz, dan latihan yang relevan dengan konteks kerja nyata.
+              Setiap lesson punya aktivitas yang bisa langsung dikerjakan: quick check, quiz, dan
+              latihan yang dekat dengan situasi kerja.
             </p>
             <ul className="mt-5 space-y-2.5 text-base text-zinc-200">
               <li>Quick check di tengah lesson</li>
@@ -136,12 +136,12 @@ export default function Home() {
           <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6">
             <h2 className="text-2xl font-bold text-zinc-50 lg:text-3xl">Contoh progres belajar</h2>
             <p className="mt-4 text-base leading-7 text-zinc-300">
-              Ini simulasi tampilan progres. Progres dihitung dari aktivitas belajar bermakna,
-              bukan hanya membuka halaman.
+              Ini simulasi tampilan progres. Progres dihitung dari blok belajar yang selesai, bukan
+              hanya membuka halaman.
             </p>
             <div className="mt-6 space-y-4">
-              <ProgressBar value={60} label="Read + Activity Completion" />
-              <ProgressBar value={70} label="Quiz Score Target" tone="success" />
+              <ProgressBar value={60} label="Blok selesai" />
+              <ProgressBar value={70} label="Target skor quiz" tone="success" />
             </div>
             <p className="mt-4 text-sm text-zinc-400">
               Progres asli bisa kamu lihat di Dashboard setelah mulai belajar.
@@ -151,11 +151,10 @@ export default function Home() {
 
         <section className="rounded-3xl border border-cyan-300/25 bg-gradient-to-r from-cyan-500/15 to-indigo-500/15 p-8 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-10">
           <h2 className="text-2xl font-bold text-zinc-50 sm:text-3xl lg:text-4xl">
-            Mulai dari satu lesson. Bangun momentum harian.
+            Mulai dari satu lesson, lalu lanjutkan dari Dashboard.
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-zinc-200">
-            FluentStack dirancang supaya kamu bisa belajar konsisten, melihat progres nyata, dan
-            siap untuk skill teknis plus komunikasi kerja.
+            Belajar dalam alur kecil: baca, cek pemahaman, praktik, lalu simpan progres kamu.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <Link

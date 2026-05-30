@@ -8,7 +8,7 @@ export const buildFlexboxNavbarChallenge: CodingChallenge = {
     "Latihan menyusun navbar sederhana menggunakan Flexbox agar elemen brand, menu, dan aksi sejajar dengan rapi.",
   instructions: [
     "Gunakan display flex pada container navbar.",
-    "Pastikan brand berada di kiri dan menu utama di tengah/kanan dengan jarak yang nyaman.",
+    "Tempatkan brand di kiri, menu di tengah, dan tombol aksi di kanan.",
     "Tambahkan tombol aksi seperti Login dan Start Trial di sisi kanan.",
     "Buat layout tetap rapi saat lebar layar mengecil (boleh stack di mobile).",
   ],
@@ -18,7 +18,7 @@ export const buildFlexboxNavbarChallenge: CodingChallenge = {
   <nav class="menu">
     <a href="#">Roadmap</a>
     <a href="#">Lesson</a>
-    <a href="#">Progress</a>
+    <a href="#">Progres</a>
   </nav>
   <div class="actions">
     <button class="btn ghost">Login</button>
@@ -75,7 +75,7 @@ body {
   <nav class="menu">
     <a href="#">Roadmap</a>
     <a href="#">Lesson</a>
-    <a href="#">Progress</a>
+    <a href="#">Progres</a>
   </nav>
   <div class="actions">
     <button class="btn ghost">Login</button>

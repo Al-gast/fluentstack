@@ -13,7 +13,7 @@ export const htmlSemanticQuiz: Quiz = {
       options: ["div", "span", "button", "section"],
       correctAnswer: "button",
       explanation:
-        "Elemen button sudah mendukung akses keyboard dan secara semantic memang untuk aksi interaktif.",
+        "Elemen button sudah mendukung akses keyboard dan secara semantic cocok untuk aksi interaktif.",
     },
     {
       id: "html-semantic-q2",
@@ -21,7 +21,7 @@ export const htmlSemanticQuiz: Quiz = {
       question: "Semantic HTML hanya berpengaruh pada tampilan visual halaman.",
       correctAnswer: false,
       explanation:
-        "Semantic HTML berpengaruh pada makna struktur, accessibility, dan kemudahan perawatan kode.",
+        "Semantic HTML berpengaruh pada makna struktur, accessibility, dan kode yang lebih mudah dirawat.",
     },
     {
       id: "html-semantic-q3",

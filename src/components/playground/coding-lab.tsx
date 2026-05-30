@@ -78,8 +78,8 @@ export function CodingLab({
       <article className="rounded-xl border border-zinc-800/80 bg-zinc-950/55 p-4">
         <h4 className="text-sm font-semibold text-zinc-100">Checklist manual</h4>
         <p className="mt-1 text-xs text-zinc-400">
-          Checklist ini self-check untuk MVP. Review hasil di preview, centang poin yang sudah kamu cek,
-          lalu tandai selesai secara manual.
+          Gunakan checklist ini untuk review hasil sendiri. Setelah preview sudah sesuai, tandai
+          selesai secara manual.
         </p>
         <ul className="mt-3 space-y-2">
           {challenge.checklist.map((item) => {
@@ -139,7 +139,7 @@ export function CodingLab({
           <div>
             <p className="text-sm font-semibold text-zinc-100">Simpan dan selesaikan</p>
             <p className="mt-1 text-xs leading-6 text-zinc-400">
-              Simpan code sebelum pindah halaman. Tandai selesai setelah kamu review checklist dan preview.
+              Simpan code sebelum pindah halaman. Tandai selesai setelah preview dan checklist sudah kamu cek.
             </p>
           </div>
           {codeSaved ? (
@@ -189,7 +189,7 @@ export function CodingLab({
       </article>
 
       {isRequired && !isCompleted ? (
-        <p className="text-sm text-amber-200/90">Blok ini wajib diselesaikan untuk menuntaskan lesson.</p>
+        <p className="text-sm text-amber-200/90">Blok ini wajib untuk menyelesaikan lesson.</p>
       ) : null}
 
       {showSolution && challenge.solutionCode ? (

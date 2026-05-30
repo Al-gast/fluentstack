@@ -6,7 +6,7 @@ export const htmlWebFundamentalsModule: Module = {
   title: "HTML & Web Fundamentals",
   slug: "html-web-fundamentals",
   description:
-    "Pahami bagaimana halaman web disusun dan bagaimana browser membaca struktur HTML.",
+    "Pahami struktur halaman web dan cara browser membaca HTML.",
   order: 1,
   lessonIds: ["html-semantic-basics"],
   estimatedHours: 6,
@@ -19,7 +19,7 @@ export const cssFundamentalsModule: Module = {
   title: "CSS Fundamentals",
   slug: "css-fundamentals",
   description:
-    "Bangun fondasi CSS untuk layout modern, termasuk penggunaan Flexbox untuk komponen UI sehari-hari.",
+    "Pelajari layout CSS modern dan praktikkan Flexbox lewat komponen UI sehari-hari.",
   order: 2,
   lessonIds: ["css-flexbox-basics"],
   estimatedHours: 8,
@@ -32,7 +32,7 @@ export const englishForRemoteWorkModule: Module = {
   title: "English for Remote Work",
   slug: "english-for-remote-work",
   description:
-    "Belajar menulis dan menyampaikan update kerja yang jelas untuk kolaborasi remote lintas tim.",
+    "Latih daily update dan komunikasi tertulis yang jelas untuk kerja remote.",
   order: 1,
   lessonIds: ["writing-daily-update"],
   estimatedHours: 5,

@@ -54,14 +54,14 @@ export default function DashboardPage() {
     <AppShell title="Dashboard">
       <div className="mx-auto max-w-[1440px] space-y-8">
         <section className="rounded-3xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6 sm:p-8">
-          <p className="text-sm text-cyan-200">Selamat datang di FluentStack</p>
+          <p className="text-sm text-cyan-200">Dashboard</p>
           <h1 className="mt-2 text-3xl font-bold text-zinc-50 sm:text-4xl">
-            {hasProgress ? "Lanjutkan progres belajar kamu." : "Mulai dari langkah pertama yang jelas."}
+            {hasProgress ? "Lanjutkan lesson terakhir kamu." : "Mulai dari lesson pertama."}
           </h1>
           <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-300">
             {isLoading
               ? "Memuat progres belajar kamu..."
-              : `${getStorageCopy(storageMode)} Lanjutkan alur dari roadmap, track, module, lalu tuntaskan lesson yang sedang berjalan.`}
+              : `${getStorageCopy(storageMode)} Buka lesson yang sedang berjalan atau mulai dari dasar frontend.`}
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
@@ -69,14 +69,14 @@ export default function DashboardPage() {
               href="/roadmap"
               className="rounded-xl bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
             >
-              Buka roadmap
+              Lihat roadmap
             </Link>
             {continueLesson ? (
               <Link
                 href={`/lesson/${continueLesson.slug}`}
                 className="rounded-xl border border-zinc-700/80 bg-zinc-950/55 px-5 py-3 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
               >
-                {hasProgress ? "Lanjut lesson" : "Buka lesson pertama"}
+                {hasProgress ? "Lanjutkan lesson" : "Mulai lesson pertama"}
               </Link>
             ) : null}
           </div>
@@ -91,10 +91,10 @@ export default function DashboardPage() {
               </h2>
               <p className="mt-2 max-w-3xl text-sm leading-6 text-zinc-300">
                 {isLoading
-                  ? "Kami sedang mengambil progres terbaru."
+                  ? "Memuat progres terakhir kamu."
                   : hasProgress
-                    ? "Lesson ini dipilih dari progres terbaru kamu."
-                    : "Mulai dari fondasi Frontend Engineering: HTML & Web Fundamentals."}
+                    ? "Kami pilih lesson ini dari progres kamu."
+                    : "Mulai dari fondasi Frontend Engineering lewat HTML & Web Fundamentals."}
               </p>
             </div>
             <span className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-1 text-xs text-zinc-300">

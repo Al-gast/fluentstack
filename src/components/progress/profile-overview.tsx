@@ -81,8 +81,8 @@ export function ProfileOverview() {
         <h1 className="mt-2 text-3xl font-bold text-zinc-50 sm:text-4xl">Profil & Progres</h1>
         <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-300">
           {storageMode === "logged-in"
-            ? "Progres kamu tersimpan di akun dan bisa dipakai lintas device."
-            : "Progres kamu saat ini tersimpan di browser ini. Nanti login akan menyimpan progres lintas device."}
+            ? "Progres tersimpan di akun kamu. Bisa dipakai lintas device."
+            : "Progres tersimpan di browser ini. Login nanti akan menyimpan progres lintas device."}
         </p>
       </section>
 
@@ -105,7 +105,9 @@ export function ProfileOverview() {
           <p className="mt-2 text-xl font-bold text-zinc-100">
             {isLoading ? "Memuat..." : formatLastActivityDate(lastActivityDate)}
           </p>
-          <p className="mt-1 text-sm text-zinc-400">Tanggal terakhir aktivitas bermakna tercatat.</p>
+          <p className="mt-1 text-sm text-zinc-400">
+            Tanggal terakhir kamu menyelesaikan aktivitas belajar.
+          </p>
         </article>
       </section>
 
@@ -212,7 +214,9 @@ export function ProfileOverview() {
               ))}
             </ul>
           ) : (
-            <p className="mt-3 text-sm text-zinc-400">Belum ada lesson yang selesai.</p>
+            <p className="mt-3 text-sm text-zinc-400">
+              Belum ada lesson selesai. Mulai dari Dasar Semantic HTML.
+            </p>
           )}
         </article>
 
@@ -233,7 +237,9 @@ export function ProfileOverview() {
               ))}
             </ul>
           ) : (
-            <p className="mt-3 text-sm text-zinc-400">Belum ada skor quiz tersimpan.</p>
+            <p className="mt-3 text-sm text-zinc-400">
+              Belum ada skor quiz. Kerjakan quiz di dalam lesson untuk melihat skor terbaik.
+            </p>
           )}
         </article>
       </section>

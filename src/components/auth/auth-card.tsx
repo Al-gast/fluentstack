@@ -21,7 +21,7 @@ export function AuthCard({
   return (
     <section className="mx-auto w-full max-w-md rounded-3xl border border-zinc-800/80 bg-zinc-950/50 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-7">
       <header>
-        <p className="text-xs font-semibold text-cyan-200">FluentStack Auth</p>
+        <p className="text-xs font-semibold text-cyan-200">Akun FluentStack</p>
         <h1 className="mt-2 text-2xl font-bold text-zinc-50">{title}</h1>
         <p className="mt-3 text-sm leading-6 text-zinc-300">{description}</p>
       </header>

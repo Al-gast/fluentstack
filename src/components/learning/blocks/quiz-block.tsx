@@ -35,7 +35,7 @@ export function QuizBlock({
 
   return (
     <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 sm:p-6">
-      <p className="text-xs font-medium text-cyan-200">Activity block</p>
+      <p className="text-xs font-medium text-cyan-200">Quiz</p>
       <h3 className="mt-2 text-xl font-bold text-zinc-100">{quiz.title}</h3>
       <p className="mt-2 text-sm text-zinc-300">
         Jawab pertanyaan satu per satu. Kamu bisa ulang jika belum mencapai target lulus.
@@ -60,7 +60,9 @@ export function QuizBlock({
           <p className="sm:col-span-3 text-sm font-semibold text-emerald-200">Quiz selesai.</p>
         ) : null}
         {isRequired && !isCompleted ? (
-          <p className="sm:col-span-3 text-sm text-amber-200/90">Blok ini wajib diselesaikan.</p>
+          <p className="sm:col-span-3 text-sm text-amber-200/90">
+            Blok ini wajib untuk menyelesaikan lesson.
+          </p>
         ) : null}
       </div>
 

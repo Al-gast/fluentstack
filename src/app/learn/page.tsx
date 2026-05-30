@@ -24,7 +24,7 @@ export default function LearnPage() {
         <section className="rounded-3xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6 sm:p-8">
           <h1 className="text-3xl font-bold text-zinc-50 sm:text-4xl">Pilih Track Belajar</h1>
           <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-300">
-            Pilih track yang ingin kamu pelajari atau lanjutkan progres terakhir kamu.
+            Pilih track baru atau lanjutkan lesson yang sudah kamu mulai.
           </p>
         </section>
 
@@ -38,7 +38,7 @@ export default function LearnPage() {
           ) : hasProgress ? (
             <>
               <p className="mt-2 text-sm leading-6 text-zinc-300">
-                Lanjutkan lesson yang paling relevan dari progres kamu saat ini.
+                Lanjutkan lesson yang paling dekat dengan progres kamu.
               </p>
               <Link
                 href={`/lesson/${nextLesson.slug}`}
@@ -51,8 +51,8 @@ export default function LearnPage() {
             <>
               <p className="mt-2 text-sm leading-6 text-zinc-300">
                 {storageMode === "logged-in"
-                  ? "Kamu belum punya progres belajar tersimpan di akun ini."
-                  : "Kamu belum punya progres belajar tersimpan di browser ini."}
+                  ? "Belum ada progres belajar di akun ini."
+                  : "Belum ada progres belajar di browser ini."}
               </p>
               <Link
                 href="/learn/frontend-engineering"
@@ -64,11 +64,11 @@ export default function LearnPage() {
           )}
           <p className="mt-3 text-xs text-zinc-400">
             {isLoading
-              ? "Mode progres sedang dimuat."
+              ? "Memuat mode progres..."
               : hasProgress
               ? storageMode === "logged-in"
-                ? "Progres disimpan di akun kamu."
-                : "Progres disimpan lokal di browser ini."
+                ? "Progres tersimpan di akun kamu."
+                : "Progres tersimpan di browser ini."
               : "Setelah mulai lesson, progres akan muncul di bagian ini."}
           </p>
         </section>

@@ -6,6 +6,20 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
+function getAuthErrorMessage(message: string) {
+  const lowerMessage = message.toLowerCase();
+
+  if (lowerMessage.includes("invalid login credentials")) {
+    return "Login gagal. Cek email dan password kamu.";
+  }
+
+  if (lowerMessage.includes("email not confirmed")) {
+    return "Email belum dikonfirmasi. Cek inbox kamu dulu.";
+  }
+
+  return message;
+}
+
 export function LoginForm() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -23,7 +37,7 @@ export function LoginForm() {
     if (!supabase) {
       setIsSubmitting(false);
       setErrorMessage(
-        "Konfigurasi Supabase belum tersedia. Cek NEXT_PUBLIC_SUPABASE_URL dan NEXT_PUBLIC_SUPABASE_ANON_KEY.",
+        "Supabase belum terhubung. Cek NEXT_PUBLIC_SUPABASE_URL dan NEXT_PUBLIC_SUPABASE_ANON_KEY.",
       );
       return;
     }
@@ -36,7 +50,7 @@ export function LoginForm() {
     setIsSubmitting(false);
 
     if (error) {
-      setErrorMessage(error.message);
+      setErrorMessage(getAuthErrorMessage(error.message));
       return;
     }
 
@@ -85,7 +99,7 @@ export function LoginForm() {
       ) : null}
 
       <Button type="submit" disabled={isSubmitting} className="w-full">
-        {isSubmitting ? "Sedang masuk..." : "Masuk"}
+        {isSubmitting ? "Masuk..." : "Masuk"}
       </Button>
     </form>
   );

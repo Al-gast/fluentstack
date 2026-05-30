@@ -42,9 +42,9 @@ function WritingPracticeBlockStateful({
 
   const characterMessage = React.useMemo(() => {
     if (canMarkComplete) {
-      return `Minimum karakter terpenuhi (${currentCharacters}/${minimumCharacters}).`;
+      return `Karakter cukup (${currentCharacters}/${minimumCharacters}).`;
     }
-    return `Tulis minimal ${minimumCharacters} karakter untuk menandai blok ini selesai.`;
+    return `Tulis minimal ${minimumCharacters} karakter sebelum menandai selesai.`;
   }, [canMarkComplete, currentCharacters, minimumCharacters]);
 
   return (
@@ -77,7 +77,9 @@ function WritingPracticeBlockStateful({
       {block.checklist?.length ? (
         <div className="mt-5 rounded-xl border border-zinc-800/80 bg-zinc-950/55 p-4">
           <p className="text-sm font-semibold text-zinc-100">Checklist panduan</p>
-          <p className="mt-1 text-xs text-zinc-400">Checklist ini opsional, hanya sebagai panduan kualitas.</p>
+          <p className="mt-1 text-xs text-zinc-400">
+            Checklist ini hanya panduan. Kamu tidak harus mencentang semuanya.
+          </p>
           <ul className="mt-3 space-y-2">
             {block.checklist.map((item, index) => (
               <li key={item}>
@@ -139,7 +141,7 @@ function WritingPracticeBlockStateful({
 
         {isRequired && !isCompleted ? (
           <span className="w-full rounded-lg border border-amber-300/35 bg-amber-500/10 px-3 py-2 text-sm text-amber-100 sm:w-auto">
-            Blok ini wajib diselesaikan.
+            Blok ini wajib untuk menyelesaikan lesson.
           </span>
         ) : null}
       </div>

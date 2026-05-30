@@ -50,7 +50,7 @@ export function ModuleCard({
 
       <div className="mt-6 flex flex-col gap-1 text-sm text-zinc-300 min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between">
         <span>{moduleLessons.length} lesson</span>
-        <span>{isLoading ? "Progres memuat..." : `Progres ${resolvedProgressPercent}%`}</span>
+        <span>{isLoading ? "Memuat progres..." : `Progres ${resolvedProgressPercent}%`}</span>
       </div>
       <ProgressBar
         value={resolvedProgressPercent}

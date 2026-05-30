@@ -19,7 +19,7 @@ export function StreakCard({ days, isLoading = false, className }: StreakCardPro
         {isLoading ? "Memuat..." : `${days} hari`}
       </p>
       <p className="mt-1 text-sm text-amber-100/80">
-        Satu aktivitas bermakna per hari menjaga momentum.
+        Selesaikan satu aktivitas belajar per hari untuk menjaga streak.
       </p>
     </article>
   );

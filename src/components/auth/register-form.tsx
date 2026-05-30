@@ -6,6 +6,20 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { getSupabaseClient } from "@/lib/supabase/client";
 
+function getAuthErrorMessage(message: string) {
+  const lowerMessage = message.toLowerCase();
+
+  if (lowerMessage.includes("already registered") || lowerMessage.includes("already exists")) {
+    return "Email ini sudah terdaftar. Coba masuk dengan akun tersebut.";
+  }
+
+  if (lowerMessage.includes("password")) {
+    return "Password belum memenuhi syarat. Gunakan minimal 6 karakter.";
+  }
+
+  return message;
+}
+
 export function RegisterForm() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -25,7 +39,7 @@ export function RegisterForm() {
     if (!supabase) {
       setIsSubmitting(false);
       setErrorMessage(
-        "Konfigurasi Supabase belum tersedia. Cek NEXT_PUBLIC_SUPABASE_URL dan NEXT_PUBLIC_SUPABASE_ANON_KEY.",
+        "Supabase belum terhubung. Cek NEXT_PUBLIC_SUPABASE_URL dan NEXT_PUBLIC_SUPABASE_ANON_KEY.",
       );
       return;
     }
@@ -41,7 +55,7 @@ export function RegisterForm() {
     setIsSubmitting(false);
 
     if (error) {
-      setErrorMessage(error.message);
+      setErrorMessage(getAuthErrorMessage(error.message));
       return;
     }
 
@@ -51,7 +65,7 @@ export function RegisterForm() {
       return;
     }
 
-    setSuccessMessage("Registrasi berhasil. Cek inbox email kamu untuk konfirmasi akun.");
+    setSuccessMessage("Akun dibuat. Cek inbox email kamu untuk konfirmasi.");
   };
 
   return (
@@ -102,7 +116,7 @@ export function RegisterForm() {
       ) : null}
 
       <Button type="submit" disabled={isSubmitting} className="w-full">
-        {isSubmitting ? "Sedang daftar..." : "Daftar"}
+        {isSubmitting ? "Daftar..." : "Daftar"}
       </Button>
     </form>
   );

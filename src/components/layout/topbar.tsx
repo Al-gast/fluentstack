@@ -16,19 +16,19 @@ function getContextAction(pathname: string): { label: string; href: string; vari
   }
 
   if (pathname === "/dashboard") {
-    return { label: "Buka Roadmap", href: "/roadmap", variant: "primary" };
+    return { label: "Lihat roadmap", href: "/roadmap", variant: "primary" };
   }
 
   if (pathname === "/roadmap") {
-    return { label: "Pilih Tracks", href: "/learn", variant: "primary" };
+    return { label: "Pilih track", href: "/learn", variant: "primary" };
   }
 
   if (pathname === "/learn" || pathname.startsWith("/learn/")) {
-    return { label: "Lihat Roadmap", href: "/roadmap" };
+    return { label: "Lihat roadmap", href: "/roadmap" };
   }
 
   if (pathname.startsWith("/lesson/")) {
-    return { label: "Semua Tracks", href: "/learn" };
+    return { label: "Semua track", href: "/learn" };
   }
 
   if (pathname === "/profile") {
@@ -63,7 +63,7 @@ export function Topbar({ title = "FluentStack" }: TopbarProps) {
     <header className="sticky top-0 z-20 rounded-2xl border border-zinc-800/80 bg-zinc-950/80 px-3 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] backdrop-blur sm:px-5">
       <div className="flex min-w-0 items-center justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-xs font-medium text-zinc-400">Platform belajar</p>
+          <p className="text-xs font-medium text-zinc-400">FluentStack</p>
           <h1 className="truncate text-base font-semibold text-zinc-100">{title}</h1>
         </div>
 
@@ -96,7 +96,7 @@ export function Topbar({ title = "FluentStack" }: TopbarProps) {
                 disabled={isLoggingOut}
                 className="rounded-lg border border-rose-300/35 bg-rose-500/10 px-3.5 py-2 text-xs font-semibold text-rose-100 transition hover:bg-rose-500/20 focus:outline-none focus:ring-2 focus:ring-rose-300/30 disabled:cursor-not-allowed disabled:opacity-70"
               >
-                {isLoggingOut ? "Keluar..." : "Logout"}
+                {isLoggingOut ? "Keluar..." : "Keluar"}
               </button>
             </>
           ) : (

@@ -7,13 +7,13 @@ export const htmlSemanticBasicsLesson: Lesson = {
   title: "Dasar Semantic HTML",
   slug: "html-semantic-basics",
   description:
-    "Pelajari bagaimana semantic HTML membantu membuat struktur halaman lebih jelas, rapi, dan mudah dipahami.",
+    "Pakai semantic HTML untuk membuat struktur halaman lebih jelas bagi browser, screen reader, dan developer lain.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 25,
   objectives: [
-    "Memahami konsep semantic HTML",
-    "Mengenali elemen semantic yang sering digunakan",
+    "Memahami fungsi semantic HTML",
+    "Mengenali elemen semantic yang sering dipakai",
     "Memilih elemen HTML yang tepat untuk struktur konten nyata",
   ],
   skillTags: ["HTML", "Accessibility", "Web Fundamentals"],
@@ -23,7 +23,7 @@ export const htmlSemanticBasicsLesson: Lesson = {
       type: "text",
       title: "Apa itu semantic HTML?",
       content:
-        "Semantic HTML adalah cara menulis HTML dengan elemen yang punya makna jelas. Jadi, kamu memilih elemen bukan hanya karena tampilannya, tapi karena fungsi kontennya.",
+        "Semantic HTML adalah cara menulis HTML dengan elemen yang punya makna jelas. Artinya, kamu memilih elemen bukan hanya karena tampilannya, tapi karena fungsi kontennya.",
     },
     {
       id: "html-semantic-important-note",
@@ -31,7 +31,7 @@ export const htmlSemanticBasicsLesson: Lesson = {
       variant: "important",
       title: "Kenapa ini penting?",
       content:
-        "Struktur semantic membantu screen reader, memudahkan maintainability, dan bikin kolaborasi antar developer lebih rapi.",
+        "Struktur semantic memberi konteks untuk screen reader, membuat kode lebih mudah dirawat, dan membuat kolaborasi antar developer lebih rapi.",
     },
     {
       id: "html-semantic-code-example",
@@ -53,7 +53,7 @@ export const htmlSemanticBasicsLesson: Lesson = {
   <p>Copyright 2026</p>
 </footer>`,
       explanation:
-        "Dengan elemen seperti header, main, article, dan footer, struktur halaman jadi lebih mudah dipahami oleh manusia maupun browser.",
+        "Dengan elemen seperti header, main, article, dan footer, struktur halaman jadi lebih mudah dipahami oleh developer, browser, dan assistive technology.",
     },
     {
       id: "html-semantic-quick-check",
@@ -63,7 +63,7 @@ export const htmlSemanticBasicsLesson: Lesson = {
       options: ["header", "main", "section", "aside"],
       correctAnswer: "main",
       explanation:
-        "Elemen main dipakai untuk konten utama halaman yang menjadi fokus inti.",
+        "Elemen main dipakai untuk konten utama halaman, bukan header, sidebar, atau navigasi.",
     },
     {
       id: "html-semantic-quiz",
@@ -76,7 +76,7 @@ export const htmlSemanticBasicsLesson: Lesson = {
       points: [
         "Semantic HTML membuat struktur halaman lebih jelas dan bermakna.",
         "Pilih elemen berdasarkan fungsi konten, bukan sekadar tampilan.",
-        "Struktur semantic yang baik membantu accessibility dan maintainability.",
+        "Struktur semantic yang baik mendukung accessibility dan membuat kode lebih mudah dirawat.",
       ],
     },
   ],
@@ -106,7 +106,7 @@ export const writingDailyUpdateLesson: Lesson = {
   objectives: [
     "Memahami struktur daily update yang efektif untuk konteks kerja remote",
     "Menulis update berbahasa Inggris dengan format yang mudah dibaca tim",
-    "Menyampaikan progress, plan, dan blocker secara jelas",
+    "Menyampaikan progres, plan, dan blocker secara jelas",
   ],
   skillTags: ["Technical English", "Remote Communication", "Writing Practice"],
   blocks: [
@@ -115,7 +115,7 @@ export const writingDailyUpdateLesson: Lesson = {
       type: "text",
       title: "Kenapa daily update itu penting?",
       content:
-        "Di tim remote, daily update membantu semua orang tahu progress terbaru tanpa menunggu meeting panjang. Format yang ringkas membuat engineer, PM, dan designer bisa cepat memahami apa yang sudah selesai, rencana berikutnya, dan blocker yang perlu dibantu.",
+        "Di tim remote, daily update membuat semua orang tahu progres terbaru tanpa menunggu meeting panjang. Format yang ringkas membuat engineer, PM, dan designer bisa cepat memahami apa yang sudah selesai, rencana berikutnya, dan blocker yang perlu dibantu.",
     },
     {
       id: "writing-daily-update-practical-note",
@@ -123,7 +123,7 @@ export const writingDailyUpdateLesson: Lesson = {
       variant: "tip",
       title: "Pakai format sederhana yang konsisten",
       content:
-        "Gunakan format: Yesterday / Today / Blockers. Hindari kalimat terlalu panjang. Fokus pada impact pekerjaan dan hal yang butuh kolaborasi dari tim.",
+        "Gunakan format: Yesterday / Today / Blockers. Hindari kalimat terlalu panjang. Fokus pada dampak pekerjaan dan hal yang butuh kolaborasi dari tim.",
     },
     {
       id: "writing-daily-update-writing-practice",
@@ -133,7 +133,7 @@ export const writingDailyUpdateLesson: Lesson = {
       placeholder:
         "Contoh:\nYesterday: I finished ...\nToday: I will work on ...\nBlockers: I need ...",
       checklist: [
-        "Menyebutkan progress yang spesifik (bukan umum)",
+        "Menyebutkan progres yang spesifik, bukan terlalu umum",
         "Rencana hari ini jelas dan bisa ditindaklanjuti",
         "Blocker ditulis dengan kebutuhan bantuan yang konkret",
       ],
@@ -145,7 +145,7 @@ export const writingDailyUpdateLesson: Lesson = {
       type: "summary",
       points: [
         "Daily update yang baik harus ringkas, spesifik, dan mudah dipahami tim.",
-        "Format Yesterday / Today / Blockers membantu komunikasi tetap terstruktur.",
+        "Format Yesterday / Today / Blockers membuat komunikasi tetap terstruktur.",
         "Tulis blocker dengan jelas supaya tim tahu bantuan apa yang dibutuhkan.",
       ],
     },
@@ -183,7 +183,7 @@ export const cssFlexboxBasicsLesson: Lesson = {
       type: "text",
       title: "Kenalan dengan Flexbox",
       content:
-        "Flexbox membantu kamu menyusun elemen secara fleksibel dalam satu baris atau kolom. Dengan properti yang tepat, kamu bisa mengatur jarak, alignment, dan distribusi ruang tanpa trik layout lama yang rumit.",
+        "Flexbox dipakai untuk menyusun elemen secara fleksibel dalam satu baris atau kolom. Dengan properti yang tepat, kamu bisa mengatur jarak, alignment, dan distribusi ruang tanpa trik layout lama yang rumit.",
     },
     {
       id: "css-flexbox-code-example",
@@ -210,7 +210,7 @@ export const cssFlexboxBasicsLesson: Lesson = {
       points: [
         "Flexbox mempermudah penyusunan layout horizontal maupun vertikal.",
         "Gunakan justify-content dan align-items untuk mengontrol posisi elemen.",
-        "Latihan langsung lewat challenge membantu memahami behavior Flexbox di UI nyata.",
+        "Latihan langsung lewat challenge membuat perilaku Flexbox lebih mudah dipahami di UI nyata.",
       ],
     },
   ],

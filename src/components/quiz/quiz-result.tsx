@@ -62,7 +62,7 @@ export function QuizResult({ score, passingScore, bestScore, onRetry }: QuizResu
         }`}
       >
         {isPassed
-          ? "Quiz selesai. Progress lesson akan diperbarui jika semua blok wajib sudah selesai."
+          ? "Quiz selesai. Progres lesson diperbarui setelah semua blok wajib selesai."
           : "Belum lulus. Kamu bisa ulang quiz ini dan tingkatkan skor tanpa penalti."}
       </p>
 

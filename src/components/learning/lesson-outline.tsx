@@ -31,7 +31,7 @@ export function LessonOutline({ blocks, completedBlockIds, compact = false }: Le
   return (
     <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-5">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-sm font-semibold text-zinc-100">Outline pelajaran</h2>
+        <h2 className="text-sm font-semibold text-zinc-100">Isi lesson</h2>
         {compact ? <span className="text-xs text-zinc-500">{blocks.length} blok</span> : null}
       </div>
       <ol

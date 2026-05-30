@@ -23,7 +23,7 @@ export function Sidebar() {
       <div className="mb-6 rounded-2xl border border-zinc-800/80 bg-zinc-950/60 p-4">
         <p className="text-sm font-semibold text-zinc-200">FluentStack</p>
         <p className="mt-2 text-sm leading-6 text-zinc-200">
-          Belajar skill tech dengan flow yang jelas dan praktis.
+          Belajar tech skill lewat lesson, quiz, dan practice block yang terarah.
         </p>
       </div>
       <nav className="space-y-1.5">

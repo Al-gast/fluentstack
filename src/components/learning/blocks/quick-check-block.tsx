@@ -34,8 +34,8 @@ export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBl
 
   return (
     <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 sm:p-6">
-      <p className="text-xs font-medium text-cyan-200">Activity block</p>
-      <h3 className="mt-2 text-xl font-bold text-zinc-100">Quick check</h3>
+      <p className="text-xs font-medium text-cyan-200">Cek pemahaman</p>
+      <h3 className="mt-2 text-xl font-bold text-zinc-100">Quick check singkat</h3>
       <p className="mt-3 text-base leading-7 text-zinc-200">{block.question}</p>
 
       <div className="mt-4 space-y-2" role="radiogroup" aria-label={block.question}>
@@ -118,7 +118,7 @@ export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBl
               : "border-rose-300/35 bg-rose-500/10 text-rose-100"
           }`}
         >
-          <p className="font-semibold">{isCorrect ? "Jawaban kamu benar." : "Jawaban belum tepat."}</p>
+          <p className="font-semibold">{isCorrect ? "Benar." : "Belum tepat."}</p>
           <p className="mt-2">{block.explanation}</p>
         </div>
       ) : null}

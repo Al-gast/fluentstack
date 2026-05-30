@@ -21,8 +21,8 @@ export default async function LoginPage() {
     <AppShell title="Login">
       <div className="mx-auto flex min-h-[65vh] max-w-[1440px] items-center justify-center">
         <AuthCard
-          title="Masuk ke FluentStack"
-          description="Lanjutkan belajar dengan akun kamu. Kalau belum punya akun, daftar dulu dalam beberapa detik."
+          title="Masuk ke akun kamu"
+          description="Gunakan akun untuk menyimpan progres lintas device. Kamu tetap bisa belajar sebagai guest tanpa login."
           footerText="Belum punya akun?"
           footerLinkLabel="Daftar"
           footerLinkHref="/register"

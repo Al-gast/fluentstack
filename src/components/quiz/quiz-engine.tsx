@@ -113,7 +113,7 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
           }`}
         >
           <p className="font-semibold">
-            {currentIsCorrect ? "Jawaban kamu benar." : "Jawaban kamu belum tepat."}
+            {currentIsCorrect ? "Benar." : "Belum tepat."}
           </p>
           <p className="mt-2">{currentQuestion.explanation}</p>
         </div>
@@ -127,7 +127,7 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
             onClick={handleSubmitCurrent}
             className="rounded-lg bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40 disabled:cursor-not-allowed disabled:bg-zinc-600 disabled:text-zinc-300"
           >
-            Submit jawaban
+            Kirim jawaban
           </button>
         ) : (
           <button
@@ -135,7 +135,7 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
             onClick={handleContinue}
             className="rounded-lg bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
           >
-            {questionNumber === totalQuestions ? "Lihat hasil" : "Lanjut pertanyaan"}
+            {questionNumber === totalQuestions ? "Lihat hasil" : "Lanjut"}
           </button>
         )}
       </div>

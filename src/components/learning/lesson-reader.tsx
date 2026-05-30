@@ -48,7 +48,7 @@ export function LessonReader({ lesson }: LessonReaderProps) {
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
         <article className="min-w-0 space-y-8">
           <header className="border-b border-zinc-800/80 pb-7 sm:pb-8">
-            <p className="text-sm font-medium text-cyan-200">Pelajaran</p>
+            <p className="text-sm font-medium text-cyan-200">Lesson</p>
             <h1 className="mt-2 max-w-4xl text-3xl font-bold leading-tight text-zinc-50 sm:text-4xl">
               {lesson.title}
             </h1>

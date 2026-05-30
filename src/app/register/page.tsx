@@ -21,8 +21,8 @@ export default async function RegisterPage() {
     <AppShell title="Register">
       <div className="mx-auto flex min-h-[65vh] max-w-[1440px] items-center justify-center">
         <AuthCard
-          title="Daftar akun FluentStack"
-          description="Buat akun untuk menyimpan progres lintas device, atau tetap eksplor dulu dengan mode guest."
+          title="Buat akun FluentStack"
+          description="Akun menyimpan progres lintas device. Kalau masih ingin coba dulu, kamu bisa lanjut sebagai guest."
           footerText="Sudah punya akun?"
           footerLinkLabel="Masuk"
           footerLinkHref="/login"
