@@ -109,6 +109,10 @@ Lesson authoring rules:
 - Define required blocks in `completionRule.requiredBlockIds`.
 - Make progress depend on meaningful actions, not page views.
 
+New or revised lessons should also follow `docs/23_LESSON_FORMAT_STANDARD.md`.
+
+Use this guide (`docs/22_CONTENT_AUTHORING_GUIDE.md`) for content rules, schema alignment, naming, workflow, and review checks. Use `docs/23_LESSON_FORMAT_STANDARD.md` for the repeatable lesson structure: goal, path position, core concept, example, check, activity, summary, and bridge to the next lesson.
+
 ### Block
 
 A block is one learning or activity section inside a lesson.
