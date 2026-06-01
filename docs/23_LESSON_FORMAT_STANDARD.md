@@ -913,6 +913,20 @@ Weak validation label:
 Struktur HTML sudah benar.
 ```
 
+For beginner CSS coding practice, use CSS auto validation when the task checks deterministic requirements:
+
+* selector exists, such as `h1`, `p`, `.card`, `.intro`, `.card-title`, or `.card-description`
+* property exists anywhere
+* property exists inside a selector
+* property value includes an expected value
+* forbidden text such as `!important` is absent
+
+Keep manual checklist items for subjective review, visual quality, explanation quality, accessibility judgment, or local device work.
+
+CSS validation is not a full CSS parser. Keep checks simple and beginner-safe; do not rely on it for advanced selectors, complex cascade behavior, full layout correctness, or JavaScript execution.
+
+See `docs/22_CONTENT_AUTHORING_GUIDE.md` for a complete CSS validation metadata example.
+
 ## Example: Apa Itu Website dan Web Page?
 
 Lesson type:

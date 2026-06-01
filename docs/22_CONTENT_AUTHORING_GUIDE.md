@@ -738,6 +738,87 @@ Weak validation label:
 HTML sudah bagus.
 ```
 
+### CSS Auto Validation Metadata
+
+Use CSS auto validation for beginner deterministic CSS practice.
+
+Supported CSS validation checks:
+
+* `cssSelectorExists`: checks that a simple selector exists, such as `h1`, `p`, `.card`, `.intro`, `.card-title`, or `.card-description`.
+* `cssPropertyExists`: checks that a CSS property exists anywhere in the CSS.
+* `cssSelectorPropertyExists`: checks that a property exists inside a specific selector block.
+* `cssSelectorPropertyValue`: checks that a property inside a selector includes an expected value.
+* `cssForbiddenTextAbsent`: checks that forbidden CSS text is not used, such as `!important`.
+
+Use automatic CSS validation for requirements such as:
+
+* `h1` has `font-size`
+* `p` has `color`
+* `.card` has `background`, `padding`, and `border-radius`
+* `.intro` has `color`
+* code does not use `!important`
+
+Keep manual checklist items for:
+
+* whether the result looks visually balanced
+* whether spacing feels comfortable
+* whether the design matches a reference
+* whether accessibility review needs human judgment
+* whether the learner can explain why one CSS rule wins
+
+Complete CSS validation example:
+
+```ts
+validation: {
+  mode: "css",
+  checks: [
+    {
+      id: "has-card-selector",
+      label: "Ada selector .card.",
+      type: "cssSelectorExists",
+      target: ".card",
+    },
+    {
+      id: "card-padding",
+      label: ".card punya property padding.",
+      type: "cssSelectorPropertyExists",
+      target: ".card",
+      property: "padding",
+    },
+    {
+      id: "card-title-font-size",
+      label: ".card-title punya property font-size.",
+      type: "cssSelectorPropertyExists",
+      target: ".card-title",
+      property: "font-size",
+    },
+    {
+      id: "intro-color-value",
+      label: ".intro memakai color #38bdf8.",
+      type: "cssSelectorPropertyValue",
+      target: ".intro",
+      property: "color",
+      valueIncludes: "#38bdf8",
+    },
+    {
+      id: "no-important",
+      label: "Kode tidak memakai !important.",
+      type: "cssForbiddenTextAbsent",
+      valueIncludes: "!important",
+    },
+  ],
+}
+```
+
+CSS validation limitations:
+
+* This is not a full CSS parser.
+* It is intended for beginner deterministic practice.
+* Use simple element, class, or id selectors in this pass.
+* Advanced selectors, selector lists, nesting, media-query-specific checks, and complex cascade analysis are not supported in this pass.
+* JavaScript is not executed during validation.
+* Do not use CSS auto validation for subjective visual quality.
+
 ## Writing Practice Authoring Rules
 
 Writing practice should produce a realistic work artifact.

@@ -633,6 +633,8 @@ Improvement tips:
 * Use labels such as “Ada elemen h1.”
 * Avoid labels such as “Kode sudah bagus.”
 * Use manual review for subjective quality.
+* For beginner CSS practice, use deterministic checks for simple selectors, properties, selector-property pairs, expected values, and forbidden text such as `!important`.
+* Do not score advanced CSS behavior as auto-validated unless the validator actually supports it.
 
 ### 4. Preview or Review Value
 
