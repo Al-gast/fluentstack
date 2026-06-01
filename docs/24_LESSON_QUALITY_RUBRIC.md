@@ -186,6 +186,7 @@ Improvement tips:
 - Quizzes feel like learning checks, not exams.
 - Wrong answers are plausible and explanations teach the rule behind the answer.
 - Questions test application, not memorized wording.
+- Correct answers are not predictably placed in the first option.
 
 7/10:
 
@@ -204,6 +205,7 @@ Improvement tips:
 - Ask "When should you use this?" or "Which choice fits this situation?"
 - Replace joke answers with common misconceptions.
 - Explain why the correct answer works and why the common wrong assumption fails.
+- Vary multiple-choice option order without using trick wording.
 
 ### 8. Summary Quality
 

@@ -26,7 +26,7 @@ export function QuizResult({ score, passingScore, bestScore, onRetry }: QuizResu
           >
             {isPassed ? "Lulus" : "Belum lulus"}
           </p>
-          <h4 className="mt-1 text-lg font-bold text-zinc-100">Hasil quiz</h4>
+          <h4 className="mt-1 text-lg font-bold text-zinc-100">Hasil kuis</h4>
         </div>
         <span
           className={`rounded-full border px-3 py-1 text-sm font-semibold ${
@@ -62,8 +62,8 @@ export function QuizResult({ score, passingScore, bestScore, onRetry }: QuizResu
         }`}
       >
         {isPassed
-          ? "Quiz selesai. Progres lesson diperbarui setelah semua blok wajib selesai."
-          : "Belum lulus. Kamu bisa ulang quiz ini dan tingkatkan skor tanpa penalti."}
+          ? "Kuis selesai. Progres pelajaran diperbarui setelah semua blok wajib selesai."
+          : "Belum lulus. Kamu bisa ulang kuis ini dan tingkatkan skor tanpa penalti."}
       </p>
 
       <button
@@ -71,7 +71,7 @@ export function QuizResult({ score, passingScore, bestScore, onRetry }: QuizResu
         onClick={onRetry}
         className="mt-4 rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
       >
-        Ulang quiz
+        Ulang kuis
       </button>
     </div>
   );

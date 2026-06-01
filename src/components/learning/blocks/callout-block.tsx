@@ -13,12 +13,19 @@ const variantClass: Record<CalloutBlockData["variant"], string> = {
   important: "border-indigo-300/25 bg-indigo-500/5",
 };
 
+const variantLabel: Record<CalloutBlockData["variant"], string> = {
+  tip: "Tips",
+  warning: "Peringatan",
+  "common-mistake": "Kesalahan umum",
+  important: "Catatan penting",
+};
+
 export function CalloutBlock({ block, isCompleted, onComplete }: CalloutBlockProps) {
   return (
     <section
       className={`rounded-2xl border p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-6 ${variantClass[block.variant]}`}
     >
-      <p className="text-xs font-medium text-zinc-300">Catatan {block.variant.replace("-", " ")}</p>
+      <p className="text-xs font-medium text-zinc-300">{variantLabel[block.variant]}</p>
       <h3 className="mt-2 text-lg font-bold text-zinc-100">{block.title}</h3>
       <p className="mt-3 text-sm leading-7 text-zinc-200">{block.content}</p>
 

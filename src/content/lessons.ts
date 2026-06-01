@@ -7,45 +7,60 @@ export const whatIsWebsiteAndWebPageLesson: Lesson = {
   title: "Apa Itu Website dan Web Page?",
   slug: "what-is-website-and-web-page",
   description:
-    "Bedakan website dan web page supaya kamu tahu apa yang sedang dibuka browser.",
+    "Bedakan website dan web page sebelum melihat cara browser membuka sebuah URL.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 18,
   objectives: [
-    "Membedakan website dan web page",
-    "Memahami browser sebagai aplikasi untuk membuka web page",
-    "Mengenali URL sebagai alamat halaman di web",
+    "Membedakan website dan web page dengan contoh FluentStack",
+    "Mengenali URL sebagai alamat untuk membuka satu halaman",
+    "Mengamati bahwa Dashboard, Roadmap, dan Lesson adalah halaman berbeda di satu website",
   ],
   skillTags: ["Web Fundamentals", "Browser", "URL"],
   blocks: [
     {
       id: "what-is-website-and-web-page-intro",
       type: "text",
-      title: "Website bukan selalu satu halaman",
+      title: "Mulai dari halaman yang sedang kamu buka",
       content:
-        "Website adalah kumpulan halaman yang bisa dibuka lewat browser. Web page adalah satu halaman di dalam website. Contohnya, FluentStack adalah website. Halaman Dashboard, Roadmap, dan Lesson adalah web page yang berbeda di dalamnya.",
+        "Kamu belum perlu memikirkan kode dulu. Lesson ini mulai dari hal yang sudah kamu lakukan: membuka halaman di browser. Browser adalah aplikasi seperti Chrome, Safari, Firefox, atau Edge yang dipakai untuk membuka halaman di web. Sebelum masuk ke HTML, CSS, dan JavaScript, kamu akan membedakan website, web page, dan URL dengan melihat FluentStack sebagai contoh.",
+    },
+    {
+      id: "what-is-website-and-web-page-core-concept",
+      type: "text",
+      title: "Website adalah kumpulan, web page adalah satu halaman",
+      content:
+        "Website adalah kumpulan halaman yang saling berhubungan. Web page adalah satu halaman tertentu di dalam website itu. FluentStack adalah website. Dashboard adalah satu web page. Roadmap adalah web page lain. Halaman Lesson yang sedang kamu baca ini juga satu web page di dalam FluentStack.",
+    },
+    {
+      id: "what-is-website-and-web-page-mini-action",
+      type: "text",
+      title: "Coba amati alamat di browser",
+      content:
+        "Sekarang lihat address bar di bagian atas browser kamu. URL adalah alamat yang membantu browser membuka halaman tertentu. Di website yang sama, bagian path setelah nama website bisa berubah. Misalnya, /dashboard menunjukkan halaman Dashboard, /roadmap menunjukkan halaman Roadmap, dan /lesson/what-is-website-and-web-page menunjukkan halaman Lesson ini. Path itu membantu kamu melihat web page mana yang sedang terbuka.",
     },
     {
       id: "what-is-website-and-web-page-url-note",
       type: "callout",
-      variant: "important",
-      title: "URL adalah alamat halaman",
+      variant: "common-mistake",
+      title: "Website dan web page berhubungan, tapi tidak sama",
       content:
-        "URL membantu browser tahu halaman mana yang harus dibuka. Dua halaman bisa berada di website yang sama, tetapi punya URL berbeda.",
+        "Satu website bisa punya banyak web page. URL adalah alamat untuk satu halaman tertentu. Jadi, Dashboard dan Roadmap bisa berada di website FluentStack yang sama, tetapi tetap punya URL yang berbeda.",
     },
     {
       id: "what-is-website-and-web-page-quick-check",
       type: "quick-check",
-      question: "Kalau FluentStack punya halaman Dashboard dan halaman Roadmap, mana pernyataan yang paling tepat?",
+      question:
+        "Kalau kamu membuka Dashboard dan Roadmap di FluentStack, mana pernyataan yang paling tepat?",
       options: [
         "Dashboard dan Roadmap adalah dua web page di dalam satu website",
-        "Dashboard adalah browser, sedangkan Roadmap adalah server",
-        "Dashboard dan Roadmap harus selalu punya domain berbeda",
-        "Roadmap hanya bisa dibuka kalau JavaScript dimatikan",
+        "Dashboard dan Roadmap adalah dua website yang tidak berhubungan",
+        "Dashboard adalah website, sedangkan Roadmap adalah browser",
+        "Dashboard dan Roadmap adalah URL yang sama persis",
       ],
       correctAnswer: "Dashboard dan Roadmap adalah dua web page di dalam satu website",
       explanation:
-        "Satu website bisa punya banyak web page. Setiap web page biasanya punya URL sendiri agar browser tahu halaman mana yang ingin dibuka.",
+        "Tepat. FluentStack adalah websitenya. Dashboard dan Roadmap adalah dua halaman berbeda di dalam website itu. Biasanya masing-masing halaman punya URL sendiri.",
     },
     {
       id: "what-is-website-and-web-page-quiz-block",
@@ -56,16 +71,18 @@ export const whatIsWebsiteAndWebPageLesson: Lesson = {
       id: "what-is-website-and-web-page-summary",
       type: "summary",
       points: [
-        "Website adalah kumpulan halaman yang bisa dibuka lewat browser.",
-        "Web page adalah satu halaman tertentu di dalam website.",
-        "URL adalah alamat yang membantu browser membuka halaman yang tepat.",
-        "Berikutnya, kamu akan melihat apa yang terjadi saat browser membuka URL.",
+        "Ingat website sebagai kumpulan halaman yang saling berhubungan, seperti FluentStack.",
+        "Kenali web page sebagai satu halaman spesifik, seperti Dashboard, Roadmap, atau halaman Lesson ini.",
+        "Gunakan URL sebagai alamat yang membantu browser membuka halaman yang tepat.",
+        "Sekarang kamu sudah tahu apa itu web page. Berikutnya, kamu akan melihat apa yang terjadi saat browser membuka sebuah URL.",
       ],
     },
   ],
   completionRule: {
     requiredBlockIds: [
       "what-is-website-and-web-page-intro",
+      "what-is-website-and-web-page-core-concept",
+      "what-is-website-and-web-page-mini-action",
       "what-is-website-and-web-page-url-note",
       "what-is-website-and-web-page-quick-check",
       "what-is-website-and-web-page-quiz-block",

@@ -403,6 +403,8 @@ Rules:
 - Keep explanations clear and supportive.
 - Explain why the correct answer works.
 - Explain the common misconception when useful.
+- Vary correct answer positions in multiple-choice options so learners cannot guess from position.
+- Do not make option ordering tricky; vary position while keeping wording clear.
 - Use Bahasa Indonesia for frontend quizzes.
 - Use bilingual context only when the quiz belongs to English for Tech Careers.
 

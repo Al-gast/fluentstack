@@ -25,8 +25,8 @@ export function QuizBlock({
   if (!quiz) {
     return (
       <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 sm:p-6">
-        <h3 className="text-xl font-bold text-zinc-100">Quiz pelajaran</h3>
-        <p className="mt-3 text-sm text-zinc-300">Data quiz tidak ditemukan untuk ID {block.quizId}.</p>
+        <h3 className="text-xl font-bold text-zinc-100">Kuis pelajaran</h3>
+        <p className="mt-3 text-sm text-zinc-300">Data kuis tidak ditemukan untuk ID {block.quizId}.</p>
       </section>
     );
   }
@@ -35,7 +35,7 @@ export function QuizBlock({
 
   return (
     <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 sm:p-6">
-      <p className="text-xs font-medium text-cyan-200">Quiz</p>
+      <p className="text-xs font-medium text-cyan-200">Kuis</p>
       <h3 className="mt-2 text-xl font-bold text-zinc-100">{quiz.title}</h3>
       <p className="mt-2 text-sm text-zinc-300">
         Jawab pertanyaan satu per satu. Kamu bisa ulang jika belum mencapai target lulus.
@@ -57,11 +57,11 @@ export function QuizBlock({
           </p>
         </div>
         {isCompleted ? (
-          <p className="sm:col-span-3 text-sm font-semibold text-emerald-200">Quiz selesai.</p>
+          <p className="sm:col-span-3 text-sm font-semibold text-emerald-200">Kuis selesai.</p>
         ) : null}
         {isRequired && !isCompleted ? (
           <p className="sm:col-span-3 text-sm text-amber-200/90">
-            Blok ini wajib untuk menyelesaikan lesson.
+            Blok ini wajib untuk menyelesaikan pelajaran.
           </p>
         ) : null}
       </div>
