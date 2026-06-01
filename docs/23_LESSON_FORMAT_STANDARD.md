@@ -290,8 +290,10 @@ Use this pattern when a lesson requires local installation, external accounts, C
    * Avoid naming many tools before the learner knows why they matter.
 
 3. Official resource link
+   * Use a `resource-links` block for important tool links.
    * Link the official download/docs page.
    * Tell learners what section to focus on and what to ignore for now.
+   * Do not bury raw URLs inside prose.
 
 4. Small setup checklist
    * Keep setup steps short and observable.
@@ -319,6 +321,8 @@ Use this pattern when a lesson requires local installation, external accounts, C
 
 Regular lessons should stay focused. A tooling lesson should not become a full installation manual. Link official docs for full setup details and teach only what the current module needs.
 
+Place `resource-links` after the tool prerequisite note or before the local checklist. Use it for official resources that learners may need to open, such as editor downloads, DevTools docs, Git install pages, GitHub getting started docs, deployment docs, or cloud provider setup pages.
+
 ## Mapping to Current Schema
 
 | Lesson section                  | Current FluentStack structure                                                                       | Notes                                                                                 |
@@ -334,6 +338,7 @@ Regular lessons should stay focused. A tooling lesson should not become a full i
 | Built-in practice               | `coding-practice` or `writing-practice`                                                             | Use when learners should apply the concept.                                           |
 | Quiz                            | `quiz`                                                                                              | Mainly for Uji Kompetensi. Use in regular lessons only when justified.                |
 | Documentation Bridge            | `text`, `callout`, `summary`, or future docs block                                                  | Use guided docs reading. Do not dump links.                                           |
+| External tool resources         | `resource-links`                                                                                    | Use for official required/recommended/optional tool links. Avoid raw URLs in prose.   |
 | Local Dev Milestone             | `text`, `callout`, `code-example`, `writing-practice`, `summary`, checklist-style content           | Use existing blocks until a dedicated feature exists.                                 |
 | Completion checklist            | `coding-practice.checklist`, validation metadata, `writing-practice.checklist`, or `summary` points | Use checklist items that learners can verify.                                         |
 | Summary                         | `summary`                                                                                           | Make it actionable. No motivational filler.                                           |

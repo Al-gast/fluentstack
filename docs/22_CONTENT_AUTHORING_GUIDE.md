@@ -333,6 +333,24 @@ Classify tools clearly:
 
 Always prefer official download or documentation links. If a tool has many install options, link the official source and tell the learner what to focus on.
 
+Important external tool links should use structured `resource-links` blocks, not raw URLs buried inside prose.
+
+Use `resource-links` for:
+
+* official tool downloads
+* official getting started docs
+* official CLI, DevTools, deployment, backend, or cloud setup pages
+* account setup docs when an external account is required
+
+Each resource link should include:
+
+* descriptive title
+* source when useful
+* short description
+* official URL
+* descriptive button label
+* kind: `required`, `recommended`, or `optional`
+
 Do not assume tools are already installed unless a previous lesson explicitly covered them.
 
 Introduce tools progressively:

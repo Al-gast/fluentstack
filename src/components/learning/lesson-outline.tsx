@@ -22,6 +22,8 @@ function getBlockLabel(block: LessonBlock): string {
       return "Coding practice";
     case "writing-practice":
       return "Writing practice";
+    case "resource-links":
+      return "Resource resmi";
     default:
       return block.type;
   }

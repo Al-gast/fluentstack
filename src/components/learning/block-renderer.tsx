@@ -5,6 +5,7 @@ import { CodeExampleBlock } from "@/components/learning/blocks/code-example-bloc
 import { DocumentationBridgeBlock } from "@/components/learning/blocks/documentation-bridge-block";
 import { QuickCheckBlock } from "@/components/learning/blocks/quick-check-block";
 import { QuizBlock } from "@/components/learning/blocks/quiz-block";
+import { ResourceLinksBlock } from "@/components/learning/blocks/resource-links-block";
 import { SummaryBlock } from "@/components/learning/blocks/summary-block";
 import { TextBlock } from "@/components/learning/blocks/text-block";
 import { WritingPracticeBlock } from "@/components/learning/blocks/writing-practice-block";
@@ -102,6 +103,14 @@ export function BlockRenderer({
     case "documentation-bridge":
       return (
         <DocumentationBridgeBlock
+          block={block}
+          isCompleted={isCompleted}
+          onComplete={() => onCompleteBlock(block.id)}
+        />
+      );
+    case "resource-links":
+      return (
+        <ResourceLinksBlock
           block={block}
           isCompleted={isCompleted}
           onComplete={() => onCompleteBlock(block.id)}

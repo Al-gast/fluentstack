@@ -878,20 +878,23 @@ Use this for lessons that require local installation, external accounts, CLI com
 * Learner knows what must be installed, opened, signed into, or configured before starting.
 * Tools are labeled as required, recommended, or optional.
 * Official download/docs links are included when setup is needed.
+* Important tool links are clickable, descriptive, and not buried as raw URLs in paragraph text.
 
 7/10:
 
 * Tools are mentioned, but status or setup source could be clearer.
+* Links exist but are easy to miss.
 
 5/10 or below:
 
 * Lesson assumes tools are already installed.
 * Learner may not know what tool to use or where to get it.
+* External resources appear as raw URL dumps or unclear “click here” links.
 
 Improvement tips:
 
 * Add a short prerequisite note.
-* Use official links.
+* Use official links in structured resource cards or clearly styled links.
 * Tell learners what to ignore for now.
 
 ### 2. Tool Purpose and Timing

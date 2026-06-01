@@ -2941,7 +2941,7 @@ export const setupLocalProjectFolderLesson: Lesson = {
       type: "text",
       title: "Mulai dari folder kerja",
       content:
-        "Project lokal adalah folder kerja di perangkat kamu sendiri. Untuk milestone ini, kamu belum perlu npm, React, Next.js, bundler, atau deployment. Website statis sederhana cukup dimulai dari file HTML dan CSS yang bisa dibuka langsung di browser.\n\nFokusnya adalah memahami workflow dasar: membuat folder, menulis file, menyimpan perubahan, membuka di browser, lalu nanti menyimpan progres dengan Git.",
+        "Project lokal adalah folder kerja di perangkat kamu sendiri. Di module ini, tool yang dipakai bertahap: code editor untuk mengedit file, browser untuk membuka halaman, DevTools untuk inspect HTML/CSS, Git untuk menyimpan riwayat perubahan, dan GitHub untuk menyimpan repository online.\n\nUntuk milestone ini, kamu belum perlu npm, React, Next.js, bundler, framework, package manager, atau deployment. Website statis sederhana cukup dimulai dari file HTML dan CSS yang bisa dibuka langsung di browser.\n\nFokusnya adalah memahami workflow dasar: membuat folder, menulis file, menyimpan perubahan, membuka di browser, lalu nanti menyimpan progres dengan Git.",
     },
     {
       id: "setup-local-project-folder-structure",
@@ -2959,7 +2959,7 @@ export const setupLocalProjectFolderLesson: Lesson = {
       type: "text",
       title: "Checklist local task",
       content:
-        "Kerjakan di perangkat kamu:\n\n- Buat folder project, misalnya my-static-site.\n- Buat file index.html di dalam folder itu.\n- Buat file style.css di folder yang sama.\n- Pastikan nama file ditulis persis: index.html dan style.css.\n\nChecklist ini tidak diperiksa otomatis oleh FluentStack. Tandai selesai setelah kamu benar-benar membuat file lokalnya.",
+        "Kerjakan di perangkat kamu:\n\n- Pastikan kamu punya code editor atau aplikasi text editor yang nyaman.\n- Pastikan kamu punya browser modern seperti Chrome, Firefox, Edge, atau Safari.\n- Buat folder project, misalnya my-static-site.\n- Buat file index.html di dalam folder itu.\n- Buat file style.css di folder yang sama.\n- Pastikan nama file ditulis persis: index.html dan style.css.\n\nChecklist ini tidak diperiksa otomatis oleh FluentStack. Tandai selesai setelah kamu benar-benar membuat file lokalnya.",
     },
     {
       id: "setup-local-project-folder-callout",
@@ -3014,7 +3014,25 @@ export const openProjectInCodeEditorLesson: Lesson = {
       type: "text",
       title: "Buka folder, bukan hanya satu file",
       content:
-        "Code editor membantu kamu melihat seluruh isi folder project. Membuka folder lebih nyaman daripada membuka index.html dan style.css satu per satu, karena kamu bisa berpindah file dengan jelas dan melihat apakah file berada di lokasi yang benar.\n\nDi lesson ini, kamu akan menghubungkan HTML ke CSS. Kalau hubungan ini benar, perubahan di style.css akan terlihat saat index.html dibuka di browser.",
+        "Code editor membantu kamu melihat seluruh isi folder project. Di beginner path ini, contoh akan memakai Visual Studio Code karena umum dipakai dan ramah untuk project web kecil.\n\nCode editor lain tetap boleh dipakai kalau kamu sudah nyaman, tetapi VS Code direkomendasikan agar langkah-langkah di lesson lebih mudah diikuti.\n\nMembuka folder lebih nyaman daripada membuka index.html dan style.css satu per satu, karena kamu bisa berpindah file dengan jelas dan melihat apakah file berada di lokasi yang benar.\n\nDi lesson ini, kamu akan menghubungkan HTML ke CSS. Kalau hubungan ini benar, perubahan di style.css akan terlihat saat index.html dibuka di browser.",
+    },
+    {
+      id: "open-project-in-code-editor-resources",
+      type: "resource-links",
+      title: "Resource code editor",
+      description:
+        "Gunakan link resmi ini jika kamu belum punya code editor. VS Code direkomendasikan untuk mengikuti beginner path ini.",
+      links: [
+        {
+          source: "Visual Studio Code",
+          title: "Download Visual Studio Code",
+          description:
+            "Install VS Code untuk membuka folder project, mengedit index.html, dan mengedit style.css.",
+          url: "https://code.visualstudio.com/download",
+          label: "Download VS Code",
+          kind: "recommended",
+        },
+      ],
     },
     {
       id: "open-project-in-code-editor-html",
@@ -3058,7 +3076,7 @@ export const openProjectInCodeEditorLesson: Lesson = {
       type: "text",
       title: "Checklist local task",
       content:
-        "Kerjakan di perangkat kamu:\n\n- Buka folder project di code editor.\n- Isi index.html dengan struktur HTML dasar.\n- Tambahkan link ke style.css di dalam head.\n- Tambahkan style sederhana di style.css.\n- Simpan kedua file.\n\nKalau style belum terlihat nanti di browser, cek nama file, lokasi file, dan nilai href pada link stylesheet.",
+        "Kerjakan di perangkat kamu:\n\n- Install atau buka code editor. Untuk path ini, VS Code direkomendasikan.\n- Buka folder project sebagai folder/workspace, bukan hanya satu file.\n- Isi index.html dengan struktur HTML dasar.\n- Tambahkan link ke style.css di dalam head.\n- Tambahkan style sederhana di style.css.\n- Simpan kedua file.\n\nKalau style belum terlihat nanti di browser, cek nama file, lokasi file, dan nilai href pada link stylesheet.",
     },
     {
       id: "open-project-in-code-editor-callout",
@@ -3115,14 +3133,14 @@ export const runHtmlInBrowserLesson: Lesson = {
       type: "text",
       title: "HTML lokal bisa dibuka di browser",
       content:
-        "File HTML lokal bisa dibuka langsung di browser. Saat kamu membuka index.html dari perangkat sendiri, address bar biasanya diawali file://. Itu berarti browser sedang membaca file dari komputer kamu, bukan membuka website online.\n\nSetelah mengedit file, simpan dulu file-nya, lalu refresh browser. Browser membaca versi file yang tersimpan.",
+        "File HTML lokal bisa dibuka langsung di browser. Chrome direkomendasikan untuk module ini karena lesson DevTools berikutnya memakai contoh Chrome DevTools. Browser modern lain seperti Firefox, Edge, atau Safari tetap bisa membuka file HTML lokal.\n\nSaat kamu membuka index.html dari perangkat sendiri, address bar biasanya diawali file://. Itu berarti browser sedang membaca file dari komputer kamu, bukan membuka website online.\n\nSetelah mengedit file, simpan dulu file-nya di code editor, lalu refresh browser. Browser membaca versi file yang tersimpan.",
     },
     {
       id: "run-html-in-browser-local-task",
       type: "text",
       title: "Checklist local task",
       content:
-        "Kerjakan di perangkat kamu:\n\n- Buka index.html di browser.\n- Pastikan konten h1 dan paragraph terlihat.\n- Ubah teks di index.html.\n- Simpan file.\n- Refresh browser.\n- Ubah satu style di style.css.\n- Simpan file CSS.\n- Refresh browser lagi.\n\nIni belum deployment dan belum online. Tahap ini hanya memastikan project lokal bisa dibuka dan diperbarui.",
+        "Kerjakan di perangkat kamu:\n\n- Buka index.html di browser, idealnya Chrome untuk mengikuti lesson DevTools berikutnya.\n- Pastikan konten h1 dan paragraph terlihat.\n- Ubah teks di index.html.\n- Simpan file terlebih dahulu.\n- Refresh browser.\n- Ubah satu style di style.css.\n- Simpan file CSS terlebih dahulu.\n- Refresh browser lagi.\n\nIni belum deployment dan belum online. Tahap ini hanya memastikan project lokal bisa dibuka dan diperbarui.",
     },
     {
       id: "run-html-in-browser-callout",
@@ -3194,21 +3212,48 @@ export const basicDevtoolsStaticPageLesson: Lesson = {
       type: "text",
       title: "DevTools membantu melihat apa yang browser baca",
       content:
-        "DevTools adalah alat di browser untuk melihat struktur halaman, style CSS, error, dan banyak hal lain. Untuk tahap ini, fokus cukup pada dua area: Elements dan Styles.\n\nElements membantu kamu melihat HTML yang sedang dibaca browser. Styles membantu kamu melihat CSS yang berlaku pada elemen yang dipilih.",
+        "DevTools adalah alat di browser untuk melihat struktur halaman, style CSS, error, dan banyak hal lain. Chrome DevTools sudah built-in di Chrome, jadi tidak perlu instalasi terpisah.\n\nUntuk tahap ini, fokus cukup pada dua area: Elements dan Styles. Elements membantu kamu melihat HTML yang sedang dibaca browser. Styles membantu kamu melihat CSS yang berlaku pada elemen yang dipilih.",
+    },
+    {
+      id: "basic-devtools-static-page-resources",
+      type: "resource-links",
+      title: "Resource Chrome DevTools",
+      description:
+        "Gunakan resource resmi ini untuk membuka DevTools dan memahami cara inspect HTML/CSS. Fokus pada langkah dasar dulu.",
+      links: [
+        {
+          source: "Chrome DevTools Docs",
+          title: "Open Chrome DevTools",
+          description:
+            "Panduan resmi untuk membuka DevTools dari Chrome.",
+          url: "https://developer.chrome.com/docs/devtools/open",
+          label: "Buka panduan DevTools",
+          kind: "recommended",
+        },
+        {
+          source: "Chrome DevTools Docs",
+          title: "Inspect CSS and HTML",
+          description:
+            "Panduan resmi untuk melihat HTML yang dipilih dan CSS yang berlaku pada elemen.",
+          url: "https://developer.chrome.com/docs/devtools/css",
+          label: "Buka panduan inspect CSS",
+          kind: "recommended",
+        },
+      ],
     },
     {
       id: "basic-devtools-static-page-case-study",
       type: "text",
       title: "Case study: padding card tidak terlihat",
       content:
-        "Bayangkan kamu membuat .card, tetapi padding tidak terlihat. Cara mengeceknya:\n\n- Buka halaman lokal di browser.\n- Klik kanan pada card, lalu pilih Inspect.\n- Cek apakah elemen punya class card.\n- Cek panel Styles dan cari rule .card.\n- Lihat apakah property padding muncul.\n\nDengan cara ini, kamu tidak hanya menebak. Kamu melihat langsung apakah HTML dan CSS dibaca oleh browser.",
+        "Bayangkan kamu membuat .card, tetapi padding tidak terlihat. Cara mengeceknya:\n\n- Buka halaman lokal di Chrome.\n- Klik kanan pada elemen card.\n- Pilih Inspect.\n- Cek panel Elements dan pastikan elemen punya class card.\n- Cek panel Styles dan cari rule .card.\n- Lihat apakah property padding muncul.\n\nDengan cara ini, kamu tidak hanya menebak. Kamu melihat langsung apakah HTML dan CSS dibaca oleh browser.",
     },
     {
       id: "basic-devtools-static-page-local-task",
       type: "text",
       title: "Checklist local task",
       content:
-        "Kerjakan di browser kamu:\n\n- Buka halaman lokal.\n- Klik kanan lalu Inspect.\n- Pilih elemen .card.\n- Temukan class pada HTML di panel Elements.\n- Temukan rule CSS di panel Styles.\n- Ubah sementara nilai padding di DevTools jika memungkinkan.\n- Refresh halaman dan perhatikan bahwa perubahan DevTools tidak otomatis tersimpan ke file.\n\nTandai selesai setelah kamu berhasil menemukan elemen dan style yang berlaku.",
+        "Kerjakan di browser kamu:\n\n- Buka halaman lokal.\n- Klik kanan elemen utama, lalu pilih Inspect.\n- Pilih elemen .card di panel Elements.\n- Temukan class pada HTML di panel Elements.\n- Temukan rule CSS di panel Styles.\n- Ubah sementara nilai padding di DevTools jika memungkinkan.\n- Refresh halaman dan perhatikan bahwa perubahan DevTools tidak otomatis tersimpan ke file.\n- Jika perubahan DevTools ingin dipakai permanen, salin perubahannya ke style.css lalu simpan file.\n\nTandai selesai setelah kamu berhasil menemukan elemen dan style yang berlaku.",
     },
     {
       id: "basic-devtools-static-page-callout",
@@ -3264,7 +3309,43 @@ export const saveProjectWithGitGithubLesson: Lesson = {
       type: "text",
       title: "Git menyimpan riwayat, GitHub menyimpan repository online",
       content:
-        "Git membantu kamu menyimpan riwayat perubahan project. GitHub membantu menyimpan repository secara online agar project bisa dibuka kembali, dibagikan, dan nanti dipakai sebagai portofolio.\n\nKamu belum perlu memahami semua fitur Git. Di lesson ini, cukup pahami alur dasar: init, add, commit, remote, dan push.",
+        "Git membantu kamu menyimpan riwayat perubahan project. GitHub membantu menyimpan repository secara online agar project bisa dibuka kembali, dibagikan, dan nanti dipakai sebagai portofolio.\n\nTool prerequisite:\n- Required: Git terinstall di perangkat kamu.\n- Required: akun GitHub siap dipakai.\n- Recommended: baca GitHub Hello World untuk gambaran repository dan commit.\n\nKamu belum perlu memahami semua fitur Git. Di lesson ini, cukup pahami alur dasar: init, add, commit, remote, dan push.",
+    },
+    {
+      id: "save-project-with-git-github-resources",
+      type: "resource-links",
+      title: "Resource Git dan GitHub",
+      description:
+        "Gunakan link resmi ini untuk install Git dan memahami workflow GitHub beginner. Jalankan setup sesuai kebutuhan perangkat kamu.",
+      links: [
+        {
+          source: "Git",
+          title: "Git Downloads",
+          description:
+            "Install Git agar command seperti git init, git add, git commit, dan git push tersedia di terminal.",
+          url: "https://git-scm.com/install/",
+          label: "Install Git",
+          kind: "required",
+        },
+        {
+          source: "GitHub Docs",
+          title: "Get started with GitHub",
+          description:
+            "Panduan awal untuk akun GitHub, repository, dan workflow dasar.",
+          url: "https://docs.github.com/en/get-started",
+          label: "Buka GitHub Getting Started",
+          kind: "required",
+        },
+        {
+          source: "GitHub Docs",
+          title: "Hello World",
+          description:
+            "Panduan beginner untuk memahami repository, commit, branch, dan GitHub flow secara ringan.",
+          url: "https://docs.github.com/en/get-started/start-your-journey/hello-world",
+          label: "Buka GitHub Hello World",
+          kind: "recommended",
+        },
+      ],
     },
     {
       id: "save-project-with-git-github-commands",
@@ -3278,14 +3359,14 @@ git branch -M main
 git remote add origin <your-repository-url>
 git push -u origin main`,
       explanation:
-        "git init menyiapkan repository lokal. git add memilih file yang akan disimpan. git commit membuat snapshot perubahan. remote dan push mengirim repository ke GitHub.",
+        "Jalankan command satu per satu, jangan sekaligus. git init menyiapkan repository lokal. git add memilih file yang akan disimpan. git commit membuat snapshot perubahan. <your-repository-url> adalah URL repository GitHub kamu, misalnya URL yang diberikan GitHub setelah kamu membuat repository baru. remote dan push mengirim repository ke GitHub. Jika terminal mengatakan git tidak dikenali, kemungkinan Git belum terinstall atau terminal perlu dibuka ulang setelah install.",
     },
     {
       id: "save-project-with-git-github-local-task",
       type: "text",
       title: "Checklist local task",
       content:
-        "Kerjakan di folder project kamu:\n\n- Buka terminal di folder project.\n- Jalankan git init.\n- Tambahkan file ke staging dengan git add .\n- Buat commit pertama.\n- Buat repository baru di GitHub.\n- Hubungkan remote repository.\n- Push project ke GitHub.\n- Buka repository di browser dan pastikan file terlihat.\n\nJika Git masih terasa asing, itu normal. Fokus dulu pada urutan besarnya.",
+        "Kerjakan di folder project kamu:\n\n- Pastikan Git sudah terinstall.\n- Pastikan kamu bisa masuk ke akun GitHub.\n- Buka terminal di folder project.\n- Jalankan git init.\n- Tambahkan file ke staging dengan git add .\n- Buat commit pertama.\n- Buat repository baru di GitHub.\n- Salin repository URL dari GitHub, lalu pakai URL itu untuk mengganti <your-repository-url>.\n- Hubungkan remote repository.\n- Push project ke GitHub.\n- Jika GitHub meminta sign in atau authentication, ikuti instruksi resmi dari GitHub.\n- Buka repository di browser dan pastikan file terlihat.\n\nJika Git masih terasa asing, itu normal. Jalankan command satu per satu dan fokus dulu pada urutan besarnya.",
     },
     {
       id: "save-project-with-git-github-readme-practice",
@@ -3311,7 +3392,7 @@ git push -u origin main`,
       variant: "tip",
       title: "Tidak perlu menghafal semua command sekarang",
       content:
-        "Git akan terasa lebih masuk akal setelah dipakai berulang. Untuk tahap ini, pahami bahwa commit menyimpan snapshot dan push mengirim perubahan ke GitHub.",
+        "Git akan terasa lebih masuk akal setelah dipakai berulang. Untuk tahap ini, pahami bahwa commit menyimpan snapshot dan push mengirim perubahan ke GitHub. Jika git tidak dikenali di terminal, cek instalasi Git dulu, lalu buka ulang terminal.",
     },
     {
       id: "save-project-with-git-github-summary",
@@ -3370,11 +3451,56 @@ export const localStaticWebsiteProjectAssessmentLesson: Lesson = {
       quizId: "local-static-website-project-assessment-quiz",
     },
     {
+      id: "local-static-website-project-assessment-tool-resources",
+      type: "resource-links",
+      title: "Resource tool untuk self-review",
+      description:
+        "Gunakan link resmi ini jika kamu perlu mengecek ulang code editor, Git, GitHub, atau DevTools sebelum menyelesaikan assessment.",
+      links: [
+        {
+          source: "Visual Studio Code",
+          title: "Download Visual Studio Code",
+          description:
+            "Code editor yang direkomendasikan untuk beginner path ini.",
+          url: "https://code.visualstudio.com/download",
+          label: "Download VS Code",
+          kind: "recommended",
+        },
+        {
+          source: "Git",
+          title: "Git Downloads",
+          description:
+            "Install Git agar command Git tersedia di terminal.",
+          url: "https://git-scm.com/install/",
+          label: "Install Git",
+          kind: "required",
+        },
+        {
+          source: "GitHub Docs",
+          title: "Get started with GitHub",
+          description:
+            "Panduan awal untuk akun GitHub, repository, dan workflow dasar.",
+          url: "https://docs.github.com/en/get-started",
+          label: "Buka GitHub Getting Started",
+          kind: "required",
+        },
+        {
+          source: "Chrome DevTools Docs",
+          title: "Open Chrome DevTools",
+          description:
+            "Panduan resmi membuka DevTools di Chrome.",
+          url: "https://developer.chrome.com/docs/devtools/open",
+          label: "Buka panduan DevTools",
+          kind: "recommended",
+        },
+      ],
+    },
+    {
       id: "local-static-website-project-assessment-local-task",
       type: "text",
       title: "Local project checklist",
       content:
-        "Pastikan project lokal kamu memenuhi checklist ini:\n\n- Project punya folder sendiri.\n- Project punya index.html.\n- Project punya style.css.\n- HTML memakai struktur semantic sederhana.\n- CSS terhubung ke HTML lewat link stylesheet.\n- Halaman bisa dibuka di browser.\n- DevTools bisa inspect elemen utama.\n- Project punya minimal satu commit Git.\n- Project sudah dipush ke GitHub.\n- README singkat sudah ditulis.\n\nTandai blok ini selesai setelah kamu mengecek project lokalmu. Jangan tandai hanya karena sudah membaca checklist.",
+        "Tool readiness self-review:\n\n- Code editor sudah terinstall atau tersedia. VS Code direkomendasikan.\n- Browser modern tersedia. Chrome direkomendasikan untuk DevTools.\n- Git sudah terinstall.\n- Akun GitHub sudah siap dipakai.\n\nPastikan project lokal kamu memenuhi checklist ini:\n\n- Project punya folder sendiri.\n- Project punya index.html.\n- Project punya style.css.\n- HTML memakai struktur semantic sederhana.\n- CSS terhubung ke HTML lewat link stylesheet.\n- Halaman bisa dibuka di browser.\n- DevTools bisa inspect elemen utama.\n- Project punya minimal satu commit Git.\n- Project sudah dipush ke GitHub.\n- README singkat sudah ditulis.\n\nChecklist ini adalah self-review. FluentStack tidak memeriksa perangkat lokal, terminal, atau akun GitHub kamu secara otomatis. Tandai blok ini selesai setelah kamu mengecek project lokalmu. Jangan tandai hanya karena sudah membaca checklist.",
     },
     {
       id: "local-static-website-project-assessment-writing-practice",

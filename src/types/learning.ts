@@ -54,6 +54,7 @@ export type LessonBlock =
   | WritingPracticeBlock
   | QuizBlock
   | DocumentationBridgeBlock
+  | ResourceLinksBlock
   | SummaryBlock;
 
 export type TextBlock = {
@@ -126,6 +127,25 @@ export type DocumentationBridgeBlock = {
   description?: string;
   links: DocumentationBridgeLink[];
   followUpAction: string;
+};
+
+export type ResourceLinkKind = "required" | "recommended" | "optional";
+
+export type ResourceLink = {
+  title: string;
+  description?: string;
+  source?: string;
+  url: string;
+  label?: string;
+  kind?: ResourceLinkKind;
+};
+
+export type ResourceLinksBlock = {
+  id: string;
+  type: "resource-links";
+  title: string;
+  description?: string;
+  links: ResourceLink[];
 };
 
 export type SummaryBlock = {
