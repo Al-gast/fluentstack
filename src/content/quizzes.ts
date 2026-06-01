@@ -75,16 +75,16 @@ export const howWebPageLoadsQuiz: Quiz = {
     {
       id: "how-web-page-loads-q1",
       type: "multiple-choice",
-      question: "Apa yang dilakukan browser saat kamu membuka URL?",
+      question: "Saat kamu membuka URL, apa langkah pertama yang dilakukan browser secara sederhana?",
       options: [
-        "Menebak isi halaman tanpa alamat",
-        "Mengirim request untuk meminta resource yang dibutuhkan",
-        "Mengubah URL menjadi nama file lokal",
-        "Menyimpan halaman baru tanpa menghubungi server",
+        "Langsung menampilkan halaman tanpa meminta apa pun",
+        "Mengirim request untuk meminta halaman atau resource yang dibutuhkan",
+        "Mengubah URL menjadi folder project di komputer kamu",
+        "Menyalin halaman dari tab browser lain",
       ],
-      correctAnswer: "Mengirim request untuk meminta resource yang dibutuhkan",
+      correctAnswer: "Mengirim request untuk meminta halaman atau resource yang dibutuhkan",
       explanation:
-        "Browser mengirim request ke alamat tujuan untuk meminta resource seperti HTML, CSS, JavaScript, gambar, atau data sebelum halaman bisa dirender.",
+        "Request berarti permintaan. Browser memakai URL untuk tahu halaman mana yang perlu diminta sebelum halaman bisa ditampilkan.",
     },
     {
       id: "how-web-page-loads-q2",
@@ -98,19 +98,24 @@ export const howWebPageLoadsQuiz: Quiz = {
       id: "how-web-page-loads-q3",
       type: "multiple-choice",
       question: "Apa contoh resource yang bisa dikirim server sebagai response?",
-      options: ["Mouse dan keyboard", "Kecerahan layar", "File halaman, gambar, atau data", "Nama aplikasi browser saja"],
-      correctAnswer: "File halaman, gambar, atau data",
+      options: [
+        "Pengaturan brightness layar",
+        "Riwayat semua tab yang pernah dibuka",
+        "File halaman, gambar, atau data yang dibutuhkan",
+        "Nama keyboard yang sedang dipakai",
+      ],
+      correctAnswer: "File halaman, gambar, atau data yang dibutuhkan",
       explanation:
-        "Response bisa berisi resource yang dibutuhkan halaman, misalnya file halaman, gambar, file pendukung, atau data.",
+        "Response adalah balasan dari server. Balasan itu bisa berisi resource yang dibutuhkan halaman, seperti file halaman, gambar, file pendukung, atau data.",
     },
     {
       id: "how-web-page-loads-q4",
       type: "multiple-choice",
       question: "Apa arti render dalam konteks browser?",
       options: [
-        "Menghapus request dari server setelah halaman terbuka",
-        "Membuat folder project baru untuk file HTML",
-        "Mengirim commit ke GitHub setelah kode berubah",
+        "Menyimpan URL sebagai nama file project",
+        "Mengulang kuis setelah halaman terbuka",
+        "Mengubah address bar tanpa membaca halaman",
         "Mengubah resource menjadi tampilan halaman yang bisa dilihat",
       ],
       correctAnswer: "Mengubah resource menjadi tampilan halaman yang bisa dilihat",
@@ -130,16 +135,16 @@ export const whatAreHtmlCssJavascriptQuiz: Quiz = {
       id: "what-are-html-css-javascript-q1",
       type: "multiple-choice",
       question: "Bagian mana yang memberi struktur utama pada halaman web?",
-      options: ["CSS", "HTML", "JavaScript", "GitHub"],
+      options: ["CSS", "HTML", "JavaScript", "URL"],
       correctAnswer: "HTML",
       explanation:
-        "HTML dipakai untuk menyusun struktur dan isi halaman, seperti heading, paragraf, tombol, dan link.",
+        "HTML dipakai untuk menyusun isi dan struktur halaman, seperti heading, paragraf, tombol, dan link.",
     },
     {
       id: "what-are-html-css-javascript-q2",
       type: "multiple-choice",
       question: "Bagian mana yang paling tepat untuk mengatur warna, ukuran teks, dan spacing?",
-      options: ["HTML", "URL", "CSS", "Server"],
+      options: ["HTML", "URL", "CSS", "JavaScript"],
       correctAnswer: "CSS",
       explanation:
         "CSS mengatur tampilan visual. HTML tetap menyimpan struktur, sedangkan CSS membuat struktur itu terlihat rapi.",
@@ -148,10 +153,10 @@ export const whatAreHtmlCssJavascriptQuiz: Quiz = {
       id: "what-are-html-css-javascript-q3",
       type: "multiple-choice",
       question: "Bagian mana yang biasanya dipakai untuk menambahkan interaksi klik?",
-      options: ["HTML", "CSS", "PNG", "JavaScript"],
+      options: ["HTML", "CSS", "URL", "JavaScript"],
       correctAnswer: "JavaScript",
       explanation:
-        "JavaScript dipakai untuk perilaku interaktif, misalnya merespons klik, membaca input form, atau mengambil data.",
+        "JavaScript dipakai saat halaman perlu merespons aksi pengguna, misalnya klik tombol, input form, atau perubahan data.",
     },
     {
       id: "what-are-html-css-javascript-q4",
@@ -174,7 +179,7 @@ export const htmlCssJsRolesQuiz: Quiz = {
       id: "html-css-js-roles-q1",
       type: "multiple-choice",
       question: "Saat browser membuka web page, resource mana yang biasanya memberi struktur awal?",
-      options: ["CSS", "JavaScript", "HTML", "SVG"],
+      options: ["CSS", "JavaScript", "HTML", "Gambar"],
       correctAnswer: "HTML",
       explanation:
         "HTML memberi struktur awal halaman. Dari HTML, browser bisa menemukan file CSS, JavaScript, gambar, atau resource lain yang dibutuhkan.",
@@ -183,7 +188,7 @@ export const htmlCssJsRolesQuiz: Quiz = {
       id: "html-css-js-roles-q2",
       type: "multiple-choice",
       question: "Jika layout card berubah dari satu kolom menjadi dua kolom, bagian mana yang biasanya mengatur itu?",
-      options: ["HTML", "URL", "Git", "CSS"],
+      options: ["HTML", "URL", "JavaScript saja", "CSS"],
       correctAnswer: "CSS",
       explanation:
         "Perubahan layout visual biasanya diatur dengan CSS, misalnya memakai Flexbox, Grid, atau media query.",
@@ -192,7 +197,7 @@ export const htmlCssJsRolesQuiz: Quiz = {
       id: "html-css-js-roles-q3",
       type: "multiple-choice",
       question: "Jika tombol membuka menu saat diklik, bagian mana yang biasanya menambahkan perilaku itu?",
-      options: ["CSS saja", "JavaScript", "HTML doctype", "Nama folder assets"],
+      options: ["CSS saja", "JavaScript", "HTML doctype", "File gambar di assets"],
       correctAnswer: "JavaScript",
       explanation:
         "JavaScript bisa mendengarkan event klik lalu mengubah kondisi UI, seperti membuka atau menutup menu.",
@@ -203,10 +208,10 @@ export const htmlCssJsRolesQuiz: Quiz = {
       question: "Pada kode berikut, bagian mana yang menjadi struktur HTML?",
       code: `<button id="save-button">Simpan</button>`,
       options: [
+        "Element button dengan teks Simpan",
         "Warna tombol",
         "Event saat tombol diklik",
-        "Alamat server",
-        "Element button dengan teks Simpan",
+        "Alamat halaman Roadmap",
       ],
       correctAnswer: "Element button dengan teks Simpan",
       explanation:

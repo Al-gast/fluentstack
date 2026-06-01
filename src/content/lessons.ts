@@ -99,14 +99,14 @@ export const howWebPageLoadsLesson: Lesson = {
   title: "Cara Kerja Web Page",
   slug: "how-web-page-loads",
   description:
-    "Pahami alur sederhana saat browser membuka URL: browser meminta halaman, server membalas, lalu browser menampilkannya.",
+    "Ikuti alur sederhana saat browser membuka URL: browser meminta halaman, menerima balasan, lalu menampilkannya.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 20,
   objectives: [
     "Menjelaskan alur sederhana saat browser membuka URL",
-    "Membedakan request dan response",
-    "Memahami render sebagai proses browser menampilkan halaman",
+    "Membedakan request dan response dengan bahasa sederhana",
+    "Mengamati bahwa refresh membuat browser meminta halaman lagi",
   ],
   skillTags: ["Web Fundamentals", "Browser", "HTTP"],
   blocks: [
@@ -115,21 +115,35 @@ export const howWebPageLoadsLesson: Lesson = {
       type: "text",
       title: "Apa yang terjadi saat kamu membuka URL?",
       content:
-        "Di lesson sebelumnya, kamu sudah tahu bahwa URL adalah alamat halaman. Saat kamu mengetik URL dan menekan Enter, browser memakai alamat itu untuk meminta halaman ke server. Server membalas dengan resource yang dibutuhkan, lalu browser menampilkan hasilnya sebagai web page.",
+        "Di lesson sebelumnya, kamu sudah tahu bahwa URL adalah alamat halaman. Sekarang kamu belum perlu masuk ke detail jaringan. Cukup pahami alurnya dulu: browser memakai URL untuk meminta halaman, menerima balasan, lalu menampilkan web page yang bisa kamu baca.",
+    },
+    {
+      id: "how-web-page-loads-simple-flow",
+      type: "text",
+      title: "Browser meminta, server membalas",
+      content:
+        "Bayangkan kamu membuka halaman Roadmap di FluentStack. Browser melihat URL halaman itu, lalu mengirim request. Request berarti permintaan. Server menerima permintaan tersebut, lalu mengirim response. Response berarti balasan. Setelah balasan diterima, browser menyusun hasilnya menjadi halaman yang terlihat.",
+    },
+    {
+      id: "how-web-page-loads-mini-action",
+      type: "text",
+      title: "Coba amati saat halaman dimuat ulang",
+      content:
+        "Lihat address bar, lalu refresh halaman ini. URL-nya tetap menunjuk ke halaman yang sama, tetapi browser meminta ulang halaman tersebut. Kamu tidak perlu melihat proses teknisnya sekarang. Yang penting: membuka atau me-refresh URL membuat browser meminta halaman lagi.",
     },
     {
       id: "how-web-page-loads-request-response",
       type: "callout",
       variant: "important",
-      title: "Request dan response cukup dipahami sederhana dulu",
+      title: "Request dan response cukup dipahami sederhana",
       content:
-        "Request adalah permintaan dari browser. Response adalah balasan dari server. Untuk tahap awal, cukup ingat: browser meminta, server membalas.",
+        "Untuk tahap awal, cukup ingat aturan ini: browser mengirim request, server mengirim response. Detail seperti status code, header, dan network tab bisa dipelajari nanti.",
     },
     {
       id: "how-web-page-loads-quick-check",
       type: "quick-check",
       question: "Saat browser meminta halaman ke server, istilah yang paling tepat untuk permintaan itu adalah apa?",
-      options: ["response", "request", "render", "deploy"],
+      options: ["response", "request", "render", "URL"],
       correctAnswer: "request",
       explanation:
         "Request adalah permintaan yang dikirim browser ke server. Response adalah balasan dari server setelah request diterima.",
@@ -143,16 +157,18 @@ export const howWebPageLoadsLesson: Lesson = {
       id: "how-web-page-loads-summary",
       type: "summary",
       points: [
-        "Saat membuka URL, browser mengirim request ke server.",
-        "Server mengirim response berisi resource yang dibutuhkan halaman.",
-        "Browser membaca response tersebut lalu merender web page yang kamu lihat.",
-        "Berikutnya, kamu akan mengenal tiga bagian penting yang sering ada di web page: HTML, CSS, dan JavaScript.",
+        "Saat membuka atau me-refresh URL, browser mengirim request untuk meminta halaman.",
+        "Server mengirim response sebagai balasan untuk permintaan browser.",
+        "Browser membaca response lalu menampilkan web page yang kamu lihat.",
+        "Berikutnya, kamu akan mengenal tiga bagian penting yang sering membentuk web page: HTML, CSS, dan JavaScript.",
       ],
     },
   ],
   completionRule: {
     requiredBlockIds: [
       "how-web-page-loads-intro",
+      "how-web-page-loads-simple-flow",
+      "how-web-page-loads-mini-action",
       "how-web-page-loads-request-response",
       "how-web-page-loads-quick-check",
       "how-web-page-loads-quiz-block",
@@ -169,23 +185,23 @@ export const smallFrontendProjectStructureLesson: Lesson = {
   title: "Struktur Project Frontend Kecil",
   slug: "small-frontend-project-structure",
   description:
-    "Kenali folder dasar di project frontend kecil setelah kamu tahu fungsi index.html, style.css, dan script.js.",
+    "Baca struktur folder project frontend kecil setelah mengenal index.html, style.css, dan script.js.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 18,
   objectives: [
-    "Mengenali posisi file HTML, CSS, dan JavaScript dalam folder project",
-    "Menaruh asset seperti gambar dan ikon di folder yang jelas",
     "Membaca file tree project frontend kecil",
+    "Mengenali posisi file HTML, CSS, dan JavaScript dalam folder project",
+    "Mengenali folder assets untuk gambar, ikon, dan file pendukung",
   ],
   skillTags: ["Project Structure", "HTML", "CSS", "JavaScript"],
   blocks: [
     {
       id: "small-frontend-project-structure-intro",
       type: "text",
-      title: "Kenapa struktur project penting?",
+      title: "Dari file ke folder project",
       content:
-        "Di lesson sebelumnya, kamu sudah mengenal index.html, style.css, dan script.js. Saat project mulai bertambah, file-file itu perlu ditaruh dengan rapi. Struktur folder membantu kamu menemukan CSS, JavaScript, gambar, dan file pendukung tanpa menebak-nebak.",
+        "Di lesson sebelumnya, kamu sudah mengenal index.html, style.css, dan script.js. Saat project masih kecil, semua file bisa terlihat sederhana. Tetapi ketika gambar, ikon, dan file pendukung mulai bertambah, folder membantu kamu menemukan sesuatu tanpa menebak-nebak.",
     },
     {
       id: "small-frontend-project-structure-file-tree",
@@ -202,13 +218,21 @@ export const smallFrontendProjectStructureLesson: Lesson = {
     logo.svg
     hero-image.png`,
       explanation:
-        "index.html adalah pintu masuk halaman. Folder styles berisi CSS, scripts berisi JavaScript, dan assets berisi gambar, ikon, atau file pendukung.",
+        "index.html tetap menjadi pintu masuk halaman. Folder styles berisi CSS, scripts berisi JavaScript, dan assets berisi gambar, ikon, atau file pendukung.",
+    },
+    {
+      id: "small-frontend-project-structure-mini-action",
+      type: "callout",
+      variant: "tip",
+      title: "Cara membaca file tree",
+      content:
+        "Mulai dari baris paling atas sebagai nama project. Lalu lihat file utama seperti index.html. Setelah itu, cek folder pendukung: styles untuk tampilan, scripts untuk interaksi, dan assets untuk gambar atau ikon.",
     },
     {
       id: "small-frontend-project-structure-quick-check",
       type: "quick-check",
       question: "Di struktur contoh, file mana yang biasanya menjadi pintu masuk halaman web sederhana?",
-      options: ["main.css", "app.js", "index.html", "logo.svg"],
+      options: ["main.css", "app.js", "index.html", "assets/logo.svg"],
       correctAnswer: "index.html",
       explanation:
         "index.html biasanya menjadi file pertama yang dibaca browser untuk mendapatkan struktur awal halaman.",
@@ -217,10 +241,10 @@ export const smallFrontendProjectStructureLesson: Lesson = {
       id: "small-frontend-project-structure-summary",
       type: "summary",
       points: [
-        "Gunakan index.html sebagai struktur awal halaman.",
-        "Pisahkan CSS dan JavaScript agar file lebih mudah ditemukan.",
+        "Baca file tree dari nama project, lalu file utama, lalu folder pendukung.",
+        "Gunakan folder styles untuk CSS dan folder scripts untuk JavaScript ketika project mulai bertambah.",
         "Simpan gambar, ikon, dan file pendukung di folder assets.",
-        "Setelah Web Foundations, kamu siap mulai menulis struktur HTML dengan lebih sengaja.",
+        "Setelah Web Foundations, kamu siap masuk ke HTML & Web Fundamentals dan mulai melihat isi index.html lewat struktur HTML dasar.",
       ],
     },
   ],
@@ -228,6 +252,7 @@ export const smallFrontendProjectStructureLesson: Lesson = {
     requiredBlockIds: [
       "small-frontend-project-structure-intro",
       "small-frontend-project-structure-file-tree",
+      "small-frontend-project-structure-mini-action",
       "small-frontend-project-structure-quick-check",
       "small-frontend-project-structure-summary",
     ],
@@ -241,23 +266,30 @@ export const whatAreHtmlCssJavascriptLesson: Lesson = {
   title: "Apa Itu HTML, CSS, dan JavaScript?",
   slug: "what-are-html-css-javascript",
   description:
-    "Kenali HTML, CSS, dan JavaScript sebagai tiga bagian berbeda yang membentuk web page.",
+    "Kenali HTML, CSS, dan JavaScript sebagai tiga bagian dengan tugas berbeda di sebuah web page.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 22,
   objectives: [
-    "Memahami HTML sebagai struktur halaman",
-    "Memahami CSS sebagai pengatur tampilan",
-    "Memahami JavaScript sebagai pengatur interaksi",
+    "Memahami HTML sebagai penyusun isi dan struktur halaman",
+    "Memahami CSS sebagai pengatur tampilan halaman",
+    "Memahami JavaScript sebagai penambah perilaku interaktif",
   ],
   skillTags: ["HTML", "CSS", "JavaScript", "Web Fundamentals"],
   blocks: [
     {
       id: "what-are-html-css-javascript-intro",
       type: "text",
-      title: "Tiga bagian utama di frontend",
+      title: "Tiga nama yang sering muncul di frontend",
       content:
-        "Web page biasanya dibuat dari tiga bagian utama. HTML menyusun isi dan struktur. CSS mengatur tampilan seperti warna, ukuran, dan jarak. JavaScript menambahkan perilaku, misalnya membuka menu atau merespons klik tombol.",
+        "Setelah tahu cara browser membuka web page, sekarang kamu mulai mengenal bahan yang sering membentuk halaman itu. Kamu belum perlu menghafal kode. Fokus dulu ke pembagian tugas: HTML menyusun isi, CSS mengatur tampilan, dan JavaScript menambahkan interaksi.",
+    },
+    {
+      id: "what-are-html-css-javascript-core-concept",
+      type: "text",
+      title: "Struktur, tampilan, dan interaksi",
+      content:
+        "HTML dipakai untuk menulis isi dan struktur halaman, seperti judul, paragraf, link, dan tombol. CSS dipakai untuk mengatur tampilan, seperti warna, ukuran teks, jarak, dan layout. JavaScript dipakai saat halaman perlu merespons aksi, misalnya ketika tombol diklik atau menu dibuka.",
     },
     {
       id: "what-are-html-css-javascript-analogy",
@@ -265,7 +297,7 @@ export const whatAreHtmlCssJavascriptLesson: Lesson = {
       variant: "tip",
       title: "Pikirkan dari fungsi, bukan dari file dulu",
       content:
-        "Sebelum menghafal nama file, pahami dulu perannya: HTML untuk struktur, CSS untuk tampilan, JavaScript untuk interaksi.",
+        "Kalau kamu melihat halaman FluentStack, coba pisahkan pertanyaannya: bagian mana yang menjadi isi, bagian mana yang membuat tampilan rapi, dan bagian mana yang merespons aksi pengguna.",
     },
     {
       id: "what-are-html-css-javascript-code-example",
@@ -289,7 +321,7 @@ export const whatAreHtmlCssJavascriptLesson: Lesson = {
   });
 </script>`,
       explanation:
-        "button adalah struktur HTML. style mengubah tampilannya. script menambahkan perilaku saat tombol diklik.",
+        "Kamu belum perlu menghafal kode ini. Fokus pada pembagian tugasnya: button adalah struktur HTML, style mengubah tampilan tombol, dan script menambahkan perilaku saat tombol diklik.",
     },
     {
       id: "what-are-html-css-javascript-quick-check",
@@ -309,9 +341,9 @@ export const whatAreHtmlCssJavascriptLesson: Lesson = {
       id: "what-are-html-css-javascript-summary",
       type: "summary",
       points: [
-        "HTML memberi struktur dan isi halaman.",
-        "CSS mengatur tampilan halaman.",
-        "JavaScript menambahkan interaksi dan perilaku.",
+        "Gunakan HTML untuk menyusun isi dan struktur halaman.",
+        "Gunakan CSS untuk mengatur tampilan seperti warna, ukuran, spacing, dan layout.",
+        "Gunakan JavaScript saat halaman perlu merespons aksi pengguna.",
         "Berikutnya, kamu akan melihat bagaimana ketiganya bekerja bersama dalam satu web page.",
       ],
     },
@@ -319,6 +351,7 @@ export const whatAreHtmlCssJavascriptLesson: Lesson = {
   completionRule: {
     requiredBlockIds: [
       "what-are-html-css-javascript-intro",
+      "what-are-html-css-javascript-core-concept",
       "what-are-html-css-javascript-analogy",
       "what-are-html-css-javascript-code-example",
       "what-are-html-css-javascript-quick-check",
@@ -336,14 +369,14 @@ export const htmlCssJsRolesLesson: Lesson = {
   title: "Peran HTML, CSS, dan JavaScript",
   slug: "html-css-js-roles",
   description:
-    "Pahami bagaimana HTML, CSS, dan JavaScript saling melengkapi dalam satu web page.",
+    "Lihat bagaimana HTML, CSS, dan JavaScript saling melengkapi dalam satu web page sederhana.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 24,
   objectives: [
-    "Menjelaskan urutan sederhana browser membaca HTML, CSS, dan JavaScript",
+    "Menjelaskan cara HTML, CSS, dan JavaScript bekerja bersama di satu halaman",
     "Membedakan struktur, tampilan, dan interaksi dalam satu halaman",
-    "Mengenali perubahan kecil yang berasal dari CSS atau JavaScript",
+    "Mengenali perubahan visual dan perilaku interaktif tanpa masuk ke detail JavaScript",
   ],
   skillTags: ["HTML", "CSS", "JavaScript", "Browser"],
   blocks: [
@@ -352,7 +385,14 @@ export const htmlCssJsRolesLesson: Lesson = {
       type: "text",
       title: "Satu halaman, tiga peran",
       content:
-        "Setelah tahu peran masing-masing, sekarang lihat cara kerjanya bersama. HTML menjadi titik awal struktur halaman. CSS membuat struktur itu terlihat rapi. JavaScript menambahkan perilaku saat pengunjung berinteraksi dengan halaman.",
+        "Di lesson sebelumnya, kamu sudah mengenal HTML, CSS, dan JavaScript secara terpisah. Sekarang lihat cara ketiganya bekerja bersama. HTML memberi struktur awal, CSS membuat struktur itu terlihat rapi, dan JavaScript menambahkan perilaku saat pengguna berinteraksi.",
+    },
+    {
+      id: "html-css-js-roles-mini-action",
+      type: "text",
+      title: "Amati satu bagian UI",
+      content:
+        "Bayangkan satu card lesson di FluentStack. Judul, deskripsi, dan tombolnya adalah isi yang perlu disusun. Warna, jarak, dan bentuk card adalah tampilan. Saat tombol membawa kamu ke halaman lain atau membuka sesuatu, itu adalah perilaku. Kamu cukup mengenali perbedaannya dulu.",
     },
     {
       id: "html-css-js-roles-render-note",
@@ -360,7 +400,7 @@ export const htmlCssJsRolesLesson: Lesson = {
       variant: "important",
       title: "Browser tidak membaca semuanya sebagai satu hal",
       content:
-        "HTML, CSS, dan JavaScript punya tugas berbeda. Kalau tampilan berubah, biasanya kamu melihat efek CSS. Kalau halaman merespons klik atau input, biasanya ada JavaScript yang bekerja.",
+        "HTML, CSS, dan JavaScript bekerja sama, tetapi tugasnya tetap berbeda. Kalau isi halaman berubah struktur, pikirkan HTML. Kalau tampilan berubah, pikirkan CSS. Kalau ada respons terhadap klik atau input, biasanya JavaScript terlibat.",
     },
     {
       id: "html-css-js-roles-code-example",
@@ -373,7 +413,7 @@ export const htmlCssJsRolesLesson: Lesson = {
   <button id="continue-button">Lanjut</button>
 </article>`,
       explanation:
-        "HTML di contoh ini memberi struktur kartu lesson. CSS bisa membuatnya terlihat seperti card. JavaScript bisa membuat tombol Lanjut merespons klik.",
+        "Contoh ini baru menunjukkan struktur HTML. CSS bisa membuatnya terlihat seperti card. JavaScript bisa membuat tombol Lanjut merespons klik. Fokusnya adalah mengenali peran, bukan menulis JavaScript dulu.",
     },
     {
       id: "html-css-js-roles-quick-check",
@@ -393,16 +433,17 @@ export const htmlCssJsRolesLesson: Lesson = {
       id: "html-css-js-roles-summary",
       type: "summary",
       points: [
-        "HTML memberi struktur awal halaman.",
-        "CSS mengatur tampilan dari struktur tersebut.",
-        "JavaScript menambahkan perilaku seperti klik, validasi, dan update data.",
-        "Berikutnya, kamu akan mengenal file dasar yang biasanya menyimpan HTML, CSS, dan JavaScript.",
+        "Kenali HTML sebagai struktur dan isi awal halaman.",
+        "Kenali CSS sebagai aturan yang membuat struktur itu terlihat rapi.",
+        "Kenali JavaScript sebagai bagian yang menambahkan perilaku interaktif.",
+        "Berikutnya, kamu akan mengenal file dasar yang biasanya dipakai untuk menyimpan HTML, CSS, dan JavaScript.",
       ],
     },
   ],
   completionRule: {
     requiredBlockIds: [
       "html-css-js-roles-intro",
+      "html-css-js-roles-mini-action",
       "html-css-js-roles-render-note",
       "html-css-js-roles-code-example",
       "html-css-js-roles-quick-check",
@@ -420,14 +461,14 @@ export const indexCssJsFilesLesson: Lesson = {
   title: "Mengenal File index.html, style.css, dan script.js",
   slug: "index-css-js-files",
   description:
-    "Kenali fungsi file dasar yang sering dipakai untuk menyimpan HTML, CSS, dan JavaScript.",
+    "Kenali fungsi index.html, style.css, dan script.js di project frontend kecil.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 18,
   objectives: [
-    "Memahami fungsi index.html",
-    "Memahami fungsi style.css",
-    "Memahami fungsi script.js",
+    "Memahami fungsi index.html sebagai halaman utama",
+    "Memahami fungsi style.css sebagai tempat aturan tampilan",
+    "Memahami fungsi script.js sebagai tempat perilaku interaktif",
   ],
   skillTags: ["Project Structure", "HTML", "CSS", "JavaScript"],
   blocks: [
@@ -436,7 +477,14 @@ export const indexCssJsFilesLesson: Lesson = {
       type: "text",
       title: "Tiga file yang sering kamu temui",
       content:
-        "Setelah tahu fungsi HTML, CSS, dan JavaScript, sekarang hubungkan ke file. Project frontend kecil sering dimulai dari index.html, style.css, dan script.js. index.html menyimpan struktur halaman. style.css menyimpan aturan tampilan. script.js menyimpan perilaku interaktif.",
+        "Setelah tahu fungsi HTML, CSS, dan JavaScript, sekarang hubungkan ke file. Di project frontend kecil, kamu sering melihat index.html, style.css, dan script.js. File-file ini membantu kamu memisahkan struktur, tampilan, dan interaksi supaya lebih mudah dibaca.",
+    },
+    {
+      id: "index-css-js-files-file-roles",
+      type: "text",
+      title: "Nama file membantu kamu menemukan tugasnya",
+      content:
+        "index.html biasanya menjadi halaman utama yang dibuka browser. style.css biasanya menyimpan aturan CSS untuk tampilan. script.js biasanya menyimpan JavaScript untuk perilaku interaktif. Nama ini adalah convention, yaitu kebiasaan penamaan yang umum dipakai, bukan aturan khusus browser. Yang penting adalah peran setiap file.",
     },
     {
       id: "index-css-js-files-example",
@@ -450,7 +498,15 @@ export const indexCssJsFilesLesson: Lesson = {
   assets/
     logo.svg`,
       explanation:
-        "index.html biasanya menjadi halaman utama. style.css dihubungkan dari HTML untuk styling. script.js dihubungkan dari HTML untuk interaksi. assets menyimpan gambar, ikon, atau file pendukung.",
+        "Kamu belum perlu membuat semua file ini sekarang. Cukup amati bahwa struktur halaman, tampilan, interaksi, dan asset bisa ditempatkan di file atau folder yang jelas.",
+    },
+    {
+      id: "index-css-js-files-convention-note",
+      type: "callout",
+      variant: "tip",
+      title: "Convention membantu tim membaca project",
+      content:
+        "Banyak project memakai nama seperti index.html, style.css, dan script.js agar mudah dikenali. Project yang lebih besar bisa punya nama berbeda, tetapi ide dasarnya sama: pisahkan file sesuai tugasnya.",
     },
     {
       id: "index-css-js-files-quick-check",
@@ -465,10 +521,9 @@ export const indexCssJsFilesLesson: Lesson = {
       id: "index-css-js-files-summary",
       type: "summary",
       points: [
-        "index.html menyimpan struktur halaman.",
-        "style.css menyimpan aturan tampilan.",
-        "script.js menyimpan perilaku interaktif.",
-        "assets menyimpan file pendukung seperti gambar dan ikon.",
+        "Cari index.html saat ingin melihat struktur awal halaman.",
+        "Cari style.css saat ingin melihat aturan tampilan.",
+        "Cari script.js saat ingin melihat perilaku interaktif.",
         "Berikutnya, kamu akan melihat bagaimana file-file ini ditaruh dalam struktur folder project kecil.",
       ],
     },
@@ -476,7 +531,9 @@ export const indexCssJsFilesLesson: Lesson = {
   completionRule: {
     requiredBlockIds: [
       "index-css-js-files-intro",
+      "index-css-js-files-file-roles",
       "index-css-js-files-example",
+      "index-css-js-files-convention-note",
       "index-css-js-files-quick-check",
       "index-css-js-files-summary",
     ],
