@@ -1,151 +1,489 @@
 # FluentStack
 
-FluentStack is an interactive learning platform for Indonesian learners who want to build technology skills through structured lessons, quizzes, writing practice, coding labs, and progress tracking.
+FluentStack is an interactive learning platform for Indonesian learners who want to build practical frontend engineering skills and tech-career English communication.
 
-The MVP focuses on two tracks:
-- Frontend Engineering
-- English for Tech Careers
+The product is designed as a guided learning path, not a static course page. Learners move through tracks, modules, lessons, built-in practice, and module-level assessments while their progress is saved as guest data or account data.
 
-Learning is activity-based. Progress is earned by completing required lesson blocks, not by visiting pages.
+Live app:
 
-## Current MVP Features
+```txt
+https://fluentstack.vercel.app
+```
 
-- Premium dark-mode landing page and app shell
-- Dashboard, roadmap, track, module, lesson, and profile pages
-- Static typed learning content in the codebase
-- Dynamic lesson reader with block rendering
-- Quick check blocks with retry-friendly feedback
-- Reusable quiz engine with passing scores, explanations, and best-score persistence
-- Writing practice blocks with local draft saving
-- Coding practice blocks with Monaco editor, HTML/CSS/JS tabs, and sandboxed live preview
-- Guest progress persistence with localStorage
-- Supabase Auth for email/password registration, login, logout, and session-aware UI
-- Supabase progress persistence for logged-in users
-- Row Level Security SQL for user-specific progress tables
+## Product Direction
+
+FluentStack helps learners build real technical understanding through a structured flow:
+
+```txt
+Track
+→ Module
+→ Regular lessons
+→ Built-in practice
+→ Uji Kompetensi
+→ Next module
+```
+
+Regular lessons teach one clear concept at a time.
+
+Uji Kompetensi checks readiness at the end of each module.
+
+Built-in practice helps learners try focused concepts directly in the browser.
+
+Local Dev Milestones, planned for later content batches, will guide learners to build projects on their own device using real developer workflow.
+
+Documentation Bridges, planned and partly defined in the curriculum guides, will help learners read official documentation with clear focus points instead of being sent to broad docs pages without guidance.
+
+## Current Learning Tracks
+
+### Frontend Engineering
+
+The active track currently focuses on the beginner frontend path.
+
+Active modules:
+
+```txt
+1. Web Foundations
+2. HTML Basics
+3. Semantic HTML
+```
+
+Current learning flow:
+
+```txt
+Web Foundations
+→ HTML Basics
+→ Semantic HTML
+```
+
+Planned next modules:
+
+```txt
+Forms and Basic Accessibility
+CSS Core Mechanics
+Box Model and Spacing
+Local Static Website Project
+JavaScript Fundamentals
+```
+
+### English for Tech Careers
+
+The English track is planned as a practical communication path for remote tech work.
+
+Planned topics include:
+
+```txt
+Daily updates
+Blocker explanations
+Bug reports
+Pull request notes
+Code review replies
+Project explanations
+Interview answers
+Documentation summaries
+```
+
+## Current Features
+
+### Guided learning path
+
+Learners can browse tracks, modules, and lessons in a structured order.
+
+The app now supports ordered learning flow, previous/next lesson navigation, and module-based progression.
+
+### Module-level assessment model
+
+FluentStack avoids quiz overload in regular lessons.
+
+Regular lessons focus on explanation and practice.
+
+Uji Kompetensi appears at the end of a module and may include:
+
+```txt
+recap
+quiz
+coding practice
+writing practice
+self-review checklist
+readiness summary
+```
+
+### Built-in coding practice
+
+The app includes built-in coding practice with an editor and live preview.
+
+Current practice support includes:
+
+```txt
+HTML
+CSS
+JavaScript
+```
+
+Selected HTML challenges support rule-based auto validation.
+
+Examples of auto checks:
+
+```txt
+Ada elemen h1.
+Ada paragraph.
+Ada link dengan href.
+Ada image dengan src dan alt.
+Ada header, nav, main, dan footer.
+```
+
+Older or subjective practice tasks can still use manual checklist completion.
+
+### Guest and logged-in progress
+
+FluentStack supports both guest and logged-in learning.
+
+Guest users:
+
+```txt
+progress is saved in localStorage
+can browse lessons
+can complete lesson blocks
+can try coding practice
+can take quizzes
+```
+
+Logged-in users:
+
+```txt
+progress is saved to Supabase
+can keep progress across devices
+can store lesson progress, quiz attempts, and practice data
+```
+
+### Supabase auth and progress persistence
+
+The app uses Supabase for:
+
+```txt
+authentication
+user profile
+lesson progress
+quiz attempts
+challenge progress
+XP and streak data
+```
+
+Guest progress and logged-in progress are intentionally separate in the current MVP.
+
+### UI and UX
+
+The current UI is dark-mode first and designed for focused learning.
+
+Recent polish passes improved:
+
+```txt
+navigation clarity
+progress clarity
+lesson reading experience
+practice interactions
+mobile responsiveness
+visual system consistency
+Indonesian UI copy
+```
 
 ## Tech Stack
 
-- Next.js 16 App Router
-- TypeScript
-- Tailwind CSS
-- shadcn/ui components
-- Framer Motion
-- Monaco Editor (`@monaco-editor/react`)
-- Supabase Auth
-- Supabase PostgreSQL with Row Level Security
-- Vercel deployment
-- localStorage for guest progress
+```txt
+Next.js App Router
+TypeScript
+Tailwind CSS
+Supabase Auth
+Supabase PostgreSQL
+Supabase Row Level Security
+Monaco Editor
+Vercel
+localStorage for guest mode
+```
 
-## Local Setup
+## Project Structure
 
-Install dependencies:
+Common folders:
+
+```txt
+src/app
+src/components
+src/content
+src/hooks
+src/lib
+src/types
+docs
+supabase
+```
+
+Important content files:
+
+```txt
+src/content/tracks.ts
+src/content/modules.ts
+src/content/lessons.ts
+src/content/quizzes.ts
+src/content/challenges.ts
+```
+
+Important curriculum and content docs:
+
+```txt
+docs/11_COPYWRITING_AND_CONTENT_VOICE.md
+docs/12_CURRICULUM_PLAN.md
+docs/20_FRONTEND_CURRICULUM_DETAIL.md
+docs/21_ENGLISH_CURRICULUM_DETAIL.md
+docs/22_CONTENT_AUTHORING_GUIDE.md
+docs/23_LESSON_FORMAT_STANDARD.md
+docs/24_LESSON_QUALITY_RUBRIC.md
+```
+
+Supabase schema:
+
+```txt
+supabase/schema.sql
+```
+
+Environment example:
+
+```txt
+.env.example
+```
+
+## Getting Started Locally
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Al-gast/fluentstack.git
+cd fluentstack
+```
+
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-Create a local environment file:
+### 3. Create environment file
+
+Copy the example file:
 
 ```bash
 cp .env.example .env.local
 ```
 
-Fill in the Supabase values:
+Fill in your Supabase public variables:
 
-```txt
+```env
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 ```
 
-Run the development server:
+### 4. Run the development server
 
 ```bash
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open:
 
-## Available Scripts
-
-```bash
-npm run dev
-npm run build
-npm run start
-npm run lint
+```txt
+http://localhost:3000
 ```
 
 ## Supabase Setup
 
-1. Create a Supabase project.
-2. Copy the project URL into `NEXT_PUBLIC_SUPABASE_URL`.
-3. Copy the anon public key into `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
-4. Run `supabase/schema.sql` in the Supabase SQL Editor.
-5. Confirm Row Level Security is enabled on all progress tables.
-6. Configure Auth email settings and allowed redirect URLs for local development and Vercel.
-
-Required tables:
-- `profiles`
-- `lesson_progress`
-- `quiz_attempts`
-- `challenge_progress`
-- `writing_drafts`
-- `user_stats`
-
-The SQL schema and policy notes are documented in `docs/14_SUPABASE_PROGRESS_SCHEMA.md`.
-
-## Environment Variables
-
-Required for Supabase Auth and logged-in progress persistence:
+Create a Supabase project, then run the SQL schema from:
 
 ```txt
+supabase/schema.sql
+```
+
+Required Supabase setup:
+
+```txt
+1. Create Supabase project.
+2. Run supabase/schema.sql.
+3. Confirm Row Level Security is enabled.
+4. Add NEXT_PUBLIC_SUPABASE_URL to .env.local.
+5. Add NEXT_PUBLIC_SUPABASE_ANON_KEY to .env.local.
+6. Configure Supabase Auth redirect URLs.
+```
+
+For local development, include:
+
+```txt
+http://localhost:3000
+```
+
+For production, include the deployed Vercel URL.
+
+## Deployment
+
+The project is deployed on Vercel.
+
+Before deploying, add these environment variables in Vercel:
+
+```env
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 ```
 
-These values are safe to expose to the browser when Supabase RLS is configured correctly. Do not add or expose a service role key in this app.
+Then add the production URL to Supabase Auth redirect URLs.
 
-If these variables are missing in local development, the app falls back to guest mode where possible. For production deployment, set both variables in Vercel.
+Current production URL:
 
-## Main Routes
+```txt
+https://fluentstack.vercel.app
+```
 
-- `/` - Landing page
-- `/dashboard` - Learning overview
-- `/roadmap` - Learning map
-- `/learn` - Track selection and continue learning
-- `/learn/frontend-engineering` - Frontend Engineering track
-- `/learn/frontend-engineering/html-web-fundamentals` - HTML module
-- `/learn/frontend-engineering/css-fundamentals` - CSS module
-- `/learn/english-for-tech-careers` - English for Tech Careers track
-- `/learn/english-for-tech-careers/english-for-remote-work` - Remote work English module
-- `/lesson/html-semantic-basics` - Semantic HTML lesson
-- `/lesson/css-flexbox-basics` - Flexbox lesson with coding practice
-- `/lesson/writing-daily-update` - Writing practice lesson
-- `/profile` - Progress overview
-- `/login` - Email/password login
-- `/register` - Email/password registration
+## Useful Routes
 
-## Deployment Notes for Vercel
+Main app routes:
 
-1. Push the repository to GitHub.
-2. Import the project into Vercel.
-3. Set `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` in Vercel Project Settings.
-4. Add the Vercel production URL to Supabase Auth redirect URLs.
-5. Keep `.env.local` out of Git.
-6. Run `npm run build` before deployment when possible.
+```txt
+/
+ /dashboard
+ /roadmap
+ /learn
+ /learn/frontend-engineering
+ /learn/frontend-engineering/web-foundations
+ /learn/frontend-engineering/html-basics
+ /learn/frontend-engineering/semantic-html
+ /lesson/[lessonSlug]
+ /profile
+ /login
+ /register
+```
 
-This project uses Next.js 16 request-layer `src/proxy.ts` for Supabase session refresh.
+Current active beginner lessons include:
 
-## Current Limitations
+```txt
+/lesson/what-is-website-and-web-page
+/lesson/how-web-page-loads
+/lesson/what-are-html-css-javascript
+/lesson/html-basic-structure
+/lesson/tag-element-attribute
+/lesson/headings-paragraphs-links-images
+/lesson/relative-paths-basic
+/lesson/html-basics-assessment
+/lesson/semantic-html-structure
+/lesson/html-semantic-basics
+/lesson/semantic-html-assessment
+```
 
-- Guest progress is not automatically merged into an account after login.
-- Learning content is static TypeScript content, not CMS-managed.
-- Coding practice uses manual checklist completion; there is no automated code validation yet.
-- Writing practice does not include AI or grammar grading.
-- Routes are public for MVP; learning pages are not protected.
-- There is no password reset or OAuth flow yet.
+## Development Commands
 
-## Language Strategy
+```bash
+npm run lint
+npm run build
+npm run dev
+```
 
-Developer-facing code and documentation use English.
+Use lint and build before pushing changes.
 
-Learner-facing content uses Bahasa Indonesia first, with common technical terms kept in English where natural. English for Tech Careers lessons are bilingual and use practical workplace examples.
+## Content Authoring Rules
+
+FluentStack content should follow the current learning model:
+
+```txt
+Regular lessons teach.
+Built-in practice reinforces focused concepts.
+Uji Kompetensi assesses module readiness.
+Documentation Bridge builds official docs habits.
+Local Dev Milestone teaches real device workflow.
+```
+
+Before adding or revising content, read:
+
+```txt
+docs/11_COPYWRITING_AND_CONTENT_VOICE.md
+docs/12_CURRICULUM_PLAN.md
+docs/20_FRONTEND_CURRICULUM_DETAIL.md
+docs/22_CONTENT_AUTHORING_GUIDE.md
+docs/23_LESSON_FORMAT_STANDARD.md
+docs/24_LESSON_QUALITY_RUBRIC.md
+```
+
+Important content rules:
+
+```txt
+Do not make every regular lesson quiz-heavy.
+Do not create repetitive lessons.
+Do not add unfinished modules to the active track.
+Do not use schema validity as proof of content quality.
+Do not force local setup too early.
+Do not dump documentation links without guidance.
+Prefer fewer mature lessons over many shallow lessons.
+```
+
+## Current Status
+
+Stable:
+
+```txt
+Landing page
+Auth pages
+Dashboard
+Roadmap
+Track/module pages
+Lesson reader
+Progress display
+Guest progress
+Supabase logged-in progress
+Built-in coding practice
+Rule-based HTML validation for selected challenges
+Module-level assessments for active beginner modules
+Mobile responsiveness
+Dark visual system
+```
+
+Active curriculum:
+
+```txt
+Web Foundations
+HTML Basics
+Semantic HTML
+```
+
+Planned curriculum next:
+
+```txt
+Forms and Basic Accessibility
+CSS Core Mechanics
+Box Model and Spacing
+Local Static Website Project
+JavaScript Fundamentals
+```
+
+## Known Limitations
+
+Current MVP limitations:
+
+```txt
+Guest progress and logged-in progress are separate.
+There is no advanced guest-to-account sync yet.
+Rule-based auto validation currently covers selected deterministic challenges.
+There is no AI grading.
+There is no full code execution sandbox for arbitrary JavaScript.
+Local Dev Milestones are planned in the curriculum but not fully implemented as product-specific verification features yet.
+Documentation Bridge is part of the content model and will be added gradually to module assessments and milestones.
+Some future modules are intentionally hidden until their content is rebuilt.
+```
+
+## Product Philosophy
+
+FluentStack should optimize for learning quality, not content volume.
+
+A good module should help learners feel:
+
+```txt
+I understand why this matters.
+I know what to practice.
+I know where to read more.
+I can see my progress.
+I know whether I am ready for the next module.
+I know when to practice inside FluentStack and when to build locally.
+```
+
+If a lesson does not help the learner understand, practice, communicate, read documentation, build locally, or prove a real skill, it should not be added to the active path.

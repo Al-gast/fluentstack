@@ -8,11 +8,13 @@ Use this document before adding or revising:
 
 * tracks
 * modules
-* lessons
+* regular lessons
+* Uji Kompetensi
 * quizzes
 * coding challenges
 * writing practices
-* Uji Kompetensi
+* Documentation Bridge
+* Local Dev Milestone
 * content batches
 
 This is an authoring guide, not a schema migration plan. Do not change the content schema unless a future product task explicitly requires it.
@@ -46,6 +48,7 @@ Track
 → Module
 → Regular lessons
 → Uji Kompetensi
+→ Documentation Bridge / Local Dev Milestone when relevant
 → Next module
 ```
 
@@ -53,19 +56,29 @@ Regular lessons teach and practice.
 
 `Uji Kompetensi` checks readiness at the end of a module.
 
+Built-in practice helps learners practice one focused concept inside FluentStack.
+
+Local Dev Milestone helps learners apply several concepts in a real project workflow on their own device.
+
+Documentation Bridge helps learners build the habit of reading official documentation.
+
 Do not make every regular lesson feel like a test.
 
 ## Language Rules
 
 Developer documentation uses English.
 
-Actual lesson content inside the product should be Bahasa Indonesia-first:
+Actual lesson content inside the product should be Bahasa Indonesia-first.
 
-* lesson explanations use Bahasa Indonesia
-* quiz questions and explanations use Bahasa Indonesia
-* practice instructions use Bahasa Indonesia
-* summaries use Bahasa Indonesia
-* user-facing learning guidance uses Bahasa Indonesia
+Use Bahasa Indonesia for:
+
+* lesson explanations
+* quiz questions and explanations
+* practice instructions
+* summaries
+* user-facing learning guidance
+* Local Dev Milestone instructions
+* Documentation Bridge guidance
 
 Common technical terms may stay in English when natural.
 
@@ -83,6 +96,9 @@ Examples:
 * `deployment`
 * `pull request`
 * `daily update`
+* `terminal`
+* `local project`
+* `documentation`
 
 Do not force awkward translations of common technical terms.
 
@@ -114,9 +130,11 @@ Static content defines:
 * what learners can study
 * module and lesson order
 * what blocks appear in a lesson
-* which quiz belongs to an assessment or lesson
+* which quiz belongs to a lesson or Uji Kompetensi
 * which coding challenge belongs to a coding-practice block
 * which block IDs are required for completion
+* which local milestone instructions are shown if local milestone content uses existing block types
+* which official docs are referenced if Documentation Bridge content uses existing block types
 
 ### User Progress
 
@@ -152,7 +170,8 @@ Track authoring rules:
 * Keep the description specific to what learners will practice.
 * Add module IDs in learning order.
 * Keep skill tags broad and useful.
-* Do not include hidden or unfinished modules in active track order unless the product intentionally supports that state.
+* Do not include hidden, empty, or unfinished modules in active track order unless the product intentionally supports that state.
+* Do not expose prototype modules as active curriculum.
 
 ## Module
 
@@ -165,6 +184,8 @@ A module should have:
 * regular lesson sequence
 * Uji Kompetensi
 * readiness criteria
+* Documentation Bridge
+* Local Dev Milestone connection when relevant
 * bridge to the next module
 
 Module authoring rules:
@@ -176,6 +197,8 @@ Module authoring rules:
 * Do not add lessons just to make the module look full.
 * Do not include duplicate concept lessons.
 * End each mature module with Uji Kompetensi.
+* Include Documentation Bridge when official docs can help the learner continue.
+* Add Local Dev Milestone only when the learner has enough concepts to combine.
 
 ## Regular Lesson
 
@@ -191,7 +214,7 @@ A regular lesson should usually include:
 * how to read or use the example
 * common mistake or decision rule
 * quick check
-* coding practice, writing practice, or mini action when useful
+* built-in coding practice, writing practice, or mini action when useful
 * actionable summary
 * bridge to the next lesson
 
@@ -203,10 +226,11 @@ Regular lesson authoring rules:
 * Use concrete examples.
 * Keep paragraphs short.
 * Use quick checks for light understanding checks.
-* Use practice when the learner is ready to apply the concept.
+* Use built-in practice when the learner is ready to apply the concept.
 * Do not add a quiz by default.
 * Add a quiz only when it provides clear learning value.
 * End with summary and bridge.
+* Avoid sending beginners to broad documentation pages inside every regular lesson.
 
 Good regular lesson objective:
 
@@ -235,6 +259,7 @@ Uji Kompetensi may include:
 * project task
 * case study
 * self-review checklist
+* Documentation Bridge
 * readiness summary
 
 Uji Kompetensi authoring rules:
@@ -246,6 +271,7 @@ Uji Kompetensi authoring rules:
 * Use quiz questions that connect to regular lessons.
 * Use coding practice when the module teaches implementation.
 * Use writing practice when the module teaches communication.
+* Include Documentation Bridge when official docs help reinforce the module.
 * Include a readiness summary.
 * Bridge to the next module when relevant.
 
@@ -261,6 +287,177 @@ Weak assessment coverage:
 Ask some random questions about HTML.
 ```
 
+## Built-in Practice
+
+Built-in practice happens inside FluentStack.
+
+Use built-in practice for focused concept practice.
+
+Good built-in practice tasks:
+
+* write basic HTML structure
+* refactor divs into semantic HTML
+* adjust CSS spacing
+* change Flexbox alignment
+* transform an array of objects
+* handle a button click
+* update React props
+* write a daily update
+* write a PR note
+
+Built-in practice authoring rules:
+
+* Keep the task focused.
+* Explain the concept before practice.
+* Make the output visible, checkable, or reviewable.
+* Use starter code that helps but does not solve everything.
+* Use rule-based auto validation when deterministic.
+* Use manual checklist for subjective review.
+* Keep instructions Bahasa Indonesia-first.
+* Keep CSS/JS empty or minimal when the lesson is HTML-only.
+* Do not require local setup for built-in practice.
+
+Built-in practice is useful at every level. It is not only for beginner lessons.
+
+## Local Dev Milestone
+
+Local Dev Milestone happens on the learner’s own device.
+
+Use local milestones when the learner needs to combine several concepts into real workflow.
+
+Use local milestones for:
+
+* creating project folders
+* opening projects in a code editor
+* running projects locally
+* using terminal commands
+* installing dependencies when needed
+* debugging with browser DevTools
+* using Git and GitHub
+* reading official documentation while building
+* deploying when relevant
+
+Do not force local setup too early.
+
+Do not replace built-in practice with local milestones.
+
+Good timing examples:
+
+* after early HTML, Forms, and CSS:
+
+  * Local Static Website Project
+
+* after JavaScript DOM, events, localStorage, and fetch:
+
+  * Local Vanilla JavaScript App
+
+* before or during TypeScript/React tooling:
+
+  * Local Tooling and npm Basics
+
+* after React Fundamentals:
+
+  * Local React App
+
+* after Next.js App Router:
+
+  * Local Next.js App
+
+* during Production Next.js:
+
+  * Local Next.js App + Deploy to Vercel
+
+Local milestone authoring rules:
+
+* State what the learner will build locally.
+* List required tools.
+* Give setup steps.
+* Show expected folder structure.
+* Provide run/open instructions.
+* Include common local setup mistakes.
+* Include Git/GitHub step when relevant.
+* Include Documentation Bridge.
+* Include completion checklist.
+* Use writing practice for README, project note, or demo note when useful.
+
+Good local milestone output:
+
+```txt
+A local static website project with index.html, about.html, styles.css, images folder, Git history, and GitHub repository.
+```
+
+Weak local milestone output:
+
+```txt
+Install some tools and make a project.
+```
+
+## Documentation Bridge
+
+Documentation Bridge teaches learners how to use official documentation.
+
+FluentStack should not replace official documentation. It should make documentation easier to approach.
+
+Use Documentation Bridge at:
+
+* the end of a module
+* Uji Kompetensi
+* Local Dev Milestone
+* advanced lessons where official docs are part of real workflow
+* project work
+* debugging or deployment tasks
+
+Do not overload every small regular lesson with many links.
+
+For beginners, Documentation Bridge must be guided and specific.
+
+A Documentation Bridge should include:
+
+* official docs source
+* specific page or section
+* what to focus on
+* what to ignore for now
+* one small follow-up action
+
+Weak Documentation Bridge:
+
+```txt
+Read the React docs.
+```
+
+Strong Documentation Bridge:
+
+```txt
+Read React docs: Passing Props to a Component.
+
+Focus on:
+1. how props are passed
+2. how props are read inside a component
+3. why props should stay read-only
+
+Ignore advanced composition patterns for now.
+
+Follow-up action:
+Update one component in the practice project so it receives title and description through props.
+```
+
+Preferred documentation sources:
+
+* MDN Web Docs for HTML, CSS, JavaScript, Web APIs, HTTP, and accessibility basics
+* React official docs for React
+* Next.js official docs and Learn Next.js for Next.js
+* TypeScript official handbook for TypeScript
+* Testing Library docs for React Testing Library
+* Vitest docs for unit testing
+* Playwright docs for end-to-end testing
+* Supabase docs for Supabase integration
+* Vercel docs for deployment
+* WCAG/WAI resources for accessibility when appropriate
+
+Do not use random blog posts as primary references when official docs are available.
+
+Do not dump broad docs links without guidance.
+
 ## Lesson Roles
 
 Before writing lessons, define each lesson’s role.
@@ -274,6 +471,8 @@ Common regular lesson roles:
 * reinforcement lesson
 * common mistakes lesson
 * case study lesson
+* Documentation Bridge lesson
+* Local Dev Milestone lesson
 
 Assessment role:
 
@@ -307,6 +506,16 @@ Supported block types:
 
 Do not add new block types unless a future product task explicitly requires it.
 
+Documentation Bridge and Local Dev Milestone can be represented with existing block types for now:
+
+* `text`
+* `callout`
+* `code-example`
+* `writing-practice`
+* `summary`
+* `self-review checklist` style content where supported
+* coding-practice only when it fits the current system
+
 ## When to Use Each Block
 
 ### `text`
@@ -319,6 +528,8 @@ Use when:
 * explaining a work situation
 * connecting a concept to a real use case
 * explaining how to read a code example
+* guiding official documentation reading
+* explaining local setup steps
 
 Keep it focused. If one text block becomes too large, split the explanation into multiple focused blocks or revise the lesson scope.
 
@@ -350,6 +561,7 @@ Use for:
 * React components
 * JSON/API examples
 * bash commands when setup is part of the lesson
+* file tree examples
 
 Every code example should have a short explanation of the important lines.
 
@@ -420,10 +632,12 @@ Use for:
 * pull request description
 * code review comment
 * implementation note
+* docs summary
+* README section
 * demo script
 * interview answer
 
-Writing practice is especially important for English for Tech Careers.
+Writing practice is especially important for English for Tech Careers and local milestone documentation.
 
 ### `summary`
 
@@ -434,6 +648,7 @@ Keep it concrete:
 * what the learner should remember
 * what decision rule they can apply
 * what they can do next
+* what docs they can read next if relevant
 * what the next lesson or module will build on
 
 Avoid generic motivational filler.
@@ -478,7 +693,7 @@ Coding challenges should be practical and safe.
 
 Rules:
 
-* Provide starter code for `html`, `css`, and `js`.
+* Provide starter code for `html`, `css`, and `js` when the current challenge model expects them.
 * Keep the task small enough for one lesson or assessment.
 * Write instructions in Bahasa Indonesia.
 * Include a clear checklist or validation metadata.
@@ -509,6 +724,7 @@ Manual checklist is better for:
 * project completeness
 * writing quality
 * self-review tasks
+* local project completion
 
 Good validation label:
 
@@ -577,6 +793,8 @@ lesson slug: html-basic-structure
 assessment id: html-basics-assessment
 quiz id: html-basics-assessment-quiz
 challenge id: build-basic-html-page
+local milestone id: local-static-website-project
+docs bridge block id: html-basics-docs-bridge
 ```
 
 ## Module Planning Workflow
@@ -588,11 +806,13 @@ Use this workflow before writing module content:
 3. Confirm prerequisite knowledge.
 4. Define regular lesson sequence.
 5. Define each lesson role.
-6. Define practice pattern for each lesson.
+6. Define built-in practice pattern for each lesson.
 7. Define Uji Kompetensi coverage.
-8. Define readiness criteria.
-9. Check for overlap between lessons.
-10. Remove, merge, or reposition repeated concepts.
+8. Define Documentation Bridge.
+9. Define Local Dev Milestone connection if relevant.
+10. Define readiness criteria.
+11. Check for overlap between lessons.
+12. Remove, merge, or reposition repeated concepts.
 
 Do not start by writing lesson content.
 
@@ -604,27 +824,43 @@ Use this workflow for every content batch:
 
 1. Pick one module slice.
 2. Confirm the lesson sequence.
-3. Write or revise one representative regular lesson.
-4. Score it with `docs/24_LESSON_QUALITY_RUBRIC.md`.
-5. Improve it before scaling.
-6. Write or revise the remaining regular lessons.
-7. Add coding practice or writing practice where useful.
-8. Add or update Uji Kompetensi.
-9. Add or update assessment quiz/practice coverage.
-10. Update module `lessonIds`.
-11. Run lint/build.
-12. Test the module in browser.
-13. Commit.
+3. Confirm whether this module needs built-in practice only, Documentation Bridge, Local Dev Milestone, or a combination.
+4. Write or revise one representative regular lesson.
+5. Score it with `docs/24_LESSON_QUALITY_RUBRIC.md`.
+6. Improve it before scaling.
+7. Write or revise the remaining regular lessons.
+8. Add coding practice or writing practice where useful.
+9. Add or update Uji Kompetensi.
+10. Add or update assessment quiz/practice coverage.
+11. Add Documentation Bridge when relevant.
+12. Add Local Dev Milestone only when the learner is ready for real workflow.
+13. Update module `lessonIds`.
+14. Run lint/build.
+15. Test the module in browser.
+16. Commit.
 
 A complete module slice includes:
 
 * regular lessons
 * meaningful examples
-* practice when useful
+* built-in practice when useful
+* Documentation Bridge when useful
 * Uji Kompetensi
 * quiz/practice coverage
 * bridge to the next module
 * browser testing
+
+A complete local milestone slice includes:
+
+* setup guidance
+* local project goal
+* expected folder structure
+* run/open instructions
+* common setup mistakes
+* Git/GitHub step when relevant
+* Documentation Bridge
+* completion checklist
+* optional writing practice for README or project note
 
 Do not add the next module until the current module feels coherent.
 
@@ -644,6 +880,9 @@ Batch size guidance:
 * Lesson order is logical.
 * Each lesson has a unique role.
 * No two lessons explain the same concept in different words.
+* Built-in practice appears where useful.
+* Documentation Bridge is specific and guided when used.
+* Local Dev Milestone appears only when the learner is ready.
 * Uji Kompetensi covers the module.
 * Assessment does not introduce important new concepts.
 * Module bridges to the next module.
@@ -658,6 +897,7 @@ Batch size guidance:
 * Quick checks are useful.
 * Practice is meaningful.
 * Regular lessons are not quiz-heavy.
+* Documentation links are not dumped without guidance.
 * Summary is actionable.
 * Bridge copy is specific.
 
@@ -669,6 +909,28 @@ Batch size guidance:
 * Feedback explains the rule behind answers.
 * Correct answer positions are varied.
 * Readiness summary is clear.
+* Documentation Bridge supports the module goal if included.
+
+### Documentation Bridge quality
+
+* Uses official or trusted docs.
+* Names the specific source and section.
+* Gives focus points.
+* Tells learner what to ignore for now.
+* Includes one follow-up action.
+* Does not overwhelm beginners with broad docs.
+
+### Local Dev Milestone quality
+
+* Learner knows what to build locally.
+* Required tools are clear.
+* Setup steps are specific.
+* Expected folder structure is shown.
+* Run/open instruction is clear.
+* Common mistakes are listed.
+* Git/GitHub step exists when relevant.
+* Documentation Bridge is included.
+* Completion checklist is realistic.
 
 ### Schema and linking
 
@@ -679,6 +941,7 @@ Batch size guidance:
 * Coding practice block references an existing challenge.
 * Challenge `lessonId` matches the lesson that uses it.
 * Hidden modules are not included in active track order.
+* Prototype modules are not treated as active curriculum.
 
 ### Interaction
 
@@ -688,6 +951,7 @@ Batch size guidance:
 * Writing practice has a clear prompt and checklist.
 * Coding challenge has starter code, validation/checklist, and optional solution.
 * Auto validation does not pass everything by default unless intentional.
+* Local milestone checklist does not claim the app can verify local device work automatically unless that feature exists.
 
 ### Verification
 
@@ -721,7 +985,8 @@ Learner understands what HTML is and where index.html fits in a small frontend p
 Regular lessons:
 1. Struktur HTML Dasar
    Role: concept + guided practice
-   Practice: build a basic HTML page
+   Practice: built-in HTML editor
+   Docs bridge: no broad docs yet, mention MDN HTML basics at assessment
 
 2. Tag, Element, dan Attribute
    Role: concept + guided practice
@@ -733,7 +998,7 @@ Regular lessons:
 
 4. Relative Paths Dasar
    Role: file reference practice
-   Practice: use href and src with local files
+   Practice: use href and src with local-like paths in built-in editor
 
 Uji Kompetensi:
 Uji Kompetensi HTML Basics
@@ -751,7 +1016,11 @@ Assessment blocks:
 - recap
 - quiz
 - coding-practice
+- Documentation Bridge
 - summary
+
+Local milestone connection:
+HTML Basics prepares learners for Local Static Website Project after early CSS.
 ```
 
 ## Sample Regular Lesson Blueprint
@@ -780,7 +1049,7 @@ Suggested blocks:
    Ask which path points to an image inside images folder.
 
 5. coding-practice
-   Learner edits href and src.
+   Learner edits href and src in built-in editor.
 
 6. summary
    Recap path rule and bridge to Uji Kompetensi.
@@ -810,7 +1079,10 @@ Suggested blocks:
 3. coding-practice
    Build a small HTML content page.
 
-4. summary
+4. Documentation Bridge
+   Guide learner to MDN HTML pages with focus points.
+
+5. summary
    Explain readiness and bridge to Semantic HTML.
 
 Assessment coverage:
@@ -820,6 +1092,72 @@ Assessment coverage:
 - links
 - images
 - relative paths
+```
+
+## Sample Local Dev Milestone Blueprint
+
+```txt
+Module:
+Local Static Website Project
+
+Role:
+local development milestone
+
+Purpose:
+Move learner from built-in browser practice into local device workflow.
+
+Prerequisite:
+Learner has learned HTML, semantic HTML, forms basics, and early CSS.
+
+Suggested lessons:
+1. Menyiapkan Folder Project Lokal
+2. Membuka Project di Code Editor
+3. Menjalankan HTML di Browser
+4. DevTools Dasar untuk Static Page
+5. Menyimpan Project dengan Git dan GitHub
+6. Uji Kompetensi Local Static Website Project
+
+Expected output:
+A local static website repository.
+
+Documentation Bridge:
+- MDN Getting started with the web
+- GitHub Docs repository basics
+- MDN DevTools basics
+
+Completion checklist:
+- project folder exists
+- index.html exists
+- styles.css exists
+- page opens in browser
+- Git commit exists
+- GitHub repository exists
+- learner writes short project note
+```
+
+## Sample Documentation Bridge Blueprint
+
+```txt
+Documentation Bridge:
+MDN HTML basics
+
+Read:
+MDN: HTML basics
+MDN: Creating hyperlinks
+MDN: Images in HTML
+
+Focus on:
+1. how HTML elements are written
+2. how href points to another page
+3. how src and alt work on images
+
+Ignore for now:
+- advanced metadata
+- responsive images
+- browser compatibility tables
+
+Follow-up action:
+Open your HTML Basics practice and identify one tag, one attribute, one link, and one image.
 ```
 
 ## Sample English Writing Lesson Blueprint
@@ -859,6 +1197,10 @@ Suggested blocks:
 
 ## Final Authoring Rule
 
-If a lesson does not help the learner understand, practice, communicate, or prove a real skill, do not add it.
+If a lesson does not help the learner understand, practice, communicate, read documentation, build locally, or prove a real skill, do not add it.
 
 If a module does not have a clear learning arc and Uji Kompetensi, do not scale it yet.
+
+If a local milestone would overwhelm the learner, delay it until enough built-in practice has prepared them.
+
+If a Documentation Bridge feels like link dumping, rewrite it with specific focus points and a follow-up action.

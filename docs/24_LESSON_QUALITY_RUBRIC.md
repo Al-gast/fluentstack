@@ -8,9 +8,12 @@ Use it when reviewing:
 
 * regular lessons
 * Uji Kompetensi
+* built-in practice
 * quizzes
 * coding practice
 * writing practice
+* Documentation Bridge
+* Local Dev Milestone
 * module structure
 * content batches
 
@@ -33,6 +36,8 @@ Good content should help learners:
 * practice at the right time
 * avoid common mistakes
 * know what to do next
+* read relevant official documentation when useful
+* build locally when the workflow requires it
 * prove readiness at module level
 
 Do not use schema validity as proof of content quality.
@@ -58,7 +63,11 @@ Minimum gates:
 * Beginner regular lessons should target at least 8/10.
 * Golden benchmark lessons should target 9/10 or higher.
 * Uji Kompetensi should target at least 8.5/10.
-* If beginner friendliness, teaching depth, practice readiness, or bridge quality is weak, do not add more content yet.
+* Documentation Bridge should target at least 8/10.
+* Local Dev Milestone should target at least 8.5/10.
+* A full module should target at least 8.5/10 before the next module is added.
+
+If beginner friendliness, teaching depth, practice readiness, bridge quality, or module coherence is weak, do not add more content yet.
 
 ## What to Review First
 
@@ -68,17 +77,24 @@ Content type:
 
 1. Regular lesson
 2. Uji Kompetensi
-3. Quiz
-4. Coding practice
-5. Writing practice
-6. Module plan
-7. Content batch
+3. Built-in practice
+4. Quiz
+5. Coding practice
+6. Writing practice
+7. Documentation Bridge
+8. Local Dev Milestone
+9. Module plan
+10. Content batch
 
 Do not judge all content with the same expectation.
 
 Regular lessons should teach and practice.
 
 Uji Kompetensi should assess module readiness.
+
+Documentation Bridge should guide learners toward official docs.
+
+Local Dev Milestone should teach real workflow on the learner’s own device.
 
 ## Regular Lesson Rubric
 
@@ -123,7 +139,7 @@ Improvement tips:
 * Introduces terms before using them heavily.
 * Uses concrete examples.
 * Avoids unexplained jargon.
-* Calms the learner before code or complex examples.
+* Calms the learner before code, docs, local setup, or complex examples.
 
 7/10:
 
@@ -136,7 +152,7 @@ Improvement tips:
 * Uses many terms too early.
 * Assumes prior knowledge that was not taught.
 * Makes simple concepts feel intimidating.
-* Pushes learners into practice before understanding.
+* Pushes learners into practice, official docs, or local setup before understanding.
 
 Improvement tips:
 
@@ -144,6 +160,7 @@ Improvement tips:
 * Replace abstract examples with real UI examples.
 * Add calming framing.
 * Remove advanced details that belong later.
+* Delay documentation reading or local setup until the learner has enough context.
 
 ### 3. Teaching Depth
 
@@ -164,7 +181,7 @@ Improvement tips:
 5/10 or below:
 
 * The lesson is mostly definitions.
-* It jumps from explanation to quiz/practice too fast.
+* It jumps from explanation to quiz, practice, docs, or setup too fast.
 * It does not explain the reasoning behind examples.
 
 Improvement tips:
@@ -201,7 +218,7 @@ Improvement tips:
 
 * Use specific examples.
 * Remove generic motivational filler.
-* Prefer “kamu akan melihat...” over abstract phrasing.
+* Prefer concrete learner actions.
 * Keep paragraphs short.
 
 ### 5. Example Quality
@@ -252,7 +269,7 @@ Improvement tips:
 5/10 or below:
 
 * Practice feels unrelated.
-* Learner is asked to code/write before understanding.
+* Learner is asked to code, write, or configure before understanding.
 * Task is too vague.
 * Completion can happen without meaningful effort.
 
@@ -262,6 +279,7 @@ Improvement tips:
 * Make instructions observable.
 * Keep one output.
 * Use auto validation when deterministic.
+* Use manual checklist for subjective review.
 
 ### 7. Quick Check Quality
 
@@ -282,7 +300,7 @@ Improvement tips:
 * Trivia-like.
 * Too easy to guess.
 * Tests something not taught.
-* Explanation only says correct/incorrect.
+* Explanation only says correct or incorrect.
 
 Improvement tips:
 
@@ -297,7 +315,7 @@ Improvement tips:
 * Recaps the real decision rules.
 * Uses concrete bullet points.
 * Tells learners what they can now do.
-* Bridges clearly to the next lesson or assessment.
+* Bridges clearly to the next lesson, Uji Kompetensi, Documentation Bridge, or Local Dev Milestone.
 
 7/10:
 
@@ -315,13 +333,14 @@ Improvement tips:
 * Add “you can now...” language.
 * Replace vague recap with concrete rules.
 * Name the next topic.
+* Mention docs or local milestone only when relevant.
 
 ### 9. Bridge Quality
 
 10/10:
 
 * Names the previous concept.
-* Names the next concept.
+* Names the next concept or module.
 * Explains the connection.
 * Makes the learning path feel intentional.
 
@@ -482,7 +501,34 @@ Improvement tips:
 * Use deterministic validation when possible.
 * Add self-review for subjective quality.
 
-### 5. Readiness Summary
+### 5. Documentation Bridge Quality inside Uji Kompetensi
+
+10/10:
+
+* Points to official docs that support the module.
+* Focus points match what the learner already studied.
+* Tells learner what to ignore for now.
+* Includes one useful follow-up action.
+
+7/10:
+
+* Uses official docs.
+* Focus guidance exists but could be sharper.
+
+5/10 or below:
+
+* Dumps links without guidance.
+* Sends beginners to broad or advanced docs.
+* Follow-up action is missing.
+
+Improvement tips:
+
+* Use one to three docs references.
+* Add focus points.
+* Add ignore-for-now notes.
+* Add one action tied to the assessment.
+
+### 6. Readiness Summary
 
 10/10:
 
@@ -504,9 +550,320 @@ Improvement tips:
 
 Improvement tips:
 
-* Add “kalau masih bingung, ulangi...” guidance.
+* Add review guidance.
 * Name the next module.
 * Tie readiness to concrete skills.
+
+## Built-in Practice Rubric
+
+Use this for coding practice and writing practice inside FluentStack.
+
+### 1. Practice Goal
+
+10/10:
+
+* Practice has one clear output.
+* Output matches lesson or assessment goal.
+* Learner understands what to edit or write.
+
+7/10:
+
+* Goal is understandable.
+* Some instructions could be clearer.
+
+5/10 or below:
+
+* Practice goal is vague.
+* Learner may not know what action is expected.
+
+Improvement tips:
+
+* State the expected output.
+* Remove unrelated tasks.
+* Add short “focus on this” guidance.
+
+### 2. Starter Content Quality
+
+10/10:
+
+* Starter code or prompt helps the learner begin.
+* It does not solve the full task by default.
+* It avoids unrelated complexity.
+* Beginner tasks include enough scaffolding.
+
+7/10:
+
+* Starter content works.
+* It may be slightly too complete or too sparse.
+
+5/10 or below:
+
+* Starter content is confusing.
+* It already passes everything without real work.
+* It includes concepts not taught yet.
+
+Improvement tips:
+
+* Leave meaningful gaps.
+* Remove unrelated CSS/JS from HTML-only tasks.
+* Add comments sparingly when helpful.
+
+### 3. Feedback and Validation
+
+10/10:
+
+* Auto validation checks deterministic requirements when possible.
+* Manual checklist is used for subjective review.
+* Labels are observable and specific.
+* Learner can understand what to fix.
+
+7/10:
+
+* Feedback is useful.
+* Some labels are too broad.
+
+5/10 or below:
+
+* Validation checks the wrong thing.
+* Checklist is vague.
+* Learner can complete without applying skill.
+
+Improvement tips:
+
+* Use labels such as “Ada elemen h1.”
+* Avoid labels such as “Kode sudah bagus.”
+* Use manual review for subjective quality.
+
+### 4. Preview or Review Value
+
+10/10:
+
+* Learner can see, test, or review output clearly.
+* Preview reinforces the lesson concept.
+* The practice feels connected to the final skill.
+
+7/10:
+
+* Preview/review exists but could be clearer.
+
+5/10 or below:
+
+* Output is hard to see.
+* Practice completion feels disconnected from learning.
+
+Improvement tips:
+
+* Make preview area useful.
+* Add small visual output.
+* Add self-review checklist.
+
+## Documentation Bridge Rubric
+
+Use this for module docs guidance, assessment docs links, local milestone docs reading, and advanced docs references.
+
+### 1. Source Quality
+
+10/10:
+
+* Uses official or highly trusted documentation.
+* Source matches the current module goal.
+* Docs are appropriate for learner level.
+
+7/10:
+
+* Source is credible.
+* It may be slightly broad for the learner.
+
+5/10 or below:
+
+* Uses random blog posts when official docs exist.
+* Source is too advanced.
+* Source is not relevant to the current module.
+
+Improvement tips:
+
+* Prefer MDN, React docs, Next.js docs, TypeScript handbook, Supabase docs, Vercel docs, Testing Library docs, Playwright docs, or WCAG/WAI resources when relevant.
+* Use non-official sources only when they clearly add value and are not replacing official docs.
+
+### 2. Guidance Quality
+
+10/10:
+
+* Names the exact page or section.
+* Lists 2 to 4 focus points.
+* Tells what to ignore for now.
+* Uses beginner-safe wording.
+
+7/10:
+
+* Has a specific docs source.
+* Focus points exist but could be clearer.
+
+5/10 or below:
+
+* Says “read the docs” with no guidance.
+* Sends learner to broad docs pages.
+* No ignore-for-now guidance.
+
+Improvement tips:
+
+* Add exact docs page title.
+* Add “focus on” bullets.
+* Add “ignore for now” bullets.
+* Keep it short.
+
+### 3. Follow-up Action
+
+10/10:
+
+* Includes one small action after reading.
+* Action connects docs reading to FluentStack practice, local project, or Uji Kompetensi.
+* Learner knows what to do next.
+
+7/10:
+
+* Action exists but is generic.
+
+5/10 or below:
+
+* No action.
+* Learner is sent away and not brought back.
+
+Improvement tips:
+
+* Ask learner to identify, edit, compare, summarize, or apply one small thing.
+* Connect the action to the current module output.
+
+## Local Dev Milestone Rubric
+
+Use this for local setup lessons, local project modules, and portfolio milestones.
+
+### 1. Timing and Readiness
+
+10/10:
+
+* Milestone appears after enough built-in practice.
+* Learner has the concepts needed to build locally.
+* Local setup does not appear too early.
+
+7/10:
+
+* Timing is mostly reasonable.
+* Some learners may need more preparation.
+
+5/10 or below:
+
+* Local setup appears before the learner understands the core concepts.
+* Milestone overwhelms beginners.
+* It replaces basic learning instead of extending it.
+
+Improvement tips:
+
+* Move milestone later.
+* Add built-in practice first.
+* Add prerequisite recap.
+
+### 2. Local Workflow Clarity
+
+10/10:
+
+* Required tools are clear.
+* Setup steps are specific.
+* Expected folder/project structure is shown.
+* Run/open instruction is clear.
+* Common setup mistakes are included.
+
+7/10:
+
+* Workflow is understandable.
+* Some steps need more detail.
+
+5/10 or below:
+
+* Learner may not know what to install, run, or open.
+* Folder structure is missing.
+* No troubleshooting guidance.
+
+Improvement tips:
+
+* Add required tools list.
+* Add file tree.
+* Add exact command or open instruction.
+* Add common mistakes.
+
+### 3. Real Engineering Value
+
+10/10:
+
+* Milestone teaches workflow used by engineers.
+* Includes editor, terminal, browser, DevTools, Git/GitHub, npm, or deploy when relevant.
+* Output can become part of portfolio or project history.
+
+7/10:
+
+* Milestone has real workflow value.
+* Some steps feel checklist-only.
+
+5/10 or below:
+
+* Milestone is only a vague “try locally” instruction.
+* No Git, debugging, docs, or project explanation when relevant.
+
+Improvement tips:
+
+* Add Git/GitHub step.
+* Add DevTools or debugging task.
+* Add README/project note.
+* Add docs reading tied to the task.
+
+### 4. Verification Honesty
+
+10/10:
+
+* Checklist is clear about what FluentStack can and cannot verify.
+* Completion uses self-review when needed.
+* Learner knows how to confirm success locally.
+
+7/10:
+
+* Checklist is useful.
+* Verification limitation could be clearer.
+
+5/10 or below:
+
+* Claims automatic verification for local device work that the app cannot actually check.
+* Completion criteria are vague.
+
+Improvement tips:
+
+* Use honest checklist items.
+* Add “you should see...” expected output.
+* Use writing practice for proof or reflection when system cannot inspect local files.
+
+### 5. Documentation Use
+
+10/10:
+
+* Milestone includes relevant official docs.
+* Docs are used to solve real setup/build/debug tasks.
+* Follow-up action connects docs to local project.
+
+7/10:
+
+* Docs are relevant.
+* Guidance could be more specific.
+
+5/10 or below:
+
+* Docs are missing.
+* Docs are broad or unrelated.
+* Learner is not taught how to use docs during the local task.
+
+Improvement tips:
+
+* Add official docs source.
+* Add exact section and focus points.
+* Tie docs to one local project action.
 
 ## Module Coherence Rubric
 
@@ -519,6 +876,7 @@ Use this section when reviewing a full module.
 * Module starts with prerequisite-friendly concepts.
 * Lessons build on each other.
 * Practice appears at the right time.
+* Documentation Bridge appears when useful.
 * Uji Kompetensi checks the full arc.
 
 7/10:
@@ -530,6 +888,7 @@ Use this section when reviewing a full module.
 
 * Lessons feel random.
 * Assessment does not match lessons.
+* Documentation links feel unrelated.
 * Learner may not know why topics appear.
 
 Improvement tips:
@@ -538,6 +897,7 @@ Improvement tips:
 * Add bridge copy.
 * Move advanced topics later.
 * Add missing practice before assessment.
+* Move docs bridge to assessment or module end.
 
 ### 2. Lesson Role Uniqueness
 
@@ -597,9 +957,10 @@ Improvement tips:
 
 10/10:
 
-* Practice starts small.
+* Built-in practice starts small.
 * Each task builds on the previous task.
 * Assessment practice combines module skills.
+* Local milestone appears only when learners are ready.
 * Learner sees visible progress.
 
 7/10:
@@ -610,6 +971,7 @@ Improvement tips:
 
 * Practice is missing.
 * Practice jumps too fast.
+* Local milestone appears too early.
 * Assessment practice is unrelated.
 
 Improvement tips:
@@ -617,6 +979,34 @@ Improvement tips:
 * Add one small output per lesson.
 * Use auto validation for simple code requirements.
 * Add final assessment task.
+* Delay local milestone until the learner has enough concepts.
+
+### 5. Documentation Progression
+
+10/10:
+
+* Documentation Bridge is introduced gradually.
+* Beginners get guided docs references.
+* Advanced modules expect more docs independence.
+* Docs references match the module goal.
+
+7/10:
+
+* Docs references are useful.
+* Some could be more specific.
+
+5/10 or below:
+
+* No docs references in modules that need them.
+* Docs are dumped without guidance.
+* Beginners are sent to broad docs too early.
+
+Improvement tips:
+
+* Add guided docs bridge at module end.
+* Give focus points.
+* Add ignore-for-now notes.
+* Tie docs reading to a follow-up action.
 
 ## Quiz Rubric
 
@@ -724,9 +1114,9 @@ Improvement tips:
 * Add model answer.
 * Keep tone guidance practical.
 
-## Golden Lesson Standard
+## Golden Regular Lesson Standard
 
-A flagship early lesson should include:
+A flagship early regular lesson should include:
 
 * clear goal
 * previous/next context
@@ -735,7 +1125,7 @@ A flagship early lesson should include:
 * mini action or observation
 * common confusion
 * quick check
-* practice when useful
+* built-in practice when useful
 * actionable summary
 * clear bridge to the next lesson
 
@@ -750,7 +1140,8 @@ A strong Uji Kompetensi should include:
 * module recap
 * clear list of what will be checked
 * quiz that covers the module
-* practice/project/writing task when the module teaches an applied skill
+* built-in practice, project, writing task, or checklist when the module teaches an applied skill
+* Documentation Bridge when useful
 * feedback that teaches
 * readiness summary
 * next module bridge
@@ -758,6 +1149,41 @@ A strong Uji Kompetensi should include:
 It should feel like a fair checkpoint.
 
 It should not feel like a surprise exam.
+
+## Strong Documentation Bridge Standard
+
+A strong Documentation Bridge should include:
+
+* official docs source
+* exact page or section
+* focus points
+* ignore-for-now notes
+* follow-up action
+* connection back to FluentStack lesson, practice, Uji Kompetensi, or local milestone
+
+It should make learners more independent.
+
+It should not send learners away without direction.
+
+## Strong Local Dev Milestone Standard
+
+A strong Local Dev Milestone should include:
+
+* reason why local workflow appears now
+* required tools
+* clear project goal
+* setup steps
+* expected folder/project structure
+* run/open instruction
+* common setup mistakes
+* official docs references
+* Git/GitHub step when relevant
+* completion checklist
+* writing task for README, project note, or demo note when useful
+
+It should feel like a supported transition from built-in practice to real engineering workflow.
+
+It should not feel like “good luck, install everything yourself.”
 
 ## Beginner Lesson Red Flags
 
@@ -774,6 +1200,8 @@ Revise when you see:
 * no bridge to the next lesson
 * no mini action or concrete observation
 * using technical terms before introducing them
+* broad docs links appear too early
+* local setup appears before learner is ready
 
 ## Module Red Flags
 
@@ -787,6 +1215,10 @@ Revise when you see:
 * lesson order feels arbitrary
 * hidden/prototype modules appear in active track
 * assessment does not bridge to next module
+* documentation bridge is link dumping
+* local milestone replaces built-in concept practice
+* local milestone appears too early
+* local milestone has no clear verification path
 
 ## Review Workflow
 
@@ -796,6 +1228,9 @@ Use this workflow when reviewing a lesson:
 
    * regular lesson
    * Uji Kompetensi
+   * built-in practice
+   * Documentation Bridge
+   * Local Dev Milestone
    * quiz
    * coding practice
    * writing practice
@@ -807,11 +1242,11 @@ Use this workflow when reviewing a lesson:
 
 4. Check whether the example is concrete.
 
-5. Check whether the learner gets a small action, quick check, or practice.
+5. Check whether the learner gets a small action, quick check, built-in practice, docs action, or local task.
 
 6. Check whether the lesson is quiz-heavy.
 
-7. Complete the quick check, quiz, or practice.
+7. Complete the quick check, quiz, practice, docs action, or local checklist.
 
 8. Check the summary and bridge.
 
@@ -825,9 +1260,11 @@ Use this workflow when reviewing a module:
 2. Write the role of each lesson.
 3. Mark any repeated concepts.
 4. Check if regular lessons teach and practice.
-5. Check if Uji Kompetensi covers the full module.
-6. Test the module in browser.
-7. Revise before moving to the next module.
+5. Check if Documentation Bridge is guided and placed well.
+6. Check if Local Dev Milestone appears at the right time.
+7. Check if Uji Kompetensi covers the full module.
+8. Test the module in browser.
+9. Revise before moving to the next module.
 
 ## Minimum Quality Gate
 
@@ -839,6 +1276,15 @@ Regular lesson:
 * At least 9/10 if used as benchmark.
 
 Uji Kompetensi:
+
+* At least 8.5/10 before active use.
+
+Documentation Bridge:
+
+* At least 8/10 before active use.
+* At least 8.5/10 for beginner modules.
+
+Local Dev Milestone:
 
 * At least 8.5/10 before active use.
 
@@ -854,10 +1300,14 @@ If a module feels repetitive, fix the module structure before adding content.
 
 If learners feel tested too often, move quizzes into Uji Kompetensi and strengthen practice.
 
+If learners are not ready for local setup, delay Local Dev Milestone and add more built-in practice first.
+
+If docs guidance feels vague, rewrite the Documentation Bridge with official source, focus points, ignore-for-now notes, and follow-up action.
+
 ## Final Quality Rule
 
 FluentStack should optimize for durable understanding, not content volume.
 
-A smaller module with mature lessons and a meaningful Uji Kompetensi is better than a large module filled with shallow lessons.
+A smaller module with mature lessons, focused built-in practice, guided official docs, meaningful Uji Kompetensi, and well-timed local milestone is better than a large module filled with shallow lessons.
 
-If content does not help the learner understand, practice, communicate, or prove a real skill, revise it or remove it from the active path.
+If content does not help the learner understand, practice, communicate, read documentation, build locally, or prove a real skill, revise it or remove it from the active path.
