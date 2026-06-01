@@ -8,6 +8,8 @@ Use it when creating or revising lessons in `src/content/lessons.ts`, quizzes in
 
 This standard does not introduce new block types and does not require schema changes. It maps a clear e-learning lesson loop to the existing FluentStack block-based content model.
 
+This document defines the repeatable lesson structure. `docs/24_LESSON_QUALITY_RUBRIC.md` defines the quality scoring rubric used to decide whether a lesson is strong enough to keep or scale.
+
 Actual lesson content inside the product should remain Bahasa Indonesia-first. English documentation can describe the format, but user-facing explanations, quiz questions, practice instructions, and summaries should use natural Bahasa Indonesia. Common technical terms may stay in English when they are standard in frontend work.
 
 ## Standard Lesson Loop
@@ -106,13 +108,14 @@ Minimum useful lesson pattern:
 2. `quick-check`
 3. `summary`
 
-Most beginner concept lessons should include:
+Most beginner concept lessons should usually include:
 
 1. `text`
 2. `callout`
 3. `quick-check`
-4. `quiz`
-5. `summary`
+4. `summary`
+
+Add a `quiz` only when it adds learning value, such as when the concept has several parts, common misconceptions, or a meaningful application check beyond the quick check.
 
 ## Template 1: Beginner Concept Lesson
 
@@ -131,11 +134,14 @@ Recommended structure:
    - Add a decision rule or common confusion.
 4. `quick-check`
    - Ask the learner to distinguish two similar concepts.
-5. `quiz`
-   - Use 4 focused questions when the concept has multiple parts.
+5. Optional `quiz`
+   - Use 4 focused questions only when the concept has multiple parts or common misconceptions.
+   - Skip the quiz when it would only repeat the quick check or make a light orientation lesson feel heavy.
 6. `summary`
    - Restate the decision rule.
    - Add a bridge to the next lesson.
+
+Add a mini action when useful, especially in beginner concept lessons. The action can be small: observe a UI, compare two choices, identify a page part, predict what a browser does next, or choose which file/element fits a situation.
 
 Use when:
 
@@ -388,6 +394,8 @@ Checklist items should be:
 - not dependent on hidden grading
 
 ## Final Rule
+
+Use this standard to shape the lesson. Use `docs/24_LESSON_QUALITY_RUBRIC.md` to score whether the lesson teaches well enough.
 
 If a lesson cannot answer these three questions, revise it before adding it:
 
