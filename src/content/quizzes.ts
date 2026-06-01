@@ -276,28 +276,33 @@ export const htmlBasicStructureQuiz: Quiz = {
     {
       id: "html-basic-structure-q1",
       type: "multiple-choice",
-      question: "Bagian mana yang berisi konten yang terlihat di halaman?",
-      options: ["head", "body", "doctype", "meta"],
+      question: "Bagian mana yang berisi h1 dan paragraf yang terlihat di halaman?",
+      options: ["head", "title", "body", "doctype"],
       correctAnswer: "body",
       explanation:
-        "body berisi konten utama yang dilihat pengunjung, seperti heading, paragraf, gambar, link, dan form.",
+        "body adalah tempat konten yang terlihat di halaman, termasuk h1, paragraf, gambar, link, dan form.",
     },
     {
       id: "html-basic-structure-q2",
       type: "multiple-choice",
-      question: "Bagian mana yang biasanya berisi judul dokumen dan informasi untuk browser?",
-      options: ["body", "footer", "head", "button"],
-      correctAnswer: "head",
+      question: "Apa fungsi title dalam struktur HTML dasar?",
+      options: [
+        "Menjadi paragraf utama di halaman",
+        "Memberi nama halaman yang muncul di tab browser",
+        "Membungkus semua konten yang terlihat",
+        "Mengganti doctype",
+      ],
+      correctAnswer: "Memberi nama halaman yang muncul di tab browser",
       explanation:
-        "head menyimpan informasi tentang halaman, seperti title dan meta. Konten yang terlihat ditaruh di body.",
+        "title ditulis di dalam head dan dipakai browser sebagai nama halaman, misalnya untuk teks di tab browser.",
     },
     {
       id: "html-basic-structure-q3",
       type: "true-false",
-      question: "Tag <title> biasanya ditaruh di dalam body.",
+      question: "Tag <title> dan <h1> punya fungsi yang sama.",
       correctAnswer: false,
       explanation:
-        "title biasanya ditaruh di dalam head karena itu informasi halaman untuk browser, bukan konten utama yang tampil di body.",
+        "title memberi nama halaman untuk browser, sedangkan h1 adalah heading utama yang terlihat di dalam body.",
     },
     {
       id: "html-basic-structure-q4",
@@ -359,6 +364,74 @@ export const tagElementAttributeQuiz: Quiz = {
   ],
 };
 
+export const htmlBasicsAssessmentQuiz: Quiz = {
+  id: "html-basics-assessment-quiz",
+  lessonId: "html-basics-assessment",
+  title: "Assessment HTML Basics",
+  passingScore: 70,
+  questions: [
+    {
+      id: "html-basics-assessment-q1",
+      type: "multiple-choice",
+      question: "Bagian mana yang sebaiknya berisi konten yang terlihat seperti h1 dan paragraf?",
+      options: ["head", "title", "body", "doctype"],
+      correctAnswer: "body",
+      explanation:
+        "body berisi konten yang terlihat di halaman. Head menyimpan informasi untuk browser, seperti title.",
+    },
+    {
+      id: "html-basics-assessment-q2",
+      type: "multiple-choice",
+      question: "Pada kode <a href=\"/roadmap\">Roadmap</a>, bagian mana yang disebut attribute?",
+      options: ["href", "Roadmap", "a", "/roadmap saja"],
+      correctAnswer: "href",
+      explanation:
+        "href adalah attribute pada element a. Nilainya memberi tahu tujuan link.",
+    },
+    {
+      id: "html-basics-assessment-q3",
+      type: "true-false",
+      question: "Title dan h1 punya fungsi yang sama karena keduanya sama-sama judul.",
+      correctAnswer: false,
+      explanation:
+        "Title memberi nama halaman untuk browser, sedangkan h1 adalah heading utama yang terlihat di body.",
+    },
+    {
+      id: "html-basics-assessment-q4",
+      type: "code-output",
+      question: "Pada kode berikut, mana element lengkap?",
+      code: `<p>Belajar HTML</p>`,
+      options: ["p", "Belajar HTML", "</p>", "<p>Belajar HTML</p>"],
+      correctAnswer: "<p>Belajar HTML</p>",
+      explanation:
+        "Element lengkap mencakup tag pembuka, konten, dan tag penutup jika ada.",
+    },
+    {
+      id: "html-basics-assessment-q5",
+      type: "multiple-choice",
+      question: "Attribute mana yang membantu menjelaskan gambar ketika gambar tidak terbaca?",
+      options: ["src", "alt", "href", "title"],
+      correctAnswer: "alt",
+      explanation:
+        "alt berisi teks alternatif untuk gambar. Ini membantu ketika gambar gagal dimuat dan mendukung accessibility.",
+    },
+    {
+      id: "html-basics-assessment-q6",
+      type: "multiple-choice",
+      question: "Urutan mental paling aman saat membaca dokumen HTML dasar adalah...",
+      options: [
+        "Mulai dari CSS, lalu cari h1",
+        "Cari semua div terlebih dahulu",
+        "Lihat doctype, html, head, lalu body",
+        "Abaikan head karena tidak pernah penting",
+      ],
+      correctAnswer: "Lihat doctype, html, head, lalu body",
+      explanation:
+        "Membaca dari struktur besar membantu kamu tahu mana informasi untuk browser dan mana konten yang terlihat.",
+    },
+  ],
+};
+
 export const htmlSemanticQuiz: Quiz = {
   id: "html-semantic-quiz",
   lessonId: "html-semantic-basics",
@@ -406,6 +479,82 @@ export const htmlSemanticQuiz: Quiz = {
   ],
 };
 
+export const semanticHtmlAssessmentQuiz: Quiz = {
+  id: "semantic-html-assessment-quiz",
+  lessonId: "semantic-html-assessment",
+  title: "Assessment Semantic HTML",
+  passingScore: 70,
+  questions: [
+    {
+      id: "semantic-html-assessment-q1",
+      type: "multiple-choice",
+      question: "Apa dasar utama memilih semantic HTML?",
+      options: [
+        "Warna yang ingin ditampilkan",
+        "Ukuran teks yang paling besar",
+        "Makna dan fungsi konten",
+        "Nama class yang paling pendek",
+      ],
+      correctAnswer: "Makna dan fungsi konten",
+      explanation:
+        "Semantic HTML dipilih berdasarkan fungsi konten. Tampilan seperti warna dan ukuran diatur dengan CSS.",
+    },
+    {
+      id: "semantic-html-assessment-q2",
+      type: "multiple-choice",
+      question: "Elemen mana yang paling tepat untuk area link navigasi utama?",
+      options: ["nav", "main", "footer", "article"],
+      correctAnswer: "nav",
+      explanation:
+        "nav menandai area navigasi, yaitu kumpulan link untuk berpindah ke halaman atau bagian penting.",
+    },
+    {
+      id: "semantic-html-assessment-q3",
+      type: "true-false",
+      question: "Div selalu salah dan harus diganti semua dengan semantic element.",
+      correctAnswer: false,
+      explanation:
+        "Div tetap boleh dipakai sebagai wrapper umum. Yang perlu dihindari adalah memakai div untuk semua bagian penting yang sudah punya elemen semantic lebih tepat.",
+    },
+    {
+      id: "semantic-html-assessment-q4",
+      type: "multiple-choice",
+      question: "Elemen mana yang paling tepat untuk konten utama unik dari satu halaman?",
+      options: ["aside", "footer", "main", "nav"],
+      correctAnswer: "main",
+      explanation:
+        "main membungkus konten utama halaman. Navigasi, footer, dan konten pendukung sebaiknya tidak ditaruh sebagai main.",
+    },
+    {
+      id: "semantic-html-assessment-q5",
+      type: "code-output",
+      question: "Jika blok berikut adalah artikel mandiri, elemen apa yang paling tepat mengganti div?",
+      code: `<div class="post">
+  <h2>Belajar HTML</h2>
+  <p>Isi artikel.</p>
+</div>`,
+      options: ["section", "nav", "footer", "article"],
+      correctAnswer: "article",
+      explanation:
+        "article tepat untuk konten mandiri seperti artikel, post, atau item yang bisa berdiri sendiri.",
+    },
+    {
+      id: "semantic-html-assessment-q6",
+      type: "multiple-choice",
+      question: "Apa masalah utama dari struktur yang memakai div untuk header, menu, konten utama, dan footer sekaligus?",
+      options: [
+        "Browser tidak bisa menampilkan div",
+        "Makna setiap bagian halaman menjadi kurang jelas",
+        "CSS tidak bisa dipakai",
+        "Semua link otomatis rusak",
+      ],
+      correctAnswer: "Makna setiap bagian halaman menjadi kurang jelas",
+      explanation:
+        "Jika semua bagian penting memakai div, developer dan assistive technology kehilangan petunjuk makna struktur halaman.",
+    },
+  ],
+};
+
 export const quizzes: Quiz[] = [
   whatIsWebsiteAndWebPageQuiz,
   howWebPageLoadsQuiz,
@@ -413,6 +562,8 @@ export const quizzes: Quiz[] = [
   htmlCssJsRolesQuiz,
   htmlBasicStructureQuiz,
   tagElementAttributeQuiz,
+  htmlBasicsAssessmentQuiz,
   semanticHtmlStructureQuiz,
   htmlSemanticQuiz,
+  semanticHtmlAssessmentQuiz,
 ];

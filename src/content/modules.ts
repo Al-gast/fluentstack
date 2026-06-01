@@ -28,7 +28,7 @@ export const htmlBasicsModule: Module = {
   description:
     "Belajar struktur dasar halaman HTML, tag, element, attribute, dan konten dasar halaman.",
   order: 2,
-  lessonIds: ["html-basic-structure", "tag-element-attribute"],
+  lessonIds: ["html-basic-structure", "tag-element-attribute", "html-basics-assessment"],
   estimatedHours: 5,
   skillTags: ["HTML", "Web Fundamentals"],
 };
@@ -41,7 +41,7 @@ export const semanticHtmlModule: Module = {
   description:
     "Belajar memilih elemen HTML berdasarkan makna dan struktur halaman.",
   order: 3,
-  lessonIds: ["semantic-html-structure", "html-semantic-basics"],
+  lessonIds: ["semantic-html-structure", "html-semantic-basics", "semantic-html-assessment"],
   estimatedHours: 5,
   skillTags: ["HTML", "Semantic HTML", "Accessibility"],
 };

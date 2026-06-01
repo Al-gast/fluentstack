@@ -117,6 +117,8 @@ Most beginner concept lessons should usually include:
 
 Add a `quiz` only when it adds learning value, such as when the concept has several parts, common misconceptions, or a meaningful application check beyond the quick check.
 
+Regular beginner lessons should not include a quiz by default. They should focus on explanation, examples, mini actions, quick checks, and practice. Use quiz blocks inside regular lessons only when the quiz adds clear learning value and does not make the lesson feel test-heavy.
+
 ## Template 1: Beginner Concept Lesson
 
 Use for zero-to-one concepts such as website, web page, URL, browser, HTML, CSS, JavaScript, or basic HTML terms.
@@ -177,6 +179,23 @@ Use when:
 - the learner can verify the result visually or behaviorally
 - the lesson should produce a small working output
 
+### Beginner Coding Lesson Guidance
+
+For beginner coding lessons, do not send learners into practice before they understand what they are about to write.
+
+Use this pre-practice teaching flow:
+
+1. Orientation: what the lesson teaches and why it appears now.
+2. Core concept: explain the main idea in plain language.
+3. New terms: introduce important terms before using them heavily.
+4. Small example: show the smallest useful code example.
+5. How to read the example: explain the important lines, not every character.
+6. Common mistake: explain one realistic mistake to avoid.
+7. Quick check: check one concept before practice.
+8. Practice: start only after the learner has enough context.
+
+More explanation does not mean long walls of text. Use short focused blocks. Do not make learners code from a template they do not understand.
+
 ## Template 3: Review or Quiz Lesson
 
 Use after a group of related lessons.
@@ -199,6 +218,27 @@ Rules:
 - Do not add new concepts in a review lesson unless necessary.
 - Quiz explanations should teach, not only mark answers.
 - Wrong answers should be plausible.
+
+## Template 3A: Module Assessment Lesson
+
+Use as the final lesson in a module when learners need a readiness check before moving forward.
+
+Recommended structure:
+
+1. `text`
+   - Recap the concepts being assessed.
+2. `quiz`
+   - Check readiness across the module, not only recall from one lesson.
+3. `coding-practice`, `writing-practice`, or self-review checklist
+   - Ask the learner to apply the module skills in a small realistic task.
+4. `summary`
+   - Explain what the learner is ready for next.
+
+Rules:
+
+- Module assessments can include recap, quiz, coding practice or project task, self-review checklist, and readiness summary.
+- Avoid duplicate lessons. Every lesson in a module should have a unique purpose: concept, guided example, practice, common mistakes, or assessment.
+- Prefer one module-level assessment over quizzes in every regular lesson.
 
 ## Template 4: English Writing Lesson
 

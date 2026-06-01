@@ -138,6 +138,7 @@ Rules:
 * For beginner lessons, assume the learner starts from zero.
 * Introduce terms before using them heavily.
 * Every lesson should have a clear bridge to the next lesson unless it is the last lesson in a module.
+* Do not make every lesson quiz-heavy. Prefer module-level assessment for readiness checks.
 
 ## Language Strategy
 

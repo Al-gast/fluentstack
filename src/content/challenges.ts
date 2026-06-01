@@ -4,21 +4,21 @@ export const buildBasicHtmlPageChallenge: CodingChallenge = {
   id: "build-basic-html-page",
   lessonId: "html-basic-structure",
   title: "Membuat halaman HTML pertama",
-  description: "Latihan membuat struktur dasar halaman HTML.",
+  description: "Latihan menulis kerangka HTML dasar dan melihat konten body di preview.",
   instructions: [
-    "Lengkapi struktur HTML dasar. Kamu sedang melatih struktur, bukan desain.",
-    "Pastikan ada doctype, elemen html, head, title, dan body.",
-    "Tulis heading dan paragraf di dalam body karena bagian itu yang terlihat di preview.",
-    "Gunakan preview untuk mengecek apakah h1 dan paragraf sudah muncul.",
+    "Fokus pada struktur HTML dulu. Ini bukan latihan desain.",
+    "Tambahkan title di dalam head untuk memberi nama halaman di tab browser.",
+    "Tambahkan h1 dan p di dalam body karena bagian body yang terlihat di preview.",
+    "CSS dan JS belum perlu diubah. Gunakan auto-check untuk melihat bagian mana yang sudah lengkap.",
   ],
   starterCode: {
     html: `<!doctype html>
 <html lang="id">
   <head>
-    <title>Halaman Pertama Saya</title>
+    <!-- Tambahkan title di sini -->
   </head>
   <body>
-    <!-- Tulis h1 dan p di sini -->
+    <!-- Tambahkan h1 dan p di sini -->
   </body>
 </html>`,
     css: "",
@@ -40,11 +40,13 @@ export const buildBasicHtmlPageChallenge: CodingChallenge = {
   },
   checklist: [
     "Ada doctype.",
-    "Ada elemen html, head, dan body.",
+    "Ada elemen html.",
+    "Ada elemen head.",
     "Title ditulis di dalam head.",
+    "Ada elemen body.",
     "Konten yang terlihat ditulis di dalam body.",
     "Halaman punya h1.",
-    "Halaman punya paragraf.",
+    "Halaman punya p untuk paragraf.",
   ],
   validation: {
     mode: "html",
@@ -55,7 +57,7 @@ export const buildBasicHtmlPageChallenge: CodingChallenge = {
       { id: "has-title", label: "Ada title di dalam head.", type: "hasTextInElement", target: "head title" },
       { id: "has-body", label: "Ada elemen body.", type: "hasElement", target: "body" },
       { id: "has-h1", label: "Ada h1.", type: "hasTextInElement", target: "h1" },
-      { id: "has-paragraph", label: "Ada paragraf.", type: "hasTextInElement", target: "p" },
+      { id: "has-paragraph", label: "Ada p untuk paragraf.", type: "hasTextInElement", target: "p" },
     ],
   },
   skillTags: ["HTML", "Web Fundamentals"],
@@ -292,6 +294,156 @@ export const refactorDivLayoutToSemanticHtmlChallenge: CodingChallenge = {
   skillTags: ["HTML", "Semantic HTML", "Accessibility"],
 };
 
+export const buildHtmlBasicsPageChallenge: CodingChallenge = {
+  id: "build-html-basics-page",
+  lessonId: "html-basics-assessment",
+  title: "Membangun halaman HTML Basics",
+  description:
+    "Assessment praktik untuk membuat halaman HTML kecil dengan title, heading, paragraf, link, dan image.",
+  instructions: [
+    "Lengkapi struktur HTML dasar terlebih dahulu.",
+    "Tambahkan title di dalam head.",
+    "Di dalam body, tambahkan h1, paragraf, link dengan href, dan image dengan src serta alt.",
+    "CSS dan JS tidak perlu diubah. Gunakan auto-check untuk memastikan struktur HTML sudah lengkap.",
+  ],
+  starterCode: {
+    html: `<!doctype html>
+<html lang="id">
+  <head>
+    <!-- Tambahkan title di sini -->
+  </head>
+  <body>
+    <!-- Tambahkan h1, p, link, dan image di sini -->
+  </body>
+</html>`,
+    css: "",
+    js: "",
+  },
+  solutionCode: {
+    html: `<!doctype html>
+<html lang="id">
+  <head>
+    <title>Profil Belajar HTML</title>
+  </head>
+  <body>
+    <h1>Profil Belajar HTML</h1>
+    <p>Saya sedang melatih struktur HTML dasar.</p>
+    <a href="/roadmap">Lihat roadmap belajar</a>
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='160'%3E%3Crect width='320' height='160' fill='%230891b2'/%3E%3Ctext x='24' y='86' fill='white' font-size='24'%3EHTML Basics%3C/text%3E%3C/svg%3E" alt="Kartu HTML Basics" />
+  </body>
+</html>`,
+    css: "",
+    js: "",
+  },
+  checklist: [
+    "Ada doctype.",
+    "Ada html, head, title, dan body.",
+    "Body punya h1 dan paragraf.",
+    "Link memakai href.",
+    "Image memakai src dan alt.",
+  ],
+  validation: {
+    mode: "html",
+    checks: [
+      { id: "has-doctype", label: "Ada doctype.", type: "hasDoctype" },
+      { id: "has-html", label: "Ada elemen html.", type: "hasElement", target: "html" },
+      { id: "has-head", label: "Ada elemen head.", type: "hasElement", target: "head" },
+      { id: "has-title", label: "Ada title di dalam head.", type: "hasTextInElement", target: "head title" },
+      { id: "has-body", label: "Ada elemen body.", type: "hasElement", target: "body" },
+      { id: "has-h1", label: "Ada h1.", type: "hasTextInElement", target: "h1" },
+      { id: "has-paragraph", label: "Ada paragraf.", type: "hasTextInElement", target: "p" },
+      { id: "has-link-href", label: "Link memakai href.", type: "hasElementWithAttribute", target: "a", attribute: "href", mustHaveValue: true },
+      { id: "has-image-src", label: "Image memakai src.", type: "hasElementWithAttribute", target: "img", attribute: "src", mustHaveValue: true },
+      { id: "has-image-alt", label: "Image punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
+    ],
+  },
+  skillTags: ["HTML", "Assessment", "Web Fundamentals"],
+};
+
+export const buildSemanticHtmlAssessmentPageChallenge: CodingChallenge = {
+  id: "build-semantic-html-assessment-page",
+  lessonId: "semantic-html-assessment",
+  title: "Membangun halaman semantic HTML",
+  description:
+    "Assessment praktik untuk menyusun halaman kecil memakai elemen semantic.",
+  instructions: [
+    "Ganti struktur umum berbasis div menjadi semantic HTML.",
+    "Gunakan header, nav, main, section atau article, dan footer sesuai fungsi konten.",
+    "Jaga heading tetap jelas: h1 untuk judul utama, h2 untuk bagian di dalam konten.",
+    "CSS dan JS tidak perlu diubah. Fokus pada makna struktur HTML.",
+  ],
+  starterCode: {
+    html: `<div class="top">
+  <h1>Catatan Frontend</h1>
+  <div class="links">
+    <a href="#html">HTML</a>
+    <a href="#next">Next Step</a>
+  </div>
+</div>
+
+<div class="content">
+  <div id="html">
+    <h2>Belajar Semantic HTML</h2>
+    <p>Pilih elemen berdasarkan fungsi konten.</p>
+  </div>
+</div>
+
+<div id="next">
+  <p>FluentStack</p>
+</div>`,
+    css: `body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 24px;
+}`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<header>
+  <h1>Catatan Frontend</h1>
+  <nav>
+    <a href="#html">HTML</a>
+    <a href="#next">Next Step</a>
+  </nav>
+</header>
+
+<main>
+  <article id="html">
+    <h2>Belajar Semantic HTML</h2>
+    <p>Pilih elemen berdasarkan fungsi konten.</p>
+  </article>
+</main>
+
+<footer id="next">
+  <p>FluentStack</p>
+</footer>`,
+    css: `body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 24px;
+}`,
+    js: "",
+  },
+  checklist: [
+    "Bagian atas memakai header.",
+    "Navigasi memakai nav.",
+    "Konten utama memakai main.",
+    "Bagian konten memakai section atau article.",
+    "Bagian bawah memakai footer.",
+  ],
+  validation: {
+    mode: "html",
+    checks: [
+      { id: "has-header", label: "Ada header.", type: "hasElement", target: "header" },
+      { id: "has-nav", label: "Ada nav.", type: "hasElement", target: "nav" },
+      { id: "has-main", label: "Ada main.", type: "hasElement", target: "main" },
+      { id: "has-content-section", label: "Ada section atau article.", type: "hasElement", target: "section, article" },
+      { id: "has-footer", label: "Ada footer.", type: "hasElement", target: "footer" },
+    ],
+  },
+  skillTags: ["HTML", "Semantic HTML", "Assessment", "Accessibility"],
+};
+
 export const buildFlexboxNavbarChallenge: CodingChallenge = {
   id: "build-flexbox-navbar",
   lessonId: "css-flexbox-basics",
@@ -457,5 +609,7 @@ export const challenges: CodingChallenge[] = [
   practiceTagElementAttributeChallenge,
   buildSemanticHtmlPageChallenge,
   refactorDivLayoutToSemanticHtmlChallenge,
+  buildHtmlBasicsPageChallenge,
+  buildSemanticHtmlAssessmentPageChallenge,
   buildFlexboxNavbarChallenge,
 ];

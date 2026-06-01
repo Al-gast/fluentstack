@@ -95,6 +95,9 @@ Module authoring rules:
 - Keep `lessonIds` ordered.
 - Set realistic `estimatedHours`.
 - Keep description focused on the practical output.
+- Before adding lessons to a module, define each lesson's unique role: concept, guided example, practice, common mistakes, review, or assessment.
+- Prefer one module-level assessment over adding quizzes to every lesson.
+- If two lessons overlap, convert one into practice/review or remove it from active module order.
 
 ### Lesson
 

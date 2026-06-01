@@ -206,6 +206,33 @@ Improvement tips:
 - Replace joke answers with common misconceptions.
 - Explain why the correct answer works and why the common wrong assumption fails.
 - Vary multiple-choice option order without using trick wording.
+- Prefer module-level assessment over quiz blocks in every regular lesson.
+- Keep regular beginner lessons focused on teaching and practice unless a quiz clearly adds learning value.
+
+### Module Assessment Quality
+
+10/10:
+
+- The module has a clear final assessment when readiness needs to be checked.
+- The assessment combines recap, quiz, applied task, and readiness summary without feeling like a disconnected exam.
+- Each earlier lesson has a unique role and prepares the learner for the assessment.
+
+7/10:
+
+- The module has an assessment, but it mostly repeats lesson quizzes or checks recall more than application.
+- Some lessons overlap, but the learner can still follow the module.
+
+5/10 or below:
+
+- Every lesson feels like a quiz cycle.
+- There is no clear readiness gate before moving to the next module.
+- Lessons repeat the same concept without a different purpose.
+
+Improvement tips:
+
+- Define each lesson role before adding content: concept, guided example, practice, common mistakes, review, or assessment.
+- Move repeated quiz checks into one module-end assessment.
+- Convert overlapping lessons into practice or remove them from active order.
 
 ### 8. Summary Quality
 
