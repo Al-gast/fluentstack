@@ -153,9 +153,7 @@ export function getContinueLessonProgress(
     };
   });
 
-  const inProgressLesson = lessonSummaries
-    .filter((entry) => entry.status === "in-progress")
-    .sort((a, b) => b.progressPercent - a.progressPercent)[0];
+  const inProgressLesson = lessonSummaries.find((entry) => entry.status === "in-progress");
 
   if (inProgressLesson) {
     return {

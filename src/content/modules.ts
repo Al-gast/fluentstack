@@ -1,5 +1,22 @@
 import type { Module } from "@/types/learning";
 
+export const webFoundationsModule: Module = {
+  id: "web-foundations",
+  trackId: "frontend-engineering",
+  title: "Web Foundations",
+  slug: "web-foundations",
+  description:
+    "Pahami cara web page dimuat, struktur project frontend kecil, dan dasar semantic HTML untuk halaman yang rapi.",
+  order: 1,
+  lessonIds: [
+    "how-web-page-loads",
+    "small-frontend-project-structure",
+    "semantic-html-structure",
+  ],
+  estimatedHours: 8,
+  skillTags: ["Web Fundamentals", "Browser", "HTML", "Project Structure"],
+};
+
 export const htmlWebFundamentalsModule: Module = {
   id: "html-web-fundamentals",
   trackId: "frontend-engineering",
@@ -7,7 +24,7 @@ export const htmlWebFundamentalsModule: Module = {
   slug: "html-web-fundamentals",
   description:
     "Pahami struktur halaman web dan cara browser membaca HTML.",
-  order: 1,
+  order: 2,
   lessonIds: ["html-semantic-basics"],
   estimatedHours: 6,
   skillTags: ["HTML", "Web Fundamentals", "Accessibility"],
@@ -20,7 +37,7 @@ export const cssFundamentalsModule: Module = {
   slug: "css-fundamentals",
   description:
     "Pelajari layout CSS modern dan praktikkan Flexbox lewat komponen UI sehari-hari.",
-  order: 2,
+  order: 3,
   lessonIds: ["css-flexbox-basics"],
   estimatedHours: 8,
   skillTags: ["CSS", "Flexbox", "Responsive Design"],
@@ -40,6 +57,7 @@ export const englishForRemoteWorkModule: Module = {
 };
 
 export const modules: Module[] = [
+  webFoundationsModule,
   htmlWebFundamentalsModule,
   cssFundamentalsModule,
   englishForRemoteWorkModule,

@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import { AppShell } from "@/components/layout/app-shell";
 import { LessonCard } from "@/components/learning/lesson-card";
-import { lessons } from "@/content/lessons";
+import { SequenceCta } from "@/components/learning/sequence-cta";
+import { getOrderedModuleLessons } from "@/lib/content/learning-path";
 import { getModuleBySlug } from "@/lib/content/get-module";
 import { getTrackBySlug } from "@/lib/content/get-track";
 
@@ -19,9 +20,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
     notFound();
   }
 
-  const moduleLessons = lessons
-    .filter((lesson) => lesson.moduleId === moduleItem.id)
-    .sort((a, b) => a.estimatedMinutes - b.estimatedMinutes);
+  const moduleLessons = getOrderedModuleLessons(moduleItem);
 
   return (
     <AppShell title={moduleItem.title}>
@@ -33,11 +32,20 @@ export default async function ModulePage({ params }: ModulePageProps) {
           <p className="mt-4 text-sm text-zinc-400">
             {moduleLessons.length} lesson • Estimasi {moduleItem.estimatedHours} jam
           </p>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-zinc-400">
+            Ikuti lesson dari atas ke bawah supaya fondasinya runtut. Ini hanya rekomendasi urutan, bukan lock.
+          </p>
+          <SequenceCta lessons={moduleLessons} scope="module" />
         </section>
 
         <section className="grid gap-4 lg:grid-cols-2">
-          {moduleLessons.map((lesson) => (
-            <LessonCard key={lesson.id} lesson={lesson} />
+          {moduleLessons.map((lesson, index) => (
+            <LessonCard
+              key={lesson.id}
+              lesson={lesson}
+              orderNumber={index + 1}
+              previousLesson={moduleLessons[index - 1]}
+            />
           ))}
         </section>
       </div>

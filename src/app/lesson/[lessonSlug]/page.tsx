@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { AppShell } from "@/components/layout/app-shell";
 import { LessonReader } from "@/components/learning/lesson-reader";
-import { getLessonBySlug } from "@/lib/content/get-lesson";
+import { getLessonNavigation, getLessonPathContextBySlug } from "@/lib/content/learning-path";
 
 type LessonPageProps = {
   params: Promise<{ lessonSlug: string }>;
@@ -9,15 +9,18 @@ type LessonPageProps = {
 
 export default async function LessonPage({ params }: LessonPageProps) {
   const { lessonSlug } = await params;
-  const lesson = getLessonBySlug(lessonSlug);
+  const lessonContext = getLessonPathContextBySlug(lessonSlug);
 
-  if (!lesson) {
+  if (!lessonContext) {
     notFound();
   }
 
+  const navigation = getLessonNavigation(lessonContext);
+  const lesson = lessonContext.lesson;
+
   return (
     <AppShell title={lesson.title}>
-      <LessonReader lesson={lesson} />
+      <LessonReader lesson={lesson} navigation={navigation} />
     </AppShell>
   );
 }

@@ -3,10 +3,9 @@
 import Link from "next/link";
 import { AppShell } from "@/components/layout/app-shell";
 import { TrackCard } from "@/components/learning/track-card";
-import { lessons } from "@/content/lessons";
-import { modules } from "@/content/modules";
 import { tracks } from "@/content/tracks";
 import { useGuestProgress } from "@/hooks/use-progress";
+import { getOrderedTrackLessons, getOrderedTrackModules } from "@/lib/content/learning-path";
 import { getContinueLessonProgress } from "@/lib/progress/progress-calculator";
 
 export default function LearnPage() {
@@ -16,7 +15,9 @@ export default function LearnPage() {
     userProgress.completedLessonIds.length > 0 ||
     userProgress.totalXp > 0;
 
-  const nextLesson = getContinueLessonProgress(lessons, userProgress.completedBlockIds)?.lesson ?? lessons[0];
+  const orderedLessons = tracks.flatMap((track) => getOrderedTrackLessons(track));
+  const nextLesson =
+    getContinueLessonProgress(orderedLessons, userProgress.completedBlockIds)?.lesson ?? orderedLessons[0];
 
   return (
     <AppShell title="Tracks">
@@ -75,8 +76,8 @@ export default function LearnPage() {
 
         <section className="grid gap-5 lg:grid-cols-2">
           {tracks.map((track) => {
-            const trackModules = modules.filter((moduleItem) => moduleItem.trackId === track.id);
-            const trackLessons = lessons.filter((lesson) => lesson.trackId === track.id);
+            const trackModules = getOrderedTrackModules(track);
+            const trackLessons = getOrderedTrackLessons(track);
 
             return (
               <TrackCard

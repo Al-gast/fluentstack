@@ -6,10 +6,9 @@ import { LessonCard } from "@/components/learning/lesson-card";
 import { ModuleCard } from "@/components/learning/module-card";
 import { TrackCard } from "@/components/learning/track-card";
 import { ProgressBar } from "@/components/progress/progress-bar";
-import { tracks } from "@/content/tracks";
-import { modules } from "@/content/modules";
-import { lessons } from "@/content/lessons";
 import { useGuestProgress } from "@/hooks/use-progress";
+import { getTrackBySlug } from "@/lib/content/get-track";
+import { getOrderedModuleLessons, getOrderedTrackLessons, getOrderedTrackModules } from "@/lib/content/learning-path";
 import {
   calculateLessonProgress,
   getContinueLessonProgress,
@@ -29,22 +28,21 @@ function getStorageCopy(storageMode: "guest" | "logged-in") {
 
 export default function DashboardPage() {
   const { userProgress, storageMode, isLoading } = useGuestProgress();
-  const firstTrack = tracks[0];
-  const firstModule = modules[0];
-  const firstLesson = lessons[0];
-  const firstModuleLessons = firstModule
-    ? lessons.filter((lesson) => lesson.moduleId === firstModule.id)
-    : [];
-  const firstTrackLessons = firstTrack ? lessons.filter((lesson) => lesson.trackId === firstTrack.id) : [];
+  const firstTrack = getTrackBySlug("frontend-engineering");
+  const firstTrackModules = firstTrack ? getOrderedTrackModules(firstTrack) : [];
+  const firstModule = firstTrackModules[0];
+  const firstModuleLessons = firstModule ? getOrderedModuleLessons(firstModule) : [];
+  const firstTrackLessons = firstTrack ? getOrderedTrackLessons(firstTrack) : [];
+  const firstLesson = firstTrackLessons[0];
   const hasProgress =
     userProgress.completedBlockIds.length > 0 ||
     userProgress.completedLessonIds.length > 0 ||
     userProgress.totalXp > 0;
 
-  const continueProgress = getContinueLessonProgress(lessons, userProgress.completedBlockIds);
+  const continueProgress = getContinueLessonProgress(firstTrackLessons, userProgress.completedBlockIds);
   const continueLesson = continueProgress?.lesson ?? firstLesson;
-  const continueTrack = tracks.find((track) => track.id === continueLesson?.trackId);
-  const continueModule = modules.find((moduleItem) => moduleItem.id === continueLesson?.moduleId);
+  const continueTrack = firstTrack;
+  const continueModule = firstTrackModules.find((moduleItem) => moduleItem.id === continueLesson?.moduleId);
   const continueMetrics = continueLesson
     ? calculateLessonProgress(continueLesson, userProgress.completedBlockIds)
     : null;
@@ -94,7 +92,7 @@ export default function DashboardPage() {
                   ? "Memuat progres terakhir kamu."
                   : hasProgress
                     ? "Kami pilih lesson ini dari progres kamu."
-                    : "Mulai dari fondasi Frontend Engineering lewat HTML & Web Fundamentals."}
+                    : "Mulai dari fondasi Frontend Engineering lewat Web Foundations."}
               </p>
             </div>
             <span className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-1 text-xs text-zinc-300">
@@ -160,9 +158,10 @@ export default function DashboardPage() {
                 trackSlug={firstTrack.slug}
                 module={firstModule}
                 moduleLessons={firstModuleLessons}
+                orderNumber={1}
               />
             ) : null}
-            {firstLesson ? <LessonCard lesson={firstLesson} /> : null}
+            {firstLesson ? <LessonCard lesson={firstLesson} orderNumber={1} /> : null}
           </div>
         </section>
       </div>

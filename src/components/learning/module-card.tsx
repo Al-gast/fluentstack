@@ -11,6 +11,7 @@ type ModuleCardProps = {
   module: Module;
   moduleLessons: Lesson[];
   progressPercent?: number;
+  orderNumber?: number;
 };
 
 export function ModuleCard({
@@ -18,6 +19,7 @@ export function ModuleCard({
   module,
   moduleLessons,
   progressPercent,
+  orderNumber,
 }: ModuleCardProps) {
   const { userProgress, isLoading } = useGuestProgress();
   const moduleMetrics = calculateLessonsProgress(moduleLessons, userProgress.completedBlockIds);
@@ -28,6 +30,9 @@ export function ModuleCard({
       href={`/learn/${trackSlug}/${module.slug}`}
       className="group block rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] transition hover:border-cyan-300/40 hover:bg-zinc-900/80 focus:outline-none focus:ring-2 focus:ring-cyan-300/30"
     >
+      {orderNumber ? (
+        <p className="mb-3 text-sm font-medium text-cyan-200">Module {orderNumber}</p>
+      ) : null}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
         <h3 className="text-lg font-bold text-zinc-100">{module.title}</h3>
         <span className="w-fit rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-2.5 py-1 text-xs text-zinc-300">
