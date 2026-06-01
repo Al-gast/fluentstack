@@ -44,23 +44,39 @@ Use these activity types across modules:
 
 ## Level 1: Web Foundations
 
-Goal: Understand how websites work and how a frontend project is organized.
+Goal: Understand the web ecosystem before writing full HTML pages.
+
+This level is for absolute beginners. It should explain what learners are looking at when they open a website, what the browser does, what a server is, and why frontend projects contain files such as `index.html`, `style.css`, and `script.js`. The goal is orientation, not deep implementation.
 
 | Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
 | --- | --- | --- | --- | --- | --- |
-| How the Web Works | Explain the path from URL to rendered page. | Browser/server flow; DNS at a high level; request/response; static vs dynamic pages. | text, callout, quick-check, quiz | Diagram-style explanation of loading a page. | Can explain what happens after entering a URL without memorizing low-level networking details. |
-| Browser Fundamentals | Understand the browser as the frontend runtime. | HTML parsing; CSS parsing; JavaScript execution; DevTools overview; page lifecycle basics. | text, code-example, quick-check, case study | Inspect a simple page with DevTools. | Can identify DOM, CSS, console, network, and source panels for common debugging tasks. |
-| Project Structure and GitHub Basics | Set up and track a small frontend project. | Folder structure; `index.html`; assets; npm basics; Git init; commits; GitHub repository. | text, code-example, writing-practice, self-review checklist | Create a small static project repo with clear commits. | Can explain project files, make a commit, and push to GitHub. |
+| Web Orientation | Understand the basic objects and flow of the web. | What a website is; what a web page is; what a browser is; what a URL is; what a server is; what happens when opening a URL; request and response in simple terms. | text, callout, quick-check, quiz | Plain-language explanation of opening a web page from URL to visible page. | Can explain website, web page, browser, URL, server, request, and response without using advanced networking terms. |
+| HTML, CSS, and JavaScript Orientation | Understand the three core frontend languages before writing full pages. | What HTML is; what CSS is; what JavaScript is; how HTML, CSS, and JavaScript work together on one web page; what happens when the browser reads HTML, CSS, and JavaScript, explained simply. | text, code-example, callout, quick-check, quiz | Annotated simple page showing which part is structure, style, and behavior. | Can explain what HTML, CSS, and JavaScript do separately and together in one page. |
+| First Frontend Project Orientation | Recognize the files and tools used in a small frontend project. | What `index.html` is; what `style.css` is; what `script.js` is; what an `assets` folder is; what a small frontend project folder usually contains; basic DevTools introduction; basic Git/GitHub for saving a project. | text, code-example, case study, writing-practice, self-review checklist | File map for a small static project plus a short note explaining what each file does. | Can read a small project folder, identify the main files, open basic DevTools, and explain why Git/GitHub help save work. |
 
 ## Level 2: HTML and Accessibility Foundations
 
-Goal: Build meaningful page structure that works for browsers, assistive technology, and other developers.
+Goal: Write correct HTML structure that works for browsers, assistive technology, and other developers.
+
+This level starts after learners understand what HTML is and where an HTML file fits in a frontend project. Now they begin writing page structure intentionally.
 
 | Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
 | --- | --- | --- | --- | --- | --- |
-| Semantic HTML and Document Structure | Use HTML elements based on meaning, not appearance. | `header`, `main`, `section`, `article`, `aside`, `footer`; headings; landmarks; page outline. | text, callout, code-example, quick-check, quiz | Semantic article or documentation page. | Can choose semantic elements for common page sections and explain why. |
-| Forms, Buttons, and Links | Build basic interactive HTML correctly. | `form`, `label`, `input`, `button`; link vs button; required fields; form grouping. | text, code-example, quick-check, coding-practice | Accessible contact or signup form. | Can connect labels to inputs and choose button/link semantics correctly. |
-| Accessibility Basics | Understand the first layer of accessible UI. | Screen reader basics; keyboard navigation; focus order; alt text; common accessibility mistakes. | text, callout, quick-check, self-review checklist | Accessibility review of a simple page. | Can navigate a page by keyboard and identify common HTML accessibility issues. |
+| HTML Basics | Write the basic structure and content of an HTML page. | Basic HTML document structure; tag, element, and attribute; headings; paragraphs; links; images; page content structure; relative paths. | text, callout, code-example, quick-check, quiz | Basic content page with headings, paragraphs, links, and images. | Can create a valid beginner HTML page and explain the difference between tag, element, and attribute. |
+| Semantic HTML | Use HTML elements based on meaning and page structure. | Why semantic HTML matters; `header`; `nav`; `main`; `section`; `article`; `aside`; `footer`; heading hierarchy; common semantic HTML mistakes. | text, callout, code-example, quick-check, quiz | Semantic page structure for an article, documentation page, or simple landing page. | Can choose semantic elements for page regions and keep heading hierarchy clear. |
+| Forms and Basic Accessibility | Build basic interactive HTML with accessibility in mind. | Link vs button; `form`; `label`; `input`; `textarea`; `select`; required fields; useful error text; alt text; keyboard navigation basics; basic accessibility checklist. | text, code-example, case study, coding-practice, self-review checklist | Accessible contact or signup form plus a basic accessibility checklist. | Can connect labels to fields, choose link/button semantics correctly, write useful alt text, and check keyboard navigation basics. |
+
+## Difference Between Web Foundations and HTML Foundations
+
+Web Foundations and HTML Foundations should not teach the same thing.
+
+- Web Foundations = understand how the web works and what frontend files are. Learners should know what a website, web page, browser, server, URL, request, response, HTML, CSS, JavaScript, `index.html`, `style.css`, `script.js`, and `assets` folder are.
+- HTML Foundations = write page structure correctly and accessibly. Learners should use tags, elements, attributes, content elements, semantic regions, links, buttons, forms, alt text, keyboard basics, and basic accessibility rules.
+
+Use this split when authoring content:
+
+- If the lesson explains the ecosystem or file roles, it belongs in Web Foundations.
+- If the lesson asks the learner to write or choose HTML elements, it belongs in HTML Foundations.
 
 ## Level 3: CSS Fundamentals and Layout
 
@@ -246,29 +262,75 @@ Goal: Turn technical skill into visible proof of work and job-ready communicatio
 
 These batches should be added to the app after this document. Keep each batch small enough to review and test.
 
-### Batch 1: Web + HTML + CSS Foundations
+### Batch 1A: Web Foundations zero-to-one
 
 Create:
 
 - Web Foundations module.
+
+Recommended first lessons:
+
+- What is a website and web page?
+- How a web page loads.
+- Browser, server, URL, request, and response.
+- What HTML, CSS, and JavaScript are.
+- How HTML, CSS, and JavaScript work together.
+- `index.html`, `style.css`, and `script.js`.
+- Project structure for a small frontend app.
+- Basic DevTools.
+- Basic Git/GitHub for saving a project.
+
+Why this comes first:
+
+- It gives absolute beginners the vocabulary they need before writing full pages.
+- It separates web ecosystem understanding from HTML authoring.
+- It makes later HTML, CSS, and JavaScript lessons feel less abrupt.
+
+### Batch 1B: HTML Foundations
+
+Create:
+
 - HTML and Accessibility Foundations module.
+
+Recommended first lessons:
+
+- Basic HTML document structure.
+- Tag, element, and attribute.
+- Headings, paragraphs, links, and images.
+- Semantic HTML structure.
+- Header, nav, main, section, article, aside, and footer.
+- Link vs button.
+- Forms, labels, and inputs.
+- Alt text and keyboard navigation basics.
+- Basic HTML accessibility checklist.
+
+Why this comes next:
+
+- Learners already know what HTML is from Web Foundations.
+- This batch turns orientation into correct page structure.
+- It prepares learners for CSS layout without mixing structure and styling too early.
+
+### Batch 1C: CSS Foundations
+
+Create:
+
 - CSS Fundamentals and Layout module.
 
 Recommended first lessons:
 
-- How a web page loads.
-- Project structure for a small frontend app.
-- Semantic HTML structure.
-- Forms, buttons, and links.
-- Box model and cascade.
+- What CSS does in a web page.
+- Selectors and basic declarations.
+- Box model.
+- Cascade and specificity.
 - Flexbox navbar.
 - Responsive card grid.
+- CSS variables and basic visual tokens.
 
-Why this comes first:
+Why this comes after HTML:
 
-- It expands the current HTML and CSS foundation already present in the app.
-- It uses current block types well.
-- It gives learners quick visible progress through coding practice.
+- CSS is easier to understand when learners already have meaningful HTML structure.
+- Layout practice becomes more useful when learners can identify page regions.
+- It gives learners visible practice without skipping the basics.
 
 ### Batch 2: JavaScript + TypeScript Foundations
 
