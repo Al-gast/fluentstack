@@ -2695,10 +2695,9 @@ Includes:
 
 Status:
 
-* Planned.
-* Keep hidden until the first lesson batch is ready.
+* Active and complete as the first Forms and Basic Accessibility slice.
 
-Planned lessons:
+Includes:
 
 * Link vs Button
 * Form, Label, dan Input
@@ -2712,17 +2711,30 @@ Planned lessons:
 
 Status:
 
-* Planned.
-* Do not reuse prototype CSS content without review.
+* Active as a separate CSS fundamentals module.
+* Prototype CSS content should still not be reused without review.
 
-Planned lessons:
+Includes:
 
 * Apa Itu CSS?
 * Selector dan Declaration Dasar
 * Cascade dan Specificity Dasar
 * Uji Kompetensi CSS Core Mechanics
 
-## Batch 1F: Early CSS + Local Static Website Project
+## Batch 1F: Box Model and Spacing
+
+Status:
+
+* Active as a separate module after CSS Core Mechanics.
+
+Includes:
+
+* Box Model Dasar
+* Width, Height, dan box-sizing
+* Spacing yang Konsisten
+* Uji Kompetensi Box Model and Spacing
+
+## Batch 1G: Local Static Website Project
 
 Status:
 
@@ -2730,7 +2742,6 @@ Status:
 
 Includes:
 
-* Box Model and Spacing
 * Local Static Website Project
 
 Purpose:

@@ -1610,26 +1610,29 @@ A complete module slice includes:
 * bridge to the next module
 * browser testing
 
-Recommended order:
+Current active frontend module slices:
 
-1. Finish Web Foundations
-2. Finish HTML Basics
-3. Finish Semantic HTML
-4. Build Forms and Basic Accessibility
-5. Build CSS Core Mechanics
-6. Build Box Model and Spacing
-7. Build Flexbox and Grid Layout
-8. Build Responsive Visual System
-9. Add Local Static Website Project
-10. Build JavaScript Fundamentals
-11. Add Local Vanilla JavaScript App
-12. Build English modules that support the current frontend stage
-13. Add Local Tooling and npm Basics before React/TypeScript needs it
-14. Build React Fundamentals
-15. Add Local React App
-16. Build Next.js App Router
-17. Add Local Next.js App
-18. Build Production Next.js and deployment milestones
+1. Web Foundations
+2. HTML Basics
+3. Semantic HTML
+4. Forms and Basic Accessibility
+5. CSS Core Mechanics
+6. Box Model and Spacing
+
+Recommended next expansion order:
+
+1. Add Local Static Website Project
+2. Build Flexbox and Grid Layout
+3. Build Responsive Visual System
+4. Build JavaScript Fundamentals
+5. Add Local Vanilla JavaScript App
+6. Build English modules that support the current frontend stage
+7. Add Local Tooling and npm Basics before React/TypeScript needs it
+8. Build React Fundamentals
+9. Add Local React App
+10. Build Next.js App Router
+11. Add Local Next.js App
+12. Build Production Next.js and deployment milestones
 
 Do not add the next module before the current module feels coherent and has been tested in the browser.
 

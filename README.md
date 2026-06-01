@@ -31,7 +31,7 @@ Built-in practice helps learners try focused concepts directly in the browser.
 
 Local Dev Milestones, planned for later content batches, will guide learners to build projects on their own device using real developer workflow.
 
-Documentation Bridges, planned and partly defined in the curriculum guides, will help learners read official documentation with clear focus points instead of being sent to broad docs pages without guidance.
+Documentation Bridges help learners read official documentation with clear focus points instead of being sent to broad docs pages without guidance.
 
 ## Current Learning Tracks
 
@@ -45,6 +45,9 @@ Active modules:
 1. Web Foundations
 2. HTML Basics
 3. Semantic HTML
+4. Forms and Basic Accessibility
+5. CSS Core Mechanics
+6. Box Model and Spacing
 ```
 
 Current learning flow:
@@ -53,16 +56,18 @@ Current learning flow:
 Web Foundations
 → HTML Basics
 → Semantic HTML
+→ Forms and Basic Accessibility
+→ CSS Core Mechanics
+→ Box Model and Spacing
 ```
 
 Planned next modules:
 
 ```txt
-Forms and Basic Accessibility
-CSS Core Mechanics
-Box Model and Spacing
 Local Static Website Project
 JavaScript Fundamentals
+Flexbox and Grid Layout
+Responsive Visual System
 ```
 
 ### English for Tech Careers
@@ -350,13 +355,16 @@ Main app routes:
  /learn/frontend-engineering/web-foundations
  /learn/frontend-engineering/html-basics
  /learn/frontend-engineering/semantic-html
+ /learn/frontend-engineering/forms-basic-accessibility
+ /learn/frontend-engineering/css-core-mechanics
+ /learn/frontend-engineering/box-model-spacing
  /lesson/[lessonSlug]
  /profile
  /login
  /register
 ```
 
-Current active beginner lessons include:
+Selected active beginner lesson routes include:
 
 ```txt
 /lesson/what-is-website-and-web-page
@@ -370,6 +378,9 @@ Current active beginner lessons include:
 /lesson/semantic-html-structure
 /lesson/html-semantic-basics
 /lesson/semantic-html-assessment
+/lesson/forms-basic-accessibility-assessment
+/lesson/css-core-mechanics-assessment
+/lesson/box-model-spacing-assessment
 ```
 
 ## Development Commands
@@ -432,7 +443,7 @@ Progress display
 Guest progress
 Supabase logged-in progress
 Built-in coding practice
-Rule-based HTML validation for selected challenges
+Rule-based HTML and CSS validation for selected challenges
 Module-level assessments for active beginner modules
 Mobile responsiveness
 Dark visual system
@@ -444,16 +455,18 @@ Active curriculum:
 Web Foundations
 HTML Basics
 Semantic HTML
+Forms and Basic Accessibility
+CSS Core Mechanics
+Box Model and Spacing
 ```
 
 Planned curriculum next:
 
 ```txt
-Forms and Basic Accessibility
-CSS Core Mechanics
-Box Model and Spacing
 Local Static Website Project
 JavaScript Fundamentals
+Flexbox and Grid Layout
+Responsive Visual System
 ```
 
 ## Known Limitations
@@ -467,7 +480,7 @@ Rule-based auto validation currently covers selected deterministic challenges.
 There is no AI grading.
 There is no full code execution sandbox for arbitrary JavaScript.
 Local Dev Milestones are planned in the curriculum but not fully implemented as product-specific verification features yet.
-Documentation Bridge is part of the content model and will be added gradually to module assessments and milestones.
+Documentation Bridge is part of the content model, is available in active module assessments, and will be added gradually to future milestones.
 Some future modules are intentionally hidden until their content is rebuilt.
 ```
 
