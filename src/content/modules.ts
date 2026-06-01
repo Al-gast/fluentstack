@@ -110,6 +110,26 @@ export const boxModelSpacingModule: Module = {
   skillTags: ["CSS", "Box Model", "Spacing", "Box Sizing"],
 };
 
+export const localStaticWebsiteProjectModule: Module = {
+  id: "local-static-website-project",
+  trackId: "frontend-engineering",
+  title: "Local Static Website Project",
+  slug: "local-static-website-project",
+  description:
+    "Buat dan jalankan website statis sederhana di perangkat sendiri, lalu simpan project dengan Git dan GitHub.",
+  order: 7,
+  lessonIds: [
+    "setup-local-project-folder",
+    "open-project-in-code-editor",
+    "run-html-in-browser",
+    "basic-devtools-static-page",
+    "save-project-with-git-github",
+    "local-static-website-project-assessment",
+  ],
+  estimatedHours: 5,
+  skillTags: ["Local Workflow", "HTML", "CSS", "Git", "GitHub"],
+};
+
 // Legacy module kept so old module slugs do not disappear abruptly.
 // It is not linked from frontendEngineeringTrack.moduleIds.
 export const htmlWebFundamentalsModule: Module = {
@@ -159,6 +179,7 @@ export const modules: Module[] = [
   formsBasicAccessibilityModule,
   cssCoreMechanicsModule,
   boxModelSpacingModule,
+  localStaticWebsiteProjectModule,
   htmlWebFundamentalsModule,
   cssFundamentalsModule,
   englishForRemoteWorkModule,

@@ -1111,6 +1111,148 @@ export const boxModelSpacingAssessmentQuiz: Quiz = {
   ],
 };
 
+export const localStaticWebsiteProjectAssessmentQuiz: Quiz = {
+  id: "local-static-website-project-assessment-quiz",
+  lessonId: "local-static-website-project-assessment",
+  title: "Uji Kompetensi Local Static Website Project",
+  passingScore: 70,
+  questions: [
+    {
+      id: "local-static-website-project-assessment-q1",
+      type: "multiple-choice",
+      question: "Apa fungsi utama folder project lokal?",
+      options: [
+        "Mengganti browser agar halaman otomatis online",
+        "Menjadi tempat kerja yang menyimpan file project dalam satu lokasi",
+        "Menghapus kebutuhan HTML dan CSS",
+        "Menjalankan framework tanpa setup",
+      ],
+      correctAnswer:
+        "Menjadi tempat kerja yang menyimpan file project dalam satu lokasi",
+      explanation:
+        "Folder project membantu kamu mengelompokkan file seperti index.html, style.css, gambar, dan README agar workflow lokal lebih rapi.",
+    },
+    {
+      id: "local-static-website-project-assessment-q2",
+      type: "multiple-choice",
+      question: "Dalam project website statis sederhana, index.html biasanya dipakai untuk apa?",
+      options: [
+        "Menyimpan password GitHub",
+        "Mengatur semua commit Git",
+        "Menjadi file halaman utama yang dibuka browser",
+        "Menginstall package manager",
+      ],
+      correctAnswer: "Menjadi file halaman utama yang dibuka browser",
+      explanation:
+        "index.html biasanya menjadi halaman utama. Browser membaca file ini untuk menampilkan struktur dan konten halaman.",
+    },
+    {
+      id: "local-static-website-project-assessment-q3",
+      type: "multiple-choice",
+      question: "Baris mana yang menghubungkan index.html ke style.css saat kedua file berada di folder yang sama?",
+      options: [
+        "<script src=\"style.css\"></script>",
+        "<meta name=\"style\" content=\"style.css\" />",
+        "<style href=\"style.css\"></style>",
+        "<link rel=\"stylesheet\" href=\"style.css\" />",
+      ],
+      correctAnswer: "<link rel=\"stylesheet\" href=\"style.css\" />",
+      explanation:
+        "File CSS eksternal dihubungkan dari HTML memakai link rel=\"stylesheet\". href menunjuk ke lokasi file CSS.",
+    },
+    {
+      id: "local-static-website-project-assessment-q4",
+      type: "multiple-choice",
+      question: "Saat membuka file HTML lokal langsung dari perangkat, address bar biasanya diawali dengan apa?",
+      options: ["file://", "npm://", "database://", "react://"],
+      correctAnswer: "file://",
+      explanation:
+        "file:// menunjukkan browser sedang membaca file lokal dari perangkat kamu. Itu berbeda dari website online yang biasanya memakai http:// atau https://.",
+    },
+    {
+      id: "local-static-website-project-assessment-q5",
+      type: "multiple-choice",
+      question: "Setelah mengubah index.html atau style.css, langkah apa yang biasanya perlu dilakukan agar perubahan terlihat?",
+      options: [
+        "Install Next.js",
+        "Simpan file lalu refresh browser",
+        "Buat database baru",
+        "Ganti semua tag menjadi div",
+      ],
+      correctAnswer: "Simpan file lalu refresh browser",
+      explanation:
+        "Browser membaca file yang tersimpan. Setelah mengedit, simpan file lalu refresh halaman agar browser membaca versi terbaru.",
+    },
+    {
+      id: "local-static-website-project-assessment-q6",
+      type: "multiple-choice",
+      question: "Di DevTools, panel apa yang paling tepat untuk melihat HTML yang sedang dibaca browser?",
+      options: ["Console saja", "Network throttling", "Elements", "Application storage"],
+      correctAnswer: "Elements",
+      explanation:
+        "Panel Elements membantu kamu inspect struktur HTML yang sedang dibaca browser dan memilih elemen tertentu di halaman.",
+    },
+    {
+      id: "local-static-website-project-assessment-q7",
+      type: "multiple-choice",
+      question: "Apa fungsi commit di Git pada workflow beginner ini?",
+      options: [
+        "Menghapus repository dari GitHub",
+        "Membuat halaman otomatis responsive",
+        "Mengubah HTML menjadi JavaScript",
+        "Menyimpan snapshot perubahan dengan pesan",
+      ],
+      correctAnswer: "Menyimpan snapshot perubahan dengan pesan",
+      explanation:
+        "Commit menyimpan snapshot perubahan project. Pesan commit membantu kamu memahami apa yang berubah.",
+    },
+    {
+      id: "local-static-website-project-assessment-q8",
+      type: "multiple-choice",
+      question: "Apa peran GitHub dalam milestone ini?",
+      options: [
+        "Menyimpan repository project secara online",
+        "Mengganti semua file CSS",
+        "Menjalankan browser lokal",
+        "Membuat npm wajib dipakai",
+      ],
+      correctAnswer: "Menyimpan repository project secara online",
+      explanation:
+        "GitHub menyimpan repository secara online sehingga project bisa dibuka kembali, dibagikan, dan nanti dipakai sebagai bukti belajar.",
+    },
+    {
+      id: "local-static-website-project-assessment-q9",
+      type: "multiple-choice",
+      question: "Apa isi README yang paling berguna untuk project website statis pertama?",
+      options: [
+        "Daftar semua framework populer",
+        "Password akun GitHub",
+        "Tujuan project, teknologi yang dipakai, dan cara membuka project",
+        "Riwayat semua tab browser",
+      ],
+      correctAnswer:
+        "Tujuan project, teknologi yang dipakai, dan cara membuka project",
+      explanation:
+        "README membantu orang lain memahami project. Untuk tahap ini, jelaskan tujuan, struktur file, teknologi HTML/CSS, dan cara membuka project secara lokal.",
+    },
+    {
+      id: "local-static-website-project-assessment-q10",
+      type: "multiple-choice",
+      question: "Mana batasan yang benar untuk module Local Static Website Project ini?",
+      options: [
+        "Harus memakai React sebelum bisa menulis HTML",
+        "Fokus pada HTML/CSS lokal, browser, DevTools, Git, dan GitHub tanpa npm atau framework",
+        "Harus deploy ke production sebelum membuat commit",
+        "Fokus utama adalah membuat backend dan database",
+      ],
+      correctAnswer:
+        "Fokus pada HTML/CSS lokal, browser, DevTools, Git, dan GitHub tanpa npm atau framework",
+      explanation:
+        "Milestone ini sengaja ringan. Learner berlatih workflow static HTML/CSS lokal sebelum masuk tool yang lebih berat.",
+    },
+  ],
+};
+
 export const quizzes: Quiz[] = [
   whatIsWebsiteAndWebPageQuiz,
   howWebPageLoadsQuiz,
@@ -1126,4 +1268,5 @@ export const quizzes: Quiz[] = [
   formsBasicAccessibilityAssessmentQuiz,
   cssCoreMechanicsAssessmentQuiz,
   boxModelSpacingAssessmentQuiz,
+  localStaticWebsiteProjectAssessmentQuiz,
 ];

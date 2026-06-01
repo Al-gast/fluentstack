@@ -2790,7 +2790,7 @@ export const boxModelSpacingAssessmentLesson: Lesson = {
         "Kamu membuktikan bahwa kamu bisa membedakan padding sebagai jarak dalam dan margin sebagai jarak luar.",
         "Kamu membuktikan bahwa kamu bisa memakai max-width dan box-sizing untuk membuat card lebih mudah dikontrol.",
         "Jika belum siap, review lagi box model, padding vs margin, border, max-width, dan box-sizing.",
-        "Setelah box model dan spacing dasar mulai aman, berikutnya kamu bisa lanjut ke layout CSS yang lebih terarah.",
+        "Setelah box model dan spacing dasar mulai aman, berikutnya kamu akan membawa HTML dan CSS ke workflow project lokal.",
       ],
     },
   ],
@@ -2917,6 +2917,565 @@ export const cssCoreMechanicsAssessmentLesson: Lesson = {
   },
 };
 
+export const setupLocalProjectFolderLesson: Lesson = {
+  id: "setup-local-project-folder",
+  trackId: "frontend-engineering",
+  moduleId: "local-static-website-project",
+  title: "Menyiapkan Folder Project Lokal",
+  slug: "setup-local-project-folder",
+  description:
+    "Buat folder project sederhana dan siapkan file awal untuk website statis.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 35,
+  objectives: [
+    "Memahami fungsi folder project",
+    "Membuat struktur file sederhana untuk website statis",
+    "Mengenal index.html dan style.css sebagai file awal",
+    "Menyiapkan project tanpa npm, framework, atau bundler",
+  ],
+  skillTags: ["Local Workflow", "HTML", "Project Setup"],
+  blocks: [
+    {
+      id: "setup-local-project-folder-intro",
+      type: "text",
+      title: "Mulai dari folder kerja",
+      content:
+        "Project lokal adalah folder kerja di perangkat kamu sendiri. Untuk milestone ini, kamu belum perlu npm, React, Next.js, bundler, atau deployment. Website statis sederhana cukup dimulai dari file HTML dan CSS yang bisa dibuka langsung di browser.\n\nFokusnya adalah memahami workflow dasar: membuat folder, menulis file, menyimpan perubahan, membuka di browser, lalu nanti menyimpan progres dengan Git.",
+    },
+    {
+      id: "setup-local-project-folder-structure",
+      type: "code-example",
+      title: "Struktur folder awal",
+      language: "bash",
+      code: `my-static-site/
+  index.html
+  style.css`,
+      explanation:
+        "index.html berisi struktur halaman. style.css berisi tampilan halaman. Untuk awal, simpan keduanya di folder yang sama agar hubungan file mudah dipahami.",
+    },
+    {
+      id: "setup-local-project-folder-local-task",
+      type: "text",
+      title: "Checklist local task",
+      content:
+        "Kerjakan di perangkat kamu:\n\n- Buat folder project, misalnya my-static-site.\n- Buat file index.html di dalam folder itu.\n- Buat file style.css di folder yang sama.\n- Pastikan nama file ditulis persis: index.html dan style.css.\n\nChecklist ini tidak diperiksa otomatis oleh FluentStack. Tandai selesai setelah kamu benar-benar membuat file lokalnya.",
+    },
+    {
+      id: "setup-local-project-folder-callout",
+      type: "callout",
+      variant: "important",
+      title: "Jangan mulai dari tool yang terlalu berat",
+      content:
+        "Untuk milestone ini, tujuan utamanya bukan setup modern yang lengkap. Tujuannya adalah memahami file lokal, browser, editor, dan alur kerja dasar tanpa framework.",
+    },
+    {
+      id: "setup-local-project-folder-summary",
+      type: "summary",
+      points: [
+        "Project lokal adalah folder kerja di perangkat sendiri.",
+        "Website statis sederhana bisa dimulai dari index.html dan style.css.",
+        "Kamu belum perlu npm, framework, bundler, atau deployment.",
+        "Berikutnya kamu akan membuka folder project ini di code editor.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "setup-local-project-folder-intro",
+      "setup-local-project-folder-structure",
+      "setup-local-project-folder-local-task",
+      "setup-local-project-folder-summary",
+    ],
+  },
+};
+
+export const openProjectInCodeEditorLesson: Lesson = {
+  id: "open-project-in-code-editor",
+  trackId: "frontend-engineering",
+  moduleId: "local-static-website-project",
+  title: "Membuka Project di Code Editor",
+  slug: "open-project-in-code-editor",
+  description:
+    "Pelajari cara membuka folder project dan mengedit file website statis di code editor.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 35,
+  objectives: [
+    "Memahami kenapa folder project dibuka sebagai satu workspace",
+    "Membuka index.html dan style.css di code editor",
+    "Menghubungkan CSS ke HTML dengan link tag",
+    "Melakukan edit kecil dan menyimpan file",
+  ],
+  skillTags: ["Code Editor", "Local Workflow", "HTML", "CSS"],
+  blocks: [
+    {
+      id: "open-project-in-code-editor-intro",
+      type: "text",
+      title: "Buka folder, bukan hanya satu file",
+      content:
+        "Code editor membantu kamu melihat seluruh isi folder project. Membuka folder lebih nyaman daripada membuka index.html dan style.css satu per satu, karena kamu bisa berpindah file dengan jelas dan melihat apakah file berada di lokasi yang benar.\n\nDi lesson ini, kamu akan menghubungkan HTML ke CSS. Kalau hubungan ini benar, perubahan di style.css akan terlihat saat index.html dibuka di browser.",
+    },
+    {
+      id: "open-project-in-code-editor-html",
+      type: "code-example",
+      title: "HTML awal",
+      language: "html",
+      code: `<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Statis Pertamaku</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Website Statis Pertamaku</h1>
+      <p>Ini project lokal pertama saya.</p>
+    </main>
+  </body>
+</html>`,
+      explanation:
+        "Baris link rel=\"stylesheet\" menghubungkan index.html ke style.css. Karena kedua file berada di folder yang sama, href cukup berisi style.css.",
+    },
+    {
+      id: "open-project-in-code-editor-css",
+      type: "code-example",
+      title: "CSS awal",
+      language: "css",
+      code: `.card {
+  max-width: 640px;
+  padding: 24px;
+  border: 1px solid #d4d4d8;
+  box-sizing: border-box;
+}`,
+      explanation:
+        "CSS ini memberi batas lebar, ruang dalam, border, dan box-sizing pada elemen dengan class card.",
+    },
+    {
+      id: "open-project-in-code-editor-local-task",
+      type: "text",
+      title: "Checklist local task",
+      content:
+        "Kerjakan di perangkat kamu:\n\n- Buka folder project di code editor.\n- Isi index.html dengan struktur HTML dasar.\n- Tambahkan link ke style.css di dalam head.\n- Tambahkan style sederhana di style.css.\n- Simpan kedua file.\n\nKalau style belum terlihat nanti di browser, cek nama file, lokasi file, dan nilai href pada link stylesheet.",
+    },
+    {
+      id: "open-project-in-code-editor-callout",
+      type: "callout",
+      variant: "common-mistake",
+      title: "Style tidak muncul",
+      content:
+        "Masalah yang sering terjadi: file CSS belum disimpan, nama file berbeda, atau href tidak cocok dengan lokasi style.css. Untuk project ini, index.html dan style.css sebaiknya berada di folder yang sama dulu.",
+    },
+    {
+      id: "open-project-in-code-editor-summary",
+      type: "summary",
+      points: [
+        "Buka folder project sebagai workspace di code editor.",
+        "index.html menyimpan struktur halaman.",
+        "style.css menyimpan tampilan halaman.",
+        "link rel=\"stylesheet\" menghubungkan HTML ke CSS.",
+        "Berikutnya kamu akan menjalankan index.html di browser.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "open-project-in-code-editor-intro",
+      "open-project-in-code-editor-html",
+      "open-project-in-code-editor-css",
+      "open-project-in-code-editor-local-task",
+      "open-project-in-code-editor-summary",
+    ],
+  },
+};
+
+export const runHtmlInBrowserLesson: Lesson = {
+  id: "run-html-in-browser",
+  trackId: "frontend-engineering",
+  moduleId: "local-static-website-project",
+  title: "Menjalankan HTML di Browser",
+  slug: "run-html-in-browser",
+  description:
+    "Jalankan file HTML lokal di browser dan pahami cara melihat perubahan sederhana.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 35,
+  objectives: [
+    "Membuka file index.html di browser",
+    "Memahami perbedaan file lokal dan website online",
+    "Melakukan refresh setelah mengubah file",
+    "Mengecek apakah CSS sudah terhubung",
+  ],
+  skillTags: ["Browser", "HTML", "CSS", "Local Workflow"],
+  blocks: [
+    {
+      id: "run-html-in-browser-intro",
+      type: "text",
+      title: "HTML lokal bisa dibuka di browser",
+      content:
+        "File HTML lokal bisa dibuka langsung di browser. Saat kamu membuka index.html dari perangkat sendiri, address bar biasanya diawali file://. Itu berarti browser sedang membaca file dari komputer kamu, bukan membuka website online.\n\nSetelah mengedit file, simpan dulu file-nya, lalu refresh browser. Browser membaca versi file yang tersimpan.",
+    },
+    {
+      id: "run-html-in-browser-local-task",
+      type: "text",
+      title: "Checklist local task",
+      content:
+        "Kerjakan di perangkat kamu:\n\n- Buka index.html di browser.\n- Pastikan konten h1 dan paragraph terlihat.\n- Ubah teks di index.html.\n- Simpan file.\n- Refresh browser.\n- Ubah satu style di style.css.\n- Simpan file CSS.\n- Refresh browser lagi.\n\nIni belum deployment dan belum online. Tahap ini hanya memastikan project lokal bisa dibuka dan diperbarui.",
+    },
+    {
+      id: "run-html-in-browser-callout",
+      type: "callout",
+      variant: "tip",
+      title: "Jika perubahan tidak terlihat",
+      content:
+        "Cek tiga hal sederhana dulu: file sudah disimpan, browser sudah di-refresh, dan file CSS sudah terhubung dengan href yang benar.",
+    },
+    {
+      id: "run-html-in-browser-quick-check",
+      type: "quick-check",
+      question:
+        "Setelah mengubah file HTML lokal, langkah apa yang biasanya perlu dilakukan agar perubahan terlihat di browser?",
+      options: [
+        "Install React",
+        "Simpan file lalu refresh browser",
+        "Membuat database",
+        "Menghapus file CSS",
+      ],
+      correctAnswer: "Simpan file lalu refresh browser",
+      explanation:
+        "Browser membaca file yang tersimpan. Setelah file diubah, simpan lalu refresh halaman agar browser membaca versi terbaru.",
+    },
+    {
+      id: "run-html-in-browser-summary",
+      type: "summary",
+      points: [
+        "Kamu bisa membuka HTML lokal di browser.",
+        "Alamat file lokal biasanya diawali file://.",
+        "Setelah edit file, simpan lalu refresh browser.",
+        "Ini belum membuat website online.",
+        "Berikutnya kamu akan memakai DevTools dasar untuk inspect halaman.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "run-html-in-browser-intro",
+      "run-html-in-browser-local-task",
+      "run-html-in-browser-quick-check",
+      "run-html-in-browser-summary",
+    ],
+  },
+};
+
+export const basicDevtoolsStaticPageLesson: Lesson = {
+  id: "basic-devtools-static-page",
+  trackId: "frontend-engineering",
+  moduleId: "local-static-website-project",
+  title: "DevTools Dasar untuk Static Page",
+  slug: "basic-devtools-static-page",
+  description:
+    "Gunakan DevTools untuk inspect elemen HTML dan melihat style CSS yang berlaku.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 40,
+  objectives: [
+    "Membuka browser DevTools",
+    "Menggunakan Inspect Element",
+    "Melihat struktur HTML dari browser",
+    "Melihat CSS yang berlaku pada elemen",
+    "Memahami DevTools sebagai alat observasi dan debugging",
+  ],
+  skillTags: ["DevTools", "Debugging", "HTML", "CSS"],
+  blocks: [
+    {
+      id: "basic-devtools-static-page-intro",
+      type: "text",
+      title: "DevTools membantu melihat apa yang browser baca",
+      content:
+        "DevTools adalah alat di browser untuk melihat struktur halaman, style CSS, error, dan banyak hal lain. Untuk tahap ini, fokus cukup pada dua area: Elements dan Styles.\n\nElements membantu kamu melihat HTML yang sedang dibaca browser. Styles membantu kamu melihat CSS yang berlaku pada elemen yang dipilih.",
+    },
+    {
+      id: "basic-devtools-static-page-case-study",
+      type: "text",
+      title: "Case study: padding card tidak terlihat",
+      content:
+        "Bayangkan kamu membuat .card, tetapi padding tidak terlihat. Cara mengeceknya:\n\n- Buka halaman lokal di browser.\n- Klik kanan pada card, lalu pilih Inspect.\n- Cek apakah elemen punya class card.\n- Cek panel Styles dan cari rule .card.\n- Lihat apakah property padding muncul.\n\nDengan cara ini, kamu tidak hanya menebak. Kamu melihat langsung apakah HTML dan CSS dibaca oleh browser.",
+    },
+    {
+      id: "basic-devtools-static-page-local-task",
+      type: "text",
+      title: "Checklist local task",
+      content:
+        "Kerjakan di browser kamu:\n\n- Buka halaman lokal.\n- Klik kanan lalu Inspect.\n- Pilih elemen .card.\n- Temukan class pada HTML di panel Elements.\n- Temukan rule CSS di panel Styles.\n- Ubah sementara nilai padding di DevTools jika memungkinkan.\n- Refresh halaman dan perhatikan bahwa perubahan DevTools tidak otomatis tersimpan ke file.\n\nTandai selesai setelah kamu berhasil menemukan elemen dan style yang berlaku.",
+    },
+    {
+      id: "basic-devtools-static-page-callout",
+      type: "callout",
+      variant: "important",
+      title: "DevTools bukan pengganti file project",
+      content:
+        "Perubahan di DevTools berguna untuk eksperimen cepat. Namun perubahan permanen tetap harus ditulis dan disimpan di file project, misalnya style.css.",
+    },
+    {
+      id: "basic-devtools-static-page-summary",
+      type: "summary",
+      points: [
+        "Kamu bisa memakai Inspect Element untuk melihat HTML.",
+        "Panel Styles membantu melihat CSS yang berlaku.",
+        "DevTools membantu debugging tanpa menebak-nebak.",
+        "Perubahan di DevTools bersifat sementara sampai kamu menulisnya di file.",
+        "Berikutnya kamu akan menyimpan project dengan Git dan GitHub.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "basic-devtools-static-page-intro",
+      "basic-devtools-static-page-case-study",
+      "basic-devtools-static-page-local-task",
+      "basic-devtools-static-page-summary",
+    ],
+  },
+};
+
+export const saveProjectWithGitGithubLesson: Lesson = {
+  id: "save-project-with-git-github",
+  trackId: "frontend-engineering",
+  moduleId: "local-static-website-project",
+  title: "Menyimpan Project dengan Git dan GitHub",
+  slug: "save-project-with-git-github",
+  description:
+    "Simpan progres project lokal memakai Git dan siapkan repository GitHub sederhana.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 50,
+  objectives: [
+    "Memahami Git sebagai alat menyimpan riwayat perubahan",
+    "Memahami GitHub sebagai tempat menyimpan repository secara online",
+    "Mengenal alur sederhana init, add, commit, remote, push",
+    "Menulis catatan README singkat untuk project",
+  ],
+  skillTags: ["Git", "GitHub", "Local Workflow", "Portfolio"],
+  blocks: [
+    {
+      id: "save-project-with-git-github-intro",
+      type: "text",
+      title: "Git menyimpan riwayat, GitHub menyimpan repository online",
+      content:
+        "Git membantu kamu menyimpan riwayat perubahan project. GitHub membantu menyimpan repository secara online agar project bisa dibuka kembali, dibagikan, dan nanti dipakai sebagai portofolio.\n\nKamu belum perlu memahami semua fitur Git. Di lesson ini, cukup pahami alur dasar: init, add, commit, remote, dan push.",
+    },
+    {
+      id: "save-project-with-git-github-commands",
+      type: "code-example",
+      title: "Contoh command Git dasar",
+      language: "bash",
+      code: `git init
+git add .
+git commit -m "Create static website"
+git branch -M main
+git remote add origin <your-repository-url>
+git push -u origin main`,
+      explanation:
+        "git init menyiapkan repository lokal. git add memilih file yang akan disimpan. git commit membuat snapshot perubahan. remote dan push mengirim repository ke GitHub.",
+    },
+    {
+      id: "save-project-with-git-github-local-task",
+      type: "text",
+      title: "Checklist local task",
+      content:
+        "Kerjakan di folder project kamu:\n\n- Buka terminal di folder project.\n- Jalankan git init.\n- Tambahkan file ke staging dengan git add .\n- Buat commit pertama.\n- Buat repository baru di GitHub.\n- Hubungkan remote repository.\n- Push project ke GitHub.\n- Buka repository di browser dan pastikan file terlihat.\n\nJika Git masih terasa asing, itu normal. Fokus dulu pada urutan besarnya.",
+    },
+    {
+      id: "save-project-with-git-github-readme-practice",
+      type: "writing-practice",
+      prompt:
+        "Tulis draft README singkat untuk project website statis pertamamu. Jelaskan nama project, tujuan project, teknologi yang dipakai, cara membuka project secara lokal, dan satu hal yang kamu pelajari.",
+      placeholder:
+        "Contoh awal: Project ini adalah website statis sederhana yang dibuat dengan HTML dan CSS...",
+      minimumCharacters: 180,
+      checklist: [
+        "Menyebut nama project",
+        "Menyebut tujuan project",
+        "Menyebut teknologi HTML dan CSS",
+        "Menjelaskan cara membuka project secara lokal",
+        "Menyebut satu hal yang dipelajari",
+      ],
+      modelAnswer:
+        "Project ini adalah website statis sederhana untuk latihan HTML dan CSS lokal. Project berisi index.html untuk struktur halaman dan style.css untuk tampilan. Untuk membukanya, saya bisa membuka file index.html langsung di browser. Saya belajar menghubungkan CSS ke HTML, melihat perubahan dengan refresh browser, dan mulai menyimpan project dengan Git.",
+    },
+    {
+      id: "save-project-with-git-github-callout",
+      type: "callout",
+      variant: "tip",
+      title: "Tidak perlu menghafal semua command sekarang",
+      content:
+        "Git akan terasa lebih masuk akal setelah dipakai berulang. Untuk tahap ini, pahami bahwa commit menyimpan snapshot dan push mengirim perubahan ke GitHub.",
+    },
+    {
+      id: "save-project-with-git-github-summary",
+      type: "summary",
+      points: [
+        "Git menyimpan riwayat perubahan project.",
+        "GitHub menyimpan repository secara online.",
+        "Alur awal yang penting: init, add, commit, remote, push.",
+        "README membantu orang lain memahami project.",
+        "Berikutnya kamu akan menguji kesiapan local static website workflow.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "save-project-with-git-github-intro",
+      "save-project-with-git-github-commands",
+      "save-project-with-git-github-local-task",
+      "save-project-with-git-github-readme-practice",
+      "save-project-with-git-github-summary",
+    ],
+  },
+};
+
+export const localStaticWebsiteProjectAssessmentLesson: Lesson = {
+  id: "local-static-website-project-assessment",
+  trackId: "frontend-engineering",
+  moduleId: "local-static-website-project",
+  title: "Uji Kompetensi Local Static Website Project",
+  slug: "local-static-website-project-assessment",
+  description:
+    "Uji kesiapan membuat, menjalankan, memeriksa, menyimpan, dan menjelaskan website statis lokal.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 60,
+  objectives: [
+    "Mengecek kemampuan membuat folder project lokal",
+    "Mengecek kemampuan membuat file index.html dan style.css",
+    "Mengecek kemampuan membuka HTML di browser",
+    "Mengecek kemampuan inspect elemen dengan DevTools",
+    "Mengecek kemampuan menyimpan project dengan Git dan GitHub",
+    "Mengecek kemampuan menjelaskan project secara singkat",
+  ],
+  skillTags: ["Local Workflow", "HTML", "CSS", "Git", "GitHub", "Assessment"],
+  blocks: [
+    {
+      id: "local-static-website-project-assessment-recap",
+      type: "text",
+      title: "Apa yang dicek di assessment ini",
+      content:
+        "Assessment ini mengecek workflow local static website. Kamu akan membuktikan bahwa kamu bisa menyiapkan folder project, membuat index.html dan style.css, membuka halaman di browser, memakai DevTools untuk inspect HTML/CSS, menyimpan project dengan Git/GitHub, dan menjelaskan project dengan singkat.\n\nFluentStack tidak bisa memeriksa file di perangkat kamu secara otomatis. Karena itu, checklist lokal di assessment ini adalah self-review yang harus kamu kerjakan dengan jujur.",
+    },
+    {
+      id: "local-static-website-project-assessment-quiz-block",
+      type: "quiz",
+      quizId: "local-static-website-project-assessment-quiz",
+    },
+    {
+      id: "local-static-website-project-assessment-local-task",
+      type: "text",
+      title: "Local project checklist",
+      content:
+        "Pastikan project lokal kamu memenuhi checklist ini:\n\n- Project punya folder sendiri.\n- Project punya index.html.\n- Project punya style.css.\n- HTML memakai struktur semantic sederhana.\n- CSS terhubung ke HTML lewat link stylesheet.\n- Halaman bisa dibuka di browser.\n- DevTools bisa inspect elemen utama.\n- Project punya minimal satu commit Git.\n- Project sudah dipush ke GitHub.\n- README singkat sudah ditulis.\n\nTandai blok ini selesai setelah kamu mengecek project lokalmu. Jangan tandai hanya karena sudah membaca checklist.",
+    },
+    {
+      id: "local-static-website-project-assessment-writing-practice",
+      type: "writing-practice",
+      prompt:
+        "Jelaskan project website statis kamu dalam 5 sampai 7 kalimat. Tulis seperti kamu sedang menjelaskan project kecil kepada mentor atau calon reviewer.",
+      placeholder:
+        "Project saya adalah website statis sederhana tentang... Struktur filenya terdiri dari...",
+      minimumCharacters: 260,
+      checklist: [
+        "Menjelaskan tujuan project",
+        "Menyebut struktur file utama",
+        "Menjelaskan cara menjalankan secara lokal",
+        "Menyebut satu hal yang dicek dengan DevTools",
+        "Menyebut status Git/GitHub",
+        "Menyebut hal yang dipelajari",
+      ],
+      modelAnswer:
+        "Project saya adalah website statis sederhana untuk latihan HTML dan CSS dasar. Struktur project terdiri dari index.html untuk konten utama dan style.css untuk tampilan. Untuk menjalankannya, saya membuka index.html langsung di browser lalu refresh setelah menyimpan perubahan. Saya memakai DevTools untuk inspect elemen card dan melihat apakah rule CSS terbaca. Project ini sudah saya simpan dengan Git dan push ke GitHub. Dari project ini, saya belajar menghubungkan file lokal, mengecek style di browser, dan menjelaskan hasil kerja dengan lebih rapi.",
+    },
+    {
+      id: "local-static-website-project-assessment-docs-bridge",
+      type: "documentation-bridge",
+      title: "Baca dokumentasi resmi",
+      description:
+        "Gunakan bagian ini sebagai panduan membaca dokumentasi workflow dasar, bukan tugas menghafal. Fokus pada bagian yang langsung membantu project lokalmu.",
+      links: [
+        {
+          source: "MDN Web Docs",
+          title: "Getting started with the web",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started",
+          focus: [
+            "struktur website sederhana",
+            "file HTML/CSS",
+            "workflow belajar web dasar",
+          ],
+          ignoreForNow: [
+            "deployment",
+            "JavaScript advanced",
+            "framework",
+          ],
+        },
+        {
+          source: "GitHub Docs",
+          title: "Hello World",
+          url: "https://docs.github.com/en/get-started/start-your-journey/hello-world",
+          focus: [
+            "repository",
+            "commit",
+            "basic GitHub workflow",
+          ],
+          ignoreForNow: [
+            "pull request workflow advanced",
+            "GitHub Actions",
+            "team collaboration flow",
+          ],
+        },
+        {
+          source: "Chrome DevTools Docs",
+          title: "Inspect CSS and HTML",
+          url: "https://developer.chrome.com/docs/devtools/css",
+          focus: [
+            "inspect element",
+            "view applied CSS",
+            "test style changes temporarily",
+          ],
+          ignoreForNow: [
+            "performance profiling",
+            "network debugging",
+            "source maps",
+          ],
+        },
+      ],
+      followUpAction:
+        "Buka project lokal kamu, inspect elemen utama, lalu tulis satu hal yang kamu lihat di DevTools dan satu perubahan yang kamu simpan di file project.",
+    },
+    {
+      id: "local-static-website-project-assessment-summary",
+      type: "summary",
+      points: [
+        "Kamu membuktikan bahwa kamu bisa membuat project website statis lokal.",
+        "Kamu membuktikan bahwa kamu bisa membuka HTML di browser dan melihat perubahan setelah menyimpan file.",
+        "Kamu membuktikan bahwa kamu bisa memakai DevTools untuk inspect HTML dan CSS dasar.",
+        "Kamu membuktikan bahwa kamu bisa menyimpan project dengan Git/GitHub.",
+        "Jika belum siap, review lagi folder project, link CSS, browser refresh, DevTools Elements/Styles, Git commit, GitHub push, dan README singkat.",
+        "Setelah kamu bisa membuat project statis lokal, berikutnya kamu bisa mulai belajar layout CSS yang lebih terarah seperti Flexbox dan Grid.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "local-static-website-project-assessment-recap",
+      "local-static-website-project-assessment-quiz-block",
+      "local-static-website-project-assessment-local-task",
+      "local-static-website-project-assessment-writing-practice",
+      "local-static-website-project-assessment-summary",
+    ],
+    passingQuizScore: 70,
+  },
+};
+
 export const cssFlexboxBasicsLesson: Lesson = {
   id: "css-flexbox-basics",
   trackId: "frontend-engineering",
@@ -3012,6 +3571,12 @@ export const lessons: Lesson[] = [
   cssBorderWidthBasicLesson,
   boxModelSpacingAssessmentLesson,
   cssCoreMechanicsAssessmentLesson,
+  setupLocalProjectFolderLesson,
+  openProjectInCodeEditorLesson,
+  runHtmlInBrowserLesson,
+  basicDevtoolsStaticPageLesson,
+  saveProjectWithGitGithubLesson,
+  localStaticWebsiteProjectAssessmentLesson,
   cssFlexboxBasicsLesson,
   writingDailyUpdateLesson,
 ];
