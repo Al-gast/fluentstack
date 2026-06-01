@@ -53,6 +53,7 @@ export type LessonBlock =
   | CodingPracticeBlock
   | WritingPracticeBlock
   | QuizBlock
+  | DocumentationBridgeBlock
   | SummaryBlock;
 
 export type TextBlock = {
@@ -108,6 +109,23 @@ export type QuizBlock = {
   id: string;
   type: "quiz";
   quizId: string;
+};
+
+export type DocumentationBridgeLink = {
+  source: string;
+  title: string;
+  url: string;
+  focus: string[];
+  ignoreForNow?: string[];
+};
+
+export type DocumentationBridgeBlock = {
+  id: string;
+  type: "documentation-bridge";
+  title: string;
+  description?: string;
+  links: DocumentationBridgeLink[];
+  followUpAction: string;
 };
 
 export type SummaryBlock = {

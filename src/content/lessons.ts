@@ -276,6 +276,53 @@ export const webFoundationsAssessmentLesson: Lesson = {
       quizId: "web-foundations-assessment-quiz",
     },
     {
+      id: "web-foundations-assessment-docs-bridge",
+      type: "documentation-bridge",
+      title: "Baca dokumentasi resmi",
+      description:
+        "Gunakan bagian ini sebagai latihan membaca dokumentasi, bukan tugas menghafal. Kamu tidak perlu membaca semuanya sekarang. Fokus pada bagian yang sudah kamu pelajari.",
+      links: [
+        {
+          source: "MDN Web Docs",
+          title: "Learn web development",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+          focus: [
+            "gambaran besar jalur belajar web",
+            "posisi HTML, CSS, JavaScript",
+            "istilah dasar yang mulai muncul di FluentStack",
+          ],
+          ignoreForNow: ["framework", "testing", "deployment"],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "Getting started modules",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started",
+          focus: [
+            "cara pemula mulai memahami website",
+            "file web dasar",
+            "langkah awal belajar web",
+          ],
+          ignoreForNow: [
+            "setup lokal yang terlalu lengkap",
+            "topik yang belum muncul di FluentStack",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "How the web works",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works",
+          focus: [
+            "browser meminta halaman",
+            "server mengirim response",
+            "browser menampilkan halaman",
+          ],
+          ignoreForNow: ["detail networking yang terlalu dalam"],
+        },
+      ],
+      followUpAction:
+        "Tulis ulang dengan kalimat sendiri: ketika saya membuka sebuah URL, browser meminta halaman, menerima file, lalu menampilkan struktur, tampilan, dan interaksi.",
+    },
+    {
       id: "web-foundations-assessment-summary",
       type: "summary",
       points: [
@@ -1175,6 +1222,53 @@ export const htmlBasicsAssessmentLesson: Lesson = {
       challengeId: "build-html-basics-page",
     },
     {
+      id: "html-basics-assessment-docs-bridge",
+      type: "documentation-bridge",
+      title: "Baca dokumentasi resmi",
+      description:
+        "Gunakan bagian ini sebagai latihan membaca dokumentasi, bukan tugas menghafal. Kamu tidak perlu membaca semuanya sekarang. Fokus pada bagian yang sudah kamu pelajari.",
+      links: [
+        {
+          source: "MDN Web Docs",
+          title: "Basic HTML syntax",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax",
+          focus: ["tag", "element", "attribute", "struktur dasar HTML"],
+          ignoreForNow: ["detail reference yang belum dipakai di latihan"],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "Web page metadata",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata",
+          focus: ["fungsi head", "fungsi title", "metadata dasar halaman"],
+          ignoreForNow: ["SEO advanced", "social sharing metadata"],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "Creating links",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Creating_links",
+          focus: [
+            "fungsi href",
+            "teks link yang jelas",
+            "link relatif dan absolut secara umum",
+          ],
+          ignoreForNow: ["attribute advanced"],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "HTML images",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_images",
+          focus: [
+            "fungsi src",
+            "fungsi alt",
+            "kenapa gambar butuh deskripsi",
+          ],
+          ignoreForNow: ["responsive images", "image performance"],
+        },
+      ],
+      followUpAction:
+        "Kembali ke latihan HTML Basics dan tunjukkan satu tag, satu element, satu attribute, satu link dengan href, dan satu image dengan src serta alt.",
+    },
+    {
       id: "html-basics-assessment-summary",
       type: "summary",
       points: [
@@ -1230,6 +1324,58 @@ export const semanticHtmlAssessmentLesson: Lesson = {
       id: "semantic-html-assessment-coding-practice",
       type: "coding-practice",
       challengeId: "build-semantic-html-assessment-page",
+    },
+    {
+      id: "semantic-html-assessment-docs-bridge",
+      type: "documentation-bridge",
+      title: "Baca dokumentasi resmi",
+      description:
+        "Gunakan bagian ini sebagai latihan membaca dokumentasi, bukan tugas menghafal. Kamu tidak perlu membaca semuanya sekarang. Fokus pada bagian yang sudah kamu pelajari.",
+      links: [
+        {
+          source: "MDN Web Docs",
+          title: "Structuring content with HTML",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content",
+          focus: [
+            "struktur konten HTML",
+            "elemen yang dipakai untuk menyusun halaman",
+            "hubungan antara konten dan makna",
+          ],
+          ignoreForNow: ["semua halaman reference yang belum relevan"],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "Structuring documents",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Structuring_documents",
+          focus: [
+            "header",
+            "nav",
+            "main",
+            "section",
+            "article",
+            "aside",
+            "footer",
+            "heading hierarchy",
+          ],
+          ignoreForNow: [
+            "ARIA landmarks yang terlalu detail",
+            "schema markup",
+            "SEO advanced",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "Challenge: Structuring a page of content",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Structuring_a_page_of_content",
+          focus: [
+            "melihat contoh challenge struktur halaman",
+            "membandingkan semantic structure dengan div-only structure",
+          ],
+          ignoreForNow: ["menyelesaikan semua challenge MDN sekarang"],
+        },
+      ],
+      followUpAction:
+        "Kembali ke latihan Semantic HTML dan jelaskan satu pilihan elemen: kenapa bagian itu lebih cocok memakai main, header, nav, section, article, atau footer daripada div biasa?",
     },
     {
       id: "semantic-html-assessment-summary",

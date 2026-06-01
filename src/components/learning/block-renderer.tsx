@@ -2,6 +2,7 @@ import type { LessonBlock } from "@/types/learning";
 import { CalloutBlock } from "@/components/learning/blocks/callout-block";
 import { CodingPracticeBlock } from "@/components/learning/blocks/coding-practice-block";
 import { CodeExampleBlock } from "@/components/learning/blocks/code-example-block";
+import { DocumentationBridgeBlock } from "@/components/learning/blocks/documentation-bridge-block";
 import { QuickCheckBlock } from "@/components/learning/blocks/quick-check-block";
 import { QuizBlock } from "@/components/learning/blocks/quiz-block";
 import { SummaryBlock } from "@/components/learning/blocks/summary-block";
@@ -96,6 +97,14 @@ export function BlockRenderer({
               passed: result.passed,
             })
           }
+        />
+      );
+    case "documentation-bridge":
+      return (
+        <DocumentationBridgeBlock
+          block={block}
+          isCompleted={isCompleted}
+          onComplete={() => onCompleteBlock(block.id)}
         />
       );
     case "coding-practice":
