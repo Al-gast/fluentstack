@@ -1,5 +1,3 @@
-# AGENTS.md
-
 # FluentStack Project Instructions
 
 FluentStack is an interactive learning web app for technology skills.
@@ -22,17 +20,19 @@ The app may later expand into:
 
 ## Product Goal
 
-Build a polished, comfortable, and interactive learning platform where users learn through structured lessons, practice blocks, quizzes, coding labs, writing practice, and progress tracking.
+Build a polished, comfortable, and interactive learning platform where users learn through structured lessons, practice blocks, module assessments, coding labs, writing practice, and progress tracking.
 
-FluentStack is not a simple blog, static course website, or collection of disconnected pages.
+FluentStack is not a simple blog, static course website, documentation clone, or collection of disconnected pages.
 
 It should feel like a premium learning product and also be strong enough as a portfolio project.
 
+The core value is not the number of lessons. The core value is the learning experience.
+
 ## Core Learning Principle
 
-Quiz, practice, coding challenges, and writing exercises are not separate disconnected features.
+Quiz, practice, coding challenges, writing exercises, and assessments are not separate disconnected features.
 
-They are activity blocks inside the lesson flow.
+They are part of the lesson and module flow.
 
 Main flow:
 
@@ -41,10 +41,199 @@ Dashboard
 → Roadmap
 → Track
 → Module
-→ Lesson
-→ Text / Example / Quick Check / Practice / Quiz / Summary
+→ Regular lessons
+→ Uji Kompetensi
 → Progress updated
+→ Next module
 ```
+
+Regular lessons teach and practice.
+
+`Uji Kompetensi` checks readiness at the end of a module.
+
+## FluentStack Teaching Model
+
+FluentStack uses a module-level assessment model.
+
+### Regular Lessons
+
+Regular lessons should help learners understand and practice one clear concept.
+
+A regular lesson should usually include:
+
+* learning goal
+* path context
+* focused explanation
+* important terms
+* small example
+* how to read or use the example
+* common mistake or decision rule
+* quick check
+* coding practice, writing practice, or mini action when useful
+* actionable summary
+* bridge to the next lesson
+
+A regular beginner lesson should not include a quiz by default.
+
+A quiz inside a regular lesson is allowed only when it adds clear learning value and does not make the lesson feel test-heavy.
+
+For beginner lessons:
+
+* assume the learner starts from zero
+* introduce terms before using them heavily
+* explain the concept before asking the learner to practice
+* use concrete examples
+* avoid jargon unless already introduced
+* keep the tone calm, clear, and practical
+
+### Uji Kompetensi
+
+`Uji Kompetensi` is the module-end assessment.
+
+It checks whether the learner is ready to continue to the next module.
+
+An Uji Kompetensi may include:
+
+* module recap
+* quiz
+* coding practice
+* writing practice
+* project task
+* case study
+* self-review checklist
+* readiness summary
+
+Rules:
+
+* Uji Kompetensi should cover the whole module.
+* It should not introduce important new concepts.
+* It should not be a random trivia quiz.
+* It should test understanding and practical readiness.
+* It should bridge to the next module when the learner passes.
+
+## Module Design Rules
+
+Every module must have a clear learning arc.
+
+Before writing or revising module content, define:
+
+* module goal
+* prerequisite knowledge
+* regular lesson sequence
+* unique role of each lesson
+* practice pattern
+* Uji Kompetensi coverage
+* readiness criteria
+* bridge to the next module
+
+Every regular lesson must have a unique purpose.
+
+Do not create two regular lessons that explain the same concept in different words.
+
+If two lessons overlap:
+
+* merge the repeated explanation
+* convert one into guided practice
+* convert one into reinforcement
+* convert one into common mistakes or case study
+* move the check into Uji Kompetensi
+* remove it from active module order if it does not add value
+
+Prefer fewer mature lessons over many shallow lessons.
+
+Do not add more lessons just to make a module look full.
+
+## Content Quality Work
+
+For any task that adds or revises learning content, read the relevant content docs before editing:
+
+* `docs/11_COPYWRITING_AND_CONTENT_VOICE.md`
+* `docs/12_CURRICULUM_PLAN.md`
+* `docs/20_FRONTEND_CURRICULUM_DETAIL.md` when frontend content is involved
+* `docs/21_ENGLISH_CURRICULUM_DETAIL.md` when English content is involved
+* `docs/22_CONTENT_AUTHORING_GUIDE.md`
+* `docs/23_LESSON_FORMAT_STANDARD.md`
+* `docs/24_LESSON_QUALITY_RUBRIC.md`
+
+Rules:
+
+* Do not add large batches of new content until the relevant beginner path has a strong quality benchmark.
+* Do not make every lesson quiz-heavy.
+* Prefer module-level Uji Kompetensi over repeated quizzes in every regular lesson.
+* Regular lessons should teach and practice, not repeatedly test.
+* Every module should define lesson roles before content is written.
+* Every lesson should have a clear bridge to the next lesson unless it is the last lesson before Uji Kompetensi.
+* Uji Kompetensi should have a clear bridge to the next module when relevant.
+* If two lessons overlap, convert one into practice, reinforcement, case study, or assessment.
+* Do not use valid schema as proof of content quality. A lesson can render correctly and still fail as a learning experience.
+
+## Track Strategy
+
+### Frontend Engineering
+
+Frontend Engineering should move from beginner web foundations to production-ready frontend work.
+
+The broad path is:
+
+1. Web Foundations
+2. HTML and Accessibility Foundations
+3. CSS Fundamentals and Layout
+4. JavaScript Fundamentals
+5. JavaScript Advanced
+6. TypeScript
+7. React Fundamentals
+8. React Intermediate
+9. React Advanced
+10. Next.js App Router
+11. Production Next.js
+12. Forms, Validation, and Data Fetching
+13. Testing
+14. Performance
+15. Accessibility
+16. Frontend Architecture
+17. Design System
+18. Backend Basics for Frontend Engineers
+19. Security Basics
+20. Portfolio and Remote Readiness
+
+Frontend content should be practical and connected to real product work.
+
+Use coding practice when the learner needs to build, edit, refactor, inspect, or debug code.
+
+Use writing practice when the frontend task naturally maps to remote-work communication, such as:
+
+* pull request notes
+* bug reports
+* implementation notes
+* code review comments
+* project demos
+
+### English for Tech Careers
+
+English for Tech Careers should help learners communicate in remote tech work.
+
+Fluency does not mean native-speaker perfection. It means the learner can communicate clearly and confidently in professional tech situations.
+
+English content should use bilingual teaching:
+
+* Indonesian explanation
+* practical English examples
+* Indonesian meaning or context when useful
+* learner-written English response
+
+Use writing practice heavily for English track lessons.
+
+Good English lesson outputs include:
+
+* daily update
+* blocker explanation
+* clarification message
+* bug report
+* pull request note
+* code review response
+* technical explanation
+* interview answer
+* project demo script
 
 ## Tech Stack
 
@@ -81,7 +270,7 @@ Use Supabase for:
 
 Use static TypeScript, MDX, or JSON files for learning content during the MVP.
 
-Use Next.js Route Handlers for small server-side API needs.
+Use Next.js Route Handlers only for small server-side API needs.
 
 Use Supabase Edge Functions only for future needs such as:
 
@@ -106,89 +295,103 @@ Use static TypeScript, MDX, or JSON files for:
 * lessons
 * quizzes
 * coding challenges
+* writing practice data
 * sample projects
 
-User-specific data should be stored in Supabase.
+User-specific data should be stored separately.
 
-Use Supabase for:
+Use localStorage for guest progress.
 
-* user profile
+Use Supabase for logged-in user progress.
+
+User progress includes:
+
 * completed lesson blocks
-* lesson progress
+* completed lessons
 * quiz scores
-* challenge progress
+* challenge code and checklist state
 * writing drafts
 * XP
 * streak
 
-## Content Quality Work
+Do not put user-specific state inside static content files.
 
-For any task that adds or revises learning content, read the relevant content docs before editing:
+## Challenge and Practice Strategy
 
-* `docs/11_COPYWRITING_AND_CONTENT_VOICE.md`
-* `docs/20_FRONTEND_CURRICULUM_DETAIL.md` when frontend content is involved
-* `docs/21_ENGLISH_CURRICULUM_DETAIL.md` when English content is involved
-* `docs/22_CONTENT_AUTHORING_GUIDE.md`
-* `docs/23_LESSON_FORMAT_STANDARD.md`
-* `docs/24_LESSON_QUALITY_RUBRIC.md`
+Coding practice should be meaningful and safe.
 
-Rules:
+For deterministic coding tasks, prefer simple rule-based auto validation.
 
-* Do not add large batches of new content until the relevant beginner path has a strong quality benchmark.
-* For beginner lessons, assume the learner starts from zero.
-* Introduce terms before using them heavily.
-* Every lesson should have a clear bridge to the next lesson unless it is the last lesson in a module.
-* Do not make every lesson quiz-heavy. Prefer module-level assessment for readiness checks.
+Examples:
+
+* HTML element exists
+* attribute exists
+* required text exists
+* semantic region exists
+* simple CSS property exists
+* simple JavaScript behavior is represented in code
+
+Manual checklist is still acceptable when validation is subjective.
+
+Use manual checklist for:
+
+* code quality review
+* accessibility review
+* visual judgment
+* project completeness
+* writing quality
+* self-review tasks
+
+Do not use AI grading in MVP content unless explicitly requested in a future task.
+
+Do not execute learner JavaScript during validation unless a future task explicitly designs a safe execution model.
 
 ## Language Strategy
 
 Developer-facing parts should use English.
 
 Use English for:
-- file names
-- folder names
-- component names
-- function names
-- TypeScript types
-- variable names
-- route names
-- developer documentation
-- Codex prompts
-- README
+
+* file names
+* folder names
+* component names
+* function names
+* TypeScript types
+* variable names
+* route names
+* developer documentation
+* Codex prompts
+* README
 
 Learning content should use Bahasa Indonesia first.
 
 Use Bahasa Indonesia for:
-- lesson explanations
-- quiz questions
-- quiz explanations
-- practice instructions
-- summary points
-- user-facing learning guidance
+
+* lesson explanations
+* quiz questions
+* quiz explanations
+* practice instructions
+* summaries
+* user-facing learning guidance
 
 Keep common technical terms in English when they are standard in programming.
 
 Examples:
-- component
-- props
-- state
-- hook
-- route
-- layout
-- semantic HTML
-- accessibility
-- responsive design
-- API
-- deployment
-- debugging
+
+* component
+* props
+* state
+* hook
+* route
+* layout
+* semantic HTML
+* accessibility
+* responsive design
+* API
+* deployment
+* debugging
 
 Do not force awkward translations of common programming terms.
-
-English for Tech Careers lessons should be bilingual:
-- explain the concept in Bahasa Indonesia
-- provide practical English examples
-- include Indonesian meaning when useful
-- include writing practice using realistic remote-work situations
 
 The MVP does not need a full language switcher.
 
@@ -202,7 +405,7 @@ For guest users:
 
 * store temporary progress in localStorage
 * allow them to explore lessons
-* allow them to try quizzes and coding practice
+* allow them to try quick checks, coding practice, writing practice, and Uji Kompetensi
 * do not require login just to view the product
 
 For logged-in users:
@@ -211,22 +414,86 @@ For logged-in users:
 * sync learning data across devices
 * store quiz attempts and challenge progress permanently
 
-Do not build complex localStorage-to-Supabase sync in the first implementation unless explicitly requested.
+Do not build complex localStorage-to-Supabase sync unless explicitly requested.
+
+## Progress Rules
+
+Progress should be based on real learning activity, not just page visits.
+
+A regular lesson may include:
+
+* reading blocks
+* quick checks
+* coding practice
+* writing practice
+* summary
+
+An Uji Kompetensi may include:
+
+* recap
+* quiz
+* coding practice
+* writing practice
+* project task
+* self-review checklist
+* readiness summary
+
+Completion should be calculated from completed required blocks.
+
+Example:
+
+```txt
+Read material: 25%
+Complete quick check: 15%
+Complete practice: 40%
+Read summary: 20%
+Total: 100%
+```
+
+For Uji Kompetensi:
+
+```txt
+Read recap: 10%
+Pass quiz: 40%
+Complete practice/checklist: 40%
+Read readiness summary: 10%
+Total: 100%
+```
+
+Do not mark progress from page views alone.
 
 ## Coding Rules
 
-* Use strict TypeScript.
-* Prefer small reusable components.
-* Keep business logic separate from UI components.
-* Use data-driven rendering for lessons and activity blocks.
-* Do not hardcode lesson pages manually.
-* Keep the UI responsive.
-* Keep accessibility in mind.
-* Avoid unnecessary dependencies.
-* Do not build unrelated features.
-* Do not change the product direction without asking.
-* Avoid large rewrites unless needed.
-* Keep the codebase easy to extend.
+Use strict TypeScript.
+
+Prefer:
+
+* small reusable components
+* clear service layers
+* data-driven rendering
+* typed content models
+* pure helper functions for calculations
+* UI components that receive clean props
+
+Keep business logic separate from UI components.
+
+Keep Supabase access inside service files.
+
+Do not hardcode lesson pages manually.
+
+Keep the UI responsive.
+
+Keep accessibility in mind.
+
+Avoid unnecessary dependencies.
+
+Do not build unrelated features.
+
+Do not change the product direction without asking.
+
+Avoid large rewrites unless needed.
+
+Keep the codebase easy to extend.
 
 ## Design Direction
 
@@ -245,61 +512,50 @@ Visual style:
 * not too noisy
 * not childish
 
+The learning UI should feel calm and focused.
+
+A learner should always know:
+
+* where they are
+* what they are learning
+* what they should do next
+* whether they are practicing or being assessed
+* how the current lesson connects to the next step
+
 ## Typography Rule
 
 Use Montserrat as the main app font.
 
 All user-facing UI text should use Montserrat, including:
-- headings
-- body text
-- cards
-- sidebar
-- navigation
-- buttons
-- lesson content
+
+* headings
+* body text
+* cards
+* sidebar
+* navigation
+* buttons
+* lesson content
 
 Use monospace only for:
-- code blocks
-- inline code
-- pre
-- kbd
-- samp
-- code-like labels
+
+* code blocks
+* inline code
+* pre
+* kbd
+* samp
+* code-like labels
 
 Do not use serif fonts.
 
 Avoid:
-- font-serif
-- editorial-style headings
-- newspaper-like typography
-- excessive letter spacing
-- too many uppercase micro-labels
+
+* `font-serif`
+* editorial-style headings
+* newspaper-like typography
+* excessive letter spacing
+* too many uppercase micro-labels
 
 The UI should feel like a modern SaaS learning platform, not an editorial magazine or academic publication.
-
-## Progress Rules
-
-Progress should be based on real learning activity, not just page visits.
-
-A lesson may include:
-
-* reading blocks
-* quick checks
-* coding practice
-* writing practice
-* quiz
-* summary
-
-Completion should be calculated from completed required blocks.
-
-Example:
-
-```txt
-Read material: 30%
-Complete practice: 40%
-Pass quiz: 30%
-Total: 100%
-```
 
 ## Development Workflow
 
@@ -307,15 +563,50 @@ Work in small tasks.
 
 Before implementing:
 
-* read the relevant docs in /docs
-* keep the current scope small
+* read the relevant docs in `/docs`
+* keep the scope small
 * avoid unrelated features
 * avoid building future features too early
+* identify whether the task is product, content, UI, progress, auth, or docs
+* for content tasks, define module role and lesson role before editing content
 
 After implementing:
 
 * summarize changed files
 * mention trade-offs
-* run lint/typecheck if available
+* run lint/typecheck/build if available
 * check for obvious accessibility issues
+* test the relevant route in browser when possible
 * explain anything that needs manual setup
+
+## Content Workflow
+
+For content tasks, use this order:
+
+1. Confirm the module goal.
+2. Confirm prerequisite knowledge.
+3. Define the regular lesson sequence.
+4. Define each lesson role.
+5. Define the Uji Kompetensi coverage.
+6. Write or revise one representative lesson first.
+7. Score it against `docs/24_LESSON_QUALITY_RUBRIC.md`.
+8. Scale the pattern only after the representative lesson feels strong.
+9. Add or update assessment content.
+10. Test the full module flow in browser.
+
+Do not skip directly to adding many lessons.
+
+Do not add the next module until the current module feels coherent.
+
+## Final Product Rule
+
+FluentStack should optimize for learning quality, not content volume.
+
+A good module should make learners feel:
+
+* "I understand why this matters."
+* "I know what to practice."
+* "I can see my progress."
+* "I know whether I am ready for the next module."
+
+If a lesson does not help the learner understand, practice, communicate, or prove a real skill, do not add it.

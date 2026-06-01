@@ -294,16 +294,150 @@ export const refactorDivLayoutToSemanticHtmlChallenge: CodingChallenge = {
   skillTags: ["HTML", "Semantic HTML", "Accessibility"],
 };
 
+export const buildBasicContentPageChallenge: CodingChallenge = {
+  id: "build-basic-content-page",
+  lessonId: "headings-paragraphs-links-images",
+  title: "Membuat konten halaman sederhana",
+  description: "Latihan membuat heading, paragraf, link, dan gambar di dalam body.",
+  instructions: [
+    "Fokus pada konten HTML yang terlihat di body.",
+    "Tambahkan h1 sebagai heading utama dan p sebagai paragraf.",
+    "Tambahkan link dengan attribute href.",
+    "Tambahkan image dengan src dan alt. CSS dan JS belum perlu diubah.",
+  ],
+  starterCode: {
+    html: `<!doctype html>
+<html lang="id">
+  <head>
+    <title>Konten Halaman</title>
+  </head>
+  <body>
+    <!-- Tambahkan h1, p, link, dan image di sini -->
+  </body>
+</html>`,
+    css: "",
+    js: "",
+  },
+  solutionCode: {
+    html: `<!doctype html>
+<html lang="id">
+  <head>
+    <title>Konten Halaman</title>
+  </head>
+  <body>
+    <h1>Catatan Belajar HTML</h1>
+    <p>Saya sedang belajar membuat konten halaman dengan HTML.</p>
+    <a href="/roadmap">Lihat roadmap belajar</a>
+    <img src="images/html-card.png" alt="Kartu belajar HTML" />
+  </body>
+</html>`,
+    css: "",
+    js: "",
+  },
+  checklist: [
+    "Ada h1.",
+    "Ada paragraf.",
+    "Ada link.",
+    "Link memakai href.",
+    "Ada image.",
+    "Image memakai src.",
+    "Image punya alt text.",
+  ],
+  validation: {
+    mode: "html",
+    checks: [
+      { id: "has-h1", label: "Ada h1.", type: "hasTextInElement", target: "h1" },
+      { id: "has-paragraph", label: "Ada paragraf.", type: "hasTextInElement", target: "p" },
+      { id: "has-link", label: "Ada link.", type: "hasTextInElement", target: "a" },
+      { id: "link-has-href", label: "Link memakai href.", type: "hasElementWithAttribute", target: "a", attribute: "href", mustHaveValue: true },
+      { id: "has-image", label: "Ada image.", type: "hasElement", target: "img" },
+      { id: "image-has-src", label: "Image memakai src.", type: "hasElementWithAttribute", target: "img", attribute: "src", mustHaveValue: true },
+      { id: "image-has-alt", label: "Image punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
+    ],
+  },
+  skillTags: ["HTML", "Web Fundamentals", "Content Structure"],
+};
+
+export const practiceRelativePathsChallenge: CodingChallenge = {
+  id: "practice-relative-paths",
+  lessonId: "relative-paths-basic",
+  title: "Latihan relative path",
+  description: "Latihan memakai href dan src untuk mengarah ke file di project kecil.",
+  instructions: [
+    "Bayangkan index.html berada sejajar dengan about.html.",
+    "Lengkapi link agar menuju about.html.",
+    "Lengkapi image agar mengambil logo dari folder images.",
+    "Tambahkan alt text singkat untuk gambar. CSS dan JS tidak perlu diubah.",
+  ],
+  starterCode: {
+    html: `<!doctype html>
+<html lang="id">
+  <head>
+    <title>Latihan Relative Path</title>
+  </head>
+  <body>
+    <h1>Project Belajar</h1>
+    <p>Lengkapi link dan image dengan relative path.</p>
+
+    <a>Tentang saya</a>
+    <img />
+  </body>
+</html>`,
+    css: "",
+    js: "",
+  },
+  solutionCode: {
+    html: `<!doctype html>
+<html lang="id">
+  <head>
+    <title>Latihan Relative Path</title>
+  </head>
+  <body>
+    <h1>Project Belajar</h1>
+    <p>Lengkapi link dan image dengan relative path.</p>
+
+    <a href="about.html">Tentang saya</a>
+    <img src="images/logo.png" alt="Logo project belajar" />
+  </body>
+</html>`,
+    css: "",
+    js: "",
+  },
+  checklist: [
+    "Ada link.",
+    "Link memakai href.",
+    "href memakai relative path sederhana.",
+    "Ada image.",
+    "Image memakai src.",
+    "src mengarah ke folder images.",
+    "Image punya alt text.",
+  ],
+  validation: {
+    mode: "html",
+    checks: [
+      { id: "has-link", label: "Ada link.", type: "hasTextInElement", target: "a" },
+      { id: "link-has-href", label: "Link memakai href.", type: "hasElementWithAttribute", target: "a", attribute: "href", mustHaveValue: true },
+      { id: "href-about", label: "href memakai relative path sederhana.", type: "hasElementWithAttribute", target: "a", attribute: "href", valueIncludes: "about.html" },
+      { id: "has-image", label: "Ada image.", type: "hasElement", target: "img" },
+      { id: "image-has-src", label: "Image memakai src.", type: "hasElementWithAttribute", target: "img", attribute: "src", mustHaveValue: true },
+      { id: "src-images-folder", label: "src mengarah ke folder images.", type: "hasElementWithAttribute", target: "img", attribute: "src", valueIncludes: "images/" },
+      { id: "image-has-alt", label: "Image punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
+    ],
+  },
+  skillTags: ["HTML", "Relative Paths", "Project Structure"],
+};
+
 export const buildHtmlBasicsPageChallenge: CodingChallenge = {
   id: "build-html-basics-page",
   lessonId: "html-basics-assessment",
   title: "Membangun halaman HTML Basics",
   description:
-    "Assessment praktik untuk membuat halaman HTML kecil dengan title, heading, paragraf, link, dan image.",
+    "Assessment praktik untuk membuat halaman HTML kecil dengan title, heading, paragraf, link, image, dan relative path.",
   instructions: [
     "Lengkapi struktur HTML dasar terlebih dahulu.",
     "Tambahkan title di dalam head.",
     "Di dalam body, tambahkan h1, paragraf, link dengan href, dan image dengan src serta alt.",
+    "Gunakan href=\"about.html\" untuk link dan src=\"images/html-card.png\" untuk image agar relative path ikut dilatih.",
     "CSS dan JS tidak perlu diubah. Gunakan auto-check untuk memastikan struktur HTML sudah lengkap.",
   ],
   starterCode: {
@@ -328,8 +462,8 @@ export const buildHtmlBasicsPageChallenge: CodingChallenge = {
   <body>
     <h1>Profil Belajar HTML</h1>
     <p>Saya sedang melatih struktur HTML dasar.</p>
-    <a href="/roadmap">Lihat roadmap belajar</a>
-    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='160'%3E%3Crect width='320' height='160' fill='%230891b2'/%3E%3Ctext x='24' y='86' fill='white' font-size='24'%3EHTML Basics%3C/text%3E%3C/svg%3E" alt="Kartu HTML Basics" />
+    <a href="about.html">Tentang saya</a>
+    <img src="images/html-card.png" alt="Kartu HTML Basics" />
   </body>
 </html>`,
     css: "",
@@ -341,6 +475,7 @@ export const buildHtmlBasicsPageChallenge: CodingChallenge = {
     "Body punya h1 dan paragraf.",
     "Link memakai href.",
     "Image memakai src dan alt.",
+    "Link atau image memakai relative path sederhana.",
   ],
   validation: {
     mode: "html",
@@ -353,7 +488,9 @@ export const buildHtmlBasicsPageChallenge: CodingChallenge = {
       { id: "has-h1", label: "Ada h1.", type: "hasTextInElement", target: "h1" },
       { id: "has-paragraph", label: "Ada paragraf.", type: "hasTextInElement", target: "p" },
       { id: "has-link-href", label: "Link memakai href.", type: "hasElementWithAttribute", target: "a", attribute: "href", mustHaveValue: true },
+      { id: "has-about-path", label: "Link menuju about.html.", type: "hasElementWithAttribute", target: "a", attribute: "href", valueIncludes: "about.html" },
       { id: "has-image-src", label: "Image memakai src.", type: "hasElementWithAttribute", target: "img", attribute: "src", mustHaveValue: true },
+      { id: "has-images-path", label: "Image memakai path folder images.", type: "hasElementWithAttribute", target: "img", attribute: "src", valueIncludes: "images/" },
       { id: "has-image-alt", label: "Image punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
     ],
   },
@@ -607,6 +744,8 @@ body {
 export const challenges: CodingChallenge[] = [
   buildBasicHtmlPageChallenge,
   practiceTagElementAttributeChallenge,
+  buildBasicContentPageChallenge,
+  practiceRelativePathsChallenge,
   buildSemanticHtmlPageChallenge,
   refactorDivLayoutToSemanticHtmlChallenge,
   buildHtmlBasicsPageChallenge,

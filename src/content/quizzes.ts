@@ -220,6 +220,156 @@ export const htmlCssJsRolesQuiz: Quiz = {
   ],
 };
 
+export const webFoundationsAssessmentQuiz: Quiz = {
+  id: "web-foundations-assessment-quiz",
+  lessonId: "web-foundations-assessment",
+  title: "Uji Kompetensi Web Foundations",
+  passingScore: 70,
+  questions: [
+    {
+      id: "web-foundations-assessment-q1",
+      type: "multiple-choice",
+      question: "Mana pernyataan yang paling tepat tentang website dan web page?",
+      options: [
+        "Website adalah satu halaman, web page adalah browser untuk membukanya",
+        "Website dan web page selalu berarti hal yang sama",
+        "Website adalah kumpulan halaman terkait, web page adalah satu halaman tertentu",
+        "Website adalah file CSS, web page adalah file JavaScript",
+      ],
+      correctAnswer:
+        "Website adalah kumpulan halaman terkait, web page adalah satu halaman tertentu",
+      explanation:
+        "Website adalah kumpulan halaman yang saling berhubungan. Web page adalah satu halaman spesifik di dalam kumpulan itu, seperti Dashboard atau Roadmap.",
+    },
+    {
+      id: "web-foundations-assessment-q2",
+      type: "multiple-choice",
+      question: "Dalam URL, bagian path seperti /dashboard atau /lesson/... membantu menunjukkan apa?",
+      options: [
+        "Warna utama halaman",
+        "Halaman mana yang sedang dibuka di website",
+        "Nama browser yang sedang dipakai",
+        "Apakah JavaScript sedang aktif atau tidak",
+      ],
+      correctAnswer: "Halaman mana yang sedang dibuka di website",
+      explanation:
+        "Path membantu membedakan halaman di dalam website yang sama. Misalnya /dashboard dan /roadmap bisa menunjuk ke web page yang berbeda.",
+    },
+    {
+      id: "web-foundations-assessment-q3",
+      type: "multiple-choice",
+      question: "Saat browser membuka sebuah URL, apa yang terjadi secara sederhana?",
+      options: [
+        "Browser langsung membuat halaman tanpa meminta apa pun",
+        "Browser mengubah URL menjadi file lokal di komputer",
+        "Browser menebak isi halaman dari judul tab",
+        "Browser mengirim request untuk meminta halaman atau resource",
+      ],
+      correctAnswer: "Browser mengirim request untuk meminta halaman atau resource",
+      explanation:
+        "Request berarti permintaan. Browser memakai URL untuk meminta halaman atau resource yang dibutuhkan sebelum menampilkannya.",
+    },
+    {
+      id: "web-foundations-assessment-q4",
+      type: "multiple-choice",
+      question: "Apa arti response dalam alur browser dan server?",
+      options: [
+        "Balasan dari server setelah browser mengirim request",
+        "Alamat yang diketik di address bar",
+        "Tombol untuk me-refresh halaman",
+        "Nama folder untuk menyimpan gambar",
+      ],
+      correctAnswer: "Balasan dari server setelah browser mengirim request",
+      explanation:
+        "Response adalah balasan dari server. Balasan itu bisa berisi HTML, CSS, JavaScript, gambar, data, atau resource lain yang dibutuhkan halaman.",
+    },
+    {
+      id: "web-foundations-assessment-q5",
+      type: "multiple-choice",
+      question: "Apa peran utama HTML di sebuah web page?",
+      options: [
+        "Mengatur warna dan jarak antar elemen",
+        "Membuat server mengirim response lebih cepat",
+        "Menyusun isi dan struktur halaman",
+        "Menyimpan semua gambar di folder assets",
+      ],
+      correctAnswer: "Menyusun isi dan struktur halaman",
+      explanation:
+        "HTML dipakai untuk struktur dan isi, seperti heading, paragraf, link, tombol, dan area konten.",
+    },
+    {
+      id: "web-foundations-assessment-q6",
+      type: "multiple-choice",
+      question: "Apa peran utama CSS?",
+      options: [
+        "Menentukan alamat URL halaman",
+        "Mengatur tampilan seperti warna, ukuran, jarak, dan layout",
+        "Mengganti semua isi HTML dengan folder project",
+        "Mengirim request dari browser ke server",
+      ],
+      correctAnswer: "Mengatur tampilan seperti warna, ukuran, jarak, dan layout",
+      explanation:
+        "CSS mengatur tampilan visual halaman. HTML tetap menyimpan struktur, sedangkan CSS membuat struktur itu terlihat rapi.",
+    },
+    {
+      id: "web-foundations-assessment-q7",
+      type: "multiple-choice",
+      question: "Kapan JavaScript biasanya dibutuhkan?",
+      options: [
+        "Saat hanya ingin menulis paragraf biasa",
+        "Saat hanya ingin memberi nama title di tab browser",
+        "Saat ingin menyimpan gambar ke folder assets",
+        "Saat halaman perlu merespons aksi seperti klik atau input",
+      ],
+      correctAnswer: "Saat halaman perlu merespons aksi seperti klik atau input",
+      explanation:
+        "JavaScript dipakai untuk perilaku interaktif, misalnya tombol yang membuka menu atau form yang merespons input.",
+    },
+    {
+      id: "web-foundations-assessment-q8",
+      type: "multiple-choice",
+      question: "Dalam project frontend kecil, apa fungsi umum index.html?",
+      options: [
+        "Menjadi file halaman utama yang berisi struktur awal",
+        "Menjadi folder khusus untuk gambar dan ikon",
+        "Menjadi file khusus untuk aturan warna",
+        "Menjadi file khusus untuk event klik",
+      ],
+      correctAnswer: "Menjadi file halaman utama yang berisi struktur awal",
+      explanation:
+        "index.html biasanya menjadi halaman utama atau pintu masuk awal. Dari sana browser bisa membaca struktur halaman dan menemukan resource lain.",
+    },
+    {
+      id: "web-foundations-assessment-q9",
+      type: "multiple-choice",
+      question: "Pasangan file dan peran mana yang paling tepat?",
+      options: [
+        "style.css untuk interaksi klik, script.js untuk struktur heading",
+        "index.html untuk gambar saja, assets untuk aturan CSS",
+        "style.css untuk tampilan, script.js untuk perilaku interaktif",
+        "script.js untuk alamat URL, style.css untuk request server",
+      ],
+      correctAnswer: "style.css untuk tampilan, script.js untuk perilaku interaktif",
+      explanation:
+        "style.css biasanya menyimpan aturan tampilan. script.js biasanya menyimpan JavaScript untuk perilaku interaktif.",
+    },
+    {
+      id: "web-foundations-assessment-q10",
+      type: "multiple-choice",
+      question: "Di struktur project kecil, folder assets biasanya dipakai untuk apa?",
+      options: [
+        "Menyimpan semua quiz lesson",
+        "Menyimpan gambar, ikon, atau file pendukung",
+        "Mengganti fungsi index.html",
+        "Mengirim response dari server",
+      ],
+      correctAnswer: "Menyimpan gambar, ikon, atau file pendukung",
+      explanation:
+        "Folder assets membantu memisahkan file pendukung seperti gambar, ikon, atau media dari file utama seperti HTML, CSS, dan JavaScript.",
+    },
+  ],
+};
+
 export const semanticHtmlStructureQuiz: Quiz = {
   id: "semantic-html-structure-quiz",
   lessonId: "semantic-html-structure",
@@ -382,32 +532,52 @@ export const htmlBasicsAssessmentQuiz: Quiz = {
     {
       id: "html-basics-assessment-q2",
       type: "multiple-choice",
-      question: "Pada kode <a href=\"/roadmap\">Roadmap</a>, bagian mana yang disebut attribute?",
-      options: ["href", "Roadmap", "a", "/roadmap saja"],
-      correctAnswer: "href",
+      question: "Apa perbedaan title dan h1 yang paling tepat?",
+      options: [
+        "title terlihat sebagai paragraf, h1 hanya dibaca browser",
+        "title memberi nama tab browser, h1 menjadi heading utama yang terlihat di halaman",
+        "title dan h1 selalu punya fungsi yang sama",
+        "title harus ditulis di body, h1 harus ditulis di head",
+      ],
+      correctAnswer:
+        "title memberi nama tab browser, h1 menjadi heading utama yang terlihat di halaman",
       explanation:
-        "href adalah attribute pada element a. Nilainya memberi tahu tujuan link.",
+        "title ditulis di head untuk informasi browser. h1 ditulis di body sebagai heading utama yang terlihat oleh pembaca.",
     },
     {
       id: "html-basics-assessment-q3",
-      type: "true-false",
-      question: "Title dan h1 punya fungsi yang sama karena keduanya sama-sama judul.",
-      correctAnswer: false,
+      type: "multiple-choice",
+      question: "Pada kode <a href=\"about.html\">Tentang</a>, bagian mana yang disebut element lengkap?",
+      options: ["a", "href", "Tentang", "<a href=\"about.html\">Tentang</a>"],
+      correctAnswer: "<a href=\"about.html\">Tentang</a>",
       explanation:
-        "Title memberi nama halaman untuk browser, sedangkan h1 adalah heading utama yang terlihat di body.",
+        "Element lengkap mencakup tag pembuka, attribute jika ada, konten, dan tag penutup.",
     },
     {
       id: "html-basics-assessment-q4",
-      type: "code-output",
-      question: "Pada kode berikut, mana element lengkap?",
-      code: `<p>Belajar HTML</p>`,
-      options: ["p", "Belajar HTML", "</p>", "<p>Belajar HTML</p>"],
-      correctAnswer: "<p>Belajar HTML</p>",
+      type: "multiple-choice",
+      question: "Pada kode <a href=\"about.html\">Tentang</a>, attribute mana yang menentukan tujuan link?",
+      options: ["href", "a", "Tentang", "html"],
+      correctAnswer: "href",
       explanation:
-        "Element lengkap mencakup tag pembuka, konten, dan tag penutup jika ada.",
+        "href adalah attribute pada element a. Nilainya memberi tahu ke mana link akan menuju.",
     },
     {
       id: "html-basics-assessment-q5",
+      type: "multiple-choice",
+      question: "Kapan h1 paling tepat dipakai?",
+      options: [
+        "Untuk semua teks yang ingin diberi warna berbeda",
+        "Untuk menyimpan alamat gambar",
+        "Untuk heading utama halaman atau bagian besar",
+        "Untuk mengganti attribute href pada link",
+      ],
+      correctAnswer: "Untuk heading utama halaman atau bagian besar",
+      explanation:
+        "h1 memberi makna heading utama. Ukuran dan warna teks nanti diatur dengan CSS, bukan alasan utama memilih h1.",
+    },
+    {
+      id: "html-basics-assessment-q6",
       type: "multiple-choice",
       question: "Attribute mana yang membantu menjelaskan gambar ketika gambar tidak terbaca?",
       options: ["src", "alt", "href", "title"],
@@ -416,7 +586,25 @@ export const htmlBasicsAssessmentQuiz: Quiz = {
         "alt berisi teks alternatif untuk gambar. Ini membantu ketika gambar gagal dimuat dan mendukung accessibility.",
     },
     {
-      id: "html-basics-assessment-q6",
+      id: "html-basics-assessment-q7",
+      type: "multiple-choice",
+      question: "Jika index.html dan about.html berada di folder yang sama, href mana yang paling tepat?",
+      options: ["images/about.html", "/images/logo.png", "src/about.html", "about.html"],
+      correctAnswer: "about.html",
+      explanation:
+        "Jika file tujuan sejajar dengan index.html, relative path cukup memakai nama file: about.html.",
+    },
+    {
+      id: "html-basics-assessment-q8",
+      type: "multiple-choice",
+      question: "Jika logo.png berada di folder images, nilai src mana yang paling tepat?",
+      options: ["images/logo.png", "about.html", "href=\"logo.png\"", "title/logo.png"],
+      correctAnswer: "images/logo.png",
+      explanation:
+        "Path images/logo.png berarti masuk ke folder images lalu mencari file logo.png.",
+    },
+    {
+      id: "html-basics-assessment-q9",
       type: "multiple-choice",
       question: "Urutan mental paling aman saat membaca dokumen HTML dasar adalah...",
       options: [
@@ -560,6 +748,7 @@ export const quizzes: Quiz[] = [
   howWebPageLoadsQuiz,
   whatAreHtmlCssJavascriptQuiz,
   htmlCssJsRolesQuiz,
+  webFoundationsAssessmentQuiz,
   htmlBasicStructureQuiz,
   tagElementAttributeQuiz,
   htmlBasicsAssessmentQuiz,

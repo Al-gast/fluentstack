@@ -15,6 +15,7 @@ export const webFoundationsModule: Module = {
     "html-css-js-roles",
     "index-css-js-files",
     "small-frontend-project-structure",
+    "web-foundations-assessment",
   ],
   estimatedHours: 12,
   skillTags: ["Web Fundamentals", "Browser", "HTML", "CSS", "JavaScript"],
@@ -28,8 +29,14 @@ export const htmlBasicsModule: Module = {
   description:
     "Belajar struktur dasar halaman HTML, tag, element, attribute, dan konten dasar halaman.",
   order: 2,
-  lessonIds: ["html-basic-structure", "tag-element-attribute", "html-basics-assessment"],
-  estimatedHours: 5,
+  lessonIds: [
+    "html-basic-structure",
+    "tag-element-attribute",
+    "headings-paragraphs-links-images",
+    "relative-paths-basic",
+    "html-basics-assessment",
+  ],
+  estimatedHours: 8,
   skillTags: ["HTML", "Web Fundamentals"],
 };
 

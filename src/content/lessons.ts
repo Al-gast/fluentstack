@@ -63,11 +63,6 @@ export const whatIsWebsiteAndWebPageLesson: Lesson = {
         "Tepat. FluentStack adalah websitenya. Dashboard dan Roadmap adalah dua halaman berbeda di dalam website itu. Biasanya masing-masing halaman punya URL sendiri.",
     },
     {
-      id: "what-is-website-and-web-page-quiz-block",
-      type: "quiz",
-      quizId: "what-is-website-and-web-page-quiz",
-    },
-    {
       id: "what-is-website-and-web-page-summary",
       type: "summary",
       points: [
@@ -85,10 +80,8 @@ export const whatIsWebsiteAndWebPageLesson: Lesson = {
       "what-is-website-and-web-page-mini-action",
       "what-is-website-and-web-page-url-note",
       "what-is-website-and-web-page-quick-check",
-      "what-is-website-and-web-page-quiz-block",
       "what-is-website-and-web-page-summary",
     ],
-    passingQuizScore: 70,
   },
 };
 
@@ -149,11 +142,6 @@ export const howWebPageLoadsLesson: Lesson = {
         "Request adalah permintaan yang dikirim browser ke server. Response adalah balasan dari server setelah request diterima.",
     },
     {
-      id: "how-web-page-loads-quiz-block",
-      type: "quiz",
-      quizId: "how-web-page-loads-quiz",
-    },
-    {
       id: "how-web-page-loads-summary",
       type: "summary",
       points: [
@@ -171,10 +159,8 @@ export const howWebPageLoadsLesson: Lesson = {
       "how-web-page-loads-mini-action",
       "how-web-page-loads-request-response",
       "how-web-page-loads-quick-check",
-      "how-web-page-loads-quiz-block",
       "how-web-page-loads-summary",
     ],
-    passingQuizScore: 70,
   },
 };
 
@@ -244,7 +230,7 @@ export const smallFrontendProjectStructureLesson: Lesson = {
         "Baca file tree dari nama project, lalu file utama, lalu folder pendukung.",
         "Gunakan folder styles untuk CSS dan folder scripts untuk JavaScript ketika project mulai bertambah.",
         "Simpan gambar, ikon, dan file pendukung di folder assets.",
-        "Setelah Web Foundations, kamu siap masuk ke HTML & Web Fundamentals dan mulai melihat isi index.html lewat struktur HTML dasar.",
+        "Berikutnya, kamu akan menutup Web Foundations dengan assessment singkat sebelum masuk ke HTML Basics.",
       ],
     },
   ],
@@ -256,6 +242,58 @@ export const smallFrontendProjectStructureLesson: Lesson = {
       "small-frontend-project-structure-quick-check",
       "small-frontend-project-structure-summary",
     ],
+  },
+};
+
+export const webFoundationsAssessmentLesson: Lesson = {
+  id: "web-foundations-assessment",
+  trackId: "frontend-engineering",
+  moduleId: "web-foundations",
+  title: "Uji Kompetensi Web Foundations",
+  slug: "web-foundations-assessment",
+  description:
+    "Cek kesiapan kamu memahami website, browser, HTML/CSS/JavaScript, dan struktur project frontend kecil sebelum masuk ke HTML Basics.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 25,
+  objectives: [
+    "Membedakan website, web page, URL, request, dan response secara sederhana",
+    "Menjelaskan peran HTML, CSS, dan JavaScript dalam satu halaman",
+    "Mengenali file dan folder dasar di project frontend kecil",
+  ],
+  skillTags: ["Web Fundamentals", "Assessment", "Browser", "HTML", "CSS", "JavaScript"],
+  blocks: [
+    {
+      id: "web-foundations-assessment-recap",
+      type: "text",
+      title: "Apa yang dicek di assessment ini",
+      content:
+        "Assessment ini merangkum Web Foundations. Kamu akan mengecek apakah sudah bisa membedakan website dan web page, memahami URL sebagai alamat halaman, mengikuti alur browser meminta halaman, serta mengenali peran HTML, CSS, JavaScript, dan file project sederhana. Ini bukan ujian jebakan. Tujuannya memastikan fondasi kamu cukup kuat sebelum mulai menulis HTML.",
+    },
+    {
+      id: "web-foundations-assessment-quiz-block",
+      type: "quiz",
+      quizId: "web-foundations-assessment-quiz",
+    },
+    {
+      id: "web-foundations-assessment-summary",
+      type: "summary",
+      points: [
+        "Kamu siap lanjut jika bisa melihat website sebagai kumpulan web page yang punya URL masing-masing.",
+        "Kamu siap lanjut jika bisa menjelaskan bahwa browser mengirim request dan server mengirim response secara sederhana.",
+        "Kamu siap lanjut jika bisa membedakan HTML untuk struktur, CSS untuk tampilan, dan JavaScript untuk interaksi.",
+        "Kamu siap lanjut jika bisa membaca project kecil yang berisi index.html, style.css, script.js, dan folder assets.",
+        "Berikutnya, kamu masuk ke HTML Basics dan mulai membaca isi index.html lewat struktur HTML dasar.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "web-foundations-assessment-recap",
+      "web-foundations-assessment-quiz-block",
+      "web-foundations-assessment-summary",
+    ],
+    passingQuizScore: 70,
   },
 };
 
@@ -333,11 +371,6 @@ export const whatAreHtmlCssJavascriptLesson: Lesson = {
         "CSS dipakai untuk mengatur tampilan visual seperti warna, ukuran, jarak, dan layout.",
     },
     {
-      id: "what-are-html-css-javascript-quiz-block",
-      type: "quiz",
-      quizId: "what-are-html-css-javascript-quiz",
-    },
-    {
       id: "what-are-html-css-javascript-summary",
       type: "summary",
       points: [
@@ -355,10 +388,8 @@ export const whatAreHtmlCssJavascriptLesson: Lesson = {
       "what-are-html-css-javascript-analogy",
       "what-are-html-css-javascript-code-example",
       "what-are-html-css-javascript-quick-check",
-      "what-are-html-css-javascript-quiz-block",
       "what-are-html-css-javascript-summary",
     ],
-    passingQuizScore: 70,
   },
 };
 
@@ -425,11 +456,6 @@ export const htmlCssJsRolesLesson: Lesson = {
         "Perubahan visual seperti warna saat hover biasanya diatur dengan CSS. HTML tetap menyimpan struktur tombolnya.",
     },
     {
-      id: "html-css-js-roles-quiz-block",
-      type: "quiz",
-      quizId: "html-css-js-roles-quiz",
-    },
-    {
       id: "html-css-js-roles-summary",
       type: "summary",
       points: [
@@ -447,10 +473,8 @@ export const htmlCssJsRolesLesson: Lesson = {
       "html-css-js-roles-render-note",
       "html-css-js-roles-code-example",
       "html-css-js-roles-quick-check",
-      "html-css-js-roles-quiz-block",
       "html-css-js-roles-summary",
     ],
-    passingQuizScore: 70,
   },
 };
 
@@ -749,7 +773,7 @@ export const tagElementAttributeLesson: Lesson = {
   title: "Tag, Element, dan Attribute",
   slug: "tag-element-attribute",
   description:
-    "Pahami perbedaan tag, element, dan attribute sebelum masuk ke semantic HTML.",
+    "Pahami perbedaan tag, element, dan attribute sebelum memakai elemen konten dasar.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 32,
@@ -806,7 +830,7 @@ export const tagElementAttributeLesson: Lesson = {
         "Element adalah bagian HTML lengkap, termasuk tag dan kontennya.",
         "Attribute memberi informasi tambahan pada element.",
         "Saat latihan, cek attribute seperti href, src, dan alt karena bagian itu membuat element punya tujuan lebih jelas.",
-        "Berikutnya, kamu akan menguji pemahaman HTML Basics lewat quiz dan latihan kecil.",
+        "Berikutnya, kamu akan memakai tag dan attribute ini untuk membuat konten halaman: heading, paragraf, link, dan gambar.",
       ],
     },
   ],
@@ -818,6 +842,214 @@ export const tagElementAttributeLesson: Lesson = {
       "tag-element-attribute-quick-check",
       "tag-element-attribute-coding-practice",
       "tag-element-attribute-summary",
+    ],
+  },
+};
+
+export const headingsParagraphsLinksImagesLesson: Lesson = {
+  id: "headings-paragraphs-links-images",
+  trackId: "frontend-engineering",
+  moduleId: "html-basics",
+  title: "Heading, Paragraf, Link, dan Gambar",
+  slug: "headings-paragraphs-links-images",
+  description:
+    "Belajar memakai elemen konten dasar yang biasanya terlihat di dalam body halaman HTML.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 36,
+  objectives: [
+    "Memahami fungsi heading dan paragraf sebagai struktur konten",
+    "Memakai link dengan href dan image dengan src serta alt",
+    "Membuat halaman konten sederhana dan melihat hasilnya di preview",
+  ],
+  skillTags: ["HTML", "Web Fundamentals", "Content Structure"],
+  blocks: [
+    {
+      id: "headings-paragraphs-links-images-intro",
+      type: "text",
+      title: "Mulai mengisi body halaman",
+      content:
+        "Di lesson sebelumnya, kamu sudah mengenal tag, element, dan attribute. Sekarang kamu memakai beberapa element yang paling sering muncul di dalam body: heading, paragraf, link, dan gambar. Kamu belum perlu menghafal banyak tag. Fokus dulu pada fungsi setiap element dan kapan dipakai.",
+    },
+    {
+      id: "headings-paragraphs-links-images-core-concept",
+      type: "text",
+      title: "Konten yang sering terlihat di halaman",
+      content:
+        "h1 dipakai untuk heading utama halaman atau bagian besar. h2 dan h3 dipakai untuk heading tingkat berikutnya ketika konten punya subbagian. p dipakai untuk paragraf teks biasa. a dipakai untuk membuat link, dan attribute href memberi tahu tujuan link. img dipakai untuk menampilkan gambar; attribute src memberi tahu lokasi gambar, sedangkan alt berisi deskripsi singkat ketika gambar tidak bisa dilihat atau gagal dimuat.",
+    },
+    {
+      id: "headings-paragraphs-links-images-code-example",
+      type: "code-example",
+      title: "Contoh konten halaman sederhana",
+      language: "html",
+      code: `<body>
+  <h1>Catatan Belajar HTML</h1>
+  <p>Saya sedang belajar membuat struktur konten halaman.</p>
+
+  <a href="/roadmap">Lihat roadmap belajar</a>
+
+  <img src="images/html-card.png" alt="Kartu belajar HTML" />
+</body>`,
+      explanation:
+        "Contoh ini berisi konten yang terlihat di halaman. h1 menjadi heading utama, p menjadi teks biasa, a menjadi link, dan img menampilkan gambar dengan deskripsi alt.",
+    },
+    {
+      id: "headings-paragraphs-links-images-read-example",
+      type: "text",
+      title: "Cara membaca kode ini",
+      content:
+        "Baca dari tujuan kontennya. Teks paling penting menjadi h1. Penjelasan normal menjadi p. Teks yang membawa pengguna ke halaman lain menjadi a dengan href. Gambar memakai img dengan src untuk lokasi file dan alt untuk deskripsi. Semua contoh ini biasanya ditulis di dalam body karena ingin terlihat di halaman.",
+    },
+    {
+      id: "headings-paragraphs-links-images-common-mistake",
+      type: "callout",
+      variant: "common-mistake",
+      title: "Jangan memilih heading hanya karena ingin teks besar",
+      content:
+        "Heading menjelaskan struktur konten, bukan sekadar ukuran teks. Kalau teks hanya perlu terlihat besar, nanti CSS yang mengatur tampilannya. Kesalahan lain yang sering terjadi adalah menulis img tanpa alt, padahal alt membantu menjelaskan gambar saat gambar tidak terlihat atau gagal dimuat.",
+    },
+    {
+      id: "headings-paragraphs-links-images-quick-check",
+      type: "quick-check",
+      question: "Attribute mana yang menjelaskan gambar ketika gambar tidak bisa dilihat atau gagal dimuat?",
+      options: ["href", "src", "alt", "h1"],
+      correctAnswer: "alt",
+      explanation:
+        "alt berisi teks alternatif untuk gambar. src menentukan lokasi gambar, sedangkan href dipakai pada link.",
+    },
+    {
+      id: "headings-paragraphs-links-images-coding-practice",
+      type: "coding-practice",
+      challengeId: "build-basic-content-page",
+    },
+    {
+      id: "headings-paragraphs-links-images-summary",
+      type: "summary",
+      points: [
+        "Gunakan h1 untuk heading utama, lalu h2 atau h3 untuk subbagian jika diperlukan.",
+        "Gunakan p untuk paragraf teks biasa.",
+        "Gunakan a dengan href untuk membuat link.",
+        "Gunakan img dengan src dan alt untuk gambar yang bisa dipahami lebih jelas.",
+        "Berikutnya, kamu akan melihat cara href dan src menunjuk ke file lain dengan relative path sederhana.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "headings-paragraphs-links-images-intro",
+      "headings-paragraphs-links-images-core-concept",
+      "headings-paragraphs-links-images-code-example",
+      "headings-paragraphs-links-images-read-example",
+      "headings-paragraphs-links-images-common-mistake",
+      "headings-paragraphs-links-images-quick-check",
+      "headings-paragraphs-links-images-coding-practice",
+      "headings-paragraphs-links-images-summary",
+    ],
+  },
+};
+
+export const relativePathsBasicLesson: Lesson = {
+  id: "relative-paths-basic",
+  trackId: "frontend-engineering",
+  moduleId: "html-basics",
+  title: "Relative Paths Dasar",
+  slug: "relative-paths-basic",
+  description:
+    "Belajar membaca href dan src yang menunjuk ke file lain di project HTML kecil.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 34,
+  objectives: [
+    "Memahami href dan src sebagai penunjuk ke halaman atau file",
+    "Membaca relative path sederhana seperti about.html dan images/logo.png",
+    "Memakai relative path pada link dan image di halaman HTML kecil",
+  ],
+  skillTags: ["HTML", "Relative Paths", "Project Structure"],
+  blocks: [
+    {
+      id: "relative-paths-basic-intro",
+      type: "text",
+      title: "Href dan src menunjuk ke lokasi",
+      content:
+        "Di lesson sebelumnya, kamu memakai href pada link dan src pada image. Sekarang kamu melihat nilai di dalam href dan src. Nilai itu sering berupa path, yaitu petunjuk lokasi file atau halaman. Kamu belum perlu masuk ke teori filesystem yang dalam. Fokus dulu pada contoh project kecil.",
+    },
+    {
+      id: "relative-paths-basic-core-concept",
+      type: "text",
+      title: "Relative path dibaca dari posisi file saat ini",
+      content:
+        "Relative path adalah path yang dibaca dari posisi file HTML yang sedang kamu tulis. Jika index.html dan about.html berada di folder yang sama, link bisa memakai href=\"about.html\". Jika gambar berada di folder images, image bisa memakai src=\"images/logo.png\" atau src=\"./images/logo.png\". Tanda ./ berarti mulai dari folder saat ini.",
+    },
+    {
+      id: "relative-paths-basic-code-example",
+      type: "code-example",
+      title: "Contoh project kecil dan HTML-nya",
+      language: "html",
+      code: `project-belajar/
+  index.html
+  about.html
+  images/
+    logo.png
+
+<!-- di dalam index.html -->
+<a href="about.html">Tentang saya</a>
+<img src="images/logo.png" alt="Logo project belajar" />`,
+      explanation:
+        "about.html berada sejajar dengan index.html, jadi href cukup menulis about.html. logo.png berada di dalam folder images, jadi src menulis images/logo.png.",
+    },
+    {
+      id: "relative-paths-basic-mini-action",
+      type: "text",
+      title: "Coba bandingkan href dan src",
+      content:
+        "Perhatikan dua nilai ini: href=\"about.html\" dan src=\"images/logo.png\". Nilai pertama menunjuk ke file yang sejajar dengan index.html. Nilai kedua masuk dulu ke folder images, lalu mencari file logo.png. Kalau nama folder atau file tidak cocok, link bisa salah tujuan atau gambar tidak tampil.",
+    },
+    {
+      id: "relative-paths-basic-common-mistake",
+      type: "callout",
+      variant: "common-mistake",
+      title: "Path harus cocok dengan nama file dan folder",
+      content:
+        "Kesalahan yang sering terjadi adalah menulis src=\"image/logo.png\" padahal folder aslinya bernama images, atau menulis About.html padahal file sebenarnya about.html. Di banyak environment, perbedaan huruf besar dan kecil bisa membuat path tidak cocok.",
+    },
+    {
+      id: "relative-paths-basic-quick-check",
+      type: "quick-check",
+      question:
+        "Jika index.html dan about.html berada di folder yang sama, href mana yang paling sederhana untuk menuju about.html?",
+      options: ["images/about.html", "about.html", "src/about.html", "logo.png"],
+      correctAnswer: "about.html",
+      explanation:
+        "Jika dua file sejajar di folder yang sama, relative path paling sederhana cukup memakai nama file: about.html.",
+    },
+    {
+      id: "relative-paths-basic-coding-practice",
+      type: "coding-practice",
+      challengeId: "practice-relative-paths",
+    },
+    {
+      id: "relative-paths-basic-summary",
+      type: "summary",
+      points: [
+        "Gunakan href untuk tujuan link dan src untuk lokasi gambar atau file media.",
+        "Gunakan about.html jika file tujuan sejajar dengan index.html.",
+        "Gunakan images/logo.png atau ./images/logo.png jika file berada di folder images.",
+        "Cek nama folder dan file dengan teliti karena path yang tidak cocok membuat link atau gambar gagal bekerja.",
+        "Berikutnya, kamu akan menguji semua materi HTML Basics lewat assessment module.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "relative-paths-basic-intro",
+      "relative-paths-basic-core-concept",
+      "relative-paths-basic-code-example",
+      "relative-paths-basic-mini-action",
+      "relative-paths-basic-common-mistake",
+      "relative-paths-basic-quick-check",
+      "relative-paths-basic-coding-practice",
+      "relative-paths-basic-summary",
     ],
   },
 };
@@ -914,14 +1146,14 @@ export const htmlBasicsAssessmentLesson: Lesson = {
   title: "Uji Kompetensi HTML Basics",
   slug: "html-basics-assessment",
   description:
-    "Cek kesiapan kamu membaca dan menulis struktur HTML dasar sebelum lanjut ke Semantic HTML.",
+    "Cek kesiapan kamu membaca dan menulis halaman HTML dasar sebelum lanjut ke Semantic HTML.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 35,
   objectives: [
-    "Membedakan head, body, title, h1, tag, element, dan attribute",
-    "Memakai href, src, dan alt pada HTML sederhana",
-    "Membangun halaman HTML kecil dengan auto-check",
+    "Membedakan struktur dokumen, tag, element, dan attribute",
+    "Memakai heading, paragraf, link, image, href, src, alt, dan relative path sederhana",
+    "Membangun halaman HTML kecil dengan konten dasar dan auto-check",
   ],
   skillTags: ["HTML", "Assessment", "Web Fundamentals"],
   blocks: [
@@ -930,7 +1162,7 @@ export const htmlBasicsAssessmentLesson: Lesson = {
       type: "text",
       title: "Apa yang dicek di assessment ini",
       content:
-        "Assessment ini menggabungkan dua lesson HTML Basics. Kamu akan mengecek struktur dokumen HTML, perbedaan head dan body, perbedaan title dan h1, serta cara memakai attribute seperti href, src, dan alt. Ini bukan ujian jebakan. Tujuannya memastikan kamu siap masuk ke Semantic HTML.",
+        "Assessment ini menggabungkan semua lesson HTML Basics. Kamu akan mengecek struktur dokumen HTML, perbedaan head dan body, perbedaan title dan h1, tag, element, attribute, heading, paragraf, link, image, alt text, dan relative path sederhana. Ini bukan ujian jebakan. Tujuannya memastikan kamu siap masuk ke Semantic HTML.",
     },
     {
       id: "html-basics-assessment-quiz-block",
@@ -948,7 +1180,7 @@ export const htmlBasicsAssessmentLesson: Lesson = {
       points: [
         "Kamu siap lanjut jika bisa membedakan informasi untuk browser dan konten yang terlihat.",
         "Kamu siap lanjut jika bisa membaca tag, element, dan attribute pada contoh HTML sederhana.",
-        "Kamu siap lanjut jika bisa memakai href pada link serta src dan alt pada image.",
+        "Kamu siap lanjut jika bisa memakai heading, paragraf, link, image, href, src, alt, dan relative path sederhana.",
         "Berikutnya, kamu akan memakai struktur HTML ini untuk memilih elemen berdasarkan makna lewat Semantic HTML.",
       ],
     },
@@ -1160,8 +1392,11 @@ export const lessons: Lesson[] = [
   htmlCssJsRolesLesson,
   indexCssJsFilesLesson,
   smallFrontendProjectStructureLesson,
+  webFoundationsAssessmentLesson,
   htmlBasicStructureLesson,
   tagElementAttributeLesson,
+  headingsParagraphsLinksImagesLesson,
+  relativePathsBasicLesson,
   htmlBasicsAssessmentLesson,
   semanticHtmlStructureLesson,
   htmlSemanticBasicsLesson,

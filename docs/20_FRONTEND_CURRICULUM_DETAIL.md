@@ -4,409 +4,1504 @@
 
 This document defines the detailed Frontend Engineering curriculum for FluentStack.
 
-It guides future content batches from beginner web foundations to Advanced Frontend Engineer / Frontend Product Engineer readiness. It is detailed enough to plan modules and lesson batches, but it is not raw lesson content.
+It turns the master curriculum direction from `docs/12_CURRICULUM_PLAN.md` into a practical module-by-module learning map for future content batches.
 
-Actual lesson content inside the product should be Bahasa Indonesia-first. Common technical terms may stay in English when natural: `component`, `props`, `state`, `hook`, `API`, `semantic HTML`, `responsive design`, `accessibility`, `deployment`, and similar terms.
+This document is not raw lesson content. Do not put full lesson scripts, full quiz question lists, or full coding challenge implementations here.
 
-The curriculum follows FluentStack's learning model:
+Use this document to plan:
 
-- Lessons are block-based.
-- Practice belongs inside lessons.
-- Progress should come from required blocks, not page views.
-- Frontend content should be practical and connected to real product work.
-- Writing practice can be used when the frontend task naturally maps to remote-work communication, such as PR notes, bug reports, implementation notes, or project demos.
+* module order
+* lesson order
+* lesson role
+* practice pattern
+* Uji Kompetensi coverage
+* readiness criteria
+* future content batches
+
+Actual lesson content inside the product should be Bahasa Indonesia-first. Common technical terms may stay in English when natural, such as `component`, `props`, `state`, `hook`, `API`, `semantic HTML`, `accessibility`, `responsive design`, `deployment`, and similar terms.
 
 ## Track Outcome
 
-A learner who completes this track should be able to:
+A learner who completes Frontend Engineering should be able to:
 
-- Build accessible, responsive web interfaces.
-- Use JavaScript, TypeScript, React, and Next.js with practical judgment.
-- Connect frontend features to APIs, auth, and persistence.
-- Test, debug, optimize, and deploy production frontend work.
-- Make maintainable architecture decisions.
-- Explain implementation choices clearly in project notes, pull requests, and interviews.
+* build accessible, responsive web interfaces
+* write meaningful HTML structure
+* style layouts with predictable CSS
+* add interaction with JavaScript
+* use TypeScript for safer frontend code
+* build UI with React
+* build app routes and production flows with Next.js
+* connect frontend features to APIs, auth, and persistence
+* test, debug, optimize, and deploy frontend work
+* make maintainable architecture decisions
+* explain implementation choices clearly in project notes, pull requests, and interviews
+
+## FluentStack Teaching Model
+
+Frontend Engineering follows a module-level learning model.
+
+The default flow is:
+
+```txt
+Regular lessons teach and practice.
+Uji Kompetensi checks readiness at the end of the module.
+```
+
+### Regular Lesson
+
+A regular lesson should help learners understand and practice one clear concept.
+
+A regular lesson usually includes:
+
+* path context
+* focused explanation
+* important terms
+* small example
+* how to read or use the example
+* common mistake or decision rule
+* quick check
+* coding practice when useful
+* writing practice when communication is relevant
+* actionable summary
+* bridge to the next lesson
+
+A regular beginner lesson should not include a quiz by default.
+
+Use a quiz inside a regular lesson only when it adds clear learning value and does not make the lesson feel test-heavy.
+
+### Uji Kompetensi
+
+`Uji Kompetensi` is the module-end assessment.
+
+It checks whether learners are ready for the next module.
+
+An Uji Kompetensi may include:
+
+* module recap
+* quiz
+* coding practice
+* project task
+* writing practice
+* self-review checklist
+* readiness summary
+
+Uji Kompetensi should cover the whole module. It should not introduce important new concepts.
+
+## Module Content Quality Rules
+
+Every module must have a clear learning arc.
+
+Before writing content, define:
+
+* module goal
+* prerequisite
+* regular lesson sequence
+* unique role of each lesson
+* practice pattern
+* Uji Kompetensi coverage
+* readiness criteria
+* bridge to the next module
+
+Rules:
+
+* Every lesson must have a unique role.
+* Do not create two lessons that explain the same concept in different words.
+* If two lessons overlap, convert one into guided practice, common mistakes, case study, reinforcement, or assessment.
+* Do not add more lessons just to make a module look full.
+* Prefer fewer mature lessons over many shallow lessons.
+* A regular lesson should prepare learners for practice.
+* Uji Kompetensi should check whether the whole module is understood.
 
 ## Activity Type Reference
 
-Use these activity types across modules:
+Use activity types intentionally.
 
-- `text`: short explanation of one concept.
-- `callout`: warning, tip, common mistake, or decision rule.
-- `code-example`: focused example that supports the concept.
-- `quick-check`: one small understanding check.
-- `quiz`: concept check at the end of a lesson or module.
-- `coding-practice`: browser-based implementation task.
-- `writing-practice`: PR note, bug report, implementation note, or demo script.
-- `project work`: multi-lesson output.
-- `case study`: inspect a realistic scenario and make a decision.
-- `self-review checklist`: quality checklist before completion.
+* `text`: focused explanation of one concept.
+* `callout`: warning, tip, common mistake, or decision rule.
+* `code-example`: small example that supports the concept.
+* `quick-check`: one light understanding check inside a regular lesson.
+* `quiz`: mainly for Uji Kompetensi or justified lesson checks.
+* `coding-practice`: deterministic implementation practice.
+* `writing-practice`: communication artifact such as PR note, bug report, implementation note, or demo script.
+* `project work`: larger multi-lesson output.
+* `case study`: inspect a realistic scenario and make a decision.
+* `self-review checklist`: learner checks quality before completion.
 
-## Level 1: Web Foundations
+## Module Planning Format
 
-Goal: Understand the web ecosystem before writing full HTML pages.
+Use this structure when adding or revising modules:
 
-This level is for absolute beginners. It should explain what learners are looking at when they open a website, what the browser does, what a server is, and why frontend projects contain files such as `index.html`, `style.css`, and `script.js`. The goal is orientation, not deep implementation.
+```txt
+Module:
+Goal:
+Prerequisite:
+Lesson sequence:
+Uji Kompetensi:
+Readiness criteria:
+Notes:
+```
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Web Orientation | Understand the basic objects and flow of the web. | What a website is; what a web page is; what a browser is; what a URL is; what a server is; what happens when opening a URL; request and response in simple terms. | text, callout, quick-check, quiz | Plain-language explanation of opening a web page from URL to visible page. | Can explain website, web page, browser, URL, server, request, and response without using advanced networking terms. |
-| HTML, CSS, and JavaScript Orientation | Understand the three core frontend languages before writing full pages. | What HTML is; what CSS is; what JavaScript is; how HTML, CSS, and JavaScript work together on one web page; what happens when the browser reads HTML, CSS, and JavaScript, explained simply. | text, code-example, callout, quick-check, quiz | Annotated simple page showing which part is structure, style, and behavior. | Can explain what HTML, CSS, and JavaScript do separately and together in one page. |
-| First Frontend Project Orientation | Recognize the files and tools used in a small frontend project. | What `index.html` is; what `style.css` is; what `script.js` is; what an `assets` folder is; what a small frontend project folder usually contains; basic DevTools introduction; basic Git/GitHub for saving a project. | text, code-example, case study, writing-practice, self-review checklist | File map for a small static project plus a short note explaining what each file does. | Can read a small project folder, identify the main files, open basic DevTools, and explain why Git/GitHub help save work. |
+Lesson sequence should define:
 
-## Level 2: HTML and Accessibility Foundations
+* order
+* lesson title
+* lesson role
+* main concept
+* activity pattern
+* practice output
+* bridge / prepares for
 
-Goal: Write correct HTML structure that works for browsers, assistive technology, and other developers.
+---
 
-This level starts after learners understand what HTML is and where an HTML file fits in a frontend project. Now they begin writing page structure intentionally.
+# Level 1: Web Foundations
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| HTML Basics | Write the basic structure and content of an HTML page. | Basic HTML document structure; tag, element, and attribute; headings; paragraphs; links; images; page content structure; relative paths. | text, callout, code-example, quick-check, quiz | Basic content page with headings, paragraphs, links, and images. | Can create a valid beginner HTML page and explain the difference between tag, element, and attribute. |
-| Semantic HTML | Use HTML elements based on meaning and page structure. | Why semantic HTML matters; `header`; `nav`; `main`; `section`; `article`; `aside`; `footer`; heading hierarchy; common semantic HTML mistakes. | text, callout, code-example, quick-check, quiz | Semantic page structure for an article, documentation page, or simple landing page. | Can choose semantic elements for page regions and keep heading hierarchy clear. |
-| Forms and Basic Accessibility | Build basic interactive HTML with accessibility in mind. | Link vs button; `form`; `label`; `input`; `textarea`; `select`; required fields; useful error text; alt text; keyboard navigation basics; basic accessibility checklist. | text, code-example, case study, coding-practice, self-review checklist | Accessible contact or signup form plus a basic accessibility checklist. | Can connect labels to fields, choose link/button semantics correctly, write useful alt text, and check keyboard navigation basics. |
+## Goal
 
-## Difference Between Web Foundations and HTML Foundations
+Understand the web ecosystem before writing full HTML pages.
 
-Web Foundations and HTML Foundations should not teach the same thing.
+This level is for absolute beginners. Learners should understand what they are opening in the browser, how a page is requested, what HTML/CSS/JavaScript are, and how small frontend project files are organized.
 
-- Web Foundations = understand how the web works and what frontend files are. Learners should know what a website, web page, browser, server, URL, request, response, HTML, CSS, JavaScript, `index.html`, `style.css`, `script.js`, and `assets` folder are.
-- HTML Foundations = write page structure correctly and accessibly. Learners should use tags, elements, attributes, content elements, semantic regions, links, buttons, forms, alt text, keyboard basics, and basic accessibility rules.
+## Module: Web Foundations
 
-Use this split when authoring content:
+### Module goal
 
-- If the lesson explains the ecosystem or file roles, it belongs in Web Foundations.
-- If the lesson asks the learner to write or choose HTML elements, it belongs in HTML Foundations.
+Learners understand the basic web vocabulary and can explain how a simple frontend project is organized.
 
-## Level 3: CSS Fundamentals and Layout
+### Prerequisite
 
-Goal: Style pages with predictable layout, responsive behavior, and maintainable CSS.
+None. This is the first frontend module.
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| CSS Core Mechanics | Understand how CSS rules apply. | Selectors; cascade; specificity; inheritance; box model; display basics. | text, callout, code-example, quick-check, quiz | Debug a broken card layout. | Can explain why one CSS rule wins over another and fix spacing bugs. |
-| Flexbox and Grid Layout | Build common layouts without fragile hacks. | Flex container/items; alignment; wrapping; Grid columns/rows; gap; layout choice. | text, code-example, quick-check, coding-practice | Responsive navbar and card grid. | Can choose Flexbox or Grid for a layout and implement it cleanly. |
-| Responsive Visual System | Make UI adapt across screen sizes. | Mobile-first CSS; breakpoints; fluid spacing; typography scale; CSS variables; dark mode basics. | text, code-example, coding-practice, self-review checklist | Responsive landing section with dark mode tokens. | Can build a mobile-safe layout with consistent spacing and readable typography. |
+### Lesson sequence
 
-## Level 4: JavaScript Fundamentals
+| Order | Lesson title                                       | Lesson role         | Main concept                                       | Activity pattern                                     | Practice output                                           | Bridge / prepares for                                      |
+| ----- | -------------------------------------------------- | ------------------- | -------------------------------------------------- | ---------------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------- |
+| 1     | Apa Itu Website dan Web Page?                      | Beginner concept    | Website vs web page, URL as page address           | text, mini action, callout, quick-check, summary     | Learner can identify a page inside a website              | Prepares for how the browser opens a URL                   |
+| 2     | Cara Kerja Web Page                                | Concept flow        | Browser opens URL, simple request/response         | text, simple flow, mini action, quick-check, summary | Learner can explain page loading in plain language        | Prepares for understanding what files the browser receives |
+| 3     | Apa Itu HTML, CSS, dan JavaScript?                 | Concept vocabulary  | HTML, CSS, JavaScript as different parts of a page | text, simple example, quick-check, summary           | Learner can distinguish structure, style, and interaction | Prepares for seeing how the three work together            |
+| 4     | Peran HTML, CSS, dan JavaScript                    | Guided example      | How structure, style, and interaction combine      | text, small example, quick-check, summary            | Learner can explain one page using HTML/CSS/JS roles      | Prepares for file separation                               |
+| 5     | Mengenal File index.html, style.css, dan script.js | File orientation    | Main files in a small frontend project             | text, file example, quick-check, summary             | Learner can explain the purpose of each file              | Prepares for folder structure                              |
+| 6     | Struktur Project Frontend Kecil                    | Project orientation | Basic frontend folders and files                   | text, file tree, quick-check/self-review, summary    | Learner can read a small project folder                   | Prepares for module assessment                             |
+| 7     | Uji Kompetensi Web Foundations                     | Module assessment   | Web vocabulary and project orientation             | recap, quiz, optional reflection, summary            | Learner proves readiness for HTML Basics                  | Leads to HTML document structure                           |
 
-Goal: Add basic interaction and data handling to web pages.
+### Uji Kompetensi
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Values, Types, and Functions | Use JavaScript building blocks safely. | Values; primitive types; variables; expressions; functions; conditionals; loops. | text, code-example, quick-check, quiz | Small calculator or formatter functions. | Can write small functions and predict simple output. |
-| Arrays, Objects, and Data Modeling | Represent UI data in JavaScript. | Arrays; objects; iteration; filtering; mapping; nested data; simple data transformation. | text, code-example, coding-practice, quiz | Render a list from data. | Can transform an array of objects into UI-friendly data. |
-| DOM, Events, Forms, localStorage, and Fetch Basics | Connect JavaScript to browser behavior. | DOM selection; events; event bubbling; forms; localStorage; fetch basics; JSON. | text, callout, code-example, coding-practice | Interactive form that saves local data and fetches sample data. | Can handle events, prevent default form behavior, save to localStorage, and read JSON from `fetch`. |
+Assessment title:
 
-## Level 5: JavaScript Advanced
+* Uji Kompetensi Web Foundations
 
-Goal: Handle async behavior, modules, browser APIs, and debugging with more confidence.
+Assessment coverage:
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Scope, Closure, and Modules | Understand how JavaScript code is organized and remembered. | Scope; lexical environment; closure; ES modules; import/export; module boundaries. | text, code-example, quick-check, quiz | Refactor script files into modules. | Can explain closure in a practical UI example and split code into modules. |
-| Async JavaScript and Error Handling | Work with asynchronous flows safely. | Promises; `async` / `await`; `try` / `catch`; loading state; failed request; retry basics. | text, callout, code-example, coding-practice | Fetch data with loading and error UI. | Can handle success, loading, empty, and error states for a request. |
-| Browser APIs, Data Transformation, and Debugging | Use browser tools and APIs to solve real bugs. | URL APIs; timers; clipboard/storage basics; network debugging; breakpoints; console strategy. | text, case study, coding-practice, self-review checklist | Debug and fix a broken data-driven widget. | Can inspect a bug, isolate the cause, and explain the fix. |
+* website vs web page
+* URL/path
+* browser opening a URL
+* request and response in simple terms
+* HTML role
+* CSS role
+* JavaScript role
+* `index.html`, `style.css`, `script.js`
+* basic project folder structure
 
-## Level 6: TypeScript
+Suggested blocks:
 
-Goal: Use TypeScript to make frontend code safer without overcomplicating it.
+* text recap
+* quiz
+* optional reflection or self-review
+* summary
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| TypeScript Core Types | Model common values and function contracts. | `type`; `interface`; primitives; arrays; objects; optional fields; function types. | text, code-example, quick-check, quiz | Type a small data model and helper functions. | Can define basic types and understand type errors. |
-| Practical Type Design | Use TypeScript features for real UI states. | Union types; narrowing; discriminated unions; generics; utility types; strict mode. | text, callout, code-example, coding-practice | Model loading/success/error states with a union. | Can use narrowing instead of unsafe casts for common UI state. |
-| Typed Frontend Boundaries | Type API responses, components, and hooks. | Typed API responses; typed props; typed custom hooks; practical generics; avoiding type noise. | text, code-example, case study, coding-practice | Typed fetch helper and typed component props. | Can type external data and keep component APIs readable. |
+Readiness criteria:
 
-## Level 7: React Fundamentals
+Learner can explain the web page loading flow and identify the basic files in a small frontend project without using advanced networking terms.
 
-Goal: Build interactive UI with components, props, and state.
+### Notes
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Component Model | Understand React components as UI building blocks. | JSX; components; props; children; rendering; component naming. | text, code-example, quick-check, quiz | Build a reusable card and button set. | Can split a UI into components with clear props. |
-| State, Events, and Rendering | Make UI respond to user interaction. | `useState`; events; conditional rendering; lists and keys; derived display. | text, code-example, coding-practice, quick-check | Interactive task list or filterable list. | Can update state without mutating data and render lists safely. |
-| Forms and Composition | Build forms and compose UI from smaller parts. | Controlled inputs; uncontrolled inputs; form submit; component composition; lifting state when needed. | text, callout, coding-practice, quiz | Controlled signup or settings form. | Can choose controlled inputs when needed and avoid unnecessary prop drilling in small UIs. |
+Do not turn Web Foundations into HTML writing practice. This module is orientation. HTML writing starts in HTML Basics.
 
-## Level 8: React Intermediate
+---
 
-Goal: Organize behavior, state, and reusable patterns in medium-sized React features.
+# Level 2: HTML and Accessibility Foundations
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Custom Hooks and Effects | Extract reusable behavior carefully. | `useEffect`; cleanup; dependency arrays; custom hooks; browser subscriptions. | text, callout, code-example, coding-practice | Custom hook for localStorage or media query. | Can explain when an effect is needed and avoid derived-state effects. |
-| State Strategy | Keep state close to where it is used. | State colocation; derived state; reducer pattern; context; avoiding global state too early. | text, case study, quick-check, coding-practice | Multi-step form or settings panel. | Can choose local state, reducer, or context based on the problem. |
-| Reusable UI States | Build consistent loading, error, and empty states. | Loading state; error state; empty state; retry; skeletons; reusable patterns. | text, code-example, coding-practice, self-review checklist | Data list with loading/error/empty/success states. | Can design UI states that do not mislead users. |
+## Goal
 
-## Level 9: React Advanced
+Write correct HTML structure that works for browsers, assistive technology, and other developers.
 
-Goal: Build resilient React patterns without over-abstraction.
+This level starts after learners understand what HTML is and where an HTML file fits in a frontend project.
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Resilience and Suspense Basics | Handle UI failure and async boundaries. | Error boundaries; suspense basics; fallback UI; retry patterns; user-safe failure states. | text, case study, coding-practice, quiz | Feature area with error boundary and fallback UI. | Can isolate failure without crashing the whole page. |
-| Performance Awareness | Optimize only when there is a real reason. | Render cost; memoization when useful; `useMemo`; `useCallback`; expensive lists; profiling basics. | text, callout, case study, coding-practice | Optimize a slow list after measuring. | Can explain when memoization helps and when it adds noise. |
-| Advanced Component Patterns | Build flexible components with clear APIs. | Compound components; reusable form patterns; slots/children; design system integration; avoiding over-abstraction. | text, code-example, project work, self-review checklist | Reusable tabs, modal, or form field pattern. | Can design a component API that is flexible but understandable. |
+## Module: HTML Basics
 
-## Level 10: Next.js App Router
+### Module goal
 
-Goal: Build app-level routes and layouts with the App Router.
+Learners can write a simple HTML page with valid document structure, basic content elements, links, images, and simple relative paths.
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| App Directory and Routing | Understand route structure and nested UI. | `app` directory; page; layout; nested routes; dynamic routes; route groups. | text, code-example, quick-check, coding-practice | Small multi-route learning app shell. | Can create nested and dynamic routes without hardcoding every page. |
-| Server Components and Client Components | Choose the right component boundary. | Server Components; Client Components; props across boundary; interactive islands; common mistakes. | text, callout, case study, quiz | Refactor a route to reduce unnecessary client code. | Can explain why a component needs or does not need `"use client"`. |
-| Loading, Error UI, Route Handlers, Metadata, and Env | Add production-minded route behavior. | `loading.tsx`; `error.tsx`; route handlers; metadata; environment variables; deployment basics. | text, code-example, coding-practice, self-review checklist | Route with metadata, loading UI, error UI, and a simple route handler. | Can build a route that handles loading, failure, metadata, and env safely. |
+### Prerequisite
 
-## Level 11: Production Next.js
+Learner understands that HTML gives page structure and knows where `index.html` fits in a small project.
 
-Goal: Connect a Next.js app to real auth, persistence, and deployment workflows.
+### Lesson sequence
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Authentication and Session-Aware UI | Add auth without confusing users. | Login/register UX; logout; session-aware nav; protected routes; auth errors. | text, case study, coding-practice, writing-practice | Auth-aware dashboard shell. | Can explain public vs protected routes and show safe session UI. |
-| Supabase or Backend Integration | Persist user data with safe boundaries. | Supabase clients; RLS concept; server vs browser access; data persistence; profile rows. | text, code-example, case study, coding-practice | Save user settings or progress-like data. | Can keep Supabase access in service files and avoid exposing secrets. |
-| Production Operations | Deploy and debug a production app. | Caching basics; streaming basics; file upload basics; Vercel deployment; production logs; env setup. | text, callout, case study, self-review checklist | Deployed app with deployment checklist and known limitations. | Can debug a failed deployment or missing env variable without guessing. |
+| Order | Lesson title                        | Lesson role               | Main concept                              | Activity pattern                                                     | Practice output               | Bridge / prepares for                    |
+| ----- | ----------------------------------- | ------------------------- | ----------------------------------------- | -------------------------------------------------------------------- | ----------------------------- | ---------------------------------------- |
+| 1     | Struktur HTML Dasar                 | Concept + guided practice | doctype, html, head, title, body, h1, p   | text, code-example, quick-check, coding-practice, summary            | Basic HTML page               | Prepares for tag, element, and attribute |
+| 2     | Tag, Element, dan Attribute         | Concept + guided practice | tag, element, attribute, href, src, alt   | text, code-example, quick-check, coding-practice, summary            | Link and image snippet        | Prepares for visible content elements    |
+| 3     | Heading, Paragraf, Link, dan Gambar | Content elements practice | h1/h2, p, a, img, alt                     | text, code-example, quick-check, coding-practice, summary            | Basic content page            | Prepares for paths used by href and src  |
+| 4     | Relative Paths Dasar                | File reference practice   | simple relative paths for href and src    | text, file tree, code-example, quick-check, coding-practice, summary | Page using local links/images | Prepares for module assessment           |
+| 5     | Uji Kompetensi HTML Basics          | Module assessment         | HTML document and basic content readiness | recap, quiz, coding-practice, summary                                | Build a small content page    | Leads to Semantic HTML                   |
 
-## Level 12: Forms, Validation, and Data Fetching
+### Uji Kompetensi
 
-Goal: Build data-heavy product flows with clear validation and server-state thinking.
+Assessment title:
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| React Hook Form and Zod | Build typed form validation. | Form registration; Zod schemas; field errors; submit state; schema reuse. | text, code-example, coding-practice, quiz | Profile or onboarding form with validation. | Can validate inputs and show useful errors without blocking accessibility. |
-| Validation UX and Accessible Errors | Make form feedback clear and usable. | Inline errors; summary errors; focus management; disabled state; success state; copy for errors. | text, callout, case study, coding-practice | Accessible multi-field form. | Can show errors that screen readers and keyboard users can understand. |
-| Server-State Thinking | Fetch, cache, and update remote data predictably. | TanStack Query or equivalent mental model; loading/error/empty states; API response mapping; optimistic UI basics. | text, case study, coding-practice, self-review checklist | Editable data list with optimistic update. | Can distinguish server state from client state and avoid duplicate sources of truth. |
+* Uji Kompetensi HTML Basics
 
-## Level 13: Testing
+Assessment coverage:
 
-Goal: Test important behavior without testing implementation details.
+* document structure
+* head vs body
+* title vs h1
+* tag, element, and attribute
+* h1, p, a, img
+* href, src, alt
+* simple relative paths
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Unit and Component Testing | Test small logic and UI behavior. | Vitest; React Testing Library; user events; assertions; accessible queries. | text, code-example, coding-practice, quiz | Tests for form validation and a reusable component. | Can test behavior from a user's perspective. |
-| Integration and API Mocking | Test connected flows safely. | MSW; mocked API responses; loading/error/success paths; auth-adjacent flows. | text, case study, coding-practice, self-review checklist | Tests for a data-fetching component with API states. | Can test API-driven UI without calling real services. |
-| End-to-End Testing Strategy | Cover critical user journeys. | Playwright; route navigation; auth flow basics; what to test and what not to test; flaky test causes. | text, case study, project work, checklist | E2E test for a critical learning or dashboard flow. | Can choose a small set of high-value E2E tests. |
+Suggested blocks:
 
-## Level 14: Performance
+* text recap
+* quiz
+* coding-practice
+* summary
 
-Goal: Improve user experience by measuring and reducing real performance costs.
+Readiness criteria:
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Core Web Vitals | Understand what to measure. | LCP; INP; CLS; Lighthouse; field vs lab data; performance budgets. | text, quick-check, case study, quiz | Performance report for one page. | Can identify which metric is failing and what might cause it. |
-| Asset and Bundle Optimization | Reduce unnecessary loading cost. | Image optimization; font optimization; bundle awareness; code splitting; dynamic imports. | text, code-example, coding-practice, checklist | Optimize a media-heavy landing section. | Can reduce obvious asset and bundle waste without changing UX. |
-| Rendering Cost and Hydration | Choose rendering patterns thoughtfully. | Hydration cost; server vs client rendering decisions; client component boundaries; expensive re-renders. | text, case study, coding-practice | Refactor a route to reduce client-side work. | Can explain performance trade-offs in a Next.js page. |
+Learner can build a beginner HTML page and explain the difference between document structure, visible content, and attributes.
 
-## Level 15: Accessibility
+### Notes
 
-Goal: Build UI that works for keyboard, screen reader, and low-vision users.
+Regular HTML Basics lessons should focus on explanation and coding practice. Do not put full quizzes in every regular lesson. Save the main quiz for Uji Kompetensi.
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Semantic Review and Keyboard Navigation | Audit the base interaction model. | Semantic HTML review; tab order; focus visibility; skip links; keyboard traps. | text, case study, coding-practice, checklist | Keyboard audit of a page. | Can complete main flows using only keyboard. |
-| Accessible Components | Build common components safely. | Modal; dropdown; tabs; select; toast; focus management; ARIA when needed. | text, callout, code-example, coding-practice | Accessible modal or tabs component. | Can explain when ARIA is needed and when semantic HTML is enough. |
-| Accessibility Testing and Preferences | Validate accessibility with tools and user settings. | Color contrast; accessible form errors; reduced motion; screen reader basics; testing tools. | text, case study, self-review checklist, quiz | Accessibility checklist for a feature. | Can use tools and manual checks to catch common accessibility issues. |
+## Module: Semantic HTML
 
-## Level 16: Frontend Architecture
+### Module goal
 
-Goal: Structure frontend code so features stay maintainable as the app grows.
+Learners can choose HTML elements based on meaning and organize a page into meaningful regions.
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Feature-Based Structure and Boundaries | Organize files by product behavior. | Folder structure; feature folders; shared components; service layer; dependency boundaries. | text, case study, project work, checklist | Refactor a small app into feature-based structure. | Can explain where UI, services, types, and content belong. |
-| State and Data Strategy | Avoid unclear ownership of data. | Server state vs client state; URL state; local state; persistence boundaries; error strategy. | text, case study, coding-practice | Architecture note for a dashboard feature. | Can choose where data should live and how errors should flow. |
-| Component API and Documentation | Make reusable code understandable. | Component API design; content-driven rendering; prop naming; documentation; examples. | text, code-example, writing-practice, checklist | Document a reusable component with usage examples. | Can design and document components other developers can use. |
+### Prerequisite
 
-## Level 17: Design System
+Learner can write a basic HTML page and understands tag, element, attribute, headings, links, images, and simple paths.
 
-Goal: Build consistent UI primitives and patterns that support product work.
+### Lesson sequence
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Design Tokens and Variants | Standardize visual decisions. | Tokens; colors; spacing; radius; typography; component variants; button hierarchy. | text, code-example, coding-practice, checklist | Token-based button and card system. | Can use tokens instead of one-off styling. |
-| Product Components | Build reusable components for common app needs. | Form components; table components; modal; toast; tabs; select; empty/loading/error states. | text, coding-practice, project work, checklist | Small design system component set. | Can build components with consistent states and accessibility basics. |
-| Storybook and Package Basics | Document and validate UI components. | Storybook basics; stories; accessibility checks; package structure basics; changelog thinking. | text, case study, project work, self-review checklist | Storybook section for core components. | Can document component states and catch visual/API regressions early. |
+| Order | Lesson title                     | Lesson role            | Main concept                                           | Activity pattern                                          | Practice output                | Bridge / prepares for                  |
+| ----- | -------------------------------- | ---------------------- | ------------------------------------------------------ | --------------------------------------------------------- | ------------------------------ | -------------------------------------- |
+| 1     | Struktur Semantic HTML           | Main concept           | semantic HTML means choosing elements by meaning       | text, code-example, quick-check, coding-practice, summary | Simple semantic page structure | Prepares for guided refactor practice  |
+| 2     | Latihan Menerapkan Semantic HTML | Reinforcement practice | replace generic div structure with meaningful elements | text, case/example, coding-practice, self-review, summary | Refactored semantic page       | Prepares for module assessment         |
+| 3     | Uji Kompetensi Semantic HTML     | Module assessment      | semantic structure readiness                           | recap, quiz, coding-practice, summary                     | Build/refactor semantic page   | Leads to Forms and Basic Accessibility |
 
-## Level 18: Backend Basics for Frontend Engineers
+### Uji Kompetensi
 
-Goal: Understand enough backend concepts to integrate, debug, and communicate effectively.
+Assessment title:
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| API Fundamentals | Work with common API styles and constraints. | REST API; GraphQL basics; status codes; request/response shape; pagination; webhooks. | text, quick-check, case study, quiz | API integration decision note. | Can read API docs and ask precise integration questions. |
-| Auth, Cookies, and Browser Security Boundaries | Understand how auth travels between browser and server. | Auth concepts; cookies; JWT/session; CORS; CSRF; secure cookies. | text, callout, case study, quiz | Auth flow diagram and risk notes. | Can explain common auth storage and request risks. |
-| Data and Infrastructure Basics | Understand common persistence and backend tools. | SQL basics; PostgreSQL basics; Prisma or Supabase basics; Redis basics; file upload concepts. | text, case study, coding-practice, checklist | Simple data-backed feature plan. | Can discuss database-backed frontend features with backend engineers. |
+* Uji Kompetensi Semantic HTML
 
-## Level 19: Security Basics
+Assessment coverage:
 
-Goal: Avoid common frontend security mistakes and understand product-level risk.
+* choosing elements by meaning
+* `header`, `nav`, `main`, `section`, `article`, `aside`, `footer`
+* heading hierarchy
+* avoiding div-only structure
+* explaining semantic choices
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Browser Attack Basics | Recognize common frontend attack paths. | XSS; CSRF; CORS risks; input sanitization; dependency vulnerabilities. | text, callout, case study, quiz | Security review of a risky feature. | Can identify common browser-side risks and explain mitigations. |
-| Secrets, Tokens, and Permissions | Protect sensitive data and UI boundaries. | Env leakage; token storage; secure cookies; permission UI; auth guard; role-aware UI. | text, case study, coding-practice, checklist | Permission-aware settings page. | Can avoid exposing secrets and design safer permission states. |
-| File Upload and Third-Party Risk | Handle untrusted input carefully. | File upload risks; file type/size checks; preview risk; third-party packages; iframe constraints. | text, callout, case study, checklist | File upload risk checklist. | Can list risks before adding upload or third-party features. |
+Suggested blocks:
 
-## Level 20: Portfolio and Remote Readiness
+* text recap
+* quiz
+* coding-practice
+* self-review checklist
+* summary
 
-Goal: Turn technical skill into visible proof of work and job-ready communication.
+Readiness criteria:
 
-| Module | Goal | Lesson idea groups | Required activity types | Practice output | Readiness criteria |
-| --- | --- | --- | --- | --- | --- |
-| Portfolio Project Tracks | Build projects that show product thinking. | SaaS dashboard; e-commerce or marketplace mini project; design system project; feature scope. | project work, case study, coding-practice, checklist | One deployed portfolio-grade project. | Can explain the problem, users, features, and technical choices. |
-| Project Documentation and Demo Prep | Present work clearly. | README writing; deployment checklist; screenshots; demo script; technical decision notes. | writing-practice, project work, self-review checklist | Portfolio README and demo outline. | Can guide someone through the project without live improvisation. |
-| Interview and Remote-Work Readiness | Prepare for frontend hiring and remote collaboration. | Case studies; trade-off explanations; PR habits; async updates; interview readiness. | case study, writing-practice, project work, checklist | Interview-ready project case study. | Can answer what was built, why decisions were made, what trade-offs exist, and what would improve next. |
+Learner can structure a simple page using semantic HTML and explain why each region uses that element.
 
-## First Content Batches
+### Notes
 
-These batches should be added to the app after this document. Keep each batch small enough to review and test.
+Do not let `Latihan Menerapkan Semantic HTML` repeat the same explanation as `Struktur Semantic HTML`. It should behave as guided practice or reinforcement.
 
-### Batch 1A: Web Foundations zero-to-one
+## Module: Forms and Basic Accessibility
 
-Create:
+### Module goal
 
-- Web Foundations module.
+Learners can create basic interactive HTML forms and apply first-layer accessibility habits.
 
-Recommended first lessons:
+### Prerequisite
 
-- What is a website and web page?
-- How a web page loads.
-- Browser, server, URL, request, and response.
-- What HTML, CSS, and JavaScript are.
-- How HTML, CSS, and JavaScript work together.
-- `index.html`, `style.css`, and `script.js`.
-- Project structure for a small frontend app.
-- Basic DevTools.
-- Basic Git/GitHub for saving a project.
+Learner can write basic and semantic HTML structure.
 
-Why this comes first:
+### Planned lesson sequence
 
-- It gives absolute beginners the vocabulary they need before writing full pages.
-- It separates web ecosystem understanding from HTML authoring.
-- It makes later HTML, CSS, and JavaScript lessons feel less abrupt.
+| Order | Lesson title                                 | Lesson role               | Main concept                                | Activity pattern                                          | Practice output                             | Bridge / prepares for          |
+| ----- | -------------------------------------------- | ------------------------- | ------------------------------------------- | --------------------------------------------------------- | ------------------------------------------- | ------------------------------ |
+| 1     | Link vs Button                               | Decision rule             | navigation vs action                        | text, example, quick-check, summary                       | Learner can choose link or button correctly | Prepares for form controls     |
+| 2     | Form, Label, dan Input                       | Concept + guided practice | form structure and label connection         | text, code-example, quick-check, coding-practice, summary | Basic accessible form                       | Prepares for more field types  |
+| 3     | Textarea, Select, dan Required Fields        | Guided practice           | larger text input, choices, required fields | text, code-example, quick-check, coding-practice, summary | Contact form fields                         | Prepares for useful error text |
+| 4     | Alt Text Dasar                               | Accessibility concept     | image description for non-visual context    | text, examples, quick-check, practice, summary            | Better image alt text                       | Prepares for keyboard basics   |
+| 5     | Keyboard Navigation Dasar                    | Accessibility behavior    | tab order and focus                         | text, mini action, case study, self-review, summary       | Keyboard check of simple page               | Prepares for checklist         |
+| 6     | Basic Accessibility Checklist                | Review / self-review      | first-layer accessibility review            | text, checklist, case study, summary                      | Accessibility review of a simple page       | Prepares for module assessment |
+| 7     | Uji Kompetensi Forms and Basic Accessibility | Module assessment         | form and accessibility readiness            | recap, quiz, coding-practice, checklist, summary          | Accessible signup/contact form              | Leads to CSS Fundamentals      |
 
-### Batch 1B: HTML Foundations
+### Uji Kompetensi
 
-Create:
+Assessment title:
 
-- HTML and Accessibility Foundations module.
+* Uji Kompetensi Forms and Basic Accessibility
 
-Recommended first lessons:
+Assessment coverage:
 
-- Basic HTML document structure.
-- Tag, element, and attribute.
-- Headings, paragraphs, links, and images.
-- Semantic HTML structure.
-- Header, nav, main, section, article, aside, and footer.
-- Link vs button.
-- Forms, labels, and inputs.
-- Alt text and keyboard navigation basics.
-- Basic HTML accessibility checklist.
+* link vs button
+* label/input connection
+* form controls
+* required fields
+* useful error text
+* alt text
+* keyboard navigation basics
+* basic accessibility checklist
 
-Why this comes next:
+Suggested blocks:
 
-- Learners already know what HTML is from Web Foundations.
-- This batch turns orientation into correct page structure.
-- It prepares learners for CSS layout without mixing structure and styling too early.
+* text recap
+* quiz
+* coding-practice
+* self-review checklist
+* summary
 
-### Batch 1C: CSS Foundations
+Readiness criteria:
 
-Create:
+Learner can build a simple accessible form and run a basic accessibility checklist.
 
-- CSS Fundamentals and Layout module.
+### Notes
 
-Recommended first lessons:
+Keep this module hidden from the active track until its first lesson batch is ready.
 
-- What CSS does in a web page.
-- Selectors and basic declarations.
-- Box model.
-- Cascade and specificity.
-- Flexbox navbar.
-- Responsive card grid.
-- CSS variables and basic visual tokens.
+---
 
-Why this comes after HTML:
+# Level 3: CSS Fundamentals and Layout
 
-- CSS is easier to understand when learners already have meaningful HTML structure.
-- Layout practice becomes more useful when learners can identify page regions.
-- It gives learners visible practice without skipping the basics.
+## Goal
 
-### Batch 2: JavaScript + TypeScript Foundations
+Style pages with predictable layout, responsive behavior, and maintainable CSS.
 
-Create:
+## Module: CSS Core Mechanics
 
-- JavaScript Fundamentals module.
-- JavaScript Advanced module.
-- TypeScript module.
+### Module goal
 
-Recommended first lessons:
+Learners understand how CSS rules apply before building layouts.
 
-- Values, variables, and functions.
-- Arrays and objects for UI data.
-- DOM events and forms.
-- localStorage and fetch basics.
-- Async JavaScript and error handling.
-- TypeScript object types and unions.
-- Typed API response basics.
+### Prerequisite
 
-Why this comes next:
+Learner can write meaningful HTML structure.
 
-- JavaScript enables more realistic UI behavior.
-- TypeScript prepares learners for React and Next.js content.
-- Fetch and error handling connect directly to real product features.
+### Planned lesson sequence
 
-### Batch 3: React Fundamentals
+| Order | Lesson title                      | Lesson role         | Main concept                     | Activity pattern                                          | Practice output               | Bridge / prepares for       |
+| ----- | --------------------------------- | ------------------- | -------------------------------- | --------------------------------------------------------- | ----------------------------- | --------------------------- |
+| 1     | Apa Itu CSS?                      | Concept             | CSS controls visual presentation | text, example, quick-check, summary                       | Learner can identify CSS role | Prepares for selectors      |
+| 2     | Selector dan Declaration Dasar    | Guided example      | selector, property, value        | text, code-example, quick-check, coding-practice, summary | Style a simple card           | Prepares for cascade        |
+| 3     | Cascade dan Specificity Dasar     | Concept + debugging | why one rule wins                | text, callout, case study, practice, summary              | Fix conflicting CSS rules     | Prepares for box model      |
+| 4     | Uji Kompetensi CSS Core Mechanics | Module assessment   | CSS rule basics                  | recap, quiz, debugging task, summary                      | Debug simple CSS              | Leads to spacing and layout |
 
-Create:
+### Uji Kompetensi
 
-- React Fundamentals module.
-- React Intermediate starter module.
+Assessment coverage:
 
-Recommended first lessons:
+* CSS role
+* selector, property, value
+* cascade
+* specificity
+* inheritance at a beginner level
+* debugging simple conflicting rules
 
-- Components and props.
-- State and events.
-- Conditional rendering.
-- Lists and keys.
-- Controlled forms.
-- Component composition.
-- First custom hook.
+Readiness criteria:
 
-Why this comes third:
+Learner can read simple CSS and explain why one rule applies.
 
-- Learners need HTML, CSS, JavaScript, and basic TypeScript before React becomes useful.
-- React lessons can reuse earlier UI projects and turn them into component-based practice.
-- This batch prepares the path toward Next.js App Router.
+## Module: Box Model and Spacing
 
-## Content That Should Wait
+### Module goal
+
+Learners can control size and spacing without guessing.
+
+### Prerequisite
+
+Learner understands basic CSS selectors and declarations.
+
+### Planned lesson sequence
+
+| Order | Lesson title                         | Lesson role       | Main concept                     | Activity pattern                                          | Practice output           | Bridge / prepares for |
+| ----- | ------------------------------------ | ----------------- | -------------------------------- | --------------------------------------------------------- | ------------------------- | --------------------- |
+| 1     | Box Model Dasar                      | Concept           | content, padding, border, margin | text, visual/code example, quick-check, practice, summary | Inspect spacing of a card | Prepares for sizing   |
+| 2     | Width, Height, dan box-sizing        | Guided practice   | sizing and box-sizing            | text, code-example, practice, summary                     | Predict card size         | Prepares for layout   |
+| 3     | Spacing yang Konsisten               | Practice          | reusable spacing habits          | text, example, coding-practice, checklist, summary        | Clean card spacing        | Prepares for Flexbox  |
+| 4     | Uji Kompetensi Box Model and Spacing | Module assessment | spacing readiness                | recap, quiz, coding-practice, summary                     | Fix a broken layout       | Leads to Flexbox/Grid |
+
+### Uji Kompetensi
+
+Assessment coverage:
+
+* content, padding, border, margin
+* `box-sizing`
+* width and height basics
+* spacing consistency
+* fixing simple spacing bugs
+
+Readiness criteria:
+
+Learner can explain and fix spacing issues in a basic card or section.
+
+## Module: Flexbox and Grid Layout
+
+### Module goal
+
+Learners can build common one-dimensional and two-dimensional layouts.
+
+### Prerequisite
+
+Learner understands CSS box model and spacing.
+
+### Planned lesson sequence
+
+| Order | Lesson title                           | Lesson role        | Main concept                   | Activity pattern                                          | Practice output                | Bridge / prepares for         |
+| ----- | -------------------------------------- | ------------------ | ------------------------------ | --------------------------------------------------------- | ------------------------------ | ----------------------------- |
+| 1     | Flexbox Dasar                          | Concept + practice | flex container, direction, gap | text, code-example, quick-check, coding-practice, summary | Simple horizontal layout       | Prepares for navbar           |
+| 2     | Membuat Navbar dengan Flexbox          | Guided practice    | align items and spacing        | text, coding-practice, checklist, summary                 | Responsive-ish navbar          | Prepares for Grid             |
+| 3     | Grid Dasar                             | Concept + practice | columns, rows, gap             | text, code-example, coding-practice, summary              | Card grid                      | Prepares for layout decisions |
+| 4     | Kapan Pakai Flexbox atau Grid?         | Decision rule      | layout choice                  | text, case study, quick-check, summary                    | Learner can choose layout tool | Prepares for assessment       |
+| 5     | Uji Kompetensi Flexbox and Grid Layout | Module assessment  | layout readiness               | recap, quiz, coding-practice, summary                     | Navbar + card grid             | Leads to responsive design    |
+
+### Uji Kompetensi
+
+Assessment coverage:
+
+* Flexbox basics
+* Grid basics
+* gap and alignment
+* layout tool decision
+* responsive-friendly structure
+
+Readiness criteria:
+
+Learner can choose Flexbox or Grid for common layout tasks and implement a simple layout.
+
+## Module: Responsive Visual System
+
+### Module goal
+
+Learners can make UI adapt across screen sizes with consistent visual rules.
+
+### Prerequisite
+
+Learner understands basic CSS layout.
+
+### Planned lesson sequence
+
+| Order | Lesson title                            | Lesson role        | Main concept                     | Activity pattern                                   | Practice output            | Bridge / prepares for      |
+| ----- | --------------------------------------- | ------------------ | -------------------------------- | -------------------------------------------------- | -------------------------- | -------------------------- |
+| 1     | Mobile-first CSS                        | Concept            | start from small screens         | text, example, quick-check, practice, summary      | Mobile-safe section        | Prepares for breakpoints   |
+| 2     | Breakpoints Dasar                       | Guided practice    | media queries                    | text, code-example, coding-practice, summary       | Responsive card layout     | Prepares for fluid spacing |
+| 3     | Fluid Spacing dan Typography Dasar      | Practice           | readable spacing and text        | text, example, coding-practice, checklist, summary | Better reading layout      | Prepares for tokens        |
+| 4     | CSS Variables dan Dark Mode Dasar       | Concept + practice | reusable values and theme basics | text, code-example, practice, summary              | Simple token-based section | Prepares for assessment    |
+| 5     | Uji Kompetensi Responsive Visual System | Module assessment  | responsive visual readiness      | recap, quiz, coding-practice, checklist, summary   | Responsive landing section | Leads to JavaScript        |
+
+### Uji Kompetensi
+
+Assessment coverage:
+
+* mobile-first thinking
+* media queries
+* responsive spacing
+* readable typography
+* CSS variables
+* simple theme values
+
+Readiness criteria:
+
+Learner can build a small responsive section with readable spacing and basic visual consistency.
+
+---
+
+# Level 4: JavaScript Fundamentals
+
+## Goal
+
+Add basic interaction and data handling to web pages.
+
+## Module: Values, Types, and Functions
+
+### Module goal
+
+Learners can write small JavaScript functions and predict simple output.
+
+### Prerequisite
+
+Learner understands basic HTML and CSS.
+
+### Planned lesson sequence
+
+| Order | Lesson title                                | Lesson role        | Main concept                                  | Activity pattern                                          | Practice output                     | Bridge / prepares for       |
+| ----- | ------------------------------------------- | ------------------ | --------------------------------------------- | --------------------------------------------------------- | ----------------------------------- | --------------------------- |
+| 1     | Apa Itu JavaScript di Browser?              | Concept            | JavaScript adds behavior                      | text, example, quick-check, summary                       | Learner can identify JS role        | Prepares for values         |
+| 2     | Values dan Variables                        | Concept + practice | values, strings, numbers, booleans, variables | text, code-example, quick-check, coding-practice, summary | Store simple values                 | Prepares for expressions    |
+| 3     | Functions Dasar                             | Guided practice    | reusable logic                                | text, code-example, coding-practice, summary              | Small formatter/calculator function | Prepares for conditionals   |
+| 4     | Conditionals dan Loops Dasar                | Guided practice    | branching and repetition                      | text, examples, coding-practice, summary                  | Simple decision function            | Prepares for assessment     |
+| 5     | Uji Kompetensi Values, Types, and Functions | Module assessment  | JS basics readiness                           | recap, quiz, coding-practice, summary                     | Small utility functions             | Leads to arrays and objects |
+
+### Uji Kompetensi
+
+Assessment coverage:
+
+* values and variables
+* primitive types
+* functions
+* conditionals
+* simple loops
+* predicting output
+
+Readiness criteria:
+
+Learner can write and explain small JavaScript functions.
+
+## Module: Arrays, Objects, and Data Modeling
+
+### Module goal
+
+Learners can represent UI data with arrays and objects.
+
+### Prerequisite
+
+Learner can write small functions and understand basic values.
+
+### Planned lesson sequence
+
+| Order | Lesson title                                      | Lesson role        | Main concept             | Activity pattern                                          | Practice output             | Bridge / prepares for          |
+| ----- | ------------------------------------------------- | ------------------ | ------------------------ | --------------------------------------------------------- | --------------------------- | ------------------------------ |
+| 1     | Array Dasar untuk Data UI                         | Concept + practice | list of values           | text, code-example, coding-practice, summary              | Render or inspect list data | Prepares for objects           |
+| 2     | Object Dasar untuk Satu Item                      | Concept + practice | object fields            | text, code-example, quick-check, coding-practice, summary | Model a card item           | Prepares for array of objects  |
+| 3     | Array of Objects                                  | Guided practice    | list of structured items | text, code-example, coding-practice, summary              | Product/task list data      | Prepares for mapping/filtering |
+| 4     | map, filter, dan Data Transformasi Dasar          | Guided practice    | transform data for UI    | text, code-example, coding-practice, summary              | Filtered list               | Prepares for assessment        |
+| 5     | Uji Kompetensi Arrays, Objects, and Data Modeling | Module assessment  | UI data readiness        | recap, quiz, coding-practice, summary                     | Transform array of objects  | Leads to DOM/events            |
+
+### Uji Kompetensi
+
+Assessment coverage:
+
+* arrays
+* objects
+* array of objects
+* mapping
+* filtering
+* simple data transformation
+
+Readiness criteria:
+
+Learner can shape simple data for UI rendering.
+
+## Module: DOM, Events, Forms, localStorage, and Fetch Basics
+
+### Module goal
+
+Learners can connect JavaScript to browser behavior and simple data.
+
+### Prerequisite
+
+Learner understands basic functions, arrays, and objects.
+
+### Planned lesson sequence
+
+| Order | Lesson title                                                      | Lesson role        | Main concept                 | Activity pattern                                          | Practice output             | Bridge / prepares for        |
+| ----- | ----------------------------------------------------------------- | ------------------ | ---------------------------- | --------------------------------------------------------- | --------------------------- | ---------------------------- |
+| 1     | DOM Selection Dasar                                               | Concept + practice | selecting elements           | text, code-example, quick-check, coding-practice, summary | Select and update page text | Prepares for events          |
+| 2     | Event Click dan Input                                             | Guided practice    | responding to user action    | text, code-example, coding-practice, summary              | Interactive button/input    | Prepares for forms           |
+| 3     | Form Submit Dasar                                                 | Guided practice    | prevent default, read values | text, callout, coding-practice, summary                   | Simple form handler         | Prepares for localStorage    |
+| 4     | localStorage Dasar                                                | Concept + practice | save small browser data      | text, code-example, coding-practice, summary              | Save form value locally     | Prepares for fetch           |
+| 5     | Fetch dan JSON Dasar                                              | Concept + practice | request data and read JSON   | text, code-example, coding-practice, summary              | Load sample data            | Prepares for assessment      |
+| 6     | Uji Kompetensi DOM, Events, Forms, localStorage, and Fetch Basics | Module assessment  | browser behavior readiness   | recap, quiz, coding-practice, summary                     | Interactive data form/page  | Leads to advanced JavaScript |
+
+### Uji Kompetensi
+
+Assessment coverage:
+
+* DOM selection
+* click/input events
+* form submit
+* localStorage
+* fetch
+* JSON basics
+* loading/error awareness at a simple level
+
+Readiness criteria:
+
+Learner can build a small interactive page that reads input, updates UI, saves simple data, and fetches sample data.
+
+---
+
+# Level 5: JavaScript Advanced
+
+## Goal
+
+Handle async behavior, modules, browser APIs, and debugging with more confidence.
+
+## Modules
+
+### Module: Scope, Closure, and Modules
+
+Lesson sequence:
+
+1. Scope Dasar
+2. Closure dalam Contoh UI
+3. ES Modules dan import/export
+4. Memecah File JavaScript
+5. Uji Kompetensi Scope, Closure, and Modules
+
+Uji Kompetensi coverage:
+
+* scope
+* closure
+* module boundaries
+* import/export
+* refactoring script into modules
+
+### Module: Async JavaScript and Error Handling
+
+Lesson sequence:
+
+1. Promise Dasar
+2. async / await
+3. try / catch
+4. Loading, Error, Empty, dan Success State
+5. Retry Dasar
+6. Uji Kompetensi Async JavaScript and Error Handling
+
+Uji Kompetensi coverage:
+
+* async flow
+* error handling
+* loading/error UI
+* failed request handling
+
+### Module: Browser APIs, Data Transformation, and Debugging
+
+Lesson sequence:
+
+1. URL dan Timer API Dasar
+2. Clipboard dan Storage Patterns
+3. Network Debugging
+4. Breakpoints dan Console Strategy
+5. Uji Kompetensi Browser APIs and Debugging
+
+Uji Kompetensi coverage:
+
+* browser API use
+* network debugging
+* isolating bugs
+* explaining a fix
+
+---
+
+# Level 6: TypeScript
+
+## Goal
+
+Use TypeScript to make frontend code safer without overcomplicating it.
+
+## Modules
+
+### Module: TypeScript Core Types
+
+Lesson sequence:
+
+1. Apa Itu TypeScript?
+2. Primitive Types dan Arrays
+3. Object Types
+4. Function Types
+5. Optional Fields
+6. Uji Kompetensi TypeScript Core Types
+
+Uji Kompetensi coverage:
+
+* basic types
+* arrays
+* objects
+* functions
+* optional fields
+
+### Module: Practical Type Design
+
+Lesson sequence:
+
+1. Union Types
+2. Narrowing
+3. Discriminated Union untuk UI State
+4. Generics Dasar
+5. Utility Types Dasar
+6. Uji Kompetensi Practical Type Design
+
+Uji Kompetensi coverage:
+
+* unions
+* narrowing
+* typed UI states
+* generic helper
+* avoiding unsafe casts
+
+### Module: Typed Frontend Boundaries
+
+Lesson sequence:
+
+1. Typing API Responses
+2. Typed Props
+3. Typed Custom Hooks
+4. Keeping Types Readable
+5. Uji Kompetensi Typed Frontend Boundaries
+
+Uji Kompetensi coverage:
+
+* API response types
+* component props
+* hook return types
+* boundary safety
+
+---
+
+# Level 7: React Fundamentals
+
+## Goal
+
+Build interactive UI with components, props, state, and forms.
+
+## Modules
+
+### Module: Component Model
+
+Lesson sequence:
+
+1. Apa Itu Component?
+2. JSX Dasar
+3. Props dan Children
+4. Splitting UI into Components
+5. Uji Kompetensi Component Model
+
+Uji Kompetensi coverage:
+
+* JSX
+* component structure
+* props
+* children
+* reusable card/button components
+
+### Module: State, Events, and Rendering
+
+Lesson sequence:
+
+1. useState Dasar
+2. Event Handling
+3. Conditional Rendering
+4. Lists and Keys
+5. Derived Display
+6. Uji Kompetensi State, Events, and Rendering
+
+Uji Kompetensi coverage:
+
+* state updates
+* events
+* conditions
+* lists
+* keys
+* derived display
+
+### Module: Forms and Composition
+
+Lesson sequence:
+
+1. Controlled Inputs
+2. Form Submit
+3. Composition Patterns
+4. Lifting State When Needed
+5. Uji Kompetensi Forms and Composition
+
+Uji Kompetensi coverage:
+
+* controlled form
+* form submit
+* composition
+* state boundaries
+
+---
+
+# Level 8: React Intermediate
+
+## Goal
+
+Organize behavior, state, and reusable patterns in medium-sized React features.
+
+## Modules
+
+### Module: Custom Hooks and Effects
+
+Lesson sequence:
+
+1. Kapan Perlu useEffect?
+2. Cleanup dan Dependency Array
+3. Custom Hook Dasar
+4. Browser Subscription Hook
+5. Uji Kompetensi Custom Hooks and Effects
+
+### Module: State Strategy
+
+Lesson sequence:
+
+1. State Colocation
+2. Derived State
+3. Reducer Pattern
+4. Context When Needed
+5. Uji Kompetensi State Strategy
+
+### Module: Reusable UI States
+
+Lesson sequence:
+
+1. Loading State
+2. Error State
+3. Empty State
+4. Retry Pattern
+5. Uji Kompetensi Reusable UI States
+
+---
+
+# Level 9: React Advanced
+
+## Goal
+
+Build resilient React patterns without over-abstraction.
+
+## Modules
+
+### Module: Resilience and Suspense Basics
+
+Lesson sequence:
+
+1. Error Boundaries
+2. Fallback UI
+3. Suspense Basics
+4. Retry and Recovery Patterns
+5. Uji Kompetensi Resilience and Suspense Basics
+
+### Module: Performance Awareness
+
+Lesson sequence:
+
+1. Render Cost
+2. Measuring Before Optimizing
+3. useMemo and useCallback When Useful
+4. Expensive Lists
+5. Uji Kompetensi Performance Awareness
+
+### Module: Advanced Component Patterns
+
+Lesson sequence:
+
+1. Compound Components
+2. Slots and Children Patterns
+3. Reusable Form Field Pattern
+4. Avoiding Over-Abstraction
+5. Uji Kompetensi Advanced Component Patterns
+
+---
+
+# Level 10: Next.js App Router
+
+## Goal
+
+Build app-level routes and layouts with the App Router.
+
+## Modules
+
+### Module: App Directory and Routing
+
+Lesson sequence:
+
+1. app Directory
+2. page.tsx and layout.tsx
+3. Nested Routes
+4. Dynamic Routes
+5. Route Groups
+6. Uji Kompetensi App Directory and Routing
+
+### Module: Server Components and Client Components
+
+Lesson sequence:
+
+1. Server Components
+2. Client Components
+3. use client Boundary
+4. Passing Props Across Boundaries
+5. Common Boundary Mistakes
+6. Uji Kompetensi Server and Client Components
+
+### Module: Loading, Error UI, Route Handlers, Metadata, and Env
+
+Lesson sequence:
+
+1. loading.tsx
+2. error.tsx
+3. Route Handlers
+4. Metadata
+5. Environment Variables
+6. Uji Kompetensi Next.js Route Behavior
+
+---
+
+# Level 11: Production Next.js
+
+## Goal
+
+Connect a Next.js app to real auth, persistence, and deployment workflows.
+
+## Modules
+
+### Module: Authentication and Session-Aware UI
+
+Lesson sequence:
+
+1. Login/Register UX
+2. Logout and Session-Aware Nav
+3. Public vs Protected Routes
+4. Auth Error States
+5. Uji Kompetensi Authentication and Session-Aware UI
+
+### Module: Supabase or Backend Integration
+
+Lesson sequence:
+
+1. Supabase Client Boundaries
+2. RLS Concept
+3. Service Layer
+4. Persisting User Data
+5. Profile Rows
+6. Uji Kompetensi Supabase Integration
+
+### Module: Production Operations
+
+Lesson sequence:
+
+1. Vercel Deployment
+2. Environment Setup
+3. Production Logs
+4. Caching Basics
+5. Deployment Debugging
+6. Uji Kompetensi Production Operations
+
+---
+
+# Level 12: Forms, Validation, and Data Fetching
+
+## Goal
+
+Build data-heavy product flows with useful validation and server-state thinking.
+
+## Modules
+
+### Module: React Hook Form and Zod
+
+Lesson sequence:
+
+1. Form Registration
+2. Zod Schema
+3. Field Errors
+4. Submit State
+5. Schema Reuse
+6. Uji Kompetensi React Hook Form and Zod
+
+### Module: Validation UX and Accessible Errors
+
+Lesson sequence:
+
+1. Inline Errors
+2. Summary Errors
+3. Focus Management
+4. Disabled State
+5. Success State
+6. Uji Kompetensi Validation UX
+
+### Module: Server-State Thinking
+
+Lesson sequence:
+
+1. Server State vs Client State
+2. Loading/Error/Empty States
+3. Mapping API Responses
+4. Optimistic UI Basics
+5. Uji Kompetensi Server-State Thinking
+
+---
+
+# Level 13: Testing
+
+## Goal
+
+Test important behavior without testing implementation details.
+
+## Modules
+
+### Module: Unit and Component Testing
+
+Lesson sequence:
+
+1. Testing Mindset
+2. Vitest Basics
+3. React Testing Library
+4. User Events
+5. Accessible Queries
+6. Uji Kompetensi Unit and Component Testing
+
+### Module: Integration and API Mocking
+
+Lesson sequence:
+
+1. Integration Test Scope
+2. MSW Basics
+3. Loading/Error/Success API States
+4. Auth-Adjacent Test Cases
+5. Uji Kompetensi Integration and API Mocking
+
+### Module: End-to-End Testing Strategy
+
+Lesson sequence:
+
+1. What E2E Should Cover
+2. Playwright Basics
+3. Critical User Journeys
+4. Flaky Test Causes
+5. Uji Kompetensi E2E Testing Strategy
+
+---
+
+# Level 14: Performance
+
+## Goal
+
+Improve user experience by measuring and reducing real performance costs.
+
+## Modules
+
+### Module: Core Web Vitals
+
+Lesson sequence:
+
+1. LCP
+2. INP
+3. CLS
+4. Lighthouse and Field vs Lab Data
+5. Performance Budget
+6. Uji Kompetensi Core Web Vitals
+
+### Module: Asset and Bundle Optimization
+
+Lesson sequence:
+
+1. Image Optimization
+2. Font Optimization
+3. Bundle Awareness
+4. Code Splitting
+5. Dynamic Imports
+6. Uji Kompetensi Asset and Bundle Optimization
+
+### Module: Rendering Cost and Hydration
+
+Lesson sequence:
+
+1. Hydration Cost
+2. Server vs Client Rendering Decisions
+3. Client Component Boundaries
+4. Expensive Re-renders
+5. Uji Kompetensi Rendering Cost and Hydration
+
+---
+
+# Level 15: Accessibility
+
+## Goal
+
+Build UI that works for keyboard, screen reader, and low-vision users.
+
+## Modules
+
+### Module: Semantic Review and Keyboard Navigation
+
+Lesson sequence:
+
+1. Semantic HTML Review
+2. Tab Order
+3. Focus Visibility
+4. Skip Links
+5. Keyboard Traps
+6. Uji Kompetensi Semantic Review and Keyboard Navigation
+
+### Module: Accessible Components
+
+Lesson sequence:
+
+1. Modal Accessibility
+2. Dropdown Accessibility
+3. Tabs Accessibility
+4. Focus Management
+5. ARIA When Needed
+6. Uji Kompetensi Accessible Components
+
+### Module: Accessibility Testing and Preferences
+
+Lesson sequence:
+
+1. Color Contrast
+2. Accessible Form Errors
+3. Reduced Motion
+4. Screen Reader Basics
+5. Testing Tools
+6. Uji Kompetensi Accessibility Testing and Preferences
+
+---
+
+# Level 16: Frontend Architecture
+
+## Goal
+
+Structure frontend code so features stay maintainable as the app grows.
+
+## Modules
+
+### Module: Feature-Based Structure and Boundaries
+
+Lesson sequence:
+
+1. Feature Folders
+2. Shared Components
+3. Service Layer
+4. Types and Content Boundaries
+5. Dependency Boundaries
+6. Uji Kompetensi Feature-Based Structure
+
+### Module: State and Data Strategy
+
+Lesson sequence:
+
+1. Server State vs Client State
+2. URL State
+3. Local State
+4. Persistence Boundaries
+5. Error Strategy
+6. Uji Kompetensi State and Data Strategy
+
+### Module: Component API and Documentation
+
+Lesson sequence:
+
+1. Component API Design
+2. Prop Naming
+3. Content-Driven Rendering
+4. Usage Examples
+5. Documentation Notes
+6. Uji Kompetensi Component API and Documentation
+
+---
+
+# Level 17: Design System
+
+## Goal
+
+Build consistent UI primitives and product components.
+
+## Modules
+
+### Module: Design Tokens and Variants
+
+Lesson sequence:
+
+1. Design Tokens
+2. Color and Spacing Tokens
+3. Radius and Typography
+4. Button Variants
+5. Card Variants
+6. Uji Kompetensi Design Tokens and Variants
+
+### Module: Product Components
+
+Lesson sequence:
+
+1. Form Components
+2. Table Components
+3. Modal
+4. Toast
+5. Tabs and Select
+6. Uji Kompetensi Product Components
+
+### Module: Storybook and Package Basics
+
+Lesson sequence:
+
+1. Storybook Basics
+2. Component Stories
+3. Accessibility Checks
+4. Package Structure Basics
+5. Changelog Thinking
+6. Uji Kompetensi Storybook and Package Basics
+
+---
+
+# Level 18: Backend Basics for Frontend Engineers
+
+## Goal
+
+Understand enough backend concepts to integrate, debug, and communicate effectively.
+
+## Modules
+
+### Module: API Fundamentals
+
+Lesson sequence:
+
+1. REST API Basics
+2. GraphQL Basics
+3. Status Codes
+4. Request and Response Shape
+5. Pagination and Webhooks
+6. Uji Kompetensi API Fundamentals
+
+### Module: Auth, Cookies, and Browser Security Boundaries
+
+Lesson sequence:
+
+1. Auth Concepts
+2. Cookies
+3. JWT vs Session
+4. CORS
+5. CSRF
+6. Secure Cookies
+7. Uji Kompetensi Auth and Browser Security Boundaries
+
+### Module: Data and Infrastructure Basics
+
+Lesson sequence:
+
+1. SQL Basics
+2. PostgreSQL Basics
+3. Supabase or Prisma Basics
+4. Redis Basics
+5. File Upload Concepts
+6. Uji Kompetensi Data and Infrastructure Basics
+
+---
+
+# Level 19: Security Basics
+
+## Goal
+
+Avoid common frontend security mistakes and understand product-level risk.
+
+## Modules
+
+### Module: Browser Attack Basics
+
+Lesson sequence:
+
+1. XSS Basics
+2. CSRF Basics
+3. CORS Risks
+4. Input Sanitization
+5. Dependency Vulnerabilities
+6. Uji Kompetensi Browser Attack Basics
+
+### Module: Secrets, Tokens, and Permissions
+
+Lesson sequence:
+
+1. Env Leakage
+2. Token Storage
+3. Secure Cookies
+4. Permission UI
+5. Auth Guards
+6. Uji Kompetensi Secrets, Tokens, and Permissions
+
+### Module: File Upload and Third-Party Risk
+
+Lesson sequence:
+
+1. File Upload Risks
+2. File Type and Size Checks
+3. Preview Risks
+4. Third-Party Packages
+5. iframe Constraints
+6. Uji Kompetensi File Upload and Third-Party Risk
+
+---
+
+# Level 20: Portfolio and Remote Readiness
+
+## Goal
+
+Turn technical skill into visible proof of work and job-ready communication.
+
+## Modules
+
+### Module: Portfolio Project Tracks
+
+Lesson sequence:
+
+1. Choosing a Portfolio Project
+2. SaaS Dashboard Project Scope
+3. Marketplace or E-commerce Mini Project Scope
+4. Design System Project Scope
+5. Feature Planning
+6. Uji Kompetensi Portfolio Project Tracks
+
+### Module: Project Documentation and Demo Prep
+
+Lesson sequence:
+
+1. README Structure
+2. Screenshots and Feature Notes
+3. Deployment Checklist
+4. Technical Decision Notes
+5. Demo Script
+6. Uji Kompetensi Project Documentation and Demo Prep
+
+### Module: Interview and Remote-Work Readiness
+
+Lesson sequence:
+
+1. Explaining What You Built
+2. Explaining Technical Choices
+3. Explaining Trade-offs
+4. PR and Async Work Habits
+5. Interview Practice
+6. Uji Kompetensi Interview and Remote-Work Readiness
+
+---
+
+# First Content Batches
+
+Content should expand in complete module slices.
+
+A complete module slice includes:
+
+* regular lessons
+* meaningful examples
+* practice when useful
+* Uji Kompetensi
+* assessment quiz/practice coverage
+* bridge to the next module
+* browser testing
+
+## Batch 1A: Web Foundations
+
+Status:
+
+* Active and accepted as v1.
+
+Includes:
+
+* Apa Itu Website dan Web Page?
+* Cara Kerja Web Page
+* Apa Itu HTML, CSS, dan JavaScript?
+* Peran HTML, CSS, dan JavaScript
+* Mengenal File index.html, style.css, dan script.js
+* Struktur Project Frontend Kecil
+* Uji Kompetensi Web Foundations
+
+## Batch 1B: HTML Basics
+
+Status:
+
+* Active and being matured.
+
+Includes:
+
+* Struktur HTML Dasar
+* Tag, Element, dan Attribute
+* Heading, Paragraf, Link, dan Gambar
+* Relative Paths Dasar
+* Uji Kompetensi HTML Basics
+
+## Batch 1C: Semantic HTML
+
+Status:
+
+* Active and being matured.
+
+Includes:
+
+* Struktur Semantic HTML
+* Latihan Menerapkan Semantic HTML
+* Uji Kompetensi Semantic HTML
+
+## Batch 1D: Forms and Basic Accessibility
+
+Status:
+
+* Planned.
+* Keep hidden until the first lesson batch is ready.
+
+Planned lessons:
+
+* Link vs Button
+* Form, Label, dan Input
+* Textarea, Select, dan Required Fields
+* Alt Text Dasar
+* Keyboard Navigation Dasar
+* Basic Accessibility Checklist
+* Uji Kompetensi Forms and Basic Accessibility
+
+## Batch 1E: CSS Core Mechanics
+
+Status:
+
+* Planned.
+* Do not reuse prototype CSS content without review.
+
+Planned lessons:
+
+* Apa Itu CSS?
+* Selector dan Declaration Dasar
+* Cascade dan Specificity Dasar
+* Uji Kompetensi CSS Core Mechanics
+
+# Content That Should Wait
 
 Wait until foundational modules are stable before creating:
 
-- Production Next.js.
-- Supabase-backed project work.
-- React Advanced.
-- Design system package structure.
-- Storybook.
-- E2E testing with Playwright.
-- Performance and Core Web Vitals deep dives.
-- Advanced accessibility components.
-- Security modules.
-- Portfolio capstone projects.
+* Production Next.js
+* Supabase-backed project work
+* React Advanced
+* Design system package structure
+* Storybook
+* E2E testing
+* Performance and Core Web Vitals deep dives
+* Advanced accessibility components
+* Security modules
+* Portfolio capstone projects
 
 Reason:
 
-- These topics need enough frontend fluency to avoid overwhelming learners.
-- They are better taught with project context.
-- They should reuse patterns from earlier content instead of introducing new complexity too early.
+* These topics need enough frontend fluency to avoid overwhelming learners.
+* They are better taught with project context.
+* They should reuse patterns from earlier content instead of introducing new complexity too early.
 
-## Authoring Notes for Future Content
+# Authoring Notes for Future Content
 
-- Keep lesson explanations short and practical.
-- Use Bahasa Indonesia for the main teaching content.
-- Keep common technical terms in English when they are standard in frontend work.
-- Prefer one main concept per lesson.
-- Include at least one active block in most lessons.
-- Use writing practice when the frontend task maps to remote-work communication.
-- Keep quizzes focused on understanding, not memorization.
-- Use project work only after learners have enough small practice pieces to combine.
+* Keep lesson explanations practical and beginner-friendly.
+* Use Bahasa Indonesia for main teaching content.
+* Keep common technical terms in English when natural.
+* Prefer one main concept per regular lesson.
+* Include quick checks in regular lessons.
+* Use coding practice when the learner is ready to apply the concept.
+* Use writing practice when the frontend task maps to remote-work communication.
+* Use Uji Kompetensi for module-level readiness checks.
+* Avoid quiz overload in regular lessons.
+* Avoid repetitive lessons.
+* Prefer fewer mature lessons over many shallow lessons.
+* Do not add the next module until the current module has been browser-tested.
