@@ -884,8 +884,8 @@ export const cssCoreMechanicsAssessmentQuiz: Quiz = {
       type: "multiple-choice",
       question: "Apa peran utama CSS dalam halaman web?",
       options: [
-        "Mengatur tampilan elemen HTML",
         "Menyimpan data user di database",
+        "Mengatur tampilan elemen HTML",
         "Mengirim request ke server",
         "Mengganti semua fungsi HTML",
       ],
@@ -897,7 +897,7 @@ export const cssCoreMechanicsAssessmentQuiz: Quiz = {
       id: "css-core-mechanics-assessment-q2",
       type: "multiple-choice",
       question: "Pada aturan .card { padding: 16px; }, bagian mana yang disebut selector?",
-      options: ["padding", ".card", "16px", "{ }"],
+      options: ["padding", "16px", ".card", "{ }"],
       correctAnswer: ".card",
       explanation:
         "Selector memilih target yang akan diberi style. Dalam contoh ini, .card menargetkan elemen dengan class=\"card\".",
@@ -906,7 +906,7 @@ export const cssCoreMechanicsAssessmentQuiz: Quiz = {
       id: "css-core-mechanics-assessment-q3",
       type: "multiple-choice",
       question: "Pada aturan p { color: blue; }, bagian mana yang disebut property?",
-      options: ["p", "blue", "color", "CSS"],
+      options: ["p", "blue", "CSS", "color"],
       correctAnswer: "color",
       explanation:
         "Property adalah hal yang diatur. Di contoh ini, color adalah property, sedangkan blue adalah value.",
@@ -915,7 +915,7 @@ export const cssCoreMechanicsAssessmentQuiz: Quiz = {
       id: "css-core-mechanics-assessment-q4",
       type: "multiple-choice",
       question: "Pada aturan h1 { font-size: 32px; }, bagian mana yang disebut value?",
-      options: ["h1", "font-size", "declaration", "32px"],
+      options: ["32px", "h1", "font-size", "declaration"],
       correctAnswer: "32px",
       explanation:
         "Value adalah nilai dari property. Di sini, font-size adalah property dan 32px adalah value.",
@@ -924,7 +924,7 @@ export const cssCoreMechanicsAssessmentQuiz: Quiz = {
       id: "css-core-mechanics-assessment-q5",
       type: "multiple-choice",
       question: "Selector mana yang menargetkan semua elemen p?",
-      options: ["#p", ".p", "p", "*p"],
+      options: ["#p", "p", ".p", "*p"],
       correctAnswer: "p",
       explanation:
         "p adalah element selector. Selector ini menargetkan elemen <p> di HTML.",
@@ -933,7 +933,7 @@ export const cssCoreMechanicsAssessmentQuiz: Quiz = {
       id: "css-core-mechanics-assessment-q6",
       type: "multiple-choice",
       question: "Selector mana yang menargetkan elemen dengan class=\"card\"?",
-      options: ["card", "#card", ".card", "class.card"],
+      options: ["card", "#card", "class.card", ".card"],
       correctAnswer: ".card",
       explanation:
         "Class selector memakai titik di depan nama class. .card menargetkan elemen dengan class=\"card\".",
@@ -942,7 +942,7 @@ export const cssCoreMechanicsAssessmentQuiz: Quiz = {
       id: "css-core-mechanics-assessment-q7",
       type: "multiple-choice",
       question: "Selector mana yang menargetkan elemen dengan id=\"main-title\"?",
-      options: [".main-title", "main-title", "title.main", "#main-title"],
+      options: ["#main-title", ".main-title", "main-title", "title.main"],
       correctAnswer: "#main-title",
       explanation:
         "ID selector memakai tanda pagar. #main-title menargetkan elemen dengan id=\"main-title\".",
@@ -953,8 +953,8 @@ export const cssCoreMechanicsAssessmentQuiz: Quiz = {
       question: "Apa yang dibantu oleh cascade dalam CSS?",
       options: [
         "Membuat URL baru",
-        "Menentukan aturan CSS mana yang berlaku ketika ada beberapa aturan",
         "Mengubah HTML menjadi database",
+        "Menentukan aturan CSS mana yang berlaku ketika ada beberapa aturan",
         "Menghapus semua selector",
       ],
       correctAnswer: "Menentukan aturan CSS mana yang berlaku ketika ada beberapa aturan",
@@ -967,9 +967,9 @@ export const cssCoreMechanicsAssessmentQuiz: Quiz = {
       question: "Jika p { color: gray; } dan .intro { color: blue; } sama-sama mengatur <p class=\"intro\">, aturan mana yang biasanya menang?",
       options: [
         "p karena lebih pendek",
-        ".intro karena class selector lebih spesifik",
         "Keduanya selalu dibatalkan",
         "Browser memilih acak",
+        ".intro karena class selector lebih spesifik",
       ],
       correctAnswer: ".intro karena class selector lebih spesifik",
       explanation:
@@ -980,14 +980,133 @@ export const cssCoreMechanicsAssessmentQuiz: Quiz = {
       type: "multiple-choice",
       question: "Saat CSS tidak sesuai harapan, apa langkah awal yang lebih sehat daripada langsung memakai !important?",
       options: [
-        "Menghapus semua HTML",
+        "Cek target selector, specificity, dan urutan rule",
         "Menambahkan !important ke semua rule",
         "Mengubah semua selector menjadi id",
-        "Cek target selector, specificity, dan urutan rule",
+        "Menghapus semua HTML",
       ],
       correctAnswer: "Cek target selector, specificity, dan urutan rule",
       explanation:
         "Sebelum memakai !important, cek apakah selector sudah menargetkan elemen yang benar, seberapa kuat selector itu, dan urutan rule di CSS.",
+    },
+  ],
+};
+
+export const boxModelSpacingAssessmentQuiz: Quiz = {
+  id: "box-model-spacing-assessment-quiz",
+  lessonId: "box-model-spacing-assessment",
+  title: "Assessment Box Model and Spacing",
+  passingScore: 70,
+  questions: [
+    {
+      id: "box-model-spacing-assessment-q1",
+      type: "multiple-choice",
+      question: "Dalam box model, bagian mana yang berisi teks atau gambar utama dari elemen?",
+      options: ["padding", "content", "margin", "border"],
+      correctAnswer: "content",
+      explanation:
+        "Content adalah isi utama elemen, seperti teks, gambar, atau elemen lain di dalam box.",
+    },
+    {
+      id: "box-model-spacing-assessment-q2",
+      type: "multiple-choice",
+      question: "Property mana yang memberi ruang di dalam elemen, antara content dan border?",
+      options: ["margin", "border", "padding", "height"],
+      correctAnswer: "padding",
+      explanation:
+        "Padding memberi ruang di dalam elemen. Jika isi card terlalu menempel ke tepi, biasanya kamu menambah padding.",
+    },
+    {
+      id: "box-model-spacing-assessment-q3",
+      type: "multiple-choice",
+      question: "Property mana yang memberi jarak luar antara satu elemen dan elemen lain?",
+      options: ["border", "width", "box-sizing", "margin"],
+      correctAnswer: "margin",
+      explanation:
+        "Margin mengatur jarak luar elemen. Ini berguna saat card terlalu dekat dengan elemen lain.",
+    },
+    {
+      id: "box-model-spacing-assessment-q4",
+      type: "multiple-choice",
+      question: "Apa fungsi border pada box model?",
+      options: [
+        "Memberi garis tepi elemen",
+        "Mengubah teks menjadi link",
+        "Menghapus semua padding",
+        "Menjalankan JavaScript",
+      ],
+      correctAnswer: "Memberi garis tepi elemen",
+      explanation:
+        "Border adalah garis tepi elemen. Border sering dipakai untuk memperjelas batas card atau field.",
+    },
+    {
+      id: "box-model-spacing-assessment-q5",
+      type: "multiple-choice",
+      question: "Property mana yang mengatur lebar elemen?",
+      options: ["height", "width", "color", "font-size"],
+      correctAnswer: "width",
+      explanation:
+        "Width mengatur lebar elemen. Height mengatur tinggi elemen.",
+    },
+    {
+      id: "box-model-spacing-assessment-q6",
+      type: "multiple-choice",
+      question: "Property mana yang mengatur tinggi elemen?",
+      options: ["margin", "padding", "height", "border-radius"],
+      correctAnswer: "height",
+      explanation:
+        "Height mengatur tinggi elemen. Untuk card sederhana, height tetap tidak selalu dibutuhkan karena isi card bisa berbeda-beda.",
+    },
+    {
+      id: "box-model-spacing-assessment-q7",
+      type: "multiple-choice",
+      question: "Property mana yang membatasi lebar maksimum card tanpa memaksa card selalu selebar itu?",
+      options: ["max-width", "color", "selector", "font-weight"],
+      correctAnswer: "max-width",
+      explanation:
+        "Max-width membatasi lebar maksimum. Elemen masih bisa lebih kecil saat ruang layar terbatas.",
+    },
+    {
+      id: "box-model-spacing-assessment-q8",
+      type: "multiple-choice",
+      question: "Apa manfaat box-sizing: border-box pada card sederhana?",
+      options: [
+        "Membuat JavaScript berjalan otomatis",
+        "Membuat padding dan border ikut dihitung dalam ukuran elemen",
+        "Mengubah semua margin menjadi nol",
+        "Membuat selector menjadi lebih spesifik",
+      ],
+      correctAnswer: "Membuat padding dan border ikut dihitung dalam ukuran elemen",
+      explanation:
+        "Dengan border-box, padding dan border ikut dihitung di dalam ukuran elemen. Ini membuat ukuran box lebih mudah diprediksi.",
+    },
+    {
+      id: "box-model-spacing-assessment-q9",
+      type: "multiple-choice",
+      question: "Mana contoh spacing yang lebih konsisten untuk card dan button?",
+      options: [
+        "Memakai padding pada card dan button sesuai kebutuhan",
+        "Menghapus semua jarak agar elemen menempel",
+        "Memakai margin acak di setiap elemen",
+        "Memakai !important untuk semua spacing",
+      ],
+      correctAnswer: "Memakai padding pada card dan button sesuai kebutuhan",
+      explanation:
+        "Spacing yang konsisten berarti jarak dipilih dengan tujuan. Padding membantu isi elemen tidak menempel, termasuk pada card dan button.",
+    },
+    {
+      id: "box-model-spacing-assessment-q10",
+      type: "multiple-choice",
+      question: "Saat spacing tidak sesuai harapan, apa langkah awal yang lebih sehat daripada langsung memakai !important?",
+      options: [
+        "Menghapus semua CSS",
+        "Cek selector, property spacing, dan posisi padding atau margin",
+        "Mengubah semua elemen menjadi div",
+        "Menambahkan !important ke semua rule",
+      ],
+      correctAnswer: "Cek selector, property spacing, dan posisi padding atau margin",
+      explanation:
+        "Cek dulu apakah selector sudah tepat dan apakah masalahnya butuh padding atau margin. !important bukan langkah awal yang sehat untuk debugging.",
     },
   ],
 };
@@ -1006,4 +1125,5 @@ export const quizzes: Quiz[] = [
   semanticHtmlAssessmentQuiz,
   formsBasicAccessibilityAssessmentQuiz,
   cssCoreMechanicsAssessmentQuiz,
+  boxModelSpacingAssessmentQuiz,
 ];

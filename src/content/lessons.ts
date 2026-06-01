@@ -2379,7 +2379,7 @@ export const cascadeSpecificityBasicLesson: Lesson = {
         "Specificity membantu browser memilih aturan yang lebih kuat.",
         "Class lebih spesifik daripada element selector.",
         "Jangan langsung memakai !important saat bingung.",
-        "Berikutnya, kamu akan menguji pemahaman CSS Core Mechanics.",
+        "Berikutnya, kamu akan menguji pemahaman CSS Core Mechanics sebelum lanjut ke box model dan spacing.",
       ],
     },
   ],
@@ -2393,6 +2393,415 @@ export const cascadeSpecificityBasicLesson: Lesson = {
       "cascade-specificity-basic-coding-practice",
       "cascade-specificity-basic-summary",
     ],
+  },
+};
+
+export const cssBoxModelBasicLesson: Lesson = {
+  id: "css-box-model-basic",
+  trackId: "frontend-engineering",
+  moduleId: "box-model-spacing",
+  title: "Box Model Dasar",
+  slug: "css-box-model-basic",
+  description:
+    "Pahami bagaimana elemen HTML dibaca sebagai kotak yang punya content, padding, border, dan margin.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 35,
+  objectives: [
+    "Memahami elemen HTML sebagai box di CSS",
+    "Membedakan content, padding, border, dan margin",
+    "Menerapkan box model pada card sederhana",
+  ],
+  skillTags: ["CSS", "Box Model", "Spacing"],
+  blocks: [
+    {
+      id: "css-box-model-basic-intro",
+      type: "text",
+      title: "Banyak elemen bisa dibayangkan sebagai kotak",
+      content:
+        "Di CSS, banyak elemen HTML bisa kamu bayangkan sebagai box. Box ini punya isi, ruang bagian dalam, garis tepi, dan jarak luar. Kamu tidak perlu menghafal semua detail layout dulu. Fokus pada empat bagian awal: content, padding, border, dan margin.",
+    },
+    {
+      id: "css-box-model-basic-core",
+      type: "text",
+      title: "Empat bagian box model",
+      content:
+        "Content adalah isi elemen, misalnya teks heading atau paragraf. Padding adalah jarak di dalam box, antara content dan border. Border adalah garis pembatas box. Margin adalah jarak luar yang memisahkan box dari elemen lain. Analogi card membantu: isi card adalah content, ruang napas di dalam card adalah padding, garis tepinya adalah border, dan jarak card dari elemen lain adalah margin.",
+    },
+    {
+      id: "css-box-model-basic-code-example",
+      type: "code-example",
+      title: "Card dengan padding, border, dan margin",
+      language: "html",
+      code: `<div class="card">
+  <h2>Belajar Box Model</h2>
+  <p>Padding, border, dan margin membantu tampilan lebih rapi.</p>
+</div>
+
+<style>
+  .card {
+    padding: 16px;
+    border: 1px solid #3f3f46;
+    margin: 16px;
+  }
+</style>`,
+      explanation:
+        "padding memberi ruang di dalam card. border memberi garis tepi. margin memberi jarak dari elemen lain. Ketiganya membantu card tidak terasa terlalu menempel.",
+    },
+    {
+      id: "css-box-model-basic-callout",
+      type: "callout",
+      variant: "important",
+      title: "Box model bukan hanya dekorasi",
+      content:
+        "Box model membantu kamu membuat tampilan yang lebih rapi, mudah dibaca, dan tidak terlalu menempel. Saat sebuah UI terasa sesak, sering kali masalahnya ada di padding, margin, atau ukuran box.",
+    },
+    {
+      id: "css-box-model-basic-quick-check",
+      type: "quick-check",
+      question:
+        "Bagian box model mana yang memberi jarak di dalam elemen, antara isi dan border?",
+      options: ["padding", "margin", "selector", "value"],
+      correctAnswer: "padding",
+      explanation:
+        "Padding memberi ruang di dalam elemen. Margin memberi jarak di luar elemen.",
+    },
+    {
+      id: "css-box-model-basic-coding-practice",
+      type: "coding-practice",
+      challengeId: "practice-css-box-model-card",
+    },
+    {
+      id: "css-box-model-basic-summary",
+      type: "summary",
+      points: [
+        "Elemen HTML bisa dipahami sebagai box.",
+        "Content adalah isi.",
+        "Padding adalah jarak dalam.",
+        "Border adalah garis tepi.",
+        "Margin adalah jarak luar.",
+        "Berikutnya, kamu akan membedakan padding dan margin lebih jelas.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "css-box-model-basic-intro",
+      "css-box-model-basic-core",
+      "css-box-model-basic-code-example",
+      "css-box-model-basic-callout",
+      "css-box-model-basic-quick-check",
+      "css-box-model-basic-coding-practice",
+      "css-box-model-basic-summary",
+    ],
+  },
+};
+
+export const cssPaddingMarginBasicLesson: Lesson = {
+  id: "css-padding-margin-basic",
+  trackId: "frontend-engineering",
+  moduleId: "box-model-spacing",
+  title: "Padding dan Margin",
+  slug: "css-padding-margin-basic",
+  description: "Pelajari perbedaan jarak dalam dan jarak luar pada elemen CSS.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 35,
+  objectives: [
+    "Membedakan padding dan margin",
+    "Menggunakan padding agar isi elemen tidak menempel",
+    "Menggunakan margin untuk memberi jarak antar elemen",
+  ],
+  skillTags: ["CSS", "Padding", "Margin", "Spacing"],
+  blocks: [
+    {
+      id: "css-padding-margin-basic-intro",
+      type: "text",
+      title: "Padding untuk ruang dalam, margin untuk ruang luar",
+      content:
+        "Padding dan margin sama-sama berhubungan dengan jarak, tetapi tempatnya berbeda. Padding adalah jarak di dalam elemen. Margin adalah jarak di luar elemen. Jika teks di dalam card terlalu menempel ke tepi, biasanya kamu butuh padding. Jika card terlalu menempel dengan elemen lain, biasanya kamu butuh margin.",
+    },
+    {
+      id: "css-padding-margin-basic-code-example",
+      type: "code-example",
+      title: "Spacing pada card dan button",
+      language: "css",
+      code: `.card {
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.button {
+  padding: 10px 14px;
+  margin-top: 12px;
+}`,
+      explanation:
+        "padding pada card membuat isi card lebih lega. margin-bottom memberi jarak setelah card. padding pada button membuat tombol lebih nyaman dibaca dan diklik.",
+    },
+    {
+      id: "css-padding-margin-basic-shorthand",
+      type: "text",
+      title: "Shorthand yang cukup untuk awal",
+      content:
+        "Kamu akan sering melihat penulisan singkat. padding: 16px berarti semua sisi mendapat jarak 16px. padding: 8px 12px berarti jarak atas-bawah 8px dan kiri-kanan 12px. Untuk sekarang, cukup pahami dua bentuk ini dulu. Empat nilai shorthand bisa dipelajari nanti saat kebutuhan layout lebih kompleks.",
+    },
+    {
+      id: "css-padding-margin-basic-common-mistake",
+      type: "callout",
+      variant: "common-mistake",
+      title: "Jangan memakai margin untuk ruang dalam card",
+      content:
+        "Jika teks di dalam card terlalu menempel ke tepi card, gunakan padding. Margin memberi jarak di luar elemen, jadi margin tidak memperbaiki ruang antara isi card dan tepi card.",
+    },
+    {
+      id: "css-padding-margin-basic-quick-check",
+      type: "quick-check",
+      question:
+        "Kalau teks di dalam card terlalu menempel ke tepi card, property mana yang biasanya dipakai?",
+      options: ["padding", "margin", "color", "font-size"],
+      correctAnswer: "padding",
+      explanation:
+        "Padding memberi ruang di dalam elemen, antara isi dan tepi elemen.",
+    },
+    {
+      id: "css-padding-margin-basic-coding-practice",
+      type: "coding-practice",
+      challengeId: "practice-css-padding-margin-card",
+    },
+    {
+      id: "css-padding-margin-basic-summary",
+      type: "summary",
+      points: [
+        "Padding mengatur jarak dalam.",
+        "Margin mengatur jarak luar.",
+        "Button biasanya butuh padding agar lebih nyaman.",
+        "Card biasanya butuh padding dan margin agar terlihat rapi.",
+        "Berikutnya, kamu akan memakai border, border-radius, dan max-width untuk membuat card lebih jelas.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "css-padding-margin-basic-intro",
+      "css-padding-margin-basic-code-example",
+      "css-padding-margin-basic-shorthand",
+      "css-padding-margin-basic-common-mistake",
+      "css-padding-margin-basic-quick-check",
+      "css-padding-margin-basic-coding-practice",
+      "css-padding-margin-basic-summary",
+    ],
+  },
+};
+
+export const cssBorderWidthBasicLesson: Lesson = {
+  id: "css-border-width-basic",
+  trackId: "frontend-engineering",
+  moduleId: "box-model-spacing",
+  title: "Border, Width, dan Max Width",
+  slug: "css-border-width-basic",
+  description:
+    "Pelajari cara memberi batas, mengatur lebar, dan menjaga card tetap mudah dibaca.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 35,
+  objectives: [
+    "Memahami border sebagai garis tepi elemen",
+    "Menggunakan border-radius untuk sudut yang lebih halus",
+    "Menggunakan max-width agar card tetap mudah dibaca",
+    "Mengenal width, height, dan box-sizing secara sederhana",
+  ],
+  skillTags: ["CSS", "Border", "Width", "Max Width", "Box Sizing"],
+  blocks: [
+    {
+      id: "css-border-width-basic-intro",
+      type: "text",
+      title: "Border memperjelas batas, max-width menjaga lebar",
+      content:
+        "Setelah kamu memahami padding dan margin, sekarang kamu bisa memperjelas bentuk box. Border memberi garis tepi. Border-radius membuat sudut elemen lebih halus. Width menentukan lebar elemen. Max-width membatasi lebar maksimum tanpa memaksa elemen selalu selebar itu.",
+    },
+    {
+      id: "css-border-width-basic-code-example",
+      type: "code-example",
+      title: "Card dengan batas dan lebar maksimum",
+      language: "css",
+      code: `.card {
+  max-width: 420px;
+  border: 1px solid #3f3f46;
+  border-radius: 12px;
+  padding: 16px;
+}`,
+      explanation:
+        "max-width menjaga card tidak terlalu panjang. border memperjelas batas card. border-radius membuat sudut card terasa lebih halus. padding tetap dibutuhkan agar isi tidak menempel.",
+    },
+    {
+      id: "css-border-width-basic-sizing-note",
+      type: "text",
+      title: "Width, height, dan box-sizing",
+      content:
+        "Width mengatur lebar elemen. Height mengatur tinggi elemen, tetapi untuk card sederhana kamu tidak selalu perlu height tetap karena isi card bisa berbeda-beda. Box-sizing membantu ukuran box lebih mudah diprediksi. Dengan box-sizing: border-box, padding dan border ikut dihitung di dalam ukuran elemen, sehingga card lebih mudah dikontrol.",
+    },
+    {
+      id: "css-border-width-basic-callout",
+      type: "callout",
+      variant: "tip",
+      title: "Max-width sering lebih fleksibel daripada width tetap",
+      content:
+        "Jangan terlalu cepat memakai width tetap untuk semua kondisi. Untuk card belajar sederhana, max-width sering lebih aman karena card masih bisa mengecil saat ruang layar terbatas.",
+    },
+    {
+      id: "css-border-width-basic-quick-check",
+      type: "quick-check",
+      question:
+        "Property mana yang membatasi lebar maksimum elemen tanpa memaksa semua elemen selalu selebar itu?",
+      options: ["max-width", "color", "selector", "font-size"],
+      correctAnswer: "max-width",
+      explanation:
+        "max-width membatasi lebar maksimum, tetapi elemen masih bisa lebih kecil jika ruangnya terbatas.",
+    },
+    {
+      id: "css-border-width-basic-coding-practice",
+      type: "coding-practice",
+      challengeId: "practice-css-border-width-card",
+    },
+    {
+      id: "css-border-width-basic-summary",
+      type: "summary",
+      points: [
+        "Border memberi garis tepi.",
+        "Border-radius menghaluskan sudut.",
+        "Max-width membantu menjaga card tetap nyaman dibaca.",
+        "Box-sizing membantu ukuran box lebih mudah diprediksi.",
+        "Padding tetap penting agar isi tidak menempel.",
+        "Berikutnya, kamu akan menguji pemahaman box model dan spacing dasar.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "css-border-width-basic-intro",
+      "css-border-width-basic-code-example",
+      "css-border-width-basic-sizing-note",
+      "css-border-width-basic-callout",
+      "css-border-width-basic-quick-check",
+      "css-border-width-basic-coding-practice",
+      "css-border-width-basic-summary",
+    ],
+  },
+};
+
+export const boxModelSpacingAssessmentLesson: Lesson = {
+  id: "box-model-spacing-assessment",
+  trackId: "frontend-engineering",
+  moduleId: "box-model-spacing",
+  title: "Uji Kompetensi Box Model and Spacing",
+  slug: "box-model-spacing-assessment",
+  description:
+    "Uji pemahaman content, padding, border, margin, width, height, box-sizing, dan spacing dasar.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 45,
+  objectives: [
+    "Mengecek pemahaman content, padding, border, dan margin",
+    "Mengecek pemahaman width, height, max-width, dan box-sizing",
+    "Mengecek kemampuan membedakan padding dan margin",
+    "Mengecek kemampuan memperbaiki spacing sederhana",
+    "Mengarahkan learner membaca dokumentasi resmi CSS dengan fokus",
+  ],
+  skillTags: ["CSS", "Box Model", "Spacing", "Assessment"],
+  blocks: [
+    {
+      id: "box-model-spacing-assessment-recap",
+      type: "text",
+      title: "Apa yang dicek di assessment ini",
+      content:
+        "Assessment ini mengecek apakah kamu sudah memahami box model dan spacing dasar. Kamu akan membedakan content, padding, border, dan margin; membaca width, height, max-width, dan box-sizing; lalu memperbaiki spacing pada card sederhana. Fokusnya bukan membuat desain sempurna, tetapi membuktikan bahwa kamu bisa membuat box lebih rapi dan mudah dibaca.",
+    },
+    {
+      id: "box-model-spacing-assessment-quiz-block",
+      type: "quiz",
+      quizId: "box-model-spacing-assessment-quiz",
+    },
+    {
+      id: "box-model-spacing-assessment-coding-practice",
+      type: "coding-practice",
+      challengeId: "fix-box-model-spacing-card",
+    },
+    {
+      id: "box-model-spacing-assessment-docs-bridge",
+      type: "documentation-bridge",
+      title: "Baca dokumentasi resmi",
+      description:
+        "Gunakan bagian ini sebagai latihan membaca dokumentasi CSS, bukan tugas menghafal. Fokus pada bagian yang sudah kamu pakai di latihan.",
+      links: [
+        {
+          source: "MDN Web Docs",
+          title: "The box model",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model",
+          focus: [
+            "content",
+            "padding",
+            "border",
+            "margin",
+          ],
+          ignoreForNow: [
+            "margin collapsing details",
+            "complex sizing behavior",
+            "advanced layout",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "Sizing items in CSS",
+          url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS",
+          focus: [
+            "width",
+            "height",
+            "max-width",
+            "cara ukuran elemen memengaruhi layout",
+          ],
+          ignoreForNow: [
+            "advanced intrinsic sizing",
+            "complex layout systems",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "box-sizing",
+          url: "https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing",
+          focus: [
+            "box-sizing: border-box",
+            "hubungan ukuran elemen dengan padding dan border",
+            "kenapa ukuran box lebih mudah diprediksi",
+          ],
+          ignoreForNow: [
+            "CSS reset debates",
+            "advanced browser defaults",
+          ],
+        },
+      ],
+      followUpAction:
+        "Kembali ke latihan spacing card kamu dan tunjukkan: satu padding, satu margin, satu border, satu max-width, dan satu alasan kenapa box-sizing: border-box membantu ukuran card lebih mudah diprediksi.",
+    },
+    {
+      id: "box-model-spacing-assessment-summary",
+      type: "summary",
+      points: [
+        "Kamu membuktikan bahwa kamu memahami content, padding, border, dan margin.",
+        "Kamu membuktikan bahwa kamu bisa membedakan padding sebagai jarak dalam dan margin sebagai jarak luar.",
+        "Kamu membuktikan bahwa kamu bisa memakai max-width dan box-sizing untuk membuat card lebih mudah dikontrol.",
+        "Jika belum siap, review lagi box model, padding vs margin, border, max-width, dan box-sizing.",
+        "Setelah box model dan spacing dasar mulai aman, berikutnya kamu bisa lanjut ke layout CSS yang lebih terarah.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "box-model-spacing-assessment-recap",
+      "box-model-spacing-assessment-quiz-block",
+      "box-model-spacing-assessment-coding-practice",
+      "box-model-spacing-assessment-summary",
+    ],
+    passingQuizScore: 70,
   },
 };
 
@@ -2598,6 +3007,10 @@ export const lessons: Lesson[] = [
   whatIsCssLesson,
   cssSelectorDeclarationBasicLesson,
   cascadeSpecificityBasicLesson,
+  cssBoxModelBasicLesson,
+  cssPaddingMarginBasicLesson,
+  cssBorderWidthBasicLesson,
+  boxModelSpacingAssessmentLesson,
   cssCoreMechanicsAssessmentLesson,
   cssFlexboxBasicsLesson,
   writingDailyUpdateLesson,

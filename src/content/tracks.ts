@@ -14,6 +14,7 @@ export const frontendEngineeringTrack: Track = {
     "semantic-html",
     "forms-basic-accessibility",
     "css-core-mechanics",
+    "box-model-spacing",
   ],
   skillTags: ["HTML", "CSS", "JavaScript", "Frontend"],
 };

@@ -92,6 +92,24 @@ export const cssCoreMechanicsModule: Module = {
   skillTags: ["CSS", "Selectors", "Cascade", "Specificity"],
 };
 
+export const boxModelSpacingModule: Module = {
+  id: "box-model-spacing",
+  trackId: "frontend-engineering",
+  title: "Box Model and Spacing",
+  slug: "box-model-spacing",
+  description:
+    "Pelajari box model, padding, margin, border, width, height, max-width, dan box-sizing untuk membuat elemen lebih rapi dan mudah dibaca.",
+  order: 6,
+  lessonIds: [
+    "css-box-model-basic",
+    "css-padding-margin-basic",
+    "css-border-width-basic",
+    "box-model-spacing-assessment",
+  ],
+  estimatedHours: 3,
+  skillTags: ["CSS", "Box Model", "Spacing", "Box Sizing"],
+};
+
 // Legacy module kept so old module slugs do not disappear abruptly.
 // It is not linked from frontendEngineeringTrack.moduleIds.
 export const htmlWebFundamentalsModule: Module = {
@@ -140,6 +158,7 @@ export const modules: Module[] = [
   semanticHtmlModule,
   formsBasicAccessibilityModule,
   cssCoreMechanicsModule,
+  boxModelSpacingModule,
   htmlWebFundamentalsModule,
   cssFundamentalsModule,
   englishForRemoteWorkModule,

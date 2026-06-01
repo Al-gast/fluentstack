@@ -1018,6 +1018,276 @@ export const debugBasicCssCascadeChallenge: CodingChallenge = {
   skillTags: ["CSS", "Cascade", "Specificity", "Debugging"],
 };
 
+export const practiceCssBoxModelCardChallenge: CodingChallenge = {
+  id: "practice-css-box-model-card",
+  lessonId: "css-box-model-basic",
+  title: "Membuat card dengan box model dasar",
+  description:
+    "Latihan memakai padding, border, dan margin pada card sederhana.",
+  instructions: [
+    "Fokus di tab CSS.",
+    "Targetkan elemen dengan class card memakai .card.",
+    "Tambahkan padding.",
+    "Tambahkan border.",
+    "Tambahkan margin.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<article class="card">
+  <h2>Belajar Box Model</h2>
+  <p>Card ini perlu ruang dalam, garis tepi, dan jarak luar.</p>
+</article>`,
+    css: `/* Tambahkan style box model untuk .card di sini */`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<article class="card">
+  <h2>Belajar Box Model</h2>
+  <p>Card ini perlu ruang dalam, garis tepi, dan jarak luar.</p>
+</article>`,
+    css: `.card {
+  padding: 16px;
+  border: 1px solid #3f3f46;
+  margin: 16px;
+}`,
+    js: "",
+  },
+  checklist: [
+    "Ada selector .card.",
+    ".card memiliki padding.",
+    ".card memiliki border.",
+    ".card memiliki margin.",
+    "Tidak memakai !important.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-card-selector", label: "Ada selector .card.", type: "cssSelectorExists", target: ".card" },
+      { id: "card-padding", label: ".card punya property padding.", type: "cssSelectorPropertyExists", target: ".card", property: "padding" },
+      { id: "card-border", label: ".card punya property border.", type: "cssSelectorPropertyExists", target: ".card", property: "border" },
+      { id: "card-margin", label: ".card punya property margin.", type: "cssSelectorPropertyExists", target: ".card", property: "margin" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Box Model", "Spacing"],
+};
+
+export const practiceCssPaddingMarginCardChallenge: CodingChallenge = {
+  id: "practice-css-padding-margin-card",
+  lessonId: "css-padding-margin-basic",
+  title: "Mengatur padding dan margin pada card",
+  description:
+    "Latihan membedakan jarak dalam dan jarak luar pada card dan button.",
+  instructions: [
+    "Fokus di tab CSS.",
+    "Targetkan .card.",
+    "Tambahkan padding agar isi card tidak menempel.",
+    "Tambahkan margin-bottom agar card punya jarak dengan elemen berikutnya.",
+    "Targetkan .button.",
+    "Tambahkan padding pada button.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<article class="card">
+  <h2>Spacing di CSS</h2>
+  <p>Padding dan margin membantu UI lebih mudah dibaca.</p>
+  <button class="button">Lanjut belajar</button>
+</article>
+
+<p>Elemen berikutnya seharusnya tidak terlalu menempel ke card.</p>`,
+    css: `/* Tambahkan spacing untuk .card dan .button di sini */`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<article class="card">
+  <h2>Spacing di CSS</h2>
+  <p>Padding dan margin membantu UI lebih mudah dibaca.</p>
+  <button class="button">Lanjut belajar</button>
+</article>
+
+<p>Elemen berikutnya seharusnya tidak terlalu menempel ke card.</p>`,
+    css: `.card {
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.button {
+  padding: 10px 14px;
+}`,
+    js: "",
+  },
+  checklist: [
+    "Ada selector .card.",
+    ".card memiliki padding.",
+    ".card memiliki margin-bottom.",
+    "Ada selector .button.",
+    ".button memiliki padding.",
+    "Tidak memakai !important.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-card-selector", label: "Ada selector .card.", type: "cssSelectorExists", target: ".card" },
+      { id: "card-padding", label: ".card punya property padding.", type: "cssSelectorPropertyExists", target: ".card", property: "padding" },
+      { id: "card-margin-bottom", label: ".card punya property margin-bottom.", type: "cssSelectorPropertyExists", target: ".card", property: "margin-bottom" },
+      { id: "has-button-selector", label: "Ada selector .button.", type: "cssSelectorExists", target: ".button" },
+      { id: "button-padding", label: ".button punya property padding.", type: "cssSelectorPropertyExists", target: ".button", property: "padding" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Padding", "Margin", "Spacing"],
+};
+
+export const practiceCssBorderWidthCardChallenge: CodingChallenge = {
+  id: "practice-css-border-width-card",
+  lessonId: "css-border-width-basic",
+  title: "Membuat card dengan border dan max-width",
+  description:
+    "Latihan memakai border, border-radius, max-width, padding, dan style heading pada card.",
+  instructions: [
+    "Fokus di tab CSS.",
+    "Targetkan .card.",
+    "Tambahkan max-width.",
+    "Tambahkan border.",
+    "Tambahkan border-radius.",
+    "Tambahkan padding.",
+    "Targetkan .card-title.",
+    "Tambahkan font-size.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<article class="card">
+  <h2 class="card-title">Card CSS</h2>
+  <p class="card-description">Max-width membantu card tetap nyaman dibaca.</p>
+</article>`,
+    css: `/* Tambahkan style untuk .card dan .card-title di sini */`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<article class="card">
+  <h2 class="card-title">Card CSS</h2>
+  <p class="card-description">Max-width membantu card tetap nyaman dibaca.</p>
+</article>`,
+    css: `.card {
+  max-width: 420px;
+  border: 1px solid #3f3f46;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 24px;
+}`,
+    js: "",
+  },
+  checklist: [
+    "Ada selector .card.",
+    ".card memiliki max-width.",
+    ".card memiliki border.",
+    ".card memiliki border-radius.",
+    ".card memiliki padding.",
+    "Ada selector .card-title.",
+    ".card-title memiliki font-size.",
+    "Tidak memakai !important.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-card-selector", label: "Ada selector .card.", type: "cssSelectorExists", target: ".card" },
+      { id: "card-max-width", label: ".card punya property max-width.", type: "cssSelectorPropertyExists", target: ".card", property: "max-width" },
+      { id: "card-border", label: ".card punya property border.", type: "cssSelectorPropertyExists", target: ".card", property: "border" },
+      { id: "card-border-radius", label: ".card punya property border-radius.", type: "cssSelectorPropertyExists", target: ".card", property: "border-radius" },
+      { id: "card-padding", label: ".card punya property padding.", type: "cssSelectorPropertyExists", target: ".card", property: "padding" },
+      { id: "has-card-title-selector", label: "Ada selector .card-title.", type: "cssSelectorExists", target: ".card-title" },
+      { id: "card-title-font-size", label: ".card-title punya property font-size.", type: "cssSelectorPropertyExists", target: ".card-title", property: "font-size" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Border", "Width", "Max Width"],
+};
+
+export const fixBoxModelSpacingCardChallenge: CodingChallenge = {
+  id: "fix-box-model-spacing-card",
+  lessonId: "box-model-spacing-assessment",
+  title: "Memperbaiki spacing card sederhana",
+  description:
+    "Assessment praktik untuk memperbaiki box model dan spacing pada card sederhana.",
+  instructions: [
+    "Perbaiki card agar spacing-nya lebih rapi.",
+    "Gunakan .card untuk styling container.",
+    "Tambahkan max-width.",
+    "Tambahkan padding.",
+    "Tambahkan border.",
+    "Tambahkan box-sizing.",
+    "Gunakan .card-title untuk mengatur jarak title.",
+    "Gunakan .card-description untuk mengatur jarak description.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<article class="card">
+  <h2 class="card-title">Box Model Review</h2>
+  <p class="card-description">Perbaiki spacing card agar lebih mudah dibaca.</p>
+  <button class="button">Lanjut</button>
+</article>`,
+    css: `.card {
+  background: #18181b;
+}
+
+.button {
+  padding: 8px 12px;
+}`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<article class="card">
+  <h2 class="card-title">Box Model Review</h2>
+  <p class="card-description">Perbaiki spacing card agar lebih mudah dibaca.</p>
+  <button class="button">Lanjut</button>
+</article>`,
+    css: `.card {
+  background: #18181b;
+  max-width: 420px;
+  padding: 20px;
+  border: 1px solid #3f3f46;
+  box-sizing: border-box;
+}
+
+.card-title {
+  margin-bottom: 8px;
+}
+
+.card-description {
+  margin-bottom: 16px;
+}
+
+.button {
+  padding: 8px 12px;
+}`,
+    js: "",
+  },
+  checklist: [
+    "Card terlihat lebih mudah dibaca.",
+    "Jarak title dan description terasa rapi.",
+    "Spacing tidak bergantung pada !important.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-card-selector", label: "Ada selector .card.", type: "cssSelectorExists", target: ".card" },
+      { id: "card-max-width", label: ".card punya property max-width.", type: "cssSelectorPropertyExists", target: ".card", property: "max-width" },
+      { id: "card-padding", label: ".card punya property padding.", type: "cssSelectorPropertyExists", target: ".card", property: "padding" },
+      { id: "card-border", label: ".card punya property border.", type: "cssSelectorPropertyExists", target: ".card", property: "border" },
+      { id: "card-box-sizing", label: ".card punya property box-sizing.", type: "cssSelectorPropertyExists", target: ".card", property: "box-sizing" },
+      { id: "has-card-title-selector", label: "Ada selector .card-title.", type: "cssSelectorExists", target: ".card-title" },
+      { id: "card-title-margin-bottom", label: ".card-title punya property margin-bottom.", type: "cssSelectorPropertyExists", target: ".card-title", property: "margin-bottom" },
+      { id: "has-card-description-selector", label: "Ada selector .card-description.", type: "cssSelectorExists", target: ".card-description" },
+      { id: "card-description-margin-bottom", label: ".card-description punya property margin-bottom.", type: "cssSelectorPropertyExists", target: ".card-description", property: "margin-bottom" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Box Model", "Spacing", "Assessment"],
+};
+
 export const buildStyledInfoCardChallenge: CodingChallenge = {
   id: "build-styled-info-card",
   lessonId: "css-core-mechanics-assessment",
@@ -1077,7 +1347,9 @@ export const buildStyledInfoCardChallenge: CodingChallenge = {
       { id: "card-background", label: ".card punya property background.", type: "cssSelectorPropertyExists", target: ".card", property: "background" },
       { id: "card-padding", label: ".card punya property padding.", type: "cssSelectorPropertyExists", target: ".card", property: "padding" },
       { id: "card-border-radius", label: ".card punya property border-radius.", type: "cssSelectorPropertyExists", target: ".card", property: "border-radius" },
+      { id: "has-card-title-selector", label: "Ada selector .card-title.", type: "cssSelectorExists", target: ".card-title" },
       { id: "card-title-font-size", label: ".card-title punya property font-size.", type: "cssSelectorPropertyExists", target: ".card-title", property: "font-size" },
+      { id: "has-card-description-selector", label: "Ada selector .card-description.", type: "cssSelectorExists", target: ".card-description" },
       { id: "card-description-color", label: ".card-description punya property color.", type: "cssSelectorPropertyExists", target: ".card-description", property: "color" },
       { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
     ],
@@ -1261,6 +1533,10 @@ export const challenges: CodingChallenge[] = [
   styleBasicHtmlTextChallenge,
   practiceCssSelectorsDeclarationsChallenge,
   debugBasicCssCascadeChallenge,
+  practiceCssBoxModelCardChallenge,
+  practiceCssPaddingMarginCardChallenge,
+  practiceCssBorderWidthCardChallenge,
+  fixBoxModelSpacingCardChallenge,
   buildStyledInfoCardChallenge,
   buildFlexboxNavbarChallenge,
 ];
