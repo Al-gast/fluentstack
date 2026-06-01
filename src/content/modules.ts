@@ -6,15 +6,18 @@ export const webFoundationsModule: Module = {
   title: "Web Foundations",
   slug: "web-foundations",
   description:
-    "Pahami cara web page dimuat, struktur project frontend kecil, dan dasar semantic HTML untuk halaman yang rapi.",
+    "Pahami apa itu website, cara web page dimuat, peran HTML/CSS/JavaScript, dan file dasar di project frontend kecil.",
   order: 1,
   lessonIds: [
+    "what-is-website-and-web-page",
     "how-web-page-loads",
+    "what-are-html-css-javascript",
+    "html-css-js-roles",
+    "index-css-js-files",
     "small-frontend-project-structure",
-    "semantic-html-structure",
   ],
-  estimatedHours: 8,
-  skillTags: ["Web Fundamentals", "Browser", "HTML", "Project Structure"],
+  estimatedHours: 12,
+  skillTags: ["Web Fundamentals", "Browser", "HTML", "CSS", "JavaScript"],
 };
 
 export const htmlWebFundamentalsModule: Module = {
@@ -23,10 +26,15 @@ export const htmlWebFundamentalsModule: Module = {
   title: "HTML & Web Fundamentals",
   slug: "html-web-fundamentals",
   description:
-    "Pahami struktur halaman web dan cara browser membaca HTML.",
+    "Tulis struktur HTML dasar, pahami tag, element, attribute, dan gunakan semantic HTML dengan lebih tepat.",
   order: 2,
-  lessonIds: ["html-semantic-basics"],
-  estimatedHours: 6,
+  lessonIds: [
+    "html-basic-structure",
+    "tag-element-attribute",
+    "semantic-html-structure",
+    "html-semantic-basics",
+  ],
+  estimatedHours: 10,
   skillTags: ["HTML", "Web Fundamentals", "Accessibility"],
 };
 
