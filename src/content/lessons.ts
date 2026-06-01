@@ -543,18 +543,18 @@ export const indexCssJsFilesLesson: Lesson = {
 export const semanticHtmlStructureLesson: Lesson = {
   id: "semantic-html-structure",
   trackId: "frontend-engineering",
-  moduleId: "html-web-fundamentals",
+  moduleId: "semantic-html",
   title: "Struktur Semantic HTML",
   slug: "semantic-html-structure",
   description:
     "Gunakan tag dan element HTML yang sudah kamu pelajari untuk menyusun struktur halaman yang lebih bermakna.",
   contentLanguage: "id",
   level: "beginner",
-  estimatedMinutes: 24,
+  estimatedMinutes: 36,
   objectives: [
     "Memahami fungsi elemen semantic dalam struktur halaman",
     "Memilih elemen untuk navigasi, konten utama, dan footer",
-    "Menyusun kerangka halaman yang mudah dibaca browser, screen reader, dan developer lain",
+    "Menyusun kerangka semantic HTML dan melihat hasilnya di preview",
   ],
   skillTags: ["HTML", "Semantic HTML", "Accessibility"],
   blocks: [
@@ -609,6 +609,11 @@ export const semanticHtmlStructureLesson: Lesson = {
         "nav menandai area navigasi. Link di dalamnya biasanya dipakai untuk berpindah halaman atau bagian penting.",
     },
     {
+      id: "semantic-html-structure-coding-practice",
+      type: "coding-practice",
+      challengeId: "build-semantic-html-page",
+    },
+    {
       id: "semantic-html-structure-quiz-block",
       type: "quiz",
       quizId: "semantic-html-structure-quiz",
@@ -620,6 +625,7 @@ export const semanticHtmlStructureLesson: Lesson = {
         "Gunakan semantic HTML untuk menjelaskan peran setiap bagian halaman.",
         "Pilih elemen berdasarkan fungsi konten, bukan tampilan visual.",
         "Mulai dari struktur dasar: header, nav, main, section, article, dan footer.",
+        "Di preview, cek apakah struktur halaman tetap terbaca jelas walau styling masih sederhana.",
         "Berikutnya, kamu bisa review lagi penggunaan semantic HTML lewat contoh yang lebih fokus.",
       ],
     },
@@ -630,6 +636,7 @@ export const semanticHtmlStructureLesson: Lesson = {
       "semantic-html-structure-common-mistake",
       "semantic-html-structure-code-example",
       "semantic-html-structure-quick-check",
+      "semantic-html-structure-coding-practice",
       "semantic-html-structure-quiz-block",
       "semantic-html-structure-summary",
     ],
@@ -640,18 +647,18 @@ export const semanticHtmlStructureLesson: Lesson = {
 export const htmlBasicStructureLesson: Lesson = {
   id: "html-basic-structure",
   trackId: "frontend-engineering",
-  moduleId: "html-web-fundamentals",
+  moduleId: "html-basics",
   title: "Struktur HTML Dasar",
   slug: "html-basic-structure",
   description:
     "Mulai menulis HTML dengan mengenali kerangka dokumen dan tempat konten terlihat.",
   contentLanguage: "id",
   level: "beginner",
-  estimatedMinutes: 22,
+  estimatedMinutes: 35,
   objectives: [
     "Mengenali struktur dasar dokumen HTML",
     "Memahami fungsi doctype, html, head, dan body",
-    "Menaruh konten halaman sederhana di dalam body",
+    "Menulis halaman HTML sederhana dan melihat hasilnya di preview",
   ],
   skillTags: ["HTML", "Web Fundamentals"],
   blocks: [
@@ -691,6 +698,11 @@ export const htmlBasicStructureLesson: Lesson = {
         "Konten yang terlihat oleh pengunjung, seperti heading dan paragraf, ditaruh di dalam body.",
     },
     {
+      id: "html-basic-structure-coding-practice",
+      type: "coding-practice",
+      challengeId: "build-basic-html-page",
+    },
+    {
       id: "html-basic-structure-quiz-block",
       type: "quiz",
       quizId: "html-basic-structure-quiz",
@@ -702,6 +714,7 @@ export const htmlBasicStructureLesson: Lesson = {
         "Dokumen HTML punya kerangka dasar seperti doctype, html, head, dan body.",
         "head berisi informasi untuk browser, bukan konten utama halaman.",
         "body berisi konten yang terlihat oleh pengunjung.",
+        "Gunakan preview untuk mengecek apakah konten di body sudah muncul.",
         "Berikutnya, kamu akan membedakan tag, element, dan attribute agar lebih mudah membaca HTML.",
       ],
     },
@@ -711,6 +724,7 @@ export const htmlBasicStructureLesson: Lesson = {
       "html-basic-structure-intro",
       "html-basic-structure-code-example",
       "html-basic-structure-quick-check",
+      "html-basic-structure-coding-practice",
       "html-basic-structure-quiz-block",
       "html-basic-structure-summary",
     ],
@@ -721,18 +735,18 @@ export const htmlBasicStructureLesson: Lesson = {
 export const tagElementAttributeLesson: Lesson = {
   id: "tag-element-attribute",
   trackId: "frontend-engineering",
-  moduleId: "html-web-fundamentals",
+  moduleId: "html-basics",
   title: "Tag, Element, dan Attribute",
   slug: "tag-element-attribute",
   description:
     "Pahami perbedaan tag, element, dan attribute sebelum masuk ke semantic HTML.",
   contentLanguage: "id",
   level: "beginner",
-  estimatedMinutes: 22,
+  estimatedMinutes: 32,
   objectives: [
     "Membedakan tag dan element",
     "Memahami attribute sebagai informasi tambahan pada element",
-    "Membaca contoh HTML sederhana dengan lebih percaya diri",
+    "Memakai attribute pada link dan gambar sederhana",
   ],
   skillTags: ["HTML", "Web Fundamentals"],
   blocks: [
@@ -770,6 +784,11 @@ export const tagElementAttributeLesson: Lesson = {
         "src dan alt adalah attribute karena memberi informasi tambahan pada element img.",
     },
     {
+      id: "tag-element-attribute-coding-practice",
+      type: "coding-practice",
+      challengeId: "practice-tag-element-attribute",
+    },
+    {
       id: "tag-element-attribute-quiz-block",
       type: "quiz",
       quizId: "tag-element-attribute-quiz",
@@ -781,6 +800,7 @@ export const tagElementAttributeLesson: Lesson = {
         "Tag adalah penanda HTML, seperti <p> atau <a>.",
         "Element adalah bagian HTML lengkap, termasuk tag dan kontennya.",
         "Attribute memberi informasi tambahan pada element.",
+        "Saat latihan, cek attribute seperti href, src, dan alt karena bagian itu membuat element punya tujuan lebih jelas.",
         "Berikutnya, kamu akan memakai pemahaman ini untuk memilih element semantic yang tepat.",
       ],
     },
@@ -791,6 +811,7 @@ export const tagElementAttributeLesson: Lesson = {
       "tag-element-attribute-note",
       "tag-element-attribute-code-example",
       "tag-element-attribute-quick-check",
+      "tag-element-attribute-coding-practice",
       "tag-element-attribute-quiz-block",
       "tag-element-attribute-summary",
     ],
@@ -801,18 +822,18 @@ export const tagElementAttributeLesson: Lesson = {
 export const htmlSemanticBasicsLesson: Lesson = {
   id: "html-semantic-basics",
   trackId: "frontend-engineering",
-  moduleId: "html-web-fundamentals",
+  moduleId: "semantic-html",
   title: "Dasar Semantic HTML",
   slug: "html-semantic-basics",
   description:
     "Pakai semantic HTML untuk membuat struktur halaman lebih jelas bagi browser, screen reader, dan developer lain.",
   contentLanguage: "id",
   level: "beginner",
-  estimatedMinutes: 25,
+  estimatedMinutes: 35,
   objectives: [
     "Memahami fungsi semantic HTML",
-    "Mengenali elemen semantic yang sering dipakai",
-    "Memilih elemen HTML yang tepat untuk struktur konten nyata",
+    "Mereview elemen semantic yang sering dipakai",
+    "Mengubah struktur berbasis div menjadi semantic HTML yang lebih jelas",
   ],
   skillTags: ["HTML", "Accessibility", "Web Fundamentals"],
   blocks: [
@@ -864,9 +885,9 @@ export const htmlSemanticBasicsLesson: Lesson = {
         "Elemen main dipakai untuk konten utama halaman, bukan header, sidebar, atau navigasi.",
     },
     {
-      id: "html-semantic-quiz",
-      type: "quiz",
-      quizId: "html-semantic-quiz",
+      id: "html-semantic-refactor-practice",
+      type: "coding-practice",
+      challengeId: "refactor-div-layout-to-semantic-html",
     },
     {
       id: "html-semantic-summary",
@@ -874,6 +895,7 @@ export const htmlSemanticBasicsLesson: Lesson = {
       points: [
         "Semantic HTML membuat struktur halaman lebih jelas dan bermakna.",
         "Pilih elemen berdasarkan fungsi konten, bukan sekadar tampilan.",
+        "Jika div hanya dipakai sebagai wrapper besar, cek apakah header, nav, main, article, section, atau footer lebih tepat.",
         "Struktur semantic yang baik mendukung accessibility dan membuat kode lebih mudah dirawat.",
       ],
     },
@@ -883,10 +905,9 @@ export const htmlSemanticBasicsLesson: Lesson = {
       "html-semantic-intro",
       "html-semantic-code-example",
       "html-semantic-quick-check",
-      "html-semantic-quiz",
+      "html-semantic-refactor-practice",
       "html-semantic-summary",
     ],
-    passingQuizScore: 70,
   },
 };
 

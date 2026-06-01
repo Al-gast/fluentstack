@@ -434,8 +434,9 @@ Rules:
 - Include a clear checklist.
 - Include solution code when useful.
 - Do not require server execution.
-- Do not rely on automated validation for MVP.
-- Completion is manual: learner reviews checklist and clicks mark completed.
+- Use simple auto validation when requirements can be checked deterministically.
+- Keep manual checklist review for subjective output quality or older challenges without validation metadata.
+- For beginner HTML lessons, prefer rule-based checks for structure such as doctype, required elements, and required attributes.
 
 Challenge checklist items should be observable:
 
