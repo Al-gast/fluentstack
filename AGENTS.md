@@ -121,6 +121,24 @@ Use Supabase for:
 * XP
 * streak
 
+## Content Quality Work
+
+For any task that adds or revises learning content, read the relevant content docs before editing:
+
+* `docs/11_COPYWRITING_AND_CONTENT_VOICE.md`
+* `docs/20_FRONTEND_CURRICULUM_DETAIL.md` when frontend content is involved
+* `docs/21_ENGLISH_CURRICULUM_DETAIL.md` when English content is involved
+* `docs/22_CONTENT_AUTHORING_GUIDE.md`
+* `docs/23_LESSON_FORMAT_STANDARD.md`
+* `docs/24_LESSON_QUALITY_RUBRIC.md`
+
+Rules:
+
+* Do not add large batches of new content until the relevant beginner path has a strong quality benchmark.
+* For beginner lessons, assume the learner starts from zero.
+* Introduce terms before using them heavily.
+* Every lesson should have a clear bridge to the next lesson unless it is the last lesson in a module.
+
 ## Language Strategy
 
 Developer-facing parts should use English.

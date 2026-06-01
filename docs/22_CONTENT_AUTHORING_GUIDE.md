@@ -109,9 +109,9 @@ Lesson authoring rules:
 - Define required blocks in `completionRule.requiredBlockIds`.
 - Make progress depend on meaningful actions, not page views.
 
-New or revised lessons should also follow `docs/23_LESSON_FORMAT_STANDARD.md`.
+New or revised lessons should also follow `docs/23_LESSON_FORMAT_STANDARD.md` and be scored with `docs/24_LESSON_QUALITY_RUBRIC.md`.
 
-Use this guide (`docs/22_CONTENT_AUTHORING_GUIDE.md`) for content rules, schema alignment, naming, workflow, and review checks. Use `docs/23_LESSON_FORMAT_STANDARD.md` for the repeatable lesson structure: goal, path position, core concept, example, check, activity, summary, and bridge to the next lesson.
+Use this guide (`docs/22_CONTENT_AUTHORING_GUIDE.md`) for content rules, schema alignment, naming, workflow, and review checks. Use `docs/23_LESSON_FORMAT_STANDARD.md` for the repeatable lesson structure: goal, path position, core concept, example, check, activity, summary, and bridge to the next lesson. Use `docs/24_LESSON_QUALITY_RUBRIC.md` for lesson quality scoring, especially before scaling beginner content.
 
 ### Block
 
@@ -513,13 +513,15 @@ Use this workflow for every content batch:
 1. Choose curriculum module.
 2. Define lesson objectives.
 3. Choose block pattern.
-4. Write content.
-5. Add quizzes, challenges, or writing practices.
-6. Update module lesson IDs.
-7. Run lint/build.
-8. Test routes.
-9. Review in browser.
-10. Commit.
+4. Draft one representative lesson.
+5. Score the representative lesson with `docs/24_LESSON_QUALITY_RUBRIC.md` before scaling the batch.
+6. Write the remaining content only after the representative lesson meets the quality gate.
+7. Add quizzes, challenges, or writing practices.
+8. Update module lesson IDs.
+9. Run lint/build.
+10. Test routes.
+11. Review in browser.
+12. Commit.
 
 Batch size guidance:
 
@@ -533,6 +535,7 @@ Content quality:
 
 - Each lesson has one clear objective.
 - Copy follows `docs/11_COPYWRITING_AND_CONTENT_VOICE.md`.
+- Representative beginner lessons meet the quality gate in `docs/24_LESSON_QUALITY_RUBRIC.md`.
 - No filler or generic motivation.
 - Bahasa Indonesia is natural and direct.
 - Technical terms stay English when natural.
