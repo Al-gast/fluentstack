@@ -743,6 +743,255 @@ export const semanticHtmlAssessmentQuiz: Quiz = {
   ],
 };
 
+export const formsBasicAccessibilityAssessmentQuiz: Quiz = {
+  id: "forms-basic-accessibility-assessment-quiz",
+  lessonId: "forms-basic-accessibility-assessment",
+  title: "Assessment Forms and Basic Accessibility",
+  passingScore: 70,
+  questions: [
+    {
+      id: "forms-basic-accessibility-assessment-q1",
+      type: "multiple-choice",
+      question: "Jika elemen membawa user ke halaman dokumentasi, elemen mana yang paling tepat?",
+      options: ["Button", "Input", "Link", "Textarea"],
+      correctAnswer: "Link",
+      explanation:
+        "Link dipakai untuk navigasi ke halaman, file, section, atau resource lain. Link boleh terlihat seperti button, tetapi makna HTML-nya tetap link.",
+    },
+    {
+      id: "forms-basic-accessibility-assessment-q2",
+      type: "multiple-choice",
+      question: "Jika user menekan elemen untuk mengirim form, elemen mana yang paling tepat?",
+      options: ["button type=\"submit\"", "a href=\"#\"", "img", "option"],
+      correctAnswer: "button type=\"submit\"",
+      explanation:
+        "Button submit dipakai untuk aksi mengirim form. Link lebih tepat untuk berpindah tempat, bukan menjalankan submit form.",
+    },
+    {
+      id: "forms-basic-accessibility-assessment-q3",
+      type: "multiple-choice",
+      question: "Agar label terhubung ke input, pasangan mana yang harus cocok?",
+      options: [
+        "form action dan input name",
+        "label class dan input type",
+        "button type dan input value",
+        "label for dan input id",
+      ],
+      correctAnswer: "label for dan input id",
+      explanation:
+        "Nilai for pada label harus cocok dengan id pada input. Koneksi ini membantu browser dan assistive technology memahami field.",
+    },
+    {
+      id: "forms-basic-accessibility-assessment-q4",
+      type: "multiple-choice",
+      question: "Field mana yang paling cocok untuk pesan panjang dari user?",
+      options: ["textarea", "input type=\"email\"", "select", "button"],
+      correctAnswer: "textarea",
+      explanation:
+        "Textarea cocok untuk teks panjang atau multi-line, seperti pesan kontak, catatan, atau deskripsi.",
+    },
+    {
+      id: "forms-basic-accessibility-assessment-q5",
+      type: "multiple-choice",
+      question: "Kapan select lebih tepat dipakai?",
+      options: [
+        "Saat user perlu menulis pesan panjang",
+        "Saat user memilih dari opsi yang sudah disediakan",
+        "Saat user membuka halaman lain",
+        "Saat gambar gagal dimuat",
+      ],
+      correctAnswer: "Saat user memilih dari opsi yang sudah disediakan",
+      explanation:
+        "Select membantu ketika pilihan sudah ditentukan, misalnya topik support atau feedback.",
+    },
+    {
+      id: "forms-basic-accessibility-assessment-q6",
+      type: "multiple-choice",
+      question: "Apa fungsi attribute required pada field form?",
+      options: [
+        "Membuat field tidak terlihat",
+        "Mengubah link menjadi button",
+        "Memberi tahu browser bahwa field wajib diisi",
+        "Menghapus label dari input",
+      ],
+      correctAnswer: "Memberi tahu browser bahwa field wajib diisi",
+      explanation:
+        "Required membantu browser meminta user mengisi field penting sebelum form dikirim.",
+    },
+    {
+      id: "forms-basic-accessibility-assessment-q7",
+      type: "multiple-choice",
+      question: "Alt text mana yang paling berguna untuk grafik progres belajar?",
+      options: [
+        "chart.png",
+        "Foto bagus",
+        "Gambar",
+        "Grafik progres belajar meningkat dari 40% ke 70%",
+      ],
+      correctAnswer: "Grafik progres belajar meningkat dari 40% ke 70%",
+      explanation:
+        "Alt text yang berguna menjelaskan makna gambar dalam konteks halaman, bukan hanya nama file atau kata umum.",
+    },
+    {
+      id: "forms-basic-accessibility-assessment-q8",
+      type: "multiple-choice",
+      question: "Tombol dan link penting di halaman sebaiknya bisa dicek dengan tombol apa untuk berpindah fokus?",
+      options: ["Tab", "Caps Lock", "Print Screen", "Escape saja"],
+      correctAnswer: "Tab",
+      explanation:
+        "Tab membantu user keyboard berpindah dari satu elemen focusable ke elemen berikutnya.",
+    },
+    {
+      id: "forms-basic-accessibility-assessment-q9",
+      type: "multiple-choice",
+      question: "Apa risiko memakai div yang diberi klik untuk aksi dasar seperti tombol?",
+      options: [
+        "Div selalu mengirim form otomatis",
+        "Div otomatis menjadi link eksternal",
+        "Div bisa lebih sulit dipakai dengan keyboard",
+        "Div tidak bisa diberi CSS",
+      ],
+      correctAnswer: "Div bisa lebih sulit dipakai dengan keyboard",
+      explanation:
+        "Div tidak punya perilaku button bawaan. Untuk aksi dasar, button asli lebih aman untuk keyboard dan accessibility.",
+    },
+    {
+      id: "forms-basic-accessibility-assessment-q10",
+      type: "multiple-choice",
+      question: "Mana contoh checklist accessibility dasar yang tepat?",
+      options: [
+        "Mengubah semua elemen menjadi div",
+        "Menghapus semua label agar form lebih pendek",
+        "Memastikan semua gambar memakai nama file sebagai alt",
+        "Mengecek label terhubung, button dipakai untuk aksi, dan Tab bisa menjangkau elemen interaktif",
+      ],
+      correctAnswer:
+        "Mengecek label terhubung, button dipakai untuk aksi, dan Tab bisa menjangkau elemen interaktif",
+      explanation:
+        "Checklist awal membantu menangkap masalah umum: label harus terhubung, elemen semantic harus tepat, dan interaksi harus bisa dijangkau keyboard.",
+    },
+  ],
+};
+
+export const cssCoreMechanicsAssessmentQuiz: Quiz = {
+  id: "css-core-mechanics-assessment-quiz",
+  lessonId: "css-core-mechanics-assessment",
+  title: "Assessment CSS Core Mechanics",
+  passingScore: 70,
+  questions: [
+    {
+      id: "css-core-mechanics-assessment-q1",
+      type: "multiple-choice",
+      question: "Apa peran utama CSS dalam halaman web?",
+      options: [
+        "Mengatur tampilan elemen HTML",
+        "Menyimpan data user di database",
+        "Mengirim request ke server",
+        "Mengganti semua fungsi HTML",
+      ],
+      correctAnswer: "Mengatur tampilan elemen HTML",
+      explanation:
+        "HTML memberi struktur dan makna. CSS mengatur tampilan seperti warna, ukuran, jarak, border, dan layout.",
+    },
+    {
+      id: "css-core-mechanics-assessment-q2",
+      type: "multiple-choice",
+      question: "Pada aturan .card { padding: 16px; }, bagian mana yang disebut selector?",
+      options: ["padding", ".card", "16px", "{ }"],
+      correctAnswer: ".card",
+      explanation:
+        "Selector memilih target yang akan diberi style. Dalam contoh ini, .card menargetkan elemen dengan class=\"card\".",
+    },
+    {
+      id: "css-core-mechanics-assessment-q3",
+      type: "multiple-choice",
+      question: "Pada aturan p { color: blue; }, bagian mana yang disebut property?",
+      options: ["p", "blue", "color", "CSS"],
+      correctAnswer: "color",
+      explanation:
+        "Property adalah hal yang diatur. Di contoh ini, color adalah property, sedangkan blue adalah value.",
+    },
+    {
+      id: "css-core-mechanics-assessment-q4",
+      type: "multiple-choice",
+      question: "Pada aturan h1 { font-size: 32px; }, bagian mana yang disebut value?",
+      options: ["h1", "font-size", "declaration", "32px"],
+      correctAnswer: "32px",
+      explanation:
+        "Value adalah nilai dari property. Di sini, font-size adalah property dan 32px adalah value.",
+    },
+    {
+      id: "css-core-mechanics-assessment-q5",
+      type: "multiple-choice",
+      question: "Selector mana yang menargetkan semua elemen p?",
+      options: ["#p", ".p", "p", "*p"],
+      correctAnswer: "p",
+      explanation:
+        "p adalah element selector. Selector ini menargetkan elemen <p> di HTML.",
+    },
+    {
+      id: "css-core-mechanics-assessment-q6",
+      type: "multiple-choice",
+      question: "Selector mana yang menargetkan elemen dengan class=\"card\"?",
+      options: ["card", "#card", ".card", "class.card"],
+      correctAnswer: ".card",
+      explanation:
+        "Class selector memakai titik di depan nama class. .card menargetkan elemen dengan class=\"card\".",
+    },
+    {
+      id: "css-core-mechanics-assessment-q7",
+      type: "multiple-choice",
+      question: "Selector mana yang menargetkan elemen dengan id=\"main-title\"?",
+      options: [".main-title", "main-title", "title.main", "#main-title"],
+      correctAnswer: "#main-title",
+      explanation:
+        "ID selector memakai tanda pagar. #main-title menargetkan elemen dengan id=\"main-title\".",
+    },
+    {
+      id: "css-core-mechanics-assessment-q8",
+      type: "multiple-choice",
+      question: "Apa yang dibantu oleh cascade dalam CSS?",
+      options: [
+        "Membuat URL baru",
+        "Menentukan aturan CSS mana yang berlaku ketika ada beberapa aturan",
+        "Mengubah HTML menjadi database",
+        "Menghapus semua selector",
+      ],
+      correctAnswer: "Menentukan aturan CSS mana yang berlaku ketika ada beberapa aturan",
+      explanation:
+        "Cascade adalah proses browser memilih aturan yang berlaku saat beberapa aturan CSS mengatur elemen yang sama.",
+    },
+    {
+      id: "css-core-mechanics-assessment-q9",
+      type: "multiple-choice",
+      question: "Jika p { color: gray; } dan .intro { color: blue; } sama-sama mengatur <p class=\"intro\">, aturan mana yang biasanya menang?",
+      options: [
+        "p karena lebih pendek",
+        ".intro karena class selector lebih spesifik",
+        "Keduanya selalu dibatalkan",
+        "Browser memilih acak",
+      ],
+      correctAnswer: ".intro karena class selector lebih spesifik",
+      explanation:
+        "Class selector lebih spesifik daripada element selector, sehingga .intro biasanya menang atas p untuk elemen tersebut.",
+    },
+    {
+      id: "css-core-mechanics-assessment-q10",
+      type: "multiple-choice",
+      question: "Saat CSS tidak sesuai harapan, apa langkah awal yang lebih sehat daripada langsung memakai !important?",
+      options: [
+        "Menghapus semua HTML",
+        "Menambahkan !important ke semua rule",
+        "Mengubah semua selector menjadi id",
+        "Cek target selector, specificity, dan urutan rule",
+      ],
+      correctAnswer: "Cek target selector, specificity, dan urutan rule",
+      explanation:
+        "Sebelum memakai !important, cek apakah selector sudah menargetkan elemen yang benar, seberapa kuat selector itu, dan urutan rule di CSS.",
+    },
+  ],
+};
+
 export const quizzes: Quiz[] = [
   whatIsWebsiteAndWebPageQuiz,
   howWebPageLoadsQuiz,
@@ -755,4 +1004,6 @@ export const quizzes: Quiz[] = [
   semanticHtmlStructureQuiz,
   htmlSemanticQuiz,
   semanticHtmlAssessmentQuiz,
+  formsBasicAccessibilityAssessmentQuiz,
+  cssCoreMechanicsAssessmentQuiz,
 ];

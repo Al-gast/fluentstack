@@ -1384,7 +1384,7 @@ export const semanticHtmlAssessmentLesson: Lesson = {
         "Kamu siap jika bisa memilih semantic element berdasarkan fungsi konten.",
         "Gunakan nav untuk navigasi, main untuk konten utama, dan footer untuk bagian penutup.",
         "Gunakan section atau article ketika bagian konten punya kelompok atau isi mandiri yang jelas.",
-        "Assessment ini menutup module Semantic HTML. Setelah ini, module berikutnya belum diaktifkan sampai materi Forms atau CSS siap.",
+        "Berikutnya, kamu akan masuk ke Forms and Basic Accessibility dan mulai membedakan link, button, serta field form dasar.",
       ],
     },
   ],
@@ -1394,6 +1394,648 @@ export const semanticHtmlAssessmentLesson: Lesson = {
       "semantic-html-assessment-quiz-block",
       "semantic-html-assessment-coding-practice",
       "semantic-html-assessment-summary",
+    ],
+    passingQuizScore: 70,
+  },
+};
+
+export const linkVsButtonLesson: Lesson = {
+  id: "link-vs-button",
+  trackId: "frontend-engineering",
+  moduleId: "forms-basic-accessibility",
+  title: "Link vs Button",
+  slug: "link-vs-button",
+  description:
+    "Pahami kapan memakai link dan kapan memakai button agar interaksi halaman lebih jelas.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 20,
+  objectives: [
+    "Membedakan link untuk berpindah tempat dan button untuk menjalankan aksi",
+    "Memilih elemen berdasarkan maksud pengguna, bukan tampilan visual",
+    "Menghindari kesalahan umum saat memilih link atau button",
+  ],
+  skillTags: ["HTML", "Accessibility", "Forms"],
+  blocks: [
+    {
+      id: "link-vs-button-intro",
+      type: "text",
+      title: "Tampilan bisa mirip, maknanya berbeda",
+      content:
+        "Link dan button bisa dibuat terlihat mirip dengan CSS. Tetapi di HTML, maknanya berbeda. Link dipakai ketika user berpindah tempat: membuka halaman, bagian halaman, file, atau website lain. Button dipakai ketika user menjalankan aksi di halaman: mengirim form, membuka menu, membuka modal, menyimpan data, atau menandai sesuatu selesai.",
+    },
+    {
+      id: "link-vs-button-examples",
+      type: "text",
+      title: "Contoh di FluentStack",
+      content:
+        "Di FluentStack, teks seperti Semua track, Lihat roadmap, atau Buka dokumentasi adalah link karena membawa kamu ke halaman atau resource lain. Tombol seperti Kirim jawaban, Tandai selesai, atau Reset adalah button karena menjalankan aksi di halaman yang sedang kamu pakai.",
+    },
+    {
+      id: "link-vs-button-common-mistake",
+      type: "callout",
+      variant: "common-mistake",
+      title: "Jangan memilih dari bentuk visual saja",
+      content:
+        "Kesalahan yang sering terjadi adalah memakai button untuk navigasi biasa atau link untuk aksi form. Pilih dari maksud user: berpindah tempat berarti link, menjalankan aksi berarti button. Tampilan visual bisa diatur belakangan dengan CSS.",
+    },
+    {
+      id: "link-vs-button-quick-check",
+      type: "quick-check",
+      question:
+        "Kalau user menekan elemen untuk membuka halaman dokumentasi MDN di tab baru, elemen mana yang paling tepat?",
+      options: ["Link", "Button", "Input", "Select"],
+      correctAnswer: "Link",
+      explanation:
+        "Link tepat karena user sedang berpindah ke halaman atau resource lain. Link tetap boleh terlihat seperti button, tetapi makna HTML-nya tetap link.",
+    },
+    {
+      id: "link-vs-button-code-example",
+      type: "code-example",
+      title: "Contoh link dan button",
+      language: "html",
+      code: `<a href="/roadmap">Lihat roadmap</a>
+
+<button type="button">Buka menu</button>
+
+<button type="submit">Kirim form</button>`,
+      explanation:
+        "a dengan href membawa user ke tujuan lain. button type=\"button\" menjalankan aksi biasa di halaman. button type=\"submit\" dipakai untuk mengirim form.",
+    },
+    {
+      id: "link-vs-button-summary",
+      type: "summary",
+      points: [
+        "Gunakan link untuk berpindah tempat.",
+        "Gunakan button untuk menjalankan aksi.",
+        "Tampilan bisa dibuat mirip dengan CSS, tetapi makna HTML tetap harus benar.",
+        "Berikutnya, kamu akan membuat form sederhana dengan label dan input.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "link-vs-button-intro",
+      "link-vs-button-examples",
+      "link-vs-button-common-mistake",
+      "link-vs-button-quick-check",
+      "link-vs-button-code-example",
+      "link-vs-button-summary",
+    ],
+  },
+};
+
+export const formLabelInputLesson: Lesson = {
+  id: "form-label-input",
+  trackId: "frontend-engineering",
+  moduleId: "forms-basic-accessibility",
+  title: "Form, Label, dan Input",
+  slug: "form-label-input",
+  description:
+    "Bangun form sederhana dan hubungkan label dengan input agar field mudah dipahami.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 30,
+  objectives: [
+    "Memahami fungsi form, label, dan input",
+    "Menghubungkan label ke input dengan for dan id",
+    "Membuat field email sederhana yang lebih jelas dibaca",
+  ],
+  skillTags: ["HTML", "Forms", "Accessibility"],
+  blocks: [
+    {
+      id: "form-label-input-intro",
+      type: "text",
+      title: "Form mengumpulkan input dari user",
+      content:
+        "Form dipakai ketika halaman perlu menerima data dari user. Label menjelaskan nama atau instruksi sebuah field. Input adalah tempat user mengetik atau memilih nilai. Label bukan sekadar teks yang kebetulan berada di dekat input. Untuk form yang lebih jelas dan lebih accessible, label sebaiknya terhubung ke input.",
+    },
+    {
+      id: "form-label-input-code-example",
+      type: "code-example",
+      title: "Form email sederhana",
+      language: "html",
+      code: `<form>
+  <label for="email">Email</label>
+  <input id="email" name="email" type="email" />
+  <button type="submit">Daftar</button>
+</form>`,
+      explanation:
+        "form mengelompokkan field. label for=\"email\" menunjuk ke input id=\"email\". name membantu mengenali nilai saat form dikirim. type=\"email\" memberi tahu browser bahwa field ini berisi email. Button submit dipakai untuk mengirim form.",
+    },
+    {
+      id: "form-label-input-common-mistake",
+      type: "callout",
+      variant: "common-mistake",
+      title: "Label harus benar-benar terhubung",
+      content:
+        "Menaruh teks Email di dekat input belum cukup. Nilai for pada label harus cocok dengan id pada input. Koneksi ini membantu browser dan assistive technology memahami field dengan lebih jelas.",
+    },
+    {
+      id: "form-label-input-quick-check",
+      type: "quick-check",
+      question: "Agar label 'Email' terhubung ke input, pasangan mana yang harus cocok?",
+      options: [
+        "label for dan input id",
+        "label class dan input type",
+        "form action dan input placeholder",
+        "button type dan input name",
+      ],
+      correctAnswer: "label for dan input id",
+      explanation:
+        "Nilai for pada label harus sama dengan id pada input. Contohnya label for=\"email\" terhubung ke input id=\"email\".",
+    },
+    {
+      id: "form-label-input-coding-practice",
+      type: "coding-practice",
+      challengeId: "build-basic-accessible-form",
+    },
+    {
+      id: "form-label-input-summary",
+      type: "summary",
+      points: [
+        "form mengelompokkan field yang diisi user.",
+        "label menjelaskan field.",
+        "input menerima data dari user.",
+        "for dan id menghubungkan label ke input.",
+        "Berikutnya, kamu akan menambah field textarea, select, dan required.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "form-label-input-intro",
+      "form-label-input-code-example",
+      "form-label-input-common-mistake",
+      "form-label-input-quick-check",
+      "form-label-input-coding-practice",
+      "form-label-input-summary",
+    ],
+  },
+};
+
+export const textareaSelectRequiredFieldsLesson: Lesson = {
+  id: "textarea-select-required-fields",
+  trackId: "frontend-engineering",
+  moduleId: "forms-basic-accessibility",
+  title: "Textarea, Select, dan Required Fields",
+  slug: "textarea-select-required-fields",
+  description:
+    "Tambahkan field pesan, pilihan, dan required agar form lebih lengkap.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 35,
+  objectives: [
+    "Membedakan input, textarea, dan select berdasarkan jenis data",
+    "Menggunakan required untuk field yang wajib diisi",
+    "Membuat form kontak sederhana dengan beberapa jenis field",
+  ],
+  skillTags: ["HTML", "Forms", "Accessibility"],
+  blocks: [
+    {
+      id: "textarea-select-required-fields-intro",
+      type: "text",
+      title: "Form bisa punya beberapa jenis field",
+      content:
+        "Input cocok untuk nilai pendek seperti nama atau email. Textarea cocok untuk teks panjang seperti pesan. Select cocok ketika user harus memilih dari opsi yang sudah disediakan. Required dipakai untuk memberi tahu browser bahwa field tertentu wajib diisi sebelum form dikirim.",
+    },
+    {
+      id: "textarea-select-required-fields-code-example",
+      type: "code-example",
+      title: "Textarea dan select",
+      language: "html",
+      code: `<label for="message">Pesan</label>
+<textarea id="message" name="message" required></textarea>
+
+<label for="topic">Topik</label>
+<select id="topic" name="topic" required>
+  <option value="">Pilih topik</option>
+  <option value="support">Support</option>
+  <option value="feedback">Feedback</option>
+</select>`,
+      explanation:
+        "Textarea memberi ruang untuk teks panjang. Select membatasi pilihan agar user memilih salah satu opsi. Required membuat browser meminta field diisi sebelum submit.",
+    },
+    {
+      id: "textarea-select-required-fields-common-mistake",
+      type: "callout",
+      variant: "common-mistake",
+      title: "Placeholder bukan pengganti label",
+      content:
+        "Placeholder bisa membantu memberi contoh isi, tetapi jangan menjadikannya satu-satunya nama field. Tetap tampilkan label yang jelas dan hubungkan label ke field memakai for dan id.",
+    },
+    {
+      id: "textarea-select-required-fields-quick-check",
+      type: "quick-check",
+      question: "Field mana yang paling cocok untuk pesan panjang dari user?",
+      options: ["textarea", "input type=\"email\"", "button", "option"],
+      correctAnswer: "textarea",
+      explanation:
+        "Textarea lebih cocok untuk teks panjang atau multi-line, seperti pesan kontak, catatan, atau deskripsi.",
+    },
+    {
+      id: "textarea-select-required-fields-coding-practice",
+      type: "coding-practice",
+      challengeId: "build-contact-form-fields",
+    },
+    {
+      id: "textarea-select-required-fields-summary",
+      type: "summary",
+      points: [
+        "input cocok untuk nilai pendek.",
+        "textarea cocok untuk teks panjang.",
+        "select cocok untuk pilihan yang sudah disediakan.",
+        "required membantu browser tahu field wajib.",
+        "Berikutnya module ini akan lanjut ke alt text, keyboard navigation, dan checklist aksesibilitas dasar.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "textarea-select-required-fields-intro",
+      "textarea-select-required-fields-code-example",
+      "textarea-select-required-fields-common-mistake",
+      "textarea-select-required-fields-quick-check",
+      "textarea-select-required-fields-coding-practice",
+      "textarea-select-required-fields-summary",
+    ],
+  },
+};
+
+export const altTextBasicLesson: Lesson = {
+  id: "alt-text-basic",
+  trackId: "frontend-engineering",
+  moduleId: "forms-basic-accessibility",
+  title: "Alt Text Dasar",
+  slug: "alt-text-basic",
+  description:
+    "Pelajari cara menulis alt text sederhana agar gambar punya makna yang bisa dipahami.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 25,
+  objectives: [
+    "Memahami fungsi alt text pada gambar",
+    "Membedakan gambar bermakna dan dekoratif secara sederhana",
+    "Menulis alt text berdasarkan makna gambar di halaman",
+  ],
+  skillTags: ["HTML", "Accessibility", "Images"],
+  blocks: [
+    {
+      id: "alt-text-basic-intro",
+      type: "text",
+      title: "Alt text menjelaskan makna gambar",
+      content:
+        "Alt text adalah teks alternatif untuk gambar. Teks ini membantu saat gambar gagal dimuat dan membantu assistive technology memahami makna gambar. Untuk tahap awal, pakai pertanyaan ini: apa makna gambar ini untuk halaman? Jawabannya biasanya lebih berguna daripada hanya menyebut bentuk visualnya.",
+    },
+    {
+      id: "alt-text-basic-code-example",
+      type: "code-example",
+      title: "Contoh alt text yang berguna",
+      language: "html",
+      code: `<img src="profile.jpg" alt="Foto profil Agastyo" />
+
+<img src="chart.png" alt="Grafik peningkatan progres belajar minggu ini" />`,
+      explanation:
+        "Alt pertama menjelaskan siapa yang ada di foto. Alt kedua menjelaskan makna grafik, bukan hanya menulis 'grafik' atau nama file. Alt text yang baik mengikuti konteks halaman.",
+    },
+    {
+      id: "alt-text-basic-common-mistake",
+      type: "callout",
+      variant: "common-mistake",
+      title: "Hindari alt yang terlalu umum",
+      content:
+        "Alt seperti gambar, foto, atau image biasanya tidak membantu. Jangan juga mengulang teks di sekitar gambar jika gambar tidak menambah informasi baru. Untuk gambar dekoratif, empty alt bisa dipakai nanti, tetapi untuk sekarang fokus dulu pada gambar yang punya makna.",
+    },
+    {
+      id: "alt-text-basic-quick-check",
+      type: "quick-check",
+      question: "Alt text mana yang paling membantu untuk gambar grafik progres belajar?",
+      options: [
+        "Grafik progres belajar meningkat dari 40% ke 70%",
+        "Gambar",
+        "Foto bagus",
+        "chart.png",
+      ],
+      correctAnswer: "Grafik progres belajar meningkat dari 40% ke 70%",
+      explanation:
+        "Alt text sebaiknya menjelaskan makna gambar dalam konteks halaman. Untuk grafik, informasi pentingnya adalah perubahan progres yang ditunjukkan.",
+    },
+    {
+      id: "alt-text-basic-coding-practice",
+      type: "coding-practice",
+      challengeId: "write-useful-alt-text",
+    },
+    {
+      id: "alt-text-basic-summary",
+      type: "summary",
+      points: [
+        "Alt text menjelaskan makna gambar.",
+        "Alt text membantu saat gambar tidak terlihat atau tidak bisa dimuat.",
+        "Alt text yang baik mengikuti konteks halaman.",
+        "Berikutnya, kamu akan mengecek apakah halaman bisa dipakai dengan keyboard.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "alt-text-basic-intro",
+      "alt-text-basic-code-example",
+      "alt-text-basic-common-mistake",
+      "alt-text-basic-quick-check",
+      "alt-text-basic-coding-practice",
+      "alt-text-basic-summary",
+    ],
+  },
+};
+
+export const keyboardNavigationBasicLesson: Lesson = {
+  id: "keyboard-navigation-basic",
+  trackId: "frontend-engineering",
+  moduleId: "forms-basic-accessibility",
+  title: "Keyboard Navigation Dasar",
+  slug: "keyboard-navigation-basic",
+  description:
+    "Cek apakah elemen penting di halaman bisa dijangkau dan dipakai dengan keyboard.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 25,
+  objectives: [
+    "Memahami kenapa keyboard navigation penting",
+    "Mencoba Tab, Shift + Tab, Enter, dan Space secara sederhana",
+    "Mengenali elemen interaktif yang perlu bisa difokuskan",
+  ],
+  skillTags: ["Accessibility", "HTML", "Forms"],
+  blocks: [
+    {
+      id: "keyboard-navigation-basic-intro",
+      type: "text",
+      title: "Tidak semua user memakai mouse",
+      content:
+        "Keyboard navigation berarti user bisa berpindah dan memakai elemen interaktif dengan keyboard. Tab biasanya berpindah ke elemen focusable berikutnya. Shift + Tab bergerak mundur. Enter biasanya mengaktifkan link atau button. Space biasanya mengaktifkan button atau checkbox. Untuk tahap awal, fokus pada perilaku dasarnya dulu.",
+    },
+    {
+      id: "keyboard-navigation-basic-code-example",
+      type: "code-example",
+      title: "Elemen HTML yang sudah ramah keyboard",
+      language: "html",
+      code: `<a href="/roadmap">Lihat roadmap</a>
+
+<button type="button">Buka menu</button>
+
+<label for="email">Email</label>
+<input id="email" type="email" />`,
+      explanation:
+        "Link, button, dan input asli sudah punya perilaku keyboard bawaan yang lebih aman. Ini salah satu alasan kamu perlu memilih elemen HTML berdasarkan makna dan fungsi.",
+    },
+    {
+      id: "keyboard-navigation-basic-common-mistake",
+      type: "callout",
+      variant: "common-mistake",
+      title: "Clickable div bisa menyulitkan keyboard",
+      content:
+        "Div yang diberi event klik bisa terlihat seperti tombol, tetapi tidak otomatis punya perilaku keyboard yang baik. Aturan pemula: pakai button asli untuk aksi dan link asli untuk navigasi.",
+    },
+    {
+      id: "keyboard-navigation-basic-quick-check",
+      type: "quick-check",
+      question: "Tombol submit form seharusnya bisa dijalankan dengan apa?",
+      options: ["Keyboard dan mouse", "Mouse saja", "Screenshot saja", "CSS saja"],
+      correctAnswer: "Keyboard dan mouse",
+      explanation:
+        "Elemen interaktif sebaiknya bisa dipakai oleh user yang memakai mouse maupun keyboard. Button asli membantu menyediakan perilaku itu.",
+    },
+    {
+      id: "keyboard-navigation-basic-mini-action",
+      type: "text",
+      title: "Coba cek dengan Tab",
+      content:
+        "Buka salah satu halaman FluentStack, lalu tekan Tab beberapa kali. Amati apakah fokus berpindah ke link, button, atau input. Kamu belum perlu mengaudit semuanya. Cukup mulai mengenali bahwa elemen penting harus bisa dijangkau tanpa mouse.",
+    },
+    {
+      id: "keyboard-navigation-basic-summary",
+      type: "summary",
+      points: [
+        "Keyboard navigation membantu user yang tidak memakai mouse.",
+        "Link, button, dan input asli lebih aman untuk keyboard.",
+        "Tab membantu mengecek urutan fokus.",
+        "Berikutnya, kamu akan memakai checklist sederhana untuk review aksesibilitas awal.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "keyboard-navigation-basic-intro",
+      "keyboard-navigation-basic-code-example",
+      "keyboard-navigation-basic-common-mistake",
+      "keyboard-navigation-basic-quick-check",
+      "keyboard-navigation-basic-mini-action",
+      "keyboard-navigation-basic-summary",
+    ],
+  },
+};
+
+export const basicAccessibilityChecklistLesson: Lesson = {
+  id: "basic-accessibility-checklist",
+  trackId: "frontend-engineering",
+  moduleId: "forms-basic-accessibility",
+  title: "Basic Accessibility Checklist",
+  slug: "basic-accessibility-checklist",
+  description:
+    "Gunakan checklist sederhana untuk mengecek HTML, form, gambar, dan keyboard navigation.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 30,
+  objectives: [
+    "Menggunakan checklist aksesibilitas dasar",
+    "Mengecek label, input, link, button, alt text, dan keyboard navigation",
+    "Melihat accessibility sebagai kebiasaan review awal",
+  ],
+  skillTags: ["Accessibility", "HTML", "Forms"],
+  blocks: [
+    {
+      id: "basic-accessibility-checklist-intro",
+      type: "text",
+      title: "Accessibility dimulai dari HTML yang benar",
+      content:
+        "Accessibility bukan hanya polesan terakhir. Banyak keputusan aksesibilitas dimulai dari memilih elemen HTML yang tepat, menghubungkan label dengan field, menulis alt text, dan memastikan elemen interaktif bisa dipakai dengan keyboard.",
+    },
+    {
+      id: "basic-accessibility-checklist-note",
+      type: "callout",
+      variant: "important",
+      title: "Checklist bukan tentang sempurna",
+      content:
+        "Checklist ini membantu menangkap masalah yang jelas lebih awal sebelum halaman menjadi kompleks. Kamu belum perlu menguasai semua audit accessibility. Mulai dari hal yang bisa kamu cek sendiri.",
+    },
+    {
+      id: "basic-accessibility-checklist-items",
+      type: "text",
+      title: "Checklist awal",
+      content:
+        "Cek ini satu per satu: link dipakai untuk navigasi; button dipakai untuk aksi; setiap input penting punya label; label for cocok dengan input id; gambar bermakna punya alt text yang jelas; elemen interaktif bisa dijangkau dengan Tab; urutan heading tetap masuk akal; error text, jika ada, membantu user memperbaiki input.",
+    },
+    {
+      id: "basic-accessibility-checklist-quick-check",
+      type: "quick-check",
+      question: "Mana contoh review aksesibilitas dasar yang paling tepat?",
+      options: [
+        "Mengecek apakah input punya label yang terhubung",
+        "Mengecek apakah semua teks memakai warna favorit developer",
+        "Menghapus semua button dari halaman",
+        "Mengubah semua elemen menjadi div",
+      ],
+      correctAnswer: "Mengecek apakah input punya label yang terhubung",
+      explanation:
+        "Label yang terhubung membantu user memahami field, termasuk pengguna assistive technology.",
+    },
+    {
+      id: "basic-accessibility-checklist-writing-practice",
+      type: "writing-practice",
+      prompt:
+        "Pilih salah satu latihan form sebelumnya. Tulis 3 hal yang sudah aksesibel dan 1 hal yang masih perlu dicek.",
+      placeholder:
+        "Contoh:\n1. ...\n2. ...\n3. ...\nPerlu dicek: ...",
+      checklist: [
+        "Menyebut label/input",
+        "Menyebut link/button",
+        "Menyebut alt text atau keyboard navigation",
+        "Menulis satu perbaikan yang konkret",
+      ],
+      modelAnswer:
+        "Form email sudah punya label yang terhubung ke input. Tombol submit memakai button, bukan link. Gambar punya alt text yang menjelaskan konteks. Hal yang masih perlu dicek: urutan Tab dari field ke tombol submit.",
+    },
+    {
+      id: "basic-accessibility-checklist-summary",
+      type: "summary",
+      points: [
+        "Accessibility dimulai dari HTML yang benar.",
+        "Checklist membantu menemukan masalah awal.",
+        "Module berikutnya akan diuji lewat Uji Kompetensi Forms and Basic Accessibility.",
+        "Setelah ini kamu akan membangun form kecil dan membuktikan bahwa kamu paham link/button, label/input, alt text, dan keyboard navigation dasar.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "basic-accessibility-checklist-intro",
+      "basic-accessibility-checklist-note",
+      "basic-accessibility-checklist-items",
+      "basic-accessibility-checklist-quick-check",
+      "basic-accessibility-checklist-writing-practice",
+      "basic-accessibility-checklist-summary",
+    ],
+  },
+};
+
+export const formsBasicAccessibilityAssessmentLesson: Lesson = {
+  id: "forms-basic-accessibility-assessment",
+  trackId: "frontend-engineering",
+  moduleId: "forms-basic-accessibility",
+  title: "Uji Kompetensi Forms and Basic Accessibility",
+  slug: "forms-basic-accessibility-assessment",
+  description:
+    "Uji pemahaman dasar form, link vs button, label, input, alt text, dan aksesibilitas awal.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 45,
+  objectives: [
+    "Mengecek pemahaman link vs button",
+    "Membangun form sederhana dengan label yang terhubung",
+    "Mengecek pemahaman alt text dan keyboard navigation dasar",
+  ],
+  skillTags: ["HTML", "Forms", "Accessibility", "Assessment"],
+  blocks: [
+    {
+      id: "forms-basic-accessibility-assessment-recap",
+      type: "text",
+      title: "Apa yang dicek di assessment ini",
+      content:
+        "Assessment ini merangkum module Forms and Basic Accessibility. Kamu akan mengecek link vs button, form, label, input, textarea, select, required, alt text, keyboard navigation, dan checklist accessibility dasar. Tujuannya bukan mencari jawaban jebakan, tetapi memastikan struktur HTML dan form kamu mulai aman untuk dipakai lebih banyak user.",
+    },
+    {
+      id: "forms-basic-accessibility-assessment-quiz-block",
+      type: "quiz",
+      quizId: "forms-basic-accessibility-assessment-quiz",
+    },
+    {
+      id: "forms-basic-accessibility-assessment-coding-practice",
+      type: "coding-practice",
+      challengeId: "build-accessible-contact-form",
+    },
+    {
+      id: "forms-basic-accessibility-assessment-docs-bridge",
+      type: "documentation-bridge",
+      title: "Baca dokumentasi resmi",
+      description:
+        "Gunakan bagian ini sebagai latihan membaca dokumentasi, bukan tugas menghafal. Kamu tidak perlu membaca semuanya sekarang. Fokus pada bagian yang sudah kamu pelajari.",
+      links: [
+        {
+          source: "MDN Web Docs",
+          title: "Web forms",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms",
+          focus: [
+            "struktur form dasar",
+            "fungsi label dan input",
+            "cara browser memahami field form",
+          ],
+          ignoreForNow: [
+            "styling form advanced",
+            "custom form controls yang kompleks",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "The label element",
+          url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label",
+          focus: [
+            "fungsi label",
+            "hubungan for dan id",
+            "kenapa label membantu aksesibilitas",
+          ],
+          ignoreForNow: ["semua attribute reference yang belum dipakai"],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "The button element",
+          url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button",
+          focus: [
+            "fungsi button",
+            "type button dan submit",
+            "kapan button dipakai untuk aksi",
+          ],
+          ignoreForNow: ["form method/action detail yang belum dibahas"],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "HTML images",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_images",
+          focus: [
+            "fungsi alt",
+            "cara menulis deskripsi gambar yang berguna",
+          ],
+          ignoreForNow: ["responsive images", "image performance"],
+        },
+      ],
+      followUpAction:
+        "Kembali ke latihan form kamu dan cek empat hal: label sudah terhubung ke field, button dipakai untuk submit, gambar bermakna punya alt text, dan elemen interaktif bisa dicek dengan Tab.",
+    },
+    {
+      id: "forms-basic-accessibility-assessment-summary",
+      type: "summary",
+      points: [
+        "Kamu membuktikan bahwa kamu bisa memilih link untuk navigasi dan button untuk aksi.",
+        "Kamu membuktikan bahwa kamu bisa membuat form dengan label, input, textarea, select, required, dan submit button.",
+        "Jika belum siap, review lagi link vs button, label/input, textarea/select, alt text, dan keyboard navigation dasar.",
+        "Setelah struktur form dan aksesibilitas dasar mulai aman, berikutnya kamu akan belajar CSS agar halaman bisa ditata tanpa merusak struktur HTML.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "forms-basic-accessibility-assessment-recap",
+      "forms-basic-accessibility-assessment-quiz-block",
+      "forms-basic-accessibility-assessment-coding-practice",
+      "forms-basic-accessibility-assessment-summary",
     ],
     passingQuizScore: 70,
   },
@@ -1464,6 +2106,405 @@ export const writingDailyUpdateLesson: Lesson = {
       "writing-daily-update-writing-practice",
       "writing-daily-update-summary",
     ],
+  },
+};
+
+export const whatIsCssLesson: Lesson = {
+  id: "what-is-css",
+  trackId: "frontend-engineering",
+  moduleId: "css-core-mechanics",
+  title: "Apa Itu CSS?",
+  slug: "what-is-css",
+  description:
+    "Pahami peran CSS sebagai bahasa yang mengatur tampilan halaman HTML.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 25,
+  objectives: [
+    "Memahami CSS sebagai bahasa untuk mengatur tampilan HTML",
+    "Membedakan peran HTML dan CSS",
+    "Memberi style sederhana pada heading dan paragraf",
+  ],
+  skillTags: ["CSS", "HTML", "Styling"],
+  blocks: [
+    {
+      id: "what-is-css-intro",
+      type: "text",
+      title: "CSS memberi tampilan pada struktur HTML",
+      content:
+        "Di module sebelumnya, kamu sudah menulis HTML untuk struktur, form, gambar, dan makna konten. CSS adalah bahasa yang mengatur tampilan HTML. CSS bisa mengatur warna, ukuran teks, jarak, border, layout, dan nanti tampilan responsive. HTML tetap menentukan struktur dan makna; CSS membuat struktur itu lebih jelas dan nyaman dilihat.",
+    },
+    {
+      id: "what-is-css-code-example",
+      type: "code-example",
+      title: "HTML yang diberi style CSS",
+      language: "html",
+      code: `<h1>Belajar CSS</h1>
+<p>CSS membuat halaman lebih enak dibaca.</p>
+
+<style>
+  h1 {
+    font-size: 32px;
+  }
+
+  p {
+    color: #d4d4d8;
+  }
+</style>`,
+      explanation:
+        "h1 dan p dipilih dari HTML. font-size mengubah ukuran heading. color mengubah warna teks paragraf. Fokus dulu pada ide bahwa CSS memilih elemen, lalu memberi aturan tampilan.",
+    },
+    {
+      id: "what-is-css-structure-note",
+      type: "callout",
+      variant: "important",
+      title: "CSS tidak menggantikan makna HTML",
+      content:
+        "Jangan memakai CSS untuk menutupi struktur HTML yang salah. Pilih HTML yang benar dulu, seperti h1 untuk heading atau button untuk aksi. Setelah maknanya benar, CSS dipakai untuk memperbaiki tampilan.",
+    },
+    {
+      id: "what-is-css-quick-check",
+      type: "quick-check",
+      question:
+        "Kalau HTML sudah menentukan bahwa sebuah teks adalah h1, CSS biasanya dipakai untuk apa?",
+      options: [
+        "Mengatur tampilan h1",
+        "Mengubah h1 menjadi database",
+        "Mengirim data ke server",
+        "Membuat URL baru",
+      ],
+      correctAnswer: "Mengatur tampilan h1",
+      explanation:
+        "HTML menentukan struktur dan makna. CSS mengatur bagaimana elemen itu terlihat, misalnya ukuran, warna, jarak, dan layout.",
+    },
+    {
+      id: "what-is-css-coding-practice",
+      type: "coding-practice",
+      challengeId: "style-basic-html-text",
+    },
+    {
+      id: "what-is-css-summary",
+      type: "summary",
+      points: [
+        "HTML mengatur struktur dan makna halaman.",
+        "CSS mengatur tampilan halaman.",
+        "CSS bekerja dengan memilih elemen HTML lalu memberi aturan visual.",
+        "Berikutnya, kamu akan belajar selector, property, dan value.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "what-is-css-intro",
+      "what-is-css-code-example",
+      "what-is-css-structure-note",
+      "what-is-css-quick-check",
+      "what-is-css-coding-practice",
+      "what-is-css-summary",
+    ],
+  },
+};
+
+export const cssSelectorDeclarationBasicLesson: Lesson = {
+  id: "css-selector-declaration-basic",
+  trackId: "frontend-engineering",
+  moduleId: "css-core-mechanics",
+  title: "Selector dan Declaration Dasar",
+  slug: "css-selector-declaration-basic",
+  description:
+    "Pelajari cara membaca aturan CSS melalui selector, property, dan value.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 35,
+  objectives: [
+    "Memahami selector sebagai target elemen HTML",
+    "Memahami property dan value dalam declaration",
+    "Membaca declaration block sederhana",
+  ],
+  skillTags: ["CSS", "Selectors", "Styling"],
+  blocks: [
+    {
+      id: "css-selector-declaration-basic-intro",
+      type: "text",
+      title: "Cara membaca aturan CSS",
+      content:
+        "Aturan CSS punya pola dasar: selector memilih target, lalu declaration block berisi aturan tampilan. Di dalam declaration block, property menentukan bagian tampilan yang diatur, dan value menentukan nilainya. Satu declaration adalah pasangan property dan value.",
+    },
+    {
+      id: "css-selector-declaration-basic-code-example",
+      type: "code-example",
+      title: "Contoh selector, property, dan value",
+      language: "css",
+      code: `.card {
+  background: #18181b;
+  padding: 16px;
+  border-radius: 12px;
+}`,
+      explanation:
+        ".card memilih elemen dengan class=\"card\". background mengatur warna latar, padding mengatur ruang bagian dalam, dan border-radius membulatkan sudut. Nilai seperti #18181b, 16px, dan 12px adalah value.",
+    },
+    {
+      id: "css-selector-declaration-basic-selector-types",
+      type: "text",
+      title: "Tiga selector awal",
+      content:
+        "Element selector menargetkan nama elemen, misalnya p. Class selector menargetkan class dan memakai titik, misalnya .card. ID selector menargetkan id dan memakai pagar, misalnya #main-title. Untuk sekarang, cukup kenali bentuknya dan kapan kamu sedang menargetkan element, class, atau id.",
+    },
+    {
+      id: "css-selector-declaration-basic-common-mistake",
+      type: "callout",
+      variant: "common-mistake",
+      title: "Jangan lupa titik untuk class selector",
+      content:
+        ".card menargetkan elemen dengan class=\"card\". Jika kamu menulis card tanpa titik, CSS akan mencari elemen bernama <card>, bukan class card yang biasanya kamu maksud.",
+    },
+    {
+      id: "css-selector-declaration-basic-quick-check",
+      type: "quick-check",
+      question: "Selector mana yang menargetkan elemen dengan class=\"card\"?",
+      options: [".card", "#card", "card", "*card"],
+      correctAnswer: ".card",
+      explanation:
+        "Class selector memakai titik di depan nama class. #card adalah id selector, sedangkan card tanpa titik menargetkan elemen bernama card.",
+    },
+    {
+      id: "css-selector-declaration-basic-coding-practice",
+      type: "coding-practice",
+      challengeId: "practice-css-selectors-declarations",
+    },
+    {
+      id: "css-selector-declaration-basic-summary",
+      type: "summary",
+      points: [
+        "Selector memilih target.",
+        "Property menentukan apa yang diatur.",
+        "Value menentukan nilainya.",
+        "Class selector memakai titik.",
+        "Berikutnya, kamu akan melihat kenapa kadang satu aturan CSS menang dari aturan lain.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "css-selector-declaration-basic-intro",
+      "css-selector-declaration-basic-code-example",
+      "css-selector-declaration-basic-selector-types",
+      "css-selector-declaration-basic-common-mistake",
+      "css-selector-declaration-basic-quick-check",
+      "css-selector-declaration-basic-coding-practice",
+      "css-selector-declaration-basic-summary",
+    ],
+  },
+};
+
+export const cascadeSpecificityBasicLesson: Lesson = {
+  id: "cascade-specificity-basic",
+  trackId: "frontend-engineering",
+  moduleId: "css-core-mechanics",
+  title: "Cascade dan Specificity Dasar",
+  slug: "cascade-specificity-basic",
+  description:
+    "Pahami kenapa aturan CSS tertentu menang ketika beberapa aturan mengatur elemen yang sama.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 35,
+  objectives: [
+    "Memahami cascade sebagai proses pemilihan aturan CSS",
+    "Memahami specificity dasar antara id, class, dan element selector",
+    "Melatih debugging CSS sederhana tanpa langsung memakai !important",
+  ],
+  skillTags: ["CSS", "Cascade", "Specificity", "Debugging"],
+  blocks: [
+    {
+      id: "cascade-specificity-basic-intro",
+      type: "text",
+      title: "Kadang satu elemen mendapat beberapa aturan",
+      content:
+        "Satu elemen HTML bisa terkena beberapa aturan CSS sekaligus. Browser perlu menentukan aturan mana yang berlaku. Cascade adalah proses browser memilih aturan yang menang. Kamu belum perlu menghafal detail angka specificity. Mulai dari aturan praktis dulu.",
+    },
+    {
+      id: "cascade-specificity-basic-code-example",
+      type: "code-example",
+      title: "Class selector bisa menang dari element selector",
+      language: "html",
+      code: `<p class="intro">Belajar cascade CSS.</p>
+
+<style>
+  p {
+    color: gray;
+  }
+
+  .intro {
+    color: blue;
+  }
+</style>`,
+      explanation:
+        "Paragraf ini menjadi blue karena .intro adalah class selector dan lebih spesifik daripada selector p. Keduanya mengatur color, tetapi selector yang lebih spesifik biasanya menang.",
+    },
+    {
+      id: "cascade-specificity-basic-specificity-order",
+      type: "text",
+      title: "Urutan kekuatan yang cukup untuk awal",
+      content:
+        "Untuk tahap pemula, ingat urutan sederhana ini: id selector lebih kuat, class selector lebih kuat daripada element selector, dan element selector adalah yang paling lemah dari tiga ini. Jika selector punya kekuatan yang mirip, aturan yang muncul belakangan bisa menang.",
+    },
+    {
+      id: "cascade-specificity-basic-important-warning",
+      type: "callout",
+      variant: "warning",
+      title: "Jangan langsung memakai !important",
+      content:
+        "Saat CSS tidak sesuai harapan, jangan langsung menambahkan !important. Cek dulu target selector, kekuatan selector, dan urutan rule. Ini membuat debugging CSS lebih sehat sejak awal.",
+    },
+    {
+      id: "cascade-specificity-basic-quick-check",
+      type: "quick-check",
+      question:
+        "Jika <p class=\"intro\"> punya dua aturan: p { color: gray; } dan .intro { color: blue; }, warna mana yang biasanya menang?",
+      options: ["blue", "gray", "tidak ada warna", "browser selalu memilih acak"],
+      correctAnswer: "blue",
+      explanation:
+        ".intro adalah class selector dan lebih spesifik daripada selector p, sehingga aturan color dari .intro biasanya menang.",
+    },
+    {
+      id: "cascade-specificity-basic-coding-practice",
+      type: "coding-practice",
+      challengeId: "debug-basic-css-cascade",
+    },
+    {
+      id: "cascade-specificity-basic-summary",
+      type: "summary",
+      points: [
+        "Cascade menentukan aturan CSS yang berlaku.",
+        "Specificity membantu browser memilih aturan yang lebih kuat.",
+        "Class lebih spesifik daripada element selector.",
+        "Jangan langsung memakai !important saat bingung.",
+        "Berikutnya, kamu akan menguji pemahaman CSS Core Mechanics.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "cascade-specificity-basic-intro",
+      "cascade-specificity-basic-code-example",
+      "cascade-specificity-basic-specificity-order",
+      "cascade-specificity-basic-important-warning",
+      "cascade-specificity-basic-quick-check",
+      "cascade-specificity-basic-coding-practice",
+      "cascade-specificity-basic-summary",
+    ],
+  },
+};
+
+export const cssCoreMechanicsAssessmentLesson: Lesson = {
+  id: "css-core-mechanics-assessment",
+  trackId: "frontend-engineering",
+  moduleId: "css-core-mechanics",
+  title: "Uji Kompetensi CSS Core Mechanics",
+  slug: "css-core-mechanics-assessment",
+  description:
+    "Uji pemahaman selector, property, value, cascade, dan specificity dasar.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 45,
+  objectives: [
+    "Mengecek pemahaman peran CSS",
+    "Mengecek kemampuan membaca selector, property, dan value",
+    "Mengecek pemahaman cascade dan specificity dasar",
+  ],
+  skillTags: ["CSS", "Selectors", "Cascade", "Specificity"],
+  blocks: [
+    {
+      id: "css-core-mechanics-assessment-recap",
+      type: "text",
+      title: "Apa yang dicek di assessment ini",
+      content:
+        "Assessment ini merangkum CSS Core Mechanics. Kamu akan mengecek peran CSS, cara membaca selector dan declaration block, perbedaan property dan value, selector element/class/id, serta kenapa cascade dan specificity membuat satu rule menang dari rule lain.",
+    },
+    {
+      id: "css-core-mechanics-assessment-quiz-block",
+      type: "quiz",
+      quizId: "css-core-mechanics-assessment-quiz",
+    },
+    {
+      id: "css-core-mechanics-assessment-coding-practice",
+      type: "coding-practice",
+      challengeId: "build-styled-info-card",
+    },
+    {
+      id: "css-core-mechanics-assessment-docs-bridge",
+      type: "documentation-bridge",
+      title: "Baca dokumentasi resmi",
+      description:
+        "Gunakan bagian ini sebagai latihan membaca dokumentasi CSS, bukan tugas menghafal. Fokus pada bagian yang sudah kamu pakai di latihan.",
+      links: [
+        {
+          source: "MDN Web Docs",
+          title: "CSS basics",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics",
+          focus: [
+            "peran CSS",
+            "cara CSS memberi style pada HTML",
+            "contoh aturan CSS dasar",
+          ],
+          ignoreForNow: [
+            "layout besar",
+            "responsive design",
+            "topik CSS advanced",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "Basic selectors",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Basic_selectors",
+          focus: [
+            "element selector",
+            "class selector",
+            "id selector",
+            "cara selector memilih elemen",
+          ],
+          ignoreForNow: [
+            "combinators advanced",
+            "pseudo-classes advanced",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "Cascade and inheritance",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts",
+          focus: [
+            "cascade",
+            "specificity dasar",
+            "kenapa satu rule menang dari rule lain",
+          ],
+          ignoreForNow: [
+            "full specificity scoring detail",
+            "cascade layers",
+          ],
+        },
+      ],
+      followUpAction:
+        "Kembali ke latihan CSS card kamu dan tunjukkan satu selector, satu property, satu value, dan satu aturan yang menang karena selector lebih spesifik.",
+    },
+    {
+      id: "css-core-mechanics-assessment-summary",
+      type: "summary",
+      points: [
+        "Kamu membuktikan bahwa kamu bisa membedakan peran HTML dan CSS.",
+        "Kamu membuktikan bahwa kamu bisa membaca selector, property, dan value.",
+        "Jika belum siap, review lagi role CSS, selector/property/value, class selector, cascade, dan specificity.",
+        "Setelah kamu bisa membaca aturan CSS dasar, berikutnya kamu akan belajar bagaimana ukuran dan jarak bekerja lewat box model.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "css-core-mechanics-assessment-recap",
+      "css-core-mechanics-assessment-quiz-block",
+      "css-core-mechanics-assessment-coding-practice",
+      "css-core-mechanics-assessment-summary",
+    ],
+    passingQuizScore: 70,
   },
 };
 
@@ -1547,6 +2588,17 @@ export const lessons: Lesson[] = [
   semanticHtmlStructureLesson,
   htmlSemanticBasicsLesson,
   semanticHtmlAssessmentLesson,
+  linkVsButtonLesson,
+  formLabelInputLesson,
+  textareaSelectRequiredFieldsLesson,
+  altTextBasicLesson,
+  keyboardNavigationBasicLesson,
+  basicAccessibilityChecklistLesson,
+  formsBasicAccessibilityAssessmentLesson,
+  whatIsCssLesson,
+  cssSelectorDeclarationBasicLesson,
+  cascadeSpecificityBasicLesson,
+  cssCoreMechanicsAssessmentLesson,
   cssFlexboxBasicsLesson,
   writingDailyUpdateLesson,
 ];

@@ -53,7 +53,6 @@ export const semanticHtmlModule: Module = {
   skillTags: ["HTML", "Semantic HTML", "Accessibility"],
 };
 
-// Hidden from the active Frontend track until its first lessons are created.
 export const formsBasicAccessibilityModule: Module = {
   id: "forms-basic-accessibility",
   trackId: "frontend-engineering",
@@ -62,9 +61,35 @@ export const formsBasicAccessibilityModule: Module = {
   description:
     "Belajar dasar form, link vs button, label, input, alt text, dan aksesibilitas awal.",
   order: 4,
-  lessonIds: [],
+  lessonIds: [
+    "link-vs-button",
+    "form-label-input",
+    "textarea-select-required-fields",
+    "alt-text-basic",
+    "keyboard-navigation-basic",
+    "basic-accessibility-checklist",
+    "forms-basic-accessibility-assessment",
+  ],
   estimatedHours: 8,
   skillTags: ["HTML", "Forms", "Accessibility"],
+};
+
+export const cssCoreMechanicsModule: Module = {
+  id: "css-core-mechanics",
+  trackId: "frontend-engineering",
+  title: "CSS Core Mechanics",
+  slug: "css-core-mechanics",
+  description:
+    "Pelajari cara CSS memberi tampilan pada HTML melalui selector, property, value, cascade, dan specificity dasar.",
+  order: 5,
+  lessonIds: [
+    "what-is-css",
+    "css-selector-declaration-basic",
+    "cascade-specificity-basic",
+    "css-core-mechanics-assessment",
+  ],
+  estimatedHours: 3,
+  skillTags: ["CSS", "Selectors", "Cascade", "Specificity"],
 };
 
 // Legacy module kept so old module slugs do not disappear abruptly.
@@ -90,7 +115,7 @@ export const cssFundamentalsModule: Module = {
   slug: "css-fundamentals",
   description:
     "Pelajari layout CSS modern dan praktikkan Flexbox lewat komponen UI sehari-hari.",
-  order: 5,
+  order: 99,
   lessonIds: ["css-flexbox-basics"],
   estimatedHours: 8,
   skillTags: ["CSS", "Flexbox", "Responsive Design"],
@@ -114,6 +139,7 @@ export const modules: Module[] = [
   htmlBasicsModule,
   semanticHtmlModule,
   formsBasicAccessibilityModule,
+  cssCoreMechanicsModule,
   htmlWebFundamentalsModule,
   cssFundamentalsModule,
   englishForRemoteWorkModule,

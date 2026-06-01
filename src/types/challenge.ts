@@ -10,7 +10,12 @@ export type ChallengeValidationCheckType =
   | "hasElement"
   | "hasElementWithAttribute"
   | "hasDoctype"
-  | "hasTextInElement";
+  | "hasTextInElement"
+  | "cssSelectorExists"
+  | "cssPropertyExists"
+  | "cssSelectorPropertyExists"
+  | "cssSelectorPropertyValue"
+  | "cssForbiddenTextAbsent";
 
 export type ChallengeValidationCheck = {
   id: string;
@@ -18,13 +23,14 @@ export type ChallengeValidationCheck = {
   type: ChallengeValidationCheckType;
   target?: string;
   attribute?: string;
+  property?: string;
   valueIncludes?: string;
   mustHaveValue?: boolean;
   required?: boolean;
 };
 
 export type ChallengeValidation = {
-  mode: "html";
+  mode: "html" | "css";
   checks: ChallengeValidationCheck[];
 };
 

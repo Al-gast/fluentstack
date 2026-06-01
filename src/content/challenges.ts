@@ -581,6 +581,510 @@ export const buildSemanticHtmlAssessmentPageChallenge: CodingChallenge = {
   skillTags: ["HTML", "Semantic HTML", "Assessment", "Accessibility"],
 };
 
+export const buildBasicAccessibleFormChallenge: CodingChallenge = {
+  id: "build-basic-accessible-form",
+  lessonId: "form-label-input",
+  title: "Membuat form email sederhana",
+  description:
+    "Latihan membuat form email dengan label yang terhubung ke input.",
+  instructions: [
+    "Buat form sederhana untuk email.",
+    "Tambahkan label untuk email.",
+    "Tambahkan input email.",
+    "Pastikan label terhubung ke input dengan for dan id yang sama.",
+    "Tambahkan button submit.",
+  ],
+  starterCode: {
+    html: `<form>
+  <!-- Tambahkan label dan input email di sini -->
+
+  <button>Kirim</button>
+</form>`,
+    css: "",
+    js: "",
+  },
+  solutionCode: {
+    html: `<form>
+  <label for="email">Email</label>
+  <input id="email" name="email" type="email" />
+
+  <button type="submit">Kirim</button>
+</form>`,
+    css: "",
+    js: "",
+  },
+  checklist: [
+    "Ada elemen form.",
+    "Ada label untuk email.",
+    "Ada input email.",
+    "Label memiliki attribute for.",
+    "Input memiliki id.",
+    "Nilai for dan id sama-sama memakai email.",
+    "Input memakai type email.",
+    "Ada button submit.",
+  ],
+  validation: {
+    mode: "html",
+    checks: [
+      { id: "has-form", label: "Ada elemen form.", type: "hasElement", target: "form" },
+      { id: "has-label", label: "Ada label.", type: "hasTextInElement", target: "label" },
+      { id: "has-input", label: "Ada input.", type: "hasElement", target: "input" },
+      { id: "label-has-for", label: "Label memiliki for.", type: "hasElementWithAttribute", target: "label", attribute: "for", mustHaveValue: true },
+      { id: "input-has-id", label: "Input memiliki id.", type: "hasElementWithAttribute", target: "input", attribute: "id", mustHaveValue: true },
+      { id: "label-for-email", label: "Label for mengarah ke email.", type: "hasElementWithAttribute", target: "label", attribute: "for", valueIncludes: "email" },
+      { id: "input-id-email", label: "Input id memakai email.", type: "hasElementWithAttribute", target: "input", attribute: "id", valueIncludes: "email" },
+      { id: "input-type-email", label: "Input memakai type email.", type: "hasElementWithAttribute", target: "input", attribute: "type", valueIncludes: "email" },
+      { id: "submit-button", label: "Ada button submit.", type: "hasElementWithAttribute", target: "button", attribute: "type", valueIncludes: "submit" },
+    ],
+  },
+  skillTags: ["HTML", "Forms", "Accessibility"],
+};
+
+export const buildContactFormFieldsChallenge: CodingChallenge = {
+  id: "build-contact-form-fields",
+  lessonId: "textarea-select-required-fields",
+  title: "Membuat field form kontak",
+  description:
+    "Latihan membuat form kontak dengan input, textarea, select, required, dan button submit.",
+  instructions: [
+    "Buat form kontak sederhana.",
+    "Tambahkan input nama atau email.",
+    "Tambahkan textarea pesan.",
+    "Tambahkan select topik.",
+    "Hubungkan setiap label dengan field memakai for dan id.",
+    "Tambahkan required pada field penting.",
+    "Tambahkan button submit.",
+  ],
+  starterCode: {
+    html: `<form>
+  <label for="email">Email</label>
+  <input id="email" name="email" type="email" />
+
+  <!-- Tambahkan textarea pesan dan select topik di sini -->
+
+  <button>Kirim</button>
+</form>`,
+    css: "",
+    js: "",
+  },
+  solutionCode: {
+    html: `<form>
+  <label for="email">Email</label>
+  <input id="email" name="email" type="email" required />
+
+  <label for="message">Pesan</label>
+  <textarea id="message" name="message" required></textarea>
+
+  <label for="topic">Topik</label>
+  <select id="topic" name="topic" required>
+    <option value="">Pilih topik</option>
+    <option value="support">Support</option>
+    <option value="feedback">Feedback</option>
+  </select>
+
+  <button type="submit">Kirim</button>
+</form>`,
+    css: "",
+    js: "",
+  },
+  checklist: [
+    "Ada elemen form.",
+    "Ada textarea untuk pesan.",
+    "Ada select untuk topik.",
+    "Select punya pilihan support dan feedback.",
+    "Ada minimal satu field required.",
+    "Label pesan terhubung ke textarea.",
+    "Label topik terhubung ke select.",
+    "Ada button submit.",
+  ],
+  validation: {
+    mode: "html",
+    checks: [
+      { id: "has-form", label: "Ada elemen form.", type: "hasElement", target: "form" },
+      { id: "has-textarea", label: "Ada textarea.", type: "hasElement", target: "textarea" },
+      { id: "has-select", label: "Ada select.", type: "hasElement", target: "select" },
+      { id: "has-support-option", label: "Ada option support.", type: "hasElementWithAttribute", target: "option", attribute: "value", valueIncludes: "support" },
+      { id: "has-feedback-option", label: "Ada option feedback.", type: "hasElementWithAttribute", target: "option", attribute: "value", valueIncludes: "feedback" },
+      { id: "has-required-input", label: "Ada field required.", type: "hasElementWithAttribute", target: "input, textarea, select", attribute: "required" },
+      { id: "message-label", label: "Label pesan memakai for message.", type: "hasElementWithAttribute", target: "label", attribute: "for", valueIncludes: "message" },
+      { id: "message-field", label: "Textarea memakai id message.", type: "hasElementWithAttribute", target: "textarea", attribute: "id", valueIncludes: "message" },
+      { id: "topic-label", label: "Label topik memakai for topic.", type: "hasElementWithAttribute", target: "label", attribute: "for", valueIncludes: "topic" },
+      { id: "topic-field", label: "Select memakai id topic.", type: "hasElementWithAttribute", target: "select", attribute: "id", valueIncludes: "topic" },
+      { id: "submit-button", label: "Ada button submit.", type: "hasElementWithAttribute", target: "button", attribute: "type", valueIncludes: "submit" },
+    ],
+  },
+  skillTags: ["HTML", "Forms", "Accessibility"],
+};
+
+export const writeUsefulAltTextChallenge: CodingChallenge = {
+  id: "write-useful-alt-text",
+  lessonId: "alt-text-basic",
+  title: "Menulis alt text yang berguna",
+  description:
+    "Latihan memperbaiki alt text agar menjelaskan makna gambar dalam konteks halaman.",
+  instructions: [
+    "Tambahkan atau perbaiki alt pada gambar.",
+    "Gunakan alt yang menjelaskan makna gambar.",
+    "Hindari alt yang terlalu umum seperti gambar, foto, image, atau photo.",
+    "Fokus pada konteks: gambar ini menunjukkan progres belajar.",
+  ],
+  starterCode: {
+    html: `<article>
+  <h1>Progres Belajar Minggu Ini</h1>
+  <p>Grafik berikut menunjukkan perubahan progres belajar.</p>
+
+  <img src="images/progress-chart.png" />
+</article>`,
+    css: "",
+    js: "",
+  },
+  solutionCode: {
+    html: `<article>
+  <h1>Progres Belajar Minggu Ini</h1>
+  <p>Grafik berikut menunjukkan perubahan progres belajar.</p>
+
+  <img src="images/progress-chart.png" alt="Grafik progres belajar meningkat dari 40% ke 70%" />
+</article>`,
+    css: "",
+    js: "",
+  },
+  checklist: [
+    "Ada image.",
+    "Image memakai src.",
+    "Image punya alt text.",
+    "Alt text tidak kosong.",
+    "Alt text menjelaskan progres belajar dalam konteks halaman.",
+  ],
+  validation: {
+    mode: "html",
+    checks: [
+      { id: "has-image", label: "Ada image.", type: "hasElement", target: "img" },
+      { id: "image-has-src", label: "Image memakai src.", type: "hasElementWithAttribute", target: "img", attribute: "src", mustHaveValue: true },
+      { id: "image-has-alt", label: "Image punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
+      { id: "alt-has-progres", label: "Alt menyebut progres.", type: "hasElementWithAttribute", target: "img", attribute: "alt", valueIncludes: "progres" },
+      { id: "alt-has-belajar", label: "Alt menyebut belajar.", type: "hasElementWithAttribute", target: "img", attribute: "alt", valueIncludes: "belajar" },
+    ],
+  },
+  skillTags: ["HTML", "Accessibility", "Images"],
+};
+
+export const buildAccessibleContactFormChallenge: CodingChallenge = {
+  id: "build-accessible-contact-form",
+  lessonId: "forms-basic-accessibility-assessment",
+  title: "Membuat contact form yang lebih aksesibel",
+  description:
+    "Assessment praktik untuk membuat form kontak dengan label, field penting, required, submit button, dan gambar bermakna.",
+  instructions: [
+    "Buat form kontak sederhana.",
+    "Tambahkan field nama dan email.",
+    "Tambahkan textarea pesan.",
+    "Tambahkan select topik.",
+    "Hubungkan label ke setiap field dengan for dan id.",
+    "Tambahkan required pada field penting.",
+    "Tambahkan button submit.",
+    "Tambahkan satu gambar bermakna dengan alt text yang jelas.",
+  ],
+  starterCode: {
+    html: `<section>
+  <h1>Hubungi Tim</h1>
+  <p>Lengkapi form kontak berikut.</p>
+
+  <img src="images/contact-illustration.png" />
+
+  <form>
+    <!-- Tambahkan field nama, email, pesan, topik, dan button submit -->
+  </form>
+</section>`,
+    css: "",
+    js: "",
+  },
+  solutionCode: {
+    html: `<section>
+  <h1>Hubungi Tim</h1>
+  <p>Lengkapi form kontak berikut.</p>
+
+  <img src="images/contact-illustration.png" alt="Ilustrasi tim support menerima pesan kontak" />
+
+  <form>
+    <label for="name">Nama</label>
+    <input id="name" name="name" type="text" required />
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required />
+
+    <label for="message">Pesan</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <label for="topic">Topik</label>
+    <select id="topic" name="topic" required>
+      <option value="">Pilih topik</option>
+      <option value="support">Support</option>
+      <option value="feedback">Feedback</option>
+    </select>
+
+    <button type="submit">Kirim pesan</button>
+  </form>
+</section>`,
+    css: "",
+    js: "",
+  },
+  checklist: [
+    "Ada form.",
+    "Ada field nama dan email.",
+    "Ada textarea pesan.",
+    "Ada select topik.",
+    "Label memakai for yang sesuai dengan id field.",
+    "Field penting memakai required.",
+    "Ada button submit.",
+    "Gambar bermakna punya alt text yang jelas.",
+  ],
+  validation: {
+    mode: "html",
+    checks: [
+      { id: "has-form", label: "Ada form.", type: "hasElement", target: "form" },
+      { id: "name-label", label: "Label nama memakai for name.", type: "hasElementWithAttribute", target: "label", attribute: "for", valueIncludes: "name" },
+      { id: "name-input", label: "Input nama memakai id name.", type: "hasElementWithAttribute", target: "input", attribute: "id", valueIncludes: "name" },
+      { id: "email-label", label: "Label email memakai for email.", type: "hasElementWithAttribute", target: "label", attribute: "for", valueIncludes: "email" },
+      { id: "email-input", label: "Input email memakai type email.", type: "hasElementWithAttribute", target: "input", attribute: "type", valueIncludes: "email" },
+      { id: "has-textarea", label: "Ada textarea pesan.", type: "hasElement", target: "textarea" },
+      { id: "message-label", label: "Label pesan memakai for message.", type: "hasElementWithAttribute", target: "label", attribute: "for", valueIncludes: "message" },
+      { id: "message-field", label: "Textarea memakai id message.", type: "hasElementWithAttribute", target: "textarea", attribute: "id", valueIncludes: "message" },
+      { id: "has-select", label: "Ada select topik.", type: "hasElement", target: "select" },
+      { id: "topic-label", label: "Label topik memakai for topic.", type: "hasElementWithAttribute", target: "label", attribute: "for", valueIncludes: "topic" },
+      { id: "topic-field", label: "Select memakai id topic.", type: "hasElementWithAttribute", target: "select", attribute: "id", valueIncludes: "topic" },
+      { id: "has-required", label: "Ada field required.", type: "hasElementWithAttribute", target: "input, textarea, select", attribute: "required" },
+      { id: "submit-button", label: "Ada button submit.", type: "hasElementWithAttribute", target: "button", attribute: "type", valueIncludes: "submit" },
+      { id: "has-image-alt", label: "Gambar punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
+      { id: "alt-contact-context", label: "Alt menjelaskan konteks kontak.", type: "hasElementWithAttribute", target: "img", attribute: "alt", valueIncludes: "kontak" },
+    ],
+  },
+  skillTags: ["HTML", "Forms", "Accessibility", "Assessment"],
+};
+
+export const styleBasicHtmlTextChallenge: CodingChallenge = {
+  id: "style-basic-html-text",
+  lessonId: "what-is-css",
+  title: "Memberi style pada teks HTML",
+  description:
+    "Latihan mengubah tampilan h1 dan paragraf memakai CSS sederhana.",
+  instructions: [
+    "Fokus di tab CSS.",
+    "Targetkan h1 dan beri ukuran font.",
+    "Targetkan p dan beri warna teks.",
+    "JS tidak perlu diubah.",
+  ],
+  starterCode: {
+    html: `<h1>Belajar CSS</h1>
+<p>CSS membuat halaman lebih enak dibaca.</p>`,
+    css: `/* Tambahkan style untuk h1 dan p di sini */`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<h1>Belajar CSS</h1>
+<p>CSS membuat halaman lebih enak dibaca.</p>`,
+    css: `h1 {
+  font-size: 32px;
+}
+
+p {
+  color: #d4d4d8;
+}`,
+    js: "",
+  },
+  checklist: [
+    "CSS menargetkan h1.",
+    "h1 memiliki font-size.",
+    "CSS menargetkan p.",
+    "p memiliki color.",
+    "Preview menunjukkan perubahan tampilan teks.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-h1-selector", label: "Ada selector h1.", type: "cssSelectorExists", target: "h1" },
+      { id: "h1-font-size", label: "h1 punya property font-size.", type: "cssSelectorPropertyExists", target: "h1", property: "font-size" },
+      { id: "has-p-selector", label: "Ada selector p.", type: "cssSelectorExists", target: "p" },
+      { id: "p-color", label: "p punya property color.", type: "cssSelectorPropertyExists", target: "p", property: "color" },
+    ],
+  },
+  skillTags: ["CSS", "HTML", "Styling"],
+};
+
+export const practiceCssSelectorsDeclarationsChallenge: CodingChallenge = {
+  id: "practice-css-selectors-declarations",
+  lessonId: "css-selector-declaration-basic",
+  title: "Latihan selector, property, dan value",
+  description:
+    "Latihan membaca dan menulis declaration block dengan selector sederhana.",
+  instructions: [
+    "Targetkan elemen dengan class card memakai .card.",
+    "Tambahkan background, padding, dan border-radius.",
+    "Targetkan h2 dan ubah font-size.",
+    "JS tidak perlu diubah.",
+  ],
+  starterCode: {
+    html: `<article class="card">
+  <h2>CSS Core Mechanics</h2>
+  <p>Belajar selector, property, dan value.</p>
+</article>`,
+    css: `/* Tambahkan .card dan h2 style di sini */`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<article class="card">
+  <h2>CSS Core Mechanics</h2>
+  <p>Belajar selector, property, dan value.</p>
+</article>`,
+    css: `.card {
+  background: #18181b;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+h2 {
+  font-size: 24px;
+}`,
+    js: "",
+  },
+  checklist: [
+    "Ada selector .card.",
+    ".card memiliki background.",
+    ".card memiliki padding.",
+    ".card memiliki border-radius.",
+    "Ada selector h2.",
+    "h2 memiliki font-size.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-card-selector", label: "Ada selector .card.", type: "cssSelectorExists", target: ".card" },
+      { id: "card-background", label: ".card punya property background.", type: "cssSelectorPropertyExists", target: ".card", property: "background" },
+      { id: "card-padding", label: ".card punya property padding.", type: "cssSelectorPropertyExists", target: ".card", property: "padding" },
+      { id: "card-border-radius", label: ".card punya property border-radius.", type: "cssSelectorPropertyExists", target: ".card", property: "border-radius" },
+      { id: "has-h2-selector", label: "Ada selector h2.", type: "cssSelectorExists", target: "h2" },
+      { id: "h2-font-size", label: "h2 punya property font-size.", type: "cssSelectorPropertyExists", target: "h2", property: "font-size" },
+    ],
+  },
+  skillTags: ["CSS", "Selectors", "Styling"],
+};
+
+export const debugBasicCssCascadeChallenge: CodingChallenge = {
+  id: "debug-basic-css-cascade",
+  lessonId: "cascade-specificity-basic",
+  title: "Debug cascade CSS sederhana",
+  description:
+    "Latihan memperbaiki konflik CSS sederhana tanpa memakai !important.",
+  instructions: [
+    "Perbaiki style agar paragraf dengan class intro terlihat menonjol.",
+    "Gunakan selector .intro.",
+    "Tambahkan color #38bdf8 pada .intro.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<p class="intro">Ini paragraf pembuka yang perlu terlihat lebih jelas.</p>`,
+    css: `p {
+  color: gray;
+}
+
+/* Tambahkan selector .intro di sini */`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<p class="intro">Ini paragraf pembuka yang perlu terlihat lebih jelas.</p>`,
+    css: `p {
+  color: gray;
+}
+
+.intro {
+  color: #38bdf8;
+}`,
+    js: "",
+  },
+  checklist: [
+    "Ada selector .intro.",
+    ".intro memiliki color #38bdf8.",
+    "Style .intro menang dari p karena selector class lebih spesifik.",
+    "Tidak memakai !important.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-intro-selector", label: "Ada selector .intro.", type: "cssSelectorExists", target: ".intro" },
+      { id: "intro-color", label: ".intro punya property color.", type: "cssSelectorPropertyExists", target: ".intro", property: "color" },
+      { id: "intro-color-value", label: ".intro memakai color #38bdf8.", type: "cssSelectorPropertyValue", target: ".intro", property: "color", valueIncludes: "#38bdf8" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Cascade", "Specificity", "Debugging"],
+};
+
+export const buildStyledInfoCardChallenge: CodingChallenge = {
+  id: "build-styled-info-card",
+  lessonId: "css-core-mechanics-assessment",
+  title: "Membuat info card sederhana dengan CSS",
+  description:
+    "Assessment praktik untuk memberi style pada card memakai selector, property, dan value dasar.",
+  instructions: [
+    "Style card sederhana.",
+    "Gunakan class selector .card.",
+    "Tambahkan background, padding, dan border-radius.",
+    "Style heading dengan .card-title.",
+    "Style paragraph dengan .card-description.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<article class="card">
+  <h2 class="card-title">CSS Core Mechanics</h2>
+  <p class="card-description">Selector memilih elemen. Property dan value mengatur tampilannya.</p>
+</article>`,
+    css: `/* Tambahkan CSS card di sini */`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<article class="card">
+  <h2 class="card-title">CSS Core Mechanics</h2>
+  <p class="card-description">Selector memilih elemen. Property dan value mengatur tampilannya.</p>
+</article>`,
+    css: `.card {
+  background: #18181b;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.card-title {
+  font-size: 24px;
+  color: #f4f4f5;
+}
+
+.card-description {
+  color: #d4d4d8;
+}`,
+    js: "",
+  },
+  checklist: [
+    "Ada selector .card.",
+    ".card memiliki background.",
+    ".card memiliki padding.",
+    ".card memiliki border-radius.",
+    ".card-title memiliki font-size.",
+    ".card-description memiliki color.",
+    "Tidak memakai !important.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-card-selector", label: "Ada selector .card.", type: "cssSelectorExists", target: ".card" },
+      { id: "card-background", label: ".card punya property background.", type: "cssSelectorPropertyExists", target: ".card", property: "background" },
+      { id: "card-padding", label: ".card punya property padding.", type: "cssSelectorPropertyExists", target: ".card", property: "padding" },
+      { id: "card-border-radius", label: ".card punya property border-radius.", type: "cssSelectorPropertyExists", target: ".card", property: "border-radius" },
+      { id: "card-title-font-size", label: ".card-title punya property font-size.", type: "cssSelectorPropertyExists", target: ".card-title", property: "font-size" },
+      { id: "card-description-color", label: ".card-description punya property color.", type: "cssSelectorPropertyExists", target: ".card-description", property: "color" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Selectors", "Cascade", "Assessment"],
+};
+
 export const buildFlexboxNavbarChallenge: CodingChallenge = {
   id: "build-flexbox-navbar",
   lessonId: "css-flexbox-basics",
@@ -750,5 +1254,13 @@ export const challenges: CodingChallenge[] = [
   refactorDivLayoutToSemanticHtmlChallenge,
   buildHtmlBasicsPageChallenge,
   buildSemanticHtmlAssessmentPageChallenge,
+  buildBasicAccessibleFormChallenge,
+  buildContactFormFieldsChallenge,
+  writeUsefulAltTextChallenge,
+  buildAccessibleContactFormChallenge,
+  styleBasicHtmlTextChallenge,
+  practiceCssSelectorsDeclarationsChallenge,
+  debugBasicCssCascadeChallenge,
+  buildStyledInfoCardChallenge,
   buildFlexboxNavbarChallenge,
 ];

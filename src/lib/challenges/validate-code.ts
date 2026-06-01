@@ -136,11 +136,153 @@ function validateCheck(
   return { passed: false, message: "Tipe check belum didukung." };
 }
 
+function stripCssComments(css: string): string {
+  return css.replace(/\/\*[\s\S]*?\*\//g, "");
+}
+
+function escapeRegex(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function findCssRuleBlocks(css: string, selector: string): string[] {
+  const safeSelector = escapeRegex(selector.trim());
+  const rulePattern = new RegExp(`(^|})\\s*${safeSelector}\\s*\\{([^}]*)\\}`, "gi");
+  const blocks: string[] = [];
+  let match: RegExpExecArray | null;
+
+  while ((match = rulePattern.exec(css)) !== null) {
+    blocks.push(match[2] ?? "");
+  }
+
+  return blocks;
+}
+
+function hasCssPropertyInBlock(block: string, property: string): boolean {
+  const safeProperty = escapeRegex(property.trim());
+  const propertyPattern = new RegExp(`(^|;)\\s*${safeProperty}\\s*:`, "i");
+
+  return propertyPattern.test(block);
+}
+
+function findCssPropertyValuesInBlock(block: string, property: string): string[] {
+  const safeProperty = escapeRegex(property.trim());
+  const propertyPattern = new RegExp(`(^|;)\\s*${safeProperty}\\s*:\\s*([^;}]*)`, "gi");
+  const values: string[] = [];
+  let match: RegExpExecArray | null;
+
+  while ((match = propertyPattern.exec(block)) !== null) {
+    values.push(match[2]?.trim() ?? "");
+  }
+
+  return values;
+}
+
+function hasCssProperty(css: string, property: string): boolean {
+  const safeProperty = escapeRegex(property.trim());
+  const propertyPattern = new RegExp(`(^|[;{])\\s*${safeProperty}\\s*:`, "i");
+
+  return propertyPattern.test(css);
+}
+
+function validateCssCheck(
+  check: ChallengeValidationCheck,
+  css: string,
+): Pick<ChallengeValidationResult, "passed" | "message"> {
+  const cleanCss = stripCssComments(css);
+
+  if (check.type === "cssForbiddenTextAbsent") {
+    const forbiddenValue = check.valueIncludes ?? check.target ?? "";
+    const passed = forbiddenValue
+      ? !cleanCss.toLowerCase().includes(forbiddenValue.toLowerCase())
+      : false;
+
+    return {
+      passed,
+      message: forbiddenValue
+        ? `Hindari memakai ${forbiddenValue}.`
+        : "Forbidden text belum diisi.",
+    };
+  }
+
+  if (check.type === "cssPropertyExists") {
+    if (!check.property) {
+      return { passed: false, message: "Property CSS belum diisi." };
+    }
+
+    return {
+      passed: hasCssProperty(cleanCss, check.property),
+      message: `Tambahkan property ${check.property}.`,
+    };
+  }
+
+  if (!check.target) {
+    return { passed: false, message: "Selector CSS belum diisi." };
+  }
+
+  const matchingBlocks = findCssRuleBlocks(cleanCss, check.target);
+
+  if (check.type === "cssSelectorExists") {
+    return {
+      passed: matchingBlocks.length > 0,
+      message: `Tambahkan selector ${check.target}.`,
+    };
+  }
+
+  if (check.type === "cssSelectorPropertyExists") {
+    if (!check.property) {
+      return { passed: false, message: "Property CSS belum diisi." };
+    }
+
+    return {
+      passed: matchingBlocks.some((block) => hasCssPropertyInBlock(block, check.property ?? "")),
+      message: `Tambahkan property ${check.property} di selector ${check.target}.`,
+    };
+  }
+
+  if (check.type === "cssSelectorPropertyValue") {
+    if (!check.property || !check.valueIncludes) {
+      return { passed: false, message: "Property atau value CSS belum diisi." };
+    }
+
+    const expectedValue = check.valueIncludes.toLowerCase();
+    const passed = matchingBlocks.some((block) =>
+      findCssPropertyValuesInBlock(block, check.property ?? "").some((value) =>
+        value.toLowerCase().includes(expectedValue),
+      ),
+    );
+
+    return {
+      passed,
+      message: `Pastikan ${check.target} punya ${check.property} yang memuat ${check.valueIncludes}.`,
+    };
+  }
+
+  return { passed: false, message: "Tipe check CSS belum didukung." };
+}
+
 export function validateChallengeCode(
   validation: ChallengeValidation | undefined,
   code: ChallengeCode,
 ): ChallengeValidationResult[] {
-  if (!validation || validation.mode !== "html") {
+  if (!validation) {
+    return [];
+  }
+
+  if (validation.mode === "css") {
+    return validation.checks.map((check) => {
+      const result = validateCssCheck(check, code.css);
+
+      return {
+        id: check.id,
+        label: check.label,
+        passed: result.passed,
+        required: check.required ?? true,
+        message: result.passed ? undefined : result.message,
+      };
+    });
+  }
+
+  if (validation.mode !== "html") {
     return [];
   }
 
