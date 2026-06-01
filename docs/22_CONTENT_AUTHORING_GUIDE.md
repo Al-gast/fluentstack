@@ -319,6 +319,70 @@ Built-in practice authoring rules:
 
 Built-in practice is useful at every level. It is not only for beginner lessons.
 
+## External Tools and Local Setup
+
+Use this guidance when a lesson or module requires tools outside FluentStack, such as a code editor, browser DevTools, Git, GitHub, Node.js, package managers, deployment tools, backend services, or cloud dashboards.
+
+Mention tool prerequisites when the learner must install, sign in, open, configure, or run something before the lesson can continue.
+
+Classify tools clearly:
+
+* Required: the learner cannot complete the lesson without it.
+* Recommended: the lesson is easier or more standard with it, but alternatives are acceptable.
+* Optional: useful later, but not needed for the current task.
+
+Always prefer official download or documentation links. If a tool has many install options, link the official source and tell the learner what to focus on.
+
+Do not assume tools are already installed unless a previous lesson explicitly covered them.
+
+Introduce tools progressively:
+
+* Explain the problem the tool solves before naming the tool heavily.
+* Start with one safe action.
+* Explain commands one by one.
+* Explain placeholders such as `<your-repository-url>` before asking learners to run commands.
+* Add common failure points and how to check them.
+
+Do not introduce Node.js, npm, package managers, framework CLIs, bundlers, deployment tools, backend services, or cloud accounts before the curriculum is ready for them.
+
+Use checklist or self-review for local tasks that FluentStack cannot inspect directly.
+
+Use writing practice for project explanation, README drafts, setup notes, or reflection.
+
+Do not add fake automatic validation for local device, local filesystem, external account, terminal, deployment, or cloud-dashboard tasks.
+
+Tool examples:
+
+* VS Code or code editor:
+  * Required when the learner must open a project folder and edit files locally.
+  * Link official editor docs/download when setup is needed.
+  * First safe action: open the project folder, then open one file.
+
+* Browser and DevTools:
+  * Required when the learner must inspect HTML/CSS, check console output, or debug browser behavior.
+  * Link official Chrome/Firefox DevTools docs when useful.
+  * First safe action: Inspect one visible element and identify one applied style.
+
+* Git:
+  * Required when the learner must save project history locally.
+  * Explain repository, staging, commit, and message before using many commands.
+  * First safe action: `git init`, `git status`, then one small commit.
+
+* GitHub:
+  * Required when the learner must create an online repository or push code.
+  * Link GitHub Docs for account/repository workflow.
+  * First safe action: create one repository and confirm files appear after push.
+
+* Node.js and package managers:
+  * Use only in later modules that need JavaScript tooling, build tools, or framework workflows.
+  * Explain why the project now needs tooling before asking learners to install Node.js or run npm commands.
+  * Avoid mixing package manager choices in one beginner lesson.
+
+* Deployment tools:
+  * Use only when the module goal includes publishing or production workflow.
+  * Explain account, project, build settings, environment variables, and rollback at the right level.
+  * Keep early deployment tasks guided and narrow.
+
 ## Local Dev Milestone
 
 Local Dev Milestone happens on the learner’s own device.

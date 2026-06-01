@@ -277,6 +277,48 @@ Use this loop for local workflow lessons or modules:
 
 Local milestones may use existing lesson block types. They do not require a new schema by default.
 
+## Standard Tooling Lesson Pattern
+
+Use this pattern when a lesson requires local installation, external accounts, CLI commands, browser tools, code editors, deployment tools, backend services, or cloud dashboards.
+
+1. Tool prerequisite note
+   * State what is required, recommended, and optional.
+   * Do not assume the tool is installed unless a previous lesson taught it.
+
+2. Why this tool is needed
+   * Explain the problem the tool solves in plain language.
+   * Avoid naming many tools before the learner knows why they matter.
+
+3. Official resource link
+   * Link the official download/docs page.
+   * Tell learners what section to focus on and what to ignore for now.
+
+4. Small setup checklist
+   * Keep setup steps short and observable.
+   * Use checklist/self-review when FluentStack cannot inspect the learner’s device.
+
+5. First safe action
+   * Ask for one small action first, such as opening a folder, inspecting one element, running `git status`, or creating one repository.
+
+6. Command or UI walkthrough
+   * Explain commands one by one.
+   * Explain placeholders such as `<your-repository-url>`.
+   * Do not bundle many commands without context.
+
+7. Troubleshooting callout
+   * Include likely beginner failure points.
+   * Explain how to check whether the tool action worked.
+
+8. Local/self-review task
+   * Make completion honest.
+   * Do not claim FluentStack can automatically verify local files, terminal state, external accounts, deployment state, or cloud resources unless that feature exists.
+
+9. Summary
+   * State what the learner can now do with the tool.
+   * Bridge to the next lesson or module.
+
+Regular lessons should stay focused. A tooling lesson should not become a full installation manual. Link official docs for full setup details and teach only what the current module needs.
+
 ## Mapping to Current Schema
 
 | Lesson section                  | Current FluentStack structure                                                                       | Notes                                                                                 |

@@ -867,6 +867,126 @@ Improvement tips:
 * Add exact section and focus points.
 * Tie docs to one local project action.
 
+## Tooling and Local Setup Rubric
+
+Use this for lessons that require local installation, external accounts, CLI commands, browser DevTools, code editors, deployment tools, backend services, or cloud dashboards.
+
+### 1. Tool Prerequisite Clarity
+
+10/10:
+
+* Learner knows what must be installed, opened, signed into, or configured before starting.
+* Tools are labeled as required, recommended, or optional.
+* Official download/docs links are included when setup is needed.
+
+7/10:
+
+* Tools are mentioned, but status or setup source could be clearer.
+
+5/10 or below:
+
+* Lesson assumes tools are already installed.
+* Learner may not know what tool to use or where to get it.
+
+Improvement tips:
+
+* Add a short prerequisite note.
+* Use official links.
+* Tell learners what to ignore for now.
+
+### 2. Tool Purpose and Timing
+
+10/10:
+
+* Tool purpose is explained in plain language.
+* Tool appears only when the curriculum is ready for it.
+* Node.js, package managers, frameworks, deployment, backend, or cloud tools are not introduced early.
+
+7/10:
+
+* Tool is useful, but the reason or timing needs more context.
+
+5/10 or below:
+
+* Tooling appears as a random setup step.
+* Learner is pushed into npm, framework, deployment, or cloud workflow before the prerequisite concepts are mature.
+
+Improvement tips:
+
+* Explain the problem the tool solves.
+* Delay the tool until learners have enough concepts.
+* Split setup into a later module if it distracts from the current goal.
+
+### 3. Command and Placeholder Clarity
+
+10/10:
+
+* Commands are explained one by one.
+* Placeholders such as `<your-repository-url>` are explained before use.
+* Learner knows what successful output or state should look like.
+
+7/10:
+
+* Commands are usable, but some lines need clearer explanation.
+
+5/10 or below:
+
+* Commands are dumped without context.
+* Placeholders are unexplained.
+* Learner cannot tell whether the command worked.
+
+Improvement tips:
+
+* Add a short explanation after each command group.
+* Add expected result or “you should see...” notes.
+* Avoid long command chains in beginner lessons.
+
+### 4. Troubleshooting and Failure Points
+
+10/10:
+
+* Common failure points are anticipated.
+* Learner gets calm checks before escalation.
+* Troubleshooting stays focused on the current tool action.
+
+7/10:
+
+* Some failure points are included.
+* More beginner checks would help.
+
+5/10 or below:
+
+* No troubleshooting guidance.
+* Lesson implies failure means the learner did something broadly wrong.
+
+Improvement tips:
+
+* Add a common mistake callout.
+* Include checks for saved files, wrong folder, wrong command location, account login, missing remote, or unmatched file path when relevant.
+
+### 5. Honest Local Verification
+
+10/10:
+
+* Local tasks use checklist or self-review when the app cannot inspect the learner’s device.
+* Writing practice is used for README, project explanation, setup notes, or reflection when useful.
+* No fake automatic validation is used for local files, terminal state, external accounts, deployment state, or cloud dashboards.
+
+7/10:
+
+* Checklist is present, but verification limits could be clearer.
+
+5/10 or below:
+
+* Lesson claims FluentStack can verify local or external state when it cannot.
+* Completion criteria are vague or misleading.
+
+Improvement tips:
+
+* State what FluentStack cannot verify.
+* Add observable checklist items.
+* Ask learner to explain what they built or checked.
+
 ## Module Coherence Rubric
 
 Use this section when reviewing a full module.
