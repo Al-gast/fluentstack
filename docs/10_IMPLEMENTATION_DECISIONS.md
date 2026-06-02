@@ -88,9 +88,9 @@ Rules:
 Use clear slugs such as:
 
 * frontend-engineering
-* html-web-fundamentals
+* html-basics
 * html-semantic-basics
-* css-flexbox-basics
+* build-navbar-with-flexbox
 * build-flexbox-navbar
 
 ---
@@ -200,7 +200,7 @@ The first slice should support this navigation path:
 * /dashboard
 * /roadmap
 * /learn/frontend-engineering
-* /learn/frontend-engineering/html-web-fundamentals
+* /learn/frontend-engineering/html-basics
 * /lesson/html-semantic-basics
 
 The first implementation can use placeholder progress where needed.

@@ -192,7 +192,7 @@ export const frontendTrack: Track = {
     "Belajar fondasi modern frontend development melalui materi terstruktur, quiz, dan praktik langsung.",
   level: "beginner",
   estimatedHours: 80,
-  moduleIds: ["html-web-fundamentals", "css-fundamentals"],
+  moduleIds: ["web-foundations", "html-basics"],
   skillTags: ["HTML", "CSS", "JavaScript", "Frontend"],
 };
 ```
@@ -230,14 +230,14 @@ Example:
 
 ```ts
 export const htmlModule: Module = {
-  id: "html-web-fundamentals",
+  id: "html-basics",
   trackId: "frontend-engineering",
-  title: "HTML & Web Fundamentals",
-  slug: "html-web-fundamentals",
+  title: "HTML Basics",
+  slug: "html-basics",
   description:
     "Pahami bagaimana halaman web disusun dan bagaimana browser membaca struktur HTML.",
   order: 1,
-  lessonIds: ["html-semantic-basics"],
+  lessonIds: ["html-basic-structure"],
   estimatedHours: 6,
   skillTags: ["HTML", "Web Fundamentals"],
 };
@@ -275,7 +275,7 @@ Example:
 export const htmlSemanticLesson: Lesson = {
   id: "html-semantic-basics",
   trackId: "frontend-engineering",
-  moduleId: "html-web-fundamentals",
+  moduleId: "semantic-html",
   title: "Dasar Semantic HTML",
   slug: "html-semantic-basics",
   description:
@@ -755,7 +755,7 @@ Example:
 ```ts
 export const flexboxNavbarChallenge: CodingChallenge = {
   id: "build-flexbox-navbar",
-  lessonId: "css-flexbox-basics",
+  lessonId: "build-navbar-with-flexbox",
   title: "Membuat responsive navbar",
   description:
     "Latih penggunaan Flexbox dengan membuat navbar sederhana: logo di kiri dan navigation links di kanan.",

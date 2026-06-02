@@ -168,35 +168,6 @@ export const responsiveVisualSystemModule: Module = {
   skillTags: ["CSS", "Responsive Design", "Visual System", "Dark Mode"],
 };
 
-// Legacy module kept so old module slugs do not disappear abruptly.
-// It is not linked from frontendEngineeringTrack.moduleIds.
-export const htmlWebFundamentalsModule: Module = {
-  id: "html-web-fundamentals",
-  trackId: "frontend-engineering",
-  title: "HTML & Web Fundamentals",
-  slug: "html-web-fundamentals",
-  description:
-    "Tulis struktur HTML dasar, pahami tag, element, attribute, dan gunakan semantic HTML dengan lebih tepat.",
-  order: 99,
-  lessonIds: [],
-  estimatedHours: 10,
-  skillTags: ["HTML", "Web Fundamentals", "Accessibility"],
-};
-
-// Retained from earlier MVP/prototype content. It will be rebuilt before becoming active again.
-export const cssFundamentalsModule: Module = {
-  id: "css-fundamentals",
-  trackId: "frontend-engineering",
-  title: "CSS Fundamentals",
-  slug: "css-fundamentals",
-  description:
-    "Pelajari layout CSS modern dan praktikkan Flexbox lewat komponen UI sehari-hari.",
-  order: 99,
-  lessonIds: ["css-flexbox-basics"],
-  estimatedHours: 8,
-  skillTags: ["CSS", "Flexbox", "Responsive Design"],
-};
-
 export const englishForRemoteWorkModule: Module = {
   id: "english-for-remote-work",
   trackId: "english-for-tech-careers",
@@ -220,7 +191,5 @@ export const modules: Module[] = [
   localStaticWebsiteProjectModule,
   flexboxGridLayoutModule,
   responsiveVisualSystemModule,
-  htmlWebFundamentalsModule,
-  cssFundamentalsModule,
   englishForRemoteWorkModule,
 ];

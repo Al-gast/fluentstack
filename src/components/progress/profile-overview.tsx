@@ -49,7 +49,7 @@ export function ProfileOverview() {
   const frontendLessons = lessons.filter((lesson) => lesson.trackId === frontendTrack?.id);
   const frontendMetrics = calculateLessonsProgress(frontendLessons, completedBlockIds);
 
-  const htmlModule = modules.find((moduleItem) => moduleItem.slug === "html-web-fundamentals");
+  const htmlModule = modules.find((moduleItem) => moduleItem.slug === "html-basics");
   const htmlLessons = lessons.filter((lesson) => lesson.moduleId === htmlModule?.id);
   const htmlMetrics = calculateLessonsProgress(htmlLessons, completedBlockIds);
 
@@ -153,7 +153,7 @@ export function ProfileOverview() {
         </article>
 
         <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5">
-          <h3 className="text-base font-bold text-zinc-100">HTML & Web Fundamentals</h3>
+          <h3 className="text-base font-bold text-zinc-100">HTML Basics</h3>
           <p className="mt-2 text-sm text-zinc-300">
             {isLoading
               ? "Memuat progres..."

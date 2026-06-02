@@ -240,7 +240,7 @@ Do not:
 Acceptance criteria:
 - /roadmap works.
 - /learn/frontend-engineering works.
-- /learn/frontend-engineering/html-web-fundamentals works.
+- /learn/frontend-engineering/html-basics works.
 - User can navigate toward a lesson.
 - UI is responsive.
 ```

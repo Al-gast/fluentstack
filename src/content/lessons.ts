@@ -4703,70 +4703,6 @@ export const responsiveVisualSystemAssessmentLesson: Lesson = {
   },
 };
 
-export const cssFlexboxBasicsLesson: Lesson = {
-  id: "css-flexbox-basics",
-  trackId: "frontend-engineering",
-  moduleId: "css-fundamentals",
-  title: "Dasar Flexbox",
-  slug: "css-flexbox-basics",
-  description:
-    "Pelajari konsep dasar Flexbox untuk membuat layout horizontal dan vertikal yang lebih rapi serta mudah diatur.",
-  contentLanguage: "id",
-  level: "beginner",
-  estimatedMinutes: 30,
-  objectives: [
-    "Memahami peran container dan item pada Flexbox",
-    "Menggunakan justify-content dan align-items sesuai kebutuhan layout",
-    "Menerapkan Flexbox pada komponen navbar sederhana",
-  ],
-  skillTags: ["CSS", "Flexbox", "Responsive Design"],
-  blocks: [
-    {
-      id: "css-flexbox-intro",
-      type: "text",
-      title: "Kenalan dengan Flexbox",
-      content:
-        "Flexbox dipakai untuk menyusun elemen secara fleksibel dalam satu baris atau kolom. Dengan properti yang tepat, kamu bisa mengatur jarak, alignment, dan distribusi ruang tanpa trik layout lama yang rumit.",
-    },
-    {
-      id: "css-flexbox-code-example",
-      type: "code-example",
-      title: "Contoh container Flexbox dasar",
-      language: "css",
-      code: `.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}`,
-      explanation:
-        "display: flex mengaktifkan Flexbox. justify-content mengatur distribusi ruang horizontal, sedangkan align-items mengatur alignment pada sumbu silang.",
-    },
-    {
-      id: "css-flexbox-coding-practice",
-      type: "coding-practice",
-      challengeId: "build-flexbox-navbar",
-    },
-    {
-      id: "css-flexbox-summary",
-      type: "summary",
-      points: [
-        "Flexbox mempermudah penyusunan layout horizontal maupun vertikal.",
-        "Gunakan justify-content dan align-items untuk mengontrol posisi elemen.",
-        "Latihan langsung lewat challenge membuat perilaku Flexbox lebih mudah dipahami di UI nyata.",
-      ],
-    },
-  ],
-  completionRule: {
-    requiredBlockIds: [
-      "css-flexbox-intro",
-      "css-flexbox-code-example",
-      "css-flexbox-coding-practice",
-      "css-flexbox-summary",
-    ],
-  },
-};
-
 export const lessons: Lesson[] = [
   whatIsWebsiteAndWebPageLesson,
   howWebPageLoadsLesson,
@@ -4814,6 +4750,5 @@ export const lessons: Lesson[] = [
   fluidSpacingTypographyBasicLesson,
   cssVariablesDarkModeBasicLesson,
   responsiveVisualSystemAssessmentLesson,
-  cssFlexboxBasicsLesson,
   writingDailyUpdateLesson,
 ];
