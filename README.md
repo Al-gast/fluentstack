@@ -363,6 +363,9 @@ Main app routes:
  /learn/frontend-engineering/forms-basic-accessibility
  /learn/frontend-engineering/css-core-mechanics
  /learn/frontend-engineering/box-model-spacing
+ /learn/frontend-engineering/local-static-website-project
+ /learn/frontend-engineering/flexbox-grid-layout
+ /learn/frontend-engineering/responsive-visual-system
  /lesson/[lessonSlug]
  /profile
  /login
@@ -386,6 +389,9 @@ Selected active beginner lesson routes include:
 /lesson/forms-basic-accessibility-assessment
 /lesson/css-core-mechanics-assessment
 /lesson/box-model-spacing-assessment
+/lesson/local-static-website-project-assessment
+/lesson/flexbox-grid-layout-assessment
+/lesson/responsive-visual-system-assessment
 ```
 
 ## Development Commands
