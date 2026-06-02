@@ -130,6 +130,25 @@ export const localStaticWebsiteProjectModule: Module = {
   skillTags: ["Local Workflow", "HTML", "CSS", "Git", "GitHub"],
 };
 
+export const flexboxGridLayoutModule: Module = {
+  id: "flexbox-grid-layout",
+  trackId: "frontend-engineering",
+  title: "Flexbox and Grid Layout",
+  slug: "flexbox-grid-layout",
+  description:
+    "Pelajari cara menyusun elemen menggunakan Flexbox dan Grid untuk membuat navbar, layout sederhana, dan card grid.",
+  order: 8,
+  lessonIds: [
+    "css-flexbox-basic",
+    "build-navbar-with-flexbox",
+    "css-grid-basic",
+    "flexbox-vs-grid-decision",
+    "flexbox-grid-layout-assessment",
+  ],
+  estimatedHours: 4,
+  skillTags: ["CSS", "Flexbox", "Grid", "Layout"],
+};
+
 // Legacy module kept so old module slugs do not disappear abruptly.
 // It is not linked from frontendEngineeringTrack.moduleIds.
 export const htmlWebFundamentalsModule: Module = {
@@ -180,6 +199,7 @@ export const modules: Module[] = [
   cssCoreMechanicsModule,
   boxModelSpacingModule,
   localStaticWebsiteProjectModule,
+  flexboxGridLayoutModule,
   htmlWebFundamentalsModule,
   cssFundamentalsModule,
   englishForRemoteWorkModule,

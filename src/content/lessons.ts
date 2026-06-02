@@ -3602,6 +3602,546 @@ export const localStaticWebsiteProjectAssessmentLesson: Lesson = {
   },
 };
 
+export const cssFlexboxBasicLesson: Lesson = {
+  id: "css-flexbox-basic",
+  trackId: "frontend-engineering",
+  moduleId: "flexbox-grid-layout",
+  title: "Flexbox Dasar",
+  slug: "css-flexbox-basic",
+  description:
+    "Pahami Flexbox sebagai cara menyusun elemen dalam satu arah, baik baris maupun kolom.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 40,
+  objectives: [
+    "Memahami Flexbox sebagai layout satu arah",
+    "Memahami flex container dan flex item",
+    "Menggunakan display: flex",
+    "Menggunakan gap",
+    "Mengenal justify-content dan align-items secara sederhana",
+  ],
+  skillTags: ["CSS", "Flexbox", "Layout"],
+  blocks: [
+    {
+      id: "css-flexbox-basic-intro",
+      type: "text",
+      title: "Flexbox menyusun item dalam satu arah",
+      content:
+        "Flexbox membantu kamu menyusun elemen dalam satu arah: baris atau kolom. Ini cocok untuk menu horizontal, tombol yang bersebelahan, atau layout kecil yang itemnya perlu rapi dalam satu jalur.\n\nParent yang diberi display: flex menjadi flex container. Anak langsung di dalamnya menjadi flex item. gap memberi jarak antar item. justify-content mengatur posisi item di arah utama, sedangkan align-items mengatur posisi di arah silang.",
+    },
+    {
+      id: "css-flexbox-basic-code",
+      type: "code-example",
+      title: "Contoh Flexbox sederhana",
+      language: "html",
+      code: `<div class="layout">
+  <div class="card">HTML</div>
+  <div class="card">CSS</div>
+  <div class="card">JavaScript</div>
+</div>`,
+      explanation:
+        "Elemen .layout akan menjadi flex container. Tiga .card di dalamnya akan menjadi flex item.",
+    },
+    {
+      id: "css-flexbox-basic-css",
+      type: "code-example",
+      title: "CSS untuk menyusun card",
+      language: "css",
+      code: `.layout {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}`,
+      explanation:
+        "display: flex mengaktifkan Flexbox. gap memberi jarak antar card. align-items membantu merapikan posisi item pada arah silang.",
+    },
+    {
+      id: "css-flexbox-basic-callout",
+      type: "callout",
+      variant: "tip",
+      title: "Kapan Flexbox cocok?",
+      content:
+        "Flexbox paling cocok saat kamu menyusun elemen dalam satu arah, misalnya menu horizontal, tombol bersebelahan, atau layout kecil baris/kolom.",
+    },
+    {
+      id: "css-flexbox-basic-quick-check",
+      type: "quick-check",
+      question: "Property apa yang membuat sebuah elemen menjadi flex container?",
+      options: [
+        "grid-template-columns",
+        "display: flex",
+        "layout: row",
+        "flex-item: true",
+      ],
+      correctAnswer: "display: flex",
+      explanation:
+        "display: flex membuat elemen menjadi flex container sehingga anak langsungnya menjadi flex item.",
+    },
+    {
+      id: "css-flexbox-basic-coding-practice",
+      type: "coding-practice",
+      challengeId: "practice-css-flexbox-basic",
+    },
+    {
+      id: "css-flexbox-basic-summary",
+      type: "summary",
+      points: [
+        "Flexbox menyusun elemen dalam satu arah.",
+        "display: flex dipasang di parent.",
+        "Anak langsung menjadi flex item.",
+        "gap memberi jarak antar item.",
+        "Berikutnya kamu akan memakai Flexbox untuk membuat navbar.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "css-flexbox-basic-intro",
+      "css-flexbox-basic-code",
+      "css-flexbox-basic-css",
+      "css-flexbox-basic-quick-check",
+      "css-flexbox-basic-coding-practice",
+      "css-flexbox-basic-summary",
+    ],
+  },
+};
+
+export const buildNavbarWithFlexboxLesson: Lesson = {
+  id: "build-navbar-with-flexbox",
+  trackId: "frontend-engineering",
+  moduleId: "flexbox-grid-layout",
+  title: "Membuat Navbar dengan Flexbox",
+  slug: "build-navbar-with-flexbox",
+  description:
+    "Gunakan Flexbox untuk membuat navbar sederhana yang rapi dan mudah dibaca.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 45,
+  objectives: [
+    "Menggunakan Flexbox untuk layout navbar",
+    "Mengatur jarak antar link",
+    "Menggunakan justify-content untuk memisahkan brand dan menu",
+    "Menggunakan align-items untuk merapikan posisi vertikal",
+    "Membuat navbar sederhana tanpa JavaScript",
+  ],
+  skillTags: ["CSS", "Flexbox", "Navbar"],
+  blocks: [
+    {
+      id: "build-navbar-with-flexbox-intro",
+      type: "text",
+      title: "Navbar biasanya layout satu baris",
+      content:
+        "Navbar sering punya brand di kiri dan menu di kanan. Flexbox cocok untuk kasus ini karena navbar biasanya menyusun item dalam satu baris.\n\njustify-content: space-between bisa memisahkan dua area. align-items membantu merapikan posisi vertikal. gap membantu memberi jarak antar link tanpa margin acak.",
+    },
+    {
+      id: "build-navbar-with-flexbox-html",
+      type: "code-example",
+      title: "HTML navbar sederhana",
+      language: "html",
+      code: `<nav class="nav">
+  <a class="brand" href="#">FluentStack</a>
+  <div class="nav-list">
+    <a href="#">Home</a>
+    <a href="#">Roadmap</a>
+    <a href="#">Login</a>
+  </div>
+</nav>`,
+      explanation:
+        "Elemen nav memberi makna navigasi. .nav-list membungkus link menu agar jaraknya bisa diatur bersama.",
+    },
+    {
+      id: "build-navbar-with-flexbox-css",
+      type: "code-example",
+      title: "CSS navbar dengan Flexbox",
+      language: "css",
+      code: `.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 12px;
+}`,
+      explanation:
+        "Flexbox dipakai di .nav untuk memisahkan brand dan menu. Flexbox juga dipakai di .nav-list untuk menyusun link menu.",
+    },
+    {
+      id: "build-navbar-with-flexbox-callout",
+      type: "callout",
+      variant: "tip",
+      title: "Gunakan nav untuk navigasi",
+      content:
+        "Gunakan elemen nav untuk area navigasi utama. Jangan membuat semua navbar hanya dengan div jika sebenarnya bagian itu adalah navigasi.",
+    },
+    {
+      id: "build-navbar-with-flexbox-quick-check",
+      type: "quick-check",
+      question:
+        "Kalau brand ingin di kiri dan menu ingin di kanan, property Flexbox mana yang paling sesuai?",
+      options: [
+        "font-size: 16px",
+        "justify-content: space-between",
+        "border-radius: 8px",
+        "color: blue",
+      ],
+      correctAnswer: "justify-content: space-between",
+      explanation:
+        "justify-content: space-between memberi jarak antara item di awal dan akhir container.",
+    },
+    {
+      id: "build-navbar-with-flexbox-coding-practice",
+      type: "coding-practice",
+      challengeId: "build-flexbox-navbar",
+    },
+    {
+      id: "build-navbar-with-flexbox-summary",
+      type: "summary",
+      points: [
+        "Flexbox cocok untuk navbar satu baris.",
+        "justify-content membantu mengatur posisi horizontal.",
+        "align-items membantu merapikan posisi vertikal.",
+        "gap lebih rapi daripada memberi margin acak pada setiap link.",
+        "Berikutnya kamu akan melihat layout dua arah dengan CSS Grid.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "build-navbar-with-flexbox-intro",
+      "build-navbar-with-flexbox-html",
+      "build-navbar-with-flexbox-css",
+      "build-navbar-with-flexbox-quick-check",
+      "build-navbar-with-flexbox-coding-practice",
+      "build-navbar-with-flexbox-summary",
+    ],
+  },
+};
+
+export const cssGridBasicLesson: Lesson = {
+  id: "css-grid-basic",
+  trackId: "frontend-engineering",
+  moduleId: "flexbox-grid-layout",
+  title: "Grid Dasar",
+  slug: "css-grid-basic",
+  description: "Pahami CSS Grid sebagai cara menyusun elemen dalam baris dan kolom.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 45,
+  objectives: [
+    "Memahami CSS Grid sebagai layout dua arah",
+    "Menggunakan display: grid",
+    "Menggunakan grid-template-columns",
+    "Menggunakan gap",
+    "Membuat card grid sederhana",
+  ],
+  skillTags: ["CSS", "Grid", "Layout"],
+  blocks: [
+    {
+      id: "css-grid-basic-intro",
+      type: "text",
+      title: "Grid menyusun baris dan kolom",
+      content:
+        "CSS Grid cocok untuk layout dua arah: baris dan kolom. Grid container dibuat dengan display: grid. grid-template-columns menentukan struktur kolom. gap memberi jarak antar item.\n\nGrid sering dipakai untuk card gallery, product grid, dashboard section, atau daftar item yang perlu tersusun dalam beberapa kolom.",
+    },
+    {
+      id: "css-grid-basic-html",
+      type: "code-example",
+      title: "HTML card grid",
+      language: "html",
+      code: `<section class="cards">
+  <article class="card">Card 1</article>
+  <article class="card">Card 2</article>
+  <article class="card">Card 3</article>
+</section>`,
+      explanation:
+        ".cards akan menjadi grid container. Setiap .card menjadi item di dalam grid.",
+    },
+    {
+      id: "css-grid-basic-css",
+      type: "code-example",
+      title: "CSS grid sederhana",
+      language: "css",
+      code: `.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}`,
+      explanation:
+        "display: grid mengaktifkan Grid. grid-template-columns membuat tiga kolom. gap memberi jarak antar card.",
+    },
+    {
+      id: "css-grid-basic-callout",
+      type: "callout",
+      variant: "tip",
+      title: "Jangan memaksa Flexbox untuk semua layout",
+      content:
+        "Jika layout butuh banyak baris dan kolom, Grid sering membuat struktur lebih jelas daripada memaksa Flexbox.",
+    },
+    {
+      id: "css-grid-basic-quick-check",
+      type: "quick-check",
+      question:
+        "Property apa yang biasanya dipakai untuk menentukan jumlah atau ukuran kolom di CSS Grid?",
+      options: [
+        "font-size",
+        "text-align",
+        "grid-template-columns",
+        "justify-content",
+      ],
+      correctAnswer: "grid-template-columns",
+      explanation:
+        "grid-template-columns mengatur struktur kolom dalam grid container.",
+    },
+    {
+      id: "css-grid-basic-coding-practice",
+      type: "coding-practice",
+      challengeId: "practice-css-grid-card-layout",
+    },
+    {
+      id: "css-grid-basic-summary",
+      type: "summary",
+      points: [
+        "Grid cocok untuk layout baris dan kolom.",
+        "display: grid dipasang di parent.",
+        "grid-template-columns menentukan kolom.",
+        "gap memberi jarak antar card.",
+        "Berikutnya kamu akan belajar kapan memakai Flexbox atau Grid.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "css-grid-basic-intro",
+      "css-grid-basic-html",
+      "css-grid-basic-css",
+      "css-grid-basic-quick-check",
+      "css-grid-basic-coding-practice",
+      "css-grid-basic-summary",
+    ],
+  },
+};
+
+export const flexboxVsGridDecisionLesson: Lesson = {
+  id: "flexbox-vs-grid-decision",
+  trackId: "frontend-engineering",
+  moduleId: "flexbox-grid-layout",
+  title: "Kapan Pakai Flexbox atau Grid?",
+  slug: "flexbox-vs-grid-decision",
+  description:
+    "Pelajari aturan sederhana untuk memilih Flexbox atau Grid dalam layout CSS.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 40,
+  objectives: [
+    "Memahami Flexbox cocok untuk layout satu arah",
+    "Memahami Grid cocok untuk layout dua arah",
+    "Memilih tool layout berdasarkan bentuk masalah",
+    "Menghindari memaksa satu tool untuk semua layout",
+  ],
+  skillTags: ["CSS", "Flexbox", "Grid", "Layout Decision"],
+  blocks: [
+    {
+      id: "flexbox-vs-grid-decision-intro",
+      type: "text",
+      title: "Pilih berdasarkan masalah layout",
+      content:
+        "Pakai Flexbox saat fokusnya menyusun item dalam satu baris atau satu kolom. Pakai Grid saat kamu butuh baris dan kolom.\n\nNavbar biasanya cocok dengan Flexbox. Card gallery biasanya cocok dengan Grid. Banyak UI nyata memakai keduanya bersama-sama: Grid untuk struktur besar, Flexbox untuk isi kecil di dalam card atau navbar.",
+    },
+    {
+      id: "flexbox-vs-grid-decision-cases",
+      type: "text",
+      title: "Contoh keputusan layout",
+      content:
+        "Beberapa keputusan beginner yang bisa kamu pakai:\n\n- Navbar: Flexbox.\n- Button group: Flexbox.\n- Product card grid: Grid.\n- Dashboard summary cards: Grid.\n- Isi kecil di dalam card: Flexbox.\n\nAturannya bukan hafalan kaku. Lihat dulu apakah masalahnya satu arah atau dua arah.",
+    },
+    {
+      id: "flexbox-vs-grid-decision-quick-check",
+      type: "quick-check",
+      question:
+        "Kalau kamu ingin membuat gallery card 3 kolom, layout tool mana yang biasanya lebih cocok?",
+      options: [
+        "padding",
+        "Flexbox selalu",
+        "Grid",
+        "color",
+      ],
+      correctAnswer: "Grid",
+      explanation:
+        "Grid lebih cocok untuk layout dua arah seperti baris dan kolom.",
+    },
+    {
+      id: "flexbox-vs-grid-decision-coding-practice",
+      type: "coding-practice",
+      challengeId: "choose-flexbox-grid-layout",
+    },
+    {
+      id: "flexbox-vs-grid-decision-summary",
+      type: "summary",
+      points: [
+        "Flexbox cocok untuk satu arah.",
+        "Grid cocok untuk dua arah.",
+        "Keduanya bisa dipakai bersama.",
+        "Pilih berdasarkan masalah layout, bukan karena hafalan.",
+        "Berikutnya kamu akan menguji pemahaman Flexbox dan Grid.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "flexbox-vs-grid-decision-intro",
+      "flexbox-vs-grid-decision-cases",
+      "flexbox-vs-grid-decision-quick-check",
+      "flexbox-vs-grid-decision-coding-practice",
+      "flexbox-vs-grid-decision-summary",
+    ],
+  },
+};
+
+export const flexboxGridLayoutAssessmentLesson: Lesson = {
+  id: "flexbox-grid-layout-assessment",
+  trackId: "frontend-engineering",
+  moduleId: "flexbox-grid-layout",
+  title: "Uji Kompetensi Flexbox and Grid Layout",
+  slug: "flexbox-grid-layout-assessment",
+  description:
+    "Uji kemampuan menyusun navbar, card grid, dan memilih Flexbox atau Grid dengan tepat.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 55,
+  objectives: [
+    "Mengecek pemahaman Flexbox",
+    "Mengecek kemampuan membuat navbar sederhana",
+    "Mengecek pemahaman Grid",
+    "Mengecek kemampuan membuat card grid",
+    "Mengecek kemampuan memilih Flexbox atau Grid",
+    "Mengarahkan learner membaca dokumentasi resmi CSS layout dengan fokus",
+  ],
+  skillTags: ["CSS", "Flexbox", "Grid", "Assessment"],
+  blocks: [
+    {
+      id: "flexbox-grid-layout-assessment-recap",
+      type: "text",
+      title: "Apa yang dicek di assessment ini",
+      content:
+        "Assessment ini merangkum Flexbox dan Grid Layout. Kamu akan mengecek Flexbox sebagai layout satu arah, Grid sebagai layout baris dan kolom, display: flex, display: grid, gap, justify-content, align-items, grid-template-columns, dan keputusan kapan memakai masing-masing.",
+    },
+    {
+      id: "flexbox-grid-layout-assessment-quiz-block",
+      type: "quiz",
+      quizId: "flexbox-grid-layout-assessment-quiz",
+    },
+    {
+      id: "flexbox-grid-layout-assessment-coding-practice",
+      type: "coding-practice",
+      challengeId: "build-responsive-ish-card-section",
+    },
+    {
+      id: "flexbox-grid-layout-assessment-docs-bridge",
+      type: "documentation-bridge",
+      title: "Baca dokumentasi resmi",
+      description:
+        "Gunakan dokumentasi ini untuk menguatkan pemahaman Flexbox dan Grid. Fokus pada konsep yang sudah kamu pakai di latihan.",
+      links: [
+        {
+          source: "MDN Web Docs",
+          title: "Basic concepts of flexbox",
+          url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox",
+          focus: [
+            "flex container",
+            "flex item",
+            "main axis dan cross axis secara ringan",
+          ],
+          ignoreForNow: [
+            "advanced ordering",
+            "nested flex patterns",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "Aligning items in a flex container",
+          url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container",
+          focus: [
+            "justify-content",
+            "align-items",
+            "gap pada flex container",
+          ],
+          ignoreForNow: [
+            "advanced alignment edge cases",
+            "writing modes",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "Basic concepts of grid layout",
+          url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout",
+          focus: [
+            "grid container",
+            "grid item",
+            "baris dan kolom",
+          ],
+          ignoreForNow: [
+            "subgrid",
+            "advanced grid placement",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "grid-template-columns",
+          url: "https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns",
+          focus: [
+            "membuat kolom",
+            "repeat",
+            "fr unit secara ringan",
+          ],
+          ignoreForNow: [
+            "named lines",
+            "complex track sizing",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "gap",
+          url: "https://developer.mozilla.org/en-US/docs/Web/CSS/gap",
+          focus: [
+            "jarak antar item",
+            "gap di Flexbox",
+            "gap di Grid",
+          ],
+          ignoreForNow: [
+            "animation",
+            "advanced layout systems",
+          ],
+        },
+      ],
+      followUpAction:
+        "Kembali ke latihan kamu dan tunjukkan bagian mana yang memakai Flexbox, bagian mana yang memakai Grid, dan alasan memilih masing-masing.",
+    },
+    {
+      id: "flexbox-grid-layout-assessment-summary",
+      type: "summary",
+      points: [
+        "Kamu membuktikan bahwa kamu memahami Flexbox untuk layout satu arah.",
+        "Kamu membuktikan bahwa kamu memahami Grid untuk layout baris dan kolom.",
+        "Kamu membuktikan bahwa kamu bisa memakai gap, justify-content, align-items, dan grid-template-columns.",
+        "Jika belum siap, review lagi Flexbox, Grid, gap, justify-content, align-items, grid-template-columns, dan aturan memilih layout.",
+        "Setelah memahami Flexbox dan Grid, berikutnya kamu akan belajar membuat tampilan yang lebih responsif dan konsisten di berbagai ukuran layar.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "flexbox-grid-layout-assessment-recap",
+      "flexbox-grid-layout-assessment-quiz-block",
+      "flexbox-grid-layout-assessment-coding-practice",
+      "flexbox-grid-layout-assessment-summary",
+    ],
+    passingQuizScore: 70,
+  },
+};
+
 export const cssFlexboxBasicsLesson: Lesson = {
   id: "css-flexbox-basics",
   trackId: "frontend-engineering",
@@ -3703,6 +4243,11 @@ export const lessons: Lesson[] = [
   basicDevtoolsStaticPageLesson,
   saveProjectWithGitGithubLesson,
   localStaticWebsiteProjectAssessmentLesson,
+  cssFlexboxBasicLesson,
+  buildNavbarWithFlexboxLesson,
+  cssGridBasicLesson,
+  flexboxVsGridDecisionLesson,
+  flexboxGridLayoutAssessmentLesson,
   cssFlexboxBasicsLesson,
   writingDailyUpdateLesson,
 ];

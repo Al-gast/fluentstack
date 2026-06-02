@@ -1357,164 +1357,431 @@ export const buildStyledInfoCardChallenge: CodingChallenge = {
   skillTags: ["CSS", "Selectors", "Cascade", "Assessment"],
 };
 
-export const buildFlexboxNavbarChallenge: CodingChallenge = {
-  id: "build-flexbox-navbar",
-  lessonId: "css-flexbox-basics",
-  title: "Membuat responsive navbar",
+export const practiceCssFlexboxBasicChallenge: CodingChallenge = {
+  id: "practice-css-flexbox-basic",
+  lessonId: "css-flexbox-basic",
+  title: "Menyusun card dengan Flexbox",
   description:
-    "Latihan menyusun navbar sederhana menggunakan Flexbox agar elemen brand, menu, dan aksi sejajar dengan rapi.",
+    "Latihan memakai display flex, gap, dan align-items untuk menyusun card dalam satu baris.",
   instructions: [
-    "Gunakan display flex pada container navbar.",
-    "Tempatkan brand di kiri, menu di tengah, dan tombol aksi di kanan.",
-    "Tambahkan tombol aksi seperti Login dan Start Trial di sisi kanan.",
-    "Buat layout tetap rapi saat lebar layar mengecil (boleh stack di mobile).",
+    "Targetkan .layout.",
+    "Tambahkan display: flex.",
+    "Tambahkan gap.",
+    "Tambahkan align-items.",
+    "Targetkan .card.",
+    "Tambahkan padding.",
+    "Jangan memakai !important.",
   ],
   starterCode: {
-    html: `<header class="navbar">
-  <div class="brand">FluentStack</div>
-  <nav class="menu">
-    <a href="#">Roadmap</a>
-    <a href="#">Lesson</a>
-    <a href="#">Progres</a>
-  </nav>
-  <div class="actions">
-    <button class="btn ghost">Login</button>
-    <button class="btn solid">Start Trial</button>
-  </div>
-</header>`,
-    css: `* {
-  box-sizing: border-box;
+    html: `<div class="layout">
+  <div class="card">HTML</div>
+  <div class="card">CSS</div>
+  <div class="card">JavaScript</div>
+</div>`,
+    css: `.layout {
+  border: 1px solid #3f3f46;
 }
 
-body {
-  margin: 0;
-  font-family: Montserrat, sans-serif;
-  background: #050816;
-  color: #f4f5f7;
-}
-
-.navbar {
-  padding: 14px 20px;
-  border-bottom: 1px solid #2a3146;
-}
-
-.brand {
-  font-weight: 700;
-}
-
-.menu a {
-  color: #d4d8e4;
-  text-decoration: none;
-  margin-right: 14px;
-}
-
-.btn {
-  border-radius: 10px;
-  padding: 8px 12px;
-  border: 1px solid transparent;
-}
-
-.btn.ghost {
-  background: transparent;
-  color: #d4d8e4;
-  border-color: #3a425d;
-}
-
-.btn.solid {
-  background: #38bdf8;
-  color: #07111f;
+.card {
+  border: 1px solid #3f3f46;
 }`,
-    js: `console.log("Flexbox navbar practice");`,
+    js: "",
   },
   solutionCode: {
-    html: `<header class="navbar">
-  <div class="brand">FluentStack</div>
-  <nav class="menu">
-    <a href="#">Roadmap</a>
-    <a href="#">Lesson</a>
-    <a href="#">Progres</a>
-  </nav>
-  <div class="actions">
-    <button class="btn ghost">Login</button>
-    <button class="btn solid">Start Trial</button>
-  </div>
-</header>`,
-    css: `* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Montserrat, sans-serif;
-  background: #050816;
-  color: #f4f5f7;
-}
-
-.navbar {
+    html: `<div class="layout">
+  <div class="card">HTML</div>
+  <div class="card">CSS</div>
+  <div class="card">JavaScript</div>
+</div>`,
+    css: `.layout {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   gap: 16px;
-  padding: 14px 20px;
-  border-bottom: 1px solid #2a3146;
-}
-
-.brand {
-  font-weight: 700;
-}
-
-.menu {
-  display: flex;
   align-items: center;
-  gap: 14px;
+  border: 1px solid #3f3f46;
 }
 
-.menu a {
-  color: #d4d8e4;
-  text-decoration: none;
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.btn {
-  border-radius: 10px;
-  padding: 8px 12px;
-  border: 1px solid transparent;
-}
-
-.btn.ghost {
-  background: transparent;
-  color: #d4d8e4;
-  border-color: #3a425d;
-}
-
-.btn.solid {
-  background: #38bdf8;
-  color: #07111f;
-}
-
-@media (max-width: 760px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .actions {
-    width: 100%;
-  }
+.card {
+  padding: 16px;
+  border: 1px solid #3f3f46;
 }`,
-    js: `console.log("Solution: navbar now uses flexbox layout");`,
+    js: "",
   },
   checklist: [
-    "Navbar container sudah memakai display flex.",
-    "Menu link tersusun sejajar dengan jarak yang konsisten.",
-    "Area actions punya tombol yang tetap rapi saat layar mengecil.",
+    ".layout memakai display: flex.",
+    ".layout punya gap dan align-items.",
+    ".card punya padding agar isi tidak menempel.",
   ],
-  skillTags: ["CSS", "Flexbox", "Responsive Design"],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-layout-selector", label: "Ada selector .layout.", type: "cssSelectorExists", target: ".layout" },
+      { id: "layout-display", label: ".layout punya property display.", type: "cssSelectorPropertyExists", target: ".layout", property: "display" },
+      { id: "layout-gap", label: ".layout punya property gap.", type: "cssSelectorPropertyExists", target: ".layout", property: "gap" },
+      { id: "layout-align-items", label: ".layout punya property align-items.", type: "cssSelectorPropertyExists", target: ".layout", property: "align-items" },
+      { id: "has-card-selector", label: "Ada selector .card.", type: "cssSelectorExists", target: ".card" },
+      { id: "card-padding", label: ".card punya property padding.", type: "cssSelectorPropertyExists", target: ".card", property: "padding" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Flexbox", "Layout"],
+};
+
+export const buildFlexboxNavbarChallenge: CodingChallenge = {
+  id: "build-flexbox-navbar",
+  lessonId: "build-navbar-with-flexbox",
+  title: "Membuat navbar sederhana",
+  description:
+    "Latihan membuat navbar sederhana dengan Flexbox tanpa JavaScript.",
+  instructions: [
+    "Targetkan .nav.",
+    "Tambahkan display: flex.",
+    "Tambahkan justify-content.",
+    "Tambahkan align-items.",
+    "Tambahkan padding.",
+    "Targetkan .nav-list.",
+    "Tambahkan display: flex.",
+    "Tambahkan gap.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<nav class="nav">
+  <a class="brand" href="#">FluentStack</a>
+  <div class="nav-list">
+    <a href="#">Home</a>
+    <a href="#">Roadmap</a>
+    <a href="#">Login</a>
+  </div>
+</nav>`,
+    css: `.nav {
+  border: 1px solid #3f3f46;
+}
+
+.nav-list a {
+  color: #d4d4d8;
+}`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<nav class="nav">
+  <a class="brand" href="#">FluentStack</a>
+  <div class="nav-list">
+    <a href="#">Home</a>
+    <a href="#">Roadmap</a>
+    <a href="#">Login</a>
+  </div>
+</nav>`,
+    css: `.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #3f3f46;
+}
+
+.nav-list {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-list a {
+  color: #d4d4d8;
+}`,
+    js: "",
+  },
+  checklist: [
+    ".nav memakai Flexbox.",
+    ".nav-list memakai Flexbox dan gap.",
+    "Brand dan menu terlihat lebih rapi dalam satu baris.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-nav-selector", label: "Ada selector .nav.", type: "cssSelectorExists", target: ".nav" },
+      { id: "nav-display", label: ".nav punya property display.", type: "cssSelectorPropertyExists", target: ".nav", property: "display" },
+      { id: "nav-justify-content", label: ".nav punya property justify-content.", type: "cssSelectorPropertyExists", target: ".nav", property: "justify-content" },
+      { id: "nav-align-items", label: ".nav punya property align-items.", type: "cssSelectorPropertyExists", target: ".nav", property: "align-items" },
+      { id: "nav-padding", label: ".nav punya property padding.", type: "cssSelectorPropertyExists", target: ".nav", property: "padding" },
+      { id: "has-nav-list-selector", label: "Ada selector .nav-list.", type: "cssSelectorExists", target: ".nav-list" },
+      { id: "nav-list-display", label: ".nav-list punya property display.", type: "cssSelectorPropertyExists", target: ".nav-list", property: "display" },
+      { id: "nav-list-gap", label: ".nav-list punya property gap.", type: "cssSelectorPropertyExists", target: ".nav-list", property: "gap" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Flexbox", "Navbar"],
+};
+
+export const practiceCssGridCardLayoutChallenge: CodingChallenge = {
+  id: "practice-css-grid-card-layout",
+  lessonId: "css-grid-basic",
+  title: "Membuat card grid sederhana",
+  description:
+    "Latihan memakai CSS Grid untuk menyusun beberapa card dalam kolom.",
+  instructions: [
+    "Targetkan .cards.",
+    "Tambahkan display: grid.",
+    "Tambahkan grid-template-columns.",
+    "Tambahkan gap.",
+    "Targetkan .card.",
+    "Tambahkan padding.",
+    "Tambahkan border.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<section class="cards">
+  <article class="card">Card 1</article>
+  <article class="card">Card 2</article>
+  <article class="card">Card 3</article>
+</section>`,
+    css: `.cards {
+  max-width: 720px;
+}
+
+.card {
+  background: #18181b;
+}`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<section class="cards">
+  <article class="card">Card 1</article>
+  <article class="card">Card 2</article>
+  <article class="card">Card 3</article>
+</section>`,
+    css: `.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 720px;
+}
+
+.card {
+  padding: 16px;
+  border: 1px solid #3f3f46;
+  background: #18181b;
+}`,
+    js: "",
+  },
+  checklist: [
+    ".cards memakai display: grid.",
+    ".cards punya grid-template-columns dan gap.",
+    ".card punya padding dan border.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-cards-selector", label: "Ada selector .cards.", type: "cssSelectorExists", target: ".cards" },
+      { id: "cards-display", label: ".cards punya property display.", type: "cssSelectorPropertyExists", target: ".cards", property: "display" },
+      { id: "cards-grid-template-columns", label: ".cards punya property grid-template-columns.", type: "cssSelectorPropertyExists", target: ".cards", property: "grid-template-columns" },
+      { id: "cards-gap", label: ".cards punya property gap.", type: "cssSelectorPropertyExists", target: ".cards", property: "gap" },
+      { id: "has-card-selector", label: "Ada selector .card.", type: "cssSelectorExists", target: ".card" },
+      { id: "card-padding", label: ".card punya property padding.", type: "cssSelectorPropertyExists", target: ".card", property: "padding" },
+      { id: "card-border", label: ".card punya property border.", type: "cssSelectorPropertyExists", target: ".card", property: "border" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Grid", "Layout"],
+};
+
+export const chooseFlexboxGridLayoutChallenge: CodingChallenge = {
+  id: "choose-flexbox-grid-layout",
+  lessonId: "flexbox-vs-grid-decision",
+  title: "Menggabungkan Flexbox dan Grid",
+  description:
+    "Latihan memakai Grid untuk kumpulan card dan Flexbox untuk isi kecil di dalam card.",
+  instructions: [
+    "Gunakan .cards sebagai grid container.",
+    "Tambahkan display: grid pada .cards.",
+    "Tambahkan grid-template-columns pada .cards.",
+    "Tambahkan gap pada .cards.",
+    "Gunakan .card sebagai flex container untuk isi card.",
+    "Tambahkan display: flex pada .card.",
+    "Tambahkan gap pada .card.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<section class="cards">
+  <article class="card">
+    <strong>HTML</strong>
+    <span>Struktur halaman</span>
+  </article>
+  <article class="card">
+    <strong>CSS</strong>
+    <span>Tampilan halaman</span>
+  </article>
+</section>`,
+    css: `.cards {
+  max-width: 720px;
+}
+
+.card {
+  padding: 16px;
+  border: 1px solid #3f3f46;
+}`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<section class="cards">
+  <article class="card">
+    <strong>HTML</strong>
+    <span>Struktur halaman</span>
+  </article>
+  <article class="card">
+    <strong>CSS</strong>
+    <span>Tampilan halaman</span>
+  </article>
+</section>`,
+    css: `.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 720px;
+}
+
+.card {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid #3f3f46;
+}`,
+    js: "",
+  },
+  checklist: [
+    ".cards memakai Grid untuk kumpulan card.",
+    ".card memakai Flexbox untuk isi kecil di dalam card.",
+    "Keduanya memakai gap.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-cards-selector", label: "Ada selector .cards.", type: "cssSelectorExists", target: ".cards" },
+      { id: "cards-display", label: ".cards punya property display.", type: "cssSelectorPropertyExists", target: ".cards", property: "display" },
+      { id: "cards-grid-template-columns", label: ".cards punya property grid-template-columns.", type: "cssSelectorPropertyExists", target: ".cards", property: "grid-template-columns" },
+      { id: "cards-gap", label: ".cards punya property gap.", type: "cssSelectorPropertyExists", target: ".cards", property: "gap" },
+      { id: "has-card-selector", label: "Ada selector .card.", type: "cssSelectorExists", target: ".card" },
+      { id: "card-display", label: ".card punya property display.", type: "cssSelectorPropertyExists", target: ".card", property: "display" },
+      { id: "card-gap", label: ".card punya property gap.", type: "cssSelectorPropertyExists", target: ".card", property: "gap" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Flexbox", "Grid", "Layout Decision"],
+};
+
+export const buildResponsiveIshCardSectionChallenge: CodingChallenge = {
+  id: "build-responsive-ish-card-section",
+  lessonId: "flexbox-grid-layout-assessment",
+  title: "Membuat section navbar dan card grid",
+  description:
+    "Assessment practice untuk membuat navbar dengan Flexbox dan card section dengan Grid.",
+  instructions: [
+    "Buat navbar sederhana dengan .nav dan .nav-list.",
+    "Gunakan Flexbox untuk navbar.",
+    "Buat section .cards.",
+    "Gunakan Grid untuk card section.",
+    "Tambahkan gap pada navbar/menu dan grid.",
+    "Tambahkan padding pada .card.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<nav class="nav">
+  <a href="#">FluentStack</a>
+  <div class="nav-list">
+    <a href="#">Home</a>
+    <a href="#">Lessons</a>
+  </div>
+</nav>
+
+<section class="cards">
+  <article class="card">Flexbox</article>
+  <article class="card">Grid</article>
+  <article class="card">Layout</article>
+</section>`,
+    css: `.nav {
+  border: 1px solid #3f3f46;
+}
+
+.nav-list a {
+  color: #d4d4d8;
+}
+
+.cards {
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #3f3f46;
+}`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<nav class="nav">
+  <a href="#">FluentStack</a>
+  <div class="nav-list">
+    <a href="#">Home</a>
+    <a href="#">Lessons</a>
+  </div>
+</nav>
+
+<section class="cards">
+  <article class="card">Flexbox</article>
+  <article class="card">Grid</article>
+  <article class="card">Layout</article>
+</section>`,
+    css: `.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #3f3f46;
+}
+
+.nav-list {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-list a {
+  color: #d4d4d8;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  padding: 16px;
+  border: 1px solid #3f3f46;
+}`,
+    js: "",
+  },
+  checklist: [
+    "Navbar memakai Flexbox.",
+    "Menu navbar memakai gap.",
+    "Card section memakai Grid.",
+    "Card punya padding.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-nav-selector", label: "Ada selector .nav.", type: "cssSelectorExists", target: ".nav" },
+      { id: "nav-display", label: ".nav punya property display.", type: "cssSelectorPropertyExists", target: ".nav", property: "display" },
+      { id: "nav-justify-content", label: ".nav punya property justify-content.", type: "cssSelectorPropertyExists", target: ".nav", property: "justify-content" },
+      { id: "has-nav-list-selector", label: "Ada selector .nav-list.", type: "cssSelectorExists", target: ".nav-list" },
+      { id: "nav-list-display", label: ".nav-list punya property display.", type: "cssSelectorPropertyExists", target: ".nav-list", property: "display" },
+      { id: "nav-list-gap", label: ".nav-list punya property gap.", type: "cssSelectorPropertyExists", target: ".nav-list", property: "gap" },
+      { id: "has-cards-selector", label: "Ada selector .cards.", type: "cssSelectorExists", target: ".cards" },
+      { id: "cards-display", label: ".cards punya property display.", type: "cssSelectorPropertyExists", target: ".cards", property: "display" },
+      { id: "cards-grid-template-columns", label: ".cards punya property grid-template-columns.", type: "cssSelectorPropertyExists", target: ".cards", property: "grid-template-columns" },
+      { id: "cards-gap", label: ".cards punya property gap.", type: "cssSelectorPropertyExists", target: ".cards", property: "gap" },
+      { id: "has-card-selector", label: "Ada selector .card.", type: "cssSelectorExists", target: ".card" },
+      { id: "card-padding", label: ".card punya property padding.", type: "cssSelectorPropertyExists", target: ".card", property: "padding" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Flexbox", "Grid", "Assessment"],
 };
 
 export const challenges: CodingChallenge[] = [
@@ -1538,5 +1805,9 @@ export const challenges: CodingChallenge[] = [
   practiceCssBorderWidthCardChallenge,
   fixBoxModelSpacingCardChallenge,
   buildStyledInfoCardChallenge,
+  practiceCssFlexboxBasicChallenge,
   buildFlexboxNavbarChallenge,
+  practiceCssGridCardLayoutChallenge,
+  chooseFlexboxGridLayoutChallenge,
+  buildResponsiveIshCardSectionChallenge,
 ];

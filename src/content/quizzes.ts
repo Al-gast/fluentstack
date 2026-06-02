@@ -1253,6 +1253,153 @@ export const localStaticWebsiteProjectAssessmentQuiz: Quiz = {
   ],
 };
 
+export const flexboxGridLayoutAssessmentQuiz: Quiz = {
+  id: "flexbox-grid-layout-assessment-quiz",
+  lessonId: "flexbox-grid-layout-assessment",
+  title: "Uji Kompetensi Flexbox and Grid Layout",
+  passingScore: 70,
+  questions: [
+    {
+      id: "flexbox-grid-layout-assessment-q1",
+      type: "multiple-choice",
+      question: "Kapan Flexbox biasanya paling cocok dipakai?",
+      options: [
+        "Untuk menyusun item dalam satu arah, seperti baris atau kolom",
+        "Untuk menyimpan data ke database",
+        "Untuk mengganti semua tag HTML",
+        "Untuk membuat Git commit",
+      ],
+      correctAnswer:
+        "Untuk menyusun item dalam satu arah, seperti baris atau kolom",
+      explanation:
+        "Flexbox cocok untuk layout satu arah, misalnya navbar, button group, atau isi kecil di dalam card.",
+    },
+    {
+      id: "flexbox-grid-layout-assessment-q2",
+      type: "multiple-choice",
+      question: "Apa yang terjadi saat sebuah parent diberi display: flex?",
+      options: [
+        "Semua CSS dihapus",
+        "Parent menjadi flex container dan anak langsungnya menjadi flex item",
+        "Halaman otomatis deploy",
+        "Browser membuat database baru",
+      ],
+      correctAnswer:
+        "Parent menjadi flex container dan anak langsungnya menjadi flex item",
+      explanation:
+        "display: flex dipasang pada parent. Anak langsung di dalam parent itu menjadi flex item.",
+    },
+    {
+      id: "flexbox-grid-layout-assessment-q3",
+      type: "multiple-choice",
+      question: "Property apa yang memberi jarak antar item di Flexbox atau Grid?",
+      options: ["color", "font-size", "gap", "href"],
+      correctAnswer: "gap",
+      explanation:
+        "gap memberi jarak antar item. Ini lebih rapi daripada memberi margin acak pada setiap item.",
+    },
+    {
+      id: "flexbox-grid-layout-assessment-q4",
+      type: "multiple-choice",
+      question: "Dalam Flexbox, justify-content biasanya mengatur apa?",
+      options: [
+        "Nama repository GitHub",
+        "Isi attribute alt",
+        "Jenis file HTML",
+        "Posisi item pada arah utama",
+      ],
+      correctAnswer: "Posisi item pada arah utama",
+      explanation:
+        "justify-content mengatur distribusi item pada main axis atau arah utama Flexbox.",
+    },
+    {
+      id: "flexbox-grid-layout-assessment-q5",
+      type: "multiple-choice",
+      question: "Dalam Flexbox, align-items biasanya membantu apa?",
+      options: [
+        "Mengatur URL halaman",
+        "Mengubah HTML menjadi CSS",
+        "Mengatur posisi item pada arah silang",
+        "Membuat branch Git",
+      ],
+      correctAnswer: "Mengatur posisi item pada arah silang",
+      explanation:
+        "align-items mengatur alignment item pada cross axis atau arah silang Flexbox.",
+    },
+    {
+      id: "flexbox-grid-layout-assessment-q6",
+      type: "multiple-choice",
+      question: "Kapan CSS Grid biasanya lebih cocok daripada Flexbox?",
+      options: [
+        "Saat membuat command terminal",
+        "Saat menulis title di head",
+        "Saat membuat link href",
+        "Saat layout butuh baris dan kolom",
+      ],
+      correctAnswer: "Saat layout butuh baris dan kolom",
+      explanation:
+        "Grid cocok untuk layout dua arah, seperti card grid, product gallery, atau dashboard section.",
+    },
+    {
+      id: "flexbox-grid-layout-assessment-q7",
+      type: "multiple-choice",
+      question: "Property apa yang mengaktifkan CSS Grid pada container?",
+      options: [
+        "display: block",
+        "display: flex",
+        "display: grid",
+        "grid: true",
+      ],
+      correctAnswer: "display: grid",
+      explanation:
+        "display: grid membuat sebuah elemen menjadi grid container.",
+    },
+    {
+      id: "flexbox-grid-layout-assessment-q8",
+      type: "multiple-choice",
+      question: "Property apa yang menentukan kolom dalam CSS Grid?",
+      options: [
+        "grid-template-columns",
+        "align-items",
+        "text-decoration",
+        "button type",
+      ],
+      correctAnswer: "grid-template-columns",
+      explanation:
+        "grid-template-columns menentukan struktur kolom di grid container.",
+    },
+    {
+      id: "flexbox-grid-layout-assessment-q9",
+      type: "multiple-choice",
+      question: "Mana keputusan layout yang paling masuk akal?",
+      options: [
+        "Semua layout wajib memakai Grid",
+        "Semua layout wajib memakai Flexbox",
+        "Navbar sederhana memakai Flexbox, card gallery memakai Grid",
+        "Layout CSS harus selalu memakai JavaScript",
+      ],
+      correctAnswer:
+        "Navbar sederhana memakai Flexbox, card gallery memakai Grid",
+      explanation:
+        "Navbar biasanya satu arah sehingga Flexbox cocok. Card gallery biasanya butuh baris dan kolom sehingga Grid cocok.",
+    },
+    {
+      id: "flexbox-grid-layout-assessment-q10",
+      type: "multiple-choice",
+      question: "Apa prinsip terbaik saat memilih Flexbox atau Grid?",
+      options: [
+        "Pilih berdasarkan warna favorit",
+        "Selalu pakai yang baru dipelajari terakhir",
+        "Hindari keduanya dan pakai margin acak",
+        "Pilih berdasarkan masalah layout yang sedang diselesaikan",
+      ],
+      correctAnswer: "Pilih berdasarkan masalah layout yang sedang diselesaikan",
+      explanation:
+        "Pilih layout tool berdasarkan bentuk masalah: satu arah cenderung Flexbox, dua arah cenderung Grid. Keduanya bisa dipakai bersama.",
+    },
+  ],
+};
+
 export const quizzes: Quiz[] = [
   whatIsWebsiteAndWebPageQuiz,
   howWebPageLoadsQuiz,
@@ -1269,4 +1416,5 @@ export const quizzes: Quiz[] = [
   cssCoreMechanicsAssessmentQuiz,
   boxModelSpacingAssessmentQuiz,
   localStaticWebsiteProjectAssessmentQuiz,
+  flexboxGridLayoutAssessmentQuiz,
 ];
