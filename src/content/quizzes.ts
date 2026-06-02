@@ -1400,6 +1400,156 @@ export const flexboxGridLayoutAssessmentQuiz: Quiz = {
   ],
 };
 
+export const responsiveVisualSystemAssessmentQuiz: Quiz = {
+  id: "responsive-visual-system-assessment-quiz",
+  lessonId: "responsive-visual-system-assessment",
+  title: "Uji Kompetensi Responsive Visual System",
+  passingScore: 70,
+  questions: [
+    {
+      id: "responsive-visual-system-assessment-q1",
+      type: "multiple-choice",
+      question: "Apa arti pendekatan mobile-first dalam CSS?",
+      options: [
+        "Style dasar ditulis untuk layar kecil terlebih dahulu",
+        "CSS hanya boleh dipakai di HP",
+        "Desktop tidak perlu diperhatikan",
+        "Semua layout harus satu kolom selamanya",
+      ],
+      correctAnswer: "Style dasar ditulis untuk layar kecil terlebih dahulu",
+      explanation:
+        "Mobile-first berarti style dasar aman untuk layar kecil, lalu media query menambahkan peningkatan untuk layar yang lebih besar.",
+    },
+    {
+      id: "responsive-visual-system-assessment-q2",
+      type: "multiple-choice",
+      question: "Apa fungsi media query seperti @media (min-width: 768px)?",
+      options: [
+        "Menghapus semua rule CSS sebelumnya",
+        "Menambahkan rule CSS saat kondisi layar tertentu terpenuhi",
+        "Mengubah HTML menjadi JavaScript",
+        "Membuat GitHub repository otomatis",
+      ],
+      correctAnswer:
+        "Menambahkan rule CSS saat kondisi layar tertentu terpenuhi",
+      explanation:
+        "Media query membuat CSS bisa merespons kondisi seperti lebar layar. Dalam mobile-first, min-width sering dipakai untuk layar yang lebih besar.",
+    },
+    {
+      id: "responsive-visual-system-assessment-q3",
+      type: "multiple-choice",
+      question: "Breakpoint sebaiknya dibuat ketika apa?",
+      options: [
+        "Setiap kali ada device baru di pasar",
+        "Saat layout membutuhkan perubahan agar tetap nyaman",
+        "Saat warna teks ingin diganti",
+        "Saat HTML belum punya title",
+      ],
+      correctAnswer: "Saat layout membutuhkan perubahan agar tetap nyaman",
+      explanation:
+        "Breakpoint yang baik mengikuti kebutuhan konten dan layout, bukan daftar device yang dihafal.",
+    },
+    {
+      id: "responsive-visual-system-assessment-q4",
+      type: "multiple-choice",
+      question:
+        "Property apa yang membantu paragraf tidak terlalu melebar di layar besar?",
+      options: ["font-weight", "border-radius", "max-width", "href"],
+      correctAnswer: "max-width",
+      explanation:
+        "max-width membatasi lebar maksimum container atau teks sehingga halaman tetap nyaman dibaca di layar besar.",
+    },
+    {
+      id: "responsive-visual-system-assessment-q5",
+      type: "multiple-choice",
+      question: "Apa fungsi line-height pada teks?",
+      options: [
+        "Mengatur jarak antar baris teks",
+        "Membuat media query",
+        "Menyimpan repository",
+        "Mengganti tag h1 menjadi p",
+      ],
+      correctAnswer: "Mengatur jarak antar baris teks",
+      explanation:
+        "line-height mengatur jarak antar baris. Nilai yang tepat membuat paragraf lebih mudah dibaca.",
+    },
+    {
+      id: "responsive-visual-system-assessment-q6",
+      type: "multiple-choice",
+      question: "Mengapa clamp() berguna untuk responsive typography atau spacing?",
+      options: [
+        "Karena clamp() menjalankan JavaScript",
+        "Karena clamp() membuat nilai bisa fleksibel tetapi tetap punya batas minimum dan maksimum",
+        "Karena clamp() menghapus semua media query",
+        "Karena clamp() hanya bekerja untuk warna",
+      ],
+      correctAnswer:
+        "Karena clamp() membuat nilai bisa fleksibel tetapi tetap punya batas minimum dan maksimum",
+      explanation:
+        "clamp(min, preferred, max) membantu nilai berubah mengikuti ruang layar, tetapi tetap dibatasi agar tidak terlalu kecil atau besar.",
+    },
+    {
+      id: "responsive-visual-system-assessment-q7",
+      type: "multiple-choice",
+      question: "Apa manfaat CSS variables dalam visual system?",
+      options: [
+        "Membuat semua HTML tidak perlu semantic",
+        "Mengganti DevTools",
+        "Menyimpan nilai visual agar bisa dipakai ulang",
+        "Membuat browser otomatis deploy",
+      ],
+      correctAnswer: "Menyimpan nilai visual agar bisa dipakai ulang",
+      explanation:
+        "CSS variables membantu nilai seperti warna, spacing, dan radius tetap konsisten di banyak bagian UI.",
+    },
+    {
+      id: "responsive-visual-system-assessment-q8",
+      type: "multiple-choice",
+      question:
+        "Dalam dark mode sederhana berbasis CSS variables, apa yang biasanya berubah?",
+      options: [
+        "Nama file HTML",
+        "Nilai variable warna seperti background dan text",
+        "Semua tag menjadi div",
+        "Git commit terakhir",
+      ],
+      correctAnswer: "Nilai variable warna seperti background dan text",
+      explanation:
+        "Dark mode dasar bisa dibuat dengan mengganti nilai variable warna, lalu komponen tetap memakai var(...) yang sama.",
+    },
+    {
+      id: "responsive-visual-system-assessment-q9",
+      type: "multiple-choice",
+      question: "Apa hal penting saat membuat dark mode?",
+      options: [
+        "Kontras dan keterbacaan tetap nyaman",
+        "Semua teks harus hitam di semua kondisi",
+        "Semua warna harus acak",
+        "HTML tidak boleh memakai class",
+      ],
+      correctAnswer: "Kontras dan keterbacaan tetap nyaman",
+      explanation:
+        "Dark mode bukan hanya mengganti warna. Teks, background, dan card harus tetap punya kontras yang nyaman dibaca.",
+    },
+    {
+      id: "responsive-visual-system-assessment-q10",
+      type: "multiple-choice",
+      question:
+        "Mana contoh keputusan responsive visual system yang paling masuk akal?",
+      options: [
+        "Menghapus semua max-width agar teks memenuhi layar besar",
+        "Memakai !important untuk semua property",
+        "Membuat breakpoint tanpa melihat konten",
+        "Menjaga style dasar aman di mobile, lalu meningkatkan layout di layar lebih besar",
+      ],
+      correctAnswer:
+        "Menjaga style dasar aman di mobile, lalu meningkatkan layout di layar lebih besar",
+      explanation:
+        "Responsive visual system yang baik mulai dari pengalaman kecil yang aman, lalu menambah spacing, typography, dan layout saat ruang layar bertambah.",
+    },
+  ],
+};
+
 export const quizzes: Quiz[] = [
   whatIsWebsiteAndWebPageQuiz,
   howWebPageLoadsQuiz,
@@ -1417,4 +1567,5 @@ export const quizzes: Quiz[] = [
   boxModelSpacingAssessmentQuiz,
   localStaticWebsiteProjectAssessmentQuiz,
   flexboxGridLayoutAssessmentQuiz,
+  responsiveVisualSystemAssessmentQuiz,
 ];

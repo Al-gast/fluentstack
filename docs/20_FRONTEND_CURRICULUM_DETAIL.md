@@ -724,6 +724,8 @@ Keep this module hidden from the active track until its first lesson batch is re
 
 Style pages with predictable layout, responsive behavior, and maintainable CSS.
 
+This level is implemented in the active curriculum through CSS Core Mechanics, Box Model and Spacing, Local Static Website Project, Flexbox and Grid Layout, and Responsive Visual System.
+
 ## Module: CSS Core Mechanics
 
 ### Module goal
@@ -867,6 +869,8 @@ Learner can explain and fix spacing issues in a basic card or section.
 
 ## Module: Local Static Website Project
 
+Status: active
+
 ### Module goal
 
 Learners create and run a small static website on their own device.
@@ -937,6 +941,8 @@ Learner can create a small local static website, open it in the browser, inspect
 
 ## Module: Flexbox and Grid Layout
 
+Status: active
+
 ### Module goal
 
 Learners can build common one-dimensional and two-dimensional layouts.
@@ -1003,6 +1009,8 @@ Readiness criteria:
 Learner can choose Flexbox or Grid for common layout tasks and implement a simple layout.
 
 ## Module: Responsive Visual System
+
+Status: active
 
 ### Module goal
 

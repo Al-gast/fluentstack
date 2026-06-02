@@ -4142,6 +4142,567 @@ export const flexboxGridLayoutAssessmentLesson: Lesson = {
   },
 };
 
+export const mobileFirstCssLesson: Lesson = {
+  id: "mobile-first-css",
+  trackId: "frontend-engineering",
+  moduleId: "responsive-visual-system",
+  title: "Mobile-first CSS",
+  slug: "mobile-first-css",
+  description:
+    "Pahami cara menulis CSS dari layar kecil terlebih dahulu sebelum menambahkan aturan untuk layar lebih besar.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 40,
+  objectives: [
+    "Memahami mobile-first sebagai pendekatan mulai dari layar kecil",
+    "Menulis style dasar yang aman untuk mobile",
+    "Menambahkan peningkatan untuk layar lebih besar",
+    "Menghindari layout yang hanya nyaman di desktop",
+  ],
+  skillTags: ["CSS", "Responsive Design", "Mobile First"],
+  blocks: [
+    {
+      id: "mobile-first-css-intro",
+      type: "text",
+      title: "Mulai dari layar kecil",
+      content:
+        "Mobile-first berarti style dasar ditulis untuk layar kecil terlebih dahulu. Setelah itu, media query dipakai untuk menambahkan aturan ketika layar lebih besar.\n\nPendekatan ini membantu UI tetap terbaca di HP. Kamu tidak mulai dari desktop besar lalu panik memperbaiki mobile di akhir. Fokusnya sederhana: buat tampilan dasar aman dulu, lalu tingkatkan saat ruang layar bertambah.",
+    },
+    {
+      id: "mobile-first-css-html",
+      type: "code-example",
+      title: "HTML section sederhana",
+      language: "html",
+      code: `<section class="section">
+  <h1 class="title">Belajar Responsive CSS</h1>
+  <p class="description">Mulai dari layar kecil, lalu tingkatkan untuk layar lebih besar.</p>
+</section>`,
+      explanation:
+        "Struktur ini sengaja kecil. Responsive behavior akan diatur lewat CSS, bukan dengan menambah banyak markup.",
+    },
+    {
+      id: "mobile-first-css-code",
+      type: "code-example",
+      title: "CSS mobile-first",
+      language: "css",
+      code: `.section {
+  padding: 16px;
+}
+
+.title {
+  font-size: 28px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 32px;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+}`,
+      explanation:
+        "Aturan awal berlaku untuk layar kecil. Media query menambahkan padding dan ukuran title yang lebih besar saat layar punya ruang lebih.",
+    },
+    {
+      id: "mobile-first-css-callout",
+      type: "callout",
+      variant: "important",
+      title: "Mobile-first bukan mobile-only",
+      content:
+        "Mobile-first bukan berarti hanya peduli mobile. Artinya style dasar harus aman untuk layar kecil, lalu diperbaiki untuk layar yang lebih besar.",
+    },
+    {
+      id: "mobile-first-css-quick-check",
+      type: "quick-check",
+      question:
+        "Dalam pendekatan mobile-first, style dasar biasanya ditulis untuk ukuran layar apa?",
+      options: [
+        "Desktop besar terlebih dahulu",
+        "Layar kecil terlebih dahulu",
+        "Hanya tablet",
+        "Hanya printer",
+      ],
+      correctAnswer: "Layar kecil terlebih dahulu",
+      explanation:
+        "Mobile-first memulai dari layar kecil agar tampilan dasar tetap aman dan mudah dibaca.",
+    },
+    {
+      id: "mobile-first-css-coding-practice",
+      type: "coding-practice",
+      challengeId: "practice-mobile-first-section",
+    },
+    {
+      id: "mobile-first-css-summary",
+      type: "summary",
+      points: [
+        "Mobile-first mulai dari layar kecil.",
+        "Media query bisa menambah aturan untuk layar lebih besar.",
+        "Style dasar harus tetap readable tanpa bergantung pada desktop.",
+        "Berikutnya kamu akan belajar breakpoint dasar.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "mobile-first-css-intro",
+      "mobile-first-css-html",
+      "mobile-first-css-code",
+      "mobile-first-css-quick-check",
+      "mobile-first-css-coding-practice",
+      "mobile-first-css-summary",
+    ],
+  },
+};
+
+export const cssBreakpointsBasicLesson: Lesson = {
+  id: "css-breakpoints-basic",
+  trackId: "frontend-engineering",
+  moduleId: "responsive-visual-system",
+  title: "Breakpoints Dasar",
+  slug: "css-breakpoints-basic",
+  description:
+    "Pelajari cara memakai media query dan breakpoint untuk menyesuaikan layout pada ukuran layar berbeda.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 45,
+  objectives: [
+    "Memahami breakpoint sebagai titik perubahan layout",
+    "Mengenal media query min-width",
+    "Menggunakan breakpoint untuk mengubah grid atau layout",
+    "Tidak membuat terlalu banyak breakpoint tanpa alasan",
+  ],
+  skillTags: ["CSS", "Media Queries", "Breakpoints"],
+  blocks: [
+    {
+      id: "css-breakpoints-basic-intro",
+      type: "text",
+      title: "Breakpoint adalah titik layout berubah",
+      content:
+        "Breakpoint adalah titik ukuran layar saat layout perlu berubah. Media query seperti @media (min-width: 768px) dipakai untuk menambahkan aturan ketika layar mencapai ukuran tertentu.\n\nBreakpoint sebaiknya muncul karena layout butuh ruang, bukan karena menghafal semua ukuran device. Untuk pemula, cukup mulai dari satu atau dua breakpoint.",
+    },
+    {
+      id: "css-breakpoints-basic-code",
+      type: "code-example",
+      title: "Grid dengan breakpoint sederhana",
+      language: "css",
+      code: `.card-grid {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}`,
+      explanation:
+        "Style dasar membuat grid satu kolom. Saat layar lebih lebar, media query menambah kolom.",
+    },
+    {
+      id: "css-breakpoints-basic-callout",
+      type: "callout",
+      variant: "tip",
+      title: "Jangan hafal semua ukuran device",
+      content:
+        "Perhatikan kapan konten mulai terasa sempit atau terlalu lebar. Breakpoint yang baik muncul dari kebutuhan layout dan konten.",
+    },
+    {
+      id: "css-breakpoints-basic-quick-check",
+      type: "quick-check",
+      question: "Breakpoint sebaiknya dibuat berdasarkan apa?",
+      options: [
+        "Warna favorit developer",
+        "Semua ukuran HP yang ada di pasar",
+        "Saat layout membutuhkan perubahan agar tetap nyaman",
+        "Nama browser yang dipakai",
+      ],
+      correctAnswer: "Saat layout membutuhkan perubahan agar tetap nyaman",
+      explanation:
+        "Breakpoint yang baik muncul dari kebutuhan layout dan konten, bukan dari menghafal semua device.",
+    },
+    {
+      id: "css-breakpoints-basic-coding-practice",
+      type: "coding-practice",
+      challengeId: "practice-css-breakpoint-card-grid",
+    },
+    {
+      id: "css-breakpoints-basic-summary",
+      type: "summary",
+      points: [
+        "Breakpoint adalah titik layout berubah.",
+        "Media query membantu menambahkan style untuk layar lebih besar.",
+        "Gunakan breakpoint seperlunya.",
+        "Berikutnya kamu akan membuat spacing dan typography yang lebih fleksibel.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "css-breakpoints-basic-intro",
+      "css-breakpoints-basic-code",
+      "css-breakpoints-basic-quick-check",
+      "css-breakpoints-basic-coding-practice",
+      "css-breakpoints-basic-summary",
+    ],
+  },
+};
+
+export const fluidSpacingTypographyBasicLesson: Lesson = {
+  id: "fluid-spacing-typography-basic",
+  trackId: "frontend-engineering",
+  moduleId: "responsive-visual-system",
+  title: "Fluid Spacing dan Typography Dasar",
+  slug: "fluid-spacing-typography-basic",
+  description:
+    "Latih cara membuat jarak dan ukuran teks yang tetap nyaman di berbagai ukuran layar.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 45,
+  objectives: [
+    "Memahami spacing yang konsisten dan fleksibel",
+    "Menggunakan max-width agar teks tidak terlalu panjang",
+    "Menggunakan line-height untuk keterbacaan",
+    "Mengenal clamp secara ringan untuk ukuran teks atau spacing yang lebih fleksibel",
+  ],
+  skillTags: ["CSS", "Spacing", "Typography", "Responsive Design"],
+  blocks: [
+    {
+      id: "fluid-spacing-typography-basic-intro",
+      type: "text",
+      title: "Responsive juga soal teks dan spacing",
+      content:
+        "Responsive bukan hanya layout kolom. Teks juga harus tetap mudah dibaca. max-width membantu paragraf tidak terlalu panjang. line-height membantu jarak antar baris. clamp bisa membantu nilai berubah dalam batas aman, tetapi tidak perlu dipakai untuk semua hal.",
+    },
+    {
+      id: "fluid-spacing-typography-basic-code",
+      type: "code-example",
+      title: "Spacing dan typography yang fleksibel",
+      language: "css",
+      code: `.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 40px);
+}
+
+.title {
+  font-size: clamp(32px, 6vw, 56px);
+  line-height: 1.1;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.7;
+}`,
+      explanation:
+        "max-width menjaga panjang teks. padding dan font-size bisa dibuat lebih fleksibel dengan clamp. line-height membantu teks nyaman dibaca.",
+    },
+    {
+      id: "fluid-spacing-typography-basic-callout",
+      type: "callout",
+      variant: "common-mistake",
+      title: "Teks terlalu lebar",
+      content:
+        "Jangan membuat teks terlalu lebar. Paragraf yang terlalu panjang melelahkan dibaca, terutama di desktop besar.",
+    },
+    {
+      id: "fluid-spacing-typography-basic-quick-check",
+      type: "quick-check",
+      question:
+        "Property apa yang sering membantu paragraf tidak terlalu melebar di layar besar?",
+      options: [
+        "z-index",
+        "border-radius",
+        "color",
+        "max-width",
+      ],
+      correctAnswer: "max-width",
+      explanation:
+        "max-width membatasi lebar maksimum sehingga teks tetap nyaman dibaca.",
+    },
+    {
+      id: "fluid-spacing-typography-basic-coding-practice",
+      type: "coding-practice",
+      challengeId: "practice-fluid-spacing-typography",
+    },
+    {
+      id: "fluid-spacing-typography-basic-summary",
+      type: "summary",
+      points: [
+        "Responsive visual system juga mencakup teks dan spacing.",
+        "max-width menjaga teks tidak terlalu panjang.",
+        "line-height membantu keterbacaan.",
+        "clamp bisa dipakai untuk nilai yang berubah secara fleksibel dalam batas aman.",
+        "Berikutnya kamu akan memakai CSS variables untuk nilai visual reusable.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "fluid-spacing-typography-basic-intro",
+      "fluid-spacing-typography-basic-code",
+      "fluid-spacing-typography-basic-quick-check",
+      "fluid-spacing-typography-basic-coding-practice",
+      "fluid-spacing-typography-basic-summary",
+    ],
+  },
+};
+
+export const cssVariablesDarkModeBasicLesson: Lesson = {
+  id: "css-variables-dark-mode-basic",
+  trackId: "frontend-engineering",
+  moduleId: "responsive-visual-system",
+  title: "CSS Variables dan Dark Mode Dasar",
+  slug: "css-variables-dark-mode-basic",
+  description:
+    "Gunakan CSS variables untuk menyimpan nilai visual dan mengenal pola dasar dark mode.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 45,
+  objectives: [
+    "Memahami CSS variables sebagai nilai reusable",
+    "Menggunakan variable untuk warna dan spacing",
+    "Mengenal pola light/dark values secara sederhana",
+    "Menghindari nilai warna acak yang berulang di banyak tempat",
+  ],
+  skillTags: ["CSS", "CSS Variables", "Dark Mode", "Visual System"],
+  blocks: [
+    {
+      id: "css-variables-dark-mode-basic-intro",
+      type: "text",
+      title: "CSS variables menyimpan nilai visual",
+      content:
+        "CSS variables menyimpan nilai yang bisa dipakai ulang. Ini membantu warna, spacing, radius, dan typography lebih konsisten.\n\nDark mode bisa dibuat dengan mengganti nilai variable, bukan menulis ulang semua komponen. Untuk pemula, fokus ke sedikit variable dulu agar pola besarnya jelas.",
+    },
+    {
+      id: "css-variables-dark-mode-basic-code",
+      type: "code-example",
+      title: "Variable warna dan dark mode sederhana",
+      language: "css",
+      code: `.page {
+  --color-bg: #ffffff;
+  --color-text: #18181b;
+  --color-card: #f4f4f5;
+  --space-page: 24px;
+
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: var(--space-page);
+}
+
+.card {
+  background: var(--color-card);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.page.dark {
+  --color-bg: #18181b;
+  --color-text: #fafafa;
+  --color-card: #27272a;
+}`,
+      explanation:
+        "Variable disimpan di .page. Komponen memakai var(...). Saat .page punya class dark, nilai variable berubah sehingga tampilan ikut berubah.",
+    },
+    {
+      id: "css-variables-dark-mode-basic-callout",
+      type: "callout",
+      variant: "important",
+      title: "Dark mode tetap harus readable",
+      content:
+        "Dark mode yang baik bukan hanya membalik warna. Pastikan kontras tetap nyaman dibaca.",
+    },
+    {
+      id: "css-variables-dark-mode-basic-quick-check",
+      type: "quick-check",
+      question: "Apa manfaat utama CSS variables dalam visual system?",
+      options: [
+        "Membuat database",
+        "Menyimpan nilai visual agar bisa dipakai ulang",
+        "Mengganti Git",
+        "Menghapus semua HTML",
+      ],
+      correctAnswer: "Menyimpan nilai visual agar bisa dipakai ulang",
+      explanation:
+        "CSS variables membantu nilai seperti warna dan spacing konsisten di banyak komponen.",
+    },
+    {
+      id: "css-variables-dark-mode-basic-coding-practice",
+      type: "coding-practice",
+      challengeId: "practice-css-variables-theme-card",
+    },
+    {
+      id: "css-variables-dark-mode-basic-summary",
+      type: "summary",
+      points: [
+        "CSS variables menyimpan nilai visual reusable.",
+        "Visual system membantu UI tetap konsisten.",
+        "Dark mode dasar bisa dibuat dengan mengganti nilai variable.",
+        "Tetap cek kontras dan keterbacaan.",
+        "Berikutnya kamu akan menguji Responsive Visual System.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "css-variables-dark-mode-basic-intro",
+      "css-variables-dark-mode-basic-code",
+      "css-variables-dark-mode-basic-quick-check",
+      "css-variables-dark-mode-basic-coding-practice",
+      "css-variables-dark-mode-basic-summary",
+    ],
+  },
+};
+
+export const responsiveVisualSystemAssessmentLesson: Lesson = {
+  id: "responsive-visual-system-assessment",
+  trackId: "frontend-engineering",
+  moduleId: "responsive-visual-system",
+  title: "Uji Kompetensi Responsive Visual System",
+  slug: "responsive-visual-system-assessment",
+  description:
+    "Uji pemahaman mobile-first CSS, breakpoint, fluid spacing, typography, CSS variables, dan dark mode dasar.",
+  contentLanguage: "id",
+  level: "beginner",
+  estimatedMinutes: 55,
+  objectives: [
+    "Mengecek pemahaman mobile-first CSS",
+    "Mengecek penggunaan breakpoint dasar",
+    "Mengecek pemahaman responsive spacing dan typography",
+    "Mengecek penggunaan CSS variables",
+    "Mengecek pemahaman dark mode dasar",
+    "Mengarahkan learner membaca dokumentasi resmi dengan fokus",
+  ],
+  skillTags: ["CSS", "Responsive Design", "Visual System", "Assessment"],
+  blocks: [
+    {
+      id: "responsive-visual-system-assessment-recap",
+      type: "text",
+      title: "Apa yang dicek di assessment ini",
+      content:
+        "Assessment ini mengecek responsive visual system dasar. Kamu akan membuktikan bahwa kamu memahami mobile-first CSS, breakpoint, media query, max-width, line-height, clamp secara ringan, CSS variables, dan pola dark mode dasar.",
+    },
+    {
+      id: "responsive-visual-system-assessment-quiz-block",
+      type: "quiz",
+      quizId: "responsive-visual-system-assessment-quiz",
+    },
+    {
+      id: "responsive-visual-system-assessment-coding-practice",
+      type: "coding-practice",
+      challengeId: "build-responsive-visual-section",
+    },
+    {
+      id: "responsive-visual-system-assessment-docs-bridge",
+      type: "documentation-bridge",
+      title: "Baca dokumentasi resmi",
+      description:
+        "Gunakan dokumentasi ini untuk menguatkan pemahaman responsive visual system. Fokus pada konsep yang sudah kamu pakai di latihan.",
+      links: [
+        {
+          source: "MDN Web Docs",
+          title: "Responsive design",
+          url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design",
+          focus: [
+            "mobile-first responsive thinking",
+            "layout yang menyesuaikan layar",
+            "media query secara umum",
+          ],
+          ignoreForNow: [
+            "complex responsive patterns",
+            "advanced layout systems",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "Media queries",
+          url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries",
+          focus: [
+            "min-width",
+            "menambahkan aturan untuk layar lebih besar",
+            "kapan media query dipakai",
+          ],
+          ignoreForNow: [
+            "container queries",
+            "complex media features",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "Using CSS custom properties",
+          url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties",
+          focus: [
+            "custom properties",
+            "var()",
+            "nilai visual reusable",
+          ],
+          ignoreForNow: [
+            "advanced theming",
+            "CSS architecture",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "clamp()",
+          url: "https://developer.mozilla.org/en-US/docs/Web/CSS/clamp",
+          focus: [
+            "nilai minimum",
+            "nilai fleksibel",
+            "nilai maksimum",
+          ],
+          ignoreForNow: [
+            "complex formulas",
+            "animation systems",
+          ],
+        },
+        {
+          source: "MDN Web Docs",
+          title: "prefers-color-scheme",
+          url: "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme",
+          focus: [
+            "dark mode preference basics",
+            "light dan dark values",
+            "readable contrast",
+          ],
+          ignoreForNow: [
+            "complex theme switching",
+            "system integration details",
+          ],
+        },
+      ],
+      followUpAction:
+        "Kembali ke latihan kamu dan tunjukkan bagian mana yang membuat layout responsive, bagian mana yang menjaga teks readable, dan nilai visual apa yang bisa dijadikan CSS variable.",
+    },
+    {
+      id: "responsive-visual-system-assessment-summary",
+      type: "summary",
+      points: [
+        "Kamu membuktikan bahwa kamu memahami mobile-first CSS dan breakpoint dasar.",
+        "Kamu membuktikan bahwa kamu bisa memakai max-width dan line-height untuk readability.",
+        "Kamu membuktikan bahwa kamu memahami CSS variables sebagai nilai visual reusable.",
+        "Jika belum siap, review lagi mobile-first CSS, breakpoints, max-width, line-height, clamp basics, CSS variables, dan dark mode value swapping.",
+        "Setelah memahami CSS visual system dasar, berikutnya kamu akan mulai masuk ke JavaScript Fundamentals.",
+      ],
+    },
+  ],
+  completionRule: {
+    requiredBlockIds: [
+      "responsive-visual-system-assessment-recap",
+      "responsive-visual-system-assessment-quiz-block",
+      "responsive-visual-system-assessment-coding-practice",
+      "responsive-visual-system-assessment-summary",
+    ],
+    passingQuizScore: 70,
+  },
+};
+
 export const cssFlexboxBasicsLesson: Lesson = {
   id: "css-flexbox-basics",
   trackId: "frontend-engineering",
@@ -4248,6 +4809,11 @@ export const lessons: Lesson[] = [
   cssGridBasicLesson,
   flexboxVsGridDecisionLesson,
   flexboxGridLayoutAssessmentLesson,
+  mobileFirstCssLesson,
+  cssBreakpointsBasicLesson,
+  fluidSpacingTypographyBasicLesson,
+  cssVariablesDarkModeBasicLesson,
+  responsiveVisualSystemAssessmentLesson,
   cssFlexboxBasicsLesson,
   writingDailyUpdateLesson,
 ];

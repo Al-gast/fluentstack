@@ -48,6 +48,9 @@ Active modules:
 4. Forms and Basic Accessibility
 5. CSS Core Mechanics
 6. Box Model and Spacing
+7. Local Static Website Project
+8. Flexbox and Grid Layout
+9. Responsive Visual System
 ```
 
 Current learning flow:
@@ -59,16 +62,18 @@ Web Foundations
 → Forms and Basic Accessibility
 → CSS Core Mechanics
 → Box Model and Spacing
+→ Local Static Website Project
+→ Flexbox and Grid Layout
+→ Responsive Visual System
 ```
 
 Planned next modules:
 
 ```txt
-Local Static Website Project
 JavaScript Fundamentals
-Flexbox and Grid Layout
-Responsive Visual System
 ```
+
+Level 3 CSS Fundamentals and Layout is now implemented through CSS Core Mechanics, Box Model and Spacing, Local Static Website Project, Flexbox and Grid Layout, and Responsive Visual System.
 
 ### English for Tech Careers
 
@@ -458,16 +463,18 @@ Semantic HTML
 Forms and Basic Accessibility
 CSS Core Mechanics
 Box Model and Spacing
+Local Static Website Project
+Flexbox and Grid Layout
+Responsive Visual System
 ```
 
 Planned curriculum next:
 
 ```txt
-Local Static Website Project
 JavaScript Fundamentals
-Flexbox and Grid Layout
-Responsive Visual System
 ```
+
+Level 3 CSS Fundamentals and Layout is now implemented through CSS Core Mechanics, Box Model and Spacing, Local Static Website Project, Flexbox and Grid Layout, and Responsive Visual System.
 
 ## Known Limitations
 

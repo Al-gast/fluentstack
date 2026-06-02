@@ -1784,6 +1784,463 @@ export const buildResponsiveIshCardSectionChallenge: CodingChallenge = {
   skillTags: ["CSS", "Flexbox", "Grid", "Assessment"],
 };
 
+export const practiceMobileFirstSectionChallenge: CodingChallenge = {
+  id: "practice-mobile-first-section",
+  lessonId: "mobile-first-css",
+  title: "Membuat section mobile-first",
+  description:
+    "Latihan menulis style dasar yang aman untuk layar kecil sebelum menambahkan peningkatan responsive.",
+  instructions: [
+    "Fokus di tab CSS.",
+    "Targetkan .section dan tambahkan padding.",
+    "Targetkan .title dan tambahkan font-size.",
+    "Targetkan .description dan tambahkan line-height.",
+    "Jika sudah nyaman, tambahkan media query min-width sebagai peningkatan untuk layar lebih besar.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<section class="section">
+  <h1 class="title">Belajar Responsive CSS</h1>
+  <p class="description">Mulai dari layar kecil, lalu tingkatkan untuk layar lebih besar.</p>
+</section>`,
+    css: `.section {
+  background: #18181b;
+}
+
+.title {
+  color: #fafafa;
+}
+
+.description {
+  color: #d4d4d8;
+}`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<section class="section">
+  <h1 class="title">Belajar Responsive CSS</h1>
+  <p class="description">Mulai dari layar kecil, lalu tingkatkan untuk layar lebih besar.</p>
+</section>`,
+    css: `.section {
+  background: #18181b;
+  padding: 16px;
+}
+
+.title {
+  color: #fafafa;
+  font-size: 28px;
+}
+
+.description {
+  color: #d4d4d8;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 32px;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+}`,
+    js: "",
+  },
+  checklist: [
+    ".section punya padding dasar untuk layar kecil.",
+    ".title punya font-size yang jelas.",
+    ".description punya line-height yang nyaman.",
+    "Media query dipakai sebagai peningkatan, bukan syarat style dasar.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-section-selector", label: "Ada selector .section.", type: "cssSelectorExists", target: ".section" },
+      { id: "section-padding", label: ".section punya property padding.", type: "cssSelectorPropertyExists", target: ".section", property: "padding" },
+      { id: "has-title-selector", label: "Ada selector .title.", type: "cssSelectorExists", target: ".title" },
+      { id: "title-font-size", label: ".title punya property font-size.", type: "cssSelectorPropertyExists", target: ".title", property: "font-size" },
+      { id: "has-description-selector", label: "Ada selector .description.", type: "cssSelectorExists", target: ".description" },
+      { id: "description-line-height", label: ".description punya property line-height.", type: "cssSelectorPropertyExists", target: ".description", property: "line-height" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Responsive Design", "Mobile First"],
+};
+
+export const practiceCssBreakpointCardGridChallenge: CodingChallenge = {
+  id: "practice-css-breakpoint-card-grid",
+  lessonId: "css-breakpoints-basic",
+  title: "Membuat card grid dengan breakpoint",
+  description:
+    "Latihan memakai Grid dan breakpoint sederhana agar card section bisa meningkat saat layar lebih lebar.",
+  instructions: [
+    "Fokus di tab CSS.",
+    "Targetkan .card-grid.",
+    "Tambahkan display: grid.",
+    "Tambahkan gap.",
+    "Tambahkan grid-template-columns.",
+    "Targetkan .card dan tambahkan padding.",
+    "Jika sudah nyaman, tambahkan media query untuk mengubah jumlah kolom di layar lebih besar.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<section class="card-grid">
+  <article class="card">Mobile-first</article>
+  <article class="card">Breakpoint</article>
+  <article class="card">Responsive layout</article>
+</section>`,
+    css: `.card-grid {
+  max-width: 960px;
+}
+
+.card {
+  border: 1px solid #3f3f46;
+}`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<section class="card-grid">
+  <article class="card">Mobile-first</article>
+  <article class="card">Breakpoint</article>
+  <article class="card">Responsive layout</article>
+</section>`,
+    css: `.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 960px;
+}
+
+.card {
+  padding: 16px;
+  border: 1px solid #3f3f46;
+}
+
+@media (min-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}`,
+    js: "",
+  },
+  checklist: [
+    ".card-grid memakai Grid.",
+    ".card-grid punya gap dan kolom dasar.",
+    ".card punya padding.",
+    "Media query mengubah kolom saat layar lebih lebar.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-card-grid-selector", label: "Ada selector .card-grid.", type: "cssSelectorExists", target: ".card-grid" },
+      { id: "card-grid-display", label: ".card-grid punya property display.", type: "cssSelectorPropertyExists", target: ".card-grid", property: "display" },
+      { id: "card-grid-gap", label: ".card-grid punya property gap.", type: "cssSelectorPropertyExists", target: ".card-grid", property: "gap" },
+      { id: "card-grid-columns", label: ".card-grid punya property grid-template-columns.", type: "cssSelectorPropertyExists", target: ".card-grid", property: "grid-template-columns" },
+      { id: "has-card-selector", label: "Ada selector .card.", type: "cssSelectorExists", target: ".card" },
+      { id: "card-padding", label: ".card punya property padding.", type: "cssSelectorPropertyExists", target: ".card", property: "padding" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Responsive Design", "Breakpoints", "Grid"],
+};
+
+export const practiceFluidSpacingTypographyChallenge: CodingChallenge = {
+  id: "practice-fluid-spacing-typography",
+  lessonId: "fluid-spacing-typography-basic",
+  title: "Mengatur spacing dan typography responsive",
+  description:
+    "Latihan membuat container, title, dan description tetap nyaman dibaca di berbagai ukuran layar.",
+  instructions: [
+    "Fokus di tab CSS.",
+    "Targetkan .container.",
+    "Tambahkan max-width dan padding.",
+    "Targetkan .title.",
+    "Tambahkan font-size dan line-height.",
+    "Targetkan .description dan tambahkan line-height.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<main class="container">
+  <h1 class="title">Fluid Spacing dan Typography</h1>
+  <p class="description">Teks yang responsive tetap perlu batas lebar, jarak, dan line-height yang nyaman.</p>
+</main>`,
+    css: `.container {
+  margin: 0 auto;
+}
+
+.title {
+  color: #fafafa;
+}
+
+.description {
+  color: #d4d4d8;
+}`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<main class="container">
+  <h1 class="title">Fluid Spacing dan Typography</h1>
+  <p class="description">Teks yang responsive tetap perlu batas lebar, jarak, dan line-height yang nyaman.</p>
+</main>`,
+    css: `.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 40px);
+}
+
+.title {
+  color: #fafafa;
+  font-size: clamp(32px, 6vw, 56px);
+  line-height: 1.1;
+}
+
+.description {
+  color: #d4d4d8;
+  line-height: 1.7;
+}`,
+    js: "",
+  },
+  checklist: [
+    ".container membatasi lebar dengan max-width.",
+    ".container punya padding.",
+    ".title punya font-size dan line-height.",
+    ".description punya line-height.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-container-selector", label: "Ada selector .container.", type: "cssSelectorExists", target: ".container" },
+      { id: "container-max-width", label: ".container punya property max-width.", type: "cssSelectorPropertyExists", target: ".container", property: "max-width" },
+      { id: "container-padding", label: ".container punya property padding.", type: "cssSelectorPropertyExists", target: ".container", property: "padding" },
+      { id: "has-title-selector", label: "Ada selector .title.", type: "cssSelectorExists", target: ".title" },
+      { id: "title-font-size", label: ".title punya property font-size.", type: "cssSelectorPropertyExists", target: ".title", property: "font-size" },
+      { id: "title-line-height", label: ".title punya property line-height.", type: "cssSelectorPropertyExists", target: ".title", property: "line-height" },
+      { id: "has-description-selector", label: "Ada selector .description.", type: "cssSelectorExists", target: ".description" },
+      { id: "description-line-height", label: ".description punya property line-height.", type: "cssSelectorPropertyExists", target: ".description", property: "line-height" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Spacing", "Typography", "Responsive Design"],
+};
+
+export const practiceCssVariablesThemeCardChallenge: CodingChallenge = {
+  id: "practice-css-variables-theme-card",
+  lessonId: "css-variables-dark-mode-basic",
+  title: "Membuat theme card dengan CSS variables",
+  description:
+    "Latihan memakai CSS variables untuk warna halaman dan card sederhana.",
+  instructions: [
+    "Fokus di tab CSS.",
+    "Targetkan .page.",
+    "Tambahkan CSS variables untuk warna seperti --color-bg dan --color-text.",
+    "Gunakan background dan color pada .page.",
+    "Targetkan .card.",
+    "Tambahkan background dan padding pada .card.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<main class="page">
+  <article class="card">
+    <h1>CSS Variables</h1>
+    <p>Nilai visual yang reusable membantu UI tetap konsisten.</p>
+  </article>
+</main>`,
+    css: `.page {
+  padding: 24px;
+}
+
+.card {
+  border-radius: 12px;
+}`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<main class="page">
+  <article class="card">
+    <h1>CSS Variables</h1>
+    <p>Nilai visual yang reusable membantu UI tetap konsisten.</p>
+  </article>
+</main>`,
+    css: `.page {
+  --color-bg: #18181b;
+  --color-text: #fafafa;
+  --color-card: #27272a;
+
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 24px;
+}
+
+.card {
+  background: var(--color-card);
+  padding: 16px;
+  border-radius: 12px;
+}`,
+    js: "",
+  },
+  checklist: [
+    ".page menyimpan CSS variables untuk warna.",
+    ".page memakai background dan color dari nilai visual.",
+    ".card memakai background dan padding.",
+    "Nilai warna tidak perlu diulang acak di banyak tempat.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-page-selector", label: "Ada selector .page.", type: "cssSelectorExists", target: ".page" },
+      { id: "page-color-bg-variable", label: ".page punya variable --color-bg.", type: "cssSelectorPropertyExists", target: ".page", property: "--color-bg" },
+      { id: "page-color-text-variable", label: ".page punya variable --color-text.", type: "cssSelectorPropertyExists", target: ".page", property: "--color-text" },
+      { id: "page-background", label: ".page punya property background.", type: "cssSelectorPropertyExists", target: ".page", property: "background" },
+      { id: "page-color", label: ".page punya property color.", type: "cssSelectorPropertyExists", target: ".page", property: "color" },
+      { id: "has-card-selector", label: "Ada selector .card.", type: "cssSelectorExists", target: ".card" },
+      { id: "card-background", label: ".card punya property background.", type: "cssSelectorPropertyExists", target: ".card", property: "background" },
+      { id: "card-padding", label: ".card punya property padding.", type: "cssSelectorPropertyExists", target: ".card", property: "padding" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "CSS Variables", "Visual System", "Dark Mode"],
+};
+
+export const buildResponsiveVisualSectionChallenge: CodingChallenge = {
+  id: "build-responsive-visual-section",
+  lessonId: "responsive-visual-system-assessment",
+  title: "Membangun responsive visual section",
+  description:
+    "Assessment practice untuk menggabungkan mobile-first CSS, readability, card grid, dan nilai visual yang konsisten.",
+  instructions: [
+    "Style .page dengan background dan color.",
+    "Style .container dengan max-width dan padding.",
+    "Style .title dengan font-size dan line-height.",
+    "Gunakan .card-grid sebagai grid container dengan display dan gap.",
+    "Style .card dengan padding dan border-radius.",
+    "Jika sudah nyaman, tambahkan media query dan CSS variables sebagai peningkatan.",
+    "Jangan memakai !important.",
+  ],
+  starterCode: {
+    html: `<main class="page">
+  <section class="container">
+    <h1 class="title">Responsive Visual System</h1>
+    <div class="card-grid">
+      <article class="card">Mobile-first</article>
+      <article class="card">Readable typography</article>
+      <article class="card">Reusable visual values</article>
+    </div>
+  </section>
+</main>`,
+    css: `.page {
+  min-height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.title {
+  color: #fafafa;
+}
+
+.card-grid {
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #3f3f46;
+}`,
+    js: "",
+  },
+  solutionCode: {
+    html: `<main class="page">
+  <section class="container">
+    <h1 class="title">Responsive Visual System</h1>
+    <div class="card-grid">
+      <article class="card">Mobile-first</article>
+      <article class="card">Readable typography</article>
+      <article class="card">Reusable visual values</article>
+    </div>
+  </section>
+</main>`,
+    css: `.page {
+  --color-bg: #18181b;
+  --color-text: #fafafa;
+  --color-card: #27272a;
+
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 40px);
+}
+
+.title {
+  color: #fafafa;
+  font-size: clamp(32px, 6vw, 56px);
+  line-height: 1.1;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  background: var(--color-card);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #3f3f46;
+}
+
+@media (min-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}`,
+    js: "",
+  },
+  checklist: [
+    ".page punya warna background dan text yang readable.",
+    ".container membatasi lebar dan punya padding.",
+    ".title punya font-size dan line-height.",
+    ".card-grid memakai Grid dan gap.",
+    ".card punya padding dan border-radius.",
+    "Media query dan CSS variables dipakai sebagai peningkatan jika sudah siap.",
+  ],
+  validation: {
+    mode: "css",
+    checks: [
+      { id: "has-page-selector", label: "Ada selector .page.", type: "cssSelectorExists", target: ".page" },
+      { id: "page-background", label: ".page punya property background.", type: "cssSelectorPropertyExists", target: ".page", property: "background" },
+      { id: "page-color", label: ".page punya property color.", type: "cssSelectorPropertyExists", target: ".page", property: "color" },
+      { id: "has-container-selector", label: "Ada selector .container.", type: "cssSelectorExists", target: ".container" },
+      { id: "container-max-width", label: ".container punya property max-width.", type: "cssSelectorPropertyExists", target: ".container", property: "max-width" },
+      { id: "container-padding", label: ".container punya property padding.", type: "cssSelectorPropertyExists", target: ".container", property: "padding" },
+      { id: "has-title-selector", label: "Ada selector .title.", type: "cssSelectorExists", target: ".title" },
+      { id: "title-font-size", label: ".title punya property font-size.", type: "cssSelectorPropertyExists", target: ".title", property: "font-size" },
+      { id: "title-line-height", label: ".title punya property line-height.", type: "cssSelectorPropertyExists", target: ".title", property: "line-height" },
+      { id: "has-card-grid-selector", label: "Ada selector .card-grid.", type: "cssSelectorExists", target: ".card-grid" },
+      { id: "card-grid-display", label: ".card-grid punya property display.", type: "cssSelectorPropertyExists", target: ".card-grid", property: "display" },
+      { id: "card-grid-gap", label: ".card-grid punya property gap.", type: "cssSelectorPropertyExists", target: ".card-grid", property: "gap" },
+      { id: "has-card-selector", label: "Ada selector .card.", type: "cssSelectorExists", target: ".card" },
+      { id: "card-padding", label: ".card punya property padding.", type: "cssSelectorPropertyExists", target: ".card", property: "padding" },
+      { id: "card-border-radius", label: ".card punya property border-radius.", type: "cssSelectorPropertyExists", target: ".card", property: "border-radius" },
+      { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
+    ],
+  },
+  skillTags: ["CSS", "Responsive Design", "Visual System", "Assessment"],
+};
+
 export const challenges: CodingChallenge[] = [
   buildBasicHtmlPageChallenge,
   practiceTagElementAttributeChallenge,
@@ -1810,4 +2267,9 @@ export const challenges: CodingChallenge[] = [
   practiceCssGridCardLayoutChallenge,
   chooseFlexboxGridLayoutChallenge,
   buildResponsiveIshCardSectionChallenge,
+  practiceMobileFirstSectionChallenge,
+  practiceCssBreakpointCardGridChallenge,
+  practiceFluidSpacingTypographyChallenge,
+  practiceCssVariablesThemeCardChallenge,
+  buildResponsiveVisualSectionChallenge,
 ];

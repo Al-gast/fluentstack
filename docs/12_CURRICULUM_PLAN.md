@@ -599,6 +599,8 @@ Modules:
 3. Flexbox and Grid Layout
 4. Responsive Visual System
 
+This level is implemented through the active modules above, plus the local static website milestone that now sits alongside the CSS path.
+
 Module outcomes:
 
 * understand selectors, declarations, cascade, specificity, and inheritance
@@ -1618,21 +1620,21 @@ Current active frontend module slices:
 4. Forms and Basic Accessibility
 5. CSS Core Mechanics
 6. Box Model and Spacing
+7. Local Static Website Project
+8. Flexbox and Grid Layout
+9. Responsive Visual System
 
 Recommended next expansion order:
 
-1. Add Local Static Website Project
-2. Build Flexbox and Grid Layout
-3. Build Responsive Visual System
-4. Build JavaScript Fundamentals
-5. Add Local Vanilla JavaScript App
-6. Build English modules that support the current frontend stage
-7. Add Local Tooling and npm Basics before React/TypeScript needs it
-8. Build React Fundamentals
-9. Add Local React App
-10. Build Next.js App Router
-11. Add Local Next.js App
-12. Build Production Next.js and deployment milestones
+1. Build JavaScript Fundamentals
+2. Add Local Vanilla JavaScript App
+3. Build English modules that support the current frontend stage
+4. Add Local Tooling and npm Basics before React/TypeScript needs it
+5. Build React Fundamentals
+6. Add Local React App
+7. Build Next.js App Router
+8. Add Local Next.js App
+9. Build Production Next.js and deployment milestones
 
 Do not add the next module before the current module feels coherent and has been tested in the browser.
 

@@ -149,6 +149,25 @@ export const flexboxGridLayoutModule: Module = {
   skillTags: ["CSS", "Flexbox", "Grid", "Layout"],
 };
 
+export const responsiveVisualSystemModule: Module = {
+  id: "responsive-visual-system",
+  trackId: "frontend-engineering",
+  title: "Responsive Visual System",
+  slug: "responsive-visual-system",
+  description:
+    "Pelajari mobile-first CSS, breakpoint dasar, fluid spacing, typography, CSS variables, dan dark mode dasar.",
+  order: 9,
+  lessonIds: [
+    "mobile-first-css",
+    "css-breakpoints-basic",
+    "fluid-spacing-typography-basic",
+    "css-variables-dark-mode-basic",
+    "responsive-visual-system-assessment",
+  ],
+  estimatedHours: 4,
+  skillTags: ["CSS", "Responsive Design", "Visual System", "Dark Mode"],
+};
+
 // Legacy module kept so old module slugs do not disappear abruptly.
 // It is not linked from frontendEngineeringTrack.moduleIds.
 export const htmlWebFundamentalsModule: Module = {
@@ -200,6 +219,7 @@ export const modules: Module[] = [
   boxModelSpacingModule,
   localStaticWebsiteProjectModule,
   flexboxGridLayoutModule,
+  responsiveVisualSystemModule,
   htmlWebFundamentalsModule,
   cssFundamentalsModule,
   englishForRemoteWorkModule,
