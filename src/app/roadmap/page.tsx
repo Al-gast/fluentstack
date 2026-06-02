@@ -1,8 +1,7 @@
 import { AppShell } from "@/components/layout/app-shell";
 import { TrackCard } from "@/components/learning/track-card";
-import { modules } from "@/content/modules";
-import { lessons } from "@/content/lessons";
 import { tracks } from "@/content/tracks";
+import { getOrderedTrackLessons, getOrderedTrackModules } from "@/lib/content/learning-path";
 
 export default function RoadmapPage() {
   return (
@@ -18,16 +17,15 @@ export default function RoadmapPage() {
 
         <section className="grid gap-5 lg:grid-cols-2">
           {tracks.map((track) => {
-            const trackModules = modules.filter((moduleItem) => moduleItem.trackId === track.id);
-            const trackLessons = lessons.filter((lesson) => lesson.trackId === track.id);
-            const lessonCount = trackLessons.length;
+            const trackModules = getOrderedTrackModules(track);
+            const trackLessons = getOrderedTrackLessons(track);
 
             return (
               <TrackCard
                 key={track.id}
                 track={track}
                 moduleCount={trackModules.length}
-                lessonCount={lessonCount}
+                lessonCount={trackLessons.length}
                 trackLessons={trackLessons}
               />
             );

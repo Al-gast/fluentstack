@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { AppShell } from "@/components/layout/app-shell";
+import { CurriculumLevelSection } from "@/components/learning/curriculum-level-section";
 import { ModuleCard } from "@/components/learning/module-card";
 import { SequenceCta } from "@/components/learning/sequence-cta";
+import { curriculumLevelsByTrackId } from "@/content/curriculum-levels";
 import { getOrderedModuleLessons, getOrderedTrackLessons, getOrderedTrackModules } from "@/lib/content/learning-path";
 import { getTrackBySlug } from "@/lib/content/get-track";
 
@@ -19,6 +21,28 @@ export default async function TrackPage({ params }: TrackPageProps) {
 
   const trackModules = getOrderedTrackModules(track);
   const trackLessons = getOrderedTrackLessons(track);
+  const curriculumLevels = curriculumLevelsByTrackId[track.id] ?? [];
+  const groupedModuleIds = new Set(curriculumLevels.flatMap((level) => level.moduleIds));
+  const hasCompleteLevelGrouping =
+    curriculumLevels.length > 0 && trackModules.every((moduleItem) => groupedModuleIds.has(moduleItem.id));
+  const levelSections = curriculumLevels.reduce<
+    Array<{ level: (typeof curriculumLevels)[number]; modules: typeof trackModules; startOrderNumber: number }>
+  >((sections, level) => {
+    const previousModuleCount = sections.reduce(
+      (count, section) => count + section.modules.length,
+      0,
+    );
+    const levelModules = trackModules.filter((moduleItem) => level.moduleIds.includes(moduleItem.id));
+
+    return [
+      ...sections,
+      {
+        level,
+        modules: levelModules,
+        startOrderNumber: previousModuleCount + 1,
+      },
+    ];
+  }, []);
 
   return (
     <AppShell title={track.title}>
@@ -35,20 +59,34 @@ export default async function TrackPage({ params }: TrackPageProps) {
           <SequenceCta lessons={trackLessons} scope="track" />
         </section>
 
-        <section className="grid gap-5 lg:grid-cols-2">
-          {trackModules.map((moduleItem, index) => {
-            const moduleLessons = getOrderedModuleLessons(moduleItem);
-            return (
-              <ModuleCard
-                key={moduleItem.id}
-                trackSlug={track.slug}
-                module={moduleItem}
-                moduleLessons={moduleLessons}
-                orderNumber={index + 1}
+        {hasCompleteLevelGrouping ? (
+          <div className="space-y-6">
+            {levelSections.map((section) => (
+              <CurriculumLevelSection
+                key={`${track.id}-${section.level.level}`}
+                track={track}
+                level={section.level}
+                modules={section.modules}
+                startOrderNumber={section.startOrderNumber}
               />
-            );
-          })}
-        </section>
+            ))}
+          </div>
+        ) : (
+          <section className="grid gap-5 lg:grid-cols-2">
+            {trackModules.map((moduleItem, index) => {
+              const moduleLessons = getOrderedModuleLessons(moduleItem);
+              return (
+                <ModuleCard
+                  key={moduleItem.id}
+                  trackSlug={track.slug}
+                  module={moduleItem}
+                  moduleLessons={moduleLessons}
+                  orderNumber={index + 1}
+                />
+              );
+            })}
+          </section>
+        )}
       </div>
     </AppShell>
   );
