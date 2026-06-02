@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { CodingLab } from "@/components/playground/coding-lab";
+import Link from "next/link";
 import { getChallengeById } from "@/lib/content/get-challenge";
 import type { ChallengeCode } from "@/types/challenge";
 import type { CodingPracticeBlock as CodingPracticeBlockData } from "@/types/learning";
@@ -20,123 +19,91 @@ type CodingPracticeBlockProps = {
 const EMPTY_CHALLENGE_CODE: ChallengeCode = { html: "", css: "", js: "" };
 const EMPTY_CHECKLIST: string[] = [];
 
-function resolveCode(starterCode: ChallengeCode, savedCode?: ChallengeCode): ChallengeCode {
-  if (!savedCode) {
-    return starterCode;
-  }
-
-  return {
-    html: savedCode.html || starterCode.html,
-    css: savedCode.css || starterCode.css,
-    js: savedCode.js || starterCode.js,
-  };
-}
-
-type CodingPracticeBlockStatefulProps = {
-  challengeId: string;
-  isCompleted: boolean;
-  isRequired: boolean;
-  initialCode: ChallengeCode;
-  initialChecklist: string[];
-  onSaveCode: (code: ChallengeCode) => void;
-  onSaveChecklist: (items: string[]) => void;
-  onComplete: () => void;
-};
-
-function CodingPracticeBlockStateful({
-  challengeId,
-  isCompleted,
-  isRequired,
-  initialCode,
-  initialChecklist,
-  onSaveCode,
-  onSaveChecklist,
-  onComplete,
-}: CodingPracticeBlockStatefulProps) {
-  const challenge = getChallengeById(challengeId);
-  const [code, setCode] = React.useState<ChallengeCode>(initialCode);
-  const [completedChecklistItems, setCompletedChecklistItems] = React.useState<string[]>(
-    initialChecklist,
-  );
-
-  if (!challenge) {
-    return (
-      <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 sm:p-6">
-        <h3 className="text-xl font-bold text-zinc-100">Coding practice</h3>
-        <p className="mt-3 text-sm text-zinc-300">Data challenge tidak ditemukan untuk ID {challengeId}.</p>
-      </section>
-    );
-  }
-
-  return (
-    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-4 sm:p-6">
-      <CodingLab
-        challenge={challenge}
-        code={code}
-        completedChecklistItems={completedChecklistItems}
-        isCompleted={isCompleted}
-        isRequired={isRequired}
-        onChangeCode={setCode}
-        onToggleChecklist={(item, checked) => {
-          const nextItems = checked
-            ? Array.from(new Set([...completedChecklistItems, item]))
-            : completedChecklistItems.filter((existingItem) => existingItem !== item);
-
-          setCompletedChecklistItems(nextItems);
-          onSaveChecklist(nextItems);
-        }}
-        onSaveCode={() => onSaveCode(code)}
-        onReset={() => {
-          setCode(challenge.starterCode);
-          setCompletedChecklistItems([]);
-          onSaveCode(challenge.starterCode);
-          onSaveChecklist([]);
-        }}
-        onMarkCompleted={() => {
-          onSaveCode(code);
-          onSaveChecklist(completedChecklistItems);
-          onComplete();
-        }}
-      />
-    </section>
-  );
-}
-
 export function CodingPracticeBlock({
   block,
   isCompleted,
   isRequired,
   progress,
-  onSaveCode,
-  onSaveChecklist,
-  onComplete,
 }: CodingPracticeBlockProps) {
   const challenge = getChallengeById(block.challengeId);
   const starterCode = challenge?.starterCode ?? EMPTY_CHALLENGE_CODE;
   const checklist = challenge?.checklist ?? EMPTY_CHECKLIST;
+  const completedStatus = isCompleted || progress?.isCompleted;
+  const validationCount = challenge?.validation?.checks.length ?? 0;
+  const checklistCount = checklist.length;
+  const hasSavedCode = Boolean(
+    progress?.savedCode &&
+      (progress.savedCode.html !== starterCode.html ||
+        progress.savedCode.css !== starterCode.css ||
+        progress.savedCode.js !== starterCode.js),
+  );
 
-  const initialCode = resolveCode(starterCode, progress?.savedCode);
-  const initialChecklist = progress?.completedChecklistItems?.filter((item) => checklist.includes(item)) ?? [];
-
-  const stateResetKey = [
-    block.challengeId,
-    progress?.savedCode?.html ?? "",
-    progress?.savedCode?.css ?? "",
-    progress?.savedCode?.js ?? "",
-    (progress?.completedChecklistItems ?? []).join("|"),
-  ].join("::");
+  if (!challenge) {
+    return (
+      <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-6">
+        <p className="text-xs font-medium text-cyan-200">Coding Practice</p>
+        <h3 className="mt-2 text-xl font-bold text-zinc-100">Coding practice</h3>
+        <p className="mt-3 text-sm text-zinc-300">Data challenge tidak ditemukan untuk ID {block.challengeId}.</p>
+      </section>
+    );
+  }
 
   return (
-    <CodingPracticeBlockStateful
-      key={stateResetKey}
-      challengeId={block.challengeId}
-      isCompleted={isCompleted}
-      isRequired={isRequired}
-      initialCode={initialCode}
-      initialChecklist={initialChecklist}
-      onSaveCode={onSaveCode}
-      onSaveChecklist={onSaveChecklist}
-      onComplete={onComplete}
-    />
+    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-6">
+      <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+        <div className="min-w-0">
+          <p className="text-xs font-medium text-cyan-200">Coding Practice</p>
+          <h3 className="mt-2 text-xl font-bold text-zinc-100">{challenge.title}</h3>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-300">{challenge.description}</p>
+
+          {challenge.instructions[0] ? (
+            <p className="mt-3 max-w-3xl text-xs leading-6 text-zinc-400">
+              Mulai dari: {challenge.instructions[0]}
+            </p>
+          ) : null}
+
+          <div className="mt-4 flex flex-wrap gap-2">
+            {validationCount > 0 ? (
+              <span className="rounded-lg border border-emerald-300/25 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-100">
+                {validationCount} cek otomatis
+              </span>
+            ) : null}
+            {checklistCount > 0 ? (
+              <span className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-1.5 text-xs font-semibold text-zinc-300">
+                {checklistCount} checklist
+              </span>
+            ) : null}
+            {hasSavedCode ? (
+              <span className="rounded-lg border border-cyan-300/25 bg-cyan-500/10 px-3 py-1.5 text-xs font-semibold text-cyan-100">
+                Ada kode tersimpan
+              </span>
+            ) : null}
+            {isRequired ? (
+              <span className="rounded-lg border border-amber-300/25 bg-amber-500/10 px-3 py-1.5 text-xs font-semibold text-amber-100">
+                Wajib untuk lesson
+              </span>
+            ) : null}
+          </div>
+        </div>
+
+        <div className="shrink-0 space-y-3 lg:text-right">
+          <span
+            className={`inline-flex rounded-lg border px-3 py-1.5 text-xs font-semibold ${
+              completedStatus
+                ? "border-emerald-300/35 bg-emerald-500/15 text-emerald-100"
+                : "border-zinc-700/80 bg-zinc-950/55 text-zinc-300"
+            }`}
+          >
+            {completedStatus ? "Selesai" : "Belum selesai"}
+          </span>
+          <Link
+            href={`/practice/${challenge.id}`}
+            className="inline-flex w-full items-center justify-center rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40 lg:w-auto"
+          >
+            Mulai latihan
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -6,11 +6,13 @@ import type { ChallengeCode } from "@/types/challenge";
 type PreviewPanelProps = {
   code: ChallengeCode;
   heightClassName?: string;
+  viewportWidth?: string;
 };
 
 export function PreviewPanel({
   code,
   heightClassName = "h-[320px]",
+  viewportWidth = "100%",
 }: PreviewPanelProps) {
   const srcDoc = useMemo(() => {
     return `<!doctype html>
@@ -38,13 +40,18 @@ export function PreviewPanel({
   }, [code.css, code.html, code.js]);
 
   return (
-    <div className="min-w-0 overflow-hidden rounded-xl border border-zinc-700/80 bg-white">
-      <iframe
-        title="Coding practice preview"
-        sandbox="allow-scripts"
-        srcDoc={srcDoc}
-        className={`${heightClassName} w-full border-0`}
-      />
+    <div className="h-full min-w-0 overflow-auto rounded-xl border border-zinc-700/80 bg-zinc-900/80 p-2">
+      <div
+        className="mx-auto h-full min-w-0 overflow-hidden rounded-lg bg-white"
+        style={{ width: viewportWidth, maxWidth: "100%" }}
+      >
+        <iframe
+          title="Coding practice preview"
+          sandbox="allow-scripts"
+          srcDoc={srcDoc}
+          className={`${heightClassName} w-full border-0`}
+        />
+      </div>
     </div>
   );
 }
