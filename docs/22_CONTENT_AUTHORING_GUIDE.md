@@ -319,6 +319,52 @@ Built-in practice authoring rules:
 
 Built-in practice is useful at every level. It is not only for beginner lessons.
 
+## Coding Practice and Dedicated Workspace
+
+Coding practice uses the dedicated Practice Workspace described in `docs/32_PRACTICE_WORKSPACE_STANDARD.md`.
+
+In lessons, a `coding-practice` block is a launcher card. It should not be treated as a full inline editor. Actual coding happens at:
+
+```txt
+/practice/[challengeId]
+```
+
+Author coding challenges so they make sense inside that workspace:
+
+* Challenge title should clearly name the task.
+* Description should explain the purpose in one short idea.
+* Instructions should be understandable without constantly returning to the lesson page.
+* Starter code should help the learner begin but usually should not pass all required checks by default.
+* Solution code, when present, should pass required checks.
+* Instructions should fit the workspace panels: instructions, checks, editor, and preview.
+* Avoid copy such as “lihat editor di bawah” because the editor opens in the practice route.
+* Use beginner-safe selectors, element names, and examples for lightweight CSS validation.
+* Configure forbidden patterns when appropriate, such as rejecting `!important` in beginner CSS debugging tasks.
+
+Keep validation deterministic where possible:
+
+* HTML element exists
+* HTML attribute exists
+* semantic region exists
+* CSS selector exists
+* CSS property exists
+* CSS property exists inside a selector
+* forbidden text is absent
+
+Use manual checklist when the quality is subjective:
+
+* visual spacing and readability
+* responsive judgment
+* accessibility review
+* code quality review
+* local project completeness
+
+Do not fake automatic validation for local-device tasks, filesystem state, terminal commands, external accounts, deployment state, or cloud resources.
+
+Documentation Bridge should stay in lesson or assessment content. It is not a substitute for clear practice instructions. The learner should know what to do in the Practice Workspace before opening external docs.
+
+Local workflow tasks should use honest self-review, checklist, or writing practice when FluentStack cannot inspect the learner’s device.
+
 ## External Tools and Local Setup
 
 Use this guidance when a lesson or module requires tools outside FluentStack, such as a code editor, browser DevTools, Git, GitHub, Node.js, package managers, deployment tools, backend services, or cloud dashboards.

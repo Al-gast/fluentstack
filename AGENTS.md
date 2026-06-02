@@ -28,6 +28,16 @@ It should feel like a premium learning product and also be strong enough as a po
 
 The core value is not the number of lessons. The core value is the learning experience.
 
+## Product and Experience Architecture Docs
+
+For product, UI/UX, navigation, dashboard, track, module, lesson, or practice workspace tasks, read:
+
+* `docs/30_PRODUCT_DIRECTION.md`
+* `docs/31_LEARNING_EXPERIENCE_ARCHITECTURE.md`
+* `docs/32_PRACTICE_WORKSPACE_STANDARD.md` for coding practice or practice workspace tasks
+
+Treat FluentStack as a guided engineering learning platform, not a small MVP course reader. UI and product changes should preserve the learning flow and help learners know what to do next.
+
 ## Core Learning Principle
 
 Quiz, practice, coding challenges, writing exercises, documentation reading, local projects, and assessments are not separate disconnected features.

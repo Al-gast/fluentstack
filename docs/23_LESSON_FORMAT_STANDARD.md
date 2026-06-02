@@ -128,6 +128,28 @@ Examples:
 * Next.js: inspect route structure, server/client boundary examples, loading/error UI patterns
 * English: write daily updates, pull request notes, code review replies, and interview answers
 
+### Coding Practice Workspace Mode
+
+Lesson page = reading and concept mode.
+
+Practice page = coding workspace mode.
+
+A `coding-practice` block in a lesson should render as a compact launcher card. The full editor, preview, validation checks, layout controls, viewport controls, and completion actions belong in `/practice/[challengeId]`.
+
+Regular lessons should not become long embedded coding workspaces. If a lesson includes coding practice, the lesson should prepare the learner conceptually before launching the practice.
+
+The coding practice launcher should make the purpose clear:
+
+* what task the learner will practice
+* why it belongs after the current explanation
+* how to open the practice workspace
+
+Lesson text should not rely on inline editor position. Avoid copy such as “edit kode di bawah” or “lihat preview di bawah” when the practice opens in a dedicated route.
+
+Uji Kompetensi can include quiz, coding practice, and Documentation Bridge, but coding practice still opens in the dedicated workspace.
+
+For workspace behavior, use `docs/32_PRACTICE_WORKSPACE_STANDARD.md`.
+
 ## Documentation Bridge
 
 Documentation Bridge teaches learners how to approach official documentation.
@@ -228,6 +250,17 @@ Use this loop for most regular lessons:
 
 Not every section needs a separate block. The loop is a thinking tool. Keep lessons focused and avoid bloating them.
 
+Recommended regular lesson pattern with coding practice:
+
+1. Concept explanation
+2. Example
+3. Callout or warning
+4. Quick check
+5. Coding practice launcher
+6. Summary and bridge
+
+The summary should explain what the learner should understand before practicing or moving on.
+
 ## Standard Uji Kompetensi Loop
 
 Use this loop for module assessments:
@@ -243,6 +276,16 @@ Use this loop for module assessments:
 Uji Kompetensi should feel more serious than a regular lesson, but still supportive.
 
 It should help the learner understand what they are ready for and what they may need to review.
+
+Recommended assessment pattern with coding practice:
+
+1. Recap
+2. Quiz
+3. Coding practice launcher
+4. Documentation Bridge
+5. Readiness summary
+
+The assessment practice should stay inside the module scope and verify readiness, not become a broad capstone unless the module is explicitly a project milestone.
 
 ## Standard Documentation Bridge Loop
 

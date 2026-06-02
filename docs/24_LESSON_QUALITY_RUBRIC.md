@@ -42,6 +42,16 @@ Good content should help learners:
 
 Do not use schema validity as proof of content quality.
 
+Core role split:
+
+* Lesson should teach.
+* Practice should let the learner build.
+* Assessment should verify readiness.
+* Documentation Bridge should train official docs reading.
+
+For product and page role context, see `docs/30_PRODUCT_DIRECTION.md` and `docs/31_LEARNING_EXPERIENCE_ARCHITECTURE.md`.
+For coding workspace behavior, see `docs/32_PRACTICE_WORKSPACE_STANDARD.md`.
+
 ## Scoring Mindset
 
 Use a 10-point scoring mindset.
@@ -1179,10 +1189,13 @@ Improvement tips:
 * Task matches lesson or assessment goal.
 * Starter code is helpful but not fully complete.
 * Instructions are clear.
+* Instructions still make sense inside `/practice/[challengeId]` without rereading the full lesson.
 * Learner knows what to edit.
 * Output can be seen in preview or checked.
 * Checklist or auto validation is meaningful.
 * Completion reflects real work.
+* Solution code passes required checks.
+* Missing required code fails.
 
 ### 7/10 Coding Practice
 
@@ -1190,6 +1203,7 @@ Improvement tips:
 * Starter code works.
 * Instructions need small polish.
 * Validation/checklist is useful but incomplete.
+* Learner may need to return to the lesson once to clarify context.
 
 ### 5/10 or below Coding Practice
 
@@ -1198,6 +1212,8 @@ Improvement tips:
 * Learner can complete without understanding.
 * Validation checks the wrong things.
 * Preview does not help.
+* Instructions only make sense if read next to the lesson text.
+* Solution fails required checks.
 
 Improvement tips:
 
@@ -1206,6 +1222,51 @@ Improvement tips:
 * Add deterministic checks when possible.
 * Add helper copy for beginner tasks.
 * Remove unrelated CSS/JS from HTML-only tasks.
+
+### Practice Workspace Readiness
+
+Use this when reviewing any `coding-practice` block and its related challenge.
+
+10/10:
+
+* Lesson page uses a clear launcher, not a huge inline editor.
+* Challenge title, description, and instructions are clear inside the Practice Workspace.
+* Instructions fit the workspace panels: instructions, checks, editor, and preview.
+* Auto validation checks deterministic requirements only.
+* Starter code does not accidentally pass all required checks.
+* Solution code passes required checks.
+* Missing required code fails.
+* Preview helps the learner inspect the result.
+* Manual checklist is honest for visual, responsive, accessibility, or subjective review.
+* Beginner CSS tasks use safe selectors and simple properties.
+* Local-device tasks are not fake auto-validated.
+* Learner can understand the task without constantly returning to the lesson.
+
+7/10:
+
+* Launcher and challenge are understandable.
+* Validation is mostly useful.
+* Instructions need small wording polish for standalone workspace context.
+* Checklist is present but could better separate subjective review from deterministic checks.
+
+5/10 or below:
+
+* Lesson embeds or expects a large inline editor.
+* Challenge instructions depend heavily on surrounding lesson text.
+* Starter code already passes the required checks.
+* Solution does not pass.
+* Validation checks irrelevant details.
+* CSS checks pretend to verify pixel-perfect layout or complex responsive behavior.
+* Local workflow is treated as auto-validated even though FluentStack cannot inspect the learner’s device.
+
+Improvement tips:
+
+* Rewrite instructions so they work in `/practice/[challengeId]`.
+* Move concept explanation into the lesson before the launcher.
+* Keep challenge scope focused.
+* Use deterministic checks for simple code requirements.
+* Use manual checklist for visual quality and local workflow.
+* Test starter and solution code against the validator before shipping.
 
 ## Writing Practice Rubric
 
@@ -1321,6 +1382,8 @@ Revise when you see:
 * quiz inside every regular lesson
 * regular lesson feels like a mini exam
 * practice appears before enough explanation
+* huge inline coding editor appears inside the lesson page
+* coding practice copy assumes the editor is directly below the lesson text
 * summary only repeats generic phrases
 * no bridge to the next lesson
 * no mini action or concrete observation
@@ -1344,6 +1407,9 @@ Revise when you see:
 * local milestone replaces built-in concept practice
 * local milestone appears too early
 * local milestone has no clear verification path
+* assessment practice is too broad for the module scope
+* CSS validation pretends to verify pixel-perfect responsive layout
+* local project tasks pretend to be auto-validated
 
 ## Review Workflow
 

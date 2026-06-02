@@ -238,6 +238,9 @@ src/content/challenges.ts
 Important curriculum and content docs:
 
 ```txt
+docs/30_PRODUCT_DIRECTION.md
+docs/31_LEARNING_EXPERIENCE_ARCHITECTURE.md
+docs/32_PRACTICE_WORKSPACE_STANDARD.md
 docs/11_COPYWRITING_AND_CONTENT_VOICE.md
 docs/12_CURRICULUM_PLAN.md
 docs/20_FRONTEND_CURRICULUM_DETAIL.md
