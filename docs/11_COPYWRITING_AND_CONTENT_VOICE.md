@@ -41,7 +41,6 @@ Keep common technical terms in English when they are natural for developers:
 - Practice
 - Dashboard
 - Roadmap
-- Progress
 - Checkpoint
 - Workspace
 - Preview
@@ -71,7 +70,18 @@ Keep common technical terms in English when they are natural for developers:
 - pull request
 - daily update
 
-Do not force awkward translations. For example, use "component" instead of "komponen" when the English term is more common in frontend learning.
+For progress language, use "progres" in Indonesian UI copy. Use "Progress" only when it is part of a code/API/internal term, an external source title, or English-specific content.
+
+Do not force awkward translations. Use English when referring to specific technical concepts learners will see in official docs or code, for example "React component". Use Indonesian when it makes the sentence more natural and does not hide the technical meaning.
+
+Good examples:
+
+```txt
+React component adalah bagian UI yang bisa dipakai ulang.
+Komponen ini menerima props untuk menentukan isi yang ditampilkan.
+```
+
+Both "component" and "komponen" can be acceptable depending on context. Avoid forcing English when Indonesian is clearer, and avoid forcing Indonesian when it makes a common technical term harder to recognize.
 
 Do not mix English and Indonesian randomly. Use English terms intentionally when learners will meet those terms in code, official docs, browser errors, workplace communication, or developer tools. In Indonesian UI contexts, keep the sentence structure Indonesian even when some technical terms stay English.
 
@@ -798,7 +808,7 @@ Progress:
 - "Module saat ini"
 - "Checkpoint berikutnya"
 - "Latihan yang perlu dilanjutkan"
-- "Progress track"
+- "Progres track"
 - "Progres lesson"
 - "Skor terbaik"
 - "Target lulus"
