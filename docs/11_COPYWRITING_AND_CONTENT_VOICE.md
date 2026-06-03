@@ -30,10 +30,27 @@ FluentStack should not sound:
 
 ## Language Strategy
 
-Use Bahasa Indonesia for user-facing learning and product guidance.
+Use Bahasa Indonesia as the main experience language for user-facing learning and product guidance.
 
 Keep common technical terms in English when they are natural for developers:
 
+- Track
+- Level
+- Module
+- Lesson
+- Practice
+- Dashboard
+- Roadmap
+- Progress
+- Checkpoint
+- Workspace
+- Preview
+- HTML
+- CSS
+- JavaScript
+- selector
+- property
+- value
 - semantic HTML
 - component
 - props
@@ -41,6 +58,11 @@ Keep common technical terms in English when they are natural for developers:
 - hook
 - route
 - layout
+- validation
+- render
+- hydration
+- server state
+- client state
 - accessibility
 - responsive design
 - API
@@ -51,12 +73,92 @@ Keep common technical terms in English when they are natural for developers:
 
 Do not force awkward translations. For example, use "component" instead of "komponen" when the English term is more common in frontend learning.
 
+Do not mix English and Indonesian randomly. Use English terms intentionally when learners will meet those terms in code, official docs, browser errors, workplace communication, or developer tools. In Indonesian UI contexts, keep the sentence structure Indonesian even when some technical terms stay English.
+
+Good:
+
+```txt
+Buka practice workspace untuk mengecek preview dan cek otomatis.
+```
+
+Weak:
+
+```txt
+Open practice workspace untuk check preview dan validation result.
+```
+
 For English for Tech Careers content, use bilingual structure:
 
 - Explain the situation in Bahasa Indonesia.
 - Show practical English examples.
 - Add Indonesian meaning or context when useful.
 - Ask learners to write their own version in English.
+
+## Stage-Based Voice
+
+Frontend Engineering uses three curriculum stages:
+
+* Beginner: Levels 1-4
+* Intermediate: Levels 5-10
+* Advanced: Levels 11-20
+
+Stages guide explanation depth, copywriting tone, practice difficulty, and learner expectations. Stage labels do not change FluentStack's core voice: clear, calm, practical, supportive, and engineering-minded.
+
+### Beginner
+
+Beginner copy should assume low prior knowledge.
+
+Use:
+
+- slower explanation
+- more context before practice
+- simple examples before rules
+- concrete terms before abstraction
+- reassuring but honest tone
+- small next steps
+- fewer unexplained acronyms or tool names
+
+Avoid:
+
+- dumping jargon
+- assuming the learner already knows common developer workflow
+- making local setup feel like a prerequisite too early
+- sounding childish or overly cute
+
+Beginner does not mean childish. It means precise, patient, and safe.
+
+### Intermediate
+
+Intermediate copy can be more direct.
+
+Use:
+
+- shorter reminders for previously learned concepts
+- trade-off language
+- debugging and decision prompts
+- code organization, state, data flow, reusable patterns, and quality standards
+- realistic project constraints
+
+Assume the learner understands basic HTML, CSS, and JavaScript patterns, but still explain new frameworks, APIs, or architecture terms before asking for practice.
+
+### Advanced
+
+Advanced copy should sound professional and practical.
+
+Use:
+
+- architecture reasoning
+- performance, security, testing, accessibility, maintainability, and production trade-offs
+- clear constraints and expected judgment
+- direct language about risks and decisions
+
+Avoid:
+
+- academic phrasing for its own sake
+- oversimplifying complex engineering decisions
+- pretending there is one universal best practice
+
+Advanced does not mean academic. It means higher judgment with clear explanations.
 
 ## Core Writing Rules
 
@@ -72,6 +174,86 @@ For English for Tech Careers content, use bilingual structure:
 10. Avoid fake certainty such as "pasti bisa", "jaminan mahir", or "siap kerja dalam X hari".
 
 ## Tone by Product Area
+
+Use page copy according to the page's role in the learning flow.
+
+### Dashboard
+
+Dashboard copy should help the learner know what to continue next.
+
+It should answer:
+
+- What should I do now?
+- Which track, level, module, or lesson am I currently in?
+- Is there a checkpoint or practice that needs attention?
+
+Avoid turning the dashboard into generic statistics without a next action.
+
+### Track Page
+
+Track page copy should show the curriculum journey and level progression.
+
+Use:
+
+- active levels and modules
+- where the learner is in the path
+- why this sequence matters
+
+Keep future levels visually and semantically separate from active curriculum.
+
+### Module Page
+
+Module page copy should show the guided path inside one module.
+
+Use:
+
+- module goal
+- ordered lessons
+- what each lesson prepares for
+- final Uji Kompetensi checkpoint
+- previous and next module context
+
+### Lesson Page
+
+Lesson page copy is reading and concept mode.
+
+Use:
+
+- what the concept is
+- why it matters
+- small example
+- common mistake or decision rule
+- summary
+- next step
+
+The lesson page should launch practice, not become the practice workspace.
+
+### Practice Page
+
+Practice page copy is build, check, and fix mode.
+
+Instructions should stand alone inside the workspace because the learner may not keep the lesson page open.
+
+Use:
+
+- what to build
+- what to change
+- what checks will validate
+- what to avoid
+- how to finish or return to the lesson
+
+### Profile Page
+
+Profile page copy should explain learner identity, progress summary, preferences, and account or storage context.
+
+Use:
+
+- clear progress summaries
+- storage mode language
+- safe account guidance
+- links back to Dashboard, Roadmap, Track, or current learning
+
+Avoid claiming badges, cloud sync, certificates, or account features that are not implemented.
 
 ### Landing Page Copy
 
@@ -223,6 +405,26 @@ Avoid:
 - "Jawaban yang benar tentu saja..."
 - Explanations that only repeat the answer.
 
+### Uji Kompetensi and Assessment Tone
+
+Uji Kompetensi should feel like a readiness checkpoint, not a scary exam.
+
+Use:
+
+- "Uji Kompetensi membantu mengecek apakah kamu siap lanjut."
+- "Jika belum lulus, review lagi bagian..."
+- "Kerjakan ulang setelah kamu memperbaiki latihan."
+- "Checkpoint akhir module"
+
+Avoid:
+
+- blaming the learner
+- making one failed attempt feel final
+- trivia questions disconnected from module readiness
+- overclaiming mastery after one passing score
+
+If the learner is not ready, guide them toward the relevant lesson, practice, or concept instead of only showing failure.
+
 ### Quick Check Feedback
 
 Quick check feedback should be short and non-intimidating.
@@ -251,13 +453,14 @@ Use:
 
 - What to build.
 - Files or tabs involved: HTML, CSS, JS.
-- Checklist for self-review.
-- Manual completion language for MVP.
+- What checks will validate.
+- Checklist for self-review when validation is subjective.
+- What to avoid, such as `!important` or fake local validation when relevant.
 
 Instruction pattern:
 
 ```txt
-Buat [output] dengan [technical requirement]. Gunakan preview untuk mengecek hasil sebelum menandai selesai.
+Buat [output] dengan [technical requirement]. Gunakan preview dan cek otomatis untuk melihat bagian yang sudah lengkap.
 ```
 
 Checklist pattern:
@@ -271,6 +474,10 @@ Avoid:
 - "Buat tampilan yang bagus."
 - "Gunakan kreativitasmu."
 - "Pastikan semuanya sempurna."
+- "Lihat editor di bawah" because the editor opens in the dedicated practice workspace.
+- Claims that FluentStack can validate local device files, GitHub repositories, or deployment state when it cannot.
+
+Practice instructions should still make sense when the learner opens `/practice/[challengeId]` directly.
 
 ### Writing Practice Prompts
 
@@ -558,9 +765,13 @@ Avoid long abstract sentences:
 Primary actions:
 
 - "Mulai belajar"
-- "Lanjut lesson"
+- "Lanjutkan belajar"
+- "Lanjutkan lesson"
+- "Mulai latihan"
 - "Buka roadmap"
 - "Buka module"
+- "Buka checkpoint"
+- "Review module"
 - "Kerjakan quiz"
 - "Simpan draft"
 - "Simpan code"
@@ -583,12 +794,19 @@ Completion:
 
 Progress:
 
+- "Level saat ini"
+- "Module saat ini"
+- "Checkpoint berikutnya"
+- "Latihan yang perlu dilanjutkan"
+- "Progress track"
 - "Progres lesson"
 - "Skor terbaik"
 - "Target lulus"
 - "3 dari 5 blok wajib selesai"
 - "Progres tersimpan di browser ini"
 - "Progres tersimpan di akun kamu"
+- "Cek otomatis"
+- "Uji Kompetensi"
 
 Loading:
 
@@ -602,6 +820,14 @@ Errors:
 - "Data tidak ditemukan."
 - "Cek email dan password kamu."
 - "Coba lagi beberapa saat lagi."
+
+Future UI copy passes should replace inconsistent English labels when they appear inside Indonesian UI contexts, for example:
+
+- "Current level" -> "Level saat ini"
+- "Current module" -> "Module saat ini"
+- "Next checkpoint" -> "Checkpoint berikutnya"
+
+Do not force this rewrite during unrelated feature work. Apply it during a focused copywriting polish pass.
 
 ## Content Writing Principles for Future Lessons
 
@@ -673,4 +899,29 @@ Before adding or polishing copy, check:
 - Does feedback help the learner recover or continue?
 - Does the copy match the current product behavior?
 - Does the copy avoid promising future features that do not exist yet?
+- Does the copy match the learner's current stage?
 
+## Red Flags
+
+Revise copy when it has any of these problems:
+
+- too academic for the task
+- too casual, slang-heavy, sarcastic, or meme-like
+- mixed English and Indonesian without a clear reason
+- overclaiming mastery, job readiness, or production readiness
+- blaming the learner for mistakes
+- vague CTA, such as "Lanjut" without saying where or why
+- instructions that only make sense in the old inline editor layout
+- practice copy that claims fake validation for local files, GitHub, deployment, or device state
+- advanced content written as if the learner is still in beginner onboarding
+- beginner content that assumes too much prior knowledge
+- generic success copy that hides the real progress state
+
+## Related Standards
+
+Use this guide together with:
+
+- `docs/30_PRODUCT_DIRECTION.md` for product principles and what FluentStack should avoid.
+- `docs/31_LEARNING_EXPERIENCE_ARCHITECTURE.md` for page roles and the lesson/practice split.
+- `docs/32_PRACTICE_WORKSPACE_STANDARD.md` for dedicated practice workspace behavior.
+- `docs/24_LESSON_QUALITY_RUBRIC.md` for content quality scoring and review gates.
