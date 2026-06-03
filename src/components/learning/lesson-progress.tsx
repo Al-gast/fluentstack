@@ -24,7 +24,7 @@ export function LessonProgress({
       className={
         compact
           ? "rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
-          : "sticky top-[76px] z-10 rounded-2xl border border-cyan-300/20 bg-zinc-950/85 p-4 shadow-lg shadow-black/10 backdrop-blur sm:static sm:bg-zinc-950/45 sm:p-5"
+          : "rounded-2xl border border-cyan-300/20 bg-zinc-950/45 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-5"
       }
     >
       <div className="flex items-center justify-between gap-3">
@@ -44,9 +44,9 @@ export function LessonProgress({
       {!compact ? (
         <>
           <p className="mt-3 text-sm text-zinc-300">
-            {isLoading ? "Memuat blok wajib..." : `${completedRequired} dari ${totalRequired} blok wajib selesai.`}
+            {isLoading ? "Memuat blok wajib..." : `${completedRequired}/${totalRequired} blok wajib selesai.`}
           </p>
-          <p className="mt-2 text-sm text-zinc-300">
+          <p className="mt-1 text-xs leading-6 text-zinc-400">
             {isLoading
               ? "Progres terbaru sedang dimuat."
               : isCompleted

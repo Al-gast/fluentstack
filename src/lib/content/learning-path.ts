@@ -1,6 +1,7 @@
 import { lessons } from "@/content/lessons";
 import { modules } from "@/content/modules";
 import { tracks } from "@/content/tracks";
+import { curriculumLevelsByTrackId } from "@/content/curriculum-levels";
 import type { Lesson, Module, Track } from "@/types/learning";
 
 export type LessonPathContext = {
@@ -21,8 +22,11 @@ export type LessonNavigationTarget = {
 };
 
 export type LessonNavigation = {
+  trackHref: string;
+  trackTitle: string;
   moduleHref: string;
   moduleTitle: string;
+  levelLabel?: string;
   previous: LessonNavigationTarget;
   next: LessonNavigationTarget;
 };
@@ -76,7 +80,11 @@ export function getLessonPathContextBySlug(slug: string): LessonPathContext | nu
 }
 
 export function getLessonNavigation(context: LessonPathContext): LessonNavigation {
+  const trackHref = `/learn/${context.track.slug}`;
   const moduleHref = `/learn/${context.track.slug}/${context.module.slug}`;
+  const level = curriculumLevelsByTrackId[context.track.id]?.find((levelItem) =>
+    levelItem.moduleIds.includes(context.module.id),
+  );
   const previousLesson = context.previousLesson;
   const nextLesson = context.nextLesson;
   const nextModuleFirstLesson = context.nextModule
@@ -84,8 +92,11 @@ export function getLessonNavigation(context: LessonPathContext): LessonNavigatio
     : undefined;
 
   return {
+    trackHref,
+    trackTitle: context.track.title,
     moduleHref,
     moduleTitle: context.module.title,
+    levelLabel: level ? `Level ${level.level}: ${level.title}` : undefined,
     previous: previousLesson
       ? {
           href: `/lesson/${previousLesson.slug}`,
@@ -110,7 +121,7 @@ export function getLessonNavigation(context: LessonPathContext): LessonNavigatio
             title: `${context.nextModule.title}: ${nextModuleFirstLesson.title}`,
           }
         : {
-            href: `/learn/${context.track.slug}`,
+            href: trackHref,
             label: "Kembali ke track",
             title: context.track.title,
           },

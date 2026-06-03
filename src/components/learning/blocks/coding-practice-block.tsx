@@ -52,15 +52,25 @@ export function CodingPracticeBlock({
     <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-6">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
         <div className="min-w-0">
-          <p className="text-xs font-medium text-cyan-200">Coding Practice</p>
-          <h3 className="mt-2 text-xl font-bold text-zinc-100">{challenge.title}</h3>
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="rounded-lg border border-cyan-300/25 bg-cyan-500/10 px-2.5 py-1 text-xs font-semibold text-cyan-100">
+              Coding practice
+            </p>
+            <span className="text-xs text-zinc-500">Dibuka di workspace khusus</span>
+          </div>
+          <h3 className="mt-3 text-xl font-bold text-zinc-100">{challenge.title}</h3>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-300">{challenge.description}</p>
 
           {challenge.instructions[0] ? (
             <p className="mt-3 max-w-3xl text-xs leading-6 text-zinc-400">
-              Mulai dari: {challenge.instructions[0]}
+              Tujuan awal: {challenge.instructions[0]}
             </p>
           ) : null}
+
+          <p className="mt-3 max-w-3xl text-xs leading-6 text-zinc-400">
+            Latihan ini tidak memakai editor penuh di lesson. Klik tombol latihan untuk membuka editor, preview, dan
+            cek otomatis di halaman practice.
+          </p>
 
           <div className="mt-4 flex flex-wrap gap-2">
             {validationCount > 0 ? (
@@ -98,7 +108,8 @@ export function CodingPracticeBlock({
           </span>
           <Link
             href={`/practice/${challenge.id}`}
-            className="inline-flex w-full items-center justify-center rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40 lg:w-auto"
+            aria-label={`Mulai latihan ${challenge.title}`}
+            className="inline-flex w-full items-center justify-center rounded-lg bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40 lg:w-auto"
           >
             Mulai latihan
           </Link>

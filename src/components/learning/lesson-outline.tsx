@@ -54,8 +54,15 @@ export function LessonOutline({ blocks, completedBlockIds, compact = false }: Le
                   : "border-zinc-800/80 bg-zinc-950/55"
               } ${compact ? "min-w-44 shrink-0" : ""}`}
             >
-              <span className="mr-2 text-zinc-500">{index + 1}.</span>
-              <span>{getBlockLabel(block)}</span>
+              <div className="flex items-start gap-2">
+                <span className="mt-0.5 text-xs text-zinc-500">{index + 1}.</span>
+                <div className="min-w-0">
+                  <span className="block truncate">{getBlockLabel(block)}</span>
+                  <span className={isCompleted ? "text-xs text-emerald-200" : "text-xs text-zinc-500"}>
+                    {isCompleted ? "Selesai" : "Belum selesai"}
+                  </span>
+                </div>
+              </div>
             </li>
           );
         })}
