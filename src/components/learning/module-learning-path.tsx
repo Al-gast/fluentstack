@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ProgressBar } from "@/components/progress/progress-bar";
-import type { CurriculumLevel } from "@/content/curriculum-levels";
+import { curriculumStageLabels, type CurriculumLevel } from "@/content/curriculum-levels";
 import { useGuestProgress } from "@/hooks/use-progress";
 import {
   calculateLessonProgress,
@@ -111,7 +111,8 @@ export function ModuleLearningPath({
               </Link>
               {curriculumLevel ? (
                 <span className="rounded-lg border border-cyan-300/25 bg-cyan-500/10 px-3 py-1.5 font-semibold text-cyan-100">
-                  Level {curriculumLevel.level} · {curriculumLevel.title}
+                  {curriculumStageLabels[curriculumLevel.stage]} · Level {curriculumLevel.level} ·{" "}
+                  {curriculumLevel.title}
                 </span>
               ) : null}
             </div>

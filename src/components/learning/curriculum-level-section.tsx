@@ -2,7 +2,7 @@
 
 import { ModuleCard } from "@/components/learning/module-card";
 import { ProgressBar } from "@/components/progress/progress-bar";
-import type { CurriculumLevel } from "@/content/curriculum-levels";
+import { curriculumStageLabels, type CurriculumLevel } from "@/content/curriculum-levels";
 import { useGuestProgress } from "@/hooks/use-progress";
 import { getOrderedModuleLessons } from "@/lib/content/learning-path";
 import { calculateLessonsProgress } from "@/lib/progress/progress-calculator";
@@ -29,7 +29,9 @@ export function CurriculumLevelSection({
     <section className="rounded-3xl border border-zinc-800/80 bg-zinc-950/40 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-6">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div className="min-w-0">
-          <p className="text-sm font-semibold text-cyan-200">Level {level.level}</p>
+          <p className="text-sm font-semibold text-cyan-200">
+            {curriculumStageLabels[level.stage]} · Level {level.level}
+          </p>
           <h2 className="mt-2 text-2xl font-bold text-zinc-50">{level.title}</h2>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-300">{level.description}</p>
         </div>

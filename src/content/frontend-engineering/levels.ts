@@ -4,6 +4,7 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
   {
     trackId: "frontend-engineering",
     level: 1,
+    stage: "beginner",
     title: "Web Foundations",
     description:
       "Memahami cara kerja web, browser, website, dan alur belajar frontend.",
@@ -12,6 +13,7 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
   {
     trackId: "frontend-engineering",
     level: 2,
+    stage: "beginner",
     title: "HTML and Accessibility Foundations",
     description:
       "Membangun struktur halaman web yang semantic, accessible, dan siap diberi style.",
@@ -20,6 +22,7 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
   {
     trackId: "frontend-engineering",
     level: 3,
+    stage: "beginner",
     title: "CSS Fundamentals and Layout",
     description:
       "Membuat tampilan web yang rapi, responsive, dan siap dipakai untuk project lokal.",

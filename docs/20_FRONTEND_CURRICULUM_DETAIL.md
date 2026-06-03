@@ -333,7 +333,17 @@ Lesson sequence should define:
 
 ---
 
-# Level 1: Web Foundations
+## Frontend Curriculum Stage Map
+
+Stages describe learner maturity and should guide content depth, copywriting tone, practice difficulty, documentation expectations, and readiness language.
+
+Active implementation is currently through Level 3. Level 4+ remains planned and must not be treated as active app curriculum until implemented.
+
+* Beginner: Level 1 Web Foundations, Level 2 HTML and Accessibility Foundations, Level 3 CSS Fundamentals and Layout, Level 4 JavaScript Fundamentals.
+* Intermediate: Level 5 JavaScript Advanced, Level 6 TypeScript, Level 7 React Fundamentals, Level 8 React Intermediate, Level 9 React Advanced, Level 10 Next.js App Router.
+* Advanced: Level 11 Production Next.js, Level 12 Forms, Validation, and Data Fetching, Level 13 Testing, Level 14 Performance, Level 15 Accessibility, Level 16 Frontend Architecture, Level 17 Design System, Level 18 Backend Basics for Frontend Engineers, Level 19 Security Basics, Level 20 Portfolio and Remote Readiness.
+
+# Level 1 (Beginner): Web Foundations
 
 ## Goal
 
@@ -434,7 +444,7 @@ Do not turn Web Foundations into HTML writing practice. This module is orientati
 
 ---
 
-# Level 2: HTML and Accessibility Foundations
+# Level 2 (Beginner): HTML and Accessibility Foundations
 
 ## Goal
 
@@ -718,7 +728,7 @@ Keep this module hidden from the active track until its first lesson batch is re
 
 ---
 
-# Level 3: CSS Fundamentals and Layout
+# Level 3 (Beginner): CSS Fundamentals and Layout
 
 ## Goal
 

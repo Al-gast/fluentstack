@@ -10,6 +10,7 @@ const rootDir = path.resolve(__dirname, "..");
 const srcDir = path.join(rootDir, "src");
 
 const supportedChallengeModes = new Set(["html", "css"]);
+const supportedCurriculumStages = new Set(["beginner", "intermediate", "advanced"]);
 const supportedValidationRules = new Set([
   "contains",
   "hasElement",
@@ -399,6 +400,10 @@ for (const [trackId, levels] of Object.entries(curriculumLevelsByTrackId)) {
   const levelModuleIds = [];
 
   for (const level of levels) {
+    if (!supportedCurriculumStages.has(level.stage)) {
+      addError(`curriculum:${trackId}: level ${level.level} has unsupported stage "${level.stage}".`);
+    }
+
     validateNoDuplicates(`curriculum:${trackId}.level:${level.level}.moduleIds`, level.moduleIds);
     validateCurriculumLevelOrder(track, level);
 

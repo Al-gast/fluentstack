@@ -415,9 +415,27 @@ Local project work should have:
 * documentation references
 * completion checklist
 
-## Learner Levels
+## Curriculum Stages
 
-FluentStack uses four broad learner levels.
+FluentStack uses three curriculum stages for Frontend Engineering:
+
+* `beginner`: vocabulary, confidence, guided practice, and safe foundations.
+* `intermediate`: realistic feature work, debugging, local workflow, and trade-off discussion.
+* `advanced`: production constraints, architecture, testing, performance, accessibility depth, and portfolio readiness.
+
+Stages guide content depth, copywriting tone, practice difficulty, Documentation Bridge expectations, and learner readiness language. They do not activate future curriculum by themselves.
+
+Current active implementation is through Level 3, and all active levels are `beginner`. Level 4 and beyond remain planned until implemented in active content.
+
+Recommended Frontend Engineering stage mapping:
+
+* Beginner: Level 1 Web Foundations, Level 2 HTML and Accessibility Foundations, Level 3 CSS Fundamentals and Layout, Level 4 JavaScript Fundamentals.
+* Intermediate: Level 5 JavaScript Advanced, Level 6 TypeScript, Level 7 React Fundamentals, Level 8 React Intermediate, Level 9 React Advanced, Level 10 Next.js App Router.
+* Advanced: Level 11 Production Next.js, Level 12 Forms, Validation, and Data Fetching, Level 13 Testing, Level 14 Performance, Level 15 Accessibility, Level 16 Frontend Architecture, Level 17 Design System, Level 18 Backend Basics for Frontend Engineers, Level 19 Security Basics, Level 20 Portfolio and Remote Readiness.
+
+## Learner Maturity Notes
+
+These notes explain how stages should feel for learners.
 
 ### Beginner
 

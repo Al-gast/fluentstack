@@ -1,7 +1,7 @@
 import { lessons } from "@/content/lessons";
 import { modules } from "@/content/modules";
 import { tracks } from "@/content/tracks";
-import { curriculumLevelsByTrackId } from "@/content/curriculum-levels";
+import { curriculumLevelsByTrackId, curriculumStageLabels } from "@/content/curriculum-levels";
 import type { Lesson, Module, Track } from "@/types/learning";
 
 export type LessonPathContext = {
@@ -96,7 +96,7 @@ export function getLessonNavigation(context: LessonPathContext): LessonNavigatio
     trackTitle: context.track.title,
     moduleHref,
     moduleTitle: context.module.title,
-    levelLabel: level ? `Level ${level.level}: ${level.title}` : undefined,
+    levelLabel: level ? `${curriculumStageLabels[level.stage]} · Level ${level.level}: ${level.title}` : undefined,
     previous: previousLesson
       ? {
           href: `/lesson/${previousLesson.slug}`,
