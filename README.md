@@ -400,12 +400,13 @@ Selected active beginner lesson routes include:
 ## Development Commands
 
 ```bash
+npm run validate:content
 npm run lint
 npm run build
 npm run dev
 ```
 
-Use lint and build before pushing changes.
+Use content validation, lint, and build before pushing changes.
 
 ## Content Authoring Rules
 
