@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BlockRequirementBadge } from "@/components/learning/block-requirement-badge";
 import { getChallengeById } from "@/lib/content/get-challenge";
 import type { ChallengeCode } from "@/types/challenge";
 import type { CodingPracticeBlock as CodingPracticeBlockData } from "@/types/learning";
@@ -11,9 +12,9 @@ type CodingPracticeBlockProps = {
   isCompleted: boolean;
   isRequired: boolean;
   progress?: ChallengeProgress;
-  onSaveCode: (code: ChallengeCode) => void;
-  onSaveChecklist: (items: string[]) => void;
-  onComplete: () => void;
+  onSaveCode: (code: ChallengeCode) => void | Promise<unknown>;
+  onSaveChecklist: (items: string[]) => void | Promise<unknown>;
+  onComplete: () => void | Promise<unknown>;
 };
 
 const EMPTY_CHALLENGE_CODE: ChallengeCode = { html: "", css: "", js: "" };
@@ -40,57 +41,58 @@ export function CodingPracticeBlock({
 
   if (!challenge) {
     return (
-      <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-6">
-        <p className="text-xs font-medium text-cyan-200">Coding Practice</p>
-        <h3 className="mt-2 text-xl font-bold text-zinc-100">Coding practice</h3>
-        <p className="mt-3 text-sm text-zinc-300">Data challenge tidak ditemukan untuk ID {block.challengeId}.</p>
+      <section className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6">
+        <p className="text-xs font-medium text-fs-accent">Coding Practice</p>
+        <h3 className="mt-2 text-xl font-bold text-fs-text">Coding practice</h3>
+        <p className="mt-3 text-sm text-fs-text-soft">Data challenge tidak ditemukan untuk ID {block.challengeId}.</p>
       </section>
     );
   }
 
   return (
-    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-6">
+    <section className="rounded-2xl border border-fs-accent/25 bg-fs-accent-soft p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <p className="rounded-lg border border-cyan-300/25 bg-cyan-500/10 px-2.5 py-1 text-xs font-semibold text-cyan-100">
+            <p className="rounded-lg border border-fs-accent/25 bg-fs-accent-soft px-2.5 py-1 text-xs font-semibold text-fs-accent">
               Coding practice
             </p>
-            <span className="text-xs text-zinc-500">Dibuka di workspace khusus</span>
+            <BlockRequirementBadge isRequired={isRequired} />
+            <span className="text-xs text-fs-text-muted">Dibuka di workspace khusus</span>
           </div>
-          <h3 className="mt-3 text-xl font-bold text-zinc-100">{challenge.title}</h3>
-          <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-300">{challenge.description}</p>
+          <h3 className="mt-3 text-xl font-bold text-fs-text">{challenge.title}</h3>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-fs-text-soft">{challenge.description}</p>
 
           {challenge.instructions[0] ? (
-            <p className="mt-3 max-w-3xl text-xs leading-6 text-zinc-400">
+            <p className="mt-3 max-w-3xl text-xs leading-6 text-fs-text-muted">
               Tujuan awal: {challenge.instructions[0]}
             </p>
           ) : null}
 
-          <p className="mt-3 max-w-3xl text-xs leading-6 text-zinc-400">
+          <p className="mt-3 max-w-3xl text-xs leading-6 text-fs-text-muted">
             Latihan ini tidak memakai editor penuh di lesson. Klik tombol latihan untuk membuka editor, preview, dan
             cek otomatis di halaman practice.
+          </p>
+          <p className="mt-2 max-w-3xl text-xs leading-6 text-fs-text-muted">
+            {validationCount > 0
+              ? "Tombol selesai di workspace baru aktif setelah validasi otomatis wajib lolos."
+              : "Latihan ini memakai checklist manual sebagai syarat selesai."}
           </p>
 
           <div className="mt-4 flex flex-wrap gap-2">
             {validationCount > 0 ? (
-              <span className="rounded-lg border border-emerald-300/25 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-100">
+              <span className="rounded-lg border border-fs-success/25 bg-fs-success-soft px-3 py-1.5 text-xs font-semibold text-fs-success">
                 {validationCount} cek otomatis
               </span>
             ) : null}
             {checklistCount > 0 ? (
-              <span className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-1.5 text-xs font-semibold text-zinc-300">
+              <span className="rounded-lg border border-fs-border bg-fs-surface px-3 py-1.5 text-xs font-semibold text-fs-text-soft">
                 {checklistCount} checklist
               </span>
             ) : null}
             {hasSavedCode ? (
-              <span className="rounded-lg border border-cyan-300/25 bg-cyan-500/10 px-3 py-1.5 text-xs font-semibold text-cyan-100">
+              <span className="rounded-lg border border-fs-accent/25 bg-fs-accent-soft px-3 py-1.5 text-xs font-semibold text-fs-accent">
                 Ada kode tersimpan
-              </span>
-            ) : null}
-            {isRequired ? (
-              <span className="rounded-lg border border-amber-300/25 bg-amber-500/10 px-3 py-1.5 text-xs font-semibold text-amber-100">
-                Wajib untuk lesson
               </span>
             ) : null}
           </div>
@@ -100,8 +102,8 @@ export function CodingPracticeBlock({
           <span
             className={`inline-flex rounded-lg border px-3 py-1.5 text-xs font-semibold ${
               completedStatus
-                ? "border-emerald-300/35 bg-emerald-500/15 text-emerald-100"
-                : "border-zinc-700/80 bg-zinc-950/55 text-zinc-300"
+                ? "border-fs-success/35 bg-fs-success-soft text-fs-success"
+                : "border-fs-border bg-fs-surface text-fs-text-soft"
             }`}
           >
             {completedStatus ? "Selesai" : "Belum selesai"}
@@ -109,7 +111,7 @@ export function CodingPracticeBlock({
           <Link
             href={`/practice/${challenge.id}`}
             aria-label={`Mulai latihan ${challenge.title}`}
-            className="inline-flex w-full items-center justify-center rounded-lg bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40 lg:w-auto"
+            className="inline-flex w-full items-center justify-center rounded-lg bg-fs-accent px-4 py-2.5 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40 lg:w-auto"
           >
             Mulai latihan
           </Link>

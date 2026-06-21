@@ -71,7 +71,7 @@ export function RegisterForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
-        <label htmlFor="register-email" className="text-sm font-medium text-zinc-200">
+        <label htmlFor="register-email" className="text-sm font-medium text-fs-text-soft">
           Email
         </label>
         <Input
@@ -87,7 +87,7 @@ export function RegisterForm() {
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="register-password" className="text-sm font-medium text-zinc-200">
+        <label htmlFor="register-password" className="text-sm font-medium text-fs-text-soft">
           Password
         </label>
         <Input
@@ -104,13 +104,13 @@ export function RegisterForm() {
       </div>
 
       {errorMessage ? (
-        <p className="rounded-lg border border-rose-300/35 bg-rose-500/10 px-3 py-2 text-sm text-rose-100">
+        <p className="rounded-lg border border-fs-danger/35 bg-fs-danger-soft px-3 py-2 text-sm text-fs-danger">
           {errorMessage}
         </p>
       ) : null}
 
       {successMessage ? (
-        <p className="rounded-lg border border-emerald-300/35 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-100">
+        <p className="rounded-lg border border-fs-success/35 bg-fs-success-soft px-3 py-2 text-sm text-fs-success">
           {successMessage}
         </p>
       ) : null}

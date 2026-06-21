@@ -47,13 +47,13 @@ export default async function TrackPage({ params }: TrackPageProps) {
   return (
     <AppShell title={track.title}>
       <div className="mx-auto max-w-[1440px] space-y-8">
-        <section className="rounded-3xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6 sm:p-8">
-          <h1 className="text-3xl font-bold text-zinc-50 sm:text-4xl">{track.title}</h1>
-          <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-300">{track.description}</p>
-          <p className="mt-4 text-sm text-zinc-400">
+        <section className="rounded-3xl border border-fs-border bg-fs-surface p-6 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-8">
+          <h1 className="text-3xl font-bold text-fs-text sm:text-4xl">{track.title}</h1>
+          <p className="mt-3 max-w-3xl text-base leading-7 text-fs-text-soft">{track.description}</p>
+          <p className="mt-4 text-sm text-fs-text-muted">
             Level {track.level} • Estimasi {track.estimatedHours} jam
           </p>
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-zinc-400">
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-fs-text-muted">
             Module di track ini disusun berurutan. Kamu tetap bisa membuka lesson mana pun, tapi urutan ini membantu konsepnya nyambung.
           </p>
           <SequenceCta lessons={trackLessons} scope="track" />

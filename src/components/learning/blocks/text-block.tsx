@@ -1,31 +1,29 @@
 import type { TextBlock as TextBlockData } from "@/types/learning";
+import { BlockRequirementBadge } from "@/components/learning/block-requirement-badge";
+import { ReadOnlyBlockCompletion } from "@/components/learning/read-only-block-completion";
 
 type TextBlockProps = {
   block: TextBlockData;
   isCompleted: boolean;
-  onComplete: () => void;
+  isRequired: boolean;
+  onComplete: () => void | Promise<unknown>;
 };
 
-export function TextBlock({ block, isCompleted, onComplete }: TextBlockProps) {
+export function TextBlock({ block, isCompleted, isRequired, onComplete }: TextBlockProps) {
   return (
-    <section className="border-l border-zinc-700/70 py-2 pl-5 sm:pl-6">
-      <h3 className="text-xl font-bold text-zinc-100">{block.title}</h3>
-      <p className="mt-3 max-w-3xl text-base leading-8 text-zinc-300">{block.content}</p>
-
-      <div className="mt-5 flex items-center gap-3">
-        <button
-          type="button"
-          onClick={onComplete}
-          disabled={isCompleted}
-          className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${
-            isCompleted
-              ? "cursor-not-allowed border border-emerald-300/35 bg-emerald-500/15 text-emerald-100"
-              : "border border-zinc-700/80 bg-zinc-950/55 text-zinc-100 hover:bg-zinc-800"
-          }`}
-        >
-          {isCompleted ? "Selesai" : "Tandai selesai"}
-        </button>
+    <section className="border-l border-fs-border py-2 pl-5 sm:pl-6">
+      <div className="flex flex-wrap items-center gap-2">
+        <h3 className="text-xl font-bold text-fs-text">{block.title}</h3>
+        <BlockRequirementBadge isRequired={isRequired} />
       </div>
+      <p className="mt-3 max-w-3xl text-base leading-8 text-fs-text-soft">{block.content}</p>
+
+      <ReadOnlyBlockCompletion
+        isCompleted={isCompleted}
+        isRequired={isRequired}
+        completeLabel="Saya paham"
+        onComplete={onComplete}
+      />
     </section>
   );
 }

@@ -2,16 +2,19 @@
 
 import { useMemo, useState } from "react";
 import type { QuickCheckBlock as QuickCheckBlockData } from "@/types/learning";
+import { BlockRequirementBadge } from "@/components/learning/block-requirement-badge";
 
 type QuickCheckBlockProps = {
   block: QuickCheckBlockData;
   isCompleted: boolean;
-  onComplete: () => void;
+  isRequired: boolean;
+  onComplete: () => void | Promise<unknown>;
 };
 
-export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBlockProps) {
+export function QuickCheckBlock({ block, isCompleted, isRequired, onComplete }: QuickCheckBlockProps) {
   const [selectedAnswer, setSelectedAnswer] = useState<string>("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const isCorrect = useMemo(
     () => submitted && selectedAnswer === block.correctAnswer,
@@ -19,24 +22,58 @@ export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBl
   );
 
   const isWrong = submitted && selectedAnswer !== block.correctAnswer;
+  const statusLabel = isCompleted
+    ? "Selesai"
+    : isCorrect
+      ? "Benar"
+      : isWrong
+        ? "Belum tepat"
+        : selectedAnswer
+          ? "Siap dicek"
+          : "Jawab dulu";
+  const statusClass = isCompleted || isCorrect
+    ? "border-fs-success/30 bg-fs-success-soft text-fs-success"
+    : isWrong
+      ? "border-fs-danger/30 bg-fs-danger-soft text-fs-danger"
+      : selectedAnswer
+        ? "border-fs-accent/25 bg-fs-accent-soft text-fs-accent"
+        : "border-fs-warning/25 bg-fs-warning-soft text-fs-warning";
+  const helperText = isCompleted
+    ? "Cek pemahaman ini sudah masuk ke progres lesson."
+    : isCorrect
+      ? "Jawaban benar. Progress block ini sudah diperbarui."
+      : isWrong
+        ? "Jawaban belum tepat. Progress belum berubah, coba lagi."
+        : "Progress hanya naik setelah jawaban benar.";
 
-  const handleSubmit = () => {
-    if (!selectedAnswer) {
+  const handleSubmit = async () => {
+    if (!selectedAnswer || isSubmitting) {
       return;
     }
 
     setSubmitted(true);
 
     if (selectedAnswer === block.correctAnswer && !isCompleted) {
-      onComplete();
+      setIsSubmitting(true);
+      try {
+        await onComplete();
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
   return (
-    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 sm:p-6">
-      <p className="text-xs font-medium text-cyan-200">Cek pemahaman</p>
-      <h3 className="mt-2 text-xl font-bold text-zinc-100">Cek pemahaman singkat</h3>
-      <p className="mt-3 text-base leading-7 text-zinc-200">{block.question}</p>
+    <section className="rounded-2xl border border-fs-accent/25 bg-fs-accent-soft p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6">
+      <div className="flex flex-wrap items-center gap-2">
+        <p className="text-xs font-medium text-fs-accent">Cek pemahaman</p>
+        <BlockRequirementBadge isRequired={isRequired} />
+        <span className={`rounded-full border px-2.5 py-1 text-xs font-semibold ${statusClass}`}>
+          {statusLabel}
+        </span>
+      </div>
+      <h3 className="mt-2 text-xl font-bold text-fs-text">Cek pemahaman singkat</h3>
+      <p className="mt-3 text-base leading-7 text-fs-text-soft">{block.question}</p>
 
       <div className="mt-4 space-y-2" role="radiogroup" aria-label={block.question}>
         {block.options.map((option) => {
@@ -57,22 +94,22 @@ export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBl
                   setSubmitted(false);
                 }
               }}
-              className={`flex w-full items-start justify-between gap-3 rounded-xl border px-4 py-3 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-cyan-300/40 ${
+              className={`flex w-full items-start justify-between gap-3 rounded-xl border px-4 py-3 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-fs-focus/40 ${
                 showCorrect
-                  ? "border-emerald-300/50 bg-emerald-500/10 text-emerald-50"
+                  ? "border-fs-success/50 bg-fs-success-soft text-fs-text"
                   : showWrong
-                    ? "border-rose-300/50 bg-rose-500/10 text-rose-50"
+                    ? "border-fs-danger/50 bg-fs-danger-soft text-fs-text"
                     : active
-                      ? "border-cyan-300/60 bg-cyan-500/10 text-cyan-50"
-                      : "border-zinc-700/80 bg-zinc-950/60 text-zinc-200 hover:border-zinc-600 hover:bg-zinc-800/80"
+                      ? "border-fs-border-strong bg-fs-accent-soft text-fs-text"
+                      : "border-fs-border bg-fs-surface text-fs-text-soft hover:border-fs-border-strong hover:bg-fs-surface-strong hover:text-fs-text"
               }`}
             >
               <span>{option}</span>
               {showCorrect ? (
-                <span className="shrink-0 text-xs font-semibold text-emerald-200">Benar</span>
+                <span className="shrink-0 text-xs font-semibold text-fs-success">Benar</span>
               ) : null}
               {showWrong ? (
-                <span className="shrink-0 text-xs font-semibold text-rose-200">Belum tepat</span>
+                <span className="shrink-0 text-xs font-semibold text-fs-danger">Belum tepat</span>
               ) : null}
             </button>
           );
@@ -82,11 +119,11 @@ export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBl
       <div className="mt-4 flex flex-wrap gap-2">
         <button
           type="button"
-          disabled={!selectedAnswer}
+          disabled={!selectedAnswer || isCompleted || isSubmitting}
           onClick={handleSubmit}
-          className="rounded-lg bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40 disabled:cursor-not-allowed disabled:bg-zinc-600 disabled:text-zinc-300"
+          className="rounded-lg bg-fs-accent px-4 py-2 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40 disabled:cursor-not-allowed disabled:bg-fs-surface-strong disabled:text-fs-text-muted"
         >
-          Cek jawaban
+          {isCompleted ? "Selesai" : isSubmitting ? "Menyimpan..." : selectedAnswer ? "Cek jawaban" : "Pilih jawaban dulu"}
         </button>
 
         {isWrong ? (
@@ -96,26 +133,28 @@ export function QuickCheckBlock({ block, isCompleted, onComplete }: QuickCheckBl
               setSelectedAnswer("");
               setSubmitted(false);
             }}
-            className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
+            className="rounded-lg border border-fs-border bg-fs-surface px-4 py-2 text-sm font-semibold text-fs-text transition hover:bg-fs-surface-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/30"
           >
             Coba lagi
           </button>
         ) : null}
 
         {isCompleted ? (
-          <span className="rounded-lg border border-emerald-300/35 bg-emerald-500/10 px-3 py-2 text-sm font-semibold text-emerald-200">
+          <span className="rounded-lg border border-fs-success/35 bg-fs-success-soft px-3 py-2 text-sm font-semibold text-fs-success">
             Selesai
           </span>
         ) : null}
       </div>
+
+      <p className="mt-3 text-xs leading-5 text-fs-text-muted">{helperText}</p>
 
       {submitted ? (
         <div
           aria-live="polite"
           className={`mt-4 rounded-xl border p-4 text-sm leading-7 ${
             isCorrect
-              ? "border-emerald-300/35 bg-emerald-500/10 text-emerald-100"
-              : "border-rose-300/35 bg-rose-500/10 text-rose-100"
+              ? "border-fs-success/35 bg-fs-success-soft text-fs-text"
+              : "border-fs-danger/35 bg-fs-danger-soft text-fs-text"
           }`}
         >
           <p className="font-semibold">{isCorrect ? "Benar." : "Belum tepat."}</p>

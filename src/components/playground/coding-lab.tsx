@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { CodeEditor } from "@/components/playground/code-editor";
 import { PreviewPanel } from "@/components/playground/preview-panel";
+import { getCodingPracticeCompletionGate } from "@/lib/challenges/completion-gate";
 import { validateChallengeCode } from "@/lib/challenges/validate-code";
 import { cn } from "@/lib/utils";
 import type { ChallengeCode, ChallengeLanguage, CodingChallenge } from "@/types/challenge";
@@ -25,8 +26,8 @@ type CodingLabProps = {
   onChangeCode: (nextCode: ChallengeCode) => void;
   onToggleChecklist: (item: string, checked: boolean) => void;
   onReset: () => void;
-  onSaveCode: () => void;
-  onMarkCompleted: () => void;
+  onSaveCode: () => void | Promise<unknown>;
+  onMarkCompleted: () => void | Promise<unknown>;
 };
 
 const languageTabs: Array<{ label: string; value: ChallengeLanguage }> = [
@@ -99,6 +100,8 @@ export function CodingLab({
   const [codeSaved, setCodeSaved] = useState(false);
   const [isValidationReady, setIsValidationReady] = useState(false);
   const [activeInfoTab, setActiveInfoTab] = useState<"instructions" | "checks">("instructions");
+  const [isSavingCode, setIsSavingCode] = useState(false);
+  const [isCompleting, setIsCompleting] = useState(false);
   const splitContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -124,19 +127,35 @@ export function CodingLab({
           })) ?? []),
     [challenge.validation, code, isValidationReady],
   );
-  const hasAutoValidation = validationResults.length > 0;
-  const requiredResults = validationResults.filter((result) => result.required);
-  const passedRequiredCount = requiredResults.filter((result) => result.passed).length;
-  const requiredChecksPassed = requiredResults.every((result) => result.passed);
-  const canMarkCompleted = !hasAutoValidation || requiredChecksPassed;
+  const completionGate = useMemo(
+    () =>
+      getCodingPracticeCompletionGate({
+        challenge,
+        validationResults,
+        completedChecklistItems,
+        isValidationReady,
+      }),
+    [challenge, validationResults, completedChecklistItems, isValidationReady],
+  );
+  const hasAutoValidation = completionGate.mode === "auto-validation";
+  const canMarkCompleted = completionGate.canComplete;
   const validationDescription =
     challenge.validation?.mode === "css"
       ? "Kami membaca aturan CSS yang kamu tulis. JavaScript tidak dijalankan untuk validasi."
       : "Kami membaca struktur HTML yang kamu tulis. JavaScript tidak dijalankan untuk validasi.";
 
-  const handleSaveCode = () => {
-    onSaveCode();
-    setCodeSaved(true);
+  const handleSaveCode = async () => {
+    if (isSavingCode) {
+      return;
+    }
+
+    setIsSavingCode(true);
+    try {
+      await onSaveCode();
+      setCodeSaved(true);
+    } finally {
+      setIsSavingCode(false);
+    }
   };
 
   const handleCodeChange = (nextValue: string) => {
@@ -152,12 +171,17 @@ export function CodingLab({
     onReset();
   };
 
-  const handleMarkCompleted = () => {
-    if (!canMarkCompleted) {
+  const handleMarkCompleted = async () => {
+    if (!canMarkCompleted || isCompleted || isCompleting) {
       return;
     }
 
-    onMarkCompleted();
+    setIsCompleting(true);
+    try {
+      await onMarkCompleted();
+    } finally {
+      setIsCompleting(false);
+    }
   };
 
   const handleSplitterPointerDown = (event: React.PointerEvent<HTMLButtonElement>) => {
@@ -193,26 +217,30 @@ export function CodingLab({
     window.addEventListener("pointerup", handlePointerUp, { once: true });
   };
 
-  const checksSummary = hasAutoValidation
-    ? `${passedRequiredCount}/${requiredResults.length} checks lolos`
-    : `${completedChecklistItems.length}/${challenge.checklist.length} checklist`;
+  const checksSummary = completionGate.summary;
+  const failedRequiredResults = validationResults.filter((result) => result.required && !result.passed);
+  const nextFailedResult = failedRequiredResults[0];
+  const nextActionText =
+    hasAutoValidation && nextFailedResult
+      ? nextFailedResult.message ?? nextFailedResult.label
+      : completionGate.helperText;
 
   const instructionsContent = (
     <div className="space-y-4">
       {challenge.validation?.mode === "html" ? (
-        <p className="rounded-lg border border-cyan-300/20 bg-cyan-500/10 p-3 text-xs leading-6 text-cyan-100">
+        <p className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-3 text-xs leading-6 text-fs-text">
           Fokus di tab HTML dulu. CSS dan JS belum perlu diubah.
         </p>
       ) : null}
-      <ul className="list-disc space-y-1.5 pl-5 text-sm leading-7 text-zinc-300">
+      <ul className="list-disc space-y-1.5 pl-5 text-sm leading-7 text-fs-text-soft">
         {challenge.instructions.map((instruction) => (
           <li key={instruction}>{instruction}</li>
         ))}
       </ul>
 
-      <div className="rounded-lg border border-zinc-800/80 bg-zinc-950/55 p-3">
-        <p className="text-xs font-semibold text-zinc-100">Navigasi editor</p>
-        <p className="mt-1 text-xs leading-5 text-zinc-400">
+      <div className="rounded-lg border border-fs-border bg-fs-surface p-3">
+        <p className="text-xs font-semibold text-fs-text">Navigasi editor</p>
+        <p className="mt-1 text-xs leading-5 text-fs-text-muted">
           Tips: Jika fokus berada di editor dan kamu ingin keluar, tekan Esc lalu lanjut navigasi.
         </p>
       </div>
@@ -222,8 +250,8 @@ export function CodingLab({
   const checksContent = hasAutoValidation ? (
     <div className="space-y-3">
       <div className="flex flex-wrap items-start justify-between gap-3">
-        <p className="text-xs leading-6 text-zinc-400">{validationDescription}</p>
-        <span className="rounded-full border border-zinc-700/80 bg-zinc-900 px-3 py-1 text-xs font-semibold text-zinc-300">
+        <p className="text-xs leading-6 text-fs-text-muted">{validationDescription}</p>
+        <span className="rounded-full border border-fs-border bg-fs-surface px-3 py-1 text-xs font-semibold text-fs-text-soft">
           {checksSummary}
         </span>
       </div>
@@ -234,15 +262,15 @@ export function CodingLab({
             className={cn(
               "flex items-start gap-2 rounded-lg border px-3 py-2 text-sm",
               result.passed
-                ? "border-emerald-300/25 bg-emerald-500/10 text-emerald-100"
-                : "border-amber-300/25 bg-amber-500/10 text-amber-100",
+                ? "border-fs-success/25 bg-fs-success-soft text-fs-text"
+                : "border-fs-warning/25 bg-fs-warning-soft text-fs-text",
             )}
           >
             <span
               aria-hidden="true"
               className={cn(
                 "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs font-bold",
-                result.passed ? "bg-emerald-300 text-emerald-950" : "bg-amber-300 text-amber-950",
+                result.passed ? "bg-fs-success text-fs-text-inverse" : "bg-fs-warning text-fs-text-inverse",
               )}
             >
               {result.passed ? "✓" : "!"}
@@ -250,7 +278,7 @@ export function CodingLab({
             <span>
               <span className="block font-medium">{result.label}</span>
               {!result.passed && result.message ? (
-                <span className="mt-0.5 block text-xs leading-5 text-amber-100/80">
+                <span className="mt-0.5 block text-xs leading-5 text-fs-warning">
                   {result.message}
                 </span>
               ) : null}
@@ -262,10 +290,10 @@ export function CodingLab({
   ) : (
     <div className="space-y-3">
       <div className="flex flex-wrap items-start justify-between gap-3">
-        <p className="text-xs leading-6 text-zinc-400">
-          Gunakan checklist ini untuk review hasil sendiri. Setelah preview sudah sesuai, tandai selesai secara manual.
+        <p className="text-xs leading-6 text-fs-text-muted">
+          Gunakan checklist ini untuk review hasil sendiri. Completion baru aktif setelah checklist selesai.
         </p>
-        <span className="rounded-full border border-zinc-700/80 bg-zinc-900 px-3 py-1 text-xs font-semibold text-zinc-300">
+        <span className="rounded-full border border-fs-border bg-fs-surface px-3 py-1 text-xs font-semibold text-fs-text-soft">
           {checksSummary}
         </span>
       </div>
@@ -275,12 +303,12 @@ export function CodingLab({
 
           return (
             <li key={item}>
-              <label className="flex cursor-pointer items-start gap-2 text-sm text-zinc-300">
+              <label className="flex cursor-pointer items-start gap-2 text-sm text-fs-text-soft">
                 <input
                   type="checkbox"
                   checked={checked}
                   onChange={(event) => onToggleChecklist(item, event.target.checked)}
-                  className="mt-1 h-4 w-4 rounded border-zinc-600 bg-zinc-900 text-cyan-400"
+                  className="mt-1 h-4 w-4 rounded border-fs-border bg-fs-surface accent-fs-accent"
                 />
                 <span>{item}</span>
               </label>
@@ -292,16 +320,16 @@ export function CodingLab({
   );
 
   const infoPanel = (
-    <aside className="min-w-0 rounded-xl border border-zinc-800/80 bg-zinc-950/60 p-4 xl:max-h-[calc(100vh-190px)] xl:overflow-y-auto xl:pr-3">
+    <aside className="min-w-0 rounded-xl border border-fs-border bg-fs-surface p-4">
       <div className="grid grid-cols-2 gap-2">
         <button
           type="button"
           onClick={() => setActiveInfoTab("instructions")}
           className={cn(
-            "rounded-lg border px-3 py-2 text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-cyan-300/30",
+            "rounded-lg border px-3 py-2 text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-fs-focus/30",
             activeInfoTab === "instructions"
-              ? "border-cyan-300/45 bg-cyan-500/15 text-cyan-100"
-              : "border-zinc-700/80 bg-zinc-950/55 text-zinc-300 hover:bg-zinc-800",
+              ? "border-fs-border-strong bg-fs-accent-soft text-fs-accent"
+              : "border-fs-border bg-fs-surface-soft text-fs-text-soft hover:bg-fs-surface-strong hover:text-fs-text",
           )}
         >
           Instruksi
@@ -310,13 +338,13 @@ export function CodingLab({
           type="button"
           onClick={() => setActiveInfoTab("checks")}
           className={cn(
-            "rounded-lg border px-3 py-2 text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-cyan-300/30",
+            "rounded-lg border px-3 py-2 text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-fs-focus/30",
             activeInfoTab === "checks"
-              ? "border-cyan-300/45 bg-cyan-500/15 text-cyan-100"
-              : "border-zinc-700/80 bg-zinc-950/55 text-zinc-300 hover:bg-zinc-800",
+              ? "border-fs-border-strong bg-fs-accent-soft text-fs-accent"
+              : "border-fs-border bg-fs-surface-soft text-fs-text-soft hover:bg-fs-surface-strong hover:text-fs-text",
           )}
         >
-          Cek otomatis
+          {hasAutoValidation ? "Cek otomatis" : "Checklist"}
         </button>
       </div>
       <div className="mt-4">
@@ -326,39 +354,50 @@ export function CodingLab({
   );
 
   const actionsPanel = (
-    <article className="rounded-xl border border-cyan-300/20 bg-zinc-950/75 p-3 shadow-[0_16px_40px_rgba(0,0,0,0.2)] backdrop-blur sm:p-4">
+    <article className="rounded-xl border border-fs-border-strong bg-fs-surface-strong p-3 shadow-[inset_0_1px_0_var(--fs-border)] backdrop-blur sm:p-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-sm font-semibold text-zinc-100">Simpan dan selesaikan</p>
-          <p className="mt-1 text-xs leading-5 text-zinc-400 xl:hidden">
-            {hasAutoValidation
-              ? "Perbaiki item yang belum lolos, lalu tandai latihan selesai."
-              : "Simpan kode sebelum pindah halaman. Tandai selesai setelah preview dan checklist sudah kamu cek."}
-          </p>
+          <p className="text-sm font-semibold text-fs-text">Simpan dan selesaikan</p>
+          <p className="mt-1 text-xs leading-5 text-fs-text-muted">{completionGate.helperText}</p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <span className="rounded-full border border-zinc-700/80 bg-zinc-900 px-3 py-1.5 text-xs font-semibold text-zinc-300">
+          <span className="rounded-full border border-fs-border bg-fs-surface px-3 py-1.5 text-xs font-semibold text-fs-text-soft">
             {checksSummary}
           </span>
           {codeSaved ? (
-            <span className="rounded-full border border-emerald-300/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-200">
+            <span className="rounded-full border border-fs-success/30 bg-fs-success-soft px-3 py-1.5 text-xs font-semibold text-fs-success">
               Kode tersimpan
             </span>
           ) : null}
+          <span
+            className={cn(
+              "rounded-full border px-3 py-1.5 text-xs font-semibold",
+              completionGate.canComplete
+                ? "border-fs-success/30 bg-fs-success-soft text-fs-success"
+                : "border-fs-warning/25 bg-fs-warning-soft text-fs-warning",
+            )}
+          >
+            {completionGate.statusLabel}
+          </span>
         </div>
       </div>
-      <div className="mt-3 grid gap-2 sm:flex sm:flex-wrap">
+      <div className="mt-3 rounded-lg border border-fs-border bg-fs-surface px-3 py-2">
+        <p className="text-xs font-semibold text-fs-text">Langkah berikutnya</p>
+        <p className="mt-1 text-xs leading-5 text-fs-text-muted">{nextActionText}</p>
+      </div>
+      <div className="mt-3 grid gap-2 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
         <button
           type="button"
           onClick={handleSaveCode}
-          className="w-full rounded-lg bg-cyan-400 px-4 py-2 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40 sm:w-auto"
+          disabled={isSavingCode}
+          className="w-full rounded-lg bg-fs-accent px-4 py-2 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40 disabled:cursor-not-allowed disabled:bg-fs-surface-strong disabled:text-fs-text-muted"
         >
-          Simpan kode
+          {isSavingCode ? "Menyimpan..." : "Simpan kode"}
         </button>
         <button
           type="button"
           onClick={handleReset}
-          className="w-full rounded-lg border border-amber-300/30 bg-amber-500/10 px-4 py-2 text-sm font-semibold text-amber-100 transition hover:bg-amber-500/20 focus:outline-none focus:ring-2 focus:ring-amber-300/30 sm:w-auto"
+          className="w-full rounded-lg border border-fs-warning/30 bg-fs-warning-soft px-4 py-2 text-sm font-semibold text-fs-warning transition hover:bg-fs-warning-soft focus:outline-none focus:ring-2 focus:ring-fs-warning/30"
         >
           Reset
         </button>
@@ -366,7 +405,7 @@ export function CodingLab({
           <button
             type="button"
             onClick={() => setShowSolution((previous) => !previous)}
-            className="w-full rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30 sm:w-auto"
+            className="w-full rounded-lg border border-fs-border bg-fs-surface px-4 py-2 text-sm font-semibold text-fs-text transition hover:bg-fs-surface-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/30"
           >
             {showSolution ? "Sembunyikan solusi" : "Lihat solusi"}
           </button>
@@ -374,24 +413,24 @@ export function CodingLab({
         <button
           type="button"
           onClick={handleMarkCompleted}
-          disabled={isCompleted || !canMarkCompleted}
+          disabled={isCompleted || !canMarkCompleted || isCompleting}
           className={cn(
-            "w-full rounded-lg px-4 py-2 text-sm font-semibold transition sm:w-auto",
+            "w-full rounded-lg px-4 py-2 text-sm font-semibold transition",
             isCompleted
-              ? "cursor-not-allowed border border-emerald-300/35 bg-emerald-500/20 text-emerald-100"
-              : !canMarkCompleted
-                ? "cursor-not-allowed border border-zinc-700/80 bg-zinc-800 text-zinc-500"
-                : "bg-cyan-400 text-zinc-950 hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40",
+              ? "cursor-not-allowed border border-fs-success/35 bg-fs-success-soft text-fs-success"
+              : !canMarkCompleted || isCompleting
+                ? "cursor-not-allowed border border-fs-border bg-fs-surface-strong text-fs-text-muted"
+                : "bg-fs-accent text-fs-text-inverse hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40",
           )}
         >
-          {isCompleted ? "Selesai" : "Tandai selesai"}
+          {isCompleted ? "Selesai" : isCompleting ? "Menyimpan..." : completionGate.buttonLabel}
         </button>
       </div>
     </article>
   );
 
   const editorPanel = (
-    <article className="flex min-h-0 min-w-0 flex-col space-y-3 rounded-xl border border-zinc-800/80 bg-zinc-950/45 p-3">
+    <article className="flex min-h-0 min-w-0 flex-col space-y-3 rounded-xl border border-fs-border bg-fs-surface p-3">
       <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap">
         {languageTabs.map((tab) => (
           <button
@@ -401,8 +440,8 @@ export function CodingLab({
             className={cn(
               "rounded-lg border px-3 py-2 text-center text-xs font-semibold transition sm:px-4",
               activeLanguage === tab.value
-                ? "border-cyan-300/40 bg-cyan-500/10 text-cyan-100"
-                : "border-zinc-700/80 bg-zinc-900 text-zinc-300 hover:bg-zinc-800",
+                ? "border-fs-border-strong bg-fs-accent-soft text-fs-accent"
+                : "border-fs-border bg-fs-surface-soft text-fs-text-soft hover:bg-fs-surface-strong hover:text-fs-text",
             )}
           >
             {tab.label}
@@ -422,10 +461,10 @@ export function CodingLab({
   );
 
   const previewPanel = (
-    <article className="flex min-h-0 min-w-0 flex-col space-y-3 rounded-xl border border-zinc-800/80 bg-zinc-950/45 p-3">
+    <article className="flex min-h-0 min-w-0 flex-col space-y-3 rounded-xl border border-fs-border bg-fs-surface p-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="text-xs font-semibold uppercase tracking-normal text-zinc-400">Preview langsung</p>
-        <span className="rounded-full border border-zinc-700/80 bg-zinc-950/55 px-3 py-1 text-xs font-semibold text-zinc-300">
+        <p className="text-xs font-semibold uppercase tracking-normal text-fs-text-muted">Preview langsung</p>
+        <span className="rounded-full border border-fs-border bg-fs-surface-soft px-3 py-1 text-xs font-semibold text-fs-text-soft">
           {previewViewport === "full" ? "Full" : viewportWidth[previewViewport]}
         </span>
       </div>
@@ -465,7 +504,7 @@ export function CodingLab({
         className={cn(
           "hidden min-w-0 xl:grid",
           horizontalLayout ? "grid-rows-1" : "grid-cols-1",
-          horizontalLayout ? "min-h-[700px]" : "h-[calc(100vh-250px)] min-h-[720px]",
+          horizontalLayout ? "h-[calc(100vh-138px)] min-h-[640px]" : "h-[calc(100vh-138px)] min-h-[680px]",
         )}
         style={splitStyle}
       >
@@ -475,7 +514,7 @@ export function CodingLab({
           aria-label={horizontalLayout ? "Geser untuk mengubah lebar editor dan preview" : "Geser untuk mengubah tinggi editor dan preview"}
           onPointerDown={handleSplitterPointerDown}
           className={cn(
-            "rounded-full border border-cyan-300/20 bg-cyan-300/20 transition hover:border-cyan-200/40 hover:bg-cyan-300/30 focus:outline-none focus:ring-2 focus:ring-cyan-300/40",
+            "rounded-full border border-fs-border-strong bg-fs-accent-soft transition hover:border-fs-border-strong hover:bg-fs-accent-soft focus:outline-none focus:ring-2 focus:ring-fs-focus/40",
             horizontalLayout ? "my-4 cursor-col-resize" : "mx-4 cursor-row-resize",
           )}
         >
@@ -485,22 +524,27 @@ export function CodingLab({
       </div>
     );
 
+  const requirementNotice =
+    isRequired && !isCompleted ? (
+      <p className="rounded-xl border border-fs-warning/25 bg-fs-warning-soft p-4 text-sm text-fs-warning">
+        Blok ini wajib untuk menyelesaikan lesson.
+      </p>
+    ) : null;
+
   return (
-    <section className="space-y-4 pb-28 lg:pb-6">
-      <div className="sticky bottom-3 z-10 xl:bottom-auto xl:top-[152px]">
-        {actionsPanel}
-      </div>
+    <section className="space-y-4 pb-32 xl:pb-6">
+      <div className="sticky bottom-3 z-20 xl:hidden">{actionsPanel}</div>
 
-      {isRequired && !isCompleted ? (
-        <p className="rounded-xl border border-amber-300/25 bg-amber-500/10 p-4 text-sm text-amber-100">
-          Blok ini wajib untuk menyelesaikan lesson.
-        </p>
-      ) : null}
-
-      <div className={cn("grid min-w-0 gap-4", layout === "stacked" ? "grid-cols-1" : "grid-cols-1 xl:grid-cols-[320px_minmax(0,1fr)]")}>
-        {infoPanel}
+      <div className="grid min-w-0 grid-cols-1 gap-4 xl:grid-cols-[340px_minmax(0,1fr)]">
+        <div className="min-w-0 space-y-4 xl:sticky xl:top-[124px] xl:max-h-[calc(100vh-140px)] xl:overflow-y-auto xl:pr-1">
+          <div className="hidden xl:block">{actionsPanel}</div>
+          {requirementNotice}
+          {infoPanel}
+        </div>
         <div className="min-w-0">
-          {layout === "stacked" ? splitWorkspace : (
+          {layout === "stacked" ? (
+            splitWorkspace
+          ) : (
             <>
               {splitWorkspace}
               <div className="grid min-w-0 grid-cols-1 gap-4 xl:hidden">
@@ -513,24 +557,24 @@ export function CodingLab({
       </div>
 
       {showSolution && challenge.solutionCode ? (
-        <article className="space-y-3 rounded-xl border border-cyan-300/25 bg-cyan-500/10 p-4">
-          <h4 className="text-sm font-semibold text-cyan-100">Contoh solusi</h4>
+        <article className="space-y-3 rounded-xl border border-fs-info/25 bg-fs-info-soft p-4">
+          <h4 className="text-sm font-semibold text-fs-info">Contoh solusi</h4>
           <div className="grid gap-3 lg:grid-cols-3">
             <div className="min-w-0 space-y-2">
-              <p className="text-xs font-semibold text-cyan-100">HTML</p>
-              <pre className="overflow-x-auto rounded-lg border border-cyan-200/20 bg-zinc-950/70 p-3 text-xs text-cyan-50">
+              <p className="text-xs font-semibold text-fs-info">HTML</p>
+              <pre className="overflow-x-auto rounded-lg border border-fs-code-border bg-fs-code-background p-3 text-xs text-fs-text-soft">
                 <code>{challenge.solutionCode.html}</code>
               </pre>
             </div>
             <div className="min-w-0 space-y-2">
-              <p className="text-xs font-semibold text-cyan-100">CSS</p>
-              <pre className="overflow-x-auto rounded-lg border border-cyan-200/20 bg-zinc-950/70 p-3 text-xs text-cyan-50">
+              <p className="text-xs font-semibold text-fs-info">CSS</p>
+              <pre className="overflow-x-auto rounded-lg border border-fs-code-border bg-fs-code-background p-3 text-xs text-fs-text-soft">
                 <code>{challenge.solutionCode.css}</code>
               </pre>
             </div>
             <div className="min-w-0 space-y-2">
-              <p className="text-xs font-semibold text-cyan-100">JS</p>
-              <pre className="overflow-x-auto rounded-lg border border-cyan-200/20 bg-zinc-950/70 p-3 text-xs text-cyan-50">
+              <p className="text-xs font-semibold text-fs-info">JS</p>
+              <pre className="overflow-x-auto rounded-lg border border-fs-code-border bg-fs-code-background p-3 text-xs text-fs-text-soft">
                 <code>{challenge.solutionCode.js}</code>
               </pre>
             </div>

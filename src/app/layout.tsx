@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Montserrat } from "next/font/google";
+import { ThemeProvider } from "@/components/theme/theme-provider";
+import { getThemeInitScript } from "@/lib/theme";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -26,9 +28,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
       className={`${montserrat.variable} ${geistMono.variable} dark h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <head>
+        <script
+          id="fluentstack-theme-init"
+          dangerouslySetInnerHTML={{ __html: getThemeInitScript() }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col font-sans">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

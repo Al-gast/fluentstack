@@ -10,15 +10,15 @@ export function StreakCard({ days, isLoading = false, className }: StreakCardPro
   return (
     <article
       className={cn(
-        "rounded-2xl border border-amber-300/25 bg-amber-500/10 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
+        "rounded-2xl border border-fs-warning/25 bg-fs-warning-soft p-4 shadow-[inset_0_1px_0_var(--fs-border)]",
         className,
       )}
     >
-      <p className="text-xs font-medium text-amber-200/80">Streak</p>
-      <p className="mt-2 text-2xl font-semibold text-amber-50">
+      <p className="text-xs font-medium text-fs-warning">Streak</p>
+      <p className="mt-2 text-2xl font-semibold text-fs-text">
         {isLoading ? "Memuat..." : `${days} hari`}
       </p>
-      <p className="mt-1 text-sm text-amber-100/80">
+      <p className="mt-1 text-sm text-fs-text-soft">
         Selesaikan satu aktivitas belajar per hari untuk menjaga streak.
       </p>
     </article>

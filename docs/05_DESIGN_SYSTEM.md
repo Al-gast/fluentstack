@@ -47,6 +47,8 @@ Use these ideas as direction:
 
 Use a dark-first palette.
 
+For the planned dark, light, and paper modes, use `docs/33_THEME_MODES_SYSTEM.md` as the implementation reference. That document defines the semantic `--fs-*` theme tokens, migration order, and QA matrix.
+
 Suggested direction:
 
 ```txt

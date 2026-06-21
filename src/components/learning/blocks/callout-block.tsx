@@ -1,16 +1,19 @@
 import type { CalloutBlock as CalloutBlockData } from "@/types/learning";
+import { BlockRequirementBadge } from "@/components/learning/block-requirement-badge";
+import { ReadOnlyBlockCompletion } from "@/components/learning/read-only-block-completion";
 
 type CalloutBlockProps = {
   block: CalloutBlockData;
   isCompleted: boolean;
-  onComplete: () => void;
+  isRequired: boolean;
+  onComplete: () => void | Promise<unknown>;
 };
 
 const variantClass: Record<CalloutBlockData["variant"], string> = {
-  tip: "border-cyan-300/25 bg-cyan-500/5",
-  warning: "border-amber-300/25 bg-amber-500/5",
-  "common-mistake": "border-rose-300/25 bg-rose-500/5",
-  important: "border-indigo-300/25 bg-indigo-500/5",
+  tip: "border-fs-info/25 bg-fs-info-soft",
+  warning: "border-fs-warning/25 bg-fs-warning-soft",
+  "common-mistake": "border-fs-danger/25 bg-fs-danger-soft",
+  important: "border-fs-accent/25 bg-fs-accent-soft",
 };
 
 const variantLabel: Record<CalloutBlockData["variant"], string> = {
@@ -20,25 +23,24 @@ const variantLabel: Record<CalloutBlockData["variant"], string> = {
   important: "Catatan penting",
 };
 
-export function CalloutBlock({ block, isCompleted, onComplete }: CalloutBlockProps) {
+export function CalloutBlock({ block, isCompleted, isRequired, onComplete }: CalloutBlockProps) {
   return (
     <section
-      className={`rounded-2xl border p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-6 ${variantClass[block.variant]}`}
+      className={`rounded-2xl border p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6 ${variantClass[block.variant]}`}
     >
-      <p className="text-xs font-medium text-zinc-300">{variantLabel[block.variant]}</p>
-      <h3 className="mt-2 text-lg font-bold text-zinc-100">{block.title}</h3>
-      <p className="mt-3 text-sm leading-7 text-zinc-200">{block.content}</p>
-
-      <div className="mt-5 flex items-center gap-3">
-        <button
-          type="button"
-          onClick={onComplete}
-          disabled={isCompleted}
-          className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-4 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30 disabled:cursor-not-allowed disabled:border-emerald-300/35 disabled:bg-emerald-500/15 disabled:text-emerald-100"
-        >
-          {isCompleted ? "Selesai" : "Tandai selesai"}
-        </button>
+      <div className="flex flex-wrap items-center gap-2">
+        <p className="text-xs font-medium text-fs-text-soft">{variantLabel[block.variant]}</p>
+        <BlockRequirementBadge isRequired={isRequired} />
       </div>
+      <h3 className="mt-2 text-lg font-bold text-fs-text">{block.title}</h3>
+      <p className="mt-3 text-sm leading-7 text-fs-text-soft">{block.content}</p>
+
+      <ReadOnlyBlockCompletion
+        isCompleted={isCompleted}
+        isRequired={isRequired}
+        completeLabel="Saya paham"
+        onComplete={onComplete}
+      />
     </section>
   );
 }

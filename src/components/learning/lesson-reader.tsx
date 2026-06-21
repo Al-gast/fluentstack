@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import type { Lesson } from "@/types/learning";
+import type { Lesson, LessonBlock } from "@/types/learning";
 import { BlockRenderer } from "@/components/learning/block-renderer";
 import { LessonOutline } from "@/components/learning/lesson-outline";
 import { LessonProgress } from "@/components/learning/lesson-progress";
@@ -13,6 +13,82 @@ type LessonReaderProps = {
   lesson: Lesson;
   navigation?: LessonNavigation;
 };
+
+type LessonPrimaryAction = {
+  href: string;
+  label: string;
+  description: string;
+};
+
+function getBlockAnchorId(blockId: string): string {
+  return `lesson-block-${blockId}`;
+}
+
+function getBlockDisplayLabel(block: LessonBlock): string {
+  if ("title" in block && typeof block.title === "string") {
+    return block.title;
+  }
+
+  switch (block.type) {
+    case "quick-check":
+      return "Cek pemahaman";
+    case "quiz":
+      return "Kuis";
+    case "coding-practice":
+      return "Coding practice";
+    case "writing-practice":
+      return "Writing practice";
+    case "summary":
+      return "Ringkasan";
+    case "resource-links":
+      return "Resource resmi";
+    case "documentation-bridge":
+      return block.title;
+    default:
+      return block.type;
+  }
+}
+
+function getIncompleteRequiredBlockAction(block: LessonBlock): LessonPrimaryAction {
+  if (block.type === "coding-practice") {
+    const challenge = getChallengeById(block.challengeId);
+
+    return {
+      href: challenge ? `/practice/${challenge.id}` : `#${getBlockAnchorId(block.id)}`,
+      label: "Buka practice",
+      description: challenge?.title ?? "Lengkapi coding practice wajib.",
+    };
+  }
+
+  const blockLabel = getBlockDisplayLabel(block);
+
+  switch (block.type) {
+    case "quick-check":
+      return {
+        href: `#${getBlockAnchorId(block.id)}`,
+        label: "Kerjakan cek pemahaman",
+        description: blockLabel,
+      };
+    case "quiz":
+      return {
+        href: `#${getBlockAnchorId(block.id)}`,
+        label: "Kerjakan kuis",
+        description: blockLabel,
+      };
+    case "writing-practice":
+      return {
+        href: `#${getBlockAnchorId(block.id)}`,
+        label: "Tulis latihan",
+        description: blockLabel,
+      };
+    default:
+      return {
+        href: `#${getBlockAnchorId(block.id)}`,
+        label: "Lanjutkan bagian ini",
+        description: blockLabel,
+      };
+  }
+}
 
 function getLanguageLabel(contentLanguage: Lesson["contentLanguage"]): string {
   switch (contentLanguage) {
@@ -40,6 +116,16 @@ function getLessonLevelLabel(level: Lesson["level"]): string {
   }
 }
 
+function isAssessmentLesson(lesson: Lesson): boolean {
+  const normalizedTitle = lesson.title.toLowerCase();
+
+  return (
+    lesson.id.includes("assessment") ||
+    lesson.slug.includes("assessment") ||
+    normalizedTitle.includes("uji kompetensi")
+  );
+}
+
 export function LessonReader({ lesson, navigation }: LessonReaderProps) {
   const {
     lessonMetrics,
@@ -59,138 +145,157 @@ export function LessonReader({ lesson, navigation }: LessonReaderProps) {
     isLoading,
   } = useProgress(lesson);
 
+  const isAssessment = isAssessmentLesson(lesson);
+  const learningUnitLabel = isAssessment ? "Uji Kompetensi" : "Lesson";
+  const progressLabel = isAssessment ? "Readiness" : "Progres";
+  const objectiveHeading = isAssessment ? "Yang dicek" : "Tujuan belajar";
+  const incompleteTitle = isAssessment
+    ? "Selesaikan bagian wajib checkpoint ini"
+    : "Selesaikan bagian penting lesson ini";
+  const completeTitle = isAssessment
+    ? "Checkpoint ini siap dilanjutkan"
+    : "Lesson ini sudah siap dilanjutkan";
   const requiredTotal = lessonMetrics.totalRequiredCount;
   const requiredCompleted = lessonMetrics.completedRequiredCount;
   const progressPercent = requiredTotal > 0 ? Math.round((requiredCompleted / requiredTotal) * 100) : 0;
   const isLessonComplete = requiredTotal > 0 && requiredCompleted >= requiredTotal;
-  const incompletePracticeBlock = lesson.blocks.find((block) => {
-    if (block.type !== "coding-practice" || completedBlockSet.has(block.id)) {
-      return false;
-    }
-
-    return !getChallengeProgress(block.challengeId)?.isCompleted;
-  });
-  const practiceChallenge =
-    incompletePracticeBlock?.type === "coding-practice" ? getChallengeById(incompletePracticeBlock.challengeId) : null;
-  const hasPracticeBlock = lesson.blocks.some((block) => block.type === "coding-practice");
-  const primaryAction = practiceChallenge
+  const requiredBlockSet = new Set(lesson.completionRule.requiredBlockIds);
+  const nextIncompleteRequiredBlock = lesson.blocks.find(
+    (block) => requiredBlockSet.has(block.id) && !completedBlockSet.has(block.id),
+  );
+  const primaryAction: LessonPrimaryAction = isLoading
     ? {
-        href: `/practice/${practiceChallenge.id}`,
-        label: "Mulai latihan",
-        description: practiceChallenge.title,
+        href: "#lesson-content",
+        label: "Memuat progres",
+        description: "Menyiapkan langkah berikutnya",
       }
-    : isLessonComplete && navigation
-      ? {
-          href: navigation.next.href,
-          label: "Lanjutkan",
-          description: navigation.next.title,
-        }
-      : {
-          href: "#lesson-content",
-          label: "Lanjut membaca",
-          description: `${requiredCompleted}/${requiredTotal} blok wajib selesai`,
-        };
-  const statusLabel = isLoading ? "Memuat progres" : isLessonComplete ? "Selesai" : "Sedang dipelajari";
+    : nextIncompleteRequiredBlock
+      ? getIncompleteRequiredBlockAction(nextIncompleteRequiredBlock)
+      : isLessonComplete && navigation
+        ? {
+            href: navigation.next.href,
+            label: "Lanjutkan",
+            description: navigation.next.title,
+          }
+        : {
+            href: "#lesson-content",
+            label: "Lanjut membaca",
+            description: `${requiredCompleted}/${requiredTotal} blok wajib selesai`,
+          };
+  const nextRequiredBlockLabel = nextIncompleteRequiredBlock
+    ? getBlockDisplayLabel(nextIncompleteRequiredBlock)
+    : null;
+  const statusLabel = isLoading
+    ? "Memuat progres"
+    : isLessonComplete
+      ? isAssessment
+        ? "Siap lanjut"
+        : "Selesai"
+      : isAssessment
+        ? "Perlu dibuktikan"
+        : "Sedang dipelajari";
 
   return (
     <div className="mx-auto max-w-[1280px] pb-6 lg:pb-0">
       <div className="grid gap-6 xl:grid-cols-[minmax(0,840px)_320px] xl:justify-center">
         <article className="min-w-0 space-y-7">
-          <header className="rounded-3xl border border-zinc-800/80 bg-zinc-950/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-7">
+          <header className="rounded-3xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-7">
             {navigation ? (
-              <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs text-zinc-400">
+              <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs text-fs-text-muted">
                 <Link
                   href={navigation.trackHref}
-                  className="rounded-md transition hover:text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-300/30"
+                  className="rounded-md transition hover:text-fs-accent focus:outline-none focus:ring-2 focus:ring-fs-focus/30"
                 >
                   {navigation.trackTitle}
                 </Link>
-                <span aria-hidden="true" className="text-zinc-600">
+                <span aria-hidden="true" className="text-fs-text-muted/70">
                   /
                 </span>
                 <Link
                   href={navigation.moduleHref}
-                  className="rounded-md transition hover:text-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-300/30"
+                  className="rounded-md transition hover:text-fs-accent focus:outline-none focus:ring-2 focus:ring-fs-focus/30"
                 >
                   {navigation.moduleTitle}
                 </Link>
-                <span aria-hidden="true" className="text-zinc-600">
+                <span aria-hidden="true" className="text-fs-text-muted/70">
                   /
                 </span>
-                <span className="text-zinc-300">Lesson</span>
+                <span className="text-fs-text-soft">{learningUnitLabel}</span>
               </nav>
             ) : (
-              <p className="text-sm font-medium text-cyan-200">Lesson</p>
+              <p className="text-sm font-medium text-fs-accent">{learningUnitLabel}</p>
             )}
 
             <div className="mt-5 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
               <div className="min-w-0">
                 <div className="flex flex-wrap gap-2">
                   {navigation?.levelLabel ? (
-                    <span className="rounded-lg border border-indigo-300/20 bg-indigo-500/10 px-3 py-1 text-xs font-semibold text-indigo-100">
+                    <span className="rounded-lg border border-fs-info/25 bg-fs-info-soft px-3 py-1 text-xs font-semibold text-fs-info">
                       {navigation.levelLabel}
                     </span>
                   ) : null}
-                  <span className="rounded-lg border border-zinc-800/80 bg-zinc-950/55 px-3 py-1 text-xs text-zinc-300">
+                  <span className="rounded-lg border border-fs-border bg-fs-surface-soft px-3 py-1 text-xs text-fs-text-soft">
                     {getLessonLevelLabel(lesson.level)}
                   </span>
-                  <span className="rounded-lg border border-zinc-800/80 bg-zinc-950/55 px-3 py-1 text-xs text-zinc-300">
+                  <span className="rounded-lg border border-fs-border bg-fs-surface-soft px-3 py-1 text-xs text-fs-text-soft">
                     {lesson.estimatedMinutes} menit
                   </span>
-                  <span className="rounded-lg border border-zinc-800/80 bg-zinc-950/55 px-3 py-1 text-xs text-zinc-300">
+                  <span className="rounded-lg border border-fs-border bg-fs-surface-soft px-3 py-1 text-xs text-fs-text-soft">
                     {getLanguageLabel(lesson.contentLanguage)}
                   </span>
                 </div>
 
-                <h1 className="mt-4 max-w-4xl text-3xl font-bold leading-tight text-zinc-50 sm:text-4xl">
+                <h1 className="mt-4 max-w-4xl text-3xl font-bold leading-tight text-fs-text sm:text-4xl">
                   {lesson.title}
                 </h1>
-                <p className="mt-4 max-w-3xl text-base leading-8 text-zinc-300">{lesson.description}</p>
+                <p className="mt-4 max-w-3xl text-base leading-8 text-fs-text-soft">{lesson.description}</p>
               </div>
 
-              <div className="w-full shrink-0 rounded-2xl border border-cyan-300/20 bg-zinc-950/60 p-4 lg:w-64">
+              <div className="w-full shrink-0 rounded-2xl border border-fs-border-strong bg-fs-surface-strong p-4 lg:w-64">
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-xs font-semibold text-zinc-400">Status</span>
+                  <span className="text-xs font-semibold text-fs-text-muted">Status</span>
                   <span
                     className={`rounded-lg border px-2.5 py-1 text-xs font-semibold ${
                       isLessonComplete
-                        ? "border-emerald-300/35 bg-emerald-500/15 text-emerald-100"
-                        : "border-cyan-300/25 bg-cyan-500/10 text-cyan-100"
+                        ? "border-fs-success/35 bg-fs-success-soft text-fs-success"
+                        : "border-fs-accent/25 bg-fs-accent-soft text-fs-accent"
                     }`}
                   >
                     {statusLabel}
                   </span>
                 </div>
                 <div className="mt-4">
-                  <div className="flex items-center justify-between text-xs text-zinc-400">
-                    <span>Progres</span>
+                  <div className="flex items-center justify-between text-xs text-fs-text-muted">
+                    <span>{progressLabel}</span>
                     <span>{isLoading ? "Memuat..." : `${requiredCompleted}/${requiredTotal} wajib`}</span>
                   </div>
-                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-zinc-900 ring-1 ring-zinc-800">
+                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-fs-surface-soft ring-1 ring-fs-border">
                     <div
                       className={`h-full rounded-full bg-gradient-to-r transition-all duration-300 ${
-                        isLoading ? "w-1/3 animate-pulse from-zinc-600 to-zinc-500" : "from-cyan-400 to-indigo-400"
+                        isLoading
+                          ? "w-1/3 animate-pulse from-fs-text-muted to-fs-text-soft"
+                          : "from-[var(--fs-progress-from)] to-[var(--fs-progress-to)]"
                       }`}
                       style={isLoading ? undefined : { width: `${progressPercent}%` }}
                     />
                   </div>
-                  <p className="mt-2 text-right text-xs font-semibold text-cyan-200">
+                  <p className="mt-2 text-right text-xs font-semibold text-fs-accent">
                     {isLoading ? "..." : `${progressPercent}%`}
                   </p>
                 </div>
                 <Link
                   href={primaryAction.href}
-                  className="mt-4 inline-flex w-full items-center justify-center rounded-lg bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
+                  className="mt-4 inline-flex w-full items-center justify-center rounded-lg bg-fs-accent px-4 py-2.5 text-sm font-semibold text-fs-text-inverse transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40"
                 >
                   {primaryAction.label}
                 </Link>
-                <p className="mt-2 line-clamp-2 text-xs leading-5 text-zinc-400">{primaryAction.description}</p>
+                <p className="mt-2 line-clamp-2 text-xs leading-5 text-fs-text-muted">{primaryAction.description}</p>
               </div>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-              <h2 className="text-lg font-bold text-zinc-100">Tujuan belajar</h2>
-              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-zinc-300">
+            <div className="mt-6 rounded-2xl border border-fs-border bg-fs-surface-soft p-5 shadow-[inset_0_1px_0_var(--fs-border)]">
+              <h2 className="text-lg font-bold text-fs-text">{objectiveHeading}</h2>
+              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-fs-text-soft">
                 {lesson.objectives.map((objective) => (
                   <li key={objective}>{objective}</li>
                 ))}
@@ -201,7 +306,7 @@ export function LessonReader({ lesson, navigation }: LessonReaderProps) {
               {lesson.skillTags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-md border border-zinc-800 bg-zinc-950/40 px-2 py-1 text-xs text-zinc-300"
+                  className="rounded-md border border-fs-border bg-fs-surface-soft px-2 py-1 text-xs text-fs-text-soft"
                 >
                   {tag}
                 </span>
@@ -210,54 +315,62 @@ export function LessonReader({ lesson, navigation }: LessonReaderProps) {
           </header>
 
           <section className="xl:hidden">
-            <LessonOutline blocks={lesson.blocks} completedBlockIds={completedBlockSet} compact />
+            <LessonOutline
+              blocks={lesson.blocks}
+              completedBlockIds={completedBlockSet}
+              requiredBlockIds={lesson.completionRule.requiredBlockIds}
+              compact
+            />
           </section>
 
           <section id="lesson-content" className="scroll-mt-24 space-y-5">
             {lesson.blocks.map((block) => (
-              <BlockRenderer
-                key={block.id}
-                block={block}
-                isCompleted={completedBlockSet.has(block.id)}
-                isRequired={lesson.completionRule.requiredBlockIds.includes(block.id)}
-                onCompleteBlock={markBlockCompleted}
-                onCompleteQuickCheck={markQuickCheckCompleted}
-                onCompleteQuizAttempt={completeQuizAttempt}
-                getBestQuizScore={getBestQuizScore}
-                onSaveWritingDraft={saveWritingDraft}
-                getWritingDraft={getWritingDraft}
-                onCompleteWritingPractice={markWritingPracticeCompleted}
-                onSaveChallengeCode={saveChallengeCode}
-                onSaveChallengeChecklist={saveChallengeChecklist}
-                getChallengeProgress={getChallengeProgress}
-                onCompleteCodingPractice={markCodingPracticeCompleted}
-              />
+              <div key={block.id} id={getBlockAnchorId(block.id)} className="scroll-mt-24">
+                <BlockRenderer
+                  block={block}
+                  isCompleted={completedBlockSet.has(block.id)}
+                  isRequired={lesson.completionRule.requiredBlockIds.includes(block.id)}
+                  onCompleteBlock={markBlockCompleted}
+                  onCompleteQuickCheck={markQuickCheckCompleted}
+                  onCompleteQuizAttempt={completeQuizAttempt}
+                  getBestQuizScore={getBestQuizScore}
+                  onSaveWritingDraft={saveWritingDraft}
+                  getWritingDraft={getWritingDraft}
+                  onCompleteWritingPractice={markWritingPracticeCompleted}
+                  onSaveChallengeCode={saveChallengeCode}
+                  onSaveChallengeChecklist={saveChallengeChecklist}
+                  getChallengeProgress={getChallengeProgress}
+                  onCompleteCodingPractice={markCodingPracticeCompleted}
+                />
+              </div>
             ))}
           </section>
 
-          <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-6">
-            <p className="text-xs font-semibold text-cyan-200">Langkah berikutnya</p>
-            <h2 className="mt-2 text-xl font-bold text-zinc-100">
-              {isLessonComplete ? "Lesson ini sudah siap dilanjutkan" : "Selesaikan bagian penting lesson ini"}
+          <section className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6">
+            <p className="text-xs font-semibold text-fs-accent">Langkah berikutnya</p>
+            <h2 className="mt-2 text-xl font-bold text-fs-text">
+              {isLessonComplete ? completeTitle : incompleteTitle}
             </h2>
-            <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-300">
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-fs-text-soft">
               {isLessonComplete
-                ? `Kamu sudah menyelesaikan blok wajib untuk lesson ini. Berikutnya: ${navigation?.next.title ?? "review track ini"}.`
-                : hasPracticeBlock && practiceChallenge
-                  ? `Kamu sudah membaca konsep utama. Lanjutkan dengan latihan "${practiceChallenge.title}" di workspace practice.`
-                  : `Lanjutkan blok yang belum selesai sampai progres wajib mencapai 100%.`}
+                ? isAssessment
+                  ? `Kamu sudah memenuhi blok wajib checkpoint ini. Berikutnya: ${navigation?.next.title ?? "review module ini"}.`
+                  : `Kamu sudah menyelesaikan blok wajib untuk lesson ini. Berikutnya: ${navigation?.next.title ?? "review track ini"}.`
+                : nextRequiredBlockLabel
+                  ? `Lanjutkan blok wajib berikutnya: ${nextRequiredBlockLabel}.`
+                  : `Lanjutkan blok yang belum selesai sampai ${progressLabel.toLowerCase()} wajib mencapai 100%.`}
             </p>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
                 href={primaryAction.href}
-                className="inline-flex items-center justify-center rounded-lg bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
+                className="inline-flex items-center justify-center rounded-lg bg-fs-accent px-4 py-2.5 text-sm font-semibold text-fs-text-inverse transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40"
               >
                 {primaryAction.label}
               </Link>
               {navigation ? (
                 <Link
                   href={navigation.moduleHref}
-                  className="inline-flex items-center justify-center rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-4 py-2.5 text-sm font-semibold text-zinc-200 transition hover:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
+                  className="inline-flex items-center justify-center rounded-lg border border-fs-border bg-fs-surface px-4 py-2.5 text-sm font-semibold text-fs-text-soft transition hover:bg-fs-surface-strong hover:text-fs-text focus:outline-none focus:ring-2 focus:ring-fs-focus/30"
                 >
                   Review module
                 </Link>
@@ -268,31 +381,31 @@ export function LessonReader({ lesson, navigation }: LessonReaderProps) {
           {navigation ? (
             <nav
               aria-label="Navigasi lesson"
-              className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-6"
+              className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6"
             >
               <div className="flex flex-col gap-3 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-stretch">
                 <Link
                   href={navigation.previous.href}
-                  className="group rounded-xl border border-zinc-700/80 bg-zinc-950/55 px-4 py-3 transition hover:border-cyan-300/40 hover:bg-zinc-900/80 focus:outline-none focus:ring-2 focus:ring-cyan-300/30"
+                  className="group rounded-xl border border-fs-border bg-fs-surface-soft px-4 py-3 transition hover:border-fs-border-strong hover:bg-fs-surface-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/30"
                 >
-                  <span className="text-xs text-zinc-400">{navigation.previous.label}</span>
-                  <span className="mt-1 block text-sm font-semibold text-zinc-100 group-hover:text-cyan-100">
+                  <span className="text-xs text-fs-text-muted">{navigation.previous.label}</span>
+                  <span className="mt-1 block text-sm font-semibold text-fs-text group-hover:text-fs-accent">
                     {navigation.previous.title}
                   </span>
                 </Link>
 
                 <Link
                   href={navigation.moduleHref}
-                  className="rounded-xl border border-zinc-800/80 bg-zinc-950/55 px-4 py-3 text-center text-sm font-semibold text-zinc-200 transition hover:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-zinc-500/30 sm:flex sm:items-center"
+                  className="rounded-xl border border-fs-border bg-fs-surface-soft px-4 py-3 text-center text-sm font-semibold text-fs-text-soft transition hover:bg-fs-surface-strong hover:text-fs-text focus:outline-none focus:ring-2 focus:ring-fs-focus/30 sm:flex sm:items-center"
                 >
                   Lihat module
                 </Link>
 
                 <Link
                   href={navigation.next.href}
-                  className="group rounded-xl bg-cyan-400 px-4 py-3 text-zinc-950 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
+                  className="group rounded-xl bg-fs-accent px-4 py-3 text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40"
                 >
-                  <span className="text-xs font-medium text-zinc-800">{navigation.next.label}</span>
+                  <span className="text-xs font-medium opacity-80">{navigation.next.label}</span>
                   <span className="mt-1 block text-sm font-bold">{navigation.next.title}</span>
                 </Link>
               </div>
@@ -302,7 +415,11 @@ export function LessonReader({ lesson, navigation }: LessonReaderProps) {
 
         <aside className="hidden xl:block">
           <div className="sticky top-24 space-y-4">
-            <LessonOutline blocks={lesson.blocks} completedBlockIds={completedBlockSet} />
+            <LessonOutline
+              blocks={lesson.blocks}
+              completedBlockIds={completedBlockSet}
+              requiredBlockIds={lesson.completionRule.requiredBlockIds}
+            />
             <LessonProgress
               totalRequired={lessonMetrics.totalRequiredCount}
               completedRequired={lessonMetrics.completedRequiredCount}

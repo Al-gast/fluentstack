@@ -16,22 +16,22 @@ type BlockRendererProps = {
   block: LessonBlock;
   isCompleted: boolean;
   isRequired: boolean;
-  onCompleteBlock: (blockId: string, options?: { xpDelta?: number }) => void;
-  onCompleteQuickCheck: (blockId: string) => void;
+  onCompleteBlock: (blockId: string, options?: { xpDelta?: number }) => void | Promise<unknown>;
+  onCompleteQuickCheck: (blockId: string) => void | Promise<unknown>;
   onCompleteQuizAttempt: (params: {
     blockId: string;
     quizId: string;
     score: number;
     passed: boolean;
-  }) => void;
+  }) => void | Promise<unknown>;
   getBestQuizScore: (quizId: string) => number;
-  onSaveWritingDraft: (blockId: string, draft: string) => void;
+  onSaveWritingDraft: (blockId: string, draft: string) => void | Promise<unknown>;
   getWritingDraft: (blockId: string) => string;
-  onCompleteWritingPractice: (blockId: string) => void;
-  onSaveChallengeCode: (challengeId: string, code: ChallengeCode) => void;
-  onSaveChallengeChecklist: (challengeId: string, completedChecklistItems: string[]) => void;
+  onCompleteWritingPractice: (blockId: string) => void | Promise<unknown>;
+  onSaveChallengeCode: (challengeId: string, code: ChallengeCode) => void | Promise<unknown>;
+  onSaveChallengeChecklist: (challengeId: string, completedChecklistItems: string[]) => void | Promise<unknown>;
   getChallengeProgress: (challengeId: string) => ChallengeProgress | undefined;
-  onCompleteCodingPractice: (params: { blockId: string; challengeId: string }) => void;
+  onCompleteCodingPractice: (params: { blockId: string; challengeId: string }) => void | Promise<unknown>;
 };
 
 export function BlockRenderer({
@@ -56,6 +56,7 @@ export function BlockRenderer({
         <TextBlock
           block={block}
           isCompleted={isCompleted}
+          isRequired={isRequired}
           onComplete={() => onCompleteBlock(block.id)}
         />
       );
@@ -64,6 +65,7 @@ export function BlockRenderer({
         <CalloutBlock
           block={block}
           isCompleted={isCompleted}
+          isRequired={isRequired}
           onComplete={() => onCompleteBlock(block.id)}
         />
       );
@@ -72,6 +74,7 @@ export function BlockRenderer({
         <CodeExampleBlock
           block={block}
           isCompleted={isCompleted}
+          isRequired={isRequired}
           onComplete={() => onCompleteBlock(block.id)}
         />
       );
@@ -80,6 +83,7 @@ export function BlockRenderer({
         <QuickCheckBlock
           block={block}
           isCompleted={isCompleted}
+          isRequired={isRequired}
           onComplete={() => onCompleteQuickCheck(block.id)}
         />
       );
@@ -105,6 +109,7 @@ export function BlockRenderer({
         <DocumentationBridgeBlock
           block={block}
           isCompleted={isCompleted}
+          isRequired={isRequired}
           onComplete={() => onCompleteBlock(block.id)}
         />
       );
@@ -113,6 +118,7 @@ export function BlockRenderer({
         <ResourceLinksBlock
           block={block}
           isCompleted={isCompleted}
+          isRequired={isRequired}
           onComplete={() => onCompleteBlock(block.id)}
         />
       );
@@ -144,6 +150,7 @@ export function BlockRenderer({
         <SummaryBlock
           block={block}
           isCompleted={isCompleted}
+          isRequired={isRequired}
           onComplete={() => onCompleteBlock(block.id)}
         />
       );

@@ -4,13 +4,14 @@ import type { QuizBlock as QuizBlockData } from "@/types/learning";
 import { getQuizById } from "@/lib/content/get-quiz";
 import { getPassingScore } from "@/lib/quiz/scoring";
 import { QuizEngine } from "@/components/quiz/quiz-engine";
+import { BlockRequirementBadge } from "@/components/learning/block-requirement-badge";
 
 type QuizBlockProps = {
   block: QuizBlockData;
   isCompleted: boolean;
   isRequired: boolean;
   bestScore: number;
-  onCompleteAttempt: (result: { score: number; passed: boolean }) => void;
+  onCompleteAttempt: (result: { score: number; passed: boolean }) => void | Promise<unknown>;
 };
 
 export function QuizBlock({
@@ -24,45 +25,58 @@ export function QuizBlock({
 
   if (!quiz) {
     return (
-      <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 sm:p-6">
-        <h3 className="text-xl font-bold text-zinc-100">Kuis pelajaran</h3>
-        <p className="mt-3 text-sm text-zinc-300">Data kuis tidak ditemukan untuk ID {block.quizId}.</p>
+      <section className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6">
+        <h3 className="text-xl font-bold text-fs-text">Kuis pelajaran</h3>
+        <p className="mt-3 text-sm text-fs-text-soft">Data kuis tidak ditemukan untuk ID {block.quizId}.</p>
       </section>
     );
   }
 
   const passingScore = getPassingScore(quiz);
+  const hasAttempt = bestScore > 0;
+  const statusLabel = isCompleted ? "Lulus" : hasAttempt ? "Belum lulus" : "Belum dikerjakan";
+  const statusClass = isCompleted ? "text-fs-success" : hasAttempt ? "text-fs-warning" : "text-fs-text-soft";
+  const gateCopy = isCompleted
+    ? "Kuis sudah lulus dan masuk ke progres lesson."
+    : hasAttempt
+      ? "Progress belum naik karena skor terbaik belum mencapai target lulus."
+      : "Progress quiz naik setelah skor mencapai target lulus.";
 
   return (
-    <section className="rounded-2xl border border-cyan-300/25 bg-cyan-500/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 sm:p-6">
-      <p className="text-xs font-medium text-cyan-200">Kuis</p>
-      <h3 className="mt-2 text-xl font-bold text-zinc-100">{quiz.title}</h3>
-      <p className="mt-2 text-sm text-zinc-300">
+    <section className="rounded-2xl border border-fs-accent/25 bg-fs-accent-soft p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6">
+      <div className="flex flex-wrap items-center gap-2">
+        <p className="text-xs font-medium text-fs-accent">Kuis</p>
+        <BlockRequirementBadge isRequired={isRequired} />
+      </div>
+      <h3 className="mt-2 text-xl font-bold text-fs-text">{quiz.title}</h3>
+      <p className="mt-2 text-sm text-fs-text-soft">
         Jawab pertanyaan satu per satu. Kamu bisa ulang jika belum mencapai target lulus.
       </p>
 
-      <div className="mt-4 grid gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950/55 p-4 sm:grid-cols-3">
+      <div className="mt-4 grid gap-3 rounded-xl border border-fs-border bg-fs-surface p-4 sm:grid-cols-3">
         <div>
-          <p className="text-xs text-zinc-400">Target lulus</p>
-          <p className="mt-1 text-sm font-semibold text-zinc-100">{passingScore}/100</p>
+          <p className="text-xs text-fs-text-muted">Target lulus</p>
+          <p className="mt-1 text-sm font-semibold text-fs-text">{passingScore}/100</p>
         </div>
         <div>
-          <p className="text-xs text-zinc-400">Skor terbaik</p>
-          <p className="mt-1 text-sm font-semibold text-zinc-100">{bestScore}/100</p>
+          <p className="text-xs text-fs-text-muted">Skor terbaik</p>
+          <p className="mt-1 text-sm font-semibold text-fs-text">{bestScore}/100</p>
         </div>
         <div>
-          <p className="text-xs text-zinc-400">Status</p>
-          <p className={`mt-1 text-sm font-semibold ${isCompleted ? "text-emerald-200" : "text-amber-200"}`}>
-            {isCompleted ? "Lulus" : "Belum lulus"}
+          <p className="text-xs text-fs-text-muted">Status</p>
+          <p className={`mt-1 text-sm font-semibold ${statusClass}`}>
+            {statusLabel}
           </p>
         </div>
         {isCompleted ? (
-          <p className="sm:col-span-3 text-sm font-semibold text-emerald-200">Kuis selesai.</p>
+          <p className="sm:col-span-3 text-sm font-semibold text-fs-success">Kuis selesai.</p>
         ) : null}
         {isRequired && !isCompleted ? (
-          <p className="sm:col-span-3 text-sm text-amber-200/90">
-            Blok ini wajib untuk menyelesaikan pelajaran.
+          <p className="sm:col-span-3 text-sm text-fs-warning">
+            Blok ini wajib untuk menyelesaikan pelajaran. {gateCopy}
           </p>
+        ) : !isRequired ? (
+          <p className="sm:col-span-3 text-sm text-fs-text-muted">{gateCopy}</p>
         ) : null}
       </div>
 

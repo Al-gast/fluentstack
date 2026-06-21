@@ -22,48 +22,48 @@ export default function LearnPage() {
   return (
     <AppShell title="Tracks">
       <div className="mx-auto max-w-[1440px] space-y-8">
-        <section className="rounded-3xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6 sm:p-8">
-          <h1 className="text-3xl font-bold text-zinc-50 sm:text-4xl">Pilih Track Belajar</h1>
-          <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-300">
+        <section className="rounded-3xl border border-fs-border bg-fs-surface p-6 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-8">
+          <h1 className="text-3xl font-bold text-fs-text sm:text-4xl">Pilih Track Belajar</h1>
+          <p className="mt-3 max-w-3xl text-base leading-7 text-fs-text-soft">
             Pilih track baru atau lanjutkan lesson yang sudah kamu mulai.
           </p>
         </section>
 
-        <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-6">
-          <h2 className="text-xl font-bold text-zinc-100">Lanjut belajar</h2>
+        <section className="rounded-2xl border border-fs-border bg-fs-surface p-6 shadow-[inset_0_1px_0_var(--fs-border)]">
+          <h2 className="text-xl font-bold text-fs-text">Lanjut belajar</h2>
           {isLoading ? (
             <>
-              <p className="mt-2 text-sm leading-6 text-zinc-300">Memuat progres terbaru kamu...</p>
-              <div className="mt-4 h-10 w-52 animate-pulse rounded-xl bg-zinc-800" />
+              <p className="mt-2 text-sm leading-6 text-fs-text-soft">Memuat progres terbaru kamu...</p>
+              <div className="mt-4 h-10 w-52 animate-pulse rounded-xl bg-fs-surface-strong" />
             </>
           ) : hasProgress ? (
             <>
-              <p className="mt-2 text-sm leading-6 text-zinc-300">
+              <p className="mt-2 text-sm leading-6 text-fs-text-soft">
                 Lanjutkan lesson yang paling dekat dengan progres kamu.
               </p>
               <Link
                 href={`/lesson/${nextLesson.slug}`}
-                className="mt-4 inline-flex rounded-xl bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-4 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
+                className="mt-4 inline-flex rounded-xl bg-fs-accent px-4 py-2.5 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40"
               >
                 Lanjut ke {nextLesson.title}
               </Link>
             </>
           ) : (
             <>
-              <p className="mt-2 text-sm leading-6 text-zinc-300">
+              <p className="mt-2 text-sm leading-6 text-fs-text-soft">
                 {storageMode === "logged-in"
                   ? "Belum ada progres belajar di akun ini."
                   : "Belum ada progres belajar di browser ini."}
               </p>
               <Link
                 href="/learn/frontend-engineering"
-                className="mt-4 inline-flex rounded-xl border border-zinc-700/80 bg-zinc-950/55 px-4 py-2.5 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
+                className="mt-4 inline-flex rounded-xl border border-fs-border bg-fs-surface-soft px-4 py-2.5 text-sm font-semibold text-fs-text transition hover:bg-fs-surface-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/30"
               >
                 Mulai dari Frontend Engineering
               </Link>
             </>
           )}
-          <p className="mt-3 text-xs text-zinc-400">
+          <p className="mt-3 text-xs text-fs-text-muted">
             {isLoading
               ? "Memuat mode progres..."
               : hasProgress

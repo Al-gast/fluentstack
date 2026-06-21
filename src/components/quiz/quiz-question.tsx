@@ -33,22 +33,22 @@ function renderChoiceOptions(
             aria-checked={active}
             disabled={disabled}
             onClick={() => onAnswerChange(option)}
-            className={`flex w-full items-start justify-between gap-3 rounded-xl border px-4 py-3 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-cyan-300/40 ${
+            className={`flex w-full items-start justify-between gap-3 rounded-xl border px-4 py-3 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-fs-focus/40 ${
               showCorrect
-                ? "border-emerald-300/50 bg-emerald-500/10 text-emerald-50"
+                ? "border-fs-success/50 bg-fs-success-soft text-fs-text"
                 : showWrong
-                  ? "border-rose-300/50 bg-rose-500/10 text-rose-50"
+                  ? "border-fs-danger/50 bg-fs-danger-soft text-fs-text"
                   : active
-                    ? "border-cyan-300/60 bg-cyan-500/10 text-cyan-50"
-                    : "border-zinc-700/80 bg-zinc-950/60 text-zinc-200 hover:border-zinc-600 hover:bg-zinc-800/80"
+                    ? "border-fs-border-strong bg-fs-accent-soft text-fs-text"
+                    : "border-fs-border bg-fs-surface text-fs-text-soft hover:border-fs-border-strong hover:bg-fs-surface-strong hover:text-fs-text"
             } disabled:cursor-not-allowed disabled:opacity-90`}
           >
             <span>{option}</span>
             {showCorrect ? (
-              <span className="shrink-0 text-xs font-semibold text-emerald-200">Benar</span>
+              <span className="shrink-0 text-xs font-semibold text-fs-success">Benar</span>
             ) : null}
             {showWrong ? (
-              <span className="shrink-0 text-xs font-semibold text-rose-200">Belum tepat</span>
+              <span className="shrink-0 text-xs font-semibold text-fs-danger">Belum tepat</span>
             ) : null}
           </button>
         );
@@ -67,11 +67,11 @@ export function QuizQuestion({
   const submittedAnswerIsCorrect = submitted && isQuestionCorrect(question, currentAnswer);
 
   return (
-    <div className="rounded-xl border border-zinc-700/70 bg-zinc-950/55 p-4 sm:p-5">
-      <p className="text-base font-semibold leading-7 text-zinc-100">{question.question}</p>
+    <div className="rounded-xl border border-fs-border bg-fs-surface p-4 sm:p-5">
+      <p className="text-base font-semibold leading-7 text-fs-text">{question.question}</p>
 
       {question.type === "code-output" ? (
-        <pre className="mt-3 overflow-x-auto rounded-lg border border-zinc-700/80 bg-zinc-950 p-3 text-sm leading-7 text-zinc-200">
+        <pre className="mt-3 overflow-x-auto rounded-lg border border-fs-code-border bg-fs-code-background p-3 text-sm leading-7 text-fs-text-soft">
           <code>{question.code}</code>
         </pre>
       ) : null}
@@ -104,22 +104,22 @@ export function QuizQuestion({
                 aria-checked={active}
                 disabled={disabled}
                 onClick={() => onAnswerChange(option.value)}
-                className={`flex w-full items-start justify-between gap-3 rounded-xl border px-4 py-3 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-cyan-300/40 ${
+                className={`flex w-full items-start justify-between gap-3 rounded-xl border px-4 py-3 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-fs-focus/40 ${
                   showCorrect
-                    ? "border-emerald-300/50 bg-emerald-500/10 text-emerald-50"
+                    ? "border-fs-success/50 bg-fs-success-soft text-fs-text"
                     : showWrong
-                      ? "border-rose-300/50 bg-rose-500/10 text-rose-50"
+                      ? "border-fs-danger/50 bg-fs-danger-soft text-fs-text"
                       : active
-                        ? "border-cyan-300/60 bg-cyan-500/10 text-cyan-50"
-                        : "border-zinc-700/80 bg-zinc-950/60 text-zinc-200 hover:border-zinc-600 hover:bg-zinc-800/80"
+                        ? "border-fs-border-strong bg-fs-accent-soft text-fs-text"
+                        : "border-fs-border bg-fs-surface text-fs-text-soft hover:border-fs-border-strong hover:bg-fs-surface-strong hover:text-fs-text"
                 } disabled:cursor-not-allowed disabled:opacity-90`}
               >
                 <span>{option.label}</span>
                 {showCorrect ? (
-                  <span className="shrink-0 text-xs font-semibold text-emerald-200">Benar</span>
+                  <span className="shrink-0 text-xs font-semibold text-fs-success">Benar</span>
                 ) : null}
                 {showWrong ? (
-                  <span className="shrink-0 text-xs font-semibold text-rose-200">Belum tepat</span>
+                  <span className="shrink-0 text-xs font-semibold text-fs-danger">Belum tepat</span>
                 ) : null}
               </button>
             );
@@ -136,12 +136,12 @@ export function QuizQuestion({
             onChange={(event) => onAnswerChange(event.target.value)}
             placeholder="Ketik jawaban kamu"
             aria-label="Jawaban kamu"
-            className={`w-full rounded-xl border bg-zinc-950/60 px-4 py-3 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none ${
+            className={`w-full rounded-xl border bg-fs-surface px-4 py-3 text-sm text-fs-text placeholder:text-fs-text-muted focus:outline-none focus:ring-2 focus:ring-fs-focus/20 ${
               submitted
                 ? submittedAnswerIsCorrect
-                  ? "border-emerald-300/45 focus:border-emerald-300/60"
-                  : "border-rose-300/45 focus:border-rose-300/60"
-                : "border-zinc-700/80 focus:border-cyan-300/50"
+                  ? "border-fs-success/45 focus:border-fs-success/60"
+                  : "border-fs-danger/45 focus:border-fs-danger/60"
+                : "border-fs-border focus:border-fs-border-strong"
             }`}
           />
         </div>

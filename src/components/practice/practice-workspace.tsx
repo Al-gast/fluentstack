@@ -9,6 +9,7 @@ import {
   type PreviewViewport,
 } from "@/components/playground/coding-lab";
 import { useProgress } from "@/hooks/use-progress";
+import { getCodingPracticeCompletionGate } from "@/lib/challenges/completion-gate";
 import { validateChallengeCode } from "@/lib/challenges/validate-code";
 import { cn } from "@/lib/utils";
 import type { ChallengeCode, CodingChallenge } from "@/types/challenge";
@@ -27,9 +28,9 @@ type PracticeWorkspaceStatefulProps = PracticeWorkspaceProps & {
   isRequired: boolean;
   storageLabel: string;
   isLoading: boolean;
-  onSaveCode: (code: ChallengeCode) => void;
-  onSaveChecklist: (items: string[]) => void;
-  onComplete: () => void;
+  onSaveCode: (code: ChallengeCode) => void | Promise<unknown>;
+  onSaveChecklist: (items: string[]) => void | Promise<unknown>;
+  onComplete: () => void | Promise<unknown>;
 };
 
 function resolveCode(starterCode: ChallengeCode, savedCode?: ChallengeCode): ChallengeCode {
@@ -160,22 +161,32 @@ function PracticeWorkspaceStateful({
     };
   }, []);
 
-  const validationSummary = useMemo(() => {
+  const validationResults = useMemo(() => {
     if (!isValidationSummaryReady) {
-      return challenge.validation ? "Menyiapkan checks..." : `${completedChecklistItems.length}/${challenge.checklist.length} checklist`;
+      return (
+        challenge.validation?.checks.map((check) => ({
+          id: check.id,
+          label: check.label,
+          passed: false,
+          required: check.required ?? true,
+          message: "Check akan berjalan setelah editor siap.",
+        })) ?? []
+      );
     }
 
-    const results = validateChallengeCode(challenge.validation, code);
+    return validateChallengeCode(challenge.validation, code);
+  }, [challenge.validation, code, isValidationSummaryReady]);
 
-    if (results.length === 0) {
-      return `${completedChecklistItems.length}/${challenge.checklist.length} checklist`;
-    }
-
-    const requiredResults = results.filter((result) => result.required);
-    const passedRequired = requiredResults.filter((result) => result.passed).length;
-
-    return `${passedRequired}/${requiredResults.length} checks lolos`;
-  }, [challenge, code, completedChecklistItems.length, isValidationSummaryReady]);
+  const completionGate = useMemo(
+    () =>
+      getCodingPracticeCompletionGate({
+        challenge,
+        validationResults,
+        completedChecklistItems,
+        isValidationReady: isValidationSummaryReady,
+      }),
+    [challenge, validationResults, completedChecklistItems, isValidationSummaryReady],
+  );
 
   const handleLayoutChange = (nextLayout: PracticeLayout) => {
     setLayout(nextLayout);
@@ -206,60 +217,62 @@ function PracticeWorkspaceStateful({
   };
 
   return (
-    <main className="min-h-screen bg-[radial-gradient(1200px_circle_at_10%_-10%,rgba(8,145,178,0.24),transparent_45%),radial-gradient(1100px_circle_at_90%_0%,rgba(99,102,241,0.18),transparent_50%),#070b14] text-zinc-100">
-      <header className="sticky top-0 z-20 border-b border-zinc-800/80 bg-zinc-950/90 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-[1760px] flex-col gap-3 px-4 py-3 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+    <main className="min-h-screen bg-[var(--fs-app-gradient)] text-fs-text">
+      <header className="sticky top-0 z-20 border-b border-fs-border bg-fs-surface-strong backdrop-blur">
+        <div className="mx-auto flex w-full max-w-[1760px] flex-col gap-2 px-4 py-2.5 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div className="min-w-0">
-            <Link
-              href={`/lesson/${lesson.slug}`}
-              className="inline-flex items-center rounded-lg border border-cyan-300/30 bg-cyan-400/10 px-3 py-2 text-sm font-semibold text-cyan-100 transition hover:border-cyan-200/50 hover:bg-cyan-400/15 focus:outline-none focus:ring-2 focus:ring-cyan-300/30"
-            >
-              ← Kembali ke lesson
-            </Link>
-            <h1 className="mt-1 truncate text-lg font-bold text-zinc-50 sm:text-xl">{challenge.title}</h1>
-            <p className="mt-1 text-xs text-zinc-400">
-              Dari lesson: <span className="text-zinc-200">{lesson.title}</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <Link
+                href={`/lesson/${lesson.slug}`}
+                className="inline-flex items-center rounded-lg border border-fs-border-strong bg-fs-accent-soft px-2.5 py-1.5 text-xs font-semibold text-fs-accent transition hover:border-fs-border-strong hover:bg-fs-accent-soft focus:outline-none focus:ring-2 focus:ring-fs-focus/30"
+              >
+                ← Kembali
+              </Link>
+              {isRequired ? (
+                <span className="rounded-lg border border-fs-warning/25 bg-fs-warning-soft px-2.5 py-1.5 text-xs font-semibold text-fs-warning">
+                  Blok wajib
+                </span>
+              ) : null}
+            </div>
+            <h1 className="mt-1 truncate text-base font-bold text-fs-text sm:text-lg">{challenge.title}</h1>
+            <p className="mt-1 text-xs text-fs-text-muted">
+              Dari lesson: <span className="text-fs-text-soft">{lesson.title}</span>
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-1.5 font-semibold text-zinc-300">
+            <span className="rounded-lg border border-fs-border bg-fs-surface px-3 py-1.5 font-semibold text-fs-text-soft">
               {storageLabel}
             </span>
-            <span className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-1.5 font-semibold text-zinc-300">
-              {validationSummary}
+            <span className="rounded-lg border border-fs-border bg-fs-surface px-3 py-1.5 font-semibold text-fs-text-soft">
+              {completionGate.summary}
             </span>
             <span
               className={`rounded-lg border px-3 py-1.5 font-semibold ${
                 isCompleted
-                  ? "border-emerald-300/35 bg-emerald-500/15 text-emerald-100"
-                  : "border-amber-300/30 bg-amber-500/10 text-amber-100"
+                  ? "border-fs-success/35 bg-fs-success-soft text-fs-success"
+                  : "border-fs-warning/30 bg-fs-warning-soft text-fs-warning"
               }`}
             >
               {isLoading ? "Memuat progres..." : isCompleted ? "Selesai" : "Belum selesai"}
             </span>
-            {isRequired ? (
-              <span className="rounded-lg border border-cyan-300/25 bg-cyan-500/10 px-3 py-1.5 font-semibold text-cyan-100">
-                Blok wajib
-              </span>
-            ) : null}
           </div>
         </div>
 
-        <div className="mx-auto grid w-full max-w-[1760px] gap-3 px-4 pb-3 sm:px-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.85fr)_auto] lg:items-end lg:px-8">
-          <div>
-            <p className="mb-2 text-xs font-semibold text-zinc-400">Layout workspace</p>
-            <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+        <div className="mx-auto flex w-full max-w-[1760px] flex-col gap-2 px-4 pb-2.5 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div className="flex min-w-0 flex-wrap items-center gap-2">
+            <span className="shrink-0 text-xs font-semibold text-fs-text-muted">Layout</span>
+            <div className="flex min-w-0 flex-wrap gap-1.5">
               {layoutOptions.map((option) => (
                 <button
                   key={option.value}
                   type="button"
                   onClick={() => handleLayoutChange(option.value)}
                   className={cn(
-                    "rounded-lg border px-3 py-2 text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-cyan-300/30",
+                    "rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-fs-focus/30",
                     layout === option.value
-                      ? "border-cyan-300/45 bg-cyan-500/15 text-cyan-100"
-                      : "border-zinc-700/80 bg-zinc-950/55 text-zinc-300 hover:bg-zinc-800",
+                      ? "border-fs-border-strong bg-fs-accent-soft text-fs-accent"
+                      : "border-fs-border bg-fs-surface text-fs-text-soft hover:bg-fs-surface-strong hover:text-fs-text",
                   )}
                 >
                   {option.label}
@@ -268,34 +281,33 @@ function PracticeWorkspaceStateful({
             </div>
           </div>
 
-          <div>
-            <p className="mb-2 text-xs font-semibold text-zinc-400">Preview viewport</p>
-            <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+          <div className="flex min-w-0 flex-wrap items-center gap-2">
+            <span className="shrink-0 text-xs font-semibold text-fs-text-muted">Preview</span>
+            <div className="flex min-w-0 flex-wrap gap-1.5">
               {viewportOptions.map((option) => (
                 <button
                   key={option.value}
                   type="button"
                   onClick={() => handleViewportChange(option.value)}
                   className={cn(
-                    "rounded-lg border px-3 py-2 text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-cyan-300/30",
+                    "rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-fs-focus/30",
                     viewport === option.value
-                      ? "border-cyan-300/45 bg-cyan-500/15 text-cyan-100"
-                      : "border-zinc-700/80 bg-zinc-950/55 text-zinc-300 hover:bg-zinc-800",
+                      ? "border-fs-border-strong bg-fs-accent-soft text-fs-accent"
+                      : "border-fs-border bg-fs-surface text-fs-text-soft hover:bg-fs-surface-strong hover:text-fs-text",
                   )}
                 >
                   {option.label}
                 </button>
               ))}
             </div>
+            <button
+              type="button"
+              onClick={handleResetLayout}
+              className="rounded-lg border border-fs-border bg-fs-surface px-2.5 py-1.5 text-xs font-semibold text-fs-text-soft transition hover:bg-fs-surface-strong hover:text-fs-text focus:outline-none focus:ring-2 focus:ring-fs-focus/30"
+            >
+              Reset layout
+            </button>
           </div>
-
-          <button
-            type="button"
-            onClick={handleResetLayout}
-            className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-2 text-xs font-semibold text-zinc-300 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-cyan-300/30"
-          >
-            Reset layout
-          </button>
         </div>
       </header>
 
@@ -327,9 +339,10 @@ function PracticeWorkspaceStateful({
             onSaveChecklist([]);
           }}
           onMarkCompleted={() => {
-            onSaveCode(code);
-            onSaveChecklist(completedChecklistItems);
-            onComplete();
+            return Promise.resolve()
+              .then(() => onSaveCode(code))
+              .then(() => onSaveChecklist(completedChecklistItems))
+              .then(() => onComplete());
           }}
         />
       </div>
@@ -352,17 +365,27 @@ export function PracticeWorkspace({
     isLoading,
   } = useProgress(lesson);
 
+  if (isLoading) {
+    return (
+      <main className="min-h-screen bg-[var(--fs-app-gradient)] text-fs-text">
+        <div className="mx-auto flex min-h-screen w-full max-w-[1760px] items-center justify-center px-4 py-10 sm:px-6 lg:px-8">
+          <section className="w-full max-w-xl rounded-2xl border border-fs-border bg-fs-surface p-6 text-center shadow-[inset_0_1px_0_var(--fs-border)]">
+            <p className="text-sm font-semibold text-fs-accent">Memuat workspace practice</p>
+            <h1 className="mt-2 text-xl font-bold text-fs-text">{challenge.title}</h1>
+            <p className="mt-3 text-sm leading-6 text-fs-text-muted">
+              Kami menyiapkan kode tersimpan, checklist, dan status completion sebelum editor dibuka.
+            </p>
+          </section>
+        </div>
+      </main>
+    );
+  }
+
   const progress = getChallengeProgress(challenge.id);
   const initialCode = resolveCode(challenge.starterCode, progress?.savedCode);
   const initialChecklist =
     progress?.completedChecklistItems?.filter((item) => challenge.checklist.includes(item)) ?? [];
-  const stateResetKey = [
-    challenge.id,
-    progress?.savedCode?.html ?? "",
-    progress?.savedCode?.css ?? "",
-    progress?.savedCode?.js ?? "",
-    (progress?.completedChecklistItems ?? []).join("|"),
-  ].join("::");
+  const stateResetKey = `${lesson.id}::${challenge.id}::${codingBlockId}`;
 
   return (
     <PracticeWorkspaceStateful

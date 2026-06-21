@@ -65,17 +65,17 @@ export function SequenceCta({ lessons, scope }: SequenceCtaProps) {
   const targetLesson = target?.lesson ?? lessons[0];
 
   return (
-    <div className="mt-6 rounded-2xl border border-cyan-300/20 bg-cyan-400/[0.04] p-4 sm:p-5">
+    <div className="mt-6 rounded-2xl border border-fs-border-strong bg-fs-accent-soft p-4 sm:p-5">
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="text-sm font-medium text-cyan-200">
+          <p className="text-sm font-medium text-fs-accent">
             {scope === "module" ? "Urutan lesson yang disarankan" : "Urutan track yang disarankan"}
           </p>
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-zinc-300">
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-fs-text-soft">
             {isLoading ? "Memuat progres belajar kamu..." : getProgressCopy(scope, isCompleted, hasProgress)}
           </p>
           {targetLesson ? (
-            <p className="mt-2 text-xs text-zinc-400">
+            <p className="mt-2 text-xs text-fs-text-muted">
               {isLoading ? "Menyiapkan rekomendasi..." : `Rekomendasi berikutnya: ${targetLesson.title}`}
             </p>
           ) : null}
@@ -84,7 +84,7 @@ export function SequenceCta({ lessons, scope }: SequenceCtaProps) {
         {targetLesson ? (
           <Link
             href={`/lesson/${targetLesson.slug}`}
-            className="inline-flex shrink-0 justify-center rounded-xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
+            className="inline-flex shrink-0 justify-center rounded-xl bg-fs-accent px-5 py-3 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40"
           >
             {isLoading ? "Memuat..." : getButtonLabel(scope, isCompleted, hasProgress)}
           </Link>

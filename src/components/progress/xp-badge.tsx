@@ -10,11 +10,11 @@ export function XpBadge({ value, isLoading = false, className }: XpBadgeProps) {
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-2 rounded-xl border border-cyan-300/30 bg-cyan-500/10 px-3 py-2 text-sm font-semibold text-cyan-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
+        "inline-flex items-center gap-2 rounded-xl border border-fs-border-strong bg-fs-accent-soft px-3 py-2 text-sm font-semibold text-fs-accent shadow-[inset_0_1px_0_var(--fs-border)]",
         className,
       )}
     >
-      <span className="inline-block h-2 w-2 rounded-full bg-cyan-300" />
+      <span className="inline-block h-2 w-2 rounded-full bg-fs-accent" />
       <span>{isLoading ? "Memuat XP..." : `${value} XP`}</span>
     </div>
   );

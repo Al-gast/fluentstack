@@ -4,8 +4,10 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Lesson } from "@/types/learning";
 import type { ChallengeCode } from "@/types/challenge";
 import { DEFAULT_USER_PROGRESS, type ProgressStorageMode, type UserProgress } from "@/types/progress";
+import { getQuizById } from "@/lib/content/get-quiz";
 import { getProgressService } from "@/lib/progress/progress-service";
 import { calculateLessonProgress } from "@/lib/progress/progress-calculator";
+import { getPassingScore } from "@/lib/quiz/scoring";
 import { useAuthUser } from "@/hooks/use-auth-user";
 
 const DEFAULT_BLOCK_XP = 5;
@@ -19,6 +21,11 @@ type CompleteQuizParams = {
   quizId: string;
   score: number;
   passed: boolean;
+};
+
+type BlockCompletionOptions = {
+  xpDelta?: number;
+  isMeaningfulActivity?: boolean;
 };
 
 function useResolvedProgress() {
@@ -108,52 +115,50 @@ export function useProgress(lesson: Lesson) {
   );
 
   const markBlockCompleted = useCallback(
-    (blockId: string, options?: { xpDelta?: number }) => {
-      void (async () => {
-        const nextProgress = await progressService.markBlockCompleted({
-          lesson,
-          blockId,
-          xpDelta: options?.xpDelta ?? DEFAULT_BLOCK_XP,
-        });
-        setUserProgress(nextProgress);
-      })();
+    async (blockId: string, options?: BlockCompletionOptions) => {
+      const nextProgress = await progressService.markBlockCompleted({
+        lesson,
+        blockId,
+        xpDelta: options?.xpDelta ?? DEFAULT_BLOCK_XP,
+        isMeaningfulActivity: options?.isMeaningfulActivity,
+      });
+      setUserProgress(nextProgress);
+      return nextProgress;
     },
     [lesson, progressService, setUserProgress],
   );
 
   const markQuickCheckCompleted = useCallback(
-    (blockId: string) => {
-      void (async () => {
-        const nextProgress = await progressService.markBlockCompleted({
-          lesson,
-          blockId,
-          xpDelta: QUICK_CHECK_XP,
-        });
-        setUserProgress(nextProgress);
-      })();
+    async (blockId: string) => {
+      const nextProgress = await progressService.markBlockCompleted({
+        lesson,
+        blockId,
+        xpDelta: QUICK_CHECK_XP,
+      });
+      setUserProgress(nextProgress);
+      return nextProgress;
     },
     [lesson, progressService, setUserProgress],
   );
 
   const completeQuizAttempt = useCallback(
-    ({ blockId, quizId, score, passed }: CompleteQuizParams) => {
-      void (async () => {
-        let nextProgress = await progressService.saveQuizAttempt({
-          quizId,
-          score,
-          passed,
+    async ({ blockId, quizId, score, passed }: CompleteQuizParams) => {
+      let nextProgress = await progressService.saveQuizAttempt({
+        quizId,
+        score,
+        passed,
+      });
+
+      if (passed) {
+        nextProgress = await progressService.markBlockCompleted({
+          lesson,
+          blockId,
+          xpDelta: QUIZ_PASS_XP,
         });
+      }
 
-        if (passed) {
-          nextProgress = await progressService.markBlockCompleted({
-            lesson,
-            blockId,
-            xpDelta: QUIZ_PASS_XP,
-          });
-        }
-
-        setUserProgress(nextProgress);
-      })();
+      setUserProgress(nextProgress);
+      return nextProgress;
     },
     [lesson, progressService, setUserProgress],
   );
@@ -166,11 +171,10 @@ export function useProgress(lesson: Lesson) {
   );
 
   const saveWritingDraft = useCallback(
-    (blockId: string, draft: string) => {
-      void (async () => {
-        const nextProgress = await progressService.saveWritingDraft(blockId, draft);
-        setUserProgress(nextProgress);
-      })();
+    async (blockId: string, draft: string) => {
+      const nextProgress = await progressService.saveWritingDraft(blockId, draft);
+      setUserProgress(nextProgress);
+      return nextProgress;
     },
     [progressService, setUserProgress],
   );
@@ -183,35 +187,32 @@ export function useProgress(lesson: Lesson) {
   );
 
   const markWritingPracticeCompleted = useCallback(
-    (blockId: string) => {
-      void (async () => {
-        const nextProgress = await progressService.markBlockCompleted({
-          lesson,
-          blockId,
-          xpDelta: WRITING_PRACTICE_XP,
-        });
-        setUserProgress(nextProgress);
-      })();
+    async (blockId: string) => {
+      const nextProgress = await progressService.markBlockCompleted({
+        lesson,
+        blockId,
+        xpDelta: WRITING_PRACTICE_XP,
+      });
+      setUserProgress(nextProgress);
+      return nextProgress;
     },
     [lesson, progressService, setUserProgress],
   );
 
   const saveChallengeCode = useCallback(
-    (challengeId: string, code: ChallengeCode) => {
-      void (async () => {
-        const nextProgress = await progressService.saveChallengeCode(challengeId, code);
-        setUserProgress(nextProgress);
-      })();
+    async (challengeId: string, code: ChallengeCode) => {
+      const nextProgress = await progressService.saveChallengeCode(challengeId, code);
+      setUserProgress(nextProgress);
+      return nextProgress;
     },
     [progressService, setUserProgress],
   );
 
   const saveChallengeChecklist = useCallback(
-    (challengeId: string, completedChecklistItems: string[]) => {
-      void (async () => {
-        const nextProgress = await progressService.saveChallengeChecklist(challengeId, completedChecklistItems);
-        setUserProgress(nextProgress);
-      })();
+    async (challengeId: string, completedChecklistItems: string[]) => {
+      const nextProgress = await progressService.saveChallengeChecklist(challengeId, completedChecklistItems);
+      setUserProgress(nextProgress);
+      return nextProgress;
     },
     [progressService, setUserProgress],
   );
@@ -223,17 +224,77 @@ export function useProgress(lesson: Lesson) {
     [userProgress.challengeProgress],
   );
 
-  const markCodingPracticeCompleted = useCallback(
-    ({ blockId, challengeId }: { blockId: string; challengeId: string }) => {
-      void (async () => {
-        await progressService.markChallengeCompleted(challengeId);
-        const nextProgress = await progressService.markBlockCompleted({
+  useEffect(() => {
+    if (isLoading) {
+      return;
+    }
+
+    const completedBlockIds = userProgress.completedBlockIds;
+    const missingCompletedBlocks = lesson.blocks.filter((block) => {
+      if (completedBlockIds.includes(block.id)) {
+        return false;
+      }
+
+      if (block.type === "quiz") {
+        const quiz = getQuizById(block.quizId);
+        const bestScore = userProgress.quizScores[block.quizId] ?? 0;
+
+        return Boolean(quiz && bestScore >= getPassingScore(quiz));
+      }
+
+      if (block.type === "coding-practice") {
+        return userProgress.challengeProgress[block.challengeId]?.isCompleted ?? false;
+      }
+
+      return false;
+    });
+
+    if (missingCompletedBlocks.length === 0) {
+      return;
+    }
+
+    let isCancelled = false;
+
+    void (async () => {
+      let nextProgress: UserProgress | null = null;
+
+      for (const block of missingCompletedBlocks) {
+        nextProgress = await progressService.markBlockCompleted({
           lesson,
-          blockId,
-          xpDelta: CODING_PRACTICE_XP,
+          blockId: block.id,
+          xpDelta: 0,
+          isMeaningfulActivity: false,
         });
+      }
+
+      if (!isCancelled && nextProgress) {
         setUserProgress(nextProgress);
-      })();
+      }
+    })();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [
+    isLoading,
+    lesson,
+    progressService,
+    setUserProgress,
+    userProgress.challengeProgress,
+    userProgress.completedBlockIds,
+    userProgress.quizScores,
+  ]);
+
+  const markCodingPracticeCompleted = useCallback(
+    async ({ blockId, challengeId }: { blockId: string; challengeId: string }) => {
+      await progressService.markChallengeCompleted(challengeId);
+      const nextProgress = await progressService.markBlockCompleted({
+        lesson,
+        blockId,
+        xpDelta: CODING_PRACTICE_XP,
+      });
+      setUserProgress(nextProgress);
+      return nextProgress;
     },
     [lesson, progressService, setUserProgress],
   );

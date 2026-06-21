@@ -517,6 +517,7 @@ export type WritingPracticeBlock = {
   prompt: string;
   placeholder: string;
   minimumCharacters?: number;
+  minimumWords?: number;
   modelAnswer?: string;
   checklist?: string[];
 };

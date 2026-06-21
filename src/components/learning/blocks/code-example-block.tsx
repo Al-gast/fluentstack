@@ -1,41 +1,39 @@
 import type { CodeExampleBlock as CodeExampleBlockData } from "@/types/learning";
+import { BlockRequirementBadge } from "@/components/learning/block-requirement-badge";
+import { ReadOnlyBlockCompletion } from "@/components/learning/read-only-block-completion";
 
 type CodeExampleBlockProps = {
   block: CodeExampleBlockData;
   isCompleted: boolean;
-  onComplete: () => void;
+  isRequired: boolean;
+  onComplete: () => void | Promise<unknown>;
 };
 
-export function CodeExampleBlock({ block, isCompleted, onComplete }: CodeExampleBlockProps) {
+export function CodeExampleBlock({ block, isCompleted, isRequired, onComplete }: CodeExampleBlockProps) {
   return (
-    <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] p-5 sm:p-6">
-      <h3 className="text-xl font-bold text-zinc-100">{block.title}</h3>
+    <section className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6">
+      <div className="flex flex-wrap items-center gap-2">
+        <h3 className="text-xl font-bold text-fs-text">{block.title}</h3>
+        <BlockRequirementBadge isRequired={isRequired} />
+      </div>
 
-      <div className="mt-4 overflow-hidden rounded-xl border border-zinc-700/80 bg-zinc-950/80">
-        <div className="border-b border-zinc-700/80 px-4 py-2 text-xs text-zinc-400">{block.language}</div>
-        <pre className="overflow-x-auto p-4 text-sm leading-7 text-zinc-200">
+      <div className="mt-4 overflow-hidden rounded-xl border border-fs-code-border bg-fs-code-background">
+        <div className="border-b border-fs-code-border px-4 py-2 text-xs text-fs-text-muted">{block.language}</div>
+        <pre className="overflow-x-auto p-4 text-sm leading-7 text-fs-text-soft">
           <code>{block.code}</code>
         </pre>
       </div>
 
       {block.explanation ? (
-        <p className="mt-4 text-sm leading-7 text-zinc-300">{block.explanation}</p>
+        <p className="mt-4 text-sm leading-7 text-fs-text-soft">{block.explanation}</p>
       ) : null}
 
-      <div className="mt-5 flex items-center gap-3">
-        <button
-          type="button"
-          onClick={onComplete}
-          disabled={isCompleted}
-          className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${
-            isCompleted
-              ? "cursor-not-allowed border border-emerald-300/35 bg-emerald-500/15 text-emerald-100"
-              : "border border-zinc-700/80 bg-zinc-950/55 text-zinc-100 hover:bg-zinc-800"
-          }`}
-        >
-          {isCompleted ? "Selesai" : "Tandai selesai"}
-        </button>
-      </div>
+      <ReadOnlyBlockCompletion
+        isCompleted={isCompleted}
+        isRequired={isRequired}
+        completeLabel="Saya paham"
+        onComplete={onComplete}
+      />
     </section>
   );
 }

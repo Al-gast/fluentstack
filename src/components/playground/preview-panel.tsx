@@ -40,7 +40,7 @@ export function PreviewPanel({
   }, [code.css, code.html, code.js]);
 
   return (
-    <div className="h-full min-w-0 overflow-auto rounded-xl border border-zinc-700/80 bg-zinc-900/80 p-2">
+    <div className="h-full min-w-0 overflow-auto rounded-xl border border-fs-code-border bg-fs-code-surface p-2">
       <div
         className="mx-auto h-full min-w-0 overflow-hidden rounded-lg bg-white"
         style={{ width: viewportWidth, maxWidth: "100%" }}

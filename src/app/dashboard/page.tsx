@@ -7,16 +7,19 @@ import { ProgressBar } from "@/components/progress/progress-bar";
 import { curriculumLevelsByTrackId } from "@/content/curriculum-levels";
 import { tracks } from "@/content/tracks";
 import { useGuestProgress } from "@/hooks/use-progress";
-import { getTrackBySlug } from "@/lib/content/get-track";
 import { getOrderedModuleLessons, getOrderedTrackLessons, getOrderedTrackModules } from "@/lib/content/learning-path";
 import {
   calculateLessonProgress,
   calculateLessonsProgress,
-  getContinueLessonProgress,
   getProgressStatus,
   type ProgressStatus,
 } from "@/lib/progress/progress-calculator";
-import type { CodingPracticeBlock, Lesson, LessonBlock, Module } from "@/types/learning";
+import {
+  getModuleForLesson,
+  getTrackProgressSummaries,
+  selectActiveTrackSummary,
+} from "@/lib/progress/track-progress";
+import type { CodingPracticeBlock, Lesson, LessonBlock } from "@/types/learning";
 
 const statusLabel: Record<ProgressStatus, string> = {
   "not-started": "Belum mulai",
@@ -68,26 +71,20 @@ function getIncompletePracticeItems(moduleLessons: Lesson[], completedBlockIds: 
     .slice(0, 3);
 }
 
-function getModuleForLesson(moduleList: Module[], lesson?: Lesson): Module | undefined {
-  if (!lesson) {
-    return undefined;
-  }
-
-  return moduleList.find((moduleItem) => moduleItem.id === lesson.moduleId);
-}
-
 export default function DashboardPage() {
   const { userProgress, storageMode, isLoading } = useGuestProgress();
-  const activeTrack = getTrackBySlug("frontend-engineering");
-  const activeTrackModules = activeTrack ? getOrderedTrackModules(activeTrack) : [];
-  const activeTrackLessons = activeTrack ? getOrderedTrackLessons(activeTrack) : [];
+  const trackSummaries = getTrackProgressSummaries(userProgress.completedBlockIds);
+  const activeTrackSummary = selectActiveTrackSummary(trackSummaries);
+  const activeTrack = activeTrackSummary?.track;
+  const activeTrackModules = activeTrackSummary?.modules ?? [];
+  const activeTrackLessons = activeTrackSummary?.lessons ?? [];
   const firstLesson = activeTrackLessons[0];
   const hasProgress =
     userProgress.completedBlockIds.length > 0 ||
     userProgress.completedLessonIds.length > 0 ||
     userProgress.totalXp > 0;
 
-  const continueProgress = getContinueLessonProgress(activeTrackLessons, userProgress.completedBlockIds);
+  const continueProgress = activeTrackSummary?.continueProgress ?? null;
   const continueLesson = continueProgress?.lesson ?? firstLesson;
   const continueTrack = activeTrack;
   const continueModule = getModuleForLesson(activeTrackModules, continueLesson);
@@ -97,7 +94,8 @@ export default function DashboardPage() {
     : null;
   const continueStatus = continueProgress?.status ?? "not-started";
   const continueModuleMetrics = calculateLessonsProgress(continueModuleLessons, userProgress.completedBlockIds);
-  const activeTrackMetrics = calculateLessonsProgress(activeTrackLessons, userProgress.completedBlockIds);
+  const activeTrackMetrics =
+    activeTrackSummary?.metrics ?? calculateLessonsProgress(activeTrackLessons, userProgress.completedBlockIds);
   const currentLevel = getCurrentLevel(activeTrack?.id ?? "", continueModule?.id);
   const currentLevelModules = currentLevel
     ? activeTrackModules.filter((moduleItem) => currentLevel.moduleIds.includes(moduleItem.id))
@@ -122,16 +120,16 @@ export default function DashboardPage() {
   return (
     <AppShell title="Dashboard">
       <div className="mx-auto max-w-[1440px] space-y-8">
-        <section className="rounded-3xl border border-cyan-300/20 bg-cyan-500/[0.04] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-8">
+        <section className="rounded-3xl border border-fs-border-strong bg-fs-accent-soft p-6 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-8">
           <div className="flex flex-col gap-6 xl:flex-row xl:items-start xl:justify-between">
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-cyan-200">
+              <p className="text-sm font-semibold text-fs-accent">
                 {hasProgress ? "Lanjutkan belajar" : "Mulai belajar"}
               </p>
-              <h1 className="mt-2 text-3xl font-bold text-zinc-50 sm:text-4xl">
+              <h1 className="mt-2 text-3xl font-bold text-fs-text sm:text-4xl">
                 {isLoading ? "Memuat rekomendasi..." : continueLesson?.title ?? "Mulai dari Web Foundations"}
               </h1>
-              <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-300">
+              <p className="mt-3 max-w-3xl text-base leading-7 text-fs-text-soft">
                 {isLoading
                   ? "Memuat progres belajar kamu..."
                   : hasProgress
@@ -139,34 +137,34 @@ export default function DashboardPage() {
                     : "Mulai dari Web Foundations untuk memahami cara kerja web sebelum masuk HTML dan CSS."}
               </p>
 
-              <div className="mt-5 flex flex-wrap gap-2 text-xs text-zinc-300">
+              <div className="mt-5 flex flex-wrap gap-2 text-xs text-fs-text-soft">
                 {continueTrack ? (
-                  <span className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-1.5">
+                  <span className="rounded-lg border border-fs-border bg-fs-surface px-3 py-1.5">
                     {continueTrack.title}
                   </span>
                 ) : null}
                 {currentLevel ? (
-                  <span className="rounded-lg border border-cyan-300/25 bg-cyan-500/10 px-3 py-1.5 text-cyan-100">
+                  <span className="rounded-lg border border-fs-border-strong bg-fs-accent-soft px-3 py-1.5 text-fs-accent">
                     Level {currentLevel.level} · {currentLevel.title}
                   </span>
                 ) : null}
                 {continueModule ? (
-                  <span className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-1.5">
+                  <span className="rounded-lg border border-fs-border bg-fs-surface px-3 py-1.5">
                     {continueModule.title}
                   </span>
                 ) : null}
-                <span className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-1.5">
+                <span className="rounded-lg border border-fs-border bg-fs-surface px-3 py-1.5">
                   Track {isLoading ? "memuat..." : `${activeTrackMetrics.progressPercent}%`}
                 </span>
               </div>
             </div>
 
-            <aside className="w-full rounded-2xl border border-zinc-800/80 bg-zinc-950/60 p-5 xl:w-[420px]">
+            <aside className="w-full rounded-2xl border border-fs-border bg-fs-surface p-5 xl:w-[420px]">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <span className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-1.5 text-xs font-semibold text-zinc-300">
+                <span className="rounded-lg border border-fs-border bg-fs-surface-soft px-3 py-1.5 text-xs font-semibold text-fs-text-soft">
                   {isLoading ? "Memuat..." : statusLabel[continueStatus]}
                 </span>
-                <span className="text-xs text-zinc-400">
+                <span className="text-xs text-fs-text-muted">
                   {continueLesson ? `${continueLesson.estimatedMinutes} menit` : "Lesson pertama"}
                 </span>
               </div>
@@ -178,7 +176,7 @@ export default function DashboardPage() {
                 isLoading={isLoading}
                 tone={continueMetrics?.isCompleted ? "success" : "primary"}
               />
-              <p className="mt-3 text-xs text-zinc-400">
+              <p className="mt-3 text-xs text-fs-text-muted">
                 {isLoading
                   ? "Progres sedang dimuat."
                   : `${continueMetrics?.completedRequiredCount ?? 0}/${continueMetrics?.totalRequiredCount ?? 0} blok wajib selesai.`}
@@ -188,7 +186,7 @@ export default function DashboardPage() {
                 {continueLesson ? (
                   <Link
                     href={`/lesson/${continueLesson.slug}`}
-                    className="inline-flex justify-center rounded-xl bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
+                    className="inline-flex justify-center rounded-xl bg-fs-accent px-4 py-2.5 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40"
                   >
                     {hasProgress ? "Lanjutkan lesson" : "Mulai belajar"}
                   </Link>
@@ -196,7 +194,7 @@ export default function DashboardPage() {
                 {continueTrack && continueModule ? (
                   <Link
                     href={`/learn/${continueTrack.slug}/${continueModule.slug}`}
-                    className="inline-flex justify-center rounded-xl border border-zinc-700/80 bg-zinc-950/55 px-4 py-2.5 text-sm font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
+                    className="inline-flex justify-center rounded-xl border border-fs-border bg-fs-surface-soft px-4 py-2.5 text-sm font-semibold text-fs-text transition hover:bg-fs-surface-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/30"
                   >
                     Lihat module
                   </Link>
@@ -208,19 +206,19 @@ export default function DashboardPage() {
 
         <section className="grid gap-4 xl:grid-cols-3">
           {currentLevel ? (
-            <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-              <p className="text-sm font-semibold text-cyan-200">Current level</p>
-              <h2 className="mt-2 text-xl font-bold text-zinc-100">
+            <article className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)]">
+              <p className="text-sm font-semibold text-fs-accent">Current level</p>
+              <h2 className="mt-2 text-xl font-bold text-fs-text">
                 Level {currentLevel.level} · {currentLevel.title}
               </h2>
-              <p className="mt-2 text-sm leading-6 text-zinc-300">{currentLevel.description}</p>
+              <p className="mt-2 text-sm leading-6 text-fs-text-soft">{currentLevel.description}</p>
               <ProgressBar
                 value={currentLevelMetrics.progressPercent}
                 className="mt-4"
                 isLoading={isLoading}
                 tone={currentLevelMetrics.isCompleted ? "success" : "primary"}
               />
-              <p className="mt-3 text-xs text-zinc-400">
+              <p className="mt-3 text-xs text-fs-text-muted">
                 {isLoading
                   ? "Memuat progres level..."
                   : `${currentLevelMetrics.completedLessonCount}/${currentLevelMetrics.totalLessonCount} lesson selesai · ${completedLevelModuleCount}/${currentLevelModules.length} module selesai`}
@@ -229,17 +227,17 @@ export default function DashboardPage() {
           ) : null}
 
           {continueModule ? (
-            <article className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-              <p className="text-sm font-semibold text-cyan-200">Current module</p>
-              <h2 className="mt-2 text-xl font-bold text-zinc-100">{continueModule.title}</h2>
-              <p className="mt-2 text-sm leading-6 text-zinc-300">{continueModule.description}</p>
+            <article className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)]">
+              <p className="text-sm font-semibold text-fs-accent">Current module</p>
+              <h2 className="mt-2 text-xl font-bold text-fs-text">{continueModule.title}</h2>
+              <p className="mt-2 text-sm leading-6 text-fs-text-soft">{continueModule.description}</p>
               <ProgressBar
                 value={continueModuleMetrics.progressPercent}
                 className="mt-4"
                 isLoading={isLoading}
                 tone={continueModuleMetrics.isCompleted ? "success" : "primary"}
               />
-              <p className="mt-3 text-xs text-zinc-400">
+              <p className="mt-3 text-xs text-fs-text-muted">
                 {isLoading
                   ? "Memuat progres module..."
                   : `${continueModuleMetrics.completedLessonCount}/${continueModuleMetrics.totalLessonCount} lesson selesai · ${continueModuleMetrics.progressPercent}%`}
@@ -247,14 +245,14 @@ export default function DashboardPage() {
               <div className="mt-4 flex flex-wrap gap-2">
                 <Link
                   href={`/learn/${continueTrack?.slug}/${continueModule.slug}`}
-                  className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
+                  className="rounded-lg border border-fs-border bg-fs-surface-soft px-3 py-2 text-xs font-semibold text-fs-text transition hover:bg-fs-surface-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/30"
                 >
                   Buka module
                 </Link>
                 {continueLesson ? (
                   <Link
                     href={`/lesson/${continueLesson.slug}`}
-                    className="rounded-lg border border-cyan-300/35 bg-cyan-500/10 px-3 py-2 text-xs font-semibold text-cyan-100 transition hover:bg-cyan-500/20 focus:outline-none focus:ring-2 focus:ring-cyan-300/35"
+                    className="rounded-lg border border-fs-border-strong bg-fs-accent-soft px-3 py-2 text-xs font-semibold text-fs-accent transition hover:bg-fs-accent-soft focus:outline-none focus:ring-2 focus:ring-fs-focus/35"
                   >
                     Lanjutkan lesson
                   </Link>
@@ -264,13 +262,13 @@ export default function DashboardPage() {
           ) : null}
 
           {assessmentLesson ? (
-            <article className="rounded-2xl border border-cyan-300/25 bg-cyan-500/[0.05] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
-              <p className="text-sm font-semibold text-cyan-100">Next checkpoint</p>
-              <h2 className="mt-2 text-xl font-bold text-zinc-100">{assessmentLesson.title}</h2>
-              <p className="mt-2 text-sm leading-6 text-zinc-300">
+            <article className="rounded-2xl border border-fs-border-strong bg-fs-accent-soft p-5 shadow-[inset_0_1px_0_var(--fs-border)]">
+              <p className="text-sm font-semibold text-fs-accent">Next checkpoint</p>
+              <h2 className="mt-2 text-xl font-bold text-fs-text">{assessmentLesson.title}</h2>
+              <p className="mt-2 text-sm leading-6 text-fs-text-soft">
                 Kerjakan Uji Kompetensi saat lesson di module ini sudah cukup aman.
               </p>
-              <span className="mt-4 inline-flex rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-1.5 text-xs font-semibold text-zinc-300">
+              <span className="mt-4 inline-flex rounded-lg border border-fs-border bg-fs-surface px-3 py-1.5 text-xs font-semibold text-fs-text-soft">
                 {isLoading ? "Memuat..." : statusLabel[assessmentStatus]}
               </span>
               <ProgressBar
@@ -281,7 +279,7 @@ export default function DashboardPage() {
               />
               <Link
                 href={`/lesson/${assessmentLesson.slug}`}
-                className="mt-4 inline-flex rounded-lg border border-cyan-300/35 bg-cyan-500/10 px-3 py-2 text-xs font-semibold text-cyan-100 transition hover:bg-cyan-500/20 focus:outline-none focus:ring-2 focus:ring-cyan-300/35"
+                className="mt-4 inline-flex rounded-lg border border-fs-border-strong bg-fs-accent-soft px-3 py-2 text-xs font-semibold text-fs-accent transition hover:bg-fs-accent-soft focus:outline-none focus:ring-2 focus:ring-fs-focus/35"
               >
                 Buka checkpoint
               </Link>
@@ -290,13 +288,13 @@ export default function DashboardPage() {
         </section>
 
         {incompletePracticeItems.length > 0 ? (
-          <section className="rounded-2xl border border-zinc-800/80 bg-zinc-950/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:p-6">
+          <section className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <p className="text-sm font-semibold text-cyan-200">Practice yang perlu perhatian</p>
-                <h2 className="mt-2 text-xl font-bold text-zinc-100">Latihan di module aktif</h2>
+                <p className="text-sm font-semibold text-fs-accent">Practice yang perlu perhatian</p>
+                <h2 className="mt-2 text-xl font-bold text-fs-text">Latihan di module aktif</h2>
               </div>
-              <p className="max-w-xl text-sm leading-6 text-zinc-400">
+              <p className="max-w-xl text-sm leading-6 text-fs-text-muted">
                 Daftar ini hanya memakai coding-practice yang belum selesai di module yang sedang direkomendasikan.
               </p>
             </div>
@@ -304,20 +302,20 @@ export default function DashboardPage() {
               {incompletePracticeItems.map(({ lesson, block }) => (
                 <article
                   key={`${lesson.id}-${block.id}`}
-                  className="rounded-xl border border-zinc-800/80 bg-zinc-950/55 p-4"
+                  className="rounded-xl border border-fs-border bg-fs-surface-soft p-4"
                 >
-                  <p className="text-xs font-semibold text-zinc-400">Coding practice</p>
-                  <h3 className="mt-2 text-base font-bold text-zinc-100">{lesson.title}</h3>
+                  <p className="text-xs font-semibold text-fs-text-muted">Coding practice</p>
+                  <h3 className="mt-2 text-base font-bold text-fs-text">{lesson.title}</h3>
                   <div className="mt-4 flex flex-wrap gap-2">
                     <Link
                       href={`/lesson/${lesson.slug}`}
-                      className="rounded-lg border border-zinc-700/80 bg-zinc-950/55 px-3 py-2 text-xs font-semibold text-zinc-100 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500/30"
+                      className="rounded-lg border border-fs-border bg-fs-surface px-3 py-2 text-xs font-semibold text-fs-text transition hover:bg-fs-surface-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/30"
                     >
                       Buka lesson
                     </Link>
                     <Link
                       href={`/practice/${block.challengeId}`}
-                      className="rounded-lg border border-cyan-300/35 bg-cyan-500/10 px-3 py-2 text-xs font-semibold text-cyan-100 transition hover:bg-cyan-500/20 focus:outline-none focus:ring-2 focus:ring-cyan-300/35"
+                      className="rounded-lg border border-fs-border-strong bg-fs-accent-soft px-3 py-2 text-xs font-semibold text-fs-accent transition hover:bg-fs-accent-soft focus:outline-none focus:ring-2 focus:ring-fs-focus/35"
                     >
                       Buka practice
                     </Link>
@@ -329,7 +327,7 @@ export default function DashboardPage() {
         ) : null}
 
         <section className="space-y-4">
-          <h2 className="text-xl font-bold text-zinc-100">Track aktif</h2>
+          <h2 className="text-xl font-bold text-fs-text">Track aktif</h2>
           <div className="grid gap-4 lg:grid-cols-2">
             {tracks.map((track) => {
               const trackModules = getOrderedTrackModules(track);

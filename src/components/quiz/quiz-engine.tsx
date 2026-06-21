@@ -14,7 +14,7 @@ import { QuizResult } from "@/components/quiz/quiz-result";
 type QuizEngineProps = {
   quiz: Quiz;
   bestScore: number;
-  onQuizFinished: (result: { score: number; passed: boolean }) => void;
+  onQuizFinished: (result: { score: number; passed: boolean }) => void | Promise<unknown>;
 };
 
 export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps) {
@@ -22,6 +22,7 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
   const [answers, setAnswers] = useState<QuizAnswerMap>({});
   const [submittedCurrent, setSubmittedCurrent] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
+  const [isFinishing, setIsFinishing] = useState(false);
 
   const currentQuestion = quiz.questions[currentIndex];
   const currentAnswer = answers[currentQuestion.id];
@@ -43,7 +44,7 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
     setSubmittedCurrent(true);
   };
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
     if (currentIndex < quiz.questions.length - 1) {
       setCurrentIndex((prev) => prev + 1);
       setSubmittedCurrent(false);
@@ -53,8 +54,13 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
     const score = calculateQuizScore(quiz, answers);
     const passed = score >= passingScore;
 
-    onQuizFinished({ score, passed });
-    setIsFinished(true);
+    setIsFinishing(true);
+    try {
+      await onQuizFinished({ score, passed });
+      setIsFinished(true);
+    } finally {
+      setIsFinishing(false);
+    }
   };
 
   const handleRetry = () => {
@@ -82,12 +88,12 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-zinc-700/70 bg-zinc-950/50 px-4 py-3 text-sm text-zinc-300">
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-fs-border bg-fs-surface px-4 py-3 text-sm text-fs-text-soft">
         <p>
           Pertanyaan {questionNumber} dari {totalQuestions}
         </p>
         <p>
-          Target lulus: <span className="font-semibold text-cyan-100">{passingScore}</span>
+          Target lulus: <span className="font-semibold text-fs-accent">{passingScore}</span>
         </p>
       </div>
 
@@ -108,8 +114,8 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
         <div
           className={`rounded-xl border p-4 text-sm leading-7 ${
             currentIsCorrect
-              ? "border-emerald-300/35 bg-emerald-500/10 text-emerald-100"
-              : "border-rose-300/35 bg-rose-500/10 text-rose-100"
+              ? "border-fs-success/35 bg-fs-success-soft text-fs-text"
+              : "border-fs-danger/35 bg-fs-danger-soft text-fs-text"
           }`}
         >
           <p className="font-semibold">
@@ -125,7 +131,7 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
             type="button"
             disabled={currentAnswer === undefined || currentAnswer === ""}
             onClick={handleSubmitCurrent}
-            className="rounded-lg bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40 disabled:cursor-not-allowed disabled:bg-zinc-600 disabled:text-zinc-300"
+            className="rounded-lg bg-fs-accent px-4 py-2 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40 disabled:cursor-not-allowed disabled:bg-fs-surface-strong disabled:text-fs-text-muted"
           >
             Kirim jawaban
           </button>
@@ -133,9 +139,10 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
           <button
             type="button"
             onClick={handleContinue}
-            className="rounded-lg bg-cyan-400 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_10px_28px_rgba(34,211,238,0.12)] px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40"
+            disabled={isFinishing}
+            className="rounded-lg bg-fs-accent px-4 py-2 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40 disabled:cursor-not-allowed disabled:opacity-70"
           >
-            {questionNumber === totalQuestions ? "Lihat hasil" : "Lanjut"}
+            {isFinishing ? "Menyimpan..." : questionNumber === totalQuestions ? "Lihat hasil" : "Lanjut"}
           </button>
         )}
       </div>

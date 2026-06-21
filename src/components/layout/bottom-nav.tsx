@@ -19,7 +19,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed inset-x-3 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-30 rounded-2xl border border-zinc-800/80 bg-zinc-950/90 p-1.5 shadow-xl shadow-black/30 backdrop-blur sm:inset-x-8 sm:bottom-[calc(1rem+env(safe-area-inset-bottom))] sm:p-2 lg:hidden">
+    <nav className="fixed inset-x-3 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-30 rounded-2xl border border-fs-border bg-fs-surface-strong p-1.5 shadow-xl shadow-black/20 backdrop-blur sm:inset-x-8 sm:bottom-[calc(1rem+env(safe-area-inset-bottom))] sm:p-2 lg:hidden">
       <ul className="grid grid-cols-4 gap-1">
         {items.map((item) => {
           const isActive = isActivePath(pathname, item.match);
@@ -32,8 +32,8 @@ export function BottomNav() {
                 className={cn(
                   "block rounded-xl px-1.5 py-2.5 text-center text-[11px] font-medium transition sm:px-2 sm:text-xs",
                   isActive
-                    ? "bg-cyan-500/15 text-cyan-100 ring-1 ring-cyan-300/30"
-                    : "text-zinc-300 hover:bg-zinc-800/80 hover:text-zinc-50",
+                    ? "bg-fs-accent-soft text-fs-accent ring-1 ring-fs-border-strong"
+                    : "text-fs-text-soft hover:bg-fs-surface hover:text-fs-text",
                 )}
               >
                 {item.label}
