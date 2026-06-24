@@ -260,6 +260,28 @@ function validateCssCheck(
   return { passed: false, message: "Tipe check CSS belum didukung." };
 }
 
+function validateTextCheck(
+  check: ChallengeValidationCheck,
+  sourceCode: string,
+  sourceLabel: string,
+): Pick<ChallengeValidationResult, "passed" | "message"> {
+  if (check.type !== "contains") {
+    return { passed: false, message: `Tipe check ${sourceLabel} belum didukung.` };
+  }
+
+  const expectedValue = check.valueIncludes ?? check.target ?? "";
+  const passed = expectedValue
+    ? sourceCode.toLowerCase().includes(expectedValue.toLowerCase())
+    : false;
+
+  return {
+    passed,
+    message: expectedValue
+      ? `Pastikan kode ${sourceLabel} memuat ${expectedValue}.`
+      : "Isi target check belum lengkap.",
+  };
+}
+
 export function validateChallengeCode(
   validation: ChallengeValidation | undefined,
   code: ChallengeCode,
@@ -271,6 +293,20 @@ export function validateChallengeCode(
   if (validation.mode === "css") {
     return validation.checks.map((check) => {
       const result = validateCssCheck(check, code.css);
+
+      return {
+        id: check.id,
+        label: check.label,
+        passed: result.passed,
+        required: check.required ?? true,
+        message: result.passed ? undefined : result.message,
+      };
+    });
+  }
+
+  if (validation.mode === "js") {
+    return validation.checks.map((check) => {
+      const result = validateTextCheck(check, code.js, "JavaScript");
 
       return {
         id: check.id,

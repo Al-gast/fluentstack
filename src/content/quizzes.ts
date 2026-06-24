@@ -19,6 +19,7 @@ export {
   localStaticWebsiteProjectAssessmentQuiz,
   flexboxGridLayoutAssessmentQuiz,
   responsiveVisualSystemAssessmentQuiz,
+  javascriptValuesTypesFunctionsAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

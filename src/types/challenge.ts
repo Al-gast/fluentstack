@@ -30,7 +30,7 @@ export type ChallengeValidationCheck = {
 };
 
 export type ChallengeValidation = {
-  mode: "html" | "css";
+  mode: "html" | "css" | "js";
   checks: ChallengeValidationCheck[];
 };
 

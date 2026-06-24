@@ -7,6 +7,7 @@ import { boxModelSpacingModule, cssBoxModelBasicLesson, cssPaddingMarginBasicLes
 import { localStaticWebsiteProjectModule, setupLocalProjectFolderLesson, openProjectInCodeEditorLesson, runHtmlInBrowserLesson, basicDevtoolsStaticPageLesson, saveProjectWithGitGithubLesson, localStaticWebsiteProjectAssessmentLesson, localStaticWebsiteProjectAssessmentQuiz } from "./level-03-css-fundamentals-layout/local-static-website-project";
 import { flexboxGridLayoutModule, cssFlexboxBasicLesson, buildNavbarWithFlexboxLesson, cssGridBasicLesson, flexboxVsGridDecisionLesson, flexboxGridLayoutAssessmentLesson, flexboxGridLayoutAssessmentQuiz, practiceCssFlexboxBasicChallenge, buildFlexboxNavbarChallenge, practiceCssGridCardLayoutChallenge, chooseFlexboxGridLayoutChallenge, buildResponsiveIshCardSectionChallenge } from "./level-03-css-fundamentals-layout/flexbox-grid-layout";
 import { responsiveVisualSystemModule, mobileFirstCssLesson, cssBreakpointsBasicLesson, fluidSpacingTypographyBasicLesson, cssVariablesDarkModeBasicLesson, responsiveVisualSystemAssessmentLesson, responsiveVisualSystemAssessmentQuiz, practiceMobileFirstSectionChallenge, practiceCssBreakpointCardGridChallenge, practiceFluidSpacingTypographyChallenge, practiceCssVariablesThemeCardChallenge, buildResponsiveVisualSectionChallenge } from "./level-03-css-fundamentals-layout/responsive-visual-system";
+import { javascriptValuesTypesFunctionsModule, whatIsJavascriptInBrowserLesson, javascriptValuesVariablesLesson, javascriptBasicFunctionsLesson, javascriptConditionalsLoopsBasicLesson, javascriptValuesTypesFunctionsAssessmentLesson, javascriptValuesTypesFunctionsAssessmentQuiz, storeSimpleJsValuesChallenge, buildBasicJsFunctionsChallenge, practiceJsConditionalsLoopsChallenge, buildJsUtilityFunctionsChallenge } from "./level-04-javascript-fundamentals/values-types-functions";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -17,6 +18,7 @@ export { boxModelSpacingModule, cssBoxModelBasicLesson, cssPaddingMarginBasicLes
 export { localStaticWebsiteProjectModule, setupLocalProjectFolderLesson, openProjectInCodeEditorLesson, runHtmlInBrowserLesson, basicDevtoolsStaticPageLesson, saveProjectWithGitGithubLesson, localStaticWebsiteProjectAssessmentLesson, localStaticWebsiteProjectAssessmentQuiz } from "./level-03-css-fundamentals-layout/local-static-website-project";
 export { flexboxGridLayoutModule, cssFlexboxBasicLesson, buildNavbarWithFlexboxLesson, cssGridBasicLesson, flexboxVsGridDecisionLesson, flexboxGridLayoutAssessmentLesson, flexboxGridLayoutAssessmentQuiz, practiceCssFlexboxBasicChallenge, buildFlexboxNavbarChallenge, practiceCssGridCardLayoutChallenge, chooseFlexboxGridLayoutChallenge, buildResponsiveIshCardSectionChallenge } from "./level-03-css-fundamentals-layout/flexbox-grid-layout";
 export { responsiveVisualSystemModule, mobileFirstCssLesson, cssBreakpointsBasicLesson, fluidSpacingTypographyBasicLesson, cssVariablesDarkModeBasicLesson, responsiveVisualSystemAssessmentLesson, responsiveVisualSystemAssessmentQuiz, practiceMobileFirstSectionChallenge, practiceCssBreakpointCardGridChallenge, practiceFluidSpacingTypographyChallenge, practiceCssVariablesThemeCardChallenge, buildResponsiveVisualSectionChallenge } from "./level-03-css-fundamentals-layout/responsive-visual-system";
+export { javascriptValuesTypesFunctionsModule, whatIsJavascriptInBrowserLesson, javascriptValuesVariablesLesson, javascriptBasicFunctionsLesson, javascriptConditionalsLoopsBasicLesson, javascriptValuesTypesFunctionsAssessmentLesson, javascriptValuesTypesFunctionsAssessmentQuiz, storeSimpleJsValuesChallenge, buildBasicJsFunctionsChallenge, practiceJsConditionalsLoopsChallenge, buildJsUtilityFunctionsChallenge } from "./level-04-javascript-fundamentals/values-types-functions";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -28,6 +30,7 @@ export const frontendEngineeringModules = [
   localStaticWebsiteProjectModule,
   flexboxGridLayoutModule,
   responsiveVisualSystemModule,
+  javascriptValuesTypesFunctionsModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -77,6 +80,11 @@ export const frontendEngineeringLessons = [
   fluidSpacingTypographyBasicLesson,
   cssVariablesDarkModeBasicLesson,
   responsiveVisualSystemAssessmentLesson,
+  whatIsJavascriptInBrowserLesson,
+  javascriptValuesVariablesLesson,
+  javascriptBasicFunctionsLesson,
+  javascriptConditionalsLoopsBasicLesson,
+  javascriptValuesTypesFunctionsAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -97,6 +105,7 @@ export const frontendEngineeringQuizzes = [
   localStaticWebsiteProjectAssessmentQuiz,
   flexboxGridLayoutAssessmentQuiz,
   responsiveVisualSystemAssessmentQuiz,
+  javascriptValuesTypesFunctionsAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -130,4 +139,8 @@ export const frontendEngineeringChallenges = [
   practiceFluidSpacingTypographyChallenge,
   practiceCssVariablesThemeCardChallenge,
   buildResponsiveVisualSectionChallenge,
+  storeSimpleJsValuesChallenge,
+  buildBasicJsFunctionsChallenge,
+  practiceJsConditionalsLoopsChallenge,
+  buildJsUtilityFunctionsChallenge,
 ];

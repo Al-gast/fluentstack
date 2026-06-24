@@ -32,6 +32,10 @@ export {
   practiceFluidSpacingTypographyChallenge,
   practiceCssVariablesThemeCardChallenge,
   buildResponsiveVisualSectionChallenge,
+  storeSimpleJsValuesChallenge,
+  buildBasicJsFunctionsChallenge,
+  practiceJsConditionalsLoopsChallenge,
+  buildJsUtilityFunctionsChallenge,
 } from "@/content/frontend-engineering";
 
 

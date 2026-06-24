@@ -34,4 +34,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "responsive-visual-system",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 4,
+    stage: "beginner",
+    title: "JavaScript Fundamentals",
+    description:
+      "Menambahkan behavior dan data handling dasar lewat values, functions, conditionals, dan loop.",
+    moduleIds: ["javascript-values-types-functions"],
+  },
 ];

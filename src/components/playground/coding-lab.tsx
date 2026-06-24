@@ -79,6 +79,10 @@ function getPreviewHeight(layout: PracticeLayout): string {
   return "h-[480px] xl:h-[720px]";
 }
 
+function getDefaultActiveLanguage(challenge: CodingChallenge): ChallengeLanguage {
+  return challenge.validation?.mode ?? "html";
+}
+
 export function CodingLab({
   challenge,
   code,
@@ -95,7 +99,7 @@ export function CodingLab({
   onSaveCode,
   onMarkCompleted,
 }: CodingLabProps) {
-  const [activeLanguage, setActiveLanguage] = useState<ChallengeLanguage>("html");
+  const [activeLanguage, setActiveLanguage] = useState<ChallengeLanguage>(() => getDefaultActiveLanguage(challenge));
   const [showSolution, setShowSolution] = useState(false);
   const [codeSaved, setCodeSaved] = useState(false);
   const [isValidationReady, setIsValidationReady] = useState(false);
@@ -142,7 +146,9 @@ export function CodingLab({
   const validationDescription =
     challenge.validation?.mode === "css"
       ? "Kami membaca aturan CSS yang kamu tulis. JavaScript tidak dijalankan untuk validasi."
-      : "Kami membaca struktur HTML yang kamu tulis. JavaScript tidak dijalankan untuk validasi.";
+      : challenge.validation?.mode === "js"
+        ? "Kami membaca teks JavaScript yang kamu tulis. Kode tidak dijalankan untuk validasi."
+        : "Kami membaca struktur HTML yang kamu tulis. JavaScript tidak dijalankan untuk validasi.";
 
   const handleSaveCode = async () => {
     if (isSavingCode) {
@@ -230,6 +236,11 @@ export function CodingLab({
       {challenge.validation?.mode === "html" ? (
         <p className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-3 text-xs leading-6 text-fs-text">
           Fokus di tab HTML dulu. CSS dan JS belum perlu diubah.
+        </p>
+      ) : null}
+      {challenge.validation?.mode === "js" ? (
+        <p className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-3 text-xs leading-6 text-fs-text">
+          Fokus di tab JS. HTML dan CSS hanya membantu memberi konteks preview.
         </p>
       ) : null}
       <ul className="list-disc space-y-1.5 pl-5 text-sm leading-7 text-fs-text-soft">

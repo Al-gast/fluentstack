@@ -9,7 +9,7 @@ const ts = require("typescript");
 const rootDir = path.resolve(__dirname, "..");
 const srcDir = path.join(rootDir, "src");
 
-const supportedChallengeModes = new Set(["html", "css"]);
+const supportedChallengeModes = new Set(["html", "css", "js"]);
 const supportedCurriculumStages = new Set(["beginner", "intermediate", "advanced"]);
 const supportedValidationRules = new Set([
   "contains",
@@ -34,6 +34,7 @@ const expectedFrontendModuleOrder = [
   "local-static-website-project",
   "flexbox-grid-layout",
   "responsive-visual-system",
+  "javascript-values-types-functions",
 ];
 
 function resolveTsPath(basePath) {

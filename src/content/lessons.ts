@@ -48,6 +48,11 @@ export {
   fluidSpacingTypographyBasicLesson,
   cssVariablesDarkModeBasicLesson,
   responsiveVisualSystemAssessmentLesson,
+  whatIsJavascriptInBrowserLesson,
+  javascriptValuesVariablesLesson,
+  javascriptBasicFunctionsLesson,
+  javascriptConditionalsLoopsBasicLesson,
+  javascriptValuesTypesFunctionsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {
