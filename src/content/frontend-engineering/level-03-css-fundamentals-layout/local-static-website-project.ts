@@ -529,7 +529,7 @@ export const localStaticWebsiteProjectAssessmentLesson: Lesson = {
   title: "Uji Kompetensi Local Static Website Project",
   slug: "local-static-website-project-assessment",
   description:
-    "Uji kesiapan membuat, menjalankan, memeriksa, menyimpan, dan menjelaskan website statis lokal.",
+    "Cek kesiapan kamu membuat, menjalankan, memeriksa, menyimpan, dan menjelaskan website statis lokal.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 60,
@@ -541,14 +541,14 @@ export const localStaticWebsiteProjectAssessmentLesson: Lesson = {
     "Mengecek kemampuan menyimpan project dengan Git dan GitHub",
     "Mengecek kemampuan menjelaskan project secara singkat",
   ],
-  skillTags: ["Local Workflow", "HTML", "CSS", "Git", "GitHub", "Assessment"],
+  skillTags: ["Local Workflow", "HTML", "CSS", "Git", "GitHub", "Checkpoint"],
   blocks: [
     {
       id: "local-static-website-project-assessment-recap",
       type: "text",
-      title: "Apa yang dicek di assessment ini",
+      title: "Apa yang dicek di checkpoint ini",
       content:
-        "Assessment ini mengecek workflow local static website. Kamu akan membuktikan bahwa kamu bisa menyiapkan folder project, membuat index.html dan style.css, membuka halaman di browser, memakai DevTools untuk inspect HTML/CSS, menyimpan project dengan Git/GitHub, dan menjelaskan project dengan singkat.\n\nFluentStack tidak bisa memeriksa file di perangkat kamu secara otomatis. Karena itu, checklist lokal di assessment ini adalah self-review yang harus kamu kerjakan dengan jujur.",
+        "Checkpoint ini mengecek workflow local static website. Kamu akan membuktikan bahwa kamu bisa menyiapkan folder project, membuat index.html dan style.css, membuka halaman di browser, memakai DevTools untuk inspect HTML/CSS, menyimpan project dengan Git/GitHub, dan menjelaskan project dengan singkat.\n\nFluentStack tidak bisa memeriksa file di perangkat kamu secara otomatis. Karena itu, checklist lokal di checkpoint ini adalah self-review yang harus kamu kerjakan dengan jujur.",
     },
     {
       id: "local-static-website-project-assessment-quiz-block",
@@ -560,7 +560,7 @@ export const localStaticWebsiteProjectAssessmentLesson: Lesson = {
       type: "resource-links",
       title: "Resource tool untuk self-review",
       description:
-        "Gunakan link resmi ini jika kamu perlu mengecek ulang code editor, Git, GitHub, atau DevTools sebelum menyelesaikan assessment.",
+        "Gunakan link resmi ini jika kamu perlu mengecek ulang code editor, Git, GitHub, atau DevTools sebelum menyelesaikan checkpoint.",
       links: [
         {
           source: "Visual Studio Code",
@@ -629,7 +629,7 @@ export const localStaticWebsiteProjectAssessmentLesson: Lesson = {
     {
       id: "local-static-website-project-assessment-docs-bridge",
       type: "documentation-bridge",
-      title: "Baca dokumentasi resmi",
+      title: "Baca dokumentasi resmi secara terarah",
       description:
         "Gunakan bagian ini sebagai panduan membaca dokumentasi workflow dasar, bukan tugas menghafal. Fokus pada bagian yang langsung membantu project lokalmu.",
       links: [
@@ -690,7 +690,7 @@ export const localStaticWebsiteProjectAssessmentLesson: Lesson = {
         "Kamu membuktikan bahwa kamu bisa membuka HTML di browser dan melihat perubahan setelah menyimpan file.",
         "Kamu membuktikan bahwa kamu bisa memakai DevTools untuk inspect HTML dan CSS dasar.",
         "Kamu membuktikan bahwa kamu bisa menyimpan project dengan Git/GitHub.",
-        "Jika belum siap, review lagi folder project, link CSS, browser refresh, DevTools Elements/Styles, Git commit, GitHub push, dan README singkat.",
+        "Jika checkpoint belum lulus, review lagi folder project, link CSS, browser refresh, DevTools Elements/Styles, Git commit, GitHub push, dan README singkat.",
         "Setelah kamu bisa membuat project statis lokal, berikutnya kamu bisa mulai belajar layout CSS yang lebih terarah seperti Flexbox dan Grid.",
       ],
     },

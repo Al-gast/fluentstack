@@ -11,6 +11,8 @@ import {
   getProgressStatus,
   type ProgressStatus,
 } from "@/lib/progress/progress-calculator";
+import { getOrderedModuleLessons } from "@/lib/content/learning-path";
+import { getLessonPrimaryAction } from "@/lib/progress/lesson-next-action";
 import { cn } from "@/lib/utils";
 import type { Lesson, Module, Track } from "@/types/learning";
 
@@ -25,7 +27,7 @@ type ModuleLearningPathProps = {
 
 const statusLabel: Record<ProgressStatus, string> = {
   "not-started": "Belum mulai",
-  "in-progress": "Sedang berjalan",
+  "in-progress": "Sedang dipelajari",
   completed: "Selesai",
 };
 
@@ -66,13 +68,18 @@ function getModuleOutcomes(moduleItem: Module, moduleLessons: Lesson[]): string[
   ].slice(0, 5);
 }
 
-function getCtaLabel(progressPercent: number, isCompleted: boolean): string {
+function getCtaLabel(
+  progressPercent: number,
+  isCompleted: boolean,
+  hasNextModule: boolean,
+  actionLabel?: string,
+): string {
   if (isCompleted) {
-    return "Review module";
+    return hasNextModule ? "Lanjut ke module berikutnya" : "Review module";
   }
 
   if (progressPercent > 0) {
-    return "Lanjutkan module";
+    return actionLabel && actionLabel !== "Lanjutkan bagian ini" ? actionLabel : "Lanjutkan module";
   }
 
   return "Mulai module";
@@ -93,8 +100,23 @@ export function ModuleLearningPath({
   const assessmentLesson = moduleLessons.find((lesson, index) =>
     isAssessmentLesson(lesson, index, moduleLessons.length),
   );
-  const ctaTarget = moduleMetrics.isCompleted ? firstLesson : continueTarget?.lesson ?? firstLesson;
-  const ctaLabel = getCtaLabel(moduleMetrics.progressPercent, moduleMetrics.isCompleted);
+  const nextModuleFirstLesson = nextModule ? getOrderedModuleLessons(nextModule)[0] : undefined;
+  const ctaTarget = moduleMetrics.isCompleted
+    ? nextModuleFirstLesson ?? firstLesson
+    : continueTarget?.lesson ?? firstLesson;
+  const ctaAction = ctaTarget
+    ? getLessonPrimaryAction(ctaTarget, userProgress.completedBlockIds, {
+        href: `/lesson/${ctaTarget.slug}`,
+        label: "Review lesson",
+        description: ctaTarget.title,
+      })
+    : null;
+  const ctaLabel = getCtaLabel(
+    moduleMetrics.progressPercent,
+    moduleMetrics.isCompleted,
+    Boolean(nextModuleFirstLesson),
+    ctaAction?.label,
+  );
   const outcomes = getModuleOutcomes(module, moduleLessons);
 
   return (
@@ -175,7 +197,7 @@ export function ModuleLearningPath({
 
             {ctaTarget ? (
               <Link
-                href={`/lesson/${ctaTarget.slug}`}
+                href={ctaAction?.href ?? `/lesson/${ctaTarget.slug}`}
                 className="mt-5 inline-flex w-full justify-center rounded-xl bg-fs-accent px-5 py-3 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40"
               >
                 {isLoading ? "Menyiapkan..." : ctaLabel}
@@ -188,7 +210,7 @@ export function ModuleLearningPath({
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
         <section className="space-y-4">
           <div className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)]">
-            <h2 className="text-xl font-bold text-fs-text">Learning path module</h2>
+            <h2 className="text-xl font-bold text-fs-text">Alur belajar module</h2>
             <p className="mt-2 text-sm leading-6 text-fs-text-muted">
               Lesson disusun sebagai jalur belajar. Uji Kompetensi di akhir menjadi checkpoint sebelum lanjut module berikutnya.
             </p>

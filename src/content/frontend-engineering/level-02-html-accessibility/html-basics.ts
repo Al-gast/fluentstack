@@ -35,7 +35,7 @@ export const htmlBasicStructureLesson: Lesson = {
   objectives: [
     "Mengenali bagian utama dokumen HTML: doctype, html, head, title, dan body",
     "Menaruh heading dan paragraf di tempat yang terlihat pada halaman",
-    "Menulis halaman HTML sederhana dan mengeceknya dengan preview serta auto-check",
+    "Menulis halaman HTML sederhana dan mengeceknya dengan preview serta cek otomatis",
   ],
   skillTags: ["HTML", "Web Fundamentals"],
   blocks: [
@@ -149,7 +149,7 @@ export const tagElementAttributeLesson: Lesson = {
       type: "text",
       title: "Tiga istilah dasar di HTML",
       content:
-        "Tag adalah penanda seperti <a> atau <p>. Element adalah satu bagian HTML lengkap, misalnya <p>Halo</p>. Attribute adalah informasi tambahan di dalam tag pembuka, misalnya href pada link.",
+        "Di lesson sebelumnya, kamu sudah menulis struktur HTML dasar. Sekarang kamu akan memberi nama pada bagian kecil yang sering muncul di kode. Tag adalah penanda seperti <a> atau <p>. Element adalah satu bagian HTML lengkap, misalnya <p>Halo</p>. Attribute adalah informasi tambahan di dalam tag pembuka, misalnya href pada link.",
     },
     {
       id: "tag-element-attribute-note",
@@ -219,7 +219,7 @@ export const headingsParagraphsLinksImagesLesson: Lesson = {
   estimatedMinutes: 36,
   objectives: [
     "Memahami fungsi heading dan paragraf sebagai struktur konten",
-    "Memakai link dengan href dan image dengan src serta alt",
+    "Memakai link dengan href dan gambar dengan src serta alt",
     "Membuat halaman konten sederhana dan melihat hasilnya di preview",
   ],
   skillTags: ["HTML", "Web Fundamentals", "Content Structure"],
@@ -323,7 +323,7 @@ export const relativePathsBasicLesson: Lesson = {
   objectives: [
     "Memahami href dan src sebagai penunjuk ke halaman atau file",
     "Membaca relative path sederhana seperti about.html dan images/logo.png",
-    "Memakai relative path pada link dan image di halaman HTML kecil",
+    "Memakai relative path pada link dan gambar di halaman HTML kecil",
   ],
   skillTags: ["HTML", "Relative Paths", "Project Structure"],
   blocks: [
@@ -332,14 +332,14 @@ export const relativePathsBasicLesson: Lesson = {
       type: "text",
       title: "Href dan src menunjuk ke lokasi",
       content:
-        "Di lesson sebelumnya, kamu memakai href pada link dan src pada image. Sekarang kamu melihat nilai di dalam href dan src. Nilai itu sering berupa path, yaitu petunjuk lokasi file atau halaman. Kamu belum perlu masuk ke teori filesystem yang dalam. Fokus dulu pada contoh project kecil.",
+        "Di lesson sebelumnya, kamu memakai href pada link dan src pada gambar. Sekarang kamu melihat nilai di dalam href dan src. Nilai itu sering berupa path, yaitu petunjuk lokasi file atau halaman. Kamu belum perlu masuk ke teori filesystem yang dalam. Fokus dulu pada contoh project kecil.",
     },
     {
       id: "relative-paths-basic-core-concept",
       type: "text",
       title: "Relative path dibaca dari posisi file saat ini",
       content:
-        "Relative path adalah path yang dibaca dari posisi file HTML yang sedang kamu tulis. Jika index.html dan about.html berada di folder yang sama, link bisa memakai href=\"about.html\". Jika gambar berada di folder images, image bisa memakai src=\"images/logo.png\" atau src=\"./images/logo.png\". Tanda ./ berarti mulai dari folder saat ini.",
+        "Relative path adalah path yang dibaca dari posisi file HTML yang sedang kamu tulis. Jika index.html dan about.html berada di folder yang sama, link bisa memakai href=\"about.html\". Jika gambar berada di folder images, img bisa memakai src=\"images/logo.png\" atau src=\"./images/logo.png\". Tanda ./ berarti mulai dari folder saat ini.",
     },
     {
       id: "relative-paths-basic-code-example",
@@ -396,7 +396,7 @@ export const relativePathsBasicLesson: Lesson = {
         "Gunakan about.html jika file tujuan sejajar dengan index.html.",
         "Gunakan images/logo.png atau ./images/logo.png jika file berada di folder images.",
         "Cek nama folder dan file dengan teliti karena path yang tidak cocok membuat link atau gambar gagal bekerja.",
-        "Berikutnya, kamu akan menguji semua materi HTML Basics lewat assessment module.",
+        "Berikutnya, kamu akan mengecek kesiapan HTML Basics lewat checkpoint module.",
       ],
     },
   ],
@@ -427,17 +427,17 @@ export const htmlBasicsAssessmentLesson: Lesson = {
   estimatedMinutes: 35,
   objectives: [
     "Membedakan struktur dokumen, tag, element, dan attribute",
-    "Memakai heading, paragraf, link, image, href, src, alt, dan relative path sederhana",
-    "Membangun halaman HTML kecil dengan konten dasar dan auto-check",
+    "Memakai heading, paragraf, link, gambar, href, src, alt, dan relative path sederhana",
+    "Membangun halaman HTML kecil dengan konten dasar dan cek otomatis",
   ],
-  skillTags: ["HTML", "Assessment", "Web Fundamentals"],
+  skillTags: ["HTML", "Checkpoint", "Web Fundamentals"],
   blocks: [
     {
       id: "html-basics-assessment-recap",
       type: "text",
-      title: "Apa yang dicek di assessment ini",
+      title: "Apa yang dicek di checkpoint ini",
       content:
-        "Assessment ini menggabungkan semua lesson HTML Basics. Kamu akan mengecek struktur dokumen HTML, perbedaan head dan body, perbedaan title dan h1, tag, element, attribute, heading, paragraf, link, image, alt text, dan relative path sederhana. Ini bukan ujian jebakan. Tujuannya memastikan kamu siap masuk ke Semantic HTML.",
+        "Checkpoint ini menggabungkan semua lesson HTML Basics. Kamu akan mengecek struktur dokumen HTML, perbedaan head dan body, perbedaan title dan h1, tag, element, attribute, heading, paragraf, link, gambar, alt text, dan relative path sederhana. Ini bukan soal jebakan. Tujuannya memastikan kamu siap masuk ke Semantic HTML.",
     },
     {
       id: "html-basics-assessment-quiz-block",
@@ -452,9 +452,9 @@ export const htmlBasicsAssessmentLesson: Lesson = {
     {
       id: "html-basics-assessment-docs-bridge",
       type: "documentation-bridge",
-      title: "Baca dokumentasi resmi",
+      title: "Baca MDN secara terarah",
       description:
-        "Gunakan bagian ini sebagai latihan membaca dokumentasi, bukan tugas menghafal. Kamu tidak perlu membaca semuanya sekarang. Fokus pada bagian yang sudah kamu pelajari.",
+        "Gunakan bagian ini sebagai latihan membaca dokumentasi resmi, bukan tugas menghafal. Kamu tidak perlu membaca semuanya sekarang. Fokus pada bagian yang sudah kamu pelajari di HTML Basics.",
       links: [
         {
           source: "MDN Web Docs",
@@ -494,7 +494,7 @@ export const htmlBasicsAssessmentLesson: Lesson = {
         },
       ],
       followUpAction:
-        "Kembali ke latihan HTML Basics dan tunjukkan satu tag, satu element, satu attribute, satu link dengan href, dan satu image dengan src serta alt.",
+        "Kembali ke latihan HTML Basics dan tunjukkan satu tag, satu element, satu attribute, satu link dengan href, dan satu gambar dengan src serta alt.",
     },
     {
       id: "html-basics-assessment-summary",
@@ -502,7 +502,8 @@ export const htmlBasicsAssessmentLesson: Lesson = {
       points: [
         "Kamu siap lanjut jika bisa membedakan informasi untuk browser dan konten yang terlihat.",
         "Kamu siap lanjut jika bisa membaca tag, element, dan attribute pada contoh HTML sederhana.",
-        "Kamu siap lanjut jika bisa memakai heading, paragraf, link, image, href, src, alt, dan relative path sederhana.",
+        "Kamu siap lanjut jika bisa memakai heading, paragraf, link, gambar, href, src, alt, dan relative path sederhana.",
+        "Jika checkpoint belum lulus, review lagi struktur HTML dasar, tag/element/attribute, konten body, dan relative path.",
         "Berikutnya, kamu akan memakai struktur HTML ini untuk memilih elemen berdasarkan makna lewat Semantic HTML.",
       ],
     },
@@ -521,7 +522,7 @@ export const htmlBasicsAssessmentLesson: Lesson = {
 export const htmlBasicStructureQuiz: Quiz = {
   id: "html-basic-structure-quiz",
   lessonId: "html-basic-structure",
-  title: "Kuis Struktur HTML Dasar",
+  title: "Quiz Struktur HTML Dasar",
   passingScore: 70,
   questions: [
     {
@@ -574,7 +575,7 @@ export const htmlBasicStructureQuiz: Quiz = {
 export const tagElementAttributeQuiz: Quiz = {
   id: "tag-element-attribute-quiz",
   lessonId: "tag-element-attribute",
-  title: "Kuis Tag, Element, dan Attribute",
+  title: "Quiz Tag, Element, dan Attribute",
   passingScore: 70,
   questions: [
     {
@@ -618,7 +619,7 @@ export const tagElementAttributeQuiz: Quiz = {
 export const htmlBasicsAssessmentQuiz: Quiz = {
   id: "html-basics-assessment-quiz",
   lessonId: "html-basics-assessment",
-  title: "Assessment HTML Basics",
+  title: "Uji Kompetensi HTML Basics",
   passingScore: 70,
   questions: [
     {
@@ -730,7 +731,7 @@ export const buildBasicHtmlPageChallenge: CodingChallenge = {
     "Fokus pada struktur HTML dulu. Ini bukan latihan desain.",
     "Tambahkan title di dalam head untuk memberi nama halaman di tab browser.",
     "Tambahkan h1 dan p di dalam body karena bagian body yang terlihat di preview.",
-    "CSS dan JS belum perlu diubah. Gunakan auto-check untuk melihat bagian mana yang sudah lengkap.",
+    "CSS dan JS belum perlu diubah. Gunakan cek otomatis untuk melihat bagian mana yang sudah lengkap.",
   ],
   starterCode: {
     html: `<!doctype html>
@@ -792,7 +793,7 @@ export const practiceTagElementAttributeChallenge: CodingChallenge = {
   instructions: [
     "Fokus pada struktur HTML, bukan visual design.",
     "Lengkapi link dengan attribute href.",
-    "Lengkapi image dengan attribute src dan alt.",
+    "Lengkapi gambar dengan attribute src dan alt.",
     "Setelah preview tampil, coba sebutkan satu tag, satu element lengkap, dan satu attribute dari kode kamu.",
   ],
   starterCode: {
@@ -817,8 +818,8 @@ export const practiceTagElementAttributeChallenge: CodingChallenge = {
   },
   checklist: [
     "Link memakai href.",
-    "Image memakai src.",
-    "Image punya alt text singkat.",
+    "Gambar memakai src.",
+    "Gambar punya alt text singkat.",
     "Kamu bisa mengidentifikasi satu tag.",
     "Kamu bisa mengidentifikasi satu element lengkap.",
     "Kamu bisa mengidentifikasi satu attribute.",
@@ -837,10 +838,10 @@ export const practiceTagElementAttributeChallenge: CodingChallenge = {
         attribute: "href",
         mustHaveValue: true,
       },
-      { id: "has-image", label: "Ada image.", type: "hasElement", target: "img" },
+      { id: "has-image", label: "Ada gambar (img).", type: "hasElement", target: "img" },
       {
         id: "image-has-src",
-        label: "Image memakai src.",
+        label: "Gambar memakai src.",
         type: "hasElementWithAttribute",
         target: "img",
         attribute: "src",
@@ -848,7 +849,7 @@ export const practiceTagElementAttributeChallenge: CodingChallenge = {
       },
       {
         id: "image-has-alt",
-        label: "Image punya alt text.",
+        label: "Gambar punya alt text.",
         type: "hasElementWithAttribute",
         target: "img",
         attribute: "alt",
@@ -868,7 +869,7 @@ export const buildBasicContentPageChallenge: CodingChallenge = {
     "Fokus pada konten HTML yang terlihat di body.",
     "Tambahkan h1 sebagai heading utama dan p sebagai paragraf.",
     "Tambahkan link dengan attribute href.",
-    "Tambahkan image dengan src dan alt. CSS dan JS belum perlu diubah.",
+    "Tambahkan gambar dengan src dan alt. CSS dan JS belum perlu diubah.",
   ],
   starterCode: {
     html: `<!doctype html>
@@ -877,7 +878,7 @@ export const buildBasicContentPageChallenge: CodingChallenge = {
     <title>Konten Halaman</title>
   </head>
   <body>
-    <!-- Tambahkan h1, p, link, dan image di sini -->
+    <!-- Tambahkan h1, p, link, dan gambar di sini -->
   </body>
 </html>`,
     css: "",
@@ -904,9 +905,9 @@ export const buildBasicContentPageChallenge: CodingChallenge = {
     "Ada paragraf.",
     "Ada link.",
     "Link memakai href.",
-    "Ada image.",
-    "Image memakai src.",
-    "Image punya alt text.",
+    "Ada gambar (img).",
+    "Gambar memakai src.",
+    "Gambar punya alt text.",
   ],
   validation: {
     mode: "html",
@@ -915,9 +916,9 @@ export const buildBasicContentPageChallenge: CodingChallenge = {
       { id: "has-paragraph", label: "Ada paragraf.", type: "hasTextInElement", target: "p" },
       { id: "has-link", label: "Ada link.", type: "hasTextInElement", target: "a" },
       { id: "link-has-href", label: "Link memakai href.", type: "hasElementWithAttribute", target: "a", attribute: "href", mustHaveValue: true },
-      { id: "has-image", label: "Ada image.", type: "hasElement", target: "img" },
-      { id: "image-has-src", label: "Image memakai src.", type: "hasElementWithAttribute", target: "img", attribute: "src", mustHaveValue: true },
-      { id: "image-has-alt", label: "Image punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
+      { id: "has-image", label: "Ada gambar (img).", type: "hasElement", target: "img" },
+      { id: "image-has-src", label: "Gambar memakai src.", type: "hasElementWithAttribute", target: "img", attribute: "src", mustHaveValue: true },
+      { id: "image-has-alt", label: "Gambar punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
     ],
   },
   skillTags: ["HTML", "Web Fundamentals", "Content Structure"],
@@ -931,7 +932,7 @@ export const practiceRelativePathsChallenge: CodingChallenge = {
   instructions: [
     "Bayangkan index.html berada sejajar dengan about.html.",
     "Lengkapi link agar menuju about.html.",
-    "Lengkapi image agar mengambil logo dari folder images.",
+    "Lengkapi gambar agar mengambil logo dari folder images.",
     "Tambahkan alt text singkat untuk gambar. CSS dan JS tidak perlu diubah.",
   ],
   starterCode: {
@@ -942,7 +943,7 @@ export const practiceRelativePathsChallenge: CodingChallenge = {
   </head>
   <body>
     <h1>Project Belajar</h1>
-    <p>Lengkapi link dan image dengan relative path.</p>
+    <p>Lengkapi link dan gambar dengan relative path.</p>
 
     <a>Tentang saya</a>
     <img />
@@ -959,7 +960,7 @@ export const practiceRelativePathsChallenge: CodingChallenge = {
   </head>
   <body>
     <h1>Project Belajar</h1>
-    <p>Lengkapi link dan image dengan relative path.</p>
+    <p>Lengkapi link dan gambar dengan relative path.</p>
 
     <a href="about.html">Tentang saya</a>
     <img src="images/logo.png" alt="Logo project belajar" />
@@ -972,10 +973,10 @@ export const practiceRelativePathsChallenge: CodingChallenge = {
     "Ada link.",
     "Link memakai href.",
     "href memakai relative path sederhana.",
-    "Ada image.",
-    "Image memakai src.",
+    "Ada gambar (img).",
+    "Gambar memakai src.",
     "src mengarah ke folder images.",
-    "Image punya alt text.",
+    "Gambar punya alt text.",
   ],
   validation: {
     mode: "html",
@@ -983,10 +984,10 @@ export const practiceRelativePathsChallenge: CodingChallenge = {
       { id: "has-link", label: "Ada link.", type: "hasTextInElement", target: "a" },
       { id: "link-has-href", label: "Link memakai href.", type: "hasElementWithAttribute", target: "a", attribute: "href", mustHaveValue: true },
       { id: "href-about", label: "href memakai relative path sederhana.", type: "hasElementWithAttribute", target: "a", attribute: "href", valueIncludes: "about.html" },
-      { id: "has-image", label: "Ada image.", type: "hasElement", target: "img" },
-      { id: "image-has-src", label: "Image memakai src.", type: "hasElementWithAttribute", target: "img", attribute: "src", mustHaveValue: true },
+      { id: "has-image", label: "Ada gambar (img).", type: "hasElement", target: "img" },
+      { id: "image-has-src", label: "Gambar memakai src.", type: "hasElementWithAttribute", target: "img", attribute: "src", mustHaveValue: true },
       { id: "src-images-folder", label: "src mengarah ke folder images.", type: "hasElementWithAttribute", target: "img", attribute: "src", valueIncludes: "images/" },
-      { id: "image-has-alt", label: "Image punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
+      { id: "image-has-alt", label: "Gambar punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
     ],
   },
   skillTags: ["HTML", "Relative Paths", "Project Structure"],
@@ -997,13 +998,13 @@ export const buildHtmlBasicsPageChallenge: CodingChallenge = {
   lessonId: "html-basics-assessment",
   title: "Membangun halaman HTML Basics",
   description:
-    "Assessment praktik untuk membuat halaman HTML kecil dengan title, heading, paragraf, link, image, dan relative path.",
+    "Checkpoint praktik untuk membuat halaman HTML kecil dengan title, heading, paragraf, link, gambar, dan relative path.",
   instructions: [
     "Lengkapi struktur HTML dasar terlebih dahulu.",
     "Tambahkan title di dalam head.",
-    "Di dalam body, tambahkan h1, paragraf, link dengan href, dan image dengan src serta alt.",
-    "Gunakan href=\"about.html\" untuk link dan src=\"images/html-card.png\" untuk image agar relative path ikut dilatih.",
-    "CSS dan JS tidak perlu diubah. Gunakan auto-check untuk memastikan struktur HTML sudah lengkap.",
+    "Di dalam body, tambahkan h1, paragraf, link dengan href, dan gambar dengan src serta alt.",
+    "Gunakan href=\"about.html\" untuk link dan src=\"images/html-card.png\" untuk gambar agar relative path ikut dilatih.",
+    "CSS dan JS tidak perlu diubah. Gunakan cek otomatis untuk memastikan struktur HTML sudah lengkap.",
   ],
   starterCode: {
     html: `<!doctype html>
@@ -1012,7 +1013,7 @@ export const buildHtmlBasicsPageChallenge: CodingChallenge = {
     <!-- Tambahkan title di sini -->
   </head>
   <body>
-    <!-- Tambahkan h1, p, link, dan image di sini -->
+    <!-- Tambahkan h1, p, link, dan gambar di sini -->
   </body>
 </html>`,
     css: "",
@@ -1039,8 +1040,8 @@ export const buildHtmlBasicsPageChallenge: CodingChallenge = {
     "Ada html, head, title, dan body.",
     "Body punya h1 dan paragraf.",
     "Link memakai href.",
-    "Image memakai src dan alt.",
-    "Link atau image memakai relative path sederhana.",
+    "Gambar memakai src dan alt.",
+    "Link atau gambar memakai relative path sederhana.",
   ],
   validation: {
     mode: "html",
@@ -1054,12 +1055,12 @@ export const buildHtmlBasicsPageChallenge: CodingChallenge = {
       { id: "has-paragraph", label: "Ada paragraf.", type: "hasTextInElement", target: "p" },
       { id: "has-link-href", label: "Link memakai href.", type: "hasElementWithAttribute", target: "a", attribute: "href", mustHaveValue: true },
       { id: "has-about-path", label: "Link menuju about.html.", type: "hasElementWithAttribute", target: "a", attribute: "href", valueIncludes: "about.html" },
-      { id: "has-image-src", label: "Image memakai src.", type: "hasElementWithAttribute", target: "img", attribute: "src", mustHaveValue: true },
-      { id: "has-images-path", label: "Image memakai path folder images.", type: "hasElementWithAttribute", target: "img", attribute: "src", valueIncludes: "images/" },
-      { id: "has-image-alt", label: "Image punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
+      { id: "has-image-src", label: "Gambar memakai src.", type: "hasElementWithAttribute", target: "img", attribute: "src", mustHaveValue: true },
+      { id: "has-images-path", label: "Gambar memakai path folder images.", type: "hasElementWithAttribute", target: "img", attribute: "src", valueIncludes: "images/" },
+      { id: "has-image-alt", label: "Gambar punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
     ],
   },
-  skillTags: ["HTML", "Assessment", "Web Fundamentals"],
+  skillTags: ["HTML", "Checkpoint", "Web Fundamentals"],
 };
 
 export const htmlBasicsLessons: Lesson[] = [

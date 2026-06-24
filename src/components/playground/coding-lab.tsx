@@ -291,7 +291,7 @@ export function CodingLab({
     <div className="space-y-3">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <p className="text-xs leading-6 text-fs-text-muted">
-          Gunakan checklist ini untuk review hasil sendiri. Completion baru aktif setelah checklist selesai.
+          Practice ini memakai checklist manual. Tombol selesai aktif setelah semua checklist selesai.
         </p>
         <span className="rounded-full border border-fs-border bg-fs-surface px-3 py-1 text-xs font-semibold text-fs-text-soft">
           {checksSummary}

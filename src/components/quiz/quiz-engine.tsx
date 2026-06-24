@@ -142,7 +142,7 @@ export function QuizEngine({ quiz, bestScore, onQuizFinished }: QuizEngineProps)
             disabled={isFinishing}
             className="rounded-lg bg-fs-accent px-4 py-2 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40 disabled:cursor-not-allowed disabled:opacity-70"
           >
-            {isFinishing ? "Menyimpan..." : questionNumber === totalQuestions ? "Lihat hasil" : "Lanjut"}
+            {isFinishing ? "Menyimpan..." : questionNumber === totalQuestions ? "Lihat hasil" : "Pertanyaan berikutnya"}
           </button>
         )}
       </div>

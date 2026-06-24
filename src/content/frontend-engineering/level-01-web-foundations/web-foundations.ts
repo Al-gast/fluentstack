@@ -138,7 +138,7 @@ export const howWebPageLoadsLesson: Lesson = {
       type: "text",
       title: "Browser meminta, server membalas",
       content:
-        "Bayangkan kamu membuka halaman Roadmap di FluentStack. Browser melihat URL halaman itu, lalu mengirim request. Request berarti permintaan. Server menerima permintaan tersebut, lalu mengirim response. Response berarti balasan. Setelah balasan diterima, browser menyusun hasilnya menjadi halaman yang terlihat.",
+        "Bayangkan kamu membuka halaman Roadmap di FluentStack. Browser melihat URL halaman itu, lalu mengirim request. Request berarti permintaan. Server menerima permintaan tersebut, lalu mengirim response. Response berarti balasan. Balasan itu bisa berisi halaman, gambar, atau file pendukung lain. Setelah balasan diterima, browser menyusun hasilnya menjadi halaman yang terlihat.",
     },
     {
       id: "how-web-page-loads-mini-action",
@@ -153,13 +153,13 @@ export const howWebPageLoadsLesson: Lesson = {
       variant: "important",
       title: "Request dan response cukup dipahami sederhana",
       content:
-        "Untuk tahap awal, cukup ingat aturan ini: browser mengirim request, server mengirim response. Detail seperti status code, header, dan network tab bisa dipelajari nanti.",
+        "Untuk tahap awal, cukup ingat aturan ini: browser mengirim request, server mengirim response. Kalau kamu melihat istilah resource, anggap saja sebagai file atau data yang dibutuhkan halaman. Detail seperti status code, header, dan network tab bisa dipelajari nanti.",
     },
     {
       id: "how-web-page-loads-quick-check",
       type: "quick-check",
       question: "Saat browser meminta halaman ke server, istilah yang paling tepat untuk permintaan itu adalah apa?",
-      options: ["response", "request", "render", "URL"],
+      options: ["response", "request", "refresh", "URL"],
       correctAnswer: "request",
       explanation:
         "Request adalah permintaan yang dikirim browser ke server. Response adalah balasan dari server setelah request diterima.",
@@ -331,10 +331,10 @@ export const htmlCssJsRolesLesson: Lesson = {
       code: `<article class="lesson-card">
   <h2>Dasar HTML</h2>
   <p>Mulai dari struktur halaman.</p>
-  <button id="continue-button">Lanjut</button>
+  <button id="continue-button">Lanjut belajar</button>
 </article>`,
       explanation:
-        "Contoh ini baru menunjukkan struktur HTML. CSS bisa membuatnya terlihat seperti card. JavaScript bisa membuat tombol Lanjut merespons klik. Fokusnya adalah mengenali peran, bukan menulis JavaScript dulu.",
+        "Contoh ini baru menunjukkan struktur HTML. CSS bisa membuatnya terlihat seperti card. JavaScript bisa membuat tombol Lanjut belajar merespons klik. Fokusnya adalah mengenali peran, bukan menulis JavaScript dulu.",
     },
     {
       id: "html-css-js-roles-quick-check",
@@ -520,7 +520,7 @@ export const smallFrontendProjectStructureLesson: Lesson = {
         "Baca file tree dari nama project, lalu file utama, lalu folder pendukung.",
         "Gunakan folder styles untuk CSS dan folder scripts untuk JavaScript ketika project mulai bertambah.",
         "Simpan gambar, ikon, dan file pendukung di folder assets.",
-        "Berikutnya, kamu akan menutup Web Foundations dengan assessment singkat sebelum masuk ke HTML Basics.",
+        "Berikutnya, kamu akan menutup Web Foundations dengan checkpoint singkat sebelum masuk ke HTML Basics.",
       ],
     },
   ],
@@ -551,14 +551,14 @@ export const webFoundationsAssessmentLesson: Lesson = {
     "Menjelaskan peran HTML, CSS, dan JavaScript dalam satu halaman",
     "Mengenali file dan folder dasar di project frontend kecil",
   ],
-  skillTags: ["Web Fundamentals", "Assessment", "Browser", "HTML", "CSS", "JavaScript"],
+  skillTags: ["Web Fundamentals", "Checkpoint", "Browser", "HTML", "CSS", "JavaScript"],
   blocks: [
     {
       id: "web-foundations-assessment-recap",
       type: "text",
-      title: "Apa yang dicek di assessment ini",
+      title: "Apa yang dicek di checkpoint ini",
       content:
-        "Assessment ini merangkum Web Foundations. Kamu akan mengecek apakah sudah bisa membedakan website dan web page, memahami URL sebagai alamat halaman, mengikuti alur browser meminta halaman, serta mengenali peran HTML, CSS, JavaScript, dan file project sederhana. Ini bukan ujian jebakan. Tujuannya memastikan fondasi kamu cukup kuat sebelum mulai menulis HTML.",
+        "Checkpoint ini merangkum Web Foundations. Kamu akan mengecek apakah sudah bisa membedakan website dan web page, memahami URL sebagai alamat halaman, mengikuti alur browser meminta halaman, serta mengenali peran HTML, CSS, JavaScript, dan file project sederhana. Ini bukan soal jebakan. Tujuannya memastikan fondasi kamu cukup kuat sebelum mulai membaca dan menulis HTML.",
     },
     {
       id: "web-foundations-assessment-quiz-block",
@@ -568,9 +568,9 @@ export const webFoundationsAssessmentLesson: Lesson = {
     {
       id: "web-foundations-assessment-docs-bridge",
       type: "documentation-bridge",
-      title: "Baca dokumentasi resmi",
+      title: "Baca MDN secara terarah",
       description:
-        "Gunakan bagian ini sebagai latihan membaca dokumentasi, bukan tugas menghafal. Kamu tidak perlu membaca semuanya sekarang. Fokus pada bagian yang sudah kamu pelajari.",
+        "Gunakan bagian ini sebagai latihan membaca dokumentasi resmi, bukan tugas menghafal. Kamu tidak perlu membaca semuanya sekarang. Fokus pada bagian yang sudah kamu pelajari di Web Foundations.",
       links: [
         {
           source: "MDN Web Docs",
@@ -610,7 +610,7 @@ export const webFoundationsAssessmentLesson: Lesson = {
         },
       ],
       followUpAction:
-        "Tulis ulang dengan kalimat sendiri: ketika saya membuka sebuah URL, browser meminta halaman, menerima file, lalu menampilkan struktur, tampilan, dan interaksi.",
+        "Tulis ulang dengan kalimat sendiri: ketika saya membuka sebuah URL, browser meminta halaman, menerima file pendukung, lalu menampilkan struktur, tampilan, dan interaksi.",
     },
     {
       id: "web-foundations-assessment-summary",
@@ -620,6 +620,7 @@ export const webFoundationsAssessmentLesson: Lesson = {
         "Kamu siap lanjut jika bisa menjelaskan bahwa browser mengirim request dan server mengirim response secara sederhana.",
         "Kamu siap lanjut jika bisa membedakan HTML untuk struktur, CSS untuk tampilan, dan JavaScript untuk interaksi.",
         "Kamu siap lanjut jika bisa membaca project kecil yang berisi index.html, style.css, script.js, dan folder assets.",
+        "Jika checkpoint belum lulus, review lagi bagian URL, request/response, peran HTML/CSS/JavaScript, dan struktur file project.",
         "Berikutnya, kamu masuk ke HTML Basics dan mulai membaca isi index.html lewat struktur HTML dasar.",
       ],
     },
@@ -637,7 +638,7 @@ export const webFoundationsAssessmentLesson: Lesson = {
 export const whatIsWebsiteAndWebPageQuiz: Quiz = {
   id: "what-is-website-and-web-page-quiz",
   lessonId: "what-is-website-and-web-page",
-  title: "Kuis Website dan Web Page",
+  title: "Quiz Website dan Web Page",
   passingScore: 70,
   questions: [
     {
@@ -703,7 +704,7 @@ export const whatIsWebsiteAndWebPageQuiz: Quiz = {
 export const howWebPageLoadsQuiz: Quiz = {
   id: "how-web-page-loads-quiz",
   lessonId: "how-web-page-loads",
-  title: "Kuis Cara Kerja Web Page",
+  title: "Quiz Cara Kerja Web Page",
   passingScore: 70,
   questions: [
     {
@@ -712,11 +713,11 @@ export const howWebPageLoadsQuiz: Quiz = {
       question: "Saat kamu membuka URL, apa langkah pertama yang dilakukan browser secara sederhana?",
       options: [
         "Langsung menampilkan halaman tanpa meminta apa pun",
-        "Mengirim request untuk meminta halaman atau resource yang dibutuhkan",
+        "Mengirim request untuk meminta halaman atau file pendukung yang dibutuhkan",
         "Mengubah URL menjadi folder project di komputer kamu",
         "Menyalin halaman dari tab browser lain",
       ],
-      correctAnswer: "Mengirim request untuk meminta halaman atau resource yang dibutuhkan",
+      correctAnswer: "Mengirim request untuk meminta halaman atau file pendukung yang dibutuhkan",
       explanation:
         "Request berarti permintaan. Browser memakai URL untuk tahu halaman mana yang perlu diminta sebelum halaman bisa ditampilkan.",
     },
@@ -731,7 +732,7 @@ export const howWebPageLoadsQuiz: Quiz = {
     {
       id: "how-web-page-loads-q3",
       type: "multiple-choice",
-      question: "Apa contoh resource yang bisa dikirim server sebagai response?",
+      question: "Apa contoh file atau data yang bisa dikirim server sebagai response?",
       options: [
         "Pengaturan brightness layar",
         "Riwayat semua tab yang pernah dibuka",
@@ -740,21 +741,21 @@ export const howWebPageLoadsQuiz: Quiz = {
       ],
       correctAnswer: "File halaman, gambar, atau data yang dibutuhkan",
       explanation:
-        "Response adalah balasan dari server. Balasan itu bisa berisi resource yang dibutuhkan halaman, seperti file halaman, gambar, file pendukung, atau data.",
+        "Response adalah balasan dari server. Balasan itu bisa berisi file atau data yang dibutuhkan halaman, seperti HTML, CSS, JavaScript, gambar, atau data lain.",
     },
     {
       id: "how-web-page-loads-q4",
       type: "multiple-choice",
-      question: "Apa arti render dalam konteks browser?",
+      question: "Saat kamu refresh halaman yang sama, apa yang biasanya terjadi?",
       options: [
-        "Menyimpan URL sebagai nama file project",
-        "Mengulang kuis setelah halaman terbuka",
-        "Mengubah address bar tanpa membaca halaman",
-        "Mengubah resource menjadi tampilan halaman yang bisa dilihat",
+        "Browser meminta ulang halaman yang ditunjuk URL",
+        "Browser mengubah URL menjadi folder project",
+        "Server otomatis menulis file HTML baru di komputer kamu",
+        "CSS berubah menjadi JavaScript",
       ],
-      correctAnswer: "Mengubah resource menjadi tampilan halaman yang bisa dilihat",
+      correctAnswer: "Browser meminta ulang halaman yang ditunjuk URL",
       explanation:
-        "Render berarti browser membaca resource yang diterima lalu mengubahnya menjadi tampilan halaman yang bisa dilihat dan digunakan.",
+        "Saat refresh, browser memakai URL yang sama untuk meminta halaman lagi. Ini membantu kamu memahami bahwa membuka dan me-refresh URL sama-sama melibatkan request.",
     },
   ],
 };
@@ -762,7 +763,7 @@ export const howWebPageLoadsQuiz: Quiz = {
 export const whatAreHtmlCssJavascriptQuiz: Quiz = {
   id: "what-are-html-css-javascript-quiz",
   lessonId: "what-are-html-css-javascript",
-  title: "Kuis HTML, CSS, dan JavaScript",
+  title: "Quiz HTML, CSS, dan JavaScript",
   passingScore: 70,
   questions: [
     {
@@ -806,17 +807,17 @@ export const whatAreHtmlCssJavascriptQuiz: Quiz = {
 export const htmlCssJsRolesQuiz: Quiz = {
   id: "html-css-js-roles-quiz",
   lessonId: "html-css-js-roles",
-  title: "Kuis Peran HTML, CSS, dan JavaScript",
+  title: "Quiz Peran HTML, CSS, dan JavaScript",
   passingScore: 70,
   questions: [
     {
       id: "html-css-js-roles-q1",
       type: "multiple-choice",
-      question: "Saat browser membuka web page, resource mana yang biasanya memberi struktur awal?",
+      question: "Saat browser membuka web page, bagian mana yang biasanya memberi struktur awal?",
       options: ["CSS", "JavaScript", "HTML", "Gambar"],
       correctAnswer: "HTML",
       explanation:
-        "HTML memberi struktur awal halaman. Dari HTML, browser bisa menemukan file CSS, JavaScript, gambar, atau resource lain yang dibutuhkan.",
+        "HTML memberi struktur awal halaman. Dari HTML, browser bisa menemukan file CSS, JavaScript, gambar, atau file pendukung lain yang dibutuhkan.",
     },
     {
       id: "html-css-js-roles-q2",
@@ -897,11 +898,11 @@ export const webFoundationsAssessmentQuiz: Quiz = {
         "Browser langsung membuat halaman tanpa meminta apa pun",
         "Browser mengubah URL menjadi file lokal di komputer",
         "Browser menebak isi halaman dari judul tab",
-        "Browser mengirim request untuk meminta halaman atau resource",
+        "Browser mengirim request untuk meminta halaman atau file pendukung",
       ],
-      correctAnswer: "Browser mengirim request untuk meminta halaman atau resource",
+      correctAnswer: "Browser mengirim request untuk meminta halaman atau file pendukung",
       explanation:
-        "Request berarti permintaan. Browser memakai URL untuk meminta halaman atau resource yang dibutuhkan sebelum menampilkannya.",
+        "Request berarti permintaan. Browser memakai URL untuk meminta halaman atau file pendukung yang dibutuhkan sebelum menampilkannya.",
     },
     {
       id: "web-foundations-assessment-q4",
@@ -915,7 +916,7 @@ export const webFoundationsAssessmentQuiz: Quiz = {
       ],
       correctAnswer: "Balasan dari server setelah browser mengirim request",
       explanation:
-        "Response adalah balasan dari server. Balasan itu bisa berisi HTML, CSS, JavaScript, gambar, data, atau resource lain yang dibutuhkan halaman.",
+        "Response adalah balasan dari server. Balasan itu bisa berisi HTML, CSS, JavaScript, gambar, data, atau file pendukung lain yang dibutuhkan halaman.",
     },
     {
       id: "web-foundations-assessment-q5",
@@ -971,7 +972,7 @@ export const webFoundationsAssessmentQuiz: Quiz = {
       ],
       correctAnswer: "Menjadi file halaman utama yang berisi struktur awal",
       explanation:
-        "index.html biasanya menjadi halaman utama atau pintu masuk awal. Dari sana browser bisa membaca struktur halaman dan menemukan resource lain.",
+        "index.html biasanya menjadi halaman utama atau pintu masuk awal. Dari sana browser bisa membaca struktur halaman dan menemukan file pendukung lain.",
     },
     {
       id: "web-foundations-assessment-q9",

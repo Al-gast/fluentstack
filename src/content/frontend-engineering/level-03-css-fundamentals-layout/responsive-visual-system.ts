@@ -447,7 +447,7 @@ export const responsiveVisualSystemAssessmentLesson: Lesson = {
   title: "Uji Kompetensi Responsive Visual System",
   slug: "responsive-visual-system-assessment",
   description:
-    "Uji pemahaman mobile-first CSS, breakpoint, fluid spacing, typography, CSS variables, dan dark mode dasar.",
+    "Cek kesiapan kamu memakai mobile-first CSS, breakpoint, fluid spacing, typography, CSS variables, dan dark mode dasar.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 55,
@@ -459,14 +459,14 @@ export const responsiveVisualSystemAssessmentLesson: Lesson = {
     "Mengecek pemahaman dark mode dasar",
     "Mengarahkan learner membaca dokumentasi resmi dengan fokus",
   ],
-  skillTags: ["CSS", "Responsive Design", "Visual System", "Assessment"],
+  skillTags: ["CSS", "Responsive Design", "Visual System", "Checkpoint"],
   blocks: [
     {
       id: "responsive-visual-system-assessment-recap",
       type: "text",
-      title: "Apa yang dicek di assessment ini",
+      title: "Apa yang dicek di checkpoint ini",
       content:
-        "Assessment ini mengecek responsive visual system dasar. Kamu akan membuktikan bahwa kamu memahami mobile-first CSS, breakpoint, media query, max-width, line-height, clamp secara ringan, CSS variables, dan pola dark mode dasar.",
+        "Checkpoint ini mengecek responsive visual system dasar. Kamu akan membuktikan bahwa kamu memahami mobile-first CSS, breakpoint, media query, max-width, line-height, clamp secara ringan, CSS variables, dan pola dark mode dasar.",
     },
     {
       id: "responsive-visual-system-assessment-quiz-block",
@@ -481,9 +481,9 @@ export const responsiveVisualSystemAssessmentLesson: Lesson = {
     {
       id: "responsive-visual-system-assessment-docs-bridge",
       type: "documentation-bridge",
-      title: "Baca dokumentasi resmi",
+      title: "Baca MDN secara terarah",
       description:
-        "Gunakan dokumentasi ini untuk menguatkan pemahaman responsive visual system. Fokus pada konsep yang sudah kamu pakai di latihan.",
+        "Gunakan dokumentasi resmi ini untuk menguatkan pemahaman responsive visual system. Fokus pada konsep yang sudah kamu pakai di latihan.",
       links: [
         {
           source: "MDN Web Docs",
@@ -566,7 +566,7 @@ export const responsiveVisualSystemAssessmentLesson: Lesson = {
         "Kamu membuktikan bahwa kamu memahami mobile-first CSS dan breakpoint dasar.",
         "Kamu membuktikan bahwa kamu bisa memakai max-width dan line-height untuk readability.",
         "Kamu membuktikan bahwa kamu memahami CSS variables sebagai nilai visual reusable.",
-        "Jika belum siap, review lagi mobile-first CSS, breakpoints, max-width, line-height, clamp basics, CSS variables, dan dark mode value swapping.",
+        "Jika checkpoint belum lulus, review lagi mobile-first CSS, breakpoints, max-width, line-height, clamp basics, CSS variables, dan dark mode value swapping.",
         "Setelah memahami CSS visual system dasar, berikutnya kamu akan mulai masuk ke JavaScript Fundamentals.",
       ],
     },
@@ -1061,7 +1061,7 @@ export const buildResponsiveVisualSectionChallenge: CodingChallenge = {
   lessonId: "responsive-visual-system-assessment",
   title: "Membangun responsive visual section",
   description:
-    "Assessment practice untuk menggabungkan mobile-first CSS, readability, card grid, dan nilai visual yang konsisten.",
+    "Checkpoint praktik untuk menggabungkan mobile-first CSS, readability, card grid, dan nilai visual yang konsisten.",
   instructions: [
     "Style .page dengan background dan color.",
     "Style .container dengan max-width dan padding.",
@@ -1186,7 +1186,7 @@ export const buildResponsiveVisualSectionChallenge: CodingChallenge = {
       { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
     ],
   },
-  skillTags: ["CSS", "Responsive Design", "Visual System", "Assessment"],
+  skillTags: ["CSS", "Responsive Design", "Visual System", "Checkpoint"],
 };
 
 export const responsiveVisualSystemLessons: Lesson[] = [

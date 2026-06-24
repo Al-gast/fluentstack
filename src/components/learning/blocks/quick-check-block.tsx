@@ -41,10 +41,10 @@ export function QuickCheckBlock({ block, isCompleted, isRequired, onComplete }: 
   const helperText = isCompleted
     ? "Cek pemahaman ini sudah masuk ke progres lesson."
     : isCorrect
-      ? "Jawaban benar. Progress block ini sudah diperbarui."
+      ? "Benar. Blok ini sudah masuk ke progres lesson."
       : isWrong
-        ? "Jawaban belum tepat. Progress belum berubah, coba lagi."
-        : "Progress hanya naik setelah jawaban benar.";
+        ? "Belum tepat. Progres belum berubah, coba perhatikan penjelasannya lalu coba lagi."
+        : "Progres lesson naik setelah jawaban benar.";
 
   const handleSubmit = async () => {
     if (!selectedAnswer || isSubmitting) {

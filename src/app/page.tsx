@@ -40,7 +40,7 @@ export default function Home() {
             className="space-y-6"
           >
             <p className="inline-flex rounded-full border border-fs-border-strong bg-fs-accent-soft px-3 py-1 text-xs font-medium text-fs-accent">
-              Learning lab terarah
+              Alur belajar terarah
             </p>
             <h1 className="max-w-4xl text-3xl font-bold leading-tight text-fs-text sm:text-5xl lg:text-6xl">
               Belajar skill teknologi lewat lesson, quiz, dan praktik langsung.

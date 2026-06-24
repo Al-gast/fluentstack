@@ -270,7 +270,7 @@ export const textareaSelectRequiredFieldsLesson: Lesson = {
         "textarea cocok untuk teks panjang.",
         "select cocok untuk pilihan yang sudah disediakan.",
         "required membantu browser tahu field wajib.",
-        "Berikutnya module ini akan lanjut ke alt text, keyboard navigation, dan checklist aksesibilitas dasar.",
+        "Berikutnya, kamu akan lanjut ke alt text, keyboard navigation, dan checklist aksesibilitas dasar.",
       ],
     },
   ],
@@ -534,7 +534,7 @@ export const basicAccessibilityChecklistLesson: Lesson = {
       points: [
         "Accessibility dimulai dari HTML yang benar.",
         "Checklist membantu menemukan masalah awal.",
-        "Module berikutnya akan diuji lewat Uji Kompetensi Forms and Basic Accessibility.",
+        "Berikutnya, kamu akan mengecek kesiapan Forms and Basic Accessibility lewat checkpoint module.",
         "Setelah ini kamu akan membangun form kecil dan membuktikan bahwa kamu paham link/button, label/input, alt text, dan keyboard navigation dasar.",
       ],
     },
@@ -558,7 +558,7 @@ export const formsBasicAccessibilityAssessmentLesson: Lesson = {
   title: "Uji Kompetensi Forms and Basic Accessibility",
   slug: "forms-basic-accessibility-assessment",
   description:
-    "Uji pemahaman dasar form, link vs button, label, input, alt text, dan aksesibilitas awal.",
+    "Cek kesiapan kamu membuat form sederhana dengan kebiasaan accessibility dasar.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 45,
@@ -567,14 +567,14 @@ export const formsBasicAccessibilityAssessmentLesson: Lesson = {
     "Membangun form sederhana dengan label yang terhubung",
     "Mengecek pemahaman alt text dan keyboard navigation dasar",
   ],
-  skillTags: ["HTML", "Forms", "Accessibility", "Assessment"],
+  skillTags: ["HTML", "Forms", "Accessibility", "Checkpoint"],
   blocks: [
     {
       id: "forms-basic-accessibility-assessment-recap",
       type: "text",
-      title: "Apa yang dicek di assessment ini",
+      title: "Apa yang dicek di checkpoint ini",
       content:
-        "Assessment ini merangkum module Forms and Basic Accessibility. Kamu akan mengecek link vs button, form, label, input, textarea, select, required, alt text, keyboard navigation, dan checklist accessibility dasar. Tujuannya bukan mencari jawaban jebakan, tetapi memastikan struktur HTML dan form kamu mulai aman untuk dipakai lebih banyak user.",
+        "Checkpoint ini merangkum module Forms and Basic Accessibility. Kamu akan mengecek link vs button, form, label, input, textarea, select, required, alt text, keyboard navigation, dan checklist accessibility dasar. Tujuannya bukan mencari jawaban jebakan, tetapi memastikan struktur HTML dan form kamu mulai aman untuk dipakai lebih banyak user.",
     },
     {
       id: "forms-basic-accessibility-assessment-quiz-block",
@@ -587,11 +587,28 @@ export const formsBasicAccessibilityAssessmentLesson: Lesson = {
       challengeId: "build-accessible-contact-form",
     },
     {
+      id: "forms-basic-accessibility-assessment-writing-practice",
+      type: "writing-practice",
+      prompt:
+        "Setelah menyelesaikan form kontak, tulis self-review singkat.\n\nCek minimal empat hal:\n- Apakah link dan button dipakai sesuai fungsi?\n- Apakah label terhubung ke field?\n- Apakah gambar bermakna punya alt text yang jelas?\n- Apakah elemen penting bisa dijangkau dengan Tab?",
+      placeholder:
+        "Form saya sudah..., karena.... Hal yang masih perlu saya cek adalah....",
+      minimumCharacters: 180,
+      checklist: [
+        "Menyebut link atau button.",
+        "Menyebut label/input atau field form.",
+        "Menyebut alt text.",
+        "Menyebut keyboard navigation atau Tab.",
+      ],
+      modelAnswer:
+        "Form saya memakai button submit untuk aksi mengirim pesan, bukan link. Label nama, email, pesan, dan topik sudah terhubung ke field lewat for dan id. Gambar kontak punya alt text yang menjelaskan konteks. Hal yang masih perlu saya cek adalah urutan Tab dari field pertama sampai tombol submit.",
+    },
+    {
       id: "forms-basic-accessibility-assessment-docs-bridge",
       type: "documentation-bridge",
-      title: "Baca dokumentasi resmi",
+      title: "Baca MDN secara terarah",
       description:
-        "Gunakan bagian ini sebagai latihan membaca dokumentasi, bukan tugas menghafal. Kamu tidak perlu membaca semuanya sekarang. Fokus pada bagian yang sudah kamu pelajari.",
+        "Gunakan bagian ini sebagai latihan membaca dokumentasi resmi, bukan tugas menghafal. Kamu tidak perlu membaca semuanya sekarang. Fokus pada bagian yang mendukung form dan accessibility dasar di checkpoint ini.",
       links: [
         {
           source: "MDN Web Docs",
@@ -649,7 +666,7 @@ export const formsBasicAccessibilityAssessmentLesson: Lesson = {
       points: [
         "Kamu membuktikan bahwa kamu bisa memilih link untuk navigasi dan button untuk aksi.",
         "Kamu membuktikan bahwa kamu bisa membuat form dengan label, input, textarea, select, required, dan submit button.",
-        "Jika belum siap, review lagi link vs button, label/input, textarea/select, alt text, dan keyboard navigation dasar.",
+        "Jika checkpoint belum lulus, review lagi link vs button, label/input, textarea/select, alt text, dan keyboard navigation dasar.",
         "Setelah struktur form dan aksesibilitas dasar mulai aman, berikutnya kamu akan belajar CSS agar halaman bisa ditata tanpa merusak struktur HTML.",
       ],
     },
@@ -659,6 +676,7 @@ export const formsBasicAccessibilityAssessmentLesson: Lesson = {
       "forms-basic-accessibility-assessment-recap",
       "forms-basic-accessibility-assessment-quiz-block",
       "forms-basic-accessibility-assessment-coding-practice",
+      "forms-basic-accessibility-assessment-writing-practice",
       "forms-basic-accessibility-assessment-summary",
     ],
     passingQuizScore: 70,
@@ -668,7 +686,7 @@ export const formsBasicAccessibilityAssessmentLesson: Lesson = {
 export const formsBasicAccessibilityAssessmentQuiz: Quiz = {
   id: "forms-basic-accessibility-assessment-quiz",
   lessonId: "forms-basic-accessibility-assessment",
-  title: "Assessment Forms and Basic Accessibility",
+  title: "Uji Kompetensi Forms and Basic Accessibility",
   passingScore: 70,
   questions: [
     {
@@ -963,18 +981,18 @@ export const writeUsefulAltTextChallenge: CodingChallenge = {
     js: "",
   },
   checklist: [
-    "Ada image.",
-    "Image memakai src.",
-    "Image punya alt text.",
+    "Ada gambar (img).",
+    "Gambar memakai src.",
+    "Gambar punya alt text.",
     "Alt text tidak kosong.",
     "Alt text menjelaskan progres belajar dalam konteks halaman.",
   ],
   validation: {
     mode: "html",
     checks: [
-      { id: "has-image", label: "Ada image.", type: "hasElement", target: "img" },
-      { id: "image-has-src", label: "Image memakai src.", type: "hasElementWithAttribute", target: "img", attribute: "src", mustHaveValue: true },
-      { id: "image-has-alt", label: "Image punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
+      { id: "has-image", label: "Ada gambar (img).", type: "hasElement", target: "img" },
+      { id: "image-has-src", label: "Gambar memakai src.", type: "hasElementWithAttribute", target: "img", attribute: "src", mustHaveValue: true },
+      { id: "image-has-alt", label: "Gambar punya alt text.", type: "hasElementWithAttribute", target: "img", attribute: "alt", mustHaveValue: true },
       { id: "alt-has-progres", label: "Alt menyebut progres.", type: "hasElementWithAttribute", target: "img", attribute: "alt", valueIncludes: "progres" },
       { id: "alt-has-belajar", label: "Alt menyebut belajar.", type: "hasElementWithAttribute", target: "img", attribute: "alt", valueIncludes: "belajar" },
     ],
@@ -985,9 +1003,9 @@ export const writeUsefulAltTextChallenge: CodingChallenge = {
 export const buildAccessibleContactFormChallenge: CodingChallenge = {
   id: "build-accessible-contact-form",
   lessonId: "forms-basic-accessibility-assessment",
-  title: "Membuat contact form yang lebih aksesibel",
+  title: "Membuat form kontak yang lebih aksesibel",
   description:
-    "Assessment praktik untuk membuat form kontak dengan label, field penting, required, submit button, dan gambar bermakna.",
+    "Checkpoint praktik untuk membuat form kontak dengan label, field penting, required, submit button, dan gambar bermakna.",
   instructions: [
     "Buat form kontak sederhana.",
     "Tambahkan field nama dan email.",
@@ -1072,7 +1090,7 @@ export const buildAccessibleContactFormChallenge: CodingChallenge = {
       { id: "alt-contact-context", label: "Alt menjelaskan konteks kontak.", type: "hasElementWithAttribute", target: "img", attribute: "alt", valueIncludes: "kontak" },
     ],
   },
-  skillTags: ["HTML", "Forms", "Accessibility", "Assessment"],
+  skillTags: ["HTML", "Forms", "Accessibility", "Checkpoint"],
 };
 
 export const formsBasicAccessibilityLessons: Lesson[] = [

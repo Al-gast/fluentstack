@@ -16,7 +16,7 @@ type LessonCardProps = {
 
 const statusLabel: Record<NonNullable<LessonCardProps["status"]>, string> = {
   "not-started": "Belum mulai",
-  "in-progress": "Sedang berjalan",
+  "in-progress": "Sedang dipelajari",
   completed: "Selesai",
 };
 

@@ -182,7 +182,7 @@ export const htmlSemanticBasicsLesson: Lesson = {
         "Gunakan semantic HTML ketika fungsi bagian halaman sudah jelas.",
         "Div masih boleh dipakai untuk wrapper umum, tetapi jangan jadikan div sebagai pengganti semua bagian penting.",
         "Jika div hanya dipakai sebagai wrapper besar, cek apakah header, nav, main, article, section, atau footer lebih tepat.",
-        "Berikutnya, kamu akan menguji kesiapan Semantic HTML lewat assessment module.",
+        "Berikutnya, kamu akan mengecek kesiapan Semantic HTML lewat checkpoint module.",
       ],
     },
   ],
@@ -211,16 +211,16 @@ export const semanticHtmlAssessmentLesson: Lesson = {
   objectives: [
     "Memilih elemen semantic berdasarkan fungsi konten",
     "Membedakan penggunaan header, nav, main, section, article, dan footer",
-    "Memperbaiki struktur div-only menjadi semantic HTML sederhana",
+    "Memperbaiki struktur div-only menjadi semantic HTML sederhana dan menjelaskan alasannya",
   ],
-  skillTags: ["HTML", "Semantic HTML", "Assessment", "Accessibility"],
+  skillTags: ["HTML", "Semantic HTML", "Checkpoint", "Accessibility"],
   blocks: [
     {
       id: "semantic-html-assessment-recap",
       type: "text",
-      title: "Apa yang dicek di assessment ini",
+      title: "Apa yang dicek di checkpoint ini",
       content:
-        "Assessment ini mengecek apakah kamu bisa memilih elemen berdasarkan makna, bukan tampilan. Kamu akan memutuskan kapan memakai header, nav, main, section, article, dan footer, lalu menerapkannya dalam struktur halaman kecil.",
+        "Checkpoint ini mengecek apakah kamu bisa memilih elemen berdasarkan makna, bukan tampilan. Kamu akan memutuskan kapan memakai header, nav, main, section, article, dan footer, lalu menerapkannya dalam struktur halaman kecil. Bagian ini tidak mengenalkan konsep besar baru; fokusnya adalah membuktikan kamu siap masuk ke form dan accessibility dasar.",
     },
     {
       id: "semantic-html-assessment-quiz-block",
@@ -233,11 +233,27 @@ export const semanticHtmlAssessmentLesson: Lesson = {
       challengeId: "build-semantic-html-assessment-page",
     },
     {
+      id: "semantic-html-assessment-writing-practice",
+      type: "writing-practice",
+      prompt:
+        "Tulis alasan singkat untuk dua pilihan semantic element dari latihan kamu.\n\nContoh fokus:\n- Kenapa area link lebih tepat memakai nav?\n- Kenapa konten utama lebih tepat memakai main?\n- Kenapa bagian post lebih cocok memakai article atau section daripada div biasa?",
+      placeholder:
+        "Saya memakai nav untuk..., karena.... Saya memakai main untuk..., karena....",
+      minimumCharacters: 160,
+      checklist: [
+        "Menyebut minimal dua semantic element.",
+        "Menjelaskan fungsi konten, bukan tampilan visual.",
+        "Menyebut kapan div masih boleh dipakai sebagai wrapper umum.",
+      ],
+      modelAnswer:
+        "Saya memakai nav untuk area link karena bagian itu membantu user berpindah ke bagian penting halaman. Saya memakai main untuk konten utama karena bagian itu berisi isi unik halaman. Div masih boleh dipakai sebagai wrapper umum, tetapi tidak saya pakai untuk mengganti area yang sudah punya makna seperti nav, main, atau footer.",
+    },
+    {
       id: "semantic-html-assessment-docs-bridge",
       type: "documentation-bridge",
-      title: "Baca dokumentasi resmi",
+      title: "Baca MDN secara terarah",
       description:
-        "Gunakan bagian ini sebagai latihan membaca dokumentasi, bukan tugas menghafal. Kamu tidak perlu membaca semuanya sekarang. Fokus pada bagian yang sudah kamu pelajari.",
+        "Gunakan bagian ini sebagai latihan membaca dokumentasi resmi, bukan tugas menghafal. Kamu tidak perlu membaca semuanya sekarang. Fokus pada bagian yang mendukung keputusan semantic element di checkpoint ini.",
       links: [
         {
           source: "MDN Web Docs",
@@ -291,6 +307,7 @@ export const semanticHtmlAssessmentLesson: Lesson = {
         "Kamu siap jika bisa memilih semantic element berdasarkan fungsi konten.",
         "Gunakan nav untuk navigasi, main untuk konten utama, dan footer untuk bagian penutup.",
         "Gunakan section atau article ketika bagian konten punya kelompok atau isi mandiri yang jelas.",
+        "Jika checkpoint belum lulus, review lagi perbedaan header, nav, main, section, article, footer, dan kapan div masih boleh dipakai.",
         "Berikutnya, kamu akan masuk ke Forms and Basic Accessibility dan mulai membedakan link, button, serta field form dasar.",
       ],
     },
@@ -300,6 +317,7 @@ export const semanticHtmlAssessmentLesson: Lesson = {
       "semantic-html-assessment-recap",
       "semantic-html-assessment-quiz-block",
       "semantic-html-assessment-coding-practice",
+      "semantic-html-assessment-writing-practice",
       "semantic-html-assessment-summary",
     ],
     passingQuizScore: 70,
@@ -309,7 +327,7 @@ export const semanticHtmlAssessmentLesson: Lesson = {
 export const semanticHtmlStructureQuiz: Quiz = {
   id: "semantic-html-structure-quiz",
   lessonId: "semantic-html-structure",
-  title: "Kuis Struktur Semantic HTML",
+  title: "Quiz Struktur Semantic HTML",
   passingScore: 70,
   questions: [
     {
@@ -356,7 +374,7 @@ export const semanticHtmlStructureQuiz: Quiz = {
 export const htmlSemanticQuiz: Quiz = {
   id: "html-semantic-quiz",
   lessonId: "html-semantic-basics",
-  title: "Kuis Dasar Semantic HTML",
+  title: "Quiz Dasar Semantic HTML",
   passingScore: 70,
   questions: [
     {
@@ -403,7 +421,7 @@ export const htmlSemanticQuiz: Quiz = {
 export const semanticHtmlAssessmentQuiz: Quiz = {
   id: "semantic-html-assessment-quiz",
   lessonId: "semantic-html-assessment",
-  title: "Assessment Semantic HTML",
+  title: "Uji Kompetensi Semantic HTML",
   passingScore: 70,
   questions: [
     {
@@ -637,7 +655,7 @@ export const buildSemanticHtmlAssessmentPageChallenge: CodingChallenge = {
   lessonId: "semantic-html-assessment",
   title: "Membangun halaman semantic HTML",
   description:
-    "Assessment praktik untuk menyusun halaman kecil memakai elemen semantic.",
+    "Checkpoint praktik untuk menyusun halaman kecil memakai elemen semantic.",
   instructions: [
     "Ganti struktur umum berbasis div menjadi semantic HTML.",
     "Gunakan header, nav, main, section atau article, dan footer sesuai fungsi konten.",
@@ -713,7 +731,7 @@ export const buildSemanticHtmlAssessmentPageChallenge: CodingChallenge = {
       { id: "has-footer", label: "Ada footer.", type: "hasElement", target: "footer" },
     ],
   },
-  skillTags: ["HTML", "Semantic HTML", "Assessment", "Accessibility"],
+  skillTags: ["HTML", "Semantic HTML", "Checkpoint", "Accessibility"],
 };
 
 export const semanticHtmlLessons: Lesson[] = [

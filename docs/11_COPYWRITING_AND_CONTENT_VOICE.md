@@ -104,6 +104,44 @@ For English for Tech Careers content, use bilingual structure:
 - Add Indonesian meaning or context when useful.
 - Ask learners to write their own version in English.
 
+## Product Glossary
+
+Use these terms consistently in Indonesian UI and learning content.
+
+| Concept | Preferred copy | Avoid | Notes |
+| --- | --- | --- | --- |
+| Learning path | `track` | course, jalur kursus | `Track` is a FluentStack product term. |
+| Group of lessons | `module` | modul, chapter, bab | Use `module` in UI to match the product model. |
+| Single learning step | `lesson` | materi, artikel | A lesson teaches and may launch practice. |
+| Module-end assessment | `Uji Kompetensi` | ujian akhir, tes akhir | Treat it as a readiness checkpoint. |
+| Readiness step | `checkpoint` | exam, test besar | Use for non-intimidating assessment language. |
+| User learning state | `progres` | progress | Use `Progress` only in code, API, or English-only contexts. |
+| Built-in coding area | `practice workspace` | editor halaman, playground | Use when the learner opens `/practice/[challengeId]`. |
+| Rule-based validation | `cek otomatis` | auto grading, AI check | Use only when deterministic validation exists. |
+| Visual output | `preview` | hasil tampilan akhir | `Preview` is short and common in developer tools. |
+| Required completion item | `blok wajib` | tugas wajib, materi wajib | Use for progress logic. |
+| Optional learning item | `opsional` | tambahan bebas | Make clear it does not block completion. |
+| User account state | `guest` | pengunjung sementara | Use when progress is stored in browser. |
+| Cross-device save | `progres lintas device` | cloud sync | Only use when the feature is implemented. |
+
+Use sentence-case labels in UI unless the component pattern requires title case. Avoid all-caps labels for normal learning actions.
+
+Good:
+
+```txt
+Buka practice
+Kerjakan quick check
+3 dari 5 blok wajib selesai
+```
+
+Weak:
+
+```txt
+BUKA PRACTICE
+Complete Your Learning Journey
+3/5 required materials completed
+```
+
 ## Stage-Based Voice
 
 Frontend Engineering uses three curriculum stages:
@@ -839,6 +877,194 @@ Future UI copy passes should replace inconsistent English labels when they appea
 
 Do not force this rewrite during unrelated feature work. Apply it during a focused copywriting polish pass.
 
+## CTA Hierarchy Rules
+
+Each page should have one primary next action. Secondary actions are allowed, but they should not compete visually or semantically with the main learning action.
+
+### Primary CTA Rules
+
+Use the primary CTA for the action that moves the learner forward in the learning flow.
+
+| Situation | Primary CTA | Notes |
+| --- | --- | --- |
+| No active progress | `Mulai belajar` | Use on landing, dashboard, or track entry. |
+| Learner has active lesson | `Lanjutkan lesson` | Send to the most relevant unfinished lesson block. |
+| Lesson has unfinished quick check | `Kerjakan quick check` | Use when quick check blocks completion. |
+| Lesson has unfinished coding practice | `Buka practice` | Use when practice is required or clearly next. |
+| Practice has failed validation | `Perbaiki practice` | Send back to the same workspace. |
+| Quiz has not passed | `Ulang quiz` | Use for required quiz or Uji Kompetensi. |
+| Module assessment is available | `Buka checkpoint` | Use for Uji Kompetensi entry. |
+| Uji Kompetensi passed | `Lanjut ke module berikutnya` | Use only when next module is available. |
+| No next module yet | `Kembali ke track` | Do not imply unavailable content exists. |
+
+Primary CTA copy should name the destination or action. Avoid vague labels such as `Lanjut`, `Next`, or `Continue` when the user needs more context.
+
+### Secondary CTA Rules
+
+Use secondary CTAs for review, support, or alternate paths:
+
+- `Review lesson`
+- `Lihat roadmap`
+- `Lihat solusi`
+- `Coba lagi`
+- `Kembali ke lesson`
+- `Buka module`
+
+Secondary CTAs should not sound more urgent than the primary CTA.
+
+### Disabled CTA Copy
+
+Disabled buttons should explain the requirement nearby. Do not rely on disabled styling alone.
+
+Good:
+
+```txt
+Tombol selesai aktif setelah semua validasi wajib lolos.
+```
+
+Weak:
+
+```txt
+Tidak bisa selesai.
+```
+
+## Learning State Copy Matrix
+
+Use state copy that reflects the real learning condition. Do not hide important state behind generic success or failure messages.
+
+| State | Short label | Supporting copy | Recommended action |
+| --- | --- | --- | --- |
+| Not started | `Belum mulai` | `Mulai dari blok pertama.` | `Mulai lesson` |
+| In progress | `Sedang dipelajari` | `[x] dari [y] blok wajib selesai.` | `Lanjutkan lesson` |
+| Optional remaining | `Blok wajib selesai` | `Masih ada bagian opsional jika ingin review lebih dalam.` | `Lanjutkan` or `Review opsional` |
+| Quick check pending | `Quick check belum selesai` | `Kerjakan quick check untuk mengunci pemahaman sebelum lanjut.` | `Kerjakan quick check` |
+| Quiz not attempted | `Quiz belum dikerjakan` | `Kerjakan quiz untuk mengecek pemahaman module.` | `Kerjakan quiz` |
+| Quiz failed | `Belum lulus` | `Review bagian yang belum kuat, lalu ulang quiz.` | `Review module` or `Ulang quiz` |
+| Quiz passed | `Quiz selesai` | `Skor sudah melewati target lulus.` | `Lanjutkan` |
+| Practice not opened | `Practice belum dibuka` | `Buka workspace untuk latihan langsung.` | `Buka practice` |
+| Practice validation failed | `Validasi belum lolos` | `Perbaiki bagian yang ditandai cek otomatis.` | `Perbaiki practice` |
+| Practice validation passed | `Validasi wajib lolos` | `Semua cek wajib sudah terpenuhi.` | `Tandai selesai` |
+| Writing draft empty | `Draft belum ditulis` | `Tulis respons sesuai situasi kerja yang diminta.` | `Mulai menulis` |
+| Writing draft saved | `Draft tersimpan` | `Kamu bisa lanjut atau revisi jawabanmu.` | `Lanjutkan` |
+| Lesson complete | `Lesson selesai` | `Semua blok wajib sudah selesai.` | `Lanjut ke lesson berikutnya` |
+| Assessment ready | `Siap checkpoint` | `Module sudah cukup siap untuk dicek.` | `Buka checkpoint` |
+| Assessment passed | `Siap lanjut` | `Kamu sudah memenuhi readiness module ini.` | `Lanjut ke module berikutnya` |
+| Assessment not passed | `Review dulu` | `Ada bagian penting yang perlu diperkuat sebelum lanjut.` | `Review module` |
+
+Use `selesai` for finished tasks. Use `siap lanjut` for readiness after Uji Kompetensi. Do not use `lesson selesai` to describe module readiness.
+
+## Page-Level Copy Templates
+
+Use these templates as starting points. Adjust the specific concept, module, or track name so the copy does not feel generic.
+
+### Landing
+
+Purpose: explain what FluentStack is and guide the first action.
+
+Template:
+
+```txt
+Belajar [track utama] lewat lesson, practice, dan checkpoint yang jelas.
+[Satu kalimat tentang outcome praktis.]
+CTA: Mulai belajar
+```
+
+Example:
+
+```txt
+Belajar frontend dan English for Tech Careers lewat lesson, practice, dan checkpoint yang jelas.
+Pahami konsep, latihan langsung, lalu cek kesiapanmu sebelum lanjut.
+```
+
+### Dashboard
+
+Purpose: answer what the learner should do now.
+
+Template:
+
+```txt
+Lanjutkan [lesson/module] terakhir kamu.
+[x] dari [y] blok wajib selesai.
+CTA: [next best action]
+```
+
+Example:
+
+```txt
+Lanjutkan lesson Peran HTML, CSS, dan JavaScript.
+5 dari 6 blok wajib selesai.
+CTA: Kerjakan quick check
+```
+
+### Track
+
+Purpose: show the learning journey and current position.
+
+Template:
+
+```txt
+Belajar [skill area] dari [starting point] sampai [practical target].
+Mulai dari module pertama, lalu buka checkpoint saat semua lesson wajib selesai.
+```
+
+### Module
+
+Purpose: show the ordered module path.
+
+Template:
+
+```txt
+Pahami [module concept] lewat [lesson pattern/practice pattern].
+Module ini selesai saat lesson wajib dan Uji Kompetensi sudah menunjukkan kamu siap lanjut.
+```
+
+### Lesson
+
+Purpose: teach one concept and point to the next action.
+
+Template:
+
+```txt
+[Concept] dipakai untuk [practical purpose].
+Di project nyata, ini membantu [specific benefit].
+Setelah memahami bagian ini, kamu akan [practice/check/action].
+```
+
+### Practice Workspace
+
+Purpose: help the learner build, check, fix, and return.
+
+Template:
+
+```txt
+Buat [output] dengan [technical requirements].
+Gunakan preview untuk melihat hasil dan cek otomatis untuk melihat bagian yang sudah lengkap.
+Tombol selesai aktif setelah semua validasi wajib lolos.
+```
+
+### Uji Kompetensi
+
+Purpose: check readiness, not introduce new concepts.
+
+Template:
+
+```txt
+Checkpoint ini mengecek apakah kamu siap lanjut dari [module name].
+Kerjakan quiz dan practice berdasarkan konsep yang sudah dipelajari di module ini.
+Jika belum lulus, review bagian yang ditandai lalu coba lagi.
+```
+
+### Profile
+
+Purpose: explain account, storage, and learning state.
+
+Template:
+
+```txt
+Lihat progres belajar, preferensi tema, dan status penyimpanan akun kamu.
+Saat memakai guest mode, progres tersimpan di browser ini.
+```
+
 ## Content Writing Principles for Future Lessons
 
 ### Start from the learner's task
@@ -896,6 +1122,273 @@ Weak summary points:
 - "Semantic HTML sangat penting."
 - "Teruslah belajar dan berkembang."
 - "HTML adalah fondasi web."
+
+## Lesson Block Copy Templates
+
+Use these templates when writing or revising blocks in `src/content/lessons.ts`. The template is a starting point, not a script that must be repeated word-for-word.
+
+### Learning Goal
+
+Purpose: tell the learner what they will be able to do.
+
+Pattern:
+
+```txt
+Setelah lesson ini, kamu bisa [specific action] untuk [practical purpose].
+```
+
+Good:
+
+```txt
+Setelah lesson ini, kamu bisa membedakan peran HTML, CSS, dan JavaScript di satu halaman web sederhana.
+```
+
+Weak:
+
+```txt
+Setelah lesson ini, kamu memahami konsep penting dalam web development.
+```
+
+### Path Context
+
+Purpose: explain why this lesson appears now.
+
+Pattern:
+
+```txt
+Sebelumnya kamu sudah [previous concept]. Sekarang kamu akan [current concept] supaya nanti bisa [next practical step].
+```
+
+Good:
+
+```txt
+Sebelumnya kamu sudah melihat cara browser membuka halaman. Sekarang kamu akan mengenali peran HTML, CSS, dan JavaScript supaya nanti lebih mudah membaca struktur project frontend.
+```
+
+### Explanation
+
+Purpose: teach one idea clearly.
+
+Pattern:
+
+```txt
+[Concept] adalah/dipakai untuk [plain explanation]. Dalam pekerjaan frontend, ini membantu [practical benefit].
+```
+
+Keep most explanation paragraphs to one idea. If a paragraph needs more than two ideas, split it into multiple blocks or add a code example.
+
+### Code Example Intro
+
+Purpose: tell the learner how to read the code before practice.
+
+Pattern:
+
+```txt
+Perhatikan bagian [specific code part]. Bagian ini menunjukkan [concept], bukan [common wrong interpretation].
+```
+
+Good:
+
+```txt
+Perhatikan elemen <body>. Bagian ini berisi konten yang terlihat di halaman, bukan metadata untuk tab browser.
+```
+
+### Common Mistake
+
+Purpose: prevent likely misunderstanding.
+
+Pattern:
+
+```txt
+Kesalahan yang sering terjadi: [mistake]. Cara berpikir yang lebih aman: [decision rule].
+```
+
+Good:
+
+```txt
+Kesalahan yang sering terjadi: menganggap CSS mengubah struktur halaman. Cara berpikir yang lebih aman: HTML menyusun konten, CSS mengatur tampilannya.
+```
+
+### Quick Check
+
+Purpose: check one concept quickly before moving on.
+
+Question pattern:
+
+```txt
+Dalam situasi ini, pilihan mana yang paling tepat?
+```
+
+Feedback pattern:
+
+```txt
+Benar. [Reason].
+Belum tepat. [Hint or reason]. Coba perhatikan [specific concept].
+```
+
+Avoid quick checks that ask learners to memorize exact wording from the lesson.
+
+### Coding Practice Launcher
+
+Purpose: prepare the learner before opening the practice workspace.
+
+Pattern:
+
+```txt
+Sekarang praktikkan konsep ini di workspace. Kamu akan [task] dan memakai cek otomatis untuk melihat bagian yang sudah lengkap.
+```
+
+Good:
+
+```txt
+Sekarang praktikkan struktur HTML dasar di workspace. Kamu akan menambahkan title, heading, dan paragraf, lalu memakai cek otomatis untuk melihat bagian yang sudah lengkap.
+```
+
+Do not say `lihat editor di bawah` or `ubah kode di bawah` when the full editor opens in `/practice/[challengeId]`.
+
+### Writing Practice Prompt
+
+Purpose: produce a realistic communication artifact.
+
+Pattern:
+
+```txt
+Bayangkan [work situation]. Tulis [artifact] dalam English dengan menyebutkan [required points].
+```
+
+Good:
+
+```txt
+Bayangkan kamu mengirim daily update ke tim remote. Tulis 3-4 kalimat dalam English yang menjelaskan pekerjaan yang selesai, progres saat ini, dan apakah ada blocker.
+```
+
+### Documentation Bridge
+
+Purpose: teach official docs reading without dumping links.
+
+Pattern:
+
+```txt
+Buka [official docs source]: [specific page/section].
+Fokus pada [1-3 things].
+Abaikan dulu [advanced topic].
+Setelah membaca, lakukan [small follow-up action].
+```
+
+Good:
+
+```txt
+Buka MDN Web Docs: HTML basics.
+Fokus pada struktur dokumen, elemen <head>, dan elemen <body>.
+Abaikan dulu bagian scripting.
+Setelah membaca, kembali ke practice dan cek apakah struktur HTML kamu sudah lengkap.
+```
+
+### Summary
+
+Purpose: remind the learner what they can now do and what comes next.
+
+Pattern:
+
+```txt
+Sekarang kamu bisa [specific skill].
+Gunakan aturan ini saat [real usage].
+Di lesson berikutnya, kamu akan [next step].
+```
+
+Good:
+
+```txt
+Sekarang kamu bisa membedakan struktur, tampilan, dan perilaku di halaman web. Gunakan aturan ini saat membaca file HTML, CSS, dan JavaScript. Di lesson berikutnya, kamu akan melihat cara file-file itu tersusun di project kecil.
+```
+
+## Practice Validation Copy
+
+Validation copy must be honest about what FluentStack can check.
+
+### Before Validation
+
+Use:
+
+```txt
+Jalankan cek otomatis untuk melihat bagian yang sudah lengkap.
+```
+
+Avoid:
+
+```txt
+Kami akan menilai kualitas code kamu secara menyeluruh.
+```
+
+### Partial Pass
+
+Use:
+
+```txt
+[x] dari [y] validasi wajib lolos.
+Perbaiki validasi yang belum lolos sebelum menandai practice selesai.
+```
+
+### Failed Check
+
+Use:
+
+```txt
+Belum lolos. [Specific requirement] belum ditemukan.
+```
+
+Example:
+
+```txt
+Belum lolos. Elemen <h1> belum ditemukan di dalam <body>.
+```
+
+### Passed Check
+
+Use:
+
+```txt
+Lolos. [Specific requirement] sudah terpenuhi.
+```
+
+### Completion Gate
+
+Use:
+
+```txt
+Tombol selesai aktif setelah semua validasi wajib lolos.
+```
+
+If validation exists, do not let copy imply manual completion is enough for required coding practice.
+
+### No Auto Validation
+
+Use:
+
+```txt
+Practice ini memakai checklist manual. Review hasilmu dengan checklist sebelum menandai selesai.
+```
+
+Avoid:
+
+```txt
+FluentStack akan mengecek semua bagian secara otomatis.
+```
+
+## Copy QA Workflow
+
+Use this workflow during a focused copywriting polish pass.
+
+1. Identify the page or content type: dashboard, track, module, lesson, practice, assessment, auth, profile, or empty state.
+2. Check whether the primary user action is clear.
+3. Check whether the copy matches the real product behavior.
+4. Replace mixed English/Indonesian labels that do not have a technical reason.
+5. Replace vague CTA labels with destination-aware actions.
+6. Check progress and readiness states against the Learning State Copy Matrix.
+7. Remove hype, filler, shame, and fake promises.
+8. Read the copy aloud in Indonesian. If it sounds stiff, shorten it.
+9. Verify that beginner copy introduces terms before using them heavily.
+10. Verify that practice and assessment copy tells learners how to recover when they are not done yet.
 
 ## Review Checklist for New Copy
 

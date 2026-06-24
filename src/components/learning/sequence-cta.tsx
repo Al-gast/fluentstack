@@ -8,6 +8,7 @@ import {
   calculateLessonsProgress,
   getContinueLessonProgress,
 } from "@/lib/progress/progress-calculator";
+import { getLessonPrimaryAction } from "@/lib/progress/lesson-next-action";
 
 type SequenceCtaProps = {
   lessons: Lesson[];
@@ -63,6 +64,17 @@ export function SequenceCta({ lessons, scope }: SequenceCtaProps) {
   );
   const isCompleted = sequenceMetrics.isCompleted && lessons.length > 0;
   const targetLesson = target?.lesson ?? lessons[0];
+  const targetAction = targetLesson
+    ? getLessonPrimaryAction(targetLesson, userProgress.completedBlockIds, {
+        href: `/lesson/${targetLesson.slug}`,
+        label: "Review lesson",
+        description: targetLesson.title,
+      })
+    : null;
+  const resolvedButtonLabel =
+    hasProgress && !isCompleted && targetAction?.label !== "Lanjutkan bagian ini"
+      ? targetAction?.label ?? getButtonLabel(scope, isCompleted, hasProgress)
+      : getButtonLabel(scope, isCompleted, hasProgress);
 
   return (
     <div className="mt-6 rounded-2xl border border-fs-border-strong bg-fs-accent-soft p-4 sm:p-5">
@@ -83,10 +95,10 @@ export function SequenceCta({ lessons, scope }: SequenceCtaProps) {
 
         {targetLesson ? (
           <Link
-            href={`/lesson/${targetLesson.slug}`}
+            href={targetAction?.href ?? `/lesson/${targetLesson.slug}`}
             className="inline-flex shrink-0 justify-center rounded-xl bg-fs-accent px-5 py-3 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40"
           >
-            {isLoading ? "Memuat..." : getButtonLabel(scope, isCompleted, hasProgress)}
+            {isLoading ? "Memuat..." : resolvedButtonLabel}
           </Link>
         ) : null}
       </div>

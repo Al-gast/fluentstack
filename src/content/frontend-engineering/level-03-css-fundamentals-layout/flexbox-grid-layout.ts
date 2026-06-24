@@ -426,7 +426,7 @@ export const flexboxGridLayoutAssessmentLesson: Lesson = {
   title: "Uji Kompetensi Flexbox and Grid Layout",
   slug: "flexbox-grid-layout-assessment",
   description:
-    "Uji kemampuan menyusun navbar, card grid, dan memilih Flexbox atau Grid dengan tepat.",
+    "Cek kesiapan kamu menyusun navbar, card grid, dan memilih Flexbox atau Grid dengan tepat.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 55,
@@ -438,14 +438,14 @@ export const flexboxGridLayoutAssessmentLesson: Lesson = {
     "Mengecek kemampuan memilih Flexbox atau Grid",
     "Mengarahkan learner membaca dokumentasi resmi CSS layout dengan fokus",
   ],
-  skillTags: ["CSS", "Flexbox", "Grid", "Assessment"],
+  skillTags: ["CSS", "Flexbox", "Grid", "Checkpoint"],
   blocks: [
     {
       id: "flexbox-grid-layout-assessment-recap",
       type: "text",
-      title: "Apa yang dicek di assessment ini",
+      title: "Apa yang dicek di checkpoint ini",
       content:
-        "Assessment ini merangkum Flexbox dan Grid Layout. Kamu akan mengecek Flexbox sebagai layout satu arah, Grid sebagai layout baris dan kolom, display: flex, display: grid, gap, justify-content, align-items, grid-template-columns, dan keputusan kapan memakai masing-masing.",
+        "Checkpoint ini merangkum Flexbox dan Grid Layout. Kamu akan mengecek Flexbox sebagai layout satu arah, Grid sebagai layout baris dan kolom, display: flex, display: grid, gap, justify-content, align-items, grid-template-columns, dan keputusan kapan memakai masing-masing.",
     },
     {
       id: "flexbox-grid-layout-assessment-quiz-block",
@@ -460,9 +460,9 @@ export const flexboxGridLayoutAssessmentLesson: Lesson = {
     {
       id: "flexbox-grid-layout-assessment-docs-bridge",
       type: "documentation-bridge",
-      title: "Baca dokumentasi resmi",
+      title: "Baca MDN secara terarah",
       description:
-        "Gunakan dokumentasi ini untuk menguatkan pemahaman Flexbox dan Grid. Fokus pada konsep yang sudah kamu pakai di latihan.",
+        "Gunakan dokumentasi resmi ini untuk menguatkan pemahaman Flexbox dan Grid. Fokus pada konsep yang sudah kamu pakai di latihan.",
       links: [
         {
           source: "MDN Web Docs",
@@ -545,7 +545,7 @@ export const flexboxGridLayoutAssessmentLesson: Lesson = {
         "Kamu membuktikan bahwa kamu memahami Flexbox untuk layout satu arah.",
         "Kamu membuktikan bahwa kamu memahami Grid untuk layout baris dan kolom.",
         "Kamu membuktikan bahwa kamu bisa memakai gap, justify-content, align-items, dan grid-template-columns.",
-        "Jika belum siap, review lagi Flexbox, Grid, gap, justify-content, align-items, grid-template-columns, dan aturan memilih layout.",
+        "Jika checkpoint belum lulus, review lagi Flexbox, Grid, gap, justify-content, align-items, grid-template-columns, dan aturan memilih layout.",
         "Setelah memahami Flexbox dan Grid, berikutnya kamu akan belajar membuat tampilan yang lebih responsif dan konsisten di berbagai ukuran layar.",
       ],
     },
@@ -1022,7 +1022,7 @@ export const buildResponsiveIshCardSectionChallenge: CodingChallenge = {
   lessonId: "flexbox-grid-layout-assessment",
   title: "Membuat section navbar dan card grid",
   description:
-    "Assessment practice untuk membuat navbar dengan Flexbox dan card section dengan Grid.",
+    "Checkpoint praktik untuk membuat navbar dengan Flexbox dan card section dengan Grid.",
   instructions: [
     "Buat navbar sederhana dengan .nav dan .nav-list.",
     "Gunakan Flexbox untuk navbar.",
@@ -1132,7 +1132,7 @@ export const buildResponsiveIshCardSectionChallenge: CodingChallenge = {
       { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
     ],
   },
-  skillTags: ["CSS", "Flexbox", "Grid", "Assessment"],
+  skillTags: ["CSS", "Flexbox", "Grid", "Checkpoint"],
 };
 
 export const flexboxGridLayoutLessons: Lesson[] = [

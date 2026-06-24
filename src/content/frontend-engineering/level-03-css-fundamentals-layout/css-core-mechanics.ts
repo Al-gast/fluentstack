@@ -314,7 +314,7 @@ export const cssCoreMechanicsAssessmentLesson: Lesson = {
   title: "Uji Kompetensi CSS Core Mechanics",
   slug: "css-core-mechanics-assessment",
   description:
-    "Uji pemahaman selector, property, value, cascade, dan specificity dasar.",
+    "Cek kesiapan kamu membaca selector, property, value, cascade, dan specificity dasar.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 45,
@@ -328,9 +328,9 @@ export const cssCoreMechanicsAssessmentLesson: Lesson = {
     {
       id: "css-core-mechanics-assessment-recap",
       type: "text",
-      title: "Apa yang dicek di assessment ini",
+      title: "Apa yang dicek di checkpoint ini",
       content:
-        "Assessment ini merangkum CSS Core Mechanics. Kamu akan mengecek peran CSS, cara membaca selector dan declaration block, perbedaan property dan value, selector element/class/id, serta kenapa cascade dan specificity membuat satu rule menang dari rule lain.",
+        "Checkpoint ini merangkum CSS Core Mechanics. Kamu akan mengecek peran CSS, cara membaca selector dan declaration block, perbedaan property dan value, selector element/class/id, serta kenapa cascade dan specificity membuat satu rule menang dari rule lain.",
     },
     {
       id: "css-core-mechanics-assessment-quiz-block",
@@ -345,9 +345,9 @@ export const cssCoreMechanicsAssessmentLesson: Lesson = {
     {
       id: "css-core-mechanics-assessment-docs-bridge",
       type: "documentation-bridge",
-      title: "Baca dokumentasi resmi",
+      title: "Baca MDN secara terarah",
       description:
-        "Gunakan bagian ini sebagai latihan membaca dokumentasi CSS, bukan tugas menghafal. Fokus pada bagian yang sudah kamu pakai di latihan.",
+        "Gunakan bagian ini sebagai latihan membaca dokumentasi CSS resmi, bukan tugas menghafal. Fokus pada bagian yang sudah kamu pakai di latihan.",
       links: [
         {
           source: "MDN Web Docs",
@@ -403,7 +403,7 @@ export const cssCoreMechanicsAssessmentLesson: Lesson = {
       points: [
         "Kamu membuktikan bahwa kamu bisa membedakan peran HTML dan CSS.",
         "Kamu membuktikan bahwa kamu bisa membaca selector, property, dan value.",
-        "Jika belum siap, review lagi role CSS, selector/property/value, class selector, cascade, dan specificity.",
+        "Jika checkpoint belum lulus, review lagi role CSS, selector/property/value, class selector, cascade, dan specificity.",
         "Setelah kamu bisa membaca aturan CSS dasar, berikutnya kamu akan belajar bagaimana ukuran dan jarak bekerja lewat box model.",
       ],
     },
@@ -422,7 +422,7 @@ export const cssCoreMechanicsAssessmentLesson: Lesson = {
 export const cssCoreMechanicsAssessmentQuiz: Quiz = {
   id: "css-core-mechanics-assessment-quiz",
   lessonId: "css-core-mechanics-assessment",
-  title: "Assessment CSS Core Mechanics",
+  title: "Uji Kompetensi CSS Core Mechanics",
   passingScore: 70,
   questions: [
     {
@@ -700,7 +700,7 @@ export const buildStyledInfoCardChallenge: CodingChallenge = {
   lessonId: "css-core-mechanics-assessment",
   title: "Membuat info card sederhana dengan CSS",
   description:
-    "Assessment praktik untuk memberi style pada card memakai selector, property, dan value dasar.",
+    "Checkpoint praktik untuk memberi style pada card memakai selector, property, dan value dasar.",
   instructions: [
     "Style card sederhana.",
     "Gunakan class selector .card.",
@@ -761,7 +761,7 @@ export const buildStyledInfoCardChallenge: CodingChallenge = {
       { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
     ],
   },
-  skillTags: ["CSS", "Selectors", "Cascade", "Assessment"],
+  skillTags: ["CSS", "Selectors", "Cascade", "Checkpoint"],
 };
 
 export const cssCoreMechanicsLessons: Lesson[] = [

@@ -7,6 +7,7 @@ import { tracks } from "@/content/tracks";
 import { useGuestProgress } from "@/hooks/use-progress";
 import { getOrderedTrackLessons, getOrderedTrackModules } from "@/lib/content/learning-path";
 import { getContinueLessonProgress } from "@/lib/progress/progress-calculator";
+import { getLessonPrimaryAction } from "@/lib/progress/lesson-next-action";
 
 export default function LearnPage() {
   const { userProgress, storageMode, isLoading } = useGuestProgress();
@@ -18,6 +19,13 @@ export default function LearnPage() {
   const orderedLessons = tracks.flatMap((track) => getOrderedTrackLessons(track));
   const nextLesson =
     getContinueLessonProgress(orderedLessons, userProgress.completedBlockIds)?.lesson ?? orderedLessons[0];
+  const nextAction = nextLesson
+    ? getLessonPrimaryAction(nextLesson, userProgress.completedBlockIds, {
+        href: `/lesson/${nextLesson.slug}`,
+        label: "Review lesson",
+        description: nextLesson.title,
+      })
+    : null;
 
   return (
     <AppShell title="Tracks">
@@ -42,10 +50,10 @@ export default function LearnPage() {
                 Lanjutkan lesson yang paling dekat dengan progres kamu.
               </p>
               <Link
-                href={`/lesson/${nextLesson.slug}`}
+                href={nextAction?.href ?? `/lesson/${nextLesson.slug}`}
                 className="mt-4 inline-flex rounded-xl bg-fs-accent px-4 py-2.5 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40"
               >
-                Lanjut ke {nextLesson.title}
+                {nextAction?.label ?? "Lanjutkan lesson"}: {nextLesson.title}
               </Link>
             </>
           ) : (

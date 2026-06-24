@@ -42,7 +42,7 @@ export function CodingPracticeBlock({
   if (!challenge) {
     return (
       <section className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6">
-        <p className="text-xs font-medium text-fs-accent">Coding Practice</p>
+        <p className="text-xs font-medium text-fs-accent">Coding practice</p>
         <h3 className="mt-2 text-xl font-bold text-fs-text">Coding practice</h3>
         <p className="mt-3 text-sm text-fs-text-soft">Data challenge tidak ditemukan untuk ID {block.challengeId}.</p>
       </section>
@@ -70,13 +70,12 @@ export function CodingPracticeBlock({
           ) : null}
 
           <p className="mt-3 max-w-3xl text-xs leading-6 text-fs-text-muted">
-            Latihan ini tidak memakai editor penuh di lesson. Klik tombol latihan untuk membuka editor, preview, dan
-            cek otomatis di halaman practice.
+            Practice ini dibuka di workspace khusus. Buka practice untuk memakai editor, preview, dan cek otomatis.
           </p>
           <p className="mt-2 max-w-3xl text-xs leading-6 text-fs-text-muted">
             {validationCount > 0
-              ? "Tombol selesai di workspace baru aktif setelah validasi otomatis wajib lolos."
-              : "Latihan ini memakai checklist manual sebagai syarat selesai."}
+              ? "Tombol selesai aktif setelah semua validasi wajib lolos."
+              : "Practice ini memakai checklist manual sebagai syarat selesai."}
           </p>
 
           <div className="mt-4 flex flex-wrap gap-2">
@@ -110,10 +109,10 @@ export function CodingPracticeBlock({
           </span>
           <Link
             href={`/practice/${challenge.id}`}
-            aria-label={`Mulai latihan ${challenge.title}`}
+            aria-label={`Buka practice ${challenge.title}`}
             className="inline-flex w-full items-center justify-center rounded-lg bg-fs-accent px-4 py-2.5 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40 lg:w-auto"
           >
-            Mulai latihan
+            Buka practice
           </Link>
         </div>
       </div>

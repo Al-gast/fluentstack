@@ -17,7 +17,7 @@ function getBlockLabel(block: LessonBlock): string {
     case "quick-check":
       return "Cek pemahaman";
     case "quiz":
-      return "Kuis";
+      return "Quiz";
     case "summary":
       return "Ringkasan";
     case "coding-practice":
@@ -42,7 +42,7 @@ export function LessonOutline({
   return (
     <section className="rounded-2xl border border-fs-border bg-fs-surface p-4 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-5">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-sm font-semibold text-fs-text">Isi pelajaran</h2>
+        <h2 className="text-sm font-semibold text-fs-text">Isi lesson</h2>
         {compact ? <span className="text-xs text-fs-text-muted">{blocks.length} blok</span> : null}
       </div>
       <ol

@@ -28,7 +28,7 @@ export function LessonProgress({
       }
     >
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-sm font-semibold text-fs-text">Progres pelajaran</h2>
+        <h2 className="text-sm font-semibold text-fs-text">Progres lesson</h2>
         <span className="text-sm font-semibold text-fs-accent">{isLoading ? "Memuat..." : `${percent}%`}</span>
       </div>
 
@@ -53,9 +53,9 @@ export function LessonProgress({
               ? "Progres terbaru sedang dimuat."
               : isCompleted
               ? storageMode === "logged-in"
-                ? "Pelajaran selesai. Progres kamu tersimpan di akun."
-                : "Pelajaran selesai. Progres kamu tersimpan di browser ini."
-              : "Selesaikan semua blok wajib untuk menyelesaikan pelajaran ini."}
+                ? "Lesson selesai. Progres kamu tersimpan di akun."
+                : "Lesson selesai. Progres kamu tersimpan di browser ini."
+              : "Selesaikan semua blok wajib untuk menyelesaikan lesson ini."}
           </p>
         </>
       ) : (

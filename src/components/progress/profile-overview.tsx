@@ -18,11 +18,12 @@ import {
   getTrackTotals,
   selectActiveTrackSummary,
 } from "@/lib/progress/track-progress";
+import { getLessonPrimaryAction } from "@/lib/progress/lesson-next-action";
 import type { Lesson } from "@/types/learning";
 
 const statusLabel: Record<ProgressStatus, string> = {
   "not-started": "Belum mulai",
-  "in-progress": "Sedang berjalan",
+  "in-progress": "Sedang dipelajari",
   completed: "Selesai",
 };
 
@@ -106,6 +107,13 @@ export function ProfileOverview() {
   const recommendedLessonMetrics = recommendedLesson
     ? calculateLessonProgress(recommendedLesson, completedBlockIds)
     : null;
+  const recommendedAction = recommendedLesson
+    ? getLessonPrimaryAction(recommendedLesson, completedBlockIds, {
+        href: `/lesson/${recommendedLesson.slug}`,
+        label: "Review lesson",
+        description: recommendedLesson.title,
+      })
+    : null;
   const trackMetrics =
     activeTrackSummary?.metrics ?? calculateLessonsProgress(activeTrackLessons, completedBlockIds);
   const currentLevel = getCurrentLevel(activeTrack?.id ?? "", recommendedModule?.id);
@@ -138,7 +146,7 @@ export function ProfileOverview() {
       lesson,
       metrics: calculateLessonProgress(lesson, completedBlockIds),
     }))
-    .filter((entry) => entry.metrics.isCompleted || completedLessonIds.includes(entry.lesson.id));
+    .filter((entry) => entry.metrics.isCompleted);
   const recommendedLessonStatus = recommendedLessonMetrics
     ? getProgressStatus(recommendedLessonMetrics.progressPercent)
     : "not-started";
@@ -265,10 +273,10 @@ export function ProfileOverview() {
               <div className="mt-5 grid gap-2">
                 {recommendedLesson ? (
                   <Link
-                    href={`/lesson/${recommendedLesson.slug}`}
+                    href={recommendedAction?.href ?? `/lesson/${recommendedLesson.slug}`}
                     className="inline-flex justify-center rounded-xl bg-fs-accent px-4 py-2.5 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40"
                   >
-                    {hasProgress ? "Lanjutkan learning" : "Mulai learning"}
+                    {hasProgress ? recommendedAction?.label ?? "Lanjutkan lesson" : "Mulai belajar"}
                   </Link>
                 ) : null}
                 {activeTrack && recommendedModule ? (
@@ -285,7 +293,7 @@ export function ProfileOverview() {
         </article>
 
         <article className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6">
-          <p className="text-sm font-semibold text-fs-accent">Current level</p>
+          <p className="text-sm font-semibold text-fs-accent">Level saat ini</p>
           <h2 className="mt-2 text-xl font-bold text-fs-text">
             {currentLevel ? `Level ${currentLevel.level}: ${currentLevel.title}` : "Level belum tersedia"}
           </h2>
@@ -311,7 +319,7 @@ export function ProfileOverview() {
         <article className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6 xl:col-span-2">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <p className="text-sm font-semibold text-fs-accent">Progress detail</p>
+              <p className="text-sm font-semibold text-fs-accent">Detail progres</p>
               <h2 className="mt-2 text-xl font-bold text-fs-text">Module aktif</h2>
             </div>
             {activeTrack ? (
@@ -383,7 +391,7 @@ export function ProfileOverview() {
       <section className="grid gap-5 xl:grid-cols-2">
         <article className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)] sm:p-6">
           <p className="text-sm font-semibold text-fs-accent">Preferensi belajar</p>
-          <h2 className="mt-2 text-xl font-bold text-fs-text">Workspace dan progress lokal</h2>
+          <h2 className="mt-2 text-xl font-bold text-fs-text">Workspace dan progres lokal</h2>
           <div className="mt-4 space-y-3 text-sm leading-6 text-fs-text-soft">
             <p>
               Practice workspace dapat menyimpan preferensi layout dan preview viewport di browser saat fitur tersebut
@@ -405,7 +413,7 @@ export function ProfileOverview() {
               Preview viewport: disimpan oleh workspace saat kamu memilih Mobile, Tablet, Desktop, atau Full.
             </li>
             <li className="rounded-lg border border-fs-border bg-fs-surface-soft px-3 py-2">
-              Progress: {storageMode === "logged-in" ? "dibaca dari mode akun." : "tersimpan di browser ini."}
+              Progres: {storageMode === "logged-in" ? "dibaca dari mode akun." : "tersimpan di browser ini."}
             </li>
           </ul>
         </article>
@@ -417,7 +425,7 @@ export function ProfileOverview() {
           </h2>
           <p className="mt-3 text-sm leading-6 text-fs-text-soft">
             {isAuthenticated
-              ? "Kamu sedang memakai mode akun. Profile menampilkan progres dari progress service yang aktif."
+              ? "Kamu sedang memakai mode akun. Profile menampilkan progres dari layanan penyimpanan yang aktif."
               : "Kamu bisa belajar tanpa login. Login atau register tersedia jika ingin memakai alur akun saat fitur akun dibutuhkan."}
           </p>
 

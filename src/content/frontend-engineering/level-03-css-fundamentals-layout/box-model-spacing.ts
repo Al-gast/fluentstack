@@ -320,7 +320,7 @@ export const boxModelSpacingAssessmentLesson: Lesson = {
   title: "Uji Kompetensi Box Model and Spacing",
   slug: "box-model-spacing-assessment",
   description:
-    "Uji pemahaman content, padding, border, margin, width, height, box-sizing, dan spacing dasar.",
+    "Cek kesiapan kamu mengatur content, padding, border, margin, width, height, box-sizing, dan spacing dasar.",
   contentLanguage: "id",
   level: "beginner",
   estimatedMinutes: 45,
@@ -331,14 +331,14 @@ export const boxModelSpacingAssessmentLesson: Lesson = {
     "Mengecek kemampuan memperbaiki spacing sederhana",
     "Mengarahkan learner membaca dokumentasi resmi CSS dengan fokus",
   ],
-  skillTags: ["CSS", "Box Model", "Spacing", "Assessment"],
+  skillTags: ["CSS", "Box Model", "Spacing", "Checkpoint"],
   blocks: [
     {
       id: "box-model-spacing-assessment-recap",
       type: "text",
-      title: "Apa yang dicek di assessment ini",
+      title: "Apa yang dicek di checkpoint ini",
       content:
-        "Assessment ini mengecek apakah kamu sudah memahami box model dan spacing dasar. Kamu akan membedakan content, padding, border, dan margin; membaca width, height, max-width, dan box-sizing; lalu memperbaiki spacing pada card sederhana. Fokusnya bukan membuat desain sempurna, tetapi membuktikan bahwa kamu bisa membuat box lebih rapi dan mudah dibaca.",
+        "Checkpoint ini mengecek apakah kamu sudah memahami box model dan spacing dasar. Kamu akan membedakan content, padding, border, dan margin; membaca width, height, max-width, dan box-sizing; lalu memperbaiki spacing pada card sederhana. Fokusnya bukan membuat desain sempurna, tetapi membuktikan bahwa kamu bisa membuat box lebih rapi dan mudah dibaca.",
     },
     {
       id: "box-model-spacing-assessment-quiz-block",
@@ -353,9 +353,9 @@ export const boxModelSpacingAssessmentLesson: Lesson = {
     {
       id: "box-model-spacing-assessment-docs-bridge",
       type: "documentation-bridge",
-      title: "Baca dokumentasi resmi",
+      title: "Baca MDN secara terarah",
       description:
-        "Gunakan bagian ini sebagai latihan membaca dokumentasi CSS, bukan tugas menghafal. Fokus pada bagian yang sudah kamu pakai di latihan.",
+        "Gunakan bagian ini sebagai latihan membaca dokumentasi CSS resmi, bukan tugas menghafal. Fokus pada bagian yang sudah kamu pakai di latihan.",
       links: [
         {
           source: "MDN Web Docs",
@@ -413,7 +413,7 @@ export const boxModelSpacingAssessmentLesson: Lesson = {
         "Kamu membuktikan bahwa kamu memahami content, padding, border, dan margin.",
         "Kamu membuktikan bahwa kamu bisa membedakan padding sebagai jarak dalam dan margin sebagai jarak luar.",
         "Kamu membuktikan bahwa kamu bisa memakai max-width dan box-sizing untuk membuat card lebih mudah dikontrol.",
-        "Jika belum siap, review lagi box model, padding vs margin, border, max-width, dan box-sizing.",
+        "Jika checkpoint belum lulus, review lagi box model, padding vs margin, border, max-width, dan box-sizing.",
         "Setelah box model dan spacing dasar mulai aman, berikutnya kamu akan membawa HTML dan CSS ke workflow project lokal.",
       ],
     },
@@ -432,7 +432,7 @@ export const boxModelSpacingAssessmentLesson: Lesson = {
 export const boxModelSpacingAssessmentQuiz: Quiz = {
   id: "box-model-spacing-assessment-quiz",
   lessonId: "box-model-spacing-assessment",
-  title: "Assessment Box Model and Spacing",
+  title: "Uji Kompetensi Box Model and Spacing",
   passingScore: 70,
   questions: [
     {
@@ -741,7 +741,7 @@ export const fixBoxModelSpacingCardChallenge: CodingChallenge = {
   lessonId: "box-model-spacing-assessment",
   title: "Memperbaiki spacing card sederhana",
   description:
-    "Assessment praktik untuk memperbaiki box model dan spacing pada card sederhana.",
+    "Checkpoint praktik untuk memperbaiki box model dan spacing pada card sederhana.",
   instructions: [
     "Perbaiki card agar spacing-nya lebih rapi.",
     "Gunakan .card untuk styling container.",
@@ -757,7 +757,7 @@ export const fixBoxModelSpacingCardChallenge: CodingChallenge = {
     html: `<article class="card">
   <h2 class="card-title">Box Model Review</h2>
   <p class="card-description">Perbaiki spacing card agar lebih mudah dibaca.</p>
-  <button class="button">Lanjut</button>
+  <button class="button">Lanjut belajar</button>
 </article>`,
     css: `.card {
   background: #18181b;
@@ -772,7 +772,7 @@ export const fixBoxModelSpacingCardChallenge: CodingChallenge = {
     html: `<article class="card">
   <h2 class="card-title">Box Model Review</h2>
   <p class="card-description">Perbaiki spacing card agar lebih mudah dibaca.</p>
-  <button class="button">Lanjut</button>
+  <button class="button">Lanjut belajar</button>
 </article>`,
     css: `.card {
   background: #18181b;
@@ -815,7 +815,7 @@ export const fixBoxModelSpacingCardChallenge: CodingChallenge = {
       { id: "no-important", label: "Kode tidak memakai !important.", type: "cssForbiddenTextAbsent", valueIncludes: "!important" },
     ],
   },
-  skillTags: ["CSS", "Box Model", "Spacing", "Assessment"],
+  skillTags: ["CSS", "Box Model", "Spacing", "Checkpoint"],
 };
 
 export const boxModelSpacingLessons: Lesson[] = [

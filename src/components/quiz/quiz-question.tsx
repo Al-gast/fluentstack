@@ -1,4 +1,5 @@
 import type { QuizQuestion as QuizQuestionType } from "@/types/quiz";
+import { inferCodeLanguage, SyntaxHighlightedCode } from "@/components/learning/syntax-highlighted-code";
 import { isQuestionCorrect, type QuizAnswerValue } from "@/lib/quiz/scoring";
 
 type QuizQuestionProps = {
@@ -71,8 +72,8 @@ export function QuizQuestion({
       <p className="text-base font-semibold leading-7 text-fs-text">{question.question}</p>
 
       {question.type === "code-output" ? (
-        <pre className="mt-3 overflow-x-auto rounded-lg border border-fs-code-border bg-fs-code-background p-3 text-sm leading-7 text-fs-text-soft">
-          <code>{question.code}</code>
+        <pre className="fs-syntax-code mt-3 overflow-x-auto rounded-lg border border-fs-code-border bg-fs-code-background p-3 text-sm leading-7">
+          <SyntaxHighlightedCode code={question.code} language={inferCodeLanguage(question.code)} />
         </pre>
       ) : null}
 

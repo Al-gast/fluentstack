@@ -19,11 +19,12 @@ import {
   getTrackProgressSummaries,
   selectActiveTrackSummary,
 } from "@/lib/progress/track-progress";
+import { getLessonPrimaryAction } from "@/lib/progress/lesson-next-action";
 import type { CodingPracticeBlock, Lesson, LessonBlock } from "@/types/learning";
 
 const statusLabel: Record<ProgressStatus, string> = {
   "not-started": "Belum mulai",
-  "in-progress": "Sedang berjalan",
+  "in-progress": "Sedang dipelajari",
   completed: "Selesai",
 };
 
@@ -62,7 +63,12 @@ function getIncompletePracticeItems(moduleLessons: Lesson[], completedBlockIds: 
   return moduleLessons
     .flatMap((lesson) =>
       lesson.blocks
-        .filter((block): block is CodingPracticeBlock => isCodingPracticeBlock(block) && !completedSet.has(block.id))
+        .filter(
+          (block): block is CodingPracticeBlock =>
+            isCodingPracticeBlock(block) &&
+            lesson.completionRule.requiredBlockIds.includes(block.id) &&
+            !completedSet.has(block.id),
+        )
         .map((block) => ({
           lesson,
           block,
@@ -91,6 +97,13 @@ export default function DashboardPage() {
   const continueModuleLessons = continueModule ? getOrderedModuleLessons(continueModule) : [];
   const continueMetrics = continueLesson
     ? calculateLessonProgress(continueLesson, userProgress.completedBlockIds)
+    : null;
+  const continueAction = continueLesson
+    ? getLessonPrimaryAction(continueLesson, userProgress.completedBlockIds, {
+        href: `/lesson/${continueLesson.slug}`,
+        label: "Review lesson",
+        description: continueLesson.title,
+      })
     : null;
   const continueStatus = continueProgress?.status ?? "not-started";
   const continueModuleMetrics = calculateLessonsProgress(continueModuleLessons, userProgress.completedBlockIds);
@@ -185,10 +198,10 @@ export default function DashboardPage() {
               <div className="mt-5 grid gap-2 sm:grid-cols-2 xl:grid-cols-1">
                 {continueLesson ? (
                   <Link
-                    href={`/lesson/${continueLesson.slug}`}
+                    href={continueAction?.href ?? `/lesson/${continueLesson.slug}`}
                     className="inline-flex justify-center rounded-xl bg-fs-accent px-4 py-2.5 text-sm font-semibold text-fs-text-inverse shadow-[0_0_0_1px_var(--fs-accent-soft),0_10px_28px_var(--fs-accent-soft)] transition hover:bg-fs-accent-strong focus:outline-none focus:ring-2 focus:ring-fs-focus/40"
                   >
-                    {hasProgress ? "Lanjutkan lesson" : "Mulai belajar"}
+                    {hasProgress ? continueAction?.label ?? "Lanjutkan lesson" : "Mulai belajar"}
                   </Link>
                 ) : null}
                 {continueTrack && continueModule ? (
@@ -207,7 +220,7 @@ export default function DashboardPage() {
         <section className="grid gap-4 xl:grid-cols-3">
           {currentLevel ? (
             <article className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)]">
-              <p className="text-sm font-semibold text-fs-accent">Current level</p>
+              <p className="text-sm font-semibold text-fs-accent">Level saat ini</p>
               <h2 className="mt-2 text-xl font-bold text-fs-text">
                 Level {currentLevel.level} · {currentLevel.title}
               </h2>
@@ -228,7 +241,7 @@ export default function DashboardPage() {
 
           {continueModule ? (
             <article className="rounded-2xl border border-fs-border bg-fs-surface p-5 shadow-[inset_0_1px_0_var(--fs-border)]">
-              <p className="text-sm font-semibold text-fs-accent">Current module</p>
+              <p className="text-sm font-semibold text-fs-accent">Module saat ini</p>
               <h2 className="mt-2 text-xl font-bold text-fs-text">{continueModule.title}</h2>
               <p className="mt-2 text-sm leading-6 text-fs-text-soft">{continueModule.description}</p>
               <ProgressBar
@@ -251,10 +264,10 @@ export default function DashboardPage() {
                 </Link>
                 {continueLesson ? (
                   <Link
-                    href={`/lesson/${continueLesson.slug}`}
+                    href={continueAction?.href ?? `/lesson/${continueLesson.slug}`}
                     className="rounded-lg border border-fs-border-strong bg-fs-accent-soft px-3 py-2 text-xs font-semibold text-fs-accent transition hover:bg-fs-accent-soft focus:outline-none focus:ring-2 focus:ring-fs-focus/35"
                   >
-                    Lanjutkan lesson
+                    {hasProgress ? continueAction?.label ?? "Lanjutkan lesson" : "Mulai lesson"}
                   </Link>
                 ) : null}
               </div>
@@ -263,7 +276,7 @@ export default function DashboardPage() {
 
           {assessmentLesson ? (
             <article className="rounded-2xl border border-fs-border-strong bg-fs-accent-soft p-5 shadow-[inset_0_1px_0_var(--fs-border)]">
-              <p className="text-sm font-semibold text-fs-accent">Next checkpoint</p>
+              <p className="text-sm font-semibold text-fs-accent">Checkpoint berikutnya</p>
               <h2 className="mt-2 text-xl font-bold text-fs-text">{assessmentLesson.title}</h2>
               <p className="mt-2 text-sm leading-6 text-fs-text-soft">
                 Kerjakan Uji Kompetensi saat lesson di module ini sudah cukup aman.
@@ -295,7 +308,7 @@ export default function DashboardPage() {
                 <h2 className="mt-2 text-xl font-bold text-fs-text">Latihan di module aktif</h2>
               </div>
               <p className="max-w-xl text-sm leading-6 text-fs-text-muted">
-                Daftar ini hanya memakai coding-practice yang belum selesai di module yang sedang direkomendasikan.
+                Daftar ini hanya memakai coding-practice wajib yang belum selesai di module yang sedang direkomendasikan.
               </p>
             </div>
             <div className="mt-4 grid gap-3 lg:grid-cols-3">

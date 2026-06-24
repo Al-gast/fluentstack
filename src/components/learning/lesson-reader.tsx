@@ -1,94 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import type { Lesson, LessonBlock } from "@/types/learning";
+import type { Lesson } from "@/types/learning";
 import { BlockRenderer } from "@/components/learning/block-renderer";
 import { LessonOutline } from "@/components/learning/lesson-outline";
 import { LessonProgress } from "@/components/learning/lesson-progress";
 import { useProgress } from "@/hooks/use-progress";
-import { getChallengeById } from "@/lib/content/get-challenge";
 import type { LessonNavigation } from "@/lib/content/learning-path";
+import {
+  getBlockDisplayLabel,
+  getLessonBlockAnchorId,
+  getLessonPrimaryAction,
+  getNextIncompleteRequiredBlock,
+  type LessonPrimaryAction,
+} from "@/lib/progress/lesson-next-action";
 
 type LessonReaderProps = {
   lesson: Lesson;
   navigation?: LessonNavigation;
 };
-
-type LessonPrimaryAction = {
-  href: string;
-  label: string;
-  description: string;
-};
-
-function getBlockAnchorId(blockId: string): string {
-  return `lesson-block-${blockId}`;
-}
-
-function getBlockDisplayLabel(block: LessonBlock): string {
-  if ("title" in block && typeof block.title === "string") {
-    return block.title;
-  }
-
-  switch (block.type) {
-    case "quick-check":
-      return "Cek pemahaman";
-    case "quiz":
-      return "Kuis";
-    case "coding-practice":
-      return "Coding practice";
-    case "writing-practice":
-      return "Writing practice";
-    case "summary":
-      return "Ringkasan";
-    case "resource-links":
-      return "Resource resmi";
-    case "documentation-bridge":
-      return block.title;
-    default:
-      return block.type;
-  }
-}
-
-function getIncompleteRequiredBlockAction(block: LessonBlock): LessonPrimaryAction {
-  if (block.type === "coding-practice") {
-    const challenge = getChallengeById(block.challengeId);
-
-    return {
-      href: challenge ? `/practice/${challenge.id}` : `#${getBlockAnchorId(block.id)}`,
-      label: "Buka practice",
-      description: challenge?.title ?? "Lengkapi coding practice wajib.",
-    };
-  }
-
-  const blockLabel = getBlockDisplayLabel(block);
-
-  switch (block.type) {
-    case "quick-check":
-      return {
-        href: `#${getBlockAnchorId(block.id)}`,
-        label: "Kerjakan cek pemahaman",
-        description: blockLabel,
-      };
-    case "quiz":
-      return {
-        href: `#${getBlockAnchorId(block.id)}`,
-        label: "Kerjakan kuis",
-        description: blockLabel,
-      };
-    case "writing-practice":
-      return {
-        href: `#${getBlockAnchorId(block.id)}`,
-        label: "Tulis latihan",
-        description: blockLabel,
-      };
-    default:
-      return {
-        href: `#${getBlockAnchorId(block.id)}`,
-        label: "Lanjutkan bagian ini",
-        description: blockLabel,
-      };
-  }
-}
 
 function getLanguageLabel(contentLanguage: Lesson["contentLanguage"]): string {
   switch (contentLanguage) {
@@ -159,29 +89,28 @@ export function LessonReader({ lesson, navigation }: LessonReaderProps) {
   const requiredCompleted = lessonMetrics.completedRequiredCount;
   const progressPercent = requiredTotal > 0 ? Math.round((requiredCompleted / requiredTotal) * 100) : 0;
   const isLessonComplete = requiredTotal > 0 && requiredCompleted >= requiredTotal;
-  const requiredBlockSet = new Set(lesson.completionRule.requiredBlockIds);
-  const nextIncompleteRequiredBlock = lesson.blocks.find(
-    (block) => requiredBlockSet.has(block.id) && !completedBlockSet.has(block.id),
-  );
+  const nextIncompleteRequiredBlock = getNextIncompleteRequiredBlock(lesson, completedBlockSet);
   const primaryAction: LessonPrimaryAction = isLoading
     ? {
         href: "#lesson-content",
         label: "Memuat progres",
         description: "Menyiapkan langkah berikutnya",
       }
-    : nextIncompleteRequiredBlock
-      ? getIncompleteRequiredBlockAction(nextIncompleteRequiredBlock)
-      : isLessonComplete && navigation
-        ? {
-            href: navigation.next.href,
-            label: "Lanjutkan",
-            description: navigation.next.title,
-          }
-        : {
-            href: "#lesson-content",
-            label: "Lanjut membaca",
-            description: `${requiredCompleted}/${requiredTotal} blok wajib selesai`,
-          };
+    : getLessonPrimaryAction(
+        lesson,
+        completedBlockSet,
+        isLessonComplete && navigation
+          ? {
+              href: navigation.next.href,
+              label: isAssessment ? "Lanjut ke module berikutnya" : "Lanjut ke lesson berikutnya",
+              description: navigation.next.title,
+            }
+          : {
+              href: "#lesson-content",
+              label: "Lanjut membaca",
+              description: `${requiredCompleted}/${requiredTotal} blok wajib selesai`,
+            },
+      );
   const nextRequiredBlockLabel = nextIncompleteRequiredBlock
     ? getBlockDisplayLabel(nextIncompleteRequiredBlock)
     : null;
@@ -325,7 +254,7 @@ export function LessonReader({ lesson, navigation }: LessonReaderProps) {
 
           <section id="lesson-content" className="scroll-mt-24 space-y-5">
             {lesson.blocks.map((block) => (
-              <div key={block.id} id={getBlockAnchorId(block.id)} className="scroll-mt-24">
+              <div key={block.id} id={getLessonBlockAnchorId(block.id)} className="scroll-mt-24">
                 <BlockRenderer
                   block={block}
                   isCompleted={completedBlockSet.has(block.id)}

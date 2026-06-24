@@ -37,7 +37,7 @@ export function ReadOnlyBlockCompletion({
       <p className="text-xs leading-5 text-fs-text-muted">
         {isRequired
           ? "Bagian ini memengaruhi progres lesson."
-          : "Opsional, tidak menghambat completion lesson."}
+          : "Opsional, tidak menghambat penyelesaian lesson."}
       </p>
       <button
         type="button"

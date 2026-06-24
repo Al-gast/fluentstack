@@ -36,10 +36,10 @@ export function getCodingPracticeCompletionGate({
       return {
         mode: "auto-validation",
         canComplete: false,
-        summary: "Menyiapkan validasi",
-        statusLabel: "Validasi disiapkan",
-        helperText: "Tunggu validasi otomatis siap sebelum menandai latihan selesai.",
-        buttonLabel: "Validasi dulu",
+        summary: "Menyiapkan cek otomatis",
+        statusLabel: "Cek otomatis disiapkan",
+        helperText: "Tunggu cek otomatis siap sebelum menandai practice selesai.",
+        buttonLabel: "Cek dulu",
       };
     }
 
@@ -47,9 +47,9 @@ export function getCodingPracticeCompletionGate({
       mode: "auto-validation",
       canComplete,
       summary: `${passedCount}/${totalCount} validasi wajib lolos`,
-      statusLabel: canComplete ? "Siap selesai" : "Validasi belum lolos",
+      statusLabel: canComplete ? "Validasi wajib lolos" : "Validasi belum lolos",
       helperText: canComplete
-        ? "Semua validasi wajib sudah lolos. Simpan kode lalu tandai latihan selesai."
+        ? "Semua validasi wajib sudah lolos. Simpan kode lalu tandai practice selesai."
         : "Tombol selesai aktif setelah semua validasi wajib lolos.",
       buttonLabel: canComplete ? "Tandai selesai" : "Belum lolos",
     };
@@ -66,8 +66,8 @@ export function getCodingPracticeCompletionGate({
       summary: `${completedCount}/${challenge.checklist.length} checklist selesai`,
       statusLabel: canComplete ? "Checklist siap" : "Checklist belum lengkap",
       helperText: canComplete
-        ? "Checklist manual sudah lengkap. Simpan kode lalu tandai latihan selesai."
-        : "Latihan ini tidak punya validasi otomatis, jadi checklist manual menjadi gate completion.",
+        ? "Checklist manual sudah lengkap. Simpan kode lalu tandai practice selesai."
+        : "Practice ini memakai checklist manual. Selesaikan checklist sebelum menandai selesai.",
       buttonLabel: canComplete ? "Tandai selesai" : "Checklist dulu",
     };
   }
@@ -75,9 +75,9 @@ export function getCodingPracticeCompletionGate({
   return {
     mode: "manual",
     canComplete: true,
-    summary: "Manual completion",
+    summary: "Checklist manual",
     statusLabel: "Siap selesai",
-    helperText: "Latihan ini bisa ditandai selesai setelah kamu menyimpan kode.",
+    helperText: "Practice ini bisa ditandai selesai setelah kamu menyimpan kode.",
     buttonLabel: "Tandai selesai",
   };
 }

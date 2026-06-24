@@ -136,6 +136,17 @@
   --fs-code-background: oklch(0.12 0.02 262);
   --fs-code-surface: oklch(0.16 0.022 262);
   --fs-code-border: oklch(0.31 0.025 262 / 0.88);
+  --fs-syntax-text: oklch(0.9 0.012 258);
+  --fs-syntax-comment: oklch(0.64 0.02 258);
+  --fs-syntax-keyword: oklch(0.78 0.14 224);
+  --fs-syntax-tag: oklch(0.78 0.15 25);
+  --fs-syntax-attribute: oklch(0.83 0.15 82);
+  --fs-syntax-string: oklch(0.78 0.14 158);
+  --fs-syntax-number: oklch(0.8 0.14 285);
+  --fs-syntax-property: oklch(0.78 0.12 205);
+  --fs-syntax-selector: oklch(0.82 0.13 82);
+  --fs-syntax-function: oklch(0.78 0.12 252);
+  --fs-syntax-punctuation: oklch(0.75 0.02 258);
   --fs-focus: oklch(0.78 0.14 224);
   --fs-progress-from: oklch(0.78 0.14 224);
   --fs-progress-to: oklch(0.72 0.16 280);
@@ -199,6 +210,17 @@
   --fs-code-background: oklch(0.12 0.02 262);
   --fs-code-surface: oklch(0.16 0.022 262);
   --fs-code-border: oklch(0.31 0.025 262 / 0.88);
+  --fs-syntax-text: oklch(0.9 0.012 258);
+  --fs-syntax-comment: oklch(0.64 0.02 258);
+  --fs-syntax-keyword: oklch(0.78 0.14 224);
+  --fs-syntax-tag: oklch(0.78 0.15 25);
+  --fs-syntax-attribute: oklch(0.83 0.15 82);
+  --fs-syntax-string: oklch(0.78 0.14 158);
+  --fs-syntax-number: oklch(0.8 0.14 285);
+  --fs-syntax-property: oklch(0.78 0.12 205);
+  --fs-syntax-selector: oklch(0.82 0.13 82);
+  --fs-syntax-function: oklch(0.78 0.12 252);
+  --fs-syntax-punctuation: oklch(0.75 0.02 258);
   --fs-focus: oklch(0.78 0.14 224);
   --fs-progress-from: oklch(0.78 0.14 224);
   --fs-progress-to: oklch(0.72 0.16 280);
@@ -258,6 +280,17 @@
   --fs-code-background: oklch(0.96 0.012 255);
   --fs-code-surface: oklch(0.985 0.006 255);
   --fs-code-border: oklch(0.84 0.018 255);
+  --fs-syntax-text: oklch(0.25 0.02 260);
+  --fs-syntax-comment: oklch(0.5 0.025 260);
+  --fs-syntax-keyword: oklch(0.48 0.16 260);
+  --fs-syntax-tag: oklch(0.48 0.16 25);
+  --fs-syntax-attribute: oklch(0.48 0.13 82);
+  --fs-syntax-string: oklch(0.45 0.13 150);
+  --fs-syntax-number: oklch(0.48 0.13 285);
+  --fs-syntax-property: oklch(0.45 0.12 220);
+  --fs-syntax-selector: oklch(0.45 0.13 82);
+  --fs-syntax-function: oklch(0.45 0.13 245);
+  --fs-syntax-punctuation: oklch(0.42 0.02 260);
   --fs-focus: oklch(0.58 0.14 224);
   --fs-progress-from: oklch(0.58 0.14 224);
   --fs-progress-to: oklch(0.55 0.16 280);
@@ -317,6 +350,17 @@
   --fs-code-background: oklch(0.91 0.028 92);
   --fs-code-surface: oklch(0.965 0.024 92);
   --fs-code-border: oklch(0.78 0.036 92);
+  --fs-syntax-text: oklch(0.27 0.025 75);
+  --fs-syntax-comment: oklch(0.48 0.035 80);
+  --fs-syntax-keyword: oklch(0.43 0.14 250);
+  --fs-syntax-tag: oklch(0.45 0.15 28);
+  --fs-syntax-attribute: oklch(0.46 0.12 75);
+  --fs-syntax-string: oklch(0.42 0.12 145);
+  --fs-syntax-number: oklch(0.45 0.13 285);
+  --fs-syntax-property: oklch(0.43 0.12 218);
+  --fs-syntax-selector: oklch(0.44 0.12 75);
+  --fs-syntax-function: oklch(0.43 0.13 240);
+  --fs-syntax-punctuation: oklch(0.4 0.025 75);
   --fs-focus: oklch(0.55 0.13 210);
   --fs-progress-from: oklch(0.52 0.13 210);
   --fs-progress-to: oklch(0.58 0.12 145);
@@ -348,4 +392,53 @@
   samp {
     @apply font-mono;
   }
+}
+
+.fs-syntax-code {
+  color: var(--fs-syntax-text);
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+.fs-syntax-comment {
+  color: var(--fs-syntax-comment);
+  font-style: italic;
+}
+
+.fs-syntax-keyword {
+  color: var(--fs-syntax-keyword);
+  font-weight: 650;
+}
+
+.fs-syntax-tag {
+  color: var(--fs-syntax-tag);
+  font-weight: 650;
+}
+
+.fs-syntax-attribute {
+  color: var(--fs-syntax-attribute);
+}
+
+.fs-syntax-string {
+  color: var(--fs-syntax-string);
+}
+
+.fs-syntax-number {
+  color: var(--fs-syntax-number);
+}
+
+.fs-syntax-property {
+  color: var(--fs-syntax-property);
+}
+
+.fs-syntax-selector {
+  color: var(--fs-syntax-selector);
+  font-weight: 650;
+}
+
+.fs-syntax-function {
+  color: var(--fs-syntax-function);
+}
+
+.fs-syntax-punctuation {
+  color: var(--fs-syntax-punctuation);
 }

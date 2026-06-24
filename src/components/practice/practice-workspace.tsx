@@ -370,10 +370,10 @@ export function PracticeWorkspace({
       <main className="min-h-screen bg-[var(--fs-app-gradient)] text-fs-text">
         <div className="mx-auto flex min-h-screen w-full max-w-[1760px] items-center justify-center px-4 py-10 sm:px-6 lg:px-8">
           <section className="w-full max-w-xl rounded-2xl border border-fs-border bg-fs-surface p-6 text-center shadow-[inset_0_1px_0_var(--fs-border)]">
-            <p className="text-sm font-semibold text-fs-accent">Memuat workspace practice</p>
+            <p className="text-sm font-semibold text-fs-accent">Memuat practice workspace</p>
             <h1 className="mt-2 text-xl font-bold text-fs-text">{challenge.title}</h1>
             <p className="mt-3 text-sm leading-6 text-fs-text-muted">
-              Kami menyiapkan kode tersimpan, checklist, dan status completion sebelum editor dibuka.
+              Kami menyiapkan kode tersimpan, checklist, dan status penyelesaian sebelum editor dibuka.
             </p>
           </section>
         </div>
