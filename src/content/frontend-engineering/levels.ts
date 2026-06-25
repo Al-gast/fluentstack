@@ -40,7 +40,7 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     stage: "beginner",
     title: "JavaScript Fundamentals",
     description:
-      "Menambahkan behavior dan data handling dasar lewat values, functions, conditionals, dan loop.",
-    moduleIds: ["javascript-values-types-functions"],
+      "Menambahkan behavior dan data handling dasar lewat values, functions, arrays, objects, conditionals, dan loop.",
+    moduleIds: ["javascript-values-types-functions", "javascript-arrays-objects-data-modeling"],
   },
 ];

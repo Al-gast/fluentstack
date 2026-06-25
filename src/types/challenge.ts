@@ -34,6 +34,20 @@ export type ChallengeValidation = {
   checks: ChallengeValidationCheck[];
 };
 
+export type ChallengeExpectedOutput =
+  | {
+      kind: "console";
+      title?: string;
+      description?: string;
+      lines: string[];
+    }
+  | {
+      kind: "preview" | "behavior";
+      title?: string;
+      description: string;
+      lines?: string[];
+    };
+
 export type CodingChallenge = {
   id: string;
   lessonId: string;
@@ -44,5 +58,6 @@ export type CodingChallenge = {
   solutionCode?: ChallengeCode;
   checklist: string[];
   validation?: ChallengeValidation;
+  expectedOutput?: ChallengeExpectedOutput;
   skillTags: string[];
 };

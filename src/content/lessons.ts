@@ -53,6 +53,11 @@ export {
   javascriptBasicFunctionsLesson,
   javascriptConditionalsLoopsBasicLesson,
   javascriptValuesTypesFunctionsAssessmentLesson,
+  javascriptArrayDataUiLesson,
+  javascriptObjectSingleItemLesson,
+  javascriptArrayOfObjectsLesson,
+  javascriptMapFilterDataTransformLesson,
+  javascriptArraysObjectsDataModelingAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

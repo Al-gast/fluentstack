@@ -655,6 +655,13 @@ console.log(isPracticeReady);`,
       },
     ],
   },
+  expectedOutput: {
+    kind: "console",
+    title: "Output console yang diharapkan",
+    description:
+      "Jika value sudah tepat, console menampilkan tiga baris ini.",
+    lines: ["Rina", "3", "true"],
+  },
   skillTags: ["JavaScript", "Values", "Variables"],
 };
 
@@ -755,6 +762,13 @@ console.log(calculateTotal(10000, 2500));`,
         valueIncludes: "return price + fee;",
       },
     ],
+  },
+  expectedOutput: {
+    kind: "console",
+    title: "Output console yang diharapkan",
+    description:
+      "Jika return function sudah benar, console menampilkan hasil function ini.",
+    lines: ["Halo, Rina", "12500"],
   },
   skillTags: ["JavaScript", "Functions"],
 };
@@ -878,6 +892,13 @@ console.log(countCompletedLessons(3));`,
         valueIncludes: `labels.push("Lesson " + index);`,
       },
     ],
+  },
+  expectedOutput: {
+    kind: "console",
+    title: "Output console yang diharapkan",
+    description:
+      "Jika keputusan dan loop sudah benar, console menampilkan label dan daftar lesson ini.",
+    lines: ["Lanjut", `["Lesson 1","Lesson 2","Lesson 3"]`],
   },
   skillTags: ["JavaScript", "Conditionals", "Loops"],
 };
@@ -1023,6 +1044,13 @@ console.log(summarizeScores([60, 75, 90]));`,
         valueIncludes: "passedScores.push(scores[index]);",
       },
     ],
+  },
+  expectedOutput: {
+    kind: "console",
+    title: "Output console yang diharapkan",
+    description:
+      "Jika utility functions sudah benar, console menampilkan type label dan score yang lolos.",
+    lines: ["teks", "[75,90]"],
   },
   skillTags: ["JavaScript", "Functions", "Conditionals", "Loops"],
 };

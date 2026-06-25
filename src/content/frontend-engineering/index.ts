@@ -8,6 +8,7 @@ import { localStaticWebsiteProjectModule, setupLocalProjectFolderLesson, openPro
 import { flexboxGridLayoutModule, cssFlexboxBasicLesson, buildNavbarWithFlexboxLesson, cssGridBasicLesson, flexboxVsGridDecisionLesson, flexboxGridLayoutAssessmentLesson, flexboxGridLayoutAssessmentQuiz, practiceCssFlexboxBasicChallenge, buildFlexboxNavbarChallenge, practiceCssGridCardLayoutChallenge, chooseFlexboxGridLayoutChallenge, buildResponsiveIshCardSectionChallenge } from "./level-03-css-fundamentals-layout/flexbox-grid-layout";
 import { responsiveVisualSystemModule, mobileFirstCssLesson, cssBreakpointsBasicLesson, fluidSpacingTypographyBasicLesson, cssVariablesDarkModeBasicLesson, responsiveVisualSystemAssessmentLesson, responsiveVisualSystemAssessmentQuiz, practiceMobileFirstSectionChallenge, practiceCssBreakpointCardGridChallenge, practiceFluidSpacingTypographyChallenge, practiceCssVariablesThemeCardChallenge, buildResponsiveVisualSectionChallenge } from "./level-03-css-fundamentals-layout/responsive-visual-system";
 import { javascriptValuesTypesFunctionsModule, whatIsJavascriptInBrowserLesson, javascriptValuesVariablesLesson, javascriptBasicFunctionsLesson, javascriptConditionalsLoopsBasicLesson, javascriptValuesTypesFunctionsAssessmentLesson, javascriptValuesTypesFunctionsAssessmentQuiz, storeSimpleJsValuesChallenge, buildBasicJsFunctionsChallenge, practiceJsConditionalsLoopsChallenge, buildJsUtilityFunctionsChallenge } from "./level-04-javascript-fundamentals/values-types-functions";
+import { javascriptArraysObjectsDataModelingModule, javascriptArrayDataUiLesson, javascriptObjectSingleItemLesson, javascriptArrayOfObjectsLesson, javascriptMapFilterDataTransformLesson, javascriptArraysObjectsDataModelingAssessmentLesson, javascriptArraysObjectsDataModelingAssessmentQuiz, inspectJsArrayValuesChallenge, modelJsCardObjectChallenge, buildJsArrayOfObjectsChallenge, transformJsUiDataChallenge, buildJsDataModelingUtilitiesChallenge } from "./level-04-javascript-fundamentals/arrays-objects-data-modeling";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -19,6 +20,7 @@ export { localStaticWebsiteProjectModule, setupLocalProjectFolderLesson, openPro
 export { flexboxGridLayoutModule, cssFlexboxBasicLesson, buildNavbarWithFlexboxLesson, cssGridBasicLesson, flexboxVsGridDecisionLesson, flexboxGridLayoutAssessmentLesson, flexboxGridLayoutAssessmentQuiz, practiceCssFlexboxBasicChallenge, buildFlexboxNavbarChallenge, practiceCssGridCardLayoutChallenge, chooseFlexboxGridLayoutChallenge, buildResponsiveIshCardSectionChallenge } from "./level-03-css-fundamentals-layout/flexbox-grid-layout";
 export { responsiveVisualSystemModule, mobileFirstCssLesson, cssBreakpointsBasicLesson, fluidSpacingTypographyBasicLesson, cssVariablesDarkModeBasicLesson, responsiveVisualSystemAssessmentLesson, responsiveVisualSystemAssessmentQuiz, practiceMobileFirstSectionChallenge, practiceCssBreakpointCardGridChallenge, practiceFluidSpacingTypographyChallenge, practiceCssVariablesThemeCardChallenge, buildResponsiveVisualSectionChallenge } from "./level-03-css-fundamentals-layout/responsive-visual-system";
 export { javascriptValuesTypesFunctionsModule, whatIsJavascriptInBrowserLesson, javascriptValuesVariablesLesson, javascriptBasicFunctionsLesson, javascriptConditionalsLoopsBasicLesson, javascriptValuesTypesFunctionsAssessmentLesson, javascriptValuesTypesFunctionsAssessmentQuiz, storeSimpleJsValuesChallenge, buildBasicJsFunctionsChallenge, practiceJsConditionalsLoopsChallenge, buildJsUtilityFunctionsChallenge } from "./level-04-javascript-fundamentals/values-types-functions";
+export { javascriptArraysObjectsDataModelingModule, javascriptArrayDataUiLesson, javascriptObjectSingleItemLesson, javascriptArrayOfObjectsLesson, javascriptMapFilterDataTransformLesson, javascriptArraysObjectsDataModelingAssessmentLesson, javascriptArraysObjectsDataModelingAssessmentQuiz, inspectJsArrayValuesChallenge, modelJsCardObjectChallenge, buildJsArrayOfObjectsChallenge, transformJsUiDataChallenge, buildJsDataModelingUtilitiesChallenge } from "./level-04-javascript-fundamentals/arrays-objects-data-modeling";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -31,6 +33,7 @@ export const frontendEngineeringModules = [
   flexboxGridLayoutModule,
   responsiveVisualSystemModule,
   javascriptValuesTypesFunctionsModule,
+  javascriptArraysObjectsDataModelingModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -85,6 +88,11 @@ export const frontendEngineeringLessons = [
   javascriptBasicFunctionsLesson,
   javascriptConditionalsLoopsBasicLesson,
   javascriptValuesTypesFunctionsAssessmentLesson,
+  javascriptArrayDataUiLesson,
+  javascriptObjectSingleItemLesson,
+  javascriptArrayOfObjectsLesson,
+  javascriptMapFilterDataTransformLesson,
+  javascriptArraysObjectsDataModelingAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -106,6 +114,7 @@ export const frontendEngineeringQuizzes = [
   flexboxGridLayoutAssessmentQuiz,
   responsiveVisualSystemAssessmentQuiz,
   javascriptValuesTypesFunctionsAssessmentQuiz,
+  javascriptArraysObjectsDataModelingAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -143,4 +152,9 @@ export const frontendEngineeringChallenges = [
   buildBasicJsFunctionsChallenge,
   practiceJsConditionalsLoopsChallenge,
   buildJsUtilityFunctionsChallenge,
+  inspectJsArrayValuesChallenge,
+  modelJsCardObjectChallenge,
+  buildJsArrayOfObjectsChallenge,
+  transformJsUiDataChallenge,
+  buildJsDataModelingUtilitiesChallenge,
 ];

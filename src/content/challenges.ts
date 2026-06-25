@@ -36,6 +36,11 @@ export {
   buildBasicJsFunctionsChallenge,
   practiceJsConditionalsLoopsChallenge,
   buildJsUtilityFunctionsChallenge,
+  inspectJsArrayValuesChallenge,
+  modelJsCardObjectChallenge,
+  buildJsArrayOfObjectsChallenge,
+  transformJsUiDataChallenge,
+  buildJsDataModelingUtilitiesChallenge,
 } from "@/content/frontend-engineering";
 
 

@@ -12,6 +12,7 @@ type CodeEditorProps = {
 };
 
 type MonacoTheme = "vs-dark" | "light";
+type MonacoLanguage = "html" | "css" | "javascript";
 
 function getCurrentMonacoTheme(): MonacoTheme {
   if (typeof document === "undefined") {
@@ -27,6 +28,10 @@ function getCurrentMonacoTheme(): MonacoTheme {
     theme === "paper"
     ? "light"
     : "vs-dark";
+}
+
+function getMonacoLanguage(language: ChallengeLanguage): MonacoLanguage {
+  return language === "js" ? "javascript" : language;
 }
 
 export function CodeEditor({
@@ -55,7 +60,7 @@ export function CodeEditor({
       <Editor
         height={height}
         theme={editorTheme}
-        language={language}
+        language={getMonacoLanguage(language)}
         value={value}
         loading={<div className="p-4 text-sm text-fs-text-muted">Memuat editor...</div>}
         options={{
@@ -66,6 +71,14 @@ export function CodeEditor({
           automaticLayout: true,
           tabSize: 2,
           scrollBeyondLastLine: false,
+          scrollbar: {
+            vertical: "auto",
+            horizontal: "auto",
+            verticalScrollbarSize: 10,
+            horizontalScrollbarSize: 10,
+            alwaysConsumeMouseWheel: false,
+          },
+          padding: { top: 8, bottom: 16 },
           wordWrap: "on",
         }}
         onChange={(nextValue) => onChange(nextValue ?? "")}

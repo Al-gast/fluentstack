@@ -20,6 +20,7 @@ export {
   flexboxGridLayoutAssessmentQuiz,
   responsiveVisualSystemAssessmentQuiz,
   javascriptValuesTypesFunctionsAssessmentQuiz,
+  javascriptArraysObjectsDataModelingAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

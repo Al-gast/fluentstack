@@ -55,18 +55,6 @@ function isPreviewFirstLayout(layout: PracticeLayout): boolean {
   return layout === "preview-left" || layout === "preview-top";
 }
 
-function getEditorHeight(layout: PracticeLayout): string {
-  if (layout === "stacked") {
-    return "clamp(340px, 48vh, 520px)";
-  }
-
-  if (layout === "code-top" || layout === "preview-top") {
-    return "100%";
-  }
-
-  return "clamp(480px, 66vh, 720px)";
-}
-
 function getPreviewHeight(layout: PracticeLayout): string {
   if (layout === "stacked") {
     return "h-[320px] sm:h-[400px]";
@@ -77,6 +65,14 @@ function getPreviewHeight(layout: PracticeLayout): string {
   }
 
   return "h-[480px] xl:h-[720px]";
+}
+
+function getEditorContainerClassName(layout: PracticeLayout): string {
+  if (layout === "stacked") {
+    return "h-[clamp(340px,48vh,520px)]";
+  }
+
+  return "h-[clamp(480px,66vh,720px)] xl:h-full";
 }
 
 function getDefaultActiveLanguage(challenge: CodingChallenge): ChallengeLanguage {
@@ -230,6 +226,33 @@ export function CodingLab({
     hasAutoValidation && nextFailedResult
       ? nextFailedResult.message ?? nextFailedResult.label
       : completionGate.helperText;
+  const expectedOutputContent = challenge.expectedOutput ? (
+    <div className="rounded-lg border border-fs-border bg-fs-surface p-3">
+      <p className="text-xs font-semibold text-fs-text">
+        {challenge.expectedOutput.title ?? "Output yang diharapkan"}
+      </p>
+      {challenge.expectedOutput.description ? (
+        <p className="mt-1 text-xs leading-5 text-fs-text-muted">
+          {challenge.expectedOutput.description}
+        </p>
+      ) : null}
+      {challenge.expectedOutput.kind === "console" ? (
+        <div className="mt-2 overflow-x-auto rounded-md border border-fs-code-border bg-fs-code-background p-2 font-mono text-xs leading-5 text-fs-text-soft">
+          {challenge.expectedOutput.lines.map((line, index) => (
+            <p key={`${line}-${index}`} className="whitespace-pre">
+              {line}
+            </p>
+          ))}
+        </div>
+      ) : challenge.expectedOutput.lines?.length ? (
+        <ul className="mt-2 list-disc space-y-1 pl-5 text-xs leading-5 text-fs-text-muted">
+          {challenge.expectedOutput.lines.map((line, index) => (
+            <li key={`${line}-${index}`}>{line}</li>
+          ))}
+        </ul>
+      ) : null}
+    </div>
+  ) : null;
 
   const instructionsContent = (
     <div className="space-y-4">
@@ -248,6 +271,8 @@ export function CodingLab({
           <li key={instruction}>{instruction}</li>
         ))}
       </ul>
+
+      {expectedOutputContent}
 
       <div className="rounded-lg border border-fs-border bg-fs-surface p-3">
         <p className="text-xs font-semibold text-fs-text">Navigasi editor</p>
@@ -460,11 +485,11 @@ export function CodingLab({
         ))}
       </div>
 
-      <div className="min-h-0 min-w-0 flex-1">
+      <div className={cn("min-h-0 min-w-0 flex-1", getEditorContainerClassName(layout))}>
         <CodeEditor
           language={activeLanguage}
           value={code[activeLanguage]}
-          height={getEditorHeight(layout)}
+          height="100%"
           onChange={handleCodeChange}
         />
       </div>
@@ -482,6 +507,7 @@ export function CodingLab({
       <div className="min-h-0 min-w-0 flex-1">
         <PreviewPanel
           code={code}
+          expectedOutput={challenge.expectedOutput}
           heightClassName={getPreviewHeight(layout)}
           viewportWidth={viewportWidth[previewViewport]}
         />

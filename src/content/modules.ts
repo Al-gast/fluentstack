@@ -12,6 +12,7 @@ export {
   flexboxGridLayoutModule,
   responsiveVisualSystemModule,
   javascriptValuesTypesFunctionsModule,
+  javascriptArraysObjectsDataModelingModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

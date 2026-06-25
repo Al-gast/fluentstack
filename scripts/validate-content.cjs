@@ -10,6 +10,7 @@ const rootDir = path.resolve(__dirname, "..");
 const srcDir = path.join(rootDir, "src");
 
 const supportedChallengeModes = new Set(["html", "css", "js"]);
+const supportedExpectedOutputKinds = new Set(["console", "preview", "behavior"]);
 const supportedCurriculumStages = new Set(["beginner", "intermediate", "advanced"]);
 const supportedValidationRules = new Set([
   "contains",
@@ -35,6 +36,7 @@ const expectedFrontendModuleOrder = [
   "flexbox-grid-layout",
   "responsive-visual-system",
   "javascript-values-types-functions",
+  "javascript-arrays-objects-data-modeling",
 ];
 
 function resolveTsPath(basePath) {
@@ -229,6 +231,42 @@ function validateChallengeCheck(challenge, check) {
   }
 }
 
+function validateChallengeExpectedOutput(challenge) {
+  const expectedOutput = challenge.expectedOutput;
+
+  if (!expectedOutput) {
+    return;
+  }
+
+  if (!supportedExpectedOutputKinds.has(expectedOutput.kind)) {
+    addError(`challenge:${challenge.id}: expectedOutput has unsupported kind "${expectedOutput.kind}".`);
+  }
+
+  if (expectedOutput.title !== undefined && !isNonEmptyString(expectedOutput.title)) {
+    addError(`challenge:${challenge.id}: expectedOutput.title must be non-empty when provided.`);
+  }
+
+  if (expectedOutput.description !== undefined && !isNonEmptyString(expectedOutput.description)) {
+    addError(`challenge:${challenge.id}: expectedOutput.description must be non-empty when provided.`);
+  }
+
+  if (expectedOutput.kind === "console") {
+    if (!Array.isArray(expectedOutput.lines) || expectedOutput.lines.length === 0) {
+      addError(`challenge:${challenge.id}: console expectedOutput must have at least one line.`);
+    } else {
+      for (const line of expectedOutput.lines) {
+        if (!isNonEmptyString(line)) {
+          addError(`challenge:${challenge.id}: console expectedOutput lines must be non-empty strings.`);
+        }
+      }
+    }
+  }
+
+  if ((expectedOutput.kind === "preview" || expectedOutput.kind === "behavior") && !isNonEmptyString(expectedOutput.description)) {
+    addError(`challenge:${challenge.id}: ${expectedOutput.kind} expectedOutput requires description.`);
+  }
+}
+
 function validateCurriculumLevelOrder(track, level) {
   const orderByModuleId = new Map(track.moduleIds.map((moduleId, index) => [moduleId, index]));
   const indexes = level.moduleIds.map((moduleId) => orderByModuleId.get(moduleId));
@@ -382,6 +420,8 @@ for (const challenge of challenges) {
       }
     }
   }
+
+  validateChallengeExpectedOutput(challenge);
 }
 
 const curriculumLevelCount = Object.values(curriculumLevelsByTrackId).reduce(
