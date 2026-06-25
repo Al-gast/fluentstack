@@ -37,6 +37,7 @@ const expectedFrontendModuleOrder = [
   "responsive-visual-system",
   "javascript-values-types-functions",
   "javascript-arrays-objects-data-modeling",
+  "javascript-dom-events-forms-storage-fetch",
 ];
 
 function resolveTsPath(basePath) {

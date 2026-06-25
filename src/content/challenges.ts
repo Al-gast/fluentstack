@@ -41,6 +41,12 @@ export {
   buildJsArrayOfObjectsChallenge,
   transformJsUiDataChallenge,
   buildJsDataModelingUtilitiesChallenge,
+  updateDomTextBasicChallenge,
+  handleClickInputGreetingChallenge,
+  handleBasicFormSubmitChallenge,
+  saveDraftWithLocalStorageChallenge,
+  fetchJsonRenderListChallenge,
+  buildBrowserBehaviorCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

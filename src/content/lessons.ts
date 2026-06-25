@@ -58,6 +58,12 @@ export {
   javascriptArrayOfObjectsLesson,
   javascriptMapFilterDataTransformLesson,
   javascriptArraysObjectsDataModelingAssessmentLesson,
+  javascriptDomSelectionBasicLesson,
+  javascriptClickInputEventsLesson,
+  javascriptFormSubmitBasicLesson,
+  javascriptLocalStorageBasicLesson,
+  javascriptFetchJsonBasicLesson,
+  javascriptDomEventsFormsStorageFetchAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

@@ -325,7 +325,8 @@ export function ModuleLearningPath({
               </>
             ) : (
               <p className="mt-2 text-sm leading-6 text-fs-text-soft">
-                Module aktif terakhir saat ini. Berikutnya direncanakan masuk ke JavaScript Fundamentals.
+                Module aktif terakhir di track ini untuk saat ini. Gunakan Uji Kompetensi untuk review dan
+                bersiap ke milestone berikutnya.
               </p>
             )}
           </section>

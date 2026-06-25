@@ -177,6 +177,42 @@ export function PreviewPanel({
         });
       })();
 
+      (function setupFluentStackStorage() {
+        try {
+          const probeKey = "__fluentstack_storage_probe__";
+          window.localStorage.setItem(probeKey, "1");
+          window.localStorage.removeItem(probeKey);
+        } catch {
+          const memoryStore = new Map();
+          const simulatedStorage = {
+            get length() {
+              return memoryStore.size;
+            },
+            key(index) {
+              return Array.from(memoryStore.keys())[index] ?? null;
+            },
+            getItem(key) {
+              const normalizedKey = String(key);
+              return memoryStore.has(normalizedKey) ? memoryStore.get(normalizedKey) : null;
+            },
+            setItem(key, value) {
+              memoryStore.set(String(key), String(value));
+            },
+            removeItem(key) {
+              memoryStore.delete(String(key));
+            },
+            clear() {
+              memoryStore.clear();
+            },
+          };
+
+          Object.defineProperty(window, "localStorage", {
+            value: simulatedStorage,
+            configurable: true,
+          });
+        }
+      })();
+
       try {
         const userCode = ${serializedJs};
         new Function(userCode)();

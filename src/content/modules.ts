@@ -13,6 +13,7 @@ export {
   responsiveVisualSystemModule,
   javascriptValuesTypesFunctionsModule,
   javascriptArraysObjectsDataModelingModule,
+  javascriptDomEventsFormsStorageFetchModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

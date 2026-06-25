@@ -9,6 +9,7 @@ import { flexboxGridLayoutModule, cssFlexboxBasicLesson, buildNavbarWithFlexboxL
 import { responsiveVisualSystemModule, mobileFirstCssLesson, cssBreakpointsBasicLesson, fluidSpacingTypographyBasicLesson, cssVariablesDarkModeBasicLesson, responsiveVisualSystemAssessmentLesson, responsiveVisualSystemAssessmentQuiz, practiceMobileFirstSectionChallenge, practiceCssBreakpointCardGridChallenge, practiceFluidSpacingTypographyChallenge, practiceCssVariablesThemeCardChallenge, buildResponsiveVisualSectionChallenge } from "./level-03-css-fundamentals-layout/responsive-visual-system";
 import { javascriptValuesTypesFunctionsModule, whatIsJavascriptInBrowserLesson, javascriptValuesVariablesLesson, javascriptBasicFunctionsLesson, javascriptConditionalsLoopsBasicLesson, javascriptValuesTypesFunctionsAssessmentLesson, javascriptValuesTypesFunctionsAssessmentQuiz, storeSimpleJsValuesChallenge, buildBasicJsFunctionsChallenge, practiceJsConditionalsLoopsChallenge, buildJsUtilityFunctionsChallenge } from "./level-04-javascript-fundamentals/values-types-functions";
 import { javascriptArraysObjectsDataModelingModule, javascriptArrayDataUiLesson, javascriptObjectSingleItemLesson, javascriptArrayOfObjectsLesson, javascriptMapFilterDataTransformLesson, javascriptArraysObjectsDataModelingAssessmentLesson, javascriptArraysObjectsDataModelingAssessmentQuiz, inspectJsArrayValuesChallenge, modelJsCardObjectChallenge, buildJsArrayOfObjectsChallenge, transformJsUiDataChallenge, buildJsDataModelingUtilitiesChallenge } from "./level-04-javascript-fundamentals/arrays-objects-data-modeling";
+import { javascriptDomEventsFormsStorageFetchModule, javascriptDomSelectionBasicLesson, javascriptClickInputEventsLesson, javascriptFormSubmitBasicLesson, javascriptLocalStorageBasicLesson, javascriptFetchJsonBasicLesson, javascriptDomEventsFormsStorageFetchAssessmentLesson, javascriptDomEventsFormsStorageFetchAssessmentQuiz, updateDomTextBasicChallenge, handleClickInputGreetingChallenge, handleBasicFormSubmitChallenge, saveDraftWithLocalStorageChallenge, fetchJsonRenderListChallenge, buildBrowserBehaviorCheckpointChallenge } from "./level-04-javascript-fundamentals/dom-events-forms-storage-fetch";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -21,6 +22,7 @@ export { flexboxGridLayoutModule, cssFlexboxBasicLesson, buildNavbarWithFlexboxL
 export { responsiveVisualSystemModule, mobileFirstCssLesson, cssBreakpointsBasicLesson, fluidSpacingTypographyBasicLesson, cssVariablesDarkModeBasicLesson, responsiveVisualSystemAssessmentLesson, responsiveVisualSystemAssessmentQuiz, practiceMobileFirstSectionChallenge, practiceCssBreakpointCardGridChallenge, practiceFluidSpacingTypographyChallenge, practiceCssVariablesThemeCardChallenge, buildResponsiveVisualSectionChallenge } from "./level-03-css-fundamentals-layout/responsive-visual-system";
 export { javascriptValuesTypesFunctionsModule, whatIsJavascriptInBrowserLesson, javascriptValuesVariablesLesson, javascriptBasicFunctionsLesson, javascriptConditionalsLoopsBasicLesson, javascriptValuesTypesFunctionsAssessmentLesson, javascriptValuesTypesFunctionsAssessmentQuiz, storeSimpleJsValuesChallenge, buildBasicJsFunctionsChallenge, practiceJsConditionalsLoopsChallenge, buildJsUtilityFunctionsChallenge } from "./level-04-javascript-fundamentals/values-types-functions";
 export { javascriptArraysObjectsDataModelingModule, javascriptArrayDataUiLesson, javascriptObjectSingleItemLesson, javascriptArrayOfObjectsLesson, javascriptMapFilterDataTransformLesson, javascriptArraysObjectsDataModelingAssessmentLesson, javascriptArraysObjectsDataModelingAssessmentQuiz, inspectJsArrayValuesChallenge, modelJsCardObjectChallenge, buildJsArrayOfObjectsChallenge, transformJsUiDataChallenge, buildJsDataModelingUtilitiesChallenge } from "./level-04-javascript-fundamentals/arrays-objects-data-modeling";
+export { javascriptDomEventsFormsStorageFetchModule, javascriptDomSelectionBasicLesson, javascriptClickInputEventsLesson, javascriptFormSubmitBasicLesson, javascriptLocalStorageBasicLesson, javascriptFetchJsonBasicLesson, javascriptDomEventsFormsStorageFetchAssessmentLesson, javascriptDomEventsFormsStorageFetchAssessmentQuiz, updateDomTextBasicChallenge, handleClickInputGreetingChallenge, handleBasicFormSubmitChallenge, saveDraftWithLocalStorageChallenge, fetchJsonRenderListChallenge, buildBrowserBehaviorCheckpointChallenge } from "./level-04-javascript-fundamentals/dom-events-forms-storage-fetch";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -34,6 +36,7 @@ export const frontendEngineeringModules = [
   responsiveVisualSystemModule,
   javascriptValuesTypesFunctionsModule,
   javascriptArraysObjectsDataModelingModule,
+  javascriptDomEventsFormsStorageFetchModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -93,6 +96,12 @@ export const frontendEngineeringLessons = [
   javascriptArrayOfObjectsLesson,
   javascriptMapFilterDataTransformLesson,
   javascriptArraysObjectsDataModelingAssessmentLesson,
+  javascriptDomSelectionBasicLesson,
+  javascriptClickInputEventsLesson,
+  javascriptFormSubmitBasicLesson,
+  javascriptLocalStorageBasicLesson,
+  javascriptFetchJsonBasicLesson,
+  javascriptDomEventsFormsStorageFetchAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -115,6 +124,7 @@ export const frontendEngineeringQuizzes = [
   responsiveVisualSystemAssessmentQuiz,
   javascriptValuesTypesFunctionsAssessmentQuiz,
   javascriptArraysObjectsDataModelingAssessmentQuiz,
+  javascriptDomEventsFormsStorageFetchAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -157,4 +167,10 @@ export const frontendEngineeringChallenges = [
   buildJsArrayOfObjectsChallenge,
   transformJsUiDataChallenge,
   buildJsDataModelingUtilitiesChallenge,
+  updateDomTextBasicChallenge,
+  handleClickInputGreetingChallenge,
+  handleBasicFormSubmitChallenge,
+  saveDraftWithLocalStorageChallenge,
+  fetchJsonRenderListChallenge,
+  buildBrowserBehaviorCheckpointChallenge,
 ];

@@ -21,6 +21,7 @@ export {
   responsiveVisualSystemAssessmentQuiz,
   javascriptValuesTypesFunctionsAssessmentQuiz,
   javascriptArraysObjectsDataModelingAssessmentQuiz,
+  javascriptDomEventsFormsStorageFetchAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
