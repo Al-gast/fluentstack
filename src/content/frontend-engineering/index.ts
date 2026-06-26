@@ -10,6 +10,7 @@ import { responsiveVisualSystemModule, mobileFirstCssLesson, cssBreakpointsBasic
 import { javascriptValuesTypesFunctionsModule, whatIsJavascriptInBrowserLesson, javascriptValuesVariablesLesson, javascriptBasicFunctionsLesson, javascriptConditionalsLoopsBasicLesson, javascriptValuesTypesFunctionsAssessmentLesson, javascriptValuesTypesFunctionsAssessmentQuiz, storeSimpleJsValuesChallenge, buildBasicJsFunctionsChallenge, practiceJsConditionalsLoopsChallenge, buildJsUtilityFunctionsChallenge } from "./level-04-javascript-fundamentals/values-types-functions";
 import { javascriptArraysObjectsDataModelingModule, javascriptArrayDataUiLesson, javascriptObjectSingleItemLesson, javascriptArrayOfObjectsLesson, javascriptMapFilterDataTransformLesson, javascriptArraysObjectsDataModelingAssessmentLesson, javascriptArraysObjectsDataModelingAssessmentQuiz, inspectJsArrayValuesChallenge, modelJsCardObjectChallenge, buildJsArrayOfObjectsChallenge, transformJsUiDataChallenge, buildJsDataModelingUtilitiesChallenge } from "./level-04-javascript-fundamentals/arrays-objects-data-modeling";
 import { javascriptDomEventsFormsStorageFetchModule, javascriptDomSelectionBasicLesson, javascriptClickInputEventsLesson, javascriptFormSubmitBasicLesson, javascriptLocalStorageBasicLesson, javascriptFetchJsonBasicLesson, javascriptDomEventsFormsStorageFetchAssessmentLesson, javascriptDomEventsFormsStorageFetchAssessmentQuiz, updateDomTextBasicChallenge, handleClickInputGreetingChallenge, handleBasicFormSubmitChallenge, saveDraftWithLocalStorageChallenge, fetchJsonRenderListChallenge, buildBrowserBehaviorCheckpointChallenge } from "./level-04-javascript-fundamentals/dom-events-forms-storage-fetch";
+import { localVanillaJavascriptAppModule, setupLocalVanillaJsProjectLesson, connectLocalHtmlCssJsFilesLesson, buildFirstLocalJsInteractionLesson, saveLocalDataWithLocalstorageLesson, readDocsWhileDebuggingLocalJsLesson, localVanillaJavascriptAppAssessmentLesson } from "./level-04-javascript-fundamentals/local-vanilla-javascript-app";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -23,6 +24,7 @@ export { responsiveVisualSystemModule, mobileFirstCssLesson, cssBreakpointsBasic
 export { javascriptValuesTypesFunctionsModule, whatIsJavascriptInBrowserLesson, javascriptValuesVariablesLesson, javascriptBasicFunctionsLesson, javascriptConditionalsLoopsBasicLesson, javascriptValuesTypesFunctionsAssessmentLesson, javascriptValuesTypesFunctionsAssessmentQuiz, storeSimpleJsValuesChallenge, buildBasicJsFunctionsChallenge, practiceJsConditionalsLoopsChallenge, buildJsUtilityFunctionsChallenge } from "./level-04-javascript-fundamentals/values-types-functions";
 export { javascriptArraysObjectsDataModelingModule, javascriptArrayDataUiLesson, javascriptObjectSingleItemLesson, javascriptArrayOfObjectsLesson, javascriptMapFilterDataTransformLesson, javascriptArraysObjectsDataModelingAssessmentLesson, javascriptArraysObjectsDataModelingAssessmentQuiz, inspectJsArrayValuesChallenge, modelJsCardObjectChallenge, buildJsArrayOfObjectsChallenge, transformJsUiDataChallenge, buildJsDataModelingUtilitiesChallenge } from "./level-04-javascript-fundamentals/arrays-objects-data-modeling";
 export { javascriptDomEventsFormsStorageFetchModule, javascriptDomSelectionBasicLesson, javascriptClickInputEventsLesson, javascriptFormSubmitBasicLesson, javascriptLocalStorageBasicLesson, javascriptFetchJsonBasicLesson, javascriptDomEventsFormsStorageFetchAssessmentLesson, javascriptDomEventsFormsStorageFetchAssessmentQuiz, updateDomTextBasicChallenge, handleClickInputGreetingChallenge, handleBasicFormSubmitChallenge, saveDraftWithLocalStorageChallenge, fetchJsonRenderListChallenge, buildBrowserBehaviorCheckpointChallenge } from "./level-04-javascript-fundamentals/dom-events-forms-storage-fetch";
+export { localVanillaJavascriptAppModule, setupLocalVanillaJsProjectLesson, connectLocalHtmlCssJsFilesLesson, buildFirstLocalJsInteractionLesson, saveLocalDataWithLocalstorageLesson, readDocsWhileDebuggingLocalJsLesson, localVanillaJavascriptAppAssessmentLesson } from "./level-04-javascript-fundamentals/local-vanilla-javascript-app";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -37,6 +39,7 @@ export const frontendEngineeringModules = [
   javascriptValuesTypesFunctionsModule,
   javascriptArraysObjectsDataModelingModule,
   javascriptDomEventsFormsStorageFetchModule,
+  localVanillaJavascriptAppModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -102,6 +105,12 @@ export const frontendEngineeringLessons = [
   javascriptLocalStorageBasicLesson,
   javascriptFetchJsonBasicLesson,
   javascriptDomEventsFormsStorageFetchAssessmentLesson,
+  setupLocalVanillaJsProjectLesson,
+  connectLocalHtmlCssJsFilesLesson,
+  buildFirstLocalJsInteractionLesson,
+  saveLocalDataWithLocalstorageLesson,
+  readDocsWhileDebuggingLocalJsLesson,
+  localVanillaJavascriptAppAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [

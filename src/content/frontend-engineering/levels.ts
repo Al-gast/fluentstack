@@ -40,11 +40,12 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     stage: "beginner",
     title: "JavaScript Fundamentals",
     description:
-      "Menambahkan behavior dan data handling dasar lewat values, functions, arrays, objects, DOM, events, forms, storage, dan fetch.",
+      "Menambahkan behavior dan data handling dasar lewat values, functions, arrays, objects, DOM, events, forms, storage, fetch, dan project Vanilla JavaScript lokal.",
     moduleIds: [
       "javascript-values-types-functions",
       "javascript-arrays-objects-data-modeling",
       "javascript-dom-events-forms-storage-fetch",
+      "local-vanilla-javascript-app",
     ],
   },
 ];

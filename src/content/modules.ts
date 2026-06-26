@@ -14,6 +14,7 @@ export {
   javascriptValuesTypesFunctionsModule,
   javascriptArraysObjectsDataModelingModule,
   javascriptDomEventsFormsStorageFetchModule,
+  localVanillaJavascriptAppModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {
