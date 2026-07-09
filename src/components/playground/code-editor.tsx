@@ -12,7 +12,7 @@ type CodeEditorProps = {
 };
 
 type MonacoTheme = "vs-dark" | "light";
-type MonacoLanguage = "html" | "css" | "javascript";
+type MonacoLanguage = "html" | "css" | "javascript" | "typescript";
 
 function getCurrentMonacoTheme(): MonacoTheme {
   if (typeof document === "undefined") {
@@ -31,7 +31,15 @@ function getCurrentMonacoTheme(): MonacoTheme {
 }
 
 function getMonacoLanguage(language: ChallengeLanguage): MonacoLanguage {
-  return language === "js" ? "javascript" : language;
+  if (language === "js") {
+    return "javascript";
+  }
+
+  if (language === "ts") {
+    return "typescript";
+  }
+
+  return language;
 }
 
 export function CodeEditor({

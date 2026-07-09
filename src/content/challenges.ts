@@ -60,6 +60,11 @@ export {
   transformRawDataForUiChallenge,
   fixTotalBugWithDebugLogsChallenge,
   debugBrowserDataFlowCheckpointChallenge,
+  typeSimpleValuesAndArraysChallenge,
+  typeUserCardObjectChallenge,
+  typeSmallHelperFunctionsChallenge,
+  modelOptionalProfileFieldsChallenge,
+  fixBasicTypesCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

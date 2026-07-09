@@ -9,7 +9,7 @@ const ts = require("typescript");
 const rootDir = path.resolve(__dirname, "..");
 const srcDir = path.join(rootDir, "src");
 
-const supportedChallengeModes = new Set(["html", "css", "js"]);
+const supportedChallengeModes = new Set(["html", "css", "js", "ts"]);
 const supportedExpectedOutputKinds = new Set(["console", "preview", "behavior"]);
 const supportedCurriculumStages = new Set(["beginner", "intermediate", "advanced"]);
 const supportedValidationRules = new Set([
@@ -43,6 +43,7 @@ const expectedFrontendModuleOrder = [
   "javascript-async-error-handling",
   "javascript-browser-apis-data-transformation-debugging",
   "local-tooling-npm-basics",
+  "typescript-core-types",
 ];
 
 function resolveTsPath(basePath) {
@@ -273,6 +274,31 @@ function validateChallengeExpectedOutput(challenge) {
   }
 }
 
+function validateTypeScriptChallengeConvention(challenge) {
+  if (challenge.validation?.mode !== "ts") {
+    return;
+  }
+
+  if (challenge.instructions?.[0] !== "Fokus di tab TS.") {
+    addError(`challenge:${challenge.id}: TypeScript challenge first instruction must be "Fokus di tab TS.".`);
+  }
+
+  if (!isNonEmptyString(challenge.starterCode?.ts)) {
+    addError(`challenge:${challenge.id}: TypeScript challenge starterCode.ts must be non-empty.`);
+  }
+
+  if (challenge.expectedOutput?.kind !== "behavior") {
+    addError(`challenge:${challenge.id}: TypeScript challenge expectedOutput.kind must be "behavior".`);
+  }
+
+  if (
+    !isNonEmptyString(challenge.expectedOutput?.description) ||
+    !challenge.expectedOutput.description.toLowerCase().includes("preview")
+  ) {
+    addError(`challenge:${challenge.id}: TypeScript challenge expectedOutput.description must mention preview behavior.`);
+  }
+}
+
 function validateCurriculumLevelOrder(track, level) {
   const orderByModuleId = new Map(track.moduleIds.map((moduleId, index) => [moduleId, index]));
   const indexes = level.moduleIds.map((moduleId) => orderByModuleId.get(moduleId));
@@ -428,6 +454,7 @@ for (const challenge of challenges) {
   }
 
   validateChallengeExpectedOutput(challenge);
+  validateTypeScriptChallengeConvention(challenge);
 }
 
 const curriculumLevelCount = Object.values(curriculumLevelsByTrackId).reduce(

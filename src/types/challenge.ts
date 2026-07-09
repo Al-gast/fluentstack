@@ -1,8 +1,9 @@
-export type ChallengeLanguage = "html" | "css" | "js";
+export type ChallengeLanguage = "html" | "css" | "js" | "ts";
 export type ChallengeCode = {
   html: string;
   css: string;
   js: string;
+  ts?: string;
 };
 
 export type ChallengeValidationCheckType =
@@ -30,7 +31,7 @@ export type ChallengeValidationCheck = {
 };
 
 export type ChallengeValidation = {
-  mode: "html" | "css" | "js";
+  mode: "html" | "css" | "js" | "ts";
   checks: ChallengeValidationCheck[];
 };
 

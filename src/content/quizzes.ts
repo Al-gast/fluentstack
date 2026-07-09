@@ -26,6 +26,7 @@ export {
   javascriptAsyncErrorHandlingAssessmentQuiz,
   javascriptBrowserApisDebuggingAssessmentQuiz,
   localToolingNpmBasicsAssessmentQuiz,
+  typescriptCoreTypesAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

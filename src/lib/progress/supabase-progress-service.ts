@@ -51,6 +51,7 @@ function toChallengeCode(value: Json): ChallengeCode {
     html: typeof candidate.html === "string" ? candidate.html : "",
     css: typeof candidate.css === "string" ? candidate.css : "",
     js: typeof candidate.js === "string" ? candidate.js : "",
+    ts: typeof candidate.ts === "string" ? candidate.ts : undefined,
   };
 }
 

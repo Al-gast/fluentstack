@@ -42,6 +42,7 @@ function resolveCode(starterCode: ChallengeCode, savedCode?: ChallengeCode): Cha
     html: savedCode.html || starterCode.html,
     css: savedCode.css || starterCode.css,
     js: savedCode.js || starterCode.js,
+    ts: savedCode.ts || starterCode.ts,
   };
 }
 

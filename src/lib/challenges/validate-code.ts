@@ -318,6 +318,20 @@ export function validateChallengeCode(
     });
   }
 
+  if (validation.mode === "ts") {
+    return validation.checks.map((check) => {
+      const result = validateTextCheck(check, code.ts ?? "", "TypeScript");
+
+      return {
+        id: check.id,
+        label: check.label,
+        passed: result.passed,
+        required: check.required ?? true,
+        message: result.passed ? undefined : result.message,
+      };
+    });
+  }
+
   if (validation.mode !== "html") {
     return [];
   }

@@ -93,6 +93,12 @@ export {
   npmInstallAndNpmRunLesson,
   dependencyVsDevDependencyBasicLesson,
   localToolingNpmBasicsAssessmentLesson,
+  whatIsTypescriptLesson,
+  typescriptPrimitiveTypesArraysLesson,
+  typescriptObjectTypesLesson,
+  typescriptFunctionTypesLesson,
+  typescriptOptionalFieldsLesson,
+  typescriptCoreTypesAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

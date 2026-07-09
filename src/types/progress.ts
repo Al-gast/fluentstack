@@ -1,13 +1,11 @@
+import type { ChallengeCode } from "@/types/challenge";
+
 export type ProgressStorageMode = "guest" | "logged-in";
 
 export type ChallengeProgress = {
   challengeId: string;
   isCompleted: boolean;
-  savedCode: {
-    html: string;
-    css: string;
-    js: string;
-  };
+  savedCode: ChallengeCode;
   completedChecklistItems: string[];
 };
 

@@ -30,7 +30,7 @@ type CodingLabProps = {
   onMarkCompleted: () => void | Promise<unknown>;
 };
 
-const languageTabs: Array<{ label: string; value: ChallengeLanguage }> = [
+const baseLanguageTabs: Array<{ label: string; value: ChallengeLanguage }> = [
   { label: "HTML", value: "html" },
   { label: "CSS", value: "css" },
   { label: "JS", value: "js" },
@@ -77,6 +77,16 @@ function getEditorContainerClassName(layout: PracticeLayout): string {
 
 function getDefaultActiveLanguage(challenge: CodingChallenge): ChallengeLanguage {
   return challenge.validation?.mode ?? "html";
+}
+
+function getLanguageTabs(challenge: CodingChallenge, code: ChallengeCode): Array<{ label: string; value: ChallengeLanguage }> {
+  const hasTypeScript =
+    challenge.validation?.mode === "ts" ||
+    typeof challenge.starterCode.ts === "string" ||
+    typeof challenge.solutionCode?.ts === "string" ||
+    typeof code.ts === "string";
+
+  return hasTypeScript ? [...baseLanguageTabs, { label: "TS", value: "ts" }] : baseLanguageTabs;
 }
 
 export function CodingLab({
@@ -139,12 +149,16 @@ export function CodingLab({
   );
   const hasAutoValidation = completionGate.mode === "auto-validation";
   const canMarkCompleted = completionGate.canComplete;
+  const isTypeScriptPractice = challenge.validation?.mode === "ts";
   const validationDescription =
     challenge.validation?.mode === "css"
       ? "Kami membaca aturan CSS yang kamu tulis. JavaScript tidak dijalankan untuk validasi."
       : challenge.validation?.mode === "js"
         ? "Kami membaca teks JavaScript yang kamu tulis. Kode tidak dijalankan untuk validasi."
-        : "Kami membaca struktur HTML yang kamu tulis. JavaScript tidak dijalankan untuk validasi.";
+        : challenge.validation?.mode === "ts"
+          ? "Cek otomatis membaca struktur TypeScript. Kode TS tidak dijalankan di preview."
+          : "Kami membaca struktur HTML yang kamu tulis. JavaScript tidak dijalankan untuk validasi.";
+  const visibleLanguageTabs = useMemo(() => getLanguageTabs(challenge, code), [challenge, code]);
 
   const handleSaveCode = async () => {
     if (isSavingCode) {
@@ -264,6 +278,11 @@ export function CodingLab({
       {challenge.validation?.mode === "js" ? (
         <p className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-3 text-xs leading-6 text-fs-text">
           Fokus di tab JS. HTML dan CSS hanya membantu memberi konteks preview.
+        </p>
+      ) : null}
+      {challenge.validation?.mode === "ts" ? (
+        <p className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-3 text-xs leading-6 text-fs-text">
+          Fokus di tab TS. Cek otomatis membaca struktur TypeScript. Kode TS tidak dijalankan di preview.
         </p>
       ) : null}
       <ul className="list-disc space-y-1.5 pl-5 text-sm leading-7 text-fs-text-soft">
@@ -467,8 +486,8 @@ export function CodingLab({
 
   const editorPanel = (
     <article className="flex min-h-0 min-w-0 flex-col space-y-3 rounded-xl border border-fs-border bg-fs-surface p-3">
-      <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap">
-        {languageTabs.map((tab) => (
+      <div className="flex flex-wrap gap-2">
+        {visibleLanguageTabs.map((tab) => (
           <button
             key={tab.value}
             type="button"
@@ -488,7 +507,7 @@ export function CodingLab({
       <div className={cn("min-h-0 min-w-0 flex-1", getEditorContainerClassName(layout))}>
         <CodeEditor
           language={activeLanguage}
-          value={code[activeLanguage]}
+          value={code[activeLanguage] ?? ""}
           height="100%"
           onChange={handleCodeChange}
         />
@@ -499,9 +518,15 @@ export function CodingLab({
   const previewPanel = (
     <article className="flex min-h-0 min-w-0 flex-col space-y-3 rounded-xl border border-fs-border bg-fs-surface p-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="text-xs font-semibold uppercase tracking-normal text-fs-text-muted">Preview langsung</p>
+        <p className="text-xs font-semibold uppercase tracking-normal text-fs-text-muted">
+          {isTypeScriptPractice ? "Catatan TypeScript" : "Preview langsung"}
+        </p>
         <span className="rounded-full border border-fs-border bg-fs-surface-soft px-3 py-1 text-xs font-semibold text-fs-text-soft">
-          {previewViewport === "full" ? "Full" : viewportWidth[previewViewport]}
+          {isTypeScriptPractice
+            ? "Bukan runtime"
+            : previewViewport === "full"
+              ? "Full"
+              : viewportWidth[previewViewport]}
         </span>
       </div>
       <div className="min-h-0 min-w-0 flex-1">
@@ -615,6 +640,14 @@ export function CodingLab({
                 <code>{challenge.solutionCode.js}</code>
               </pre>
             </div>
+            {typeof challenge.solutionCode.ts === "string" ? (
+              <div className="min-w-0 space-y-2">
+                <p className="text-xs font-semibold text-fs-info">TS</p>
+                <pre className="overflow-x-auto rounded-lg border border-fs-code-border bg-fs-code-background p-3 text-xs text-fs-text-soft">
+                  <code>{challenge.solutionCode.ts}</code>
+                </pre>
+              </div>
+            ) : null}
           </div>
         </article>
       ) : null}
