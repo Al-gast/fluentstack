@@ -64,6 +64,17 @@ export {
   javascriptLocalStorageBasicLesson,
   javascriptFetchJsonBasicLesson,
   javascriptDomEventsFormsStorageFetchAssessmentLesson,
+  setupLocalVanillaJsProjectLesson,
+  connectLocalHtmlCssJsFilesLesson,
+  buildFirstLocalJsInteractionLesson,
+  saveLocalDataWithLocalstorageLesson,
+  readDocsWhileDebuggingLocalJsLesson,
+  localVanillaJavascriptAppAssessmentLesson,
+  javascriptScopeBasicLesson,
+  javascriptClosureUiExampleLesson,
+  javascriptEsModulesImportExportLesson,
+  javascriptSplitFilesLesson,
+  javascriptScopeClosureModulesAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

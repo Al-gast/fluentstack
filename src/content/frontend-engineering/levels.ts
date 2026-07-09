@@ -48,4 +48,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "local-vanilla-javascript-app",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 5,
+    stage: "intermediate",
+    title: "JavaScript Advanced",
+    description:
+      "Mengorganisasi JavaScript dengan scope, closure, module file, async behavior, browser APIs, dan debugging yang lebih terarah.",
+    moduleIds: ["javascript-scope-closure-modules"],
+  },
 ];

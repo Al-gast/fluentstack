@@ -11,6 +11,7 @@ import { javascriptValuesTypesFunctionsModule, whatIsJavascriptInBrowserLesson, 
 import { javascriptArraysObjectsDataModelingModule, javascriptArrayDataUiLesson, javascriptObjectSingleItemLesson, javascriptArrayOfObjectsLesson, javascriptMapFilterDataTransformLesson, javascriptArraysObjectsDataModelingAssessmentLesson, javascriptArraysObjectsDataModelingAssessmentQuiz, inspectJsArrayValuesChallenge, modelJsCardObjectChallenge, buildJsArrayOfObjectsChallenge, transformJsUiDataChallenge, buildJsDataModelingUtilitiesChallenge } from "./level-04-javascript-fundamentals/arrays-objects-data-modeling";
 import { javascriptDomEventsFormsStorageFetchModule, javascriptDomSelectionBasicLesson, javascriptClickInputEventsLesson, javascriptFormSubmitBasicLesson, javascriptLocalStorageBasicLesson, javascriptFetchJsonBasicLesson, javascriptDomEventsFormsStorageFetchAssessmentLesson, javascriptDomEventsFormsStorageFetchAssessmentQuiz, updateDomTextBasicChallenge, handleClickInputGreetingChallenge, handleBasicFormSubmitChallenge, saveDraftWithLocalStorageChallenge, fetchJsonRenderListChallenge, buildBrowserBehaviorCheckpointChallenge } from "./level-04-javascript-fundamentals/dom-events-forms-storage-fetch";
 import { localVanillaJavascriptAppModule, setupLocalVanillaJsProjectLesson, connectLocalHtmlCssJsFilesLesson, buildFirstLocalJsInteractionLesson, saveLocalDataWithLocalstorageLesson, readDocsWhileDebuggingLocalJsLesson, localVanillaJavascriptAppAssessmentLesson } from "./level-04-javascript-fundamentals/local-vanilla-javascript-app";
+import { javascriptScopeClosureModulesModule, javascriptScopeBasicLesson, javascriptClosureUiExampleLesson, javascriptEsModulesImportExportLesson, javascriptSplitFilesLesson, javascriptScopeClosureModulesAssessmentLesson, javascriptScopeClosureModulesAssessmentQuiz, predictScopeAccessChallenge, buildClosureCounterChallenge } from "./level-05-javascript-advanced/scope-closure-modules";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -25,6 +26,7 @@ export { javascriptValuesTypesFunctionsModule, whatIsJavascriptInBrowserLesson, 
 export { javascriptArraysObjectsDataModelingModule, javascriptArrayDataUiLesson, javascriptObjectSingleItemLesson, javascriptArrayOfObjectsLesson, javascriptMapFilterDataTransformLesson, javascriptArraysObjectsDataModelingAssessmentLesson, javascriptArraysObjectsDataModelingAssessmentQuiz, inspectJsArrayValuesChallenge, modelJsCardObjectChallenge, buildJsArrayOfObjectsChallenge, transformJsUiDataChallenge, buildJsDataModelingUtilitiesChallenge } from "./level-04-javascript-fundamentals/arrays-objects-data-modeling";
 export { javascriptDomEventsFormsStorageFetchModule, javascriptDomSelectionBasicLesson, javascriptClickInputEventsLesson, javascriptFormSubmitBasicLesson, javascriptLocalStorageBasicLesson, javascriptFetchJsonBasicLesson, javascriptDomEventsFormsStorageFetchAssessmentLesson, javascriptDomEventsFormsStorageFetchAssessmentQuiz, updateDomTextBasicChallenge, handleClickInputGreetingChallenge, handleBasicFormSubmitChallenge, saveDraftWithLocalStorageChallenge, fetchJsonRenderListChallenge, buildBrowserBehaviorCheckpointChallenge } from "./level-04-javascript-fundamentals/dom-events-forms-storage-fetch";
 export { localVanillaJavascriptAppModule, setupLocalVanillaJsProjectLesson, connectLocalHtmlCssJsFilesLesson, buildFirstLocalJsInteractionLesson, saveLocalDataWithLocalstorageLesson, readDocsWhileDebuggingLocalJsLesson, localVanillaJavascriptAppAssessmentLesson } from "./level-04-javascript-fundamentals/local-vanilla-javascript-app";
+export { javascriptScopeClosureModulesModule, javascriptScopeBasicLesson, javascriptClosureUiExampleLesson, javascriptEsModulesImportExportLesson, javascriptSplitFilesLesson, javascriptScopeClosureModulesAssessmentLesson, javascriptScopeClosureModulesAssessmentQuiz, predictScopeAccessChallenge, buildClosureCounterChallenge } from "./level-05-javascript-advanced/scope-closure-modules";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -40,6 +42,7 @@ export const frontendEngineeringModules = [
   javascriptArraysObjectsDataModelingModule,
   javascriptDomEventsFormsStorageFetchModule,
   localVanillaJavascriptAppModule,
+  javascriptScopeClosureModulesModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -111,6 +114,11 @@ export const frontendEngineeringLessons = [
   saveLocalDataWithLocalstorageLesson,
   readDocsWhileDebuggingLocalJsLesson,
   localVanillaJavascriptAppAssessmentLesson,
+  javascriptScopeBasicLesson,
+  javascriptClosureUiExampleLesson,
+  javascriptEsModulesImportExportLesson,
+  javascriptSplitFilesLesson,
+  javascriptScopeClosureModulesAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -134,6 +142,7 @@ export const frontendEngineeringQuizzes = [
   javascriptValuesTypesFunctionsAssessmentQuiz,
   javascriptArraysObjectsDataModelingAssessmentQuiz,
   javascriptDomEventsFormsStorageFetchAssessmentQuiz,
+  javascriptScopeClosureModulesAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -182,4 +191,6 @@ export const frontendEngineeringChallenges = [
   saveDraftWithLocalStorageChallenge,
   fetchJsonRenderListChallenge,
   buildBrowserBehaviorCheckpointChallenge,
+  predictScopeAccessChallenge,
+  buildClosureCounterChallenge,
 ];

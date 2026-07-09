@@ -22,6 +22,7 @@ export {
   javascriptValuesTypesFunctionsAssessmentQuiz,
   javascriptArraysObjectsDataModelingAssessmentQuiz,
   javascriptDomEventsFormsStorageFetchAssessmentQuiz,
+  javascriptScopeClosureModulesAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

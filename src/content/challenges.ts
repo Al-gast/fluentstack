@@ -47,6 +47,8 @@ export {
   saveDraftWithLocalStorageChallenge,
   fetchJsonRenderListChallenge,
   buildBrowserBehaviorCheckpointChallenge,
+  predictScopeAccessChallenge,
+  buildClosureCounterChallenge,
 } from "@/content/frontend-engineering";
 
 
