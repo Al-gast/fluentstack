@@ -61,4 +61,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "javascript-browser-apis-data-transformation-debugging",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 6,
+    stage: "intermediate",
+    title: "TypeScript",
+    description:
+      "Menggunakan TypeScript untuk membuat kode frontend lebih aman lewat local tooling, core types, dan type boundaries yang praktis.",
+    moduleIds: ["local-tooling-npm-basics"],
+  },
 ];

@@ -14,6 +14,7 @@ import { localVanillaJavascriptAppModule, setupLocalVanillaJsProjectLesson, conn
 import { javascriptScopeClosureModulesModule, javascriptScopeBasicLesson, javascriptClosureUiExampleLesson, javascriptEsModulesImportExportLesson, javascriptSplitFilesLesson, javascriptScopeClosureModulesAssessmentLesson, javascriptScopeClosureModulesAssessmentQuiz, predictScopeAccessChallenge, buildClosureCounterChallenge } from "./level-05-javascript-advanced/scope-closure-modules";
 import { javascriptAsyncErrorHandlingModule, javascriptPromiseBasicLesson, javascriptAsyncAwaitBasicLesson, javascriptTryCatchBasicLesson, javascriptAsyncUiStatesLesson, javascriptBasicRetryLesson, javascriptAsyncErrorHandlingAssessmentLesson, javascriptAsyncErrorHandlingAssessmentQuiz, predictPromiseStatesChallenge, refactorThenToAsyncAwaitChallenge, addTryCatchToAsyncFunctionChallenge, renderAsyncUiStatesChallenge, addBasicRetryButtonChallenge, fixAsyncUiFlowCheckpointChallenge } from "./level-05-javascript-advanced/async-error-handling";
 import { javascriptBrowserApisDataDebuggingModule, javascriptUrlTimerApiBasicLesson, javascriptClipboardStoragePatternsLesson, javascriptDataTransformationUiLesson, javascriptNetworkDebuggingLesson, javascriptBreakpointsConsoleStrategyLesson, javascriptBrowserApisDebuggingAssessmentLesson, javascriptBrowserApisDebuggingAssessmentQuiz, readUrlParamAndTimerChallenge, copyAndSaveUiStateChallenge, transformRawDataForUiChallenge, fixTotalBugWithDebugLogsChallenge, debugBrowserDataFlowCheckpointChallenge } from "./level-05-javascript-advanced/browser-apis-data-debugging";
+import { localToolingNpmBasicsModule, whatAreNodejsAndNpmLesson, checkNodeAndNpmVersionLesson, packageJsonBasicLesson, npmInstallAndNpmRunLesson, dependencyVsDevDependencyBasicLesson, localToolingNpmBasicsAssessmentLesson, localToolingNpmBasicsAssessmentQuiz } from "./level-06-typescript/local-tooling-npm-basics";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -31,6 +32,7 @@ export { localVanillaJavascriptAppModule, setupLocalVanillaJsProjectLesson, conn
 export { javascriptScopeClosureModulesModule, javascriptScopeBasicLesson, javascriptClosureUiExampleLesson, javascriptEsModulesImportExportLesson, javascriptSplitFilesLesson, javascriptScopeClosureModulesAssessmentLesson, javascriptScopeClosureModulesAssessmentQuiz, predictScopeAccessChallenge, buildClosureCounterChallenge } from "./level-05-javascript-advanced/scope-closure-modules";
 export { javascriptAsyncErrorHandlingModule, javascriptPromiseBasicLesson, javascriptAsyncAwaitBasicLesson, javascriptTryCatchBasicLesson, javascriptAsyncUiStatesLesson, javascriptBasicRetryLesson, javascriptAsyncErrorHandlingAssessmentLesson, javascriptAsyncErrorHandlingAssessmentQuiz, predictPromiseStatesChallenge, refactorThenToAsyncAwaitChallenge, addTryCatchToAsyncFunctionChallenge, renderAsyncUiStatesChallenge, addBasicRetryButtonChallenge, fixAsyncUiFlowCheckpointChallenge } from "./level-05-javascript-advanced/async-error-handling";
 export { javascriptBrowserApisDataDebuggingModule, javascriptUrlTimerApiBasicLesson, javascriptClipboardStoragePatternsLesson, javascriptDataTransformationUiLesson, javascriptNetworkDebuggingLesson, javascriptBreakpointsConsoleStrategyLesson, javascriptBrowserApisDebuggingAssessmentLesson, javascriptBrowserApisDebuggingAssessmentQuiz, readUrlParamAndTimerChallenge, copyAndSaveUiStateChallenge, transformRawDataForUiChallenge, fixTotalBugWithDebugLogsChallenge, debugBrowserDataFlowCheckpointChallenge } from "./level-05-javascript-advanced/browser-apis-data-debugging";
+export { localToolingNpmBasicsModule, whatAreNodejsAndNpmLesson, checkNodeAndNpmVersionLesson, packageJsonBasicLesson, npmInstallAndNpmRunLesson, dependencyVsDevDependencyBasicLesson, localToolingNpmBasicsAssessmentLesson, localToolingNpmBasicsAssessmentQuiz } from "./level-06-typescript/local-tooling-npm-basics";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -49,6 +51,7 @@ export const frontendEngineeringModules = [
   javascriptScopeClosureModulesModule,
   javascriptAsyncErrorHandlingModule,
   javascriptBrowserApisDataDebuggingModule,
+  localToolingNpmBasicsModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -137,6 +140,12 @@ export const frontendEngineeringLessons = [
   javascriptNetworkDebuggingLesson,
   javascriptBreakpointsConsoleStrategyLesson,
   javascriptBrowserApisDebuggingAssessmentLesson,
+  whatAreNodejsAndNpmLesson,
+  checkNodeAndNpmVersionLesson,
+  packageJsonBasicLesson,
+  npmInstallAndNpmRunLesson,
+  dependencyVsDevDependencyBasicLesson,
+  localToolingNpmBasicsAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -163,6 +172,7 @@ export const frontendEngineeringQuizzes = [
   javascriptScopeClosureModulesAssessmentQuiz,
   javascriptAsyncErrorHandlingAssessmentQuiz,
   javascriptBrowserApisDebuggingAssessmentQuiz,
+  localToolingNpmBasicsAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [

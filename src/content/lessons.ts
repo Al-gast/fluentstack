@@ -87,6 +87,12 @@ export {
   javascriptNetworkDebuggingLesson,
   javascriptBreakpointsConsoleStrategyLesson,
   javascriptBrowserApisDebuggingAssessmentLesson,
+  whatAreNodejsAndNpmLesson,
+  checkNodeAndNpmVersionLesson,
+  packageJsonBasicLesson,
+  npmInstallAndNpmRunLesson,
+  dependencyVsDevDependencyBasicLesson,
+  localToolingNpmBasicsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

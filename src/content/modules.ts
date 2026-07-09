@@ -18,6 +18,7 @@ export {
   javascriptScopeClosureModulesModule,
   javascriptAsyncErrorHandlingModule,
   javascriptBrowserApisDataDebuggingModule,
+  localToolingNpmBasicsModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

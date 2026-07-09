@@ -25,6 +25,7 @@ export {
   javascriptScopeClosureModulesAssessmentQuiz,
   javascriptAsyncErrorHandlingAssessmentQuiz,
   javascriptBrowserApisDebuggingAssessmentQuiz,
+  localToolingNpmBasicsAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
