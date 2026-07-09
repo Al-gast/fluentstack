@@ -17,6 +17,7 @@ import { javascriptBrowserApisDataDebuggingModule, javascriptUrlTimerApiBasicLes
 import { localToolingNpmBasicsModule, whatAreNodejsAndNpmLesson, checkNodeAndNpmVersionLesson, packageJsonBasicLesson, npmInstallAndNpmRunLesson, dependencyVsDevDependencyBasicLesson, localToolingNpmBasicsAssessmentLesson, localToolingNpmBasicsAssessmentQuiz } from "./level-06-typescript/local-tooling-npm-basics";
 import { typescriptCoreTypesModule, whatIsTypescriptLesson, typescriptPrimitiveTypesArraysLesson, typescriptObjectTypesLesson, typescriptFunctionTypesLesson, typescriptOptionalFieldsLesson, typescriptCoreTypesAssessmentLesson, typescriptCoreTypesAssessmentQuiz, typeSimpleValuesAndArraysChallenge, typeUserCardObjectChallenge, typeSmallHelperFunctionsChallenge, modelOptionalProfileFieldsChallenge, fixBasicTypesCheckpointChallenge } from "./level-06-typescript/typescript-core-types";
 import { practicalTypeDesignModule, typescriptUnionTypesLesson, typescriptNarrowingLesson, typescriptDiscriminatedUnionUiStateLesson, typescriptBasicGenericsLesson, typescriptBasicUtilityTypesLesson, typescriptPracticalTypeDesignAssessmentLesson, typescriptPracticalTypeDesignAssessmentQuiz, modelStatusUnionChallenge, narrowNullableProfileNameChallenge, modelUiStateDiscriminatedUnionChallenge, createGenericApiResultChallenge, reuseTypesWithUtilityTypesChallenge, modelPracticalTypeDesignCheckpointChallenge } from "./level-06-typescript/practical-type-design";
+import { typedFrontendBoundariesModule, typescriptApiResponseTypesLesson, typescriptFormInputDataLesson, typescriptComponentReadyDataShapesLesson, typescriptReusableFrontendLogicLesson, typescriptReadableTypesLesson, typescriptTypedFrontendBoundariesAssessmentLesson, typescriptTypedFrontendBoundariesAssessmentQuiz, typeApiResponseBeforeRenderingChallenge, typeFormValuesValidationResultChallenge, createComponentReadyDataShapeChallenge, typeReusableFrontendResultChallenge, refactorReadableTypesChallenge, typeFrontendBoundaryCheckpointChallenge } from "./level-06-typescript/typed-frontend-boundaries";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -37,6 +38,7 @@ export { javascriptBrowserApisDataDebuggingModule, javascriptUrlTimerApiBasicLes
 export { localToolingNpmBasicsModule, whatAreNodejsAndNpmLesson, checkNodeAndNpmVersionLesson, packageJsonBasicLesson, npmInstallAndNpmRunLesson, dependencyVsDevDependencyBasicLesson, localToolingNpmBasicsAssessmentLesson, localToolingNpmBasicsAssessmentQuiz } from "./level-06-typescript/local-tooling-npm-basics";
 export { typescriptCoreTypesModule, whatIsTypescriptLesson, typescriptPrimitiveTypesArraysLesson, typescriptObjectTypesLesson, typescriptFunctionTypesLesson, typescriptOptionalFieldsLesson, typescriptCoreTypesAssessmentLesson, typescriptCoreTypesAssessmentQuiz, typeSimpleValuesAndArraysChallenge, typeUserCardObjectChallenge, typeSmallHelperFunctionsChallenge, modelOptionalProfileFieldsChallenge, fixBasicTypesCheckpointChallenge } from "./level-06-typescript/typescript-core-types";
 export { practicalTypeDesignModule, typescriptUnionTypesLesson, typescriptNarrowingLesson, typescriptDiscriminatedUnionUiStateLesson, typescriptBasicGenericsLesson, typescriptBasicUtilityTypesLesson, typescriptPracticalTypeDesignAssessmentLesson, typescriptPracticalTypeDesignAssessmentQuiz, modelStatusUnionChallenge, narrowNullableProfileNameChallenge, modelUiStateDiscriminatedUnionChallenge, createGenericApiResultChallenge, reuseTypesWithUtilityTypesChallenge, modelPracticalTypeDesignCheckpointChallenge } from "./level-06-typescript/practical-type-design";
+export { typedFrontendBoundariesModule, typescriptApiResponseTypesLesson, typescriptFormInputDataLesson, typescriptComponentReadyDataShapesLesson, typescriptReusableFrontendLogicLesson, typescriptReadableTypesLesson, typescriptTypedFrontendBoundariesAssessmentLesson, typescriptTypedFrontendBoundariesAssessmentQuiz, typeApiResponseBeforeRenderingChallenge, typeFormValuesValidationResultChallenge, createComponentReadyDataShapeChallenge, typeReusableFrontendResultChallenge, refactorReadableTypesChallenge, typeFrontendBoundaryCheckpointChallenge } from "./level-06-typescript/typed-frontend-boundaries";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -58,6 +60,7 @@ export const frontendEngineeringModules = [
   localToolingNpmBasicsModule,
   typescriptCoreTypesModule,
   practicalTypeDesignModule,
+  typedFrontendBoundariesModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -164,6 +167,12 @@ export const frontendEngineeringLessons = [
   typescriptBasicGenericsLesson,
   typescriptBasicUtilityTypesLesson,
   typescriptPracticalTypeDesignAssessmentLesson,
+  typescriptApiResponseTypesLesson,
+  typescriptFormInputDataLesson,
+  typescriptComponentReadyDataShapesLesson,
+  typescriptReusableFrontendLogicLesson,
+  typescriptReadableTypesLesson,
+  typescriptTypedFrontendBoundariesAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -193,6 +202,7 @@ export const frontendEngineeringQuizzes = [
   localToolingNpmBasicsAssessmentQuiz,
   typescriptCoreTypesAssessmentQuiz,
   typescriptPracticalTypeDesignAssessmentQuiz,
+  typescriptTypedFrontendBoundariesAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -265,4 +275,10 @@ export const frontendEngineeringChallenges = [
   createGenericApiResultChallenge,
   reuseTypesWithUtilityTypesChallenge,
   modelPracticalTypeDesignCheckpointChallenge,
+  typeApiResponseBeforeRenderingChallenge,
+  typeFormValuesValidationResultChallenge,
+  createComponentReadyDataShapeChallenge,
+  typeReusableFrontendResultChallenge,
+  refactorReadableTypesChallenge,
+  typeFrontendBoundaryCheckpointChallenge,
 ];

@@ -71,6 +71,12 @@ export {
   createGenericApiResultChallenge,
   reuseTypesWithUtilityTypesChallenge,
   modelPracticalTypeDesignCheckpointChallenge,
+  typeApiResponseBeforeRenderingChallenge,
+  typeFormValuesValidationResultChallenge,
+  createComponentReadyDataShapeChallenge,
+  typeReusableFrontendResultChallenge,
+  refactorReadableTypesChallenge,
+  typeFrontendBoundaryCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

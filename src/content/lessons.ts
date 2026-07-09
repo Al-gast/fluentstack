@@ -105,6 +105,12 @@ export {
   typescriptBasicGenericsLesson,
   typescriptBasicUtilityTypesLesson,
   typescriptPracticalTypeDesignAssessmentLesson,
+  typescriptApiResponseTypesLesson,
+  typescriptFormInputDataLesson,
+  typescriptComponentReadyDataShapesLesson,
+  typescriptReusableFrontendLogicLesson,
+  typescriptReadableTypesLesson,
+  typescriptTypedFrontendBoundariesAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

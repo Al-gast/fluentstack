@@ -28,6 +28,7 @@ export {
   localToolingNpmBasicsAssessmentQuiz,
   typescriptCoreTypesAssessmentQuiz,
   typescriptPracticalTypeDesignAssessmentQuiz,
+  typescriptTypedFrontendBoundariesAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

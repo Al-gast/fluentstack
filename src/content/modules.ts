@@ -21,6 +21,7 @@ export {
   localToolingNpmBasicsModule,
   typescriptCoreTypesModule,
   practicalTypeDesignModule,
+  typedFrontendBoundariesModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

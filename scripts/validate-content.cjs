@@ -45,6 +45,7 @@ const expectedFrontendModuleOrder = [
   "local-tooling-npm-basics",
   "typescript-core-types",
   "typescript-practical-type-design",
+  "typescript-typed-frontend-boundaries",
 ];
 
 function resolveTsPath(basePath) {

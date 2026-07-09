@@ -72,6 +72,7 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "local-tooling-npm-basics",
       "typescript-core-types",
       "typescript-practical-type-design",
+      "typescript-typed-frontend-boundaries",
     ],
   },
 ];
