@@ -55,6 +55,9 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     title: "JavaScript Advanced",
     description:
       "Mengorganisasi JavaScript dengan scope, closure, module file, async behavior, browser APIs, dan debugging yang lebih terarah.",
-    moduleIds: ["javascript-scope-closure-modules"],
+    moduleIds: [
+      "javascript-scope-closure-modules",
+      "javascript-async-error-handling",
+    ],
   },
 ];

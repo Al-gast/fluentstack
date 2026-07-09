@@ -49,6 +49,12 @@ export {
   buildBrowserBehaviorCheckpointChallenge,
   predictScopeAccessChallenge,
   buildClosureCounterChallenge,
+  predictPromiseStatesChallenge,
+  refactorThenToAsyncAwaitChallenge,
+  addTryCatchToAsyncFunctionChallenge,
+  renderAsyncUiStatesChallenge,
+  addBasicRetryButtonChallenge,
+  fixAsyncUiFlowCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

@@ -23,6 +23,7 @@ export {
   javascriptArraysObjectsDataModelingAssessmentQuiz,
   javascriptDomEventsFormsStorageFetchAssessmentQuiz,
   javascriptScopeClosureModulesAssessmentQuiz,
+  javascriptAsyncErrorHandlingAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

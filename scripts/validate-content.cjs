@@ -40,6 +40,7 @@ const expectedFrontendModuleOrder = [
   "javascript-dom-events-forms-storage-fetch",
   "local-vanilla-javascript-app",
   "javascript-scope-closure-modules",
+  "javascript-async-error-handling",
 ];
 
 function resolveTsPath(basePath) {

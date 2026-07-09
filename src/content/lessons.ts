@@ -75,6 +75,12 @@ export {
   javascriptEsModulesImportExportLesson,
   javascriptSplitFilesLesson,
   javascriptScopeClosureModulesAssessmentLesson,
+  javascriptPromiseBasicLesson,
+  javascriptAsyncAwaitBasicLesson,
+  javascriptTryCatchBasicLesson,
+  javascriptAsyncUiStatesLesson,
+  javascriptBasicRetryLesson,
+  javascriptAsyncErrorHandlingAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {
