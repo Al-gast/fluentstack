@@ -41,6 +41,7 @@ const expectedFrontendModuleOrder = [
   "local-vanilla-javascript-app",
   "javascript-scope-closure-modules",
   "javascript-async-error-handling",
+  "javascript-browser-apis-data-transformation-debugging",
 ];
 
 function resolveTsPath(basePath) {

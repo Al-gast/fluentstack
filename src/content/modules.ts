@@ -17,6 +17,7 @@ export {
   localVanillaJavascriptAppModule,
   javascriptScopeClosureModulesModule,
   javascriptAsyncErrorHandlingModule,
+  javascriptBrowserApisDataDebuggingModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

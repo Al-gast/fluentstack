@@ -58,6 +58,7 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     moduleIds: [
       "javascript-scope-closure-modules",
       "javascript-async-error-handling",
+      "javascript-browser-apis-data-transformation-debugging",
     ],
   },
 ];

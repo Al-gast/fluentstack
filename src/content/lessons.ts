@@ -81,6 +81,12 @@ export {
   javascriptAsyncUiStatesLesson,
   javascriptBasicRetryLesson,
   javascriptAsyncErrorHandlingAssessmentLesson,
+  javascriptUrlTimerApiBasicLesson,
+  javascriptClipboardStoragePatternsLesson,
+  javascriptDataTransformationUiLesson,
+  javascriptNetworkDebuggingLesson,
+  javascriptBreakpointsConsoleStrategyLesson,
+  javascriptBrowserApisDebuggingAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

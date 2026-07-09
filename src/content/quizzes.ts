@@ -24,6 +24,7 @@ export {
   javascriptDomEventsFormsStorageFetchAssessmentQuiz,
   javascriptScopeClosureModulesAssessmentQuiz,
   javascriptAsyncErrorHandlingAssessmentQuiz,
+  javascriptBrowserApisDebuggingAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
