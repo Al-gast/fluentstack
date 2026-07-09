@@ -68,6 +68,10 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     title: "TypeScript",
     description:
       "Menggunakan TypeScript untuk membuat kode frontend lebih aman lewat local tooling, core types, dan type boundaries yang praktis.",
-    moduleIds: ["local-tooling-npm-basics", "typescript-core-types"],
+    moduleIds: [
+      "local-tooling-npm-basics",
+      "typescript-core-types",
+      "typescript-practical-type-design",
+    ],
   },
 ];

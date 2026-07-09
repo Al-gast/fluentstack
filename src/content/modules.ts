@@ -20,6 +20,7 @@ export {
   javascriptBrowserApisDataDebuggingModule,
   localToolingNpmBasicsModule,
   typescriptCoreTypesModule,
+  practicalTypeDesignModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

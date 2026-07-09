@@ -44,6 +44,7 @@ const expectedFrontendModuleOrder = [
   "javascript-browser-apis-data-transformation-debugging",
   "local-tooling-npm-basics",
   "typescript-core-types",
+  "typescript-practical-type-design",
 ];
 
 function resolveTsPath(basePath) {

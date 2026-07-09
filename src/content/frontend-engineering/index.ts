@@ -16,6 +16,7 @@ import { javascriptAsyncErrorHandlingModule, javascriptPromiseBasicLesson, javas
 import { javascriptBrowserApisDataDebuggingModule, javascriptUrlTimerApiBasicLesson, javascriptClipboardStoragePatternsLesson, javascriptDataTransformationUiLesson, javascriptNetworkDebuggingLesson, javascriptBreakpointsConsoleStrategyLesson, javascriptBrowserApisDebuggingAssessmentLesson, javascriptBrowserApisDebuggingAssessmentQuiz, readUrlParamAndTimerChallenge, copyAndSaveUiStateChallenge, transformRawDataForUiChallenge, fixTotalBugWithDebugLogsChallenge, debugBrowserDataFlowCheckpointChallenge } from "./level-05-javascript-advanced/browser-apis-data-debugging";
 import { localToolingNpmBasicsModule, whatAreNodejsAndNpmLesson, checkNodeAndNpmVersionLesson, packageJsonBasicLesson, npmInstallAndNpmRunLesson, dependencyVsDevDependencyBasicLesson, localToolingNpmBasicsAssessmentLesson, localToolingNpmBasicsAssessmentQuiz } from "./level-06-typescript/local-tooling-npm-basics";
 import { typescriptCoreTypesModule, whatIsTypescriptLesson, typescriptPrimitiveTypesArraysLesson, typescriptObjectTypesLesson, typescriptFunctionTypesLesson, typescriptOptionalFieldsLesson, typescriptCoreTypesAssessmentLesson, typescriptCoreTypesAssessmentQuiz, typeSimpleValuesAndArraysChallenge, typeUserCardObjectChallenge, typeSmallHelperFunctionsChallenge, modelOptionalProfileFieldsChallenge, fixBasicTypesCheckpointChallenge } from "./level-06-typescript/typescript-core-types";
+import { practicalTypeDesignModule, typescriptUnionTypesLesson, typescriptNarrowingLesson, typescriptDiscriminatedUnionUiStateLesson, typescriptBasicGenericsLesson, typescriptBasicUtilityTypesLesson, typescriptPracticalTypeDesignAssessmentLesson, typescriptPracticalTypeDesignAssessmentQuiz, modelStatusUnionChallenge, narrowNullableProfileNameChallenge, modelUiStateDiscriminatedUnionChallenge, createGenericApiResultChallenge, reuseTypesWithUtilityTypesChallenge, modelPracticalTypeDesignCheckpointChallenge } from "./level-06-typescript/practical-type-design";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -35,6 +36,7 @@ export { javascriptAsyncErrorHandlingModule, javascriptPromiseBasicLesson, javas
 export { javascriptBrowserApisDataDebuggingModule, javascriptUrlTimerApiBasicLesson, javascriptClipboardStoragePatternsLesson, javascriptDataTransformationUiLesson, javascriptNetworkDebuggingLesson, javascriptBreakpointsConsoleStrategyLesson, javascriptBrowserApisDebuggingAssessmentLesson, javascriptBrowserApisDebuggingAssessmentQuiz, readUrlParamAndTimerChallenge, copyAndSaveUiStateChallenge, transformRawDataForUiChallenge, fixTotalBugWithDebugLogsChallenge, debugBrowserDataFlowCheckpointChallenge } from "./level-05-javascript-advanced/browser-apis-data-debugging";
 export { localToolingNpmBasicsModule, whatAreNodejsAndNpmLesson, checkNodeAndNpmVersionLesson, packageJsonBasicLesson, npmInstallAndNpmRunLesson, dependencyVsDevDependencyBasicLesson, localToolingNpmBasicsAssessmentLesson, localToolingNpmBasicsAssessmentQuiz } from "./level-06-typescript/local-tooling-npm-basics";
 export { typescriptCoreTypesModule, whatIsTypescriptLesson, typescriptPrimitiveTypesArraysLesson, typescriptObjectTypesLesson, typescriptFunctionTypesLesson, typescriptOptionalFieldsLesson, typescriptCoreTypesAssessmentLesson, typescriptCoreTypesAssessmentQuiz, typeSimpleValuesAndArraysChallenge, typeUserCardObjectChallenge, typeSmallHelperFunctionsChallenge, modelOptionalProfileFieldsChallenge, fixBasicTypesCheckpointChallenge } from "./level-06-typescript/typescript-core-types";
+export { practicalTypeDesignModule, typescriptUnionTypesLesson, typescriptNarrowingLesson, typescriptDiscriminatedUnionUiStateLesson, typescriptBasicGenericsLesson, typescriptBasicUtilityTypesLesson, typescriptPracticalTypeDesignAssessmentLesson, typescriptPracticalTypeDesignAssessmentQuiz, modelStatusUnionChallenge, narrowNullableProfileNameChallenge, modelUiStateDiscriminatedUnionChallenge, createGenericApiResultChallenge, reuseTypesWithUtilityTypesChallenge, modelPracticalTypeDesignCheckpointChallenge } from "./level-06-typescript/practical-type-design";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -55,6 +57,7 @@ export const frontendEngineeringModules = [
   javascriptBrowserApisDataDebuggingModule,
   localToolingNpmBasicsModule,
   typescriptCoreTypesModule,
+  practicalTypeDesignModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -155,6 +158,12 @@ export const frontendEngineeringLessons = [
   typescriptFunctionTypesLesson,
   typescriptOptionalFieldsLesson,
   typescriptCoreTypesAssessmentLesson,
+  typescriptUnionTypesLesson,
+  typescriptNarrowingLesson,
+  typescriptDiscriminatedUnionUiStateLesson,
+  typescriptBasicGenericsLesson,
+  typescriptBasicUtilityTypesLesson,
+  typescriptPracticalTypeDesignAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -183,6 +192,7 @@ export const frontendEngineeringQuizzes = [
   javascriptBrowserApisDebuggingAssessmentQuiz,
   localToolingNpmBasicsAssessmentQuiz,
   typescriptCoreTypesAssessmentQuiz,
+  typescriptPracticalTypeDesignAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -249,4 +259,10 @@ export const frontendEngineeringChallenges = [
   typeSmallHelperFunctionsChallenge,
   modelOptionalProfileFieldsChallenge,
   fixBasicTypesCheckpointChallenge,
+  modelStatusUnionChallenge,
+  narrowNullableProfileNameChallenge,
+  modelUiStateDiscriminatedUnionChallenge,
+  createGenericApiResultChallenge,
+  reuseTypesWithUtilityTypesChallenge,
+  modelPracticalTypeDesignCheckpointChallenge,
 ];

@@ -65,6 +65,12 @@ export {
   typeSmallHelperFunctionsChallenge,
   modelOptionalProfileFieldsChallenge,
   fixBasicTypesCheckpointChallenge,
+  modelStatusUnionChallenge,
+  narrowNullableProfileNameChallenge,
+  modelUiStateDiscriminatedUnionChallenge,
+  createGenericApiResultChallenge,
+  reuseTypesWithUtilityTypesChallenge,
+  modelPracticalTypeDesignCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

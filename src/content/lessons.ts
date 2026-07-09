@@ -99,6 +99,12 @@ export {
   typescriptFunctionTypesLesson,
   typescriptOptionalFieldsLesson,
   typescriptCoreTypesAssessmentLesson,
+  typescriptUnionTypesLesson,
+  typescriptNarrowingLesson,
+  typescriptDiscriminatedUnionUiStateLesson,
+  typescriptBasicGenericsLesson,
+  typescriptBasicUtilityTypesLesson,
+  typescriptPracticalTypeDesignAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {
