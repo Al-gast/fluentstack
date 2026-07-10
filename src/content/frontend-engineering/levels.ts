@@ -82,6 +82,6 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     title: "React Fundamentals",
     description:
       "Membangun UI interaktif dengan component, JSX, props, state, events, lists, forms, dan workflow React lokal secara bertahap.",
-    moduleIds: ["react-component-model"],
+    moduleIds: ["react-component-model", "react-state-events-rendering"],
   },
 ];

@@ -81,6 +81,12 @@ export {
   buildCardButtonWithPropsChallenge,
   splitProfileUiComponentsChallenge,
   buildComponentTreeCheckpointChallenge,
+  buildReactCounterToggleChallenge,
+  addButtonInputInteractionsChallenge,
+  renderConditionalUiStatesChallenge,
+  renderReactListWithKeysChallenge,
+  refactorDerivedDisplayValuesChallenge,
+  buildInteractiveListCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

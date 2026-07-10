@@ -30,6 +30,7 @@ export {
   typescriptPracticalTypeDesignAssessmentQuiz,
   typescriptTypedFrontendBoundariesAssessmentQuiz,
   reactComponentModelAssessmentQuiz,
+  reactStateEventsRenderingAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

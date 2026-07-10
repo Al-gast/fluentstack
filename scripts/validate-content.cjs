@@ -47,6 +47,7 @@ const expectedFrontendModuleOrder = [
   "typescript-practical-type-design",
   "typescript-typed-frontend-boundaries",
   "react-component-model",
+  "react-state-events-rendering",
 ];
 
 function resolveTsPath(basePath) {

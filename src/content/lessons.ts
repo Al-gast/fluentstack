@@ -116,6 +116,12 @@ export {
   reactPropsAndChildrenLesson,
   reactSplittingUiComponentsLesson,
   reactComponentModelAssessmentLesson,
+  reactUseStateBasicsLesson,
+  reactEventHandlingLesson,
+  reactConditionalRenderingLesson,
+  reactListsAndKeysLesson,
+  reactDerivedDisplayLesson,
+  reactStateEventsRenderingAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

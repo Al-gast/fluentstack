@@ -20,6 +20,9 @@ let didConfigureTypeScriptDefaults = false;
 const reactTypeDefinitions = `
 declare module "react" {
   export type ReactNode = unknown;
+  export function useState<T>(
+    initialState: T | (() => T),
+  ): [T, (nextState: T | ((previousState: T) => T)) => void];
 }
 
 declare module "react/jsx-runtime" {
