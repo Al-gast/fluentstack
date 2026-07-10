@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
+import type { BeforeMount } from "@monaco-editor/react";
 import type { ChallengeLanguage } from "@/types/challenge";
 
 type CodeEditorProps = {
@@ -13,6 +14,30 @@ type CodeEditorProps = {
 
 type MonacoTheme = "vs-dark" | "light";
 type MonacoLanguage = "html" | "css" | "javascript" | "typescript";
+
+let didConfigureTypeScriptDefaults = false;
+
+const reactTypeDefinitions = `
+declare module "react" {
+  export type ReactNode = unknown;
+}
+
+declare module "react/jsx-runtime" {
+  export const Fragment: unknown;
+  export function jsx(type: unknown, props: unknown, key?: unknown): unknown;
+  export function jsxs(type: unknown, props: unknown, key?: unknown): unknown;
+}
+
+declare namespace React {
+  type ReactNode = import("react").ReactNode;
+}
+
+declare namespace JSX {
+  interface IntrinsicElements {
+    [elemName: string]: any;
+  }
+}
+`;
 
 function getCurrentMonacoTheme(): MonacoTheme {
   if (typeof document === "undefined") {
@@ -35,12 +60,51 @@ function getMonacoLanguage(language: ChallengeLanguage): MonacoLanguage {
     return "javascript";
   }
 
-  if (language === "ts") {
+  if (language === "ts" || language === "tsx") {
     return "typescript";
   }
 
   return language;
 }
+
+function getMonacoPath(language: ChallengeLanguage): string {
+  if (language === "tsx") {
+    return "fluentstack-practice.tsx";
+  }
+
+  if (language === "ts") {
+    return "fluentstack-practice.ts";
+  }
+
+  if (language === "js") {
+    return "fluentstack-practice.js";
+  }
+
+  if (language === "css") {
+    return "fluentstack-practice.css";
+  }
+
+  return "fluentstack-practice.html";
+}
+
+const configureTypeScriptDefaults: BeforeMount = (monaco) => {
+  if (didConfigureTypeScriptDefaults) {
+    return;
+  }
+
+  didConfigureTypeScriptDefaults = true;
+  monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
+    allowNonTsExtensions: true,
+    esModuleInterop: true,
+    jsx: monaco.languages.typescript.JsxEmit.ReactJSX,
+    module: monaco.languages.typescript.ModuleKind.ESNext,
+    target: monaco.languages.typescript.ScriptTarget.ES2020,
+  });
+  monaco.languages.typescript.typescriptDefaults.addExtraLib(
+    reactTypeDefinitions,
+    "file:///node_modules/@types/react/index.d.ts",
+  );
+};
 
 export function CodeEditor({
   language,
@@ -69,6 +133,8 @@ export function CodeEditor({
         height={height}
         theme={editorTheme}
         language={getMonacoLanguage(language)}
+        path={getMonacoPath(language)}
+        beforeMount={configureTypeScriptDefaults}
         value={value}
         loading={<div className="p-4 text-sm text-fs-text-muted">Memuat editor...</div>}
         options={{

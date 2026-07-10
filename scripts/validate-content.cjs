@@ -9,7 +9,7 @@ const ts = require("typescript");
 const rootDir = path.resolve(__dirname, "..");
 const srcDir = path.join(rootDir, "src");
 
-const supportedChallengeModes = new Set(["html", "css", "js", "ts"]);
+const supportedChallengeModes = new Set(["html", "css", "js", "ts", "tsx"]);
 const supportedExpectedOutputKinds = new Set(["console", "preview", "behavior"]);
 const supportedCurriculumStages = new Set(["beginner", "intermediate", "advanced"]);
 const supportedValidationRules = new Set([
@@ -46,6 +46,7 @@ const expectedFrontendModuleOrder = [
   "typescript-core-types",
   "typescript-practical-type-design",
   "typescript-typed-frontend-boundaries",
+  "react-component-model",
 ];
 
 function resolveTsPath(basePath) {
@@ -277,16 +278,19 @@ function validateChallengeExpectedOutput(challenge) {
 }
 
 function validateTypeScriptChallengeConvention(challenge) {
-  if (challenge.validation?.mode !== "ts") {
+  if (challenge.validation?.mode !== "ts" && challenge.validation?.mode !== "tsx") {
     return;
   }
 
-  if (challenge.instructions?.[0] !== "Fokus di tab TS.") {
-    addError(`challenge:${challenge.id}: TypeScript challenge first instruction must be "Fokus di tab TS.".`);
+  const expectedFirstInstruction = challenge.validation.mode === "tsx" ? "Fokus di tab TSX." : "Fokus di tab TS.";
+
+  if (challenge.instructions?.[0] !== expectedFirstInstruction) {
+    addError(`challenge:${challenge.id}: TypeScript challenge first instruction must be "${expectedFirstInstruction}".`);
   }
 
-  if (!isNonEmptyString(challenge.starterCode?.ts)) {
-    addError(`challenge:${challenge.id}: TypeScript challenge starterCode.ts must be non-empty.`);
+  const sourceField = challenge.validation.mode;
+  if (!isNonEmptyString(challenge.starterCode?.[sourceField])) {
+    addError(`challenge:${challenge.id}: TypeScript challenge starterCode.${sourceField} must be non-empty.`);
   }
 
   if (challenge.expectedOutput?.kind !== "behavior") {

@@ -80,13 +80,25 @@ function getDefaultActiveLanguage(challenge: CodingChallenge): ChallengeLanguage
 }
 
 function getLanguageTabs(challenge: CodingChallenge, code: ChallengeCode): Array<{ label: string; value: ChallengeLanguage }> {
+  if (challenge.validation?.mode === "tsx") {
+    return [{ label: "TSX", value: "tsx" }];
+  }
+
   const hasTypeScript =
     challenge.validation?.mode === "ts" ||
     typeof challenge.starterCode.ts === "string" ||
     typeof challenge.solutionCode?.ts === "string" ||
     typeof code.ts === "string";
+  const hasTsx =
+    typeof challenge.starterCode.tsx === "string" ||
+    typeof challenge.solutionCode?.tsx === "string" ||
+    typeof code.tsx === "string";
 
-  return hasTypeScript ? [...baseLanguageTabs, { label: "TS", value: "ts" }] : baseLanguageTabs;
+  return [
+    ...baseLanguageTabs,
+    ...(hasTypeScript ? [{ label: "TS", value: "ts" as const }] : []),
+    ...(hasTsx ? [{ label: "TSX", value: "tsx" as const }] : []),
+  ];
 }
 
 export function CodingLab({
@@ -150,6 +162,7 @@ export function CodingLab({
   const hasAutoValidation = completionGate.mode === "auto-validation";
   const canMarkCompleted = completionGate.canComplete;
   const isTypeScriptPractice = challenge.validation?.mode === "ts";
+  const isReactPractice = challenge.validation?.mode === "tsx";
   const validationDescription =
     challenge.validation?.mode === "css"
       ? "Kami membaca aturan CSS yang kamu tulis. JavaScript tidak dijalankan untuk validasi."
@@ -157,6 +170,8 @@ export function CodingLab({
         ? "Kami membaca teks JavaScript yang kamu tulis. Kode tidak dijalankan untuk validasi."
         : challenge.validation?.mode === "ts"
           ? "Cek otomatis membaca struktur TypeScript. Kode TS tidak dijalankan di preview."
+          : challenge.validation?.mode === "tsx"
+            ? "Cek otomatis membaca struktur TSX. React component belum dijalankan sebagai preview."
           : "Kami membaca struktur HTML yang kamu tulis. JavaScript tidak dijalankan untuk validasi.";
   const visibleLanguageTabs = useMemo(() => getLanguageTabs(challenge, code), [challenge, code]);
 
@@ -283,6 +298,11 @@ export function CodingLab({
       {challenge.validation?.mode === "ts" ? (
         <p className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-3 text-xs leading-6 text-fs-text">
           Fokus di tab TS. Cek otomatis membaca struktur TypeScript. Kode TS tidak dijalankan di preview.
+        </p>
+      ) : null}
+      {challenge.validation?.mode === "tsx" ? (
+        <p className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-3 text-xs leading-6 text-fs-text">
+          Fokus di tab TSX. Cek otomatis membaca struktur komponen React. React component belum dijalankan sebagai preview.
         </p>
       ) : null}
       <ul className="list-disc space-y-1.5 pl-5 text-sm leading-7 text-fs-text-soft">
@@ -515,27 +535,110 @@ export function CodingLab({
     </article>
   );
 
+  const reactTargetPanel = (
+    <div className="flex h-full min-h-[320px] flex-col gap-4 overflow-y-auto rounded-lg border border-fs-border bg-fs-surface-soft p-4">
+      <div className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-4">
+        <p className="text-sm font-semibold text-fs-text">React component belum dijalankan di preview</p>
+        <p className="mt-2 text-sm leading-6 text-fs-text-soft">
+          Untuk module Component Model, sumber kebenaran practice adalah struktur TSX dan cek otomatis.
+          Runtime React akan lebih tepat dipakai saat masuk state, events, list, dan form.
+        </p>
+      </div>
+
+      {challenge.expectedOutput ? (
+        <div className="rounded-lg border border-fs-border bg-fs-surface p-4">
+          <p className="text-sm font-semibold text-fs-text">
+            {challenge.expectedOutput.title ?? "Target latihan"}
+          </p>
+          <p className="mt-2 text-sm leading-6 text-fs-text-soft">
+            {challenge.expectedOutput.description}
+          </p>
+          {challenge.expectedOutput.lines?.length ? (
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-fs-text-soft">
+              {challenge.expectedOutput.lines.map((line) => (
+                <li key={line} className="flex gap-2">
+                  <span aria-hidden="true" className="mt-0.5 text-fs-accent">
+                    •
+                  </span>
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
+      ) : null}
+
+      {hasAutoValidation ? (
+        <div className="rounded-lg border border-fs-border bg-fs-surface p-4">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <p className="text-sm font-semibold text-fs-text">Aturan validasi</p>
+              <p className="mt-1 text-xs leading-5 text-fs-text-muted">
+                Tombol selesai aktif setelah semua validasi wajib lolos.
+              </p>
+            </div>
+            <span className="rounded-full border border-fs-border bg-fs-surface-soft px-3 py-1 text-xs font-semibold text-fs-text-soft">
+              {checksSummary}
+            </span>
+          </div>
+          <ul className="mt-3 space-y-2">
+            {validationResults.map((result) => (
+              <li
+                key={result.id}
+                className={cn(
+                  "flex items-start gap-2 rounded-lg border px-3 py-2 text-sm",
+                  result.passed
+                    ? "border-fs-success/25 bg-fs-success-soft text-fs-text"
+                    : "border-fs-border bg-fs-surface-soft text-fs-text-soft",
+                )}
+              >
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs font-bold",
+                    result.passed
+                      ? "bg-fs-success text-fs-text-inverse"
+                      : "border border-fs-border bg-fs-surface text-fs-text-muted",
+                  )}
+                >
+                  {result.passed ? "✓" : "·"}
+                </span>
+                <span>{result.label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+    </div>
+  );
+
   const previewPanel = (
     <article className="flex min-h-0 min-w-0 flex-col space-y-3 rounded-xl border border-fs-border bg-fs-surface p-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-xs font-semibold uppercase tracking-normal text-fs-text-muted">
-          {isTypeScriptPractice ? "Catatan TypeScript" : "Preview langsung"}
+          {isReactPractice ? "Target React" : isTypeScriptPractice ? "Catatan TypeScript" : "Preview langsung"}
         </p>
         <span className="rounded-full border border-fs-border bg-fs-surface-soft px-3 py-1 text-xs font-semibold text-fs-text-soft">
-          {isTypeScriptPractice
-            ? "Bukan runtime"
-            : previewViewport === "full"
-              ? "Full"
-              : viewportWidth[previewViewport]}
+          {isReactPractice
+            ? "Struktur TSX"
+            : isTypeScriptPractice
+              ? "Bukan runtime"
+              : previewViewport === "full"
+                ? "Full"
+                : viewportWidth[previewViewport]}
         </span>
       </div>
       <div className="min-h-0 min-w-0 flex-1">
-        <PreviewPanel
-          code={code}
-          expectedOutput={challenge.expectedOutput}
-          heightClassName={getPreviewHeight(layout)}
-          viewportWidth={viewportWidth[previewViewport]}
-        />
+        {isReactPractice ? (
+          reactTargetPanel
+        ) : (
+          <PreviewPanel
+            code={code}
+            expectedOutput={challenge.expectedOutput}
+            heightClassName={getPreviewHeight(layout)}
+            viewportWidth={viewportWidth[previewViewport]}
+          />
+        )}
       </div>
     </article>
   );
@@ -573,7 +676,11 @@ export function CodingLab({
         {firstPanel}
         <button
           type="button"
-          aria-label={horizontalLayout ? "Geser untuk mengubah lebar editor dan preview" : "Geser untuk mengubah tinggi editor dan preview"}
+          aria-label={
+            horizontalLayout
+              ? `Geser untuk mengubah lebar editor dan ${isReactPractice ? "target latihan" : "preview"}`
+              : `Geser untuk mengubah tinggi editor dan ${isReactPractice ? "target latihan" : "preview"}`
+          }
           onPointerDown={handleSplitterPointerDown}
           className={cn(
             "rounded-full border border-fs-border-strong bg-fs-accent-soft transition hover:border-fs-border-strong hover:bg-fs-accent-soft focus:outline-none focus:ring-2 focus:ring-fs-focus/40",
@@ -622,32 +729,20 @@ export function CodingLab({
         <article className="space-y-3 rounded-xl border border-fs-info/25 bg-fs-info-soft p-4">
           <h4 className="text-sm font-semibold text-fs-info">Contoh solusi</h4>
           <div className="grid gap-3 lg:grid-cols-3">
-            <div className="min-w-0 space-y-2">
-              <p className="text-xs font-semibold text-fs-info">HTML</p>
-              <pre className="overflow-x-auto rounded-lg border border-fs-code-border bg-fs-code-background p-3 text-xs text-fs-text-soft">
-                <code>{challenge.solutionCode.html}</code>
-              </pre>
-            </div>
-            <div className="min-w-0 space-y-2">
-              <p className="text-xs font-semibold text-fs-info">CSS</p>
-              <pre className="overflow-x-auto rounded-lg border border-fs-code-border bg-fs-code-background p-3 text-xs text-fs-text-soft">
-                <code>{challenge.solutionCode.css}</code>
-              </pre>
-            </div>
-            <div className="min-w-0 space-y-2">
-              <p className="text-xs font-semibold text-fs-info">JS</p>
-              <pre className="overflow-x-auto rounded-lg border border-fs-code-border bg-fs-code-background p-3 text-xs text-fs-text-soft">
-                <code>{challenge.solutionCode.js}</code>
-              </pre>
-            </div>
-            {typeof challenge.solutionCode.ts === "string" ? (
-              <div className="min-w-0 space-y-2">
-                <p className="text-xs font-semibold text-fs-info">TS</p>
-                <pre className="overflow-x-auto rounded-lg border border-fs-code-border bg-fs-code-background p-3 text-xs text-fs-text-soft">
-                  <code>{challenge.solutionCode.ts}</code>
-                </pre>
-              </div>
-            ) : null}
+            {visibleLanguageTabs
+              .map((tab) => ({
+                label: tab.label,
+                code: challenge.solutionCode?.[tab.value] ?? "",
+              }))
+              .filter((item) => item.code.trim().length > 0)
+              .map((item) => (
+                <div key={item.label} className="min-w-0 space-y-2">
+                  <p className="text-xs font-semibold text-fs-info">{item.label}</p>
+                  <pre className="overflow-x-auto rounded-lg border border-fs-code-border bg-fs-code-background p-3 text-xs text-fs-text-soft">
+                    <code>{item.code}</code>
+                  </pre>
+                </div>
+              ))}
           </div>
         </article>
       ) : null}

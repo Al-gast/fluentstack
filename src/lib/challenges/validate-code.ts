@@ -332,6 +332,20 @@ export function validateChallengeCode(
     });
   }
 
+  if (validation.mode === "tsx") {
+    return validation.checks.map((check) => {
+      const result = validateTextCheck(check, code.tsx ?? "", "TSX");
+
+      return {
+        id: check.id,
+        label: check.label,
+        passed: result.passed,
+        required: check.required ?? true,
+        message: result.passed ? undefined : result.message,
+      };
+    });
+  }
+
   if (validation.mode !== "html") {
     return [];
   }

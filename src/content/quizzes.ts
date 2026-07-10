@@ -29,6 +29,7 @@ export {
   typescriptCoreTypesAssessmentQuiz,
   typescriptPracticalTypeDesignAssessmentQuiz,
   typescriptTypedFrontendBoundariesAssessmentQuiz,
+  reactComponentModelAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

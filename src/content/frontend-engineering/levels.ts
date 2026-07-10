@@ -75,4 +75,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "typescript-typed-frontend-boundaries",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 7,
+    stage: "intermediate",
+    title: "React Fundamentals",
+    description:
+      "Membangun UI interaktif dengan component, JSX, props, state, events, lists, forms, dan workflow React lokal secara bertahap.",
+    moduleIds: ["react-component-model"],
+  },
 ];

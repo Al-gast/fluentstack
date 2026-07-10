@@ -77,6 +77,10 @@ export {
   typeReusableFrontendResultChallenge,
   refactorReadableTypesChallenge,
   typeFrontendBoundaryCheckpointChallenge,
+  convertSimpleUiToJsxChallenge,
+  buildCardButtonWithPropsChallenge,
+  splitProfileUiComponentsChallenge,
+  buildComponentTreeCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

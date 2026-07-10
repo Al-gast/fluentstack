@@ -37,7 +37,8 @@ export function CodingPracticeBlock({
       (progress.savedCode.html !== starterCode.html ||
         progress.savedCode.css !== starterCode.css ||
         progress.savedCode.js !== starterCode.js ||
-        progress.savedCode.ts !== starterCode.ts),
+        progress.savedCode.ts !== starterCode.ts ||
+        progress.savedCode.tsx !== starterCode.tsx),
   );
 
   if (!challenge) {

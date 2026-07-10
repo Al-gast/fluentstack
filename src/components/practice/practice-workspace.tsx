@@ -43,6 +43,7 @@ function resolveCode(starterCode: ChallengeCode, savedCode?: ChallengeCode): Cha
     css: savedCode.css || starterCode.css,
     js: savedCode.js || starterCode.js,
     ts: savedCode.ts || starterCode.ts,
+    tsx: savedCode.tsx || starterCode.tsx,
   };
 }
 
@@ -68,6 +69,22 @@ const viewportOptions: Array<{ value: PreviewViewport; label: string }> = [
   { value: "desktop", label: "Desktop" },
   { value: "full", label: "Full" },
 ];
+
+function getLayoutOptionLabel(option: { value: PracticeLayout; label: string }, isReactPractice: boolean): string {
+  if (!isReactPractice) {
+    return option.label;
+  }
+
+  if (option.value === "preview-left") {
+    return "Target kiri";
+  }
+
+  if (option.value === "preview-top") {
+    return "Target atas";
+  }
+
+  return option.label;
+}
 
 function isPracticeLayout(value: string | null): value is PracticeLayout {
   return (
@@ -125,6 +142,7 @@ function PracticeWorkspaceStateful({
   const [viewport, setViewport] = useState<PreviewViewport>("full");
   const [splitRatios, setSplitRatios] = useState<PracticeSplitRatios>(defaultSplitRatios);
   const [isValidationSummaryReady, setIsValidationSummaryReady] = useState(false);
+  const isReactPractice = challenge.validation?.mode === "tsx";
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -276,31 +294,39 @@ function PracticeWorkspaceStateful({
                       : "border-fs-border bg-fs-surface text-fs-text-soft hover:bg-fs-surface-strong hover:text-fs-text",
                   )}
                 >
-                  {option.label}
+                  {getLayoutOptionLabel(option, isReactPractice)}
                 </button>
               ))}
             </div>
           </div>
 
           <div className="flex min-w-0 flex-wrap items-center gap-2">
-            <span className="shrink-0 text-xs font-semibold text-fs-text-muted">Preview</span>
-            <div className="flex min-w-0 flex-wrap gap-1.5">
-              {viewportOptions.map((option) => (
-                <button
-                  key={option.value}
-                  type="button"
-                  onClick={() => handleViewportChange(option.value)}
-                  className={cn(
-                    "rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-fs-focus/30",
-                    viewport === option.value
-                      ? "border-fs-border-strong bg-fs-accent-soft text-fs-accent"
-                      : "border-fs-border bg-fs-surface text-fs-text-soft hover:bg-fs-surface-strong hover:text-fs-text",
-                  )}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
+            {isReactPractice ? (
+              <span className="rounded-lg border border-fs-border bg-fs-surface px-2.5 py-1.5 text-xs font-semibold text-fs-text-soft">
+                Target: struktur TSX
+              </span>
+            ) : (
+              <>
+                <span className="shrink-0 text-xs font-semibold text-fs-text-muted">Preview</span>
+                <div className="flex min-w-0 flex-wrap gap-1.5">
+                  {viewportOptions.map((option) => (
+                    <button
+                      key={option.value}
+                      type="button"
+                      onClick={() => handleViewportChange(option.value)}
+                      className={cn(
+                        "rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-fs-focus/30",
+                        viewport === option.value
+                          ? "border-fs-border-strong bg-fs-accent-soft text-fs-accent"
+                          : "border-fs-border bg-fs-surface text-fs-text-soft hover:bg-fs-surface-strong hover:text-fs-text",
+                      )}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
             <button
               type="button"
               onClick={handleResetLayout}

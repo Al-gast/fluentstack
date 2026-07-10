@@ -111,6 +111,11 @@ export {
   typescriptReusableFrontendLogicLesson,
   typescriptReadableTypesLesson,
   typescriptTypedFrontendBoundariesAssessmentLesson,
+  reactWhatIsComponentLesson,
+  reactJsxBasicsLesson,
+  reactPropsAndChildrenLesson,
+  reactSplittingUiComponentsLesson,
+  reactComponentModelAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {
