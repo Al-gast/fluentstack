@@ -122,6 +122,11 @@ export {
   reactListsAndKeysLesson,
   reactDerivedDisplayLesson,
   reactStateEventsRenderingAssessmentLesson,
+  reactControlledInputsLesson,
+  reactFormSubmitLesson,
+  reactCompositionPatternsLesson,
+  reactLiftingStateWhenNeededLesson,
+  reactFormsCompositionAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

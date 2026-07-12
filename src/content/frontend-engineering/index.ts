@@ -20,6 +20,7 @@ import { practicalTypeDesignModule, typescriptUnionTypesLesson, typescriptNarrow
 import { typedFrontendBoundariesModule, typescriptApiResponseTypesLesson, typescriptFormInputDataLesson, typescriptComponentReadyDataShapesLesson, typescriptReusableFrontendLogicLesson, typescriptReadableTypesLesson, typescriptTypedFrontendBoundariesAssessmentLesson, typescriptTypedFrontendBoundariesAssessmentQuiz, typeApiResponseBeforeRenderingChallenge, typeFormValuesValidationResultChallenge, createComponentReadyDataShapeChallenge, typeReusableFrontendResultChallenge, refactorReadableTypesChallenge, typeFrontendBoundaryCheckpointChallenge } from "./level-06-typescript/typed-frontend-boundaries";
 import { reactComponentModelModule, reactWhatIsComponentLesson, reactJsxBasicsLesson, reactPropsAndChildrenLesson, reactSplittingUiComponentsLesson, reactComponentModelAssessmentLesson, reactComponentModelAssessmentQuiz, convertSimpleUiToJsxChallenge, buildCardButtonWithPropsChallenge, splitProfileUiComponentsChallenge, buildComponentTreeCheckpointChallenge } from "./level-07-react-fundamentals/component-model";
 import { reactStateEventsRenderingModule, reactUseStateBasicsLesson, reactEventHandlingLesson, reactConditionalRenderingLesson, reactListsAndKeysLesson, reactDerivedDisplayLesson, reactStateEventsRenderingAssessmentLesson, reactStateEventsRenderingAssessmentQuiz, buildReactCounterToggleChallenge, addButtonInputInteractionsChallenge, renderConditionalUiStatesChallenge, renderReactListWithKeysChallenge, refactorDerivedDisplayValuesChallenge, buildInteractiveListCheckpointChallenge } from "./level-07-react-fundamentals/state-events-rendering";
+import { reactFormsCompositionModule, reactControlledInputsLesson, reactFormSubmitLesson, reactCompositionPatternsLesson, reactLiftingStateWhenNeededLesson, reactFormsCompositionAssessmentLesson, reactFormsCompositionAssessmentQuiz, buildControlledTextInputChallenge, handleReactFormSubmitChallenge, composeFormListComponentsChallenge, liftFormListStateChallenge, buildFormDrivenFlowCheckpointChallenge } from "./level-07-react-fundamentals/forms-composition";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -43,6 +44,7 @@ export { practicalTypeDesignModule, typescriptUnionTypesLesson, typescriptNarrow
 export { typedFrontendBoundariesModule, typescriptApiResponseTypesLesson, typescriptFormInputDataLesson, typescriptComponentReadyDataShapesLesson, typescriptReusableFrontendLogicLesson, typescriptReadableTypesLesson, typescriptTypedFrontendBoundariesAssessmentLesson, typescriptTypedFrontendBoundariesAssessmentQuiz, typeApiResponseBeforeRenderingChallenge, typeFormValuesValidationResultChallenge, createComponentReadyDataShapeChallenge, typeReusableFrontendResultChallenge, refactorReadableTypesChallenge, typeFrontendBoundaryCheckpointChallenge } from "./level-06-typescript/typed-frontend-boundaries";
 export { reactComponentModelModule, reactWhatIsComponentLesson, reactJsxBasicsLesson, reactPropsAndChildrenLesson, reactSplittingUiComponentsLesson, reactComponentModelAssessmentLesson, reactComponentModelAssessmentQuiz, convertSimpleUiToJsxChallenge, buildCardButtonWithPropsChallenge, splitProfileUiComponentsChallenge, buildComponentTreeCheckpointChallenge } from "./level-07-react-fundamentals/component-model";
 export { reactStateEventsRenderingModule, reactUseStateBasicsLesson, reactEventHandlingLesson, reactConditionalRenderingLesson, reactListsAndKeysLesson, reactDerivedDisplayLesson, reactStateEventsRenderingAssessmentLesson, reactStateEventsRenderingAssessmentQuiz, buildReactCounterToggleChallenge, addButtonInputInteractionsChallenge, renderConditionalUiStatesChallenge, renderReactListWithKeysChallenge, refactorDerivedDisplayValuesChallenge, buildInteractiveListCheckpointChallenge } from "./level-07-react-fundamentals/state-events-rendering";
+export { reactFormsCompositionModule, reactControlledInputsLesson, reactFormSubmitLesson, reactCompositionPatternsLesson, reactLiftingStateWhenNeededLesson, reactFormsCompositionAssessmentLesson, reactFormsCompositionAssessmentQuiz, buildControlledTextInputChallenge, handleReactFormSubmitChallenge, composeFormListComponentsChallenge, liftFormListStateChallenge, buildFormDrivenFlowCheckpointChallenge } from "./level-07-react-fundamentals/forms-composition";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -67,6 +69,7 @@ export const frontendEngineeringModules = [
   typedFrontendBoundariesModule,
   reactComponentModelModule,
   reactStateEventsRenderingModule,
+  reactFormsCompositionModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -190,6 +193,11 @@ export const frontendEngineeringLessons = [
   reactListsAndKeysLesson,
   reactDerivedDisplayLesson,
   reactStateEventsRenderingAssessmentLesson,
+  reactControlledInputsLesson,
+  reactFormSubmitLesson,
+  reactCompositionPatternsLesson,
+  reactLiftingStateWhenNeededLesson,
+  reactFormsCompositionAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -222,6 +230,7 @@ export const frontendEngineeringQuizzes = [
   typescriptTypedFrontendBoundariesAssessmentQuiz,
   reactComponentModelAssessmentQuiz,
   reactStateEventsRenderingAssessmentQuiz,
+  reactFormsCompositionAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -310,4 +319,9 @@ export const frontendEngineeringChallenges = [
   renderReactListWithKeysChallenge,
   refactorDerivedDisplayValuesChallenge,
   buildInteractiveListCheckpointChallenge,
+  buildControlledTextInputChallenge,
+  handleReactFormSubmitChallenge,
+  composeFormListComponentsChallenge,
+  liftFormListStateChallenge,
+  buildFormDrivenFlowCheckpointChallenge,
 ];

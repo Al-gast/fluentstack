@@ -87,6 +87,11 @@ export {
   renderReactListWithKeysChallenge,
   refactorDerivedDisplayValuesChallenge,
   buildInteractiveListCheckpointChallenge,
+  buildControlledTextInputChallenge,
+  handleReactFormSubmitChallenge,
+  composeFormListComponentsChallenge,
+  liftFormListStateChallenge,
+  buildFormDrivenFlowCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

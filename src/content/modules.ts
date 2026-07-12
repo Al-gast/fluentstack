@@ -24,6 +24,7 @@ export {
   typedFrontendBoundariesModule,
   reactComponentModelModule,
   reactStateEventsRenderingModule,
+  reactFormsCompositionModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {
