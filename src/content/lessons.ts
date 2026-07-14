@@ -170,6 +170,12 @@ export {
   nextjsDynamicRoutesLesson,
   nextjsRouteGroupsLesson,
   nextjsAppDirectoryRoutingAssessmentLesson,
+  nextjsServerComponentsLesson,
+  nextjsClientComponentsLesson,
+  nextjsUseClientBoundaryLesson,
+  nextjsPassingPropsAcrossBoundariesLesson,
+  nextjsCommonBoundaryMistakesLesson,
+  nextjsServerClientComponentsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

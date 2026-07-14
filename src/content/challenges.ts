@@ -121,6 +121,10 @@ export {
   planDashboardSettingsRouteTreeChallenge,
   buildCourseSlugPageChallenge,
   buildLearningRouteTreeCheckpointChallenge,
+  createCourseFilterClientBoundaryChallenge,
+  passCourseDataToClientFilterChallenge,
+  fixCourseBoundaryPlacementChallenge,
+  buildCourseBoundaryCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

@@ -40,6 +40,7 @@ export {
   reactPerformanceAwarenessAssessmentQuiz,
   reactAdvancedComponentPatternsAssessmentQuiz,
   nextjsAppDirectoryRoutingAssessmentQuiz,
+  nextjsServerClientComponentsAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

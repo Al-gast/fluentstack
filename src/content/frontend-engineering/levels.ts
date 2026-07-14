@@ -117,7 +117,10 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     stage: "advanced",
     title: "Next.js App Router",
     description:
-      "Membawa pola React ke struktur aplikasi melalui App Router, page, layout, nested route, dynamic segment, dan route group.",
-    moduleIds: ["nextjs-app-directory-routing"],
+      "Membawa pola React ke struktur aplikasi melalui App Router, route structure, serta batas Server Components dan Client Components yang jelas.",
+    moduleIds: [
+      "nextjs-app-directory-routing",
+      "nextjs-server-client-components",
+    ],
   },
 ];

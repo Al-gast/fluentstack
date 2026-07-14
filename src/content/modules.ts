@@ -33,6 +33,7 @@ export {
   performanceAwarenessModule,
   advancedComponentPatternsModule,
   appDirectoryAndRoutingModule,
+  nextjsServerClientComponentsModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {
