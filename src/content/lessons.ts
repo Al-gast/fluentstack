@@ -154,6 +154,11 @@ export {
   reactSuspenseBasicsLesson,
   reactRetryRecoveryPatternsLesson,
   reactResilienceSuspenseBasicsAssessmentLesson,
+  reactRenderCostLesson,
+  reactMeasuringBeforeOptimizingLesson,
+  reactUseMemoUseCallbackWhenUsefulLesson,
+  reactExpensiveListsLesson,
+  reactPerformanceAwarenessAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

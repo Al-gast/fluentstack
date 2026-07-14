@@ -105,6 +105,6 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     title: "React Advanced",
     description:
       "Membangun UI React lebih resilient dengan Error Boundary, fallback UI, Suspense dasar, dan recovery yang jelas.",
-    moduleIds: ["react-resilience-suspense-basics"],
+    moduleIds: ["react-resilience-suspense-basics", "react-performance-awareness"],
   },
 ];

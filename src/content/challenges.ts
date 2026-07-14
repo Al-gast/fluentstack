@@ -110,6 +110,9 @@ export {
   lazyLoadProfileActivityPanelChallenge,
   addProfileRecoveryResetChallenge,
   buildResilientPreviewCheckpointChallenge,
+  memoizeFilteredLessonListChallenge,
+  memoizeSortedActivityListChallenge,
+  improveMeasuredActivityBoardChallenge,
 } from "@/content/frontend-engineering";
 
 

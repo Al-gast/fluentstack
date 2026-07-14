@@ -30,6 +30,7 @@ export {
   reactStateStrategyModule,
   reusableUiStatesModule,
   resilienceSuspenseBasicsModule,
+  performanceAwarenessModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {
