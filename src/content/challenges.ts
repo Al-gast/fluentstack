@@ -125,6 +125,12 @@ export {
   passCourseDataToClientFilterChallenge,
   fixCourseBoundaryPlacementChallenge,
   buildCourseBoundaryCheckpointChallenge,
+  buildCourseLoadingUiChallenge,
+  buildCourseErrorRecoveryUiChallenge,
+  createCourseSummaryRouteHandlerChallenge,
+  addCourseRouteMetadataChallenge,
+  classifyNextEnvironmentValuesChallenge,
+  buildCourseRouteBehaviorCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

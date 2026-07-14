@@ -121,6 +121,7 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     moduleIds: [
       "nextjs-app-directory-routing",
       "nextjs-server-client-components",
+      "nextjs-route-behavior",
     ],
   },
 ];

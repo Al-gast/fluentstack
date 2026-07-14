@@ -58,6 +58,7 @@ const expectedFrontendModuleOrder = [
   "react-advanced-component-patterns",
   "nextjs-app-directory-routing",
   "nextjs-server-client-components",
+  "nextjs-route-behavior",
 ];
 
 function resolveTsPath(basePath) {

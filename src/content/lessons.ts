@@ -176,6 +176,12 @@ export {
   nextjsPassingPropsAcrossBoundariesLesson,
   nextjsCommonBoundaryMistakesLesson,
   nextjsServerClientComponentsAssessmentLesson,
+  nextjsLoadingUiLesson,
+  nextjsErrorUiLesson,
+  nextjsRouteHandlersLesson,
+  nextjsMetadataLesson,
+  nextjsEnvironmentVariablesLesson,
+  nextjsRouteBehaviorAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

@@ -30,6 +30,7 @@ import { performanceAwarenessModule, reactRenderCostLesson, reactMeasuringBefore
 import { advancedComponentPatternsModule, reactCompoundComponentsLesson, reactSlotsAndChildrenPatternsLesson, reactReusableFormFieldPatternLesson, reactAvoidingOverAbstractionLesson, reactAdvancedComponentPatternsAssessmentLesson, reactAdvancedComponentPatternsAssessmentQuiz, buildCourseTabsCompoundPatternChallenge, composeProfilePanelWithSlotsChallenge, buildAccessibleProfileFormFieldChallenge, buildComposableProfilePanelChallenge } from "./level-09-react-advanced/advanced-component-patterns";
 import { appDirectoryAndRoutingModule, nextjsAppDirectoryLesson, nextjsPageAndLayoutFilesLesson, nextjsNestedRoutesLesson, nextjsDynamicRoutesLesson, nextjsRouteGroupsLesson, nextjsAppDirectoryRoutingAssessmentLesson, nextjsAppDirectoryRoutingAssessmentQuiz, buildDashboardLayoutShellChallenge, planDashboardSettingsRouteTreeChallenge, buildCourseSlugPageChallenge, buildLearningRouteTreeCheckpointChallenge } from "./level-10-nextjs-app-router/app-directory-routing";
 import { nextjsServerClientComponentsModule, nextjsServerComponentsLesson, nextjsClientComponentsLesson, nextjsUseClientBoundaryLesson, nextjsPassingPropsAcrossBoundariesLesson, nextjsCommonBoundaryMistakesLesson, nextjsServerClientComponentsAssessmentLesson, nextjsServerClientComponentsAssessmentQuiz, createCourseFilterClientBoundaryChallenge, passCourseDataToClientFilterChallenge, fixCourseBoundaryPlacementChallenge, buildCourseBoundaryCheckpointChallenge } from "./level-10-nextjs-app-router/server-client-components";
+import { nextjsRouteBehaviorModule, nextjsLoadingUiLesson, nextjsErrorUiLesson, nextjsRouteHandlersLesson, nextjsMetadataLesson, nextjsEnvironmentVariablesLesson, nextjsRouteBehaviorAssessmentLesson, nextjsRouteBehaviorAssessmentQuiz, buildCourseLoadingUiChallenge, buildCourseErrorRecoveryUiChallenge, createCourseSummaryRouteHandlerChallenge, addCourseRouteMetadataChallenge, classifyNextEnvironmentValuesChallenge, buildCourseRouteBehaviorCheckpointChallenge } from "./level-10-nextjs-app-router/route-behavior";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -63,6 +64,7 @@ export { performanceAwarenessModule, reactRenderCostLesson, reactMeasuringBefore
 export { advancedComponentPatternsModule, reactCompoundComponentsLesson, reactSlotsAndChildrenPatternsLesson, reactReusableFormFieldPatternLesson, reactAvoidingOverAbstractionLesson, reactAdvancedComponentPatternsAssessmentLesson, reactAdvancedComponentPatternsAssessmentQuiz, buildCourseTabsCompoundPatternChallenge, composeProfilePanelWithSlotsChallenge, buildAccessibleProfileFormFieldChallenge, buildComposableProfilePanelChallenge } from "./level-09-react-advanced/advanced-component-patterns";
 export { appDirectoryAndRoutingModule, nextjsAppDirectoryLesson, nextjsPageAndLayoutFilesLesson, nextjsNestedRoutesLesson, nextjsDynamicRoutesLesson, nextjsRouteGroupsLesson, nextjsAppDirectoryRoutingAssessmentLesson, nextjsAppDirectoryRoutingAssessmentQuiz, buildDashboardLayoutShellChallenge, planDashboardSettingsRouteTreeChallenge, buildCourseSlugPageChallenge, buildLearningRouteTreeCheckpointChallenge } from "./level-10-nextjs-app-router/app-directory-routing";
 export { nextjsServerClientComponentsModule, nextjsServerComponentsLesson, nextjsClientComponentsLesson, nextjsUseClientBoundaryLesson, nextjsPassingPropsAcrossBoundariesLesson, nextjsCommonBoundaryMistakesLesson, nextjsServerClientComponentsAssessmentLesson, nextjsServerClientComponentsAssessmentQuiz, createCourseFilterClientBoundaryChallenge, passCourseDataToClientFilterChallenge, fixCourseBoundaryPlacementChallenge, buildCourseBoundaryCheckpointChallenge } from "./level-10-nextjs-app-router/server-client-components";
+export { nextjsRouteBehaviorModule, nextjsLoadingUiLesson, nextjsErrorUiLesson, nextjsRouteHandlersLesson, nextjsMetadataLesson, nextjsEnvironmentVariablesLesson, nextjsRouteBehaviorAssessmentLesson, nextjsRouteBehaviorAssessmentQuiz, buildCourseLoadingUiChallenge, buildCourseErrorRecoveryUiChallenge, createCourseSummaryRouteHandlerChallenge, addCourseRouteMetadataChallenge, classifyNextEnvironmentValuesChallenge, buildCourseRouteBehaviorCheckpointChallenge } from "./level-10-nextjs-app-router/route-behavior";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -97,6 +99,7 @@ export const frontendEngineeringModules = [
   advancedComponentPatternsModule,
   appDirectoryAndRoutingModule,
   nextjsServerClientComponentsModule,
+  nextjsRouteBehaviorModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -274,6 +277,12 @@ export const frontendEngineeringLessons = [
   nextjsPassingPropsAcrossBoundariesLesson,
   nextjsCommonBoundaryMistakesLesson,
   nextjsServerClientComponentsAssessmentLesson,
+  nextjsLoadingUiLesson,
+  nextjsErrorUiLesson,
+  nextjsRouteHandlersLesson,
+  nextjsMetadataLesson,
+  nextjsEnvironmentVariablesLesson,
+  nextjsRouteBehaviorAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -316,6 +325,7 @@ export const frontendEngineeringQuizzes = [
   reactAdvancedComponentPatternsAssessmentQuiz,
   nextjsAppDirectoryRoutingAssessmentQuiz,
   nextjsServerClientComponentsAssessmentQuiz,
+  nextjsRouteBehaviorAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -442,4 +452,10 @@ export const frontendEngineeringChallenges = [
   passCourseDataToClientFilterChallenge,
   fixCourseBoundaryPlacementChallenge,
   buildCourseBoundaryCheckpointChallenge,
+  buildCourseLoadingUiChallenge,
+  buildCourseErrorRecoveryUiChallenge,
+  createCourseSummaryRouteHandlerChallenge,
+  addCourseRouteMetadataChallenge,
+  classifyNextEnvironmentValuesChallenge,
+  buildCourseRouteBehaviorCheckpointChallenge,
 ];
