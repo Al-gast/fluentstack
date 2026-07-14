@@ -28,6 +28,7 @@ import { reusableUiStatesModule, reactLoadingStateLesson, reactErrorStateLesson,
 import { resilienceSuspenseBasicsModule, reactErrorBoundariesLesson, reactFallbackUiLesson, reactSuspenseBasicsLesson, reactRetryRecoveryPatternsLesson, reactResilienceSuspenseBasicsAssessmentLesson, reactResilienceSuspenseBasicsAssessmentQuiz, buildFriendlyErrorFallbackChallenge, lazyLoadProfileActivityPanelChallenge, addProfileRecoveryResetChallenge, buildResilientPreviewCheckpointChallenge } from "./level-09-react-advanced/resilience-suspense-basics";
 import { performanceAwarenessModule, reactRenderCostLesson, reactMeasuringBeforeOptimizingLesson, reactUseMemoUseCallbackWhenUsefulLesson, reactExpensiveListsLesson, reactPerformanceAwarenessAssessmentLesson, reactPerformanceAwarenessAssessmentQuiz, memoizeFilteredLessonListChallenge, memoizeSortedActivityListChallenge, improveMeasuredActivityBoardChallenge } from "./level-09-react-advanced/performance-awareness";
 import { advancedComponentPatternsModule, reactCompoundComponentsLesson, reactSlotsAndChildrenPatternsLesson, reactReusableFormFieldPatternLesson, reactAvoidingOverAbstractionLesson, reactAdvancedComponentPatternsAssessmentLesson, reactAdvancedComponentPatternsAssessmentQuiz, buildCourseTabsCompoundPatternChallenge, composeProfilePanelWithSlotsChallenge, buildAccessibleProfileFormFieldChallenge, buildComposableProfilePanelChallenge } from "./level-09-react-advanced/advanced-component-patterns";
+import { appDirectoryAndRoutingModule, nextjsAppDirectoryLesson, nextjsPageAndLayoutFilesLesson, nextjsNestedRoutesLesson, nextjsDynamicRoutesLesson, nextjsRouteGroupsLesson, nextjsAppDirectoryRoutingAssessmentLesson, nextjsAppDirectoryRoutingAssessmentQuiz, buildDashboardLayoutShellChallenge, planDashboardSettingsRouteTreeChallenge, buildCourseSlugPageChallenge, buildLearningRouteTreeCheckpointChallenge } from "./level-10-nextjs-app-router/app-directory-routing";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -59,6 +60,7 @@ export { reusableUiStatesModule, reactLoadingStateLesson, reactErrorStateLesson,
 export { resilienceSuspenseBasicsModule, reactErrorBoundariesLesson, reactFallbackUiLesson, reactSuspenseBasicsLesson, reactRetryRecoveryPatternsLesson, reactResilienceSuspenseBasicsAssessmentLesson, reactResilienceSuspenseBasicsAssessmentQuiz, buildFriendlyErrorFallbackChallenge, lazyLoadProfileActivityPanelChallenge, addProfileRecoveryResetChallenge, buildResilientPreviewCheckpointChallenge } from "./level-09-react-advanced/resilience-suspense-basics";
 export { performanceAwarenessModule, reactRenderCostLesson, reactMeasuringBeforeOptimizingLesson, reactUseMemoUseCallbackWhenUsefulLesson, reactExpensiveListsLesson, reactPerformanceAwarenessAssessmentLesson, reactPerformanceAwarenessAssessmentQuiz, memoizeFilteredLessonListChallenge, memoizeSortedActivityListChallenge, improveMeasuredActivityBoardChallenge } from "./level-09-react-advanced/performance-awareness";
 export { advancedComponentPatternsModule, reactCompoundComponentsLesson, reactSlotsAndChildrenPatternsLesson, reactReusableFormFieldPatternLesson, reactAvoidingOverAbstractionLesson, reactAdvancedComponentPatternsAssessmentLesson, reactAdvancedComponentPatternsAssessmentQuiz, buildCourseTabsCompoundPatternChallenge, composeProfilePanelWithSlotsChallenge, buildAccessibleProfileFormFieldChallenge, buildComposableProfilePanelChallenge } from "./level-09-react-advanced/advanced-component-patterns";
+export { appDirectoryAndRoutingModule, nextjsAppDirectoryLesson, nextjsPageAndLayoutFilesLesson, nextjsNestedRoutesLesson, nextjsDynamicRoutesLesson, nextjsRouteGroupsLesson, nextjsAppDirectoryRoutingAssessmentLesson, nextjsAppDirectoryRoutingAssessmentQuiz, buildDashboardLayoutShellChallenge, planDashboardSettingsRouteTreeChallenge, buildCourseSlugPageChallenge, buildLearningRouteTreeCheckpointChallenge } from "./level-10-nextjs-app-router/app-directory-routing";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -91,6 +93,7 @@ export const frontendEngineeringModules = [
   resilienceSuspenseBasicsModule,
   performanceAwarenessModule,
   advancedComponentPatternsModule,
+  appDirectoryAndRoutingModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -256,6 +259,12 @@ export const frontendEngineeringLessons = [
   reactReusableFormFieldPatternLesson,
   reactAvoidingOverAbstractionLesson,
   reactAdvancedComponentPatternsAssessmentLesson,
+  nextjsAppDirectoryLesson,
+  nextjsPageAndLayoutFilesLesson,
+  nextjsNestedRoutesLesson,
+  nextjsDynamicRoutesLesson,
+  nextjsRouteGroupsLesson,
+  nextjsAppDirectoryRoutingAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -296,6 +305,7 @@ export const frontendEngineeringQuizzes = [
   reactResilienceSuspenseBasicsAssessmentQuiz,
   reactPerformanceAwarenessAssessmentQuiz,
   reactAdvancedComponentPatternsAssessmentQuiz,
+  nextjsAppDirectoryRoutingAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -414,4 +424,8 @@ export const frontendEngineeringChallenges = [
   composeProfilePanelWithSlotsChallenge,
   buildAccessibleProfileFormFieldChallenge,
   buildComposableProfilePanelChallenge,
+  buildDashboardLayoutShellChallenge,
+  planDashboardSettingsRouteTreeChallenge,
+  buildCourseSlugPageChallenge,
+  buildLearningRouteTreeCheckpointChallenge,
 ];

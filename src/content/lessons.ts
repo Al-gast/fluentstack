@@ -164,6 +164,12 @@ export {
   reactReusableFormFieldPatternLesson,
   reactAvoidingOverAbstractionLesson,
   reactAdvancedComponentPatternsAssessmentLesson,
+  nextjsAppDirectoryLesson,
+  nextjsPageAndLayoutFilesLesson,
+  nextjsNestedRoutesLesson,
+  nextjsDynamicRoutesLesson,
+  nextjsRouteGroupsLesson,
+  nextjsAppDirectoryRoutingAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

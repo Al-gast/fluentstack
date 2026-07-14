@@ -111,4 +111,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "react-advanced-component-patterns",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 10,
+    stage: "advanced",
+    title: "Next.js App Router",
+    description:
+      "Membawa pola React ke struktur aplikasi melalui App Router, page, layout, nested route, dynamic segment, dan route group.",
+    moduleIds: ["nextjs-app-directory-routing"],
+  },
 ];

@@ -172,6 +172,10 @@ export function CodingLab({
   const isTypeScriptPractice = challenge.validation?.mode === "ts";
   const isReactPractice = challenge.validation?.mode === "tsx";
   const isReactRuntimePractice = isReactPractice && challenge.reactPractice?.mode === "runtime";
+  const isNextStructurePractice =
+    isReactPractice &&
+    challenge.reactPractice?.mode === "structure" &&
+    challenge.reactPractice.framework === "next";
   const validationDescription =
     challenge.validation?.mode === "css"
       ? "Kami membaca aturan CSS yang kamu tulis. JavaScript tidak dijalankan untuk validasi."
@@ -182,7 +186,9 @@ export function CodingLab({
           : challenge.validation?.mode === "tsx"
             ? isReactRuntimePractice
               ? "Cek otomatis membaca struktur TSX. Jalankan preview untuk memastikan component dapat dirender."
-              : "Cek otomatis membaca struktur TSX. Component Model fokus pada struktur component, bukan runtime."
+              : isNextStructurePractice
+                ? "Cek otomatis membaca struktur file Next.js. Route tidak dijalankan di preview practice."
+                : "Cek otomatis membaca struktur TSX. Component Model fokus pada struktur component, bukan runtime."
           : "Kami membaca struktur HTML yang kamu tulis. JavaScript tidak dijalankan untuk validasi.";
   const visibleLanguageTabs = useMemo(() => getLanguageTabs(challenge, code), [challenge, code]);
 
@@ -315,7 +321,9 @@ export function CodingLab({
         <p className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-3 text-xs leading-6 text-fs-text">
           {isReactRuntimePractice
             ? "Fokus di tab TSX. Jalankan preview setelah mengubah kode untuk melihat component bekerja."
-            : "Fokus di tab TSX. Cek otomatis membaca struktur component; latihan ini belum membutuhkan React runtime."}
+            : isNextStructurePractice
+              ? "Fokus di tab TSX. Cek otomatis membaca struktur file Next.js; route belum dijalankan di preview practice."
+              : "Fokus di tab TSX. Cek otomatis membaca struktur component; latihan ini belum membutuhkan React runtime."}
         </p>
       ) : null}
       <ul className="list-disc space-y-1.5 pl-5 text-sm leading-7 text-fs-text-soft">
@@ -551,10 +559,13 @@ export function CodingLab({
   const reactTargetPanel = (
     <div className="flex h-full min-h-[320px] flex-col gap-4 overflow-y-auto rounded-lg border border-fs-border bg-fs-surface-soft p-4">
       <div className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-4">
-        <p className="text-sm font-semibold text-fs-text">Latihan struktur TSX</p>
+        <p className="text-sm font-semibold text-fs-text">
+          {isNextStructurePractice ? "Latihan struktur Next.js" : "Latihan struktur TSX"}
+        </p>
         <p className="mt-2 text-sm leading-6 text-fs-text-soft">
-          Sumber kebenaran latihan ini adalah struktur component dan cek otomatis. Fokuskan perhatian pada
-          prop, JSX, children, atau batas component yang sedang dipraktikkan.
+          {isNextStructurePractice
+            ? "Sumber kebenaran latihan ini adalah struktur folder, nama file khusus, dan cek otomatis. Route tidak dijalankan di workspace; coba struktur ini kembali di Local Next.js App."
+            : "Sumber kebenaran latihan ini adalah struktur component dan cek otomatis. Fokuskan perhatian pada prop, JSX, children, atau batas component yang sedang dipraktikkan."}
         </p>
       </div>
 
@@ -631,7 +642,9 @@ export function CodingLab({
         <p className="text-xs font-semibold uppercase tracking-normal text-fs-text-muted">
           {isReactRuntimePractice
             ? "Live React"
-            : isReactPractice
+            : isNextStructurePractice
+              ? "Target Next.js"
+              : isReactPractice
               ? "Target React"
               : isTypeScriptPractice
                 ? "Catatan TypeScript"
@@ -641,7 +654,9 @@ export function CodingLab({
           {isReactPractice
             ? isReactRuntimePractice
               ? "Sandbox runtime"
-              : "Struktur TSX"
+              : isNextStructurePractice
+                ? "Struktur Next.js"
+                : "Struktur TSX"
             : isTypeScriptPractice
               ? "Bukan runtime"
               : previewViewport === "full"

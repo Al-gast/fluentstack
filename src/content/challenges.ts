@@ -117,6 +117,10 @@ export {
   composeProfilePanelWithSlotsChallenge,
   buildAccessibleProfileFormFieldChallenge,
   buildComposableProfilePanelChallenge,
+  buildDashboardLayoutShellChallenge,
+  planDashboardSettingsRouteTreeChallenge,
+  buildCourseSlugPageChallenge,
+  buildLearningRouteTreeCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

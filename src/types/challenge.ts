@@ -53,10 +53,12 @@ export type ChallengeExpectedOutput =
 export type ReactPracticePresentation =
   | {
       mode: "structure";
+      framework?: "react" | "next";
     }
   | {
       mode: "runtime";
       componentName: string;
+      framework?: "react";
     };
 
 export type CodingChallenge = {

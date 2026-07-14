@@ -175,6 +175,8 @@ function PracticeWorkspaceStateful({
   const isReactPractice = challenge.validation?.mode === "tsx";
   const reactPracticeMode = isReactPractice ? (challenge.reactPractice?.mode ?? "structure") : null;
   const isReactRuntimePractice = reactPracticeMode === "runtime";
+  const isNextStructurePractice =
+    reactPracticeMode === "structure" && challenge.reactPractice?.framework === "next";
   const preferenceScope: WorkspacePreferenceScope = isReactRuntimePractice
     ? "react-runtime"
     : isReactPractice
@@ -361,7 +363,11 @@ function PracticeWorkspaceStateful({
           <div className="flex min-w-0 flex-wrap items-center gap-2">
             {isReactPractice ? (
               <span className="rounded-lg border border-fs-border bg-fs-surface px-2.5 py-1.5 text-xs font-semibold text-fs-text-soft">
-                {isReactRuntimePractice ? "Mode: live React" : "Mode: struktur TSX"}
+                {isReactRuntimePractice
+                  ? "Mode: live React"
+                  : isNextStructurePractice
+                    ? "Mode: struktur Next.js"
+                    : "Mode: struktur TSX"}
               </span>
             ) : (
               <>

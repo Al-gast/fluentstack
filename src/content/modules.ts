@@ -32,6 +32,7 @@ export {
   resilienceSuspenseBasicsModule,
   performanceAwarenessModule,
   advancedComponentPatternsModule,
+  appDirectoryAndRoutingModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

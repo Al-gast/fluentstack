@@ -56,6 +56,7 @@ const expectedFrontendModuleOrder = [
   "react-resilience-suspense-basics",
   "react-performance-awareness",
   "react-advanced-component-patterns",
+  "nextjs-app-directory-routing",
 ];
 
 function resolveTsPath(basePath) {
