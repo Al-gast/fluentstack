@@ -38,6 +38,7 @@ export {
   reactReusableUiStatesAssessmentQuiz,
   reactResilienceSuspenseBasicsAssessmentQuiz,
   reactPerformanceAwarenessAssessmentQuiz,
+  reactAdvancedComponentPatternsAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

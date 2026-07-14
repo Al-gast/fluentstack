@@ -159,6 +159,11 @@ export {
   reactUseMemoUseCallbackWhenUsefulLesson,
   reactExpensiveListsLesson,
   reactPerformanceAwarenessAssessmentLesson,
+  reactCompoundComponentsLesson,
+  reactSlotsAndChildrenPatternsLesson,
+  reactReusableFormFieldPatternLesson,
+  reactAvoidingOverAbstractionLesson,
+  reactAdvancedComponentPatternsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

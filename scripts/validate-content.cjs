@@ -55,6 +55,7 @@ const expectedFrontendModuleOrder = [
   "react-reusable-ui-states",
   "react-resilience-suspense-basics",
   "react-performance-awareness",
+  "react-advanced-component-patterns",
 ];
 
 function resolveTsPath(basePath) {

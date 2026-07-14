@@ -31,6 +31,7 @@ export {
   reusableUiStatesModule,
   resilienceSuspenseBasicsModule,
   performanceAwarenessModule,
+  advancedComponentPatternsModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

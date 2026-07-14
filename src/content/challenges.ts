@@ -113,6 +113,10 @@ export {
   memoizeFilteredLessonListChallenge,
   memoizeSortedActivityListChallenge,
   improveMeasuredActivityBoardChallenge,
+  buildCourseTabsCompoundPatternChallenge,
+  composeProfilePanelWithSlotsChallenge,
+  buildAccessibleProfileFormFieldChallenge,
+  buildComposableProfilePanelChallenge,
 } from "@/content/frontend-engineering";
 
 
