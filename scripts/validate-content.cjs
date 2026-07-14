@@ -50,6 +50,7 @@ const expectedFrontendModuleOrder = [
   "react-state-events-rendering",
   "react-forms-composition",
   "local-react-app",
+  "react-custom-hooks-effects",
 ];
 
 function resolveTsPath(basePath) {

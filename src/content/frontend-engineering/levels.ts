@@ -89,4 +89,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "local-react-app",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 8,
+    stage: "intermediate",
+    title: "React Intermediate",
+    description:
+      "Mengorganisasi behavior React dengan effects, custom hooks, cleanup browser subscription, dan keputusan state yang lebih terarah.",
+    moduleIds: ["react-custom-hooks-effects"],
+  },
 ];

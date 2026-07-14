@@ -22,6 +22,7 @@ import { reactComponentModelModule, reactWhatIsComponentLesson, reactJsxBasicsLe
 import { reactStateEventsRenderingModule, reactUseStateBasicsLesson, reactEventHandlingLesson, reactConditionalRenderingLesson, reactListsAndKeysLesson, reactDerivedDisplayLesson, reactStateEventsRenderingAssessmentLesson, reactStateEventsRenderingAssessmentQuiz, buildReactCounterToggleChallenge, addButtonInputInteractionsChallenge, renderConditionalUiStatesChallenge, renderReactListWithKeysChallenge, refactorDerivedDisplayValuesChallenge, buildInteractiveListCheckpointChallenge } from "./level-07-react-fundamentals/state-events-rendering";
 import { reactFormsCompositionModule, reactControlledInputsLesson, reactFormSubmitLesson, reactCompositionPatternsLesson, reactLiftingStateWhenNeededLesson, reactFormsCompositionAssessmentLesson, reactFormsCompositionAssessmentQuiz, buildControlledTextInputChallenge, handleReactFormSubmitChallenge, composeFormListComponentsChallenge, liftFormListStateChallenge, buildFormDrivenFlowCheckpointChallenge } from "./level-07-react-fundamentals/forms-composition";
 import { localReactAppModule, setupLocalReactProjectLesson, runReactDevServerLesson, understandReactSrcStructureLesson, createFirstLocalReactComponentLesson, addReactStateAndEventLocallyLesson, saveReactProjectToGithubLesson, localReactAppAssessmentLesson, localReactAppAssessmentQuiz } from "./level-07-react-fundamentals/local-react-app";
+import { customHooksEffectsModule, reactWhenUseEffectLesson, reactEffectCleanupDependenciesLesson, reactCustomHookBasicsLesson, reactBrowserSubscriptionHookLesson, reactCustomHooksEffectsAssessmentLesson, reactCustomHooksEffectsAssessmentQuiz, fixReactTimerCleanupChallenge, extractUseToggleHookChallenge, buildWindowWidthHookChallenge, buildWindowWidthHookCheckpointChallenge } from "./level-08-react-intermediate/custom-hooks-effects";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -47,6 +48,7 @@ export { reactComponentModelModule, reactWhatIsComponentLesson, reactJsxBasicsLe
 export { reactStateEventsRenderingModule, reactUseStateBasicsLesson, reactEventHandlingLesson, reactConditionalRenderingLesson, reactListsAndKeysLesson, reactDerivedDisplayLesson, reactStateEventsRenderingAssessmentLesson, reactStateEventsRenderingAssessmentQuiz, buildReactCounterToggleChallenge, addButtonInputInteractionsChallenge, renderConditionalUiStatesChallenge, renderReactListWithKeysChallenge, refactorDerivedDisplayValuesChallenge, buildInteractiveListCheckpointChallenge } from "./level-07-react-fundamentals/state-events-rendering";
 export { reactFormsCompositionModule, reactControlledInputsLesson, reactFormSubmitLesson, reactCompositionPatternsLesson, reactLiftingStateWhenNeededLesson, reactFormsCompositionAssessmentLesson, reactFormsCompositionAssessmentQuiz, buildControlledTextInputChallenge, handleReactFormSubmitChallenge, composeFormListComponentsChallenge, liftFormListStateChallenge, buildFormDrivenFlowCheckpointChallenge } from "./level-07-react-fundamentals/forms-composition";
 export { localReactAppModule, setupLocalReactProjectLesson, runReactDevServerLesson, understandReactSrcStructureLesson, createFirstLocalReactComponentLesson, addReactStateAndEventLocallyLesson, saveReactProjectToGithubLesson, localReactAppAssessmentLesson, localReactAppAssessmentQuiz } from "./level-07-react-fundamentals/local-react-app";
+export { customHooksEffectsModule, reactWhenUseEffectLesson, reactEffectCleanupDependenciesLesson, reactCustomHookBasicsLesson, reactBrowserSubscriptionHookLesson, reactCustomHooksEffectsAssessmentLesson, reactCustomHooksEffectsAssessmentQuiz, fixReactTimerCleanupChallenge, extractUseToggleHookChallenge, buildWindowWidthHookChallenge, buildWindowWidthHookCheckpointChallenge } from "./level-08-react-intermediate/custom-hooks-effects";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -73,6 +75,7 @@ export const frontendEngineeringModules = [
   reactStateEventsRenderingModule,
   reactFormsCompositionModule,
   localReactAppModule,
+  customHooksEffectsModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -208,6 +211,11 @@ export const frontendEngineeringLessons = [
   addReactStateAndEventLocallyLesson,
   saveReactProjectToGithubLesson,
   localReactAppAssessmentLesson,
+  reactWhenUseEffectLesson,
+  reactEffectCleanupDependenciesLesson,
+  reactCustomHookBasicsLesson,
+  reactBrowserSubscriptionHookLesson,
+  reactCustomHooksEffectsAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -242,6 +250,7 @@ export const frontendEngineeringQuizzes = [
   reactStateEventsRenderingAssessmentQuiz,
   reactFormsCompositionAssessmentQuiz,
   localReactAppAssessmentQuiz,
+  reactCustomHooksEffectsAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -335,4 +344,8 @@ export const frontendEngineeringChallenges = [
   composeFormListComponentsChallenge,
   liftFormListStateChallenge,
   buildFormDrivenFlowCheckpointChallenge,
+  fixReactTimerCleanupChallenge,
+  extractUseToggleHookChallenge,
+  buildWindowWidthHookChallenge,
+  buildWindowWidthHookCheckpointChallenge,
 ];

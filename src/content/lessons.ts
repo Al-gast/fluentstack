@@ -134,6 +134,11 @@ export {
   addReactStateAndEventLocallyLesson,
   saveReactProjectToGithubLesson,
   localReactAppAssessmentLesson,
+  reactWhenUseEffectLesson,
+  reactEffectCleanupDependenciesLesson,
+  reactCustomHookBasicsLesson,
+  reactBrowserSubscriptionHookLesson,
+  reactCustomHooksEffectsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

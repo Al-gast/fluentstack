@@ -92,6 +92,10 @@ export {
   composeFormListComponentsChallenge,
   liftFormListStateChallenge,
   buildFormDrivenFlowCheckpointChallenge,
+  fixReactTimerCleanupChallenge,
+  extractUseToggleHookChallenge,
+  buildWindowWidthHookChallenge,
+  buildWindowWidthHookCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

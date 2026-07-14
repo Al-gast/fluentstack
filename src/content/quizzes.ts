@@ -33,6 +33,7 @@ export {
   reactStateEventsRenderingAssessmentQuiz,
   reactFormsCompositionAssessmentQuiz,
   localReactAppAssessmentQuiz,
+  reactCustomHooksEffectsAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
