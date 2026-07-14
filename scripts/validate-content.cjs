@@ -49,6 +49,7 @@ const expectedFrontendModuleOrder = [
   "react-component-model",
   "react-state-events-rendering",
   "react-forms-composition",
+  "local-react-app",
 ];
 
 function resolveTsPath(basePath) {

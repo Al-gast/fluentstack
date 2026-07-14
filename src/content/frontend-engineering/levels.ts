@@ -86,6 +86,7 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "react-component-model",
       "react-state-events-rendering",
       "react-forms-composition",
+      "local-react-app",
     ],
   },
 ];

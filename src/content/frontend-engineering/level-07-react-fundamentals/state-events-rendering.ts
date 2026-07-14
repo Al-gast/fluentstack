@@ -678,7 +678,7 @@ export const reactStateEventsRenderingAssessmentQuiz: Quiz = {
 const reactStatePracticePreviewCode = {
   html: `<main class="practice-card">
   <h1>Latihan React State</h1>
-  <p>Fokus di tab TSX. React runtime belum aktif di preview.</p>
+  <p>Fokus di tab TSX, lalu jalankan preview untuk mencoba interaksinya.</p>
 </main>`,
   css: `.practice-card {
   max-width: 560px;
@@ -748,6 +748,10 @@ function CounterToggle() {
     "Button count memanggil setCount.",
     "Button toggle memanggil setIsOpen.",
   ],
+  reactPractice: {
+    mode: "runtime",
+    componentName: "CounterToggle",
+  },
   validation: {
     mode: "tsx",
     checks: [
@@ -763,7 +767,7 @@ function CounterToggle() {
     kind: "behavior",
     title: "Target React",
     description:
-      "Component memakai useState untuk counter dan toggle. React runtime belum aktif di preview.",
+      "Component memakai useState untuk counter dan toggle. Jalankan preview lalu coba kedua button.",
     lines: [
       "Klik Tambah seharusnya menaikkan count.",
       "Klik Toggle panel seharusnya mengganti label Terbuka/Tertutup.",
@@ -837,6 +841,10 @@ function NameInteraction() {
     "Button onClick menjalankan handleSave.",
     "savedName ditampilkan dengan fallback.",
   ],
+  reactPractice: {
+    mode: "runtime",
+    componentName: "NameInteraction",
+  },
   validation: {
     mode: "tsx",
     checks: [
@@ -852,7 +860,7 @@ function NameInteraction() {
     kind: "behavior",
     title: "Target React",
     description:
-      "Input mengubah name, lalu button menyimpan name ke savedName. React runtime belum aktif di preview.",
+      "Input mengubah name, lalu button menyimpan name ke savedName. Jalankan preview untuk mencoba flow ini.",
     lines: [
       "Input controlled memakai value dan onChange.",
       "Button Simpan menjalankan handleSave.",
@@ -922,6 +930,10 @@ function StatusPanel() {
     "Button mengubah status.",
     "Setiap status punya branch UI.",
   ],
+  reactPractice: {
+    mode: "runtime",
+    componentName: "StatusPanel",
+  },
   validation: {
     mode: "tsx",
     checks: [
@@ -938,7 +950,7 @@ function StatusPanel() {
     kind: "behavior",
     title: "Target React",
     description:
-      "Status menentukan branch UI yang terlihat. React runtime belum aktif di preview.",
+      "Status menentukan branch UI yang terlihat. Jalankan preview lalu coba kedua button status.",
     lines: [
       "Status awal empty menampilkan pesan kosong.",
       "Button success menampilkan pesan lesson siap.",
@@ -1014,6 +1026,10 @@ function LessonList() {
     "key memakai lesson.id.",
     "Setiap card menampilkan title dan minutes.",
   ],
+  reactPractice: {
+    mode: "runtime",
+    componentName: "LessonList",
+  },
   validation: {
     mode: "tsx",
     checks: [
@@ -1029,7 +1045,7 @@ function LessonList() {
     kind: "behavior",
     title: "Target React",
     description:
-      "Array lessons dirender menjadi list card dengan key stabil. React runtime belum aktif di preview.",
+      "Array lessons dirender menjadi list card dengan key stabil. Jalankan preview untuk melihat hasil map.",
     lines: [
       "Setiap lesson menjadi article card.",
       "Key memakai lesson.id, bukan index.",
@@ -1105,6 +1121,10 @@ function LessonProgressSummary() {
     "completedCount dihitung dari visibleLessons.",
     "summaryText dihitung dari count dan visibleLessons.length.",
   ],
+  reactPractice: {
+    mode: "runtime",
+    componentName: "LessonProgressSummary",
+  },
   validation: {
     mode: "tsx",
     checks: [
@@ -1120,7 +1140,7 @@ function LessonProgressSummary() {
     kind: "behavior",
     title: "Target React",
     description:
-      "Filter, count, dan summary dihitung dari data yang sudah ada. React runtime belum aktif di preview.",
+      "Filter, count, dan summary dihitung dari data yang sudah ada. Jalankan preview lalu isi input filter.",
     lines: [
       "query disimpan sebagai state karena berubah dari input.",
       "visibleLessons dihitung dari lessons dan query.",
@@ -1231,6 +1251,10 @@ function StateEventsCheckpoint() {
     "List dirender dengan key stabil.",
     "completedCount dihitung dari visibleLessons.",
   ],
+  reactPractice: {
+    mode: "runtime",
+    componentName: "StateEventsCheckpoint",
+  },
   validation: {
     mode: "tsx",
     checks: [
@@ -1249,7 +1273,7 @@ function StateEventsCheckpoint() {
     kind: "behavior",
     title: "Target React",
     description:
-      "Checkpoint menggabungkan state, events, conditional-ish filtering, list rendering, keys, dan derived display. React runtime belum aktif di preview.",
+      "Checkpoint menggabungkan state, events, filtering, list rendering, keys, dan derived display. Jalankan preview lalu coba filter category.",
     lines: [
       "Filter category berubah saat button diklik.",
       "visibleLessons dihitung dari selectedCategory.",

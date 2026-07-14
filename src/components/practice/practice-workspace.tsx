@@ -55,6 +55,22 @@ const defaultSplitRatios: PracticeSplitRatios = {
   stacked: 60,
 };
 
+const reactStructureSplitRatios: PracticeSplitRatios = {
+  "code-left": 68,
+  "preview-left": 38,
+  "code-top": 62,
+  "preview-top": 38,
+  stacked: 60,
+};
+
+const reactRuntimeSplitRatios: PracticeSplitRatios = {
+  "code-left": 58,
+  "preview-left": 42,
+  "code-top": 56,
+  "preview-top": 44,
+  stacked: 60,
+};
+
 const layoutOptions: Array<{ value: PracticeLayout; label: string }> = [
   { value: "code-left", label: "Code kiri" },
   { value: "preview-left", label: "Preview kiri" },
@@ -70,17 +86,34 @@ const viewportOptions: Array<{ value: PreviewViewport; label: string }> = [
   { value: "full", label: "Full" },
 ];
 
-function getLayoutOptionLabel(option: { value: PracticeLayout; label: string }, isReactPractice: boolean): string {
-  if (!isReactPractice) {
+type WorkspacePreferenceScope = "standard" | "react-structure" | "react-runtime";
+
+function getDefaultSplitRatios(scope: WorkspacePreferenceScope): PracticeSplitRatios {
+  if (scope === "react-structure") {
+    return reactStructureSplitRatios;
+  }
+
+  if (scope === "react-runtime") {
+    return reactRuntimeSplitRatios;
+  }
+
+  return defaultSplitRatios;
+}
+
+function getLayoutOptionLabel(
+  option: { value: PracticeLayout; label: string },
+  preferenceScope: WorkspacePreferenceScope,
+): string {
+  if (preferenceScope === "standard") {
     return option.label;
   }
 
   if (option.value === "preview-left") {
-    return "Target kiri";
+    return preferenceScope === "react-runtime" ? "Output kiri" : "Target kiri";
   }
 
   if (option.value === "preview-top") {
-    return "Target atas";
+    return preferenceScope === "react-runtime" ? "Output atas" : "Target atas";
   }
 
   return option.label;
@@ -100,16 +133,19 @@ function isPreviewViewport(value: string | null): value is PreviewViewport {
   return value === "mobile" || value === "tablet" || value === "desktop" || value === "full";
 }
 
-function parseSavedSplitRatios(value: string | null): PracticeSplitRatios | null {
+function parseSavedSplitRatios(
+  value: string | null,
+  defaultRatios: PracticeSplitRatios,
+): PracticeSplitRatios | null {
   if (!value) {
     return null;
   }
 
   try {
     const parsed = JSON.parse(value) as Partial<Record<PracticeLayout, unknown>>;
-    const nextRatios = { ...defaultSplitRatios };
+    const nextRatios = { ...defaultRatios };
 
-    for (const layout of Object.keys(defaultSplitRatios) as PracticeLayout[]) {
+    for (const layout of Object.keys(defaultRatios) as PracticeLayout[]) {
       const ratio = parsed[layout];
 
       if (typeof ratio === "number" && Number.isFinite(ratio)) {
@@ -136,20 +172,33 @@ function PracticeWorkspaceStateful({
   onSaveChecklist,
   onComplete,
 }: PracticeWorkspaceStatefulProps) {
+  const isReactPractice = challenge.validation?.mode === "tsx";
+  const reactPracticeMode = isReactPractice ? (challenge.reactPractice?.mode ?? "structure") : null;
+  const isReactRuntimePractice = reactPracticeMode === "runtime";
+  const preferenceScope: WorkspacePreferenceScope = isReactRuntimePractice
+    ? "react-runtime"
+    : isReactPractice
+      ? "react-structure"
+      : "standard";
+  const defaultRatios = getDefaultSplitRatios(preferenceScope);
+  const layoutStorageKey = `fluentstack-practice-layout-${preferenceScope}`;
+  const viewportStorageKey = `fluentstack-practice-viewport-${preferenceScope}`;
+  const splitRatioStorageKey = `fluentstack-practice-split-ratios-${preferenceScope}`;
   const [code, setCode] = useState<ChallengeCode>(initialCode);
   const [completedChecklistItems, setCompletedChecklistItems] = useState<string[]>(initialChecklist);
   const [layout, setLayout] = useState<PracticeLayout>("code-left");
   const [viewport, setViewport] = useState<PreviewViewport>("full");
-  const [splitRatios, setSplitRatios] = useState<PracticeSplitRatios>(defaultSplitRatios);
+  const [splitRatios, setSplitRatios] = useState<PracticeSplitRatios>(defaultRatios);
   const [isValidationSummaryReady, setIsValidationSummaryReady] = useState(false);
-  const isReactPractice = challenge.validation?.mode === "tsx";
+  const [isRuntimeRendered, setIsRuntimeRendered] = useState(false);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      const savedLayout = window.localStorage.getItem("fluentstack-practice-layout");
-      const savedViewport = window.localStorage.getItem("fluentstack-practice-viewport");
+      const savedLayout = window.localStorage.getItem(layoutStorageKey);
+      const savedViewport = window.localStorage.getItem(viewportStorageKey);
       const savedSplitRatios = parseSavedSplitRatios(
-        window.localStorage.getItem("fluentstack-practice-split-ratios"),
+        window.localStorage.getItem(splitRatioStorageKey),
+        defaultRatios,
       );
 
       if (isPracticeLayout(savedLayout)) {
@@ -168,7 +217,7 @@ function PracticeWorkspaceStateful({
     return () => {
       window.clearTimeout(timer);
     };
-  }, []);
+  }, [defaultRatios, layoutStorageKey, splitRatioStorageKey, viewportStorageKey]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -203,24 +252,33 @@ function PracticeWorkspaceStateful({
         validationResults,
         completedChecklistItems,
         isValidationReady: isValidationSummaryReady,
+        requiresRuntimeRender: isReactRuntimePractice,
+        isRuntimeRendered,
       }),
-    [challenge, validationResults, completedChecklistItems, isValidationSummaryReady],
+    [
+      challenge,
+      validationResults,
+      completedChecklistItems,
+      isReactRuntimePractice,
+      isRuntimeRendered,
+      isValidationSummaryReady,
+    ],
   );
 
   const handleLayoutChange = (nextLayout: PracticeLayout) => {
     setLayout(nextLayout);
-    window.localStorage.setItem("fluentstack-practice-layout", nextLayout);
+    window.localStorage.setItem(layoutStorageKey, nextLayout);
   };
 
   const handleViewportChange = (nextViewport: PreviewViewport) => {
     setViewport(nextViewport);
-    window.localStorage.setItem("fluentstack-practice-viewport", nextViewport);
+    window.localStorage.setItem(viewportStorageKey, nextViewport);
   };
 
   const handleSplitRatioChange = (nextRatio: number) => {
     setSplitRatios((previousRatios) => {
       const nextRatios = { ...previousRatios, [layout]: nextRatio };
-      window.localStorage.setItem("fluentstack-practice-split-ratios", JSON.stringify(nextRatios));
+      window.localStorage.setItem(splitRatioStorageKey, JSON.stringify(nextRatios));
 
       return nextRatios;
     });
@@ -228,8 +286,8 @@ function PracticeWorkspaceStateful({
 
   const handleResetLayout = () => {
     setSplitRatios((previousRatios) => {
-      const nextRatios = { ...previousRatios, [layout]: defaultSplitRatios[layout] };
-      window.localStorage.setItem("fluentstack-practice-split-ratios", JSON.stringify(nextRatios));
+      const nextRatios = { ...previousRatios, [layout]: defaultRatios[layout] };
+      window.localStorage.setItem(splitRatioStorageKey, JSON.stringify(nextRatios));
 
       return nextRatios;
     });
@@ -294,7 +352,7 @@ function PracticeWorkspaceStateful({
                       : "border-fs-border bg-fs-surface text-fs-text-soft hover:bg-fs-surface-strong hover:text-fs-text",
                   )}
                 >
-                  {getLayoutOptionLabel(option, isReactPractice)}
+                  {getLayoutOptionLabel(option, preferenceScope)}
                 </button>
               ))}
             </div>
@@ -303,7 +361,7 @@ function PracticeWorkspaceStateful({
           <div className="flex min-w-0 flex-wrap items-center gap-2">
             {isReactPractice ? (
               <span className="rounded-lg border border-fs-border bg-fs-surface px-2.5 py-1.5 text-xs font-semibold text-fs-text-soft">
-                Target: struktur TSX
+                {isReactRuntimePractice ? "Mode: live React" : "Mode: struktur TSX"}
               </span>
             ) : (
               <>
@@ -349,8 +407,13 @@ function PracticeWorkspaceStateful({
           layout={layout}
           previewViewport={viewport}
           splitRatio={splitRatios[layout]}
+          isRuntimeRendered={isRuntimeRendered}
           onChangeSplitRatio={handleSplitRatioChange}
-          onChangeCode={setCode}
+          onChangeCode={(nextCode) => {
+            setCode(nextCode);
+            setIsRuntimeRendered(false);
+          }}
+          onRuntimeRenderedChange={setIsRuntimeRendered}
           onToggleChecklist={(item, checked) => {
             const nextItems = checked
               ? Array.from(new Set([...completedChecklistItems, item]))
@@ -363,6 +426,7 @@ function PracticeWorkspaceStateful({
           onReset={() => {
             setCode(challenge.starterCode);
             setCompletedChecklistItems([]);
+            setIsRuntimeRendered(false);
             onSaveCode(challenge.starterCode);
             onSaveChecklist([]);
           }}

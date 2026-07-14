@@ -50,6 +50,15 @@ export type ChallengeExpectedOutput =
       lines?: string[];
     };
 
+export type ReactPracticePresentation =
+  | {
+      mode: "structure";
+    }
+  | {
+      mode: "runtime";
+      componentName: string;
+    };
+
 export type CodingChallenge = {
   id: string;
   lessonId: string;
@@ -61,5 +70,6 @@ export type CodingChallenge = {
   checklist: string[];
   validation?: ChallengeValidation;
   expectedOutput?: ChallengeExpectedOutput;
+  reactPractice?: ReactPracticePresentation;
   skillTags: string[];
 };

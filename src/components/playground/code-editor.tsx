@@ -26,6 +26,14 @@ declare module "react" {
 }
 
 declare module "react/jsx-runtime" {
+  export namespace JSX {
+    type Element = unknown;
+
+    interface IntrinsicElements {
+      [elemName: string]: any;
+    }
+  }
+
   export const Fragment: unknown;
   export function jsx(type: unknown, props: unknown, key?: unknown): unknown;
   export function jsxs(type: unknown, props: unknown, key?: unknown): unknown;
@@ -36,6 +44,8 @@ declare namespace React {
 }
 
 declare namespace JSX {
+  type Element = unknown;
+
   interface IntrinsicElements {
     [elemName: string]: any;
   }

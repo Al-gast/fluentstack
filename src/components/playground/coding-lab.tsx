@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { CodeEditor } from "@/components/playground/code-editor";
 import { PreviewPanel } from "@/components/playground/preview-panel";
+import { ReactRuntimePreview } from "@/components/playground/react-runtime-preview";
 import { getCodingPracticeCompletionGate } from "@/lib/challenges/completion-gate";
 import { validateChallengeCode } from "@/lib/challenges/validate-code";
 import { cn } from "@/lib/utils";
@@ -19,11 +20,13 @@ type CodingLabProps = {
   completedChecklistItems: string[];
   isCompleted: boolean;
   isRequired: boolean;
+  isRuntimeRendered: boolean;
   layout?: PracticeLayout;
   previewViewport?: PreviewViewport;
   splitRatio: number;
   onChangeSplitRatio: (nextRatio: number) => void;
   onChangeCode: (nextCode: ChallengeCode) => void;
+  onRuntimeRenderedChange: (isRendered: boolean) => void;
   onToggleChecklist: (item: string, checked: boolean) => void;
   onReset: () => void;
   onSaveCode: () => void | Promise<unknown>;
@@ -107,11 +110,13 @@ export function CodingLab({
   completedChecklistItems,
   isCompleted,
   isRequired,
+  isRuntimeRendered,
   layout = "code-left",
   previewViewport = "full",
   splitRatio,
   onChangeSplitRatio,
   onChangeCode,
+  onRuntimeRenderedChange,
   onToggleChecklist,
   onReset,
   onSaveCode,
@@ -156,13 +161,17 @@ export function CodingLab({
         validationResults,
         completedChecklistItems,
         isValidationReady,
+        requiresRuntimeRender:
+          challenge.validation?.mode === "tsx" && challenge.reactPractice?.mode === "runtime",
+        isRuntimeRendered,
       }),
-    [challenge, validationResults, completedChecklistItems, isValidationReady],
+    [challenge, validationResults, completedChecklistItems, isRuntimeRendered, isValidationReady],
   );
   const hasAutoValidation = completionGate.mode === "auto-validation";
   const canMarkCompleted = completionGate.canComplete;
   const isTypeScriptPractice = challenge.validation?.mode === "ts";
   const isReactPractice = challenge.validation?.mode === "tsx";
+  const isReactRuntimePractice = isReactPractice && challenge.reactPractice?.mode === "runtime";
   const validationDescription =
     challenge.validation?.mode === "css"
       ? "Kami membaca aturan CSS yang kamu tulis. JavaScript tidak dijalankan untuk validasi."
@@ -171,7 +180,9 @@ export function CodingLab({
         : challenge.validation?.mode === "ts"
           ? "Cek otomatis membaca struktur TypeScript. Kode TS tidak dijalankan di preview."
           : challenge.validation?.mode === "tsx"
-            ? "Cek otomatis membaca struktur TSX. React component belum dijalankan sebagai preview."
+            ? isReactRuntimePractice
+              ? "Cek otomatis membaca struktur TSX. Jalankan preview untuk memastikan component dapat dirender."
+              : "Cek otomatis membaca struktur TSX. Component Model fokus pada struktur component, bukan runtime."
           : "Kami membaca struktur HTML yang kamu tulis. JavaScript tidak dijalankan untuk validasi.";
   const visibleLanguageTabs = useMemo(() => getLanguageTabs(challenge, code), [challenge, code]);
 
@@ -302,7 +313,9 @@ export function CodingLab({
       ) : null}
       {challenge.validation?.mode === "tsx" ? (
         <p className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-3 text-xs leading-6 text-fs-text">
-          Fokus di tab TSX. Cek otomatis membaca struktur komponen React. React component belum dijalankan sebagai preview.
+          {isReactRuntimePractice
+            ? "Fokus di tab TSX. Jalankan preview setelah mengubah kode untuk melihat component bekerja."
+            : "Fokus di tab TSX. Cek otomatis membaca struktur component; latihan ini belum membutuhkan React runtime."}
         </p>
       ) : null}
       <ul className="list-disc space-y-1.5 pl-5 text-sm leading-7 text-fs-text-soft">
@@ -311,7 +324,7 @@ export function CodingLab({
         ))}
       </ul>
 
-      {expectedOutputContent}
+      {!isReactPractice ? expectedOutputContent : null}
 
       <div className="rounded-lg border border-fs-border bg-fs-surface p-3">
         <p className="text-xs font-semibold text-fs-text">Navigasi editor</p>
@@ -538,10 +551,10 @@ export function CodingLab({
   const reactTargetPanel = (
     <div className="flex h-full min-h-[320px] flex-col gap-4 overflow-y-auto rounded-lg border border-fs-border bg-fs-surface-soft p-4">
       <div className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-4">
-        <p className="text-sm font-semibold text-fs-text">React component belum dijalankan di preview</p>
+        <p className="text-sm font-semibold text-fs-text">Latihan struktur TSX</p>
         <p className="mt-2 text-sm leading-6 text-fs-text-soft">
-          Untuk module Component Model, sumber kebenaran practice adalah struktur TSX dan cek otomatis.
-          Runtime React akan lebih tepat dipakai saat masuk state, events, list, dan form.
+          Sumber kebenaran latihan ini adalah struktur component dan cek otomatis. Fokuskan perhatian pada
+          prop, JSX, children, atau batas component yang sedang dipraktikkan.
         </p>
       </div>
 
@@ -616,11 +629,19 @@ export function CodingLab({
     <article className="flex min-h-0 min-w-0 flex-col space-y-3 rounded-xl border border-fs-border bg-fs-surface p-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-xs font-semibold uppercase tracking-normal text-fs-text-muted">
-          {isReactPractice ? "Target React" : isTypeScriptPractice ? "Catatan TypeScript" : "Preview langsung"}
+          {isReactRuntimePractice
+            ? "Live React"
+            : isReactPractice
+              ? "Target React"
+              : isTypeScriptPractice
+                ? "Catatan TypeScript"
+                : "Preview langsung"}
         </p>
         <span className="rounded-full border border-fs-border bg-fs-surface-soft px-3 py-1 text-xs font-semibold text-fs-text-soft">
           {isReactPractice
-            ? "Struktur TSX"
+            ? isReactRuntimePractice
+              ? "Sandbox runtime"
+              : "Struktur TSX"
             : isTypeScriptPractice
               ? "Bukan runtime"
               : previewViewport === "full"
@@ -629,7 +650,14 @@ export function CodingLab({
         </span>
       </div>
       <div className="min-h-0 min-w-0 flex-1">
-        {isReactPractice ? (
+        {isReactRuntimePractice && challenge.reactPractice?.mode === "runtime" ? (
+          <ReactRuntimePreview
+            code={code.tsx ?? ""}
+            componentName={challenge.reactPractice.componentName}
+            expectedOutput={challenge.expectedOutput}
+            onRuntimeRenderedChange={onRuntimeRenderedChange}
+          />
+        ) : isReactPractice ? (
           reactTargetPanel
         ) : (
           <PreviewPanel
@@ -678,8 +706,8 @@ export function CodingLab({
           type="button"
           aria-label={
             horizontalLayout
-              ? `Geser untuk mengubah lebar editor dan ${isReactPractice ? "target latihan" : "preview"}`
-              : `Geser untuk mengubah tinggi editor dan ${isReactPractice ? "target latihan" : "preview"}`
+              ? `Geser untuk mengubah lebar editor dan ${isReactRuntimePractice ? "runtime React" : isReactPractice ? "target latihan" : "preview"}`
+              : `Geser untuk mengubah tinggi editor dan ${isReactRuntimePractice ? "runtime React" : isReactPractice ? "target latihan" : "preview"}`
           }
           onPointerDown={handleSplitterPointerDown}
           className={cn(

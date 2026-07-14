@@ -15,6 +15,8 @@ type GetCodingPracticeCompletionGateParams = {
   validationResults: ChallengeValidationResult[];
   completedChecklistItems: string[];
   isValidationReady: boolean;
+  requiresRuntimeRender?: boolean;
+  isRuntimeRendered?: boolean;
 };
 
 export function getCodingPracticeCompletionGate({
@@ -22,6 +24,8 @@ export function getCodingPracticeCompletionGate({
   validationResults,
   completedChecklistItems,
   isValidationReady,
+  requiresRuntimeRender = false,
+  isRuntimeRendered = false,
 }: GetCodingPracticeCompletionGateParams): CodingPracticeCompletionGate {
   const hasAutoValidation = Boolean(challenge.validation?.checks.length);
 
@@ -30,7 +34,8 @@ export function getCodingPracticeCompletionGate({
     const gateResults = requiredResults.length > 0 ? requiredResults : validationResults;
     const passedCount = gateResults.filter((result) => result.passed).length;
     const totalCount = gateResults.length;
-    const canComplete = isValidationReady && totalCount > 0 && passedCount >= totalCount;
+    const hasPassedValidation = isValidationReady && totalCount > 0 && passedCount >= totalCount;
+    const canComplete = hasPassedValidation && (!requiresRuntimeRender || isRuntimeRendered);
 
     if (!isValidationReady) {
       return {
@@ -40,6 +45,17 @@ export function getCodingPracticeCompletionGate({
         statusLabel: "Cek otomatis disiapkan",
         helperText: "Tunggu cek otomatis siap sebelum menandai practice selesai.",
         buttonLabel: "Cek dulu",
+      };
+    }
+
+    if (hasPassedValidation && requiresRuntimeRender && !isRuntimeRendered) {
+      return {
+        mode: "auto-validation",
+        canComplete: false,
+        summary: `${passedCount}/${totalCount} validasi wajib + jalankan preview`,
+        statusLabel: "Preview belum dijalankan",
+        helperText: "Jalankan React preview untuk memastikan component dapat dirender sebelum menandai practice selesai.",
+        buttonLabel: "Jalankan preview",
       };
     }
 

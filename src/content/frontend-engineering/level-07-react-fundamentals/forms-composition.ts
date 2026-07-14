@@ -601,7 +601,7 @@ export const reactFormsCompositionAssessmentQuiz: Quiz = {
 const reactFormsPracticePreviewCode = {
   html: `<main class="practice-card">
   <h1>Latihan React Forms</h1>
-  <p>Fokus di tab TSX. React runtime belum aktif di preview.</p>
+  <p>Fokus di tab TSX, lalu jalankan preview untuk mencoba form yang kamu buat.</p>
 </main>`,
   css: `.practice-card {
   max-width: 560px;
@@ -672,6 +672,10 @@ function TitleField() {
     "onChange memanggil setTitle dengan event.target.value.",
     "Preview menampilkan title atau fallback.",
   ],
+  reactPractice: {
+    mode: "runtime",
+    componentName: "TitleField",
+  },
   validation: {
     mode: "tsx",
     checks: [
@@ -686,7 +690,7 @@ function TitleField() {
     kind: "behavior",
     title: "Target React",
     description:
-      "Input title dikendalikan oleh state dan preview membaca title terbaru. React runtime belum aktif di preview.",
+      "Input title dikendalikan oleh state dan preview membaca title terbaru. Jalankan preview lalu ketikkan judul.",
     lines: [
       "Input memakai value={title}.",
       "onChange menyimpan event.target.value ke state.",
@@ -760,6 +764,10 @@ function NoteSubmitForm() {
     "notes ditambah dari title.",
     "title dikosongkan setelah submit.",
   ],
+  reactPractice: {
+    mode: "runtime",
+    componentName: "NoteSubmitForm",
+  },
   validation: {
     mode: "tsx",
     checks: [
@@ -776,7 +784,7 @@ function NoteSubmitForm() {
     kind: "behavior",
     title: "Target React",
     description:
-      "Form submit menambah title ke notes tanpa reload, lalu mengosongkan input. React runtime belum aktif di preview.",
+      "Form submit menambah title ke notes tanpa reload, lalu mengosongkan input. Jalankan preview untuk menguji submit.",
     lines: [
       "Submit menjalankan handleSubmit.",
       "event.preventDefault mencegah reload.",
@@ -873,6 +881,10 @@ function NotesPanel() {
     "NoteForm menerima onAddNote.",
     "NotesPanel menyusun NoteForm dan NoteList.",
   ],
+  reactPractice: {
+    mode: "runtime",
+    componentName: "NotesPanel",
+  },
   validation: {
     mode: "tsx",
     checks: [
@@ -890,7 +902,7 @@ function NotesPanel() {
     kind: "behavior",
     title: "Target React",
     description:
-      "UI notes disusun dari NoteForm, NoteList, dan NoteItem. React runtime belum aktif di preview.",
+      "UI notes disusun dari NoteForm, NoteList, dan NoteItem. Jalankan preview untuk melihat susunan component.",
     lines: [
       "NoteItem fokus menampilkan satu note.",
       "NoteList merender notes dengan key note.id.",
@@ -1004,6 +1016,10 @@ function NotesApp() {
     "NoteForm mengirim title lewat onAddNote.",
     "NoteList membaca notes dari parent.",
   ],
+  reactPractice: {
+    mode: "runtime",
+    componentName: "NotesApp",
+  },
   validation: {
     mode: "tsx",
     checks: [
@@ -1022,7 +1038,7 @@ function NotesApp() {
     kind: "behavior",
     title: "Target React",
     description:
-      "notes tinggal di parent, NoteForm mengirim data lewat handler, dan NoteList membaca notes. React runtime belum aktif di preview.",
+      "notes tinggal di parent, NoteForm mengirim data lewat handler, dan NoteList membaca notes. Jalankan preview untuk mencoba flow-nya.",
     lines: [
       "NotesApp menyimpan notes sebagai shared state.",
       "NoteForm menyimpan title lokal dan memanggil onAddNote saat submit.",
@@ -1131,6 +1147,10 @@ function NotesApp() {
     "NoteList dan NoteItem merender list dengan key.",
     "Total note dihitung dari notes.length.",
   ],
+  reactPractice: {
+    mode: "runtime",
+    componentName: "NotesApp",
+  },
   validation: {
     mode: "tsx",
     checks: [
@@ -1152,7 +1172,7 @@ function NotesApp() {
     kind: "behavior",
     title: "Target React",
     description:
-      "Flow notes menggabungkan controlled input, submit, composition, list rendering, dan shared state. React runtime belum aktif di preview.",
+      "Flow notes menggabungkan controlled input, submit, composition, list rendering, dan shared state. Jalankan preview untuk mencoba form dan list.",
     lines: [
       "NoteForm mengelola title lokal dengan value dan onChange.",
       "Submit mencegah reload dan mengirim title ke NotesApp.",

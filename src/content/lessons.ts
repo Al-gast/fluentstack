@@ -127,6 +127,13 @@ export {
   reactCompositionPatternsLesson,
   reactLiftingStateWhenNeededLesson,
   reactFormsCompositionAssessmentLesson,
+  setupLocalReactProjectLesson,
+  runReactDevServerLesson,
+  understandReactSrcStructureLesson,
+  createFirstLocalReactComponentLesson,
+  addReactStateAndEventLocallyLesson,
+  saveReactProjectToGithubLesson,
+  localReactAppAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {
