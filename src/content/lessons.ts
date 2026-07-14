@@ -149,6 +149,11 @@ export {
   reactEmptyStateLesson,
   reactRetryPatternLesson,
   reactReusableUiStatesAssessmentLesson,
+  reactErrorBoundariesLesson,
+  reactFallbackUiLesson,
+  reactSuspenseBasicsLesson,
+  reactRetryRecoveryPatternsLesson,
+  reactResilienceSuspenseBasicsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

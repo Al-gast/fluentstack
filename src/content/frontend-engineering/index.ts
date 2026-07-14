@@ -25,6 +25,7 @@ import { localReactAppModule, setupLocalReactProjectLesson, runReactDevServerLes
 import { customHooksEffectsModule, reactWhenUseEffectLesson, reactEffectCleanupDependenciesLesson, reactCustomHookBasicsLesson, reactBrowserSubscriptionHookLesson, reactCustomHooksEffectsAssessmentLesson, reactCustomHooksEffectsAssessmentQuiz, fixReactTimerCleanupChallenge, extractUseToggleHookChallenge, buildWindowWidthHookChallenge, buildWindowWidthHookCheckpointChallenge } from "./level-08-react-intermediate/custom-hooks-effects";
 import { reactStateStrategyModule, reactStateColocationLesson, reactDerivedStateLesson, reactReducerPatternLesson, reactContextWhenNeededLesson, reactStateStrategyAssessmentLesson, reactStateStrategyAssessmentQuiz, movePanelStateToCardChallenge, deriveFilteredLessonListChallenge, refactorLessonFiltersToReducerChallenge, shareThemeWithReactContextChallenge, buildStateStrategyCheckpointChallenge } from "./level-08-react-intermediate/state-strategy";
 import { reusableUiStatesModule, reactLoadingStateLesson, reactErrorStateLesson, reactEmptyStateLesson, reactRetryPatternLesson, reactReusableUiStatesAssessmentLesson, reactReusableUiStatesAssessmentQuiz, buildReactLoadingMessageChallenge, renderReactErrorMessageChallenge, buildHelpfulEmptyStateChallenge, addRetryToLessonFeedChallenge, buildReusableUiStatesCheckpointChallenge } from "./level-08-react-intermediate/reusable-ui-states";
+import { resilienceSuspenseBasicsModule, reactErrorBoundariesLesson, reactFallbackUiLesson, reactSuspenseBasicsLesson, reactRetryRecoveryPatternsLesson, reactResilienceSuspenseBasicsAssessmentLesson, reactResilienceSuspenseBasicsAssessmentQuiz, buildFriendlyErrorFallbackChallenge, lazyLoadProfileActivityPanelChallenge, addProfileRecoveryResetChallenge, buildResilientPreviewCheckpointChallenge } from "./level-09-react-advanced/resilience-suspense-basics";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -53,6 +54,7 @@ export { localReactAppModule, setupLocalReactProjectLesson, runReactDevServerLes
 export { customHooksEffectsModule, reactWhenUseEffectLesson, reactEffectCleanupDependenciesLesson, reactCustomHookBasicsLesson, reactBrowserSubscriptionHookLesson, reactCustomHooksEffectsAssessmentLesson, reactCustomHooksEffectsAssessmentQuiz, fixReactTimerCleanupChallenge, extractUseToggleHookChallenge, buildWindowWidthHookChallenge, buildWindowWidthHookCheckpointChallenge } from "./level-08-react-intermediate/custom-hooks-effects";
 export { reactStateStrategyModule, reactStateColocationLesson, reactDerivedStateLesson, reactReducerPatternLesson, reactContextWhenNeededLesson, reactStateStrategyAssessmentLesson, reactStateStrategyAssessmentQuiz, movePanelStateToCardChallenge, deriveFilteredLessonListChallenge, refactorLessonFiltersToReducerChallenge, shareThemeWithReactContextChallenge, buildStateStrategyCheckpointChallenge } from "./level-08-react-intermediate/state-strategy";
 export { reusableUiStatesModule, reactLoadingStateLesson, reactErrorStateLesson, reactEmptyStateLesson, reactRetryPatternLesson, reactReusableUiStatesAssessmentLesson, reactReusableUiStatesAssessmentQuiz, buildReactLoadingMessageChallenge, renderReactErrorMessageChallenge, buildHelpfulEmptyStateChallenge, addRetryToLessonFeedChallenge, buildReusableUiStatesCheckpointChallenge } from "./level-08-react-intermediate/reusable-ui-states";
+export { resilienceSuspenseBasicsModule, reactErrorBoundariesLesson, reactFallbackUiLesson, reactSuspenseBasicsLesson, reactRetryRecoveryPatternsLesson, reactResilienceSuspenseBasicsAssessmentLesson, reactResilienceSuspenseBasicsAssessmentQuiz, buildFriendlyErrorFallbackChallenge, lazyLoadProfileActivityPanelChallenge, addProfileRecoveryResetChallenge, buildResilientPreviewCheckpointChallenge } from "./level-09-react-advanced/resilience-suspense-basics";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -82,6 +84,7 @@ export const frontendEngineeringModules = [
   customHooksEffectsModule,
   reactStateStrategyModule,
   reusableUiStatesModule,
+  resilienceSuspenseBasicsModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -232,6 +235,11 @@ export const frontendEngineeringLessons = [
   reactEmptyStateLesson,
   reactRetryPatternLesson,
   reactReusableUiStatesAssessmentLesson,
+  reactErrorBoundariesLesson,
+  reactFallbackUiLesson,
+  reactSuspenseBasicsLesson,
+  reactRetryRecoveryPatternsLesson,
+  reactResilienceSuspenseBasicsAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -269,6 +277,7 @@ export const frontendEngineeringQuizzes = [
   reactCustomHooksEffectsAssessmentQuiz,
   reactStateStrategyAssessmentQuiz,
   reactReusableUiStatesAssessmentQuiz,
+  reactResilienceSuspenseBasicsAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -376,4 +385,8 @@ export const frontendEngineeringChallenges = [
   buildHelpfulEmptyStateChallenge,
   addRetryToLessonFeedChallenge,
   buildReusableUiStatesCheckpointChallenge,
+  buildFriendlyErrorFallbackChallenge,
+  lazyLoadProfileActivityPanelChallenge,
+  addProfileRecoveryResetChallenge,
+  buildResilientPreviewCheckpointChallenge,
 ];

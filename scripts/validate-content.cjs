@@ -53,6 +53,7 @@ const expectedFrontendModuleOrder = [
   "react-custom-hooks-effects",
   "react-state-strategy",
   "react-reusable-ui-states",
+  "react-resilience-suspense-basics",
 ];
 
 function resolveTsPath(basePath) {

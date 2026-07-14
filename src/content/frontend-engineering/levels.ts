@@ -98,4 +98,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "Mengorganisasi behavior React dengan effects, custom hooks, cleanup browser subscription, dan keputusan state yang lebih terarah.",
     moduleIds: ["react-custom-hooks-effects", "react-state-strategy", "react-reusable-ui-states"],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 9,
+    stage: "advanced",
+    title: "React Advanced",
+    description:
+      "Membangun UI React lebih resilient dengan Error Boundary, fallback UI, Suspense dasar, dan recovery yang jelas.",
+    moduleIds: ["react-resilience-suspense-basics"],
+  },
 ];

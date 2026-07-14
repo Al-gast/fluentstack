@@ -36,6 +36,7 @@ export {
   reactCustomHooksEffectsAssessmentQuiz,
   reactStateStrategyAssessmentQuiz,
   reactReusableUiStatesAssessmentQuiz,
+  reactResilienceSuspenseBasicsAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

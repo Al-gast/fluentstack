@@ -106,6 +106,10 @@ export {
   buildHelpfulEmptyStateChallenge,
   addRetryToLessonFeedChallenge,
   buildReusableUiStatesCheckpointChallenge,
+  buildFriendlyErrorFallbackChallenge,
+  lazyLoadProfileActivityPanelChallenge,
+  addProfileRecoveryResetChallenge,
+  buildResilientPreviewCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

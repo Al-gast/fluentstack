@@ -29,6 +29,7 @@ export {
   customHooksEffectsModule,
   reactStateStrategyModule,
   reusableUiStatesModule,
+  resilienceSuspenseBasicsModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {
