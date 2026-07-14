@@ -34,6 +34,7 @@ export {
   reactFormsCompositionAssessmentQuiz,
   localReactAppAssessmentQuiz,
   reactCustomHooksEffectsAssessmentQuiz,
+  reactStateStrategyAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

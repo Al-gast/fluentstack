@@ -27,6 +27,7 @@ export {
   reactFormsCompositionModule,
   localReactAppModule,
   customHooksEffectsModule,
+  reactStateStrategyModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

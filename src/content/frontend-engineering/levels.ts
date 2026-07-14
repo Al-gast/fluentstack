@@ -96,6 +96,6 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     title: "React Intermediate",
     description:
       "Mengorganisasi behavior React dengan effects, custom hooks, cleanup browser subscription, dan keputusan state yang lebih terarah.",
-    moduleIds: ["react-custom-hooks-effects"],
+    moduleIds: ["react-custom-hooks-effects", "react-state-strategy"],
   },
 ];

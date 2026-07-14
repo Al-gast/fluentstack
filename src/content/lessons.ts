@@ -139,6 +139,11 @@ export {
   reactCustomHookBasicsLesson,
   reactBrowserSubscriptionHookLesson,
   reactCustomHooksEffectsAssessmentLesson,
+  reactStateColocationLesson,
+  reactDerivedStateLesson,
+  reactReducerPatternLesson,
+  reactContextWhenNeededLesson,
+  reactStateStrategyAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

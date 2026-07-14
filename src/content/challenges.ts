@@ -96,6 +96,11 @@ export {
   extractUseToggleHookChallenge,
   buildWindowWidthHookChallenge,
   buildWindowWidthHookCheckpointChallenge,
+  movePanelStateToCardChallenge,
+  deriveFilteredLessonListChallenge,
+  refactorLessonFiltersToReducerChallenge,
+  shareThemeWithReactContextChallenge,
+  buildStateStrategyCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 
