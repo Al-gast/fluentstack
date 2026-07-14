@@ -101,6 +101,11 @@ export {
   refactorLessonFiltersToReducerChallenge,
   shareThemeWithReactContextChallenge,
   buildStateStrategyCheckpointChallenge,
+  buildReactLoadingMessageChallenge,
+  renderReactErrorMessageChallenge,
+  buildHelpfulEmptyStateChallenge,
+  addRetryToLessonFeedChallenge,
+  buildReusableUiStatesCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

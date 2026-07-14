@@ -52,6 +52,7 @@ const expectedFrontendModuleOrder = [
   "local-react-app",
   "react-custom-hooks-effects",
   "react-state-strategy",
+  "react-reusable-ui-states",
 ];
 
 function resolveTsPath(basePath) {

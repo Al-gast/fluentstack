@@ -28,6 +28,7 @@ export {
   localReactAppModule,
   customHooksEffectsModule,
   reactStateStrategyModule,
+  reusableUiStatesModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

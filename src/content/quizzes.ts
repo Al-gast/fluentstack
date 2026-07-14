@@ -35,6 +35,7 @@ export {
   localReactAppAssessmentQuiz,
   reactCustomHooksEffectsAssessmentQuiz,
   reactStateStrategyAssessmentQuiz,
+  reactReusableUiStatesAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
