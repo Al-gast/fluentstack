@@ -41,6 +41,7 @@ export {
   productionOperationsModule,
   reactHookFormZodModule,
   validationUxAccessibleErrorsModule,
+  serverStateThinkingModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

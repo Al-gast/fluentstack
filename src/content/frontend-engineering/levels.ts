@@ -145,6 +145,10 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     title: "Forms, Validation, and Data Fetching",
     description:
       "Membangun flow form produk lewat schema validation, error yang jelas, submit state, dan keputusan data yang bertahap.",
-    moduleIds: ["react-hook-form-zod", "validation-ux-accessible-errors"],
+    moduleIds: [
+      "react-hook-form-zod",
+      "validation-ux-accessible-errors",
+      "server-state-thinking",
+    ],
   },
 ];

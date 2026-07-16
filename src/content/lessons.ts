@@ -218,6 +218,11 @@ export {
   validationDisabledStateLesson,
   validationSuccessStateLesson,
   validationUxAccessibleErrorsAssessmentLesson,
+  serverStateVsClientStateLesson,
+  serverStateLoadingErrorEmptyLesson,
+  serverStateMappingApiResponsesLesson,
+  serverStateOptimisticUiBasicsLesson,
+  serverStateThinkingAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

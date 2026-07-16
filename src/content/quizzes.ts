@@ -48,6 +48,7 @@ export {
   nextjsProductionOperationsAssessmentQuiz,
   reactHookFormZodAssessmentQuiz,
   validationUxAccessibleErrorsAssessmentQuiz,
+  serverStateThinkingAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

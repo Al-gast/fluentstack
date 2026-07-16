@@ -160,6 +160,11 @@ export {
   addProfilePendingSubmitStateChallenge,
   showProfileSaveSuccessFeedbackChallenge,
   buildAccessibleProfileValidationCheckpointChallenge,
+  classifyCourseServerAndClientStateChallenge,
+  renderCourseServerStateFlowChallenge,
+  mapCourseApiResponseToCardModelChallenge,
+  addOptimisticCourseBookmarkRollbackChallenge,
+  buildCourseServerStateCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 
