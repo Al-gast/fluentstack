@@ -182,6 +182,13 @@ export {
   nextjsMetadataLesson,
   nextjsEnvironmentVariablesLesson,
   nextjsRouteBehaviorAssessmentLesson,
+  setupLocalNextjsProjectLesson,
+  runNextjsDevServerLesson,
+  createNextjsRouteLayoutLesson,
+  addNextjsLoadingErrorUiLesson,
+  addNextjsMetadataLesson,
+  pushNextjsProjectToGithubLesson,
+  localNextjsAppAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

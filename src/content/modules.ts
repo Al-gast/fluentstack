@@ -35,6 +35,7 @@ export {
   appDirectoryAndRoutingModule,
   nextjsServerClientComponentsModule,
   nextjsRouteBehaviorModule,
+  localNextjsAppModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

@@ -42,6 +42,7 @@ export {
   nextjsAppDirectoryRoutingAssessmentQuiz,
   nextjsServerClientComponentsAssessmentQuiz,
   nextjsRouteBehaviorAssessmentQuiz,
+  localNextjsAppAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
