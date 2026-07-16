@@ -72,9 +72,13 @@ declare module "react-hook-form" {
     defaultValues?: Partial<T>;
   }): {
     register: (name: keyof T & string) => UseFormRegisterReturn;
-    handleSubmit: (handler: SubmitHandler<T>) => (event?: unknown) => void;
+    handleSubmit: (
+      handler: SubmitHandler<T>,
+      onInvalid?: (errors: FieldErrors<T>) => void,
+    ) => (event?: unknown) => void;
     formState: { errors: FieldErrors<T>; isSubmitting: boolean };
     reset: (values?: Partial<T>) => void;
+    setFocus: (name: keyof T & string) => void;
   };
 }
 

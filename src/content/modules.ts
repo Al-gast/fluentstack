@@ -40,6 +40,7 @@ export {
   supabaseBackendIntegrationModule,
   productionOperationsModule,
   reactHookFormZodModule,
+  validationUxAccessibleErrorsModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

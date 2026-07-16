@@ -64,6 +64,7 @@ const expectedFrontendModuleOrder = [
   "nextjs-supabase-backend-integration",
   "nextjs-production-operations",
   "react-hook-form-zod",
+  "validation-ux-accessible-errors",
 ];
 
 function resolveTsPath(basePath) {

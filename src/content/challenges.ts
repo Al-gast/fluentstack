@@ -154,6 +154,12 @@ export {
   handleProfileSubmitStateChallenge,
   reuseProfileSchemaTypeChallenge,
   buildValidatedProfileFormCheckpointChallenge,
+  showUsefulInlineProfileErrorChallenge,
+  addProfileErrorSummaryChallenge,
+  focusFirstInvalidProfileFieldChallenge,
+  addProfilePendingSubmitStateChallenge,
+  showProfileSaveSuccessFeedbackChallenge,
+  buildAccessibleProfileValidationCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

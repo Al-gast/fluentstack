@@ -212,6 +212,12 @@ export {
   reactHookFormSubmitStateLesson,
   reactHookFormSchemaReuseLesson,
   reactHookFormZodAssessmentLesson,
+  validationInlineErrorsLesson,
+  validationSummaryErrorsLesson,
+  validationFocusManagementLesson,
+  validationDisabledStateLesson,
+  validationSuccessStateLesson,
+  validationUxAccessibleErrorsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

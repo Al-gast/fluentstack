@@ -36,6 +36,7 @@ import { authenticationSessionAwareUiModule, nextjsLoginRegisterUxLesson, nextjs
 import { supabaseBackendIntegrationModule, nextjsSupabaseClientBoundariesLesson, nextjsRlsConceptLesson, nextjsServiceLayerLesson, nextjsPersistingUserDataLesson, nextjsProfileRowsLesson, nextjsSupabaseBackendIntegrationAssessmentLesson, nextjsSupabaseBackendIntegrationAssessmentQuiz, classifySupabaseClientBoundariesChallenge, modelUserOwnedRlsPolicyChallenge, extractProfileServiceLayerChallenge, planUserDataPersistenceFlowChallenge, modelUserProfileRowChallenge, buildSupabaseIntegrationCheckpointChallenge } from "./level-11-production-nextjs/supabase-backend-integration";
 import { productionOperationsModule, nextjsVercelDeploymentLesson, nextjsProductionEnvironmentSetupLesson, nextjsProductionLogsLesson, nextjsCachingBasicsLesson, nextjsDeploymentDebuggingLesson, nextjsProductionOperationsAssessmentLesson, nextjsProductionOperationsAssessmentQuiz, planVercelGitDeploymentChallenge, classifyProductionEnvironmentValuesChallenge, triageProductionLogCaseChallenge, classifyProductionDataFreshnessChallenge, planDeploymentDebuggingResponseChallenge, buildProductionReadinessCheckpointChallenge } from "./level-11-production-nextjs/production-operations";
 import { reactHookFormZodModule, reactHookFormRegistrationLesson, zodFormSchemaLesson, reactHookFormFieldErrorsLesson, reactHookFormSubmitStateLesson, reactHookFormSchemaReuseLesson, reactHookFormZodAssessmentLesson, reactHookFormZodAssessmentQuiz, registerProfileFormFieldsChallenge, createProfileFormSchemaChallenge, renderProfileFieldErrorsChallenge, handleProfileSubmitStateChallenge, reuseProfileSchemaTypeChallenge, buildValidatedProfileFormCheckpointChallenge } from "./level-12-forms-validation-data-fetching/react-hook-form-zod";
+import { validationUxAccessibleErrorsModule, validationInlineErrorsLesson, validationSummaryErrorsLesson, validationFocusManagementLesson, validationDisabledStateLesson, validationSuccessStateLesson, validationUxAccessibleErrorsAssessmentLesson, validationUxAccessibleErrorsAssessmentQuiz, showUsefulInlineProfileErrorChallenge, addProfileErrorSummaryChallenge, focusFirstInvalidProfileFieldChallenge, addProfilePendingSubmitStateChallenge, showProfileSaveSuccessFeedbackChallenge, buildAccessibleProfileValidationCheckpointChallenge } from "./level-12-forms-validation-data-fetching/validation-ux-accessible-errors";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -75,6 +76,7 @@ export { authenticationSessionAwareUiModule, nextjsLoginRegisterUxLesson, nextjs
 export { supabaseBackendIntegrationModule, nextjsSupabaseClientBoundariesLesson, nextjsRlsConceptLesson, nextjsServiceLayerLesson, nextjsPersistingUserDataLesson, nextjsProfileRowsLesson, nextjsSupabaseBackendIntegrationAssessmentLesson, nextjsSupabaseBackendIntegrationAssessmentQuiz, classifySupabaseClientBoundariesChallenge, modelUserOwnedRlsPolicyChallenge, extractProfileServiceLayerChallenge, planUserDataPersistenceFlowChallenge, modelUserProfileRowChallenge, buildSupabaseIntegrationCheckpointChallenge } from "./level-11-production-nextjs/supabase-backend-integration";
 export { productionOperationsModule, nextjsVercelDeploymentLesson, nextjsProductionEnvironmentSetupLesson, nextjsProductionLogsLesson, nextjsCachingBasicsLesson, nextjsDeploymentDebuggingLesson, nextjsProductionOperationsAssessmentLesson, nextjsProductionOperationsAssessmentQuiz, planVercelGitDeploymentChallenge, classifyProductionEnvironmentValuesChallenge, triageProductionLogCaseChallenge, classifyProductionDataFreshnessChallenge, planDeploymentDebuggingResponseChallenge, buildProductionReadinessCheckpointChallenge } from "./level-11-production-nextjs/production-operations";
 export { reactHookFormZodModule, reactHookFormRegistrationLesson, zodFormSchemaLesson, reactHookFormFieldErrorsLesson, reactHookFormSubmitStateLesson, reactHookFormSchemaReuseLesson, reactHookFormZodAssessmentLesson, reactHookFormZodAssessmentQuiz, registerProfileFormFieldsChallenge, createProfileFormSchemaChallenge, renderProfileFieldErrorsChallenge, handleProfileSubmitStateChallenge, reuseProfileSchemaTypeChallenge, buildValidatedProfileFormCheckpointChallenge } from "./level-12-forms-validation-data-fetching/react-hook-form-zod";
+export { validationUxAccessibleErrorsModule, validationInlineErrorsLesson, validationSummaryErrorsLesson, validationFocusManagementLesson, validationDisabledStateLesson, validationSuccessStateLesson, validationUxAccessibleErrorsAssessmentLesson, validationUxAccessibleErrorsAssessmentQuiz, showUsefulInlineProfileErrorChallenge, addProfileErrorSummaryChallenge, focusFirstInvalidProfileFieldChallenge, addProfilePendingSubmitStateChallenge, showProfileSaveSuccessFeedbackChallenge, buildAccessibleProfileValidationCheckpointChallenge } from "./level-12-forms-validation-data-fetching/validation-ux-accessible-errors";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -115,6 +117,7 @@ export const frontendEngineeringModules = [
   supabaseBackendIntegrationModule,
   productionOperationsModule,
   reactHookFormZodModule,
+  validationUxAccessibleErrorsModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -328,6 +331,12 @@ export const frontendEngineeringLessons = [
   reactHookFormSubmitStateLesson,
   reactHookFormSchemaReuseLesson,
   reactHookFormZodAssessmentLesson,
+  validationInlineErrorsLesson,
+  validationSummaryErrorsLesson,
+  validationFocusManagementLesson,
+  validationDisabledStateLesson,
+  validationSuccessStateLesson,
+  validationUxAccessibleErrorsAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -376,6 +385,7 @@ export const frontendEngineeringQuizzes = [
   nextjsSupabaseBackendIntegrationAssessmentQuiz,
   nextjsProductionOperationsAssessmentQuiz,
   reactHookFormZodAssessmentQuiz,
+  validationUxAccessibleErrorsAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -531,4 +541,10 @@ export const frontendEngineeringChallenges = [
   handleProfileSubmitStateChallenge,
   reuseProfileSchemaTypeChallenge,
   buildValidatedProfileFormCheckpointChallenge,
+  showUsefulInlineProfileErrorChallenge,
+  addProfileErrorSummaryChallenge,
+  focusFirstInvalidProfileFieldChallenge,
+  addProfilePendingSubmitStateChallenge,
+  showProfileSaveSuccessFeedbackChallenge,
+  buildAccessibleProfileValidationCheckpointChallenge,
 ];
