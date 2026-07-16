@@ -36,6 +36,7 @@ export {
   nextjsServerClientComponentsModule,
   nextjsRouteBehaviorModule,
   localNextjsAppModule,
+  authenticationSessionAwareUiModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

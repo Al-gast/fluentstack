@@ -131,6 +131,11 @@ export {
   addCourseRouteMetadataChallenge,
   classifyNextEnvironmentValuesChallenge,
   buildCourseRouteBehaviorCheckpointChallenge,
+  buildAuthLoginFormStatesChallenge,
+  buildSessionAwareAppNavigationChallenge,
+  planAuthRouteAccessMapChallenge,
+  writeHelpfulAuthErrorStateMapChallenge,
+  buildAuthAwareRouteCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

@@ -125,4 +125,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "local-nextjs-app",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 11,
+    stage: "advanced",
+    title: "Production Next.js",
+    description:
+      "Menghubungkan Next.js app ke workflow production lewat authentication-aware UI, data persistence, deployment, dan debugging yang aman.",
+    moduleIds: ["nextjs-authentication-session-aware-ui"],
+  },
 ];

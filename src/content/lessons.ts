@@ -189,6 +189,11 @@ export {
   addNextjsMetadataLesson,
   pushNextjsProjectToGithubLesson,
   localNextjsAppAssessmentLesson,
+  nextjsLoginRegisterUxLesson,
+  nextjsLogoutSessionAwareNavLesson,
+  nextjsPublicProtectedRoutesLesson,
+  nextjsAuthErrorStatesLesson,
+  nextjsAuthenticationSessionAwareUiAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

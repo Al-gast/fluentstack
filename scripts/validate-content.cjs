@@ -60,6 +60,7 @@ const expectedFrontendModuleOrder = [
   "nextjs-server-client-components",
   "nextjs-route-behavior",
   "local-nextjs-app",
+  "nextjs-authentication-session-aware-ui",
 ];
 
 function resolveTsPath(basePath) {
