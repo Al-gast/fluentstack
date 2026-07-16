@@ -135,6 +135,7 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     moduleIds: [
       "nextjs-authentication-session-aware-ui",
       "nextjs-supabase-backend-integration",
+      "nextjs-production-operations",
     ],
   },
 ];

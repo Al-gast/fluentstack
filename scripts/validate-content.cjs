@@ -62,6 +62,7 @@ const expectedFrontendModuleOrder = [
   "local-nextjs-app",
   "nextjs-authentication-session-aware-ui",
   "nextjs-supabase-backend-integration",
+  "nextjs-production-operations",
 ];
 
 function resolveTsPath(basePath) {
@@ -227,7 +228,6 @@ function validateChallengeCheck(challenge, check) {
 
   if (
     [
-      "contains",
       "hasElement",
       "hasElementWithAttribute",
       "hasTextInElement",

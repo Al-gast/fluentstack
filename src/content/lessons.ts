@@ -200,6 +200,12 @@ export {
   nextjsPersistingUserDataLesson,
   nextjsProfileRowsLesson,
   nextjsSupabaseBackendIntegrationAssessmentLesson,
+  nextjsVercelDeploymentLesson,
+  nextjsProductionEnvironmentSetupLesson,
+  nextjsProductionLogsLesson,
+  nextjsCachingBasicsLesson,
+  nextjsDeploymentDebuggingLesson,
+  nextjsProductionOperationsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

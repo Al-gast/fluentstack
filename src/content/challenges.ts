@@ -142,6 +142,12 @@ export {
   planUserDataPersistenceFlowChallenge,
   modelUserProfileRowChallenge,
   buildSupabaseIntegrationCheckpointChallenge,
+  planVercelGitDeploymentChallenge,
+  classifyProductionEnvironmentValuesChallenge,
+  triageProductionLogCaseChallenge,
+  classifyProductionDataFreshnessChallenge,
+  planDeploymentDebuggingResponseChallenge,
+  buildProductionReadinessCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

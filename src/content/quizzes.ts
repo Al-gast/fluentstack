@@ -45,6 +45,7 @@ export {
   localNextjsAppAssessmentQuiz,
   nextjsAuthenticationSessionAwareUiAssessmentQuiz,
   nextjsSupabaseBackendIntegrationAssessmentQuiz,
+  nextjsProductionOperationsAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

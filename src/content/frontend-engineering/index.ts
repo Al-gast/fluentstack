@@ -34,6 +34,7 @@ import { nextjsRouteBehaviorModule, nextjsLoadingUiLesson, nextjsErrorUiLesson, 
 import { localNextjsAppModule, setupLocalNextjsProjectLesson, runNextjsDevServerLesson, createNextjsRouteLayoutLesson, addNextjsLoadingErrorUiLesson, addNextjsMetadataLesson, pushNextjsProjectToGithubLesson, localNextjsAppAssessmentLesson, localNextjsAppAssessmentQuiz } from "./level-10-nextjs-app-router/local-nextjs-app";
 import { authenticationSessionAwareUiModule, nextjsLoginRegisterUxLesson, nextjsLogoutSessionAwareNavLesson, nextjsPublicProtectedRoutesLesson, nextjsAuthErrorStatesLesson, nextjsAuthenticationSessionAwareUiAssessmentLesson, nextjsAuthenticationSessionAwareUiAssessmentQuiz, buildAuthLoginFormStatesChallenge, buildSessionAwareAppNavigationChallenge, planAuthRouteAccessMapChallenge, writeHelpfulAuthErrorStateMapChallenge, buildAuthAwareRouteCheckpointChallenge } from "./level-11-production-nextjs/authentication-session-aware-ui";
 import { supabaseBackendIntegrationModule, nextjsSupabaseClientBoundariesLesson, nextjsRlsConceptLesson, nextjsServiceLayerLesson, nextjsPersistingUserDataLesson, nextjsProfileRowsLesson, nextjsSupabaseBackendIntegrationAssessmentLesson, nextjsSupabaseBackendIntegrationAssessmentQuiz, classifySupabaseClientBoundariesChallenge, modelUserOwnedRlsPolicyChallenge, extractProfileServiceLayerChallenge, planUserDataPersistenceFlowChallenge, modelUserProfileRowChallenge, buildSupabaseIntegrationCheckpointChallenge } from "./level-11-production-nextjs/supabase-backend-integration";
+import { productionOperationsModule, nextjsVercelDeploymentLesson, nextjsProductionEnvironmentSetupLesson, nextjsProductionLogsLesson, nextjsCachingBasicsLesson, nextjsDeploymentDebuggingLesson, nextjsProductionOperationsAssessmentLesson, nextjsProductionOperationsAssessmentQuiz, planVercelGitDeploymentChallenge, classifyProductionEnvironmentValuesChallenge, triageProductionLogCaseChallenge, classifyProductionDataFreshnessChallenge, planDeploymentDebuggingResponseChallenge, buildProductionReadinessCheckpointChallenge } from "./level-11-production-nextjs/production-operations";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -71,6 +72,7 @@ export { nextjsRouteBehaviorModule, nextjsLoadingUiLesson, nextjsErrorUiLesson, 
 export { localNextjsAppModule, setupLocalNextjsProjectLesson, runNextjsDevServerLesson, createNextjsRouteLayoutLesson, addNextjsLoadingErrorUiLesson, addNextjsMetadataLesson, pushNextjsProjectToGithubLesson, localNextjsAppAssessmentLesson, localNextjsAppAssessmentQuiz } from "./level-10-nextjs-app-router/local-nextjs-app";
 export { authenticationSessionAwareUiModule, nextjsLoginRegisterUxLesson, nextjsLogoutSessionAwareNavLesson, nextjsPublicProtectedRoutesLesson, nextjsAuthErrorStatesLesson, nextjsAuthenticationSessionAwareUiAssessmentLesson, nextjsAuthenticationSessionAwareUiAssessmentQuiz, buildAuthLoginFormStatesChallenge, buildSessionAwareAppNavigationChallenge, planAuthRouteAccessMapChallenge, writeHelpfulAuthErrorStateMapChallenge, buildAuthAwareRouteCheckpointChallenge } from "./level-11-production-nextjs/authentication-session-aware-ui";
 export { supabaseBackendIntegrationModule, nextjsSupabaseClientBoundariesLesson, nextjsRlsConceptLesson, nextjsServiceLayerLesson, nextjsPersistingUserDataLesson, nextjsProfileRowsLesson, nextjsSupabaseBackendIntegrationAssessmentLesson, nextjsSupabaseBackendIntegrationAssessmentQuiz, classifySupabaseClientBoundariesChallenge, modelUserOwnedRlsPolicyChallenge, extractProfileServiceLayerChallenge, planUserDataPersistenceFlowChallenge, modelUserProfileRowChallenge, buildSupabaseIntegrationCheckpointChallenge } from "./level-11-production-nextjs/supabase-backend-integration";
+export { productionOperationsModule, nextjsVercelDeploymentLesson, nextjsProductionEnvironmentSetupLesson, nextjsProductionLogsLesson, nextjsCachingBasicsLesson, nextjsDeploymentDebuggingLesson, nextjsProductionOperationsAssessmentLesson, nextjsProductionOperationsAssessmentQuiz, planVercelGitDeploymentChallenge, classifyProductionEnvironmentValuesChallenge, triageProductionLogCaseChallenge, classifyProductionDataFreshnessChallenge, planDeploymentDebuggingResponseChallenge, buildProductionReadinessCheckpointChallenge } from "./level-11-production-nextjs/production-operations";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -109,6 +111,7 @@ export const frontendEngineeringModules = [
   localNextjsAppModule,
   authenticationSessionAwareUiModule,
   supabaseBackendIntegrationModule,
+  productionOperationsModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -310,6 +313,12 @@ export const frontendEngineeringLessons = [
   nextjsPersistingUserDataLesson,
   nextjsProfileRowsLesson,
   nextjsSupabaseBackendIntegrationAssessmentLesson,
+  nextjsVercelDeploymentLesson,
+  nextjsProductionEnvironmentSetupLesson,
+  nextjsProductionLogsLesson,
+  nextjsCachingBasicsLesson,
+  nextjsDeploymentDebuggingLesson,
+  nextjsProductionOperationsAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -356,6 +365,7 @@ export const frontendEngineeringQuizzes = [
   localNextjsAppAssessmentQuiz,
   nextjsAuthenticationSessionAwareUiAssessmentQuiz,
   nextjsSupabaseBackendIntegrationAssessmentQuiz,
+  nextjsProductionOperationsAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -499,4 +509,10 @@ export const frontendEngineeringChallenges = [
   planUserDataPersistenceFlowChallenge,
   modelUserProfileRowChallenge,
   buildSupabaseIntegrationCheckpointChallenge,
+  planVercelGitDeploymentChallenge,
+  classifyProductionEnvironmentValuesChallenge,
+  triageProductionLogCaseChallenge,
+  classifyProductionDataFreshnessChallenge,
+  planDeploymentDebuggingResponseChallenge,
+  buildProductionReadinessCheckpointChallenge,
 ];

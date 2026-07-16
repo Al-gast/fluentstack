@@ -38,6 +38,7 @@ export {
   localNextjsAppModule,
   authenticationSessionAwareUiModule,
   supabaseBackendIntegrationModule,
+  productionOperationsModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {
