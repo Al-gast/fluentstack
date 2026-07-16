@@ -17,6 +17,9 @@ type SyntaxRule = {
 const jsKeywords =
   "async|await|break|case|catch|class|const|continue|default|else|export|extends|false|finally|for|from|function|if|import|interface|let|new|null|return|switch|true|try|type|undefined|var|while";
 
+const sqlKeywords =
+  "alter|and|as|cascade|check|create|default|delete|enable|for|from|grant|insert|into|level|not|null|on|or|policy|primary|references|row|select|table|to|update|using|with";
+
 function pushToken(tokens: SyntaxToken[], text: string, className?: string) {
   if (!text) {
     return;
@@ -120,6 +123,19 @@ function getBashTokens(code: string): SyntaxToken[] {
   ]);
 }
 
+function getSqlTokens(code: string): SyntaxToken[] {
+  return tokenizeWithRules(code, [
+    { pattern: /^--[^\n]*/, className: "fs-syntax-comment" },
+    { pattern: /^\/\*[\s\S]*?\*\//, className: "fs-syntax-comment" },
+    { pattern: /^"(?:\\.|[^"\\])*"|^'(?:\\.|[^'\\])*'/, className: "fs-syntax-string" },
+    { pattern: new RegExp(`^\\b(?:${sqlKeywords})\\b`, "i"), className: "fs-syntax-keyword" },
+    { pattern: /^\b\d+(?:\.\d+)?\b/, className: "fs-syntax-number" },
+    { pattern: /^[A-Za-z_][\w$]*(?=\s*\()/, className: "fs-syntax-function" },
+    { pattern: /^[A-Za-z_][\w$]*(?=\s*=)/, className: "fs-syntax-property" },
+    { pattern: /^[{}()[\].,;:+\-*/%=&|!<>?]+/, className: "fs-syntax-punctuation" },
+  ]);
+}
+
 export function inferCodeLanguage(code: string): string {
   const trimmedCode = code.trim();
 
@@ -167,6 +183,10 @@ function getSyntaxTokens(code: string, language: string): SyntaxToken[] {
 
   if (normalizedLanguage === "bash" || normalizedLanguage === "shell") {
     return getBashTokens(code);
+  }
+
+  if (normalizedLanguage === "sql") {
+    return getSqlTokens(code);
   }
 
   return [{ text: code }];

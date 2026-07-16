@@ -33,6 +33,7 @@ import { nextjsServerClientComponentsModule, nextjsServerComponentsLesson, nextj
 import { nextjsRouteBehaviorModule, nextjsLoadingUiLesson, nextjsErrorUiLesson, nextjsRouteHandlersLesson, nextjsMetadataLesson, nextjsEnvironmentVariablesLesson, nextjsRouteBehaviorAssessmentLesson, nextjsRouteBehaviorAssessmentQuiz, buildCourseLoadingUiChallenge, buildCourseErrorRecoveryUiChallenge, createCourseSummaryRouteHandlerChallenge, addCourseRouteMetadataChallenge, classifyNextEnvironmentValuesChallenge, buildCourseRouteBehaviorCheckpointChallenge } from "./level-10-nextjs-app-router/route-behavior";
 import { localNextjsAppModule, setupLocalNextjsProjectLesson, runNextjsDevServerLesson, createNextjsRouteLayoutLesson, addNextjsLoadingErrorUiLesson, addNextjsMetadataLesson, pushNextjsProjectToGithubLesson, localNextjsAppAssessmentLesson, localNextjsAppAssessmentQuiz } from "./level-10-nextjs-app-router/local-nextjs-app";
 import { authenticationSessionAwareUiModule, nextjsLoginRegisterUxLesson, nextjsLogoutSessionAwareNavLesson, nextjsPublicProtectedRoutesLesson, nextjsAuthErrorStatesLesson, nextjsAuthenticationSessionAwareUiAssessmentLesson, nextjsAuthenticationSessionAwareUiAssessmentQuiz, buildAuthLoginFormStatesChallenge, buildSessionAwareAppNavigationChallenge, planAuthRouteAccessMapChallenge, writeHelpfulAuthErrorStateMapChallenge, buildAuthAwareRouteCheckpointChallenge } from "./level-11-production-nextjs/authentication-session-aware-ui";
+import { supabaseBackendIntegrationModule, nextjsSupabaseClientBoundariesLesson, nextjsRlsConceptLesson, nextjsServiceLayerLesson, nextjsPersistingUserDataLesson, nextjsProfileRowsLesson, nextjsSupabaseBackendIntegrationAssessmentLesson, nextjsSupabaseBackendIntegrationAssessmentQuiz, classifySupabaseClientBoundariesChallenge, modelUserOwnedRlsPolicyChallenge, extractProfileServiceLayerChallenge, planUserDataPersistenceFlowChallenge, modelUserProfileRowChallenge, buildSupabaseIntegrationCheckpointChallenge } from "./level-11-production-nextjs/supabase-backend-integration";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -69,6 +70,7 @@ export { nextjsServerClientComponentsModule, nextjsServerComponentsLesson, nextj
 export { nextjsRouteBehaviorModule, nextjsLoadingUiLesson, nextjsErrorUiLesson, nextjsRouteHandlersLesson, nextjsMetadataLesson, nextjsEnvironmentVariablesLesson, nextjsRouteBehaviorAssessmentLesson, nextjsRouteBehaviorAssessmentQuiz, buildCourseLoadingUiChallenge, buildCourseErrorRecoveryUiChallenge, createCourseSummaryRouteHandlerChallenge, addCourseRouteMetadataChallenge, classifyNextEnvironmentValuesChallenge, buildCourseRouteBehaviorCheckpointChallenge } from "./level-10-nextjs-app-router/route-behavior";
 export { localNextjsAppModule, setupLocalNextjsProjectLesson, runNextjsDevServerLesson, createNextjsRouteLayoutLesson, addNextjsLoadingErrorUiLesson, addNextjsMetadataLesson, pushNextjsProjectToGithubLesson, localNextjsAppAssessmentLesson, localNextjsAppAssessmentQuiz } from "./level-10-nextjs-app-router/local-nextjs-app";
 export { authenticationSessionAwareUiModule, nextjsLoginRegisterUxLesson, nextjsLogoutSessionAwareNavLesson, nextjsPublicProtectedRoutesLesson, nextjsAuthErrorStatesLesson, nextjsAuthenticationSessionAwareUiAssessmentLesson, nextjsAuthenticationSessionAwareUiAssessmentQuiz, buildAuthLoginFormStatesChallenge, buildSessionAwareAppNavigationChallenge, planAuthRouteAccessMapChallenge, writeHelpfulAuthErrorStateMapChallenge, buildAuthAwareRouteCheckpointChallenge } from "./level-11-production-nextjs/authentication-session-aware-ui";
+export { supabaseBackendIntegrationModule, nextjsSupabaseClientBoundariesLesson, nextjsRlsConceptLesson, nextjsServiceLayerLesson, nextjsPersistingUserDataLesson, nextjsProfileRowsLesson, nextjsSupabaseBackendIntegrationAssessmentLesson, nextjsSupabaseBackendIntegrationAssessmentQuiz, classifySupabaseClientBoundariesChallenge, modelUserOwnedRlsPolicyChallenge, extractProfileServiceLayerChallenge, planUserDataPersistenceFlowChallenge, modelUserProfileRowChallenge, buildSupabaseIntegrationCheckpointChallenge } from "./level-11-production-nextjs/supabase-backend-integration";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -106,6 +108,7 @@ export const frontendEngineeringModules = [
   nextjsRouteBehaviorModule,
   localNextjsAppModule,
   authenticationSessionAwareUiModule,
+  supabaseBackendIntegrationModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -301,6 +304,12 @@ export const frontendEngineeringLessons = [
   nextjsPublicProtectedRoutesLesson,
   nextjsAuthErrorStatesLesson,
   nextjsAuthenticationSessionAwareUiAssessmentLesson,
+  nextjsSupabaseClientBoundariesLesson,
+  nextjsRlsConceptLesson,
+  nextjsServiceLayerLesson,
+  nextjsPersistingUserDataLesson,
+  nextjsProfileRowsLesson,
+  nextjsSupabaseBackendIntegrationAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -346,6 +355,7 @@ export const frontendEngineeringQuizzes = [
   nextjsRouteBehaviorAssessmentQuiz,
   localNextjsAppAssessmentQuiz,
   nextjsAuthenticationSessionAwareUiAssessmentQuiz,
+  nextjsSupabaseBackendIntegrationAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -483,4 +493,10 @@ export const frontendEngineeringChallenges = [
   planAuthRouteAccessMapChallenge,
   writeHelpfulAuthErrorStateMapChallenge,
   buildAuthAwareRouteCheckpointChallenge,
+  classifySupabaseClientBoundariesChallenge,
+  modelUserOwnedRlsPolicyChallenge,
+  extractProfileServiceLayerChallenge,
+  planUserDataPersistenceFlowChallenge,
+  modelUserProfileRowChallenge,
+  buildSupabaseIntegrationCheckpointChallenge,
 ];

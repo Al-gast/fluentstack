@@ -132,6 +132,9 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     title: "Production Next.js",
     description:
       "Menghubungkan Next.js app ke workflow production lewat authentication-aware UI, data persistence, deployment, dan debugging yang aman.",
-    moduleIds: ["nextjs-authentication-session-aware-ui"],
+    moduleIds: [
+      "nextjs-authentication-session-aware-ui",
+      "nextjs-supabase-backend-integration",
+    ],
   },
 ];

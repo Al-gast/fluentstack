@@ -194,6 +194,12 @@ export {
   nextjsPublicProtectedRoutesLesson,
   nextjsAuthErrorStatesLesson,
   nextjsAuthenticationSessionAwareUiAssessmentLesson,
+  nextjsSupabaseClientBoundariesLesson,
+  nextjsRlsConceptLesson,
+  nextjsServiceLayerLesson,
+  nextjsPersistingUserDataLesson,
+  nextjsProfileRowsLesson,
+  nextjsSupabaseBackendIntegrationAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

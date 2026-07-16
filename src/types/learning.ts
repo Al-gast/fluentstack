@@ -76,7 +76,7 @@ export type CodeExampleBlock = {
   id: string;
   type: "code-example";
   title: string;
-  language: "html" | "css" | "js" | "ts" | "tsx" | "json" | "bash";
+  language: "html" | "css" | "js" | "ts" | "tsx" | "json" | "bash" | "sql";
   code: string;
   explanation?: string;
 };

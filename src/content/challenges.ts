@@ -136,6 +136,12 @@ export {
   planAuthRouteAccessMapChallenge,
   writeHelpfulAuthErrorStateMapChallenge,
   buildAuthAwareRouteCheckpointChallenge,
+  classifySupabaseClientBoundariesChallenge,
+  modelUserOwnedRlsPolicyChallenge,
+  extractProfileServiceLayerChallenge,
+  planUserDataPersistenceFlowChallenge,
+  modelUserProfileRowChallenge,
+  buildSupabaseIntegrationCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

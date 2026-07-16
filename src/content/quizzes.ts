@@ -44,6 +44,7 @@ export {
   nextjsRouteBehaviorAssessmentQuiz,
   localNextjsAppAssessmentQuiz,
   nextjsAuthenticationSessionAwareUiAssessmentQuiz,
+  nextjsSupabaseBackendIntegrationAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
