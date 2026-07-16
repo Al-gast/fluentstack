@@ -63,6 +63,7 @@ const expectedFrontendModuleOrder = [
   "nextjs-authentication-session-aware-ui",
   "nextjs-supabase-backend-integration",
   "nextjs-production-operations",
+  "react-hook-form-zod",
 ];
 
 function resolveTsPath(basePath) {

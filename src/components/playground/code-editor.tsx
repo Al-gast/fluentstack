@@ -50,6 +50,75 @@ declare namespace JSX {
     [elemName: string]: any;
   }
 }
+
+declare module "react-hook-form" {
+  export type FieldValues = object;
+  export type FieldError = { message?: string };
+  export type FieldErrors<T extends FieldValues> = Partial<
+    Record<keyof T, FieldError>
+  >;
+  export type SubmitHandler<T extends FieldValues> = (
+    values: T,
+  ) => void | Promise<void>;
+  export type UseFormRegisterReturn = {
+    name: string;
+    onBlur: () => void;
+    onChange: () => void;
+    ref: () => void;
+  };
+
+  export function useForm<T extends FieldValues>(options?: {
+    resolver?: unknown;
+    defaultValues?: Partial<T>;
+  }): {
+    register: (name: keyof T & string) => UseFormRegisterReturn;
+    handleSubmit: (handler: SubmitHandler<T>) => (event?: unknown) => void;
+    formState: { errors: FieldErrors<T>; isSubmitting: boolean };
+    reset: (values?: Partial<T>) => void;
+  };
+}
+
+declare module "@hookform/resolvers/zod" {
+  export function zodResolver(schema: unknown): unknown;
+}
+
+declare module "zod" {
+  export interface ZodType<Output = unknown> {
+    readonly _output?: Output;
+    safeParse(value: unknown):
+      | { success: true; data: Output }
+      | { success: false; error: unknown };
+  }
+
+  export interface ZodString extends ZodType<string> {
+    trim(): ZodString;
+    min(length: number, options?: unknown): ZodString;
+    max(length: number, options?: unknown): ZodString;
+  }
+
+  export type ZodRawShape = Record<string, ZodType<unknown>>;
+  export type InferShape<Shape extends ZodRawShape> = {
+    [Key in keyof Shape]: Shape[Key] extends ZodType<infer Output>
+      ? Output
+      : never;
+  };
+  export interface ZodObject<Shape extends ZodRawShape>
+    extends ZodType<InferShape<Shape>> {}
+
+  export const z: {
+    string(): ZodString;
+    email(options?: unknown): ZodString;
+    object<Shape extends ZodRawShape>(shape: Shape): ZodObject<Shape>;
+  };
+
+  export namespace z {
+    type infer<Schema extends ZodType<unknown>> = Schema extends ZodType<
+      infer Output
+    >
+      ? Output
+      : never;
+  }
+}
 `;
 
 function getCurrentMonacoTheme(): MonacoTheme {

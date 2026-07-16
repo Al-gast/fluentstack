@@ -39,6 +39,7 @@ export {
   authenticationSessionAwareUiModule,
   supabaseBackendIntegrationModule,
   productionOperationsModule,
+  reactHookFormZodModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

@@ -138,4 +138,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "nextjs-production-operations",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 12,
+    stage: "advanced",
+    title: "Forms, Validation, and Data Fetching",
+    description:
+      "Membangun flow form produk lewat schema validation, error yang jelas, submit state, dan keputusan data yang bertahap.",
+    moduleIds: ["react-hook-form-zod"],
+  },
 ];

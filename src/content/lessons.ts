@@ -206,6 +206,12 @@ export {
   nextjsCachingBasicsLesson,
   nextjsDeploymentDebuggingLesson,
   nextjsProductionOperationsAssessmentLesson,
+  reactHookFormRegistrationLesson,
+  zodFormSchemaLesson,
+  reactHookFormFieldErrorsLesson,
+  reactHookFormSubmitStateLesson,
+  reactHookFormSchemaReuseLesson,
+  reactHookFormZodAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

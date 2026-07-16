@@ -148,6 +148,12 @@ export {
   classifyProductionDataFreshnessChallenge,
   planDeploymentDebuggingResponseChallenge,
   buildProductionReadinessCheckpointChallenge,
+  registerProfileFormFieldsChallenge,
+  createProfileFormSchemaChallenge,
+  renderProfileFieldErrorsChallenge,
+  handleProfileSubmitStateChallenge,
+  reuseProfileSchemaTypeChallenge,
+  buildValidatedProfileFormCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 
