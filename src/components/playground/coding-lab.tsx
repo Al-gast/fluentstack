@@ -180,6 +180,10 @@ export function CodingLab({
     isReactPractice &&
     challenge.reactPractice?.mode === "structure" &&
     challenge.reactPractice.framework === "testing";
+  const isE2eStructurePractice =
+    isReactPractice &&
+    challenge.reactPractice?.mode === "structure" &&
+    challenge.reactPractice.framework === "e2e";
   const validationDescription =
     challenge.validation?.mode === "css"
       ? "Kami membaca aturan CSS yang kamu tulis. JavaScript tidak dijalankan untuk validasi."
@@ -190,6 +194,8 @@ export function CodingLab({
           : challenge.validation?.mode === "tsx"
             ? isReactRuntimePractice
               ? "Cek otomatis membaca struktur TSX. Jalankan preview untuk memastikan component dapat dirender."
+              : isE2eStructurePractice
+                ? "Cek otomatis membaca struktur E2E. Playwright dan browser test tidak dijalankan di workspace."
               : isTestingStructurePractice
                 ? "Cek otomatis membaca struktur test. Vitest dan React Testing Library tidak dijalankan di workspace."
                 : isNextStructurePractice
@@ -327,6 +333,8 @@ export function CodingLab({
         <p className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-3 text-xs leading-6 text-fs-text">
           {isReactRuntimePractice
             ? "Fokus di tab TSX. Jalankan preview setelah mengubah kode untuk melihat component bekerja."
+            : isE2eStructurePractice
+              ? "Fokus di tab TSX. Cek otomatis membaca struktur E2E; jalankan Playwright di local project."
             : isTestingStructurePractice
               ? "Fokus di tab TSX. Cek otomatis membaca struktur test; jalankan Vitest dan React Testing Library di local project."
               : isNextStructurePractice
@@ -568,14 +576,18 @@ export function CodingLab({
     <div className="flex h-full min-h-[320px] flex-col gap-4 overflow-y-auto rounded-lg border border-fs-border bg-fs-surface-soft p-4">
       <div className="rounded-lg border border-fs-info/20 bg-fs-info-soft p-4">
         <p className="text-sm font-semibold text-fs-text">
-          {isTestingStructurePractice
+          {isE2eStructurePractice
+            ? "Latihan strategi E2E"
+            : isTestingStructurePractice
             ? "Latihan struktur test"
             : isNextStructurePractice
               ? "Latihan struktur Next.js"
               : "Latihan struktur TSX"}
         </p>
         <p className="mt-2 text-sm leading-6 text-fs-text-soft">
-          {isTestingStructurePractice
+          {isE2eStructurePractice
+            ? "Sumber kebenaran latihan ini adalah journey, locator, assertion, dan cek otomatis. Playwright serta browser test tidak dijalankan di workspace; jalankan pattern ini di local project untuk melihat perjalanan user yang nyata."
+            : isTestingStructurePractice
             ? "Sumber kebenaran latihan ini adalah nama test, assertion, query, dan cek otomatis. Vitest serta React Testing Library tidak dijalankan di workspace; salin pattern ini ke local project untuk melihat hasil test nyata."
             : isNextStructurePractice
             ? "Sumber kebenaran latihan ini adalah struktur folder, nama file khusus, dan cek otomatis. Route tidak dijalankan di workspace; coba struktur ini kembali di Local Next.js App."
@@ -656,6 +668,8 @@ export function CodingLab({
         <p className="text-xs font-semibold uppercase tracking-normal text-fs-text-muted">
           {isReactRuntimePractice
             ? "Live React"
+            : isE2eStructurePractice
+              ? "Target journey"
             : isTestingStructurePractice
               ? "Target pengujian"
               : isNextStructurePractice
@@ -670,6 +684,8 @@ export function CodingLab({
           {isReactPractice
             ? isReactRuntimePractice
               ? "Sandbox runtime"
+              : isE2eStructurePractice
+                ? "Struktur E2E"
               : isTestingStructurePractice
                 ? "Struktur test"
                 : isNextStructurePractice

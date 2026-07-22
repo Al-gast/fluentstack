@@ -176,6 +176,11 @@ export {
   testCourseCatalogApiStatesChallenge,
   testSessionAwareCourseAccessChallenge,
   buildCourseApiIntegrationCheckpointChallenge,
+  chooseCourseBookmarkE2eJourneyChallenge,
+  writeFirstPlaywrightLessonTestChallenge,
+  testCourseNavigationJourneyChallenge,
+  fixFlakyCourseSaveTestChallenge,
+  buildCriticalLessonJourneyCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

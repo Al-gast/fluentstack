@@ -14,6 +14,7 @@ const supportedExpectedOutputKinds = new Set(["console", "preview", "behavior"])
 const supportedCurriculumStages = new Set(["beginner", "intermediate", "advanced"]);
 const supportedValidationRules = new Set([
   "contains",
+  "doesNotContain",
   "hasElement",
   "hasElementWithAttribute",
   "hasDoctype",
@@ -68,6 +69,7 @@ const expectedFrontendModuleOrder = [
   "server-state-thinking",
   "unit-component-testing",
   "integration-api-mocking",
+  "e2e-testing-strategy",
 ];
 
 function resolveTsPath(basePath) {
@@ -256,7 +258,7 @@ function validateChallengeCheck(challenge, check) {
     addError(`challenge:${challenge.id}: validation check ${check.id} requires property.`);
   }
 
-  if (["contains", "cssSelectorPropertyValue", "cssForbiddenTextAbsent"].includes(check.type) && !isNonEmptyString(check.valueIncludes)) {
+  if (["contains", "doesNotContain", "cssSelectorPropertyValue", "cssForbiddenTextAbsent"].includes(check.type) && !isNonEmptyString(check.valueIncludes)) {
     addError(`challenge:${challenge.id}: validation check ${check.id} requires valueIncludes.`);
   }
 }

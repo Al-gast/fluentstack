@@ -158,6 +158,10 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     title: "Testing",
     description:
       "Menguji behavior frontend penting lewat unit test, component test, user interaction, dan accessible query tanpa bergantung pada implementation detail.",
-    moduleIds: ["unit-component-testing", "integration-api-mocking"],
+    moduleIds: [
+      "unit-component-testing",
+      "integration-api-mocking",
+      "e2e-testing-strategy",
+    ],
   },
 ];

@@ -51,6 +51,7 @@ export {
   serverStateThinkingAssessmentQuiz,
   unitComponentTestingAssessmentQuiz,
   integrationApiMockingAssessmentQuiz,
+  e2eTestingStrategyAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

@@ -40,6 +40,7 @@ import { validationUxAccessibleErrorsModule, validationInlineErrorsLesson, valid
 import { serverStateThinkingModule, serverStateVsClientStateLesson, serverStateLoadingErrorEmptyLesson, serverStateMappingApiResponsesLesson, serverStateOptimisticUiBasicsLesson, serverStateThinkingAssessmentLesson, serverStateThinkingAssessmentQuiz, classifyCourseServerAndClientStateChallenge, renderCourseServerStateFlowChallenge, mapCourseApiResponseToCardModelChallenge, addOptimisticCourseBookmarkRollbackChallenge, buildCourseServerStateCheckpointChallenge } from "./level-12-forms-validation-data-fetching/server-state-thinking";
 import { unitComponentTestingModule, testingMindsetLesson, vitestBasicsLesson, reactTestingLibraryLesson, testingUserEventsLesson, testingAccessibleQueriesLesson, unitComponentTestingAssessmentLesson, unitComponentTestingAssessmentQuiz, writeCourseStatusBehaviorTestChallenge, writeFormatDurationVitestTestChallenge, testProfileStatusVisibleOutputChallenge, testCourseBookmarkUserEventChallenge, testProfileFormWithAccessibleQueriesChallenge, buildBookmarkComponentBehaviorTestChallenge } from "./level-13-testing/unit-component-testing";
 import { integrationApiMockingModule, integrationTestScopeLesson, mswBasicsLesson, testingApiLoadingErrorSuccessLesson, authAdjacentTestCasesLesson, integrationApiMockingAssessmentLesson, integrationApiMockingAssessmentQuiz, chooseCourseCatalogIntegrationBoundaryChallenge, mockCourseCatalogApiResponseChallenge, testCourseCatalogApiStatesChallenge, testSessionAwareCourseAccessChallenge, buildCourseApiIntegrationCheckpointChallenge } from "./level-13-testing/integration-api-mocking";
+import { e2eTestingStrategyModule, whatE2eShouldCoverLesson, playwrightBasicsLesson, criticalUserJourneysLesson, flakyTestCausesLesson, e2eTestingStrategyAssessmentLesson, e2eTestingStrategyAssessmentQuiz, chooseCourseBookmarkE2eJourneyChallenge, writeFirstPlaywrightLessonTestChallenge, testCourseNavigationJourneyChallenge, fixFlakyCourseSaveTestChallenge, buildCriticalLessonJourneyCheckpointChallenge } from "./level-13-testing/e2e-testing-strategy";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -83,6 +84,7 @@ export { validationUxAccessibleErrorsModule, validationInlineErrorsLesson, valid
 export { serverStateThinkingModule, serverStateVsClientStateLesson, serverStateLoadingErrorEmptyLesson, serverStateMappingApiResponsesLesson, serverStateOptimisticUiBasicsLesson, serverStateThinkingAssessmentLesson, serverStateThinkingAssessmentQuiz, classifyCourseServerAndClientStateChallenge, renderCourseServerStateFlowChallenge, mapCourseApiResponseToCardModelChallenge, addOptimisticCourseBookmarkRollbackChallenge, buildCourseServerStateCheckpointChallenge } from "./level-12-forms-validation-data-fetching/server-state-thinking";
 export { unitComponentTestingModule, testingMindsetLesson, vitestBasicsLesson, reactTestingLibraryLesson, testingUserEventsLesson, testingAccessibleQueriesLesson, unitComponentTestingAssessmentLesson, unitComponentTestingAssessmentQuiz, writeCourseStatusBehaviorTestChallenge, writeFormatDurationVitestTestChallenge, testProfileStatusVisibleOutputChallenge, testCourseBookmarkUserEventChallenge, testProfileFormWithAccessibleQueriesChallenge, buildBookmarkComponentBehaviorTestChallenge } from "./level-13-testing/unit-component-testing";
 export { integrationApiMockingModule, integrationTestScopeLesson, mswBasicsLesson, testingApiLoadingErrorSuccessLesson, authAdjacentTestCasesLesson, integrationApiMockingAssessmentLesson, integrationApiMockingAssessmentQuiz, chooseCourseCatalogIntegrationBoundaryChallenge, mockCourseCatalogApiResponseChallenge, testCourseCatalogApiStatesChallenge, testSessionAwareCourseAccessChallenge, buildCourseApiIntegrationCheckpointChallenge } from "./level-13-testing/integration-api-mocking";
+export { e2eTestingStrategyModule, whatE2eShouldCoverLesson, playwrightBasicsLesson, criticalUserJourneysLesson, flakyTestCausesLesson, e2eTestingStrategyAssessmentLesson, e2eTestingStrategyAssessmentQuiz, chooseCourseBookmarkE2eJourneyChallenge, writeFirstPlaywrightLessonTestChallenge, testCourseNavigationJourneyChallenge, fixFlakyCourseSaveTestChallenge, buildCriticalLessonJourneyCheckpointChallenge } from "./level-13-testing/e2e-testing-strategy";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -127,6 +129,7 @@ export const frontendEngineeringModules = [
   serverStateThinkingModule,
   unitComponentTestingModule,
   integrationApiMockingModule,
+  e2eTestingStrategyModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -362,6 +365,11 @@ export const frontendEngineeringLessons = [
   testingApiLoadingErrorSuccessLesson,
   authAdjacentTestCasesLesson,
   integrationApiMockingAssessmentLesson,
+  whatE2eShouldCoverLesson,
+  playwrightBasicsLesson,
+  criticalUserJourneysLesson,
+  flakyTestCausesLesson,
+  e2eTestingStrategyAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -414,6 +422,7 @@ export const frontendEngineeringQuizzes = [
   serverStateThinkingAssessmentQuiz,
   unitComponentTestingAssessmentQuiz,
   integrationApiMockingAssessmentQuiz,
+  e2eTestingStrategyAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -591,4 +600,9 @@ export const frontendEngineeringChallenges = [
   testCourseCatalogApiStatesChallenge,
   testSessionAwareCourseAccessChallenge,
   buildCourseApiIntegrationCheckpointChallenge,
+  chooseCourseBookmarkE2eJourneyChallenge,
+  writeFirstPlaywrightLessonTestChallenge,
+  testCourseNavigationJourneyChallenge,
+  fixFlakyCourseSaveTestChallenge,
+  buildCriticalLessonJourneyCheckpointChallenge,
 ];

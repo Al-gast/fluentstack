@@ -155,6 +155,31 @@ declare module "msw/node" {
   };
 }
 
+declare module "@playwright/test" {
+  export type Locator = {
+    click(): Promise<void>;
+    fill(value: string): Promise<void>;
+  };
+
+  export type Page = {
+    goto(url: string): Promise<void>;
+    getByRole(role: string, options?: { name?: string | RegExp }): Locator;
+    getByLabel(text: string | RegExp): Locator;
+    getByText(text: string | RegExp): Locator;
+  };
+
+  export const test: (
+    name: string,
+    callback: (fixtures: { page: Page }) => void | Promise<void>,
+  ) => void;
+
+  export function expect(target: unknown): {
+    toBeVisible(): Promise<void>;
+    toHaveURL(url: string | RegExp): Promise<void>;
+    toHaveText(text: string | RegExp): Promise<void>;
+  };
+}
+
 declare module "zod" {
   export interface ZodType<Output = unknown> {
     readonly _output?: Output;

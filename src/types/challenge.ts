@@ -9,6 +9,7 @@ export type ChallengeCode = {
 
 export type ChallengeValidationCheckType =
   | "contains"
+  | "doesNotContain"
   | "hasElement"
   | "hasElementWithAttribute"
   | "hasDoctype"
@@ -53,7 +54,7 @@ export type ChallengeExpectedOutput =
 export type ReactPracticePresentation =
   | {
       mode: "structure";
-      framework?: "react" | "next" | "testing";
+      framework?: "react" | "next" | "testing" | "e2e";
     }
   | {
       mode: "runtime";

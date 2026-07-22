@@ -234,6 +234,11 @@ export {
   testingApiLoadingErrorSuccessLesson,
   authAdjacentTestCasesLesson,
   integrationApiMockingAssessmentLesson,
+  whatE2eShouldCoverLesson,
+  playwrightBasicsLesson,
+  criticalUserJourneysLesson,
+  flakyTestCausesLesson,
+  e2eTestingStrategyAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

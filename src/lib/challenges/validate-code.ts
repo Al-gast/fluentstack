@@ -62,15 +62,20 @@ function validateCheck(
     };
   }
 
-  if (check.type === "contains") {
+  if (check.type === "contains" || check.type === "doesNotContain") {
     const expectedValue = check.valueIncludes ?? check.target ?? "";
-    const passed = expectedValue
+    const includesExpectedValue = expectedValue
       ? html.toLowerCase().includes(expectedValue.toLowerCase())
       : false;
+    const passed = check.type === "contains" ? includesExpectedValue : !includesExpectedValue;
 
     return {
       passed,
-      message: expectedValue ? `Pastikan kode memuat ${expectedValue}.` : "Isi target check belum lengkap.",
+      message: expectedValue
+        ? check.type === "contains"
+          ? `Pastikan kode memuat ${expectedValue}.`
+          : `Hindari memakai ${expectedValue}.`
+        : "Isi target check belum lengkap.",
     };
   }
 
@@ -265,19 +270,22 @@ function validateTextCheck(
   sourceCode: string,
   sourceLabel: string,
 ): Pick<ChallengeValidationResult, "passed" | "message"> {
-  if (check.type !== "contains") {
+  if (check.type !== "contains" && check.type !== "doesNotContain") {
     return { passed: false, message: `Tipe check ${sourceLabel} belum didukung.` };
   }
 
   const expectedValue = check.valueIncludes ?? check.target ?? "";
-  const passed = expectedValue
+  const includesExpectedValue = expectedValue
     ? sourceCode.toLowerCase().includes(expectedValue.toLowerCase())
     : false;
+  const passed = check.type === "contains" ? includesExpectedValue : !includesExpectedValue;
 
   return {
     passed,
     message: expectedValue
-      ? `Pastikan kode ${sourceLabel} memuat ${expectedValue}.`
+      ? check.type === "contains"
+        ? `Pastikan kode ${sourceLabel} memuat ${expectedValue}.`
+        : `Hindari memakai ${expectedValue} di kode ${sourceLabel}.`
       : "Isi target check belum lengkap.",
   };
 }
