@@ -53,6 +53,7 @@ export {
   integrationApiMockingAssessmentQuiz,
   e2eTestingStrategyAssessmentQuiz,
   coreWebVitalsAssessmentQuiz,
+  assetBundleOptimizationAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

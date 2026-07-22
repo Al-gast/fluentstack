@@ -43,6 +43,63 @@ declare module "react/jsx-runtime" {
   export function jsxs(type: unknown, props: unknown, key?: unknown): unknown;
 }
 
+declare module "next/image" {
+  type ImageProps = {
+    src: string;
+    alt: string;
+    width?: number;
+    height?: number;
+    preload?: boolean;
+    sizes?: string;
+  };
+
+  const Image: (props: ImageProps) => JSX.Element;
+  export default Image;
+}
+
+declare module "next/font/google" {
+  type FontOptions = {
+    subsets: string[];
+    display?: "auto" | "block" | "swap" | "fallback" | "optional";
+    variable?: string;
+  };
+
+  type NextFont = {
+    className: string;
+    variable: string;
+  };
+
+  export function Montserrat(options: FontOptions): NextFont;
+}
+
+declare module "next/dynamic" {
+  type DynamicComponent = (props: any) => JSX.Element;
+
+  type DynamicOptions = {
+    loading?: () => JSX.Element;
+    ssr?: boolean;
+  };
+
+  const dynamic: (
+    loader: () => Promise<{ default: DynamicComponent }>,
+    options?: DynamicOptions,
+  ) => DynamicComponent;
+
+  export default dynamic;
+}
+
+declare module "@/components/course-insights" {
+  const CourseInsights: (props: { courseId: string }) => JSX.Element;
+  export default CourseInsights;
+}
+
+declare module "fuse.js" {
+  export default class Fuse<T> {
+    constructor(list: T[]);
+    search(query: string): Array<{ item: T }>;
+  }
+}
+
 declare namespace React {
   type ReactNode = import("react").ReactNode;
 }

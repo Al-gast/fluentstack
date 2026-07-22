@@ -71,6 +71,7 @@ const expectedFrontendModuleOrder = [
   "integration-api-mocking",
   "e2e-testing-strategy",
   "core-web-vitals",
+  "asset-bundle-optimization",
 ];
 
 function resolveTsPath(basePath) {

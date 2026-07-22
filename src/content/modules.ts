@@ -46,6 +46,7 @@ export {
   integrationApiMockingModule,
   e2eTestingStrategyModule,
   coreWebVitalsModule,
+  assetBundleOptimizationModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

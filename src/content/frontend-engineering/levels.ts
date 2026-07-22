@@ -171,6 +171,6 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     title: "Performance",
     description:
       "Mengukur dan mengurangi biaya performance nyata lewat Core Web Vitals, asset cost, bundle awareness, serta rendering decisions yang terarah.",
-    moduleIds: ["core-web-vitals"],
+    moduleIds: ["core-web-vitals", "asset-bundle-optimization"],
   },
 ];

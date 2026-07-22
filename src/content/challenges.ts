@@ -181,6 +181,11 @@ export {
   testCourseNavigationJourneyChallenge,
   fixFlakyCourseSaveTestChallenge,
   buildCriticalLessonJourneyCheckpointChallenge,
+  optimizeCourseHeroImageChallenge,
+  configureLearningFontWithNextFontChallenge,
+  splitCourseInsightsPanelChallenge,
+  loadCourseSearchLibraryOnDemandChallenge,
+  buildOptimizedCoursePageCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

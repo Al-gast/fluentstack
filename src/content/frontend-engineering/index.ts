@@ -42,6 +42,7 @@ import { unitComponentTestingModule, testingMindsetLesson, vitestBasicsLesson, r
 import { integrationApiMockingModule, integrationTestScopeLesson, mswBasicsLesson, testingApiLoadingErrorSuccessLesson, authAdjacentTestCasesLesson, integrationApiMockingAssessmentLesson, integrationApiMockingAssessmentQuiz, chooseCourseCatalogIntegrationBoundaryChallenge, mockCourseCatalogApiResponseChallenge, testCourseCatalogApiStatesChallenge, testSessionAwareCourseAccessChallenge, buildCourseApiIntegrationCheckpointChallenge } from "./level-13-testing/integration-api-mocking";
 import { e2eTestingStrategyModule, whatE2eShouldCoverLesson, playwrightBasicsLesson, criticalUserJourneysLesson, flakyTestCausesLesson, e2eTestingStrategyAssessmentLesson, e2eTestingStrategyAssessmentQuiz, chooseCourseBookmarkE2eJourneyChallenge, writeFirstPlaywrightLessonTestChallenge, testCourseNavigationJourneyChallenge, fixFlakyCourseSaveTestChallenge, buildCriticalLessonJourneyCheckpointChallenge } from "./level-13-testing/e2e-testing-strategy";
 import { coreWebVitalsModule, lcpLesson, inpLesson, clsLesson, lighthouseFieldVsLabDataLesson, performanceBudgetLesson, coreWebVitalsAssessmentLesson, coreWebVitalsAssessmentQuiz } from "./level-14-performance/core-web-vitals";
+import { assetBundleOptimizationModule, imageOptimizationLesson, fontOptimizationLesson, bundleAwarenessLesson, codeSplittingLesson, dynamicImportsLesson, assetBundleOptimizationAssessmentLesson, assetBundleOptimizationAssessmentQuiz, optimizeCourseHeroImageChallenge, configureLearningFontWithNextFontChallenge, splitCourseInsightsPanelChallenge, loadCourseSearchLibraryOnDemandChallenge, buildOptimizedCoursePageCheckpointChallenge } from "./level-14-performance/asset-bundle-optimization";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -87,6 +88,7 @@ export { unitComponentTestingModule, testingMindsetLesson, vitestBasicsLesson, r
 export { integrationApiMockingModule, integrationTestScopeLesson, mswBasicsLesson, testingApiLoadingErrorSuccessLesson, authAdjacentTestCasesLesson, integrationApiMockingAssessmentLesson, integrationApiMockingAssessmentQuiz, chooseCourseCatalogIntegrationBoundaryChallenge, mockCourseCatalogApiResponseChallenge, testCourseCatalogApiStatesChallenge, testSessionAwareCourseAccessChallenge, buildCourseApiIntegrationCheckpointChallenge } from "./level-13-testing/integration-api-mocking";
 export { e2eTestingStrategyModule, whatE2eShouldCoverLesson, playwrightBasicsLesson, criticalUserJourneysLesson, flakyTestCausesLesson, e2eTestingStrategyAssessmentLesson, e2eTestingStrategyAssessmentQuiz, chooseCourseBookmarkE2eJourneyChallenge, writeFirstPlaywrightLessonTestChallenge, testCourseNavigationJourneyChallenge, fixFlakyCourseSaveTestChallenge, buildCriticalLessonJourneyCheckpointChallenge } from "./level-13-testing/e2e-testing-strategy";
 export { coreWebVitalsModule, lcpLesson, inpLesson, clsLesson, lighthouseFieldVsLabDataLesson, performanceBudgetLesson, coreWebVitalsAssessmentLesson, coreWebVitalsAssessmentQuiz } from "./level-14-performance/core-web-vitals";
+export { assetBundleOptimizationModule, imageOptimizationLesson, fontOptimizationLesson, bundleAwarenessLesson, codeSplittingLesson, dynamicImportsLesson, assetBundleOptimizationAssessmentLesson, assetBundleOptimizationAssessmentQuiz, optimizeCourseHeroImageChallenge, configureLearningFontWithNextFontChallenge, splitCourseInsightsPanelChallenge, loadCourseSearchLibraryOnDemandChallenge, buildOptimizedCoursePageCheckpointChallenge } from "./level-14-performance/asset-bundle-optimization";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -133,6 +135,7 @@ export const frontendEngineeringModules = [
   integrationApiMockingModule,
   e2eTestingStrategyModule,
   coreWebVitalsModule,
+  assetBundleOptimizationModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -379,6 +382,12 @@ export const frontendEngineeringLessons = [
   lighthouseFieldVsLabDataLesson,
   performanceBudgetLesson,
   coreWebVitalsAssessmentLesson,
+  imageOptimizationLesson,
+  fontOptimizationLesson,
+  bundleAwarenessLesson,
+  codeSplittingLesson,
+  dynamicImportsLesson,
+  assetBundleOptimizationAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -433,6 +442,7 @@ export const frontendEngineeringQuizzes = [
   integrationApiMockingAssessmentQuiz,
   e2eTestingStrategyAssessmentQuiz,
   coreWebVitalsAssessmentQuiz,
+  assetBundleOptimizationAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -615,4 +625,9 @@ export const frontendEngineeringChallenges = [
   testCourseNavigationJourneyChallenge,
   fixFlakyCourseSaveTestChallenge,
   buildCriticalLessonJourneyCheckpointChallenge,
+  optimizeCourseHeroImageChallenge,
+  configureLearningFontWithNextFontChallenge,
+  splitCourseInsightsPanelChallenge,
+  loadCourseSearchLibraryOnDemandChallenge,
+  buildOptimizedCoursePageCheckpointChallenge,
 ];

@@ -245,6 +245,12 @@ export {
   lighthouseFieldVsLabDataLesson,
   performanceBudgetLesson,
   coreWebVitalsAssessmentLesson,
+  imageOptimizationLesson,
+  fontOptimizationLesson,
+  bundleAwarenessLesson,
+  codeSplittingLesson,
+  dynamicImportsLesson,
+  assetBundleOptimizationAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {
