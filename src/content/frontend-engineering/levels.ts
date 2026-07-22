@@ -151,4 +151,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "server-state-thinking",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 13,
+    stage: "advanced",
+    title: "Testing",
+    description:
+      "Menguji behavior frontend penting lewat unit test, component test, user interaction, dan accessible query tanpa bergantung pada implementation detail.",
+    moduleIds: ["unit-component-testing"],
+  },
 ];

@@ -223,6 +223,12 @@ export {
   serverStateMappingApiResponsesLesson,
   serverStateOptimisticUiBasicsLesson,
   serverStateThinkingAssessmentLesson,
+  testingMindsetLesson,
+  vitestBasicsLesson,
+  reactTestingLibraryLesson,
+  testingUserEventsLesson,
+  testingAccessibleQueriesLesson,
+  unitComponentTestingAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

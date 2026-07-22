@@ -38,6 +38,7 @@ import { productionOperationsModule, nextjsVercelDeploymentLesson, nextjsProduct
 import { reactHookFormZodModule, reactHookFormRegistrationLesson, zodFormSchemaLesson, reactHookFormFieldErrorsLesson, reactHookFormSubmitStateLesson, reactHookFormSchemaReuseLesson, reactHookFormZodAssessmentLesson, reactHookFormZodAssessmentQuiz, registerProfileFormFieldsChallenge, createProfileFormSchemaChallenge, renderProfileFieldErrorsChallenge, handleProfileSubmitStateChallenge, reuseProfileSchemaTypeChallenge, buildValidatedProfileFormCheckpointChallenge } from "./level-12-forms-validation-data-fetching/react-hook-form-zod";
 import { validationUxAccessibleErrorsModule, validationInlineErrorsLesson, validationSummaryErrorsLesson, validationFocusManagementLesson, validationDisabledStateLesson, validationSuccessStateLesson, validationUxAccessibleErrorsAssessmentLesson, validationUxAccessibleErrorsAssessmentQuiz, showUsefulInlineProfileErrorChallenge, addProfileErrorSummaryChallenge, focusFirstInvalidProfileFieldChallenge, addProfilePendingSubmitStateChallenge, showProfileSaveSuccessFeedbackChallenge, buildAccessibleProfileValidationCheckpointChallenge } from "./level-12-forms-validation-data-fetching/validation-ux-accessible-errors";
 import { serverStateThinkingModule, serverStateVsClientStateLesson, serverStateLoadingErrorEmptyLesson, serverStateMappingApiResponsesLesson, serverStateOptimisticUiBasicsLesson, serverStateThinkingAssessmentLesson, serverStateThinkingAssessmentQuiz, classifyCourseServerAndClientStateChallenge, renderCourseServerStateFlowChallenge, mapCourseApiResponseToCardModelChallenge, addOptimisticCourseBookmarkRollbackChallenge, buildCourseServerStateCheckpointChallenge } from "./level-12-forms-validation-data-fetching/server-state-thinking";
+import { unitComponentTestingModule, testingMindsetLesson, vitestBasicsLesson, reactTestingLibraryLesson, testingUserEventsLesson, testingAccessibleQueriesLesson, unitComponentTestingAssessmentLesson, unitComponentTestingAssessmentQuiz, writeCourseStatusBehaviorTestChallenge, writeFormatDurationVitestTestChallenge, testProfileStatusVisibleOutputChallenge, testCourseBookmarkUserEventChallenge, testProfileFormWithAccessibleQueriesChallenge, buildBookmarkComponentBehaviorTestChallenge } from "./level-13-testing/unit-component-testing";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -79,6 +80,7 @@ export { productionOperationsModule, nextjsVercelDeploymentLesson, nextjsProduct
 export { reactHookFormZodModule, reactHookFormRegistrationLesson, zodFormSchemaLesson, reactHookFormFieldErrorsLesson, reactHookFormSubmitStateLesson, reactHookFormSchemaReuseLesson, reactHookFormZodAssessmentLesson, reactHookFormZodAssessmentQuiz, registerProfileFormFieldsChallenge, createProfileFormSchemaChallenge, renderProfileFieldErrorsChallenge, handleProfileSubmitStateChallenge, reuseProfileSchemaTypeChallenge, buildValidatedProfileFormCheckpointChallenge } from "./level-12-forms-validation-data-fetching/react-hook-form-zod";
 export { validationUxAccessibleErrorsModule, validationInlineErrorsLesson, validationSummaryErrorsLesson, validationFocusManagementLesson, validationDisabledStateLesson, validationSuccessStateLesson, validationUxAccessibleErrorsAssessmentLesson, validationUxAccessibleErrorsAssessmentQuiz, showUsefulInlineProfileErrorChallenge, addProfileErrorSummaryChallenge, focusFirstInvalidProfileFieldChallenge, addProfilePendingSubmitStateChallenge, showProfileSaveSuccessFeedbackChallenge, buildAccessibleProfileValidationCheckpointChallenge } from "./level-12-forms-validation-data-fetching/validation-ux-accessible-errors";
 export { serverStateThinkingModule, serverStateVsClientStateLesson, serverStateLoadingErrorEmptyLesson, serverStateMappingApiResponsesLesson, serverStateOptimisticUiBasicsLesson, serverStateThinkingAssessmentLesson, serverStateThinkingAssessmentQuiz, classifyCourseServerAndClientStateChallenge, renderCourseServerStateFlowChallenge, mapCourseApiResponseToCardModelChallenge, addOptimisticCourseBookmarkRollbackChallenge, buildCourseServerStateCheckpointChallenge } from "./level-12-forms-validation-data-fetching/server-state-thinking";
+export { unitComponentTestingModule, testingMindsetLesson, vitestBasicsLesson, reactTestingLibraryLesson, testingUserEventsLesson, testingAccessibleQueriesLesson, unitComponentTestingAssessmentLesson, unitComponentTestingAssessmentQuiz, writeCourseStatusBehaviorTestChallenge, writeFormatDurationVitestTestChallenge, testProfileStatusVisibleOutputChallenge, testCourseBookmarkUserEventChallenge, testProfileFormWithAccessibleQueriesChallenge, buildBookmarkComponentBehaviorTestChallenge } from "./level-13-testing/unit-component-testing";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -121,6 +123,7 @@ export const frontendEngineeringModules = [
   reactHookFormZodModule,
   validationUxAccessibleErrorsModule,
   serverStateThinkingModule,
+  unitComponentTestingModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -345,6 +348,12 @@ export const frontendEngineeringLessons = [
   serverStateMappingApiResponsesLesson,
   serverStateOptimisticUiBasicsLesson,
   serverStateThinkingAssessmentLesson,
+  testingMindsetLesson,
+  vitestBasicsLesson,
+  reactTestingLibraryLesson,
+  testingUserEventsLesson,
+  testingAccessibleQueriesLesson,
+  unitComponentTestingAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -395,6 +404,7 @@ export const frontendEngineeringQuizzes = [
   reactHookFormZodAssessmentQuiz,
   validationUxAccessibleErrorsAssessmentQuiz,
   serverStateThinkingAssessmentQuiz,
+  unitComponentTestingAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -561,4 +571,10 @@ export const frontendEngineeringChallenges = [
   mapCourseApiResponseToCardModelChallenge,
   addOptimisticCourseBookmarkRollbackChallenge,
   buildCourseServerStateCheckpointChallenge,
+  writeCourseStatusBehaviorTestChallenge,
+  writeFormatDurationVitestTestChallenge,
+  testProfileStatusVisibleOutputChallenge,
+  testCourseBookmarkUserEventChallenge,
+  testProfileFormWithAccessibleQueriesChallenge,
+  buildBookmarkComponentBehaviorTestChallenge,
 ];

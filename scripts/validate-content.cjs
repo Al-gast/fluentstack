@@ -66,6 +66,7 @@ const expectedFrontendModuleOrder = [
   "react-hook-form-zod",
   "validation-ux-accessible-errors",
   "server-state-thinking",
+  "unit-component-testing",
 ];
 
 function resolveTsPath(basePath) {

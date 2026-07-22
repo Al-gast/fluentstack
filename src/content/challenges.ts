@@ -165,6 +165,12 @@ export {
   mapCourseApiResponseToCardModelChallenge,
   addOptimisticCourseBookmarkRollbackChallenge,
   buildCourseServerStateCheckpointChallenge,
+  writeCourseStatusBehaviorTestChallenge,
+  writeFormatDurationVitestTestChallenge,
+  testProfileStatusVisibleOutputChallenge,
+  testCourseBookmarkUserEventChallenge,
+  testProfileFormWithAccessibleQueriesChallenge,
+  buildBookmarkComponentBehaviorTestChallenge,
 } from "@/content/frontend-engineering";
 
 

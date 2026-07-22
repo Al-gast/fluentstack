@@ -177,6 +177,8 @@ function PracticeWorkspaceStateful({
   const isReactRuntimePractice = reactPracticeMode === "runtime";
   const isNextStructurePractice =
     reactPracticeMode === "structure" && challenge.reactPractice?.framework === "next";
+  const isTestingStructurePractice =
+    reactPracticeMode === "structure" && challenge.reactPractice?.framework === "testing";
   const preferenceScope: WorkspacePreferenceScope = isReactRuntimePractice
     ? "react-runtime"
     : isReactPractice
@@ -365,7 +367,9 @@ function PracticeWorkspaceStateful({
               <span className="rounded-lg border border-fs-border bg-fs-surface px-2.5 py-1.5 text-xs font-semibold text-fs-text-soft">
                 {isReactRuntimePractice
                   ? "Mode: live React"
-                  : isNextStructurePractice
+                  : isTestingStructurePractice
+                    ? "Mode: struktur test"
+                    : isNextStructurePractice
                     ? "Mode: struktur Next.js"
                     : "Mode: struktur TSX"}
               </span>

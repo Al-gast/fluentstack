@@ -86,6 +86,46 @@ declare module "@hookform/resolvers/zod" {
   export function zodResolver(schema: unknown): unknown;
 }
 
+declare module "vitest" {
+  export type TestCallback = () => void | Promise<void>;
+  export function describe(name: string, callback: TestCallback): void;
+  export function it(name: string, callback: TestCallback): void;
+  export const test: typeof it;
+  export function expect(actual: unknown): {
+    toBe(expected: unknown): void;
+    toEqual(expected: unknown): void;
+    toBeInTheDocument(): void;
+    toHaveTextContent(expected: string | RegExp): void;
+    toHaveValue(expected: string | number): void;
+    toBeVisible(): void;
+  };
+}
+
+declare module "@testing-library/react" {
+  export function render(ui: unknown): { unmount(): void };
+  export const screen: {
+    getByRole(role: string, options?: { name?: string | RegExp }): unknown;
+    getByLabelText(text: string | RegExp): unknown;
+    getByText(text: string | RegExp): unknown;
+    queryByRole(role: string, options?: { name?: string | RegExp }): unknown;
+  };
+}
+
+declare module "@testing-library/user-event" {
+  export type UserEvent = {
+    click(element: unknown): Promise<void>;
+    type(element: unknown, text: string): Promise<void>;
+  };
+
+  const userEvent: {
+    setup(): UserEvent;
+  };
+
+  export default userEvent;
+}
+
+declare module "@testing-library/jest-dom/vitest" {}
+
 declare module "zod" {
   export interface ZodType<Output = unknown> {
     readonly _output?: Output;

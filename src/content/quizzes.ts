@@ -49,6 +49,7 @@ export {
   reactHookFormZodAssessmentQuiz,
   validationUxAccessibleErrorsAssessmentQuiz,
   serverStateThinkingAssessmentQuiz,
+  unitComponentTestingAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
