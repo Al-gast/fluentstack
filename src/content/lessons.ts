@@ -262,6 +262,12 @@ export {
   skipLinksLesson,
   keyboardTrapsLesson,
   semanticKeyboardNavigationAssessmentLesson,
+  modalAccessibilityLesson,
+  dropdownAccessibilityLesson,
+  tabsAccessibilityLesson,
+  componentFocusManagementLesson,
+  ariaWhenNeededLesson,
+  accessibleComponentsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

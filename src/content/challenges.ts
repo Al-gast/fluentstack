@@ -196,6 +196,12 @@ export {
   buildSkipToMainLinkChallenge,
   fixCourseNotesKeyboardExitChallenge,
   buildKeyboardReadyCoursePageCheckpointChallenge,
+  improveLeaveLessonDialogChallenge,
+  buildCourseResourcesDisclosureChallenge,
+  buildCourseDetailTabsChallenge,
+  focusSavedLessonNoteConfirmationChallenge,
+  chooseNativeHtmlAndAriaSupportChallenge,
+  buildAccessibleDeleteNoteDialogCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

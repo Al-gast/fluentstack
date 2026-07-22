@@ -49,6 +49,7 @@ export {
   assetBundleOptimizationModule,
   renderingCostHydrationModule,
   semanticReviewKeyboardNavigationModule,
+  accessibleComponentsModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {
