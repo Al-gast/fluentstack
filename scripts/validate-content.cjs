@@ -70,6 +70,7 @@ const expectedFrontendModuleOrder = [
   "unit-component-testing",
   "integration-api-mocking",
   "e2e-testing-strategy",
+  "core-web-vitals",
 ];
 
 function resolveTsPath(basePath) {

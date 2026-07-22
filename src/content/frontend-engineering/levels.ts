@@ -164,4 +164,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "e2e-testing-strategy",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 14,
+    stage: "advanced",
+    title: "Performance",
+    description:
+      "Mengukur dan mengurangi biaya performance nyata lewat Core Web Vitals, asset cost, bundle awareness, serta rendering decisions yang terarah.",
+    moduleIds: ["core-web-vitals"],
+  },
 ];

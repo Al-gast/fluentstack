@@ -239,6 +239,12 @@ export {
   criticalUserJourneysLesson,
   flakyTestCausesLesson,
   e2eTestingStrategyAssessmentLesson,
+  lcpLesson,
+  inpLesson,
+  clsLesson,
+  lighthouseFieldVsLabDataLesson,
+  performanceBudgetLesson,
+  coreWebVitalsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

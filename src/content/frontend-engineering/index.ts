@@ -41,6 +41,7 @@ import { serverStateThinkingModule, serverStateVsClientStateLesson, serverStateL
 import { unitComponentTestingModule, testingMindsetLesson, vitestBasicsLesson, reactTestingLibraryLesson, testingUserEventsLesson, testingAccessibleQueriesLesson, unitComponentTestingAssessmentLesson, unitComponentTestingAssessmentQuiz, writeCourseStatusBehaviorTestChallenge, writeFormatDurationVitestTestChallenge, testProfileStatusVisibleOutputChallenge, testCourseBookmarkUserEventChallenge, testProfileFormWithAccessibleQueriesChallenge, buildBookmarkComponentBehaviorTestChallenge } from "./level-13-testing/unit-component-testing";
 import { integrationApiMockingModule, integrationTestScopeLesson, mswBasicsLesson, testingApiLoadingErrorSuccessLesson, authAdjacentTestCasesLesson, integrationApiMockingAssessmentLesson, integrationApiMockingAssessmentQuiz, chooseCourseCatalogIntegrationBoundaryChallenge, mockCourseCatalogApiResponseChallenge, testCourseCatalogApiStatesChallenge, testSessionAwareCourseAccessChallenge, buildCourseApiIntegrationCheckpointChallenge } from "./level-13-testing/integration-api-mocking";
 import { e2eTestingStrategyModule, whatE2eShouldCoverLesson, playwrightBasicsLesson, criticalUserJourneysLesson, flakyTestCausesLesson, e2eTestingStrategyAssessmentLesson, e2eTestingStrategyAssessmentQuiz, chooseCourseBookmarkE2eJourneyChallenge, writeFirstPlaywrightLessonTestChallenge, testCourseNavigationJourneyChallenge, fixFlakyCourseSaveTestChallenge, buildCriticalLessonJourneyCheckpointChallenge } from "./level-13-testing/e2e-testing-strategy";
+import { coreWebVitalsModule, lcpLesson, inpLesson, clsLesson, lighthouseFieldVsLabDataLesson, performanceBudgetLesson, coreWebVitalsAssessmentLesson, coreWebVitalsAssessmentQuiz } from "./level-14-performance/core-web-vitals";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -85,6 +86,7 @@ export { serverStateThinkingModule, serverStateVsClientStateLesson, serverStateL
 export { unitComponentTestingModule, testingMindsetLesson, vitestBasicsLesson, reactTestingLibraryLesson, testingUserEventsLesson, testingAccessibleQueriesLesson, unitComponentTestingAssessmentLesson, unitComponentTestingAssessmentQuiz, writeCourseStatusBehaviorTestChallenge, writeFormatDurationVitestTestChallenge, testProfileStatusVisibleOutputChallenge, testCourseBookmarkUserEventChallenge, testProfileFormWithAccessibleQueriesChallenge, buildBookmarkComponentBehaviorTestChallenge } from "./level-13-testing/unit-component-testing";
 export { integrationApiMockingModule, integrationTestScopeLesson, mswBasicsLesson, testingApiLoadingErrorSuccessLesson, authAdjacentTestCasesLesson, integrationApiMockingAssessmentLesson, integrationApiMockingAssessmentQuiz, chooseCourseCatalogIntegrationBoundaryChallenge, mockCourseCatalogApiResponseChallenge, testCourseCatalogApiStatesChallenge, testSessionAwareCourseAccessChallenge, buildCourseApiIntegrationCheckpointChallenge } from "./level-13-testing/integration-api-mocking";
 export { e2eTestingStrategyModule, whatE2eShouldCoverLesson, playwrightBasicsLesson, criticalUserJourneysLesson, flakyTestCausesLesson, e2eTestingStrategyAssessmentLesson, e2eTestingStrategyAssessmentQuiz, chooseCourseBookmarkE2eJourneyChallenge, writeFirstPlaywrightLessonTestChallenge, testCourseNavigationJourneyChallenge, fixFlakyCourseSaveTestChallenge, buildCriticalLessonJourneyCheckpointChallenge } from "./level-13-testing/e2e-testing-strategy";
+export { coreWebVitalsModule, lcpLesson, inpLesson, clsLesson, lighthouseFieldVsLabDataLesson, performanceBudgetLesson, coreWebVitalsAssessmentLesson, coreWebVitalsAssessmentQuiz } from "./level-14-performance/core-web-vitals";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -130,6 +132,7 @@ export const frontendEngineeringModules = [
   unitComponentTestingModule,
   integrationApiMockingModule,
   e2eTestingStrategyModule,
+  coreWebVitalsModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -370,6 +373,12 @@ export const frontendEngineeringLessons = [
   criticalUserJourneysLesson,
   flakyTestCausesLesson,
   e2eTestingStrategyAssessmentLesson,
+  lcpLesson,
+  inpLesson,
+  clsLesson,
+  lighthouseFieldVsLabDataLesson,
+  performanceBudgetLesson,
+  coreWebVitalsAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -423,6 +432,7 @@ export const frontendEngineeringQuizzes = [
   unitComponentTestingAssessmentQuiz,
   integrationApiMockingAssessmentQuiz,
   e2eTestingStrategyAssessmentQuiz,
+  coreWebVitalsAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [

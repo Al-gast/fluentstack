@@ -52,6 +52,7 @@ export {
   unitComponentTestingAssessmentQuiz,
   integrationApiMockingAssessmentQuiz,
   e2eTestingStrategyAssessmentQuiz,
+  coreWebVitalsAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
