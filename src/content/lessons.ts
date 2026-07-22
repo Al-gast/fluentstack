@@ -268,6 +268,12 @@ export {
   componentFocusManagementLesson,
   ariaWhenNeededLesson,
   accessibleComponentsAssessmentLesson,
+  colorContrastLesson,
+  accessibleFormErrorsLesson,
+  reducedMotionLesson,
+  screenReaderBasicsLesson,
+  accessibilityTestingToolsLesson,
+  accessibilityTestingPreferencesAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

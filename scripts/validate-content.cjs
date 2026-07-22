@@ -75,6 +75,7 @@ const expectedFrontendModuleOrder = [
   "rendering-cost-hydration",
   "semantic-review-keyboard-navigation",
   "accessible-components",
+  "accessibility-testing-preferences",
 ];
 
 function resolveTsPath(basePath) {

@@ -195,6 +195,10 @@ function validateCssCheck(
 ): Pick<ChallengeValidationResult, "passed" | "message"> {
   const cleanCss = stripCssComments(css);
 
+  if (check.type === "contains" || check.type === "doesNotContain") {
+    return validateTextCheck(check, cleanCss, "CSS");
+  }
+
   if (check.type === "cssForbiddenTextAbsent") {
     const forbiddenValue = check.valueIncludes ?? check.target ?? "";
     const passed = forbiddenValue

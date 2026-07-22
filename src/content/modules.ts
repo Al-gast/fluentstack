@@ -50,6 +50,7 @@ export {
   renderingCostHydrationModule,
   semanticReviewKeyboardNavigationModule,
   accessibleComponentsModule,
+  accessibilityTestingPreferencesModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

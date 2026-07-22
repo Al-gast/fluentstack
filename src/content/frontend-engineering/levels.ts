@@ -184,6 +184,10 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     title: "Accessibility",
     description:
       "Membangun dan mengaudit UI yang tetap dapat dipahami serta dioperasikan dengan keyboard, semantic HTML, dan focus feedback yang jelas.",
-    moduleIds: ["semantic-review-keyboard-navigation", "accessible-components"],
+    moduleIds: [
+      "semantic-review-keyboard-navigation",
+      "accessible-components",
+      "accessibility-testing-preferences",
+    ],
   },
 ];

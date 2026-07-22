@@ -57,6 +57,7 @@ export {
   renderingCostHydrationAssessmentQuiz,
   semanticKeyboardNavigationAssessmentQuiz,
   accessibleComponentsAssessmentQuiz,
+  accessibilityTestingPreferencesAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

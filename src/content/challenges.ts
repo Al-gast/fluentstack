@@ -202,6 +202,11 @@ export {
   focusSavedLessonNoteConfirmationChallenge,
   chooseNativeHtmlAndAriaSupportChallenge,
   buildAccessibleDeleteNoteDialogCheckpointChallenge,
+  fixCourseContrastStatesChallenge,
+  improveCourseEnrollmentErrorsChallenge,
+  reduceCourseCardMotionChallenge,
+  testCourseEnrollmentWithAccessibleQueriesChallenge,
+  buildAccessibleCourseSignupCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 
