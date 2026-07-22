@@ -51,6 +51,7 @@ export {
   semanticReviewKeyboardNavigationModule,
   accessibleComponentsModule,
   accessibilityTestingPreferencesModule,
+  featureBasedStructureBoundariesModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

@@ -207,6 +207,12 @@ export {
   reduceCourseCardMotionChallenge,
   testCourseEnrollmentWithAccessibleQueriesChallenge,
   buildAccessibleCourseSignupCheckpointChallenge,
+  organizeCourseFeatureFolderChallenge,
+  placeSharedAndCourseComponentsChallenge,
+  extractCourseServiceFunctionChallenge,
+  placeCourseTypesAndContentChallenge,
+  fixCourseFeatureDependencyChallenge,
+  refactorCourseFeatureBoundariesCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

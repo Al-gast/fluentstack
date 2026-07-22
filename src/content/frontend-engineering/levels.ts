@@ -190,4 +190,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "accessibility-testing-preferences",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 16,
+    stage: "advanced",
+    title: "Frontend Architecture",
+    description:
+      "Mengatur feature frontend agar component, service, type, content, dan dependency tetap mudah dipahami saat product berkembang.",
+    moduleIds: ["feature-based-structure-boundaries"],
+  },
 ];

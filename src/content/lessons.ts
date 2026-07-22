@@ -274,6 +274,12 @@ export {
   screenReaderBasicsLesson,
   accessibilityTestingToolsLesson,
   accessibilityTestingPreferencesAssessmentLesson,
+  featureFoldersLesson,
+  sharedComponentsLesson,
+  serviceLayerLesson,
+  typesAndContentBoundariesLesson,
+  dependencyBoundariesLesson,
+  featureBasedStructureAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

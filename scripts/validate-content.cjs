@@ -76,6 +76,7 @@ const expectedFrontendModuleOrder = [
   "semantic-review-keyboard-navigation",
   "accessible-components",
   "accessibility-testing-preferences",
+  "feature-based-structure-boundaries",
 ];
 
 function resolveTsPath(basePath) {

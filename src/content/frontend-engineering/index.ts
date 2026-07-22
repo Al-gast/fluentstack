@@ -47,6 +47,7 @@ import { renderingCostHydrationModule, hydrationCostLesson, serverVsClientRender
 import { semanticReviewKeyboardNavigationModule, semanticHtmlReviewLesson, tabOrderLesson, focusVisibilityLesson, skipLinksLesson, keyboardTrapsLesson, semanticKeyboardNavigationAssessmentLesson, semanticKeyboardNavigationAssessmentQuiz, auditCoursePageSemanticsChallenge, fixCourseTabOrderChallenge, addCourseFocusVisibleChallenge, buildSkipToMainLinkChallenge, fixCourseNotesKeyboardExitChallenge, buildKeyboardReadyCoursePageCheckpointChallenge } from "./level-15-accessibility/semantic-review-keyboard-navigation";
 import { accessibleComponentsModule, modalAccessibilityLesson, dropdownAccessibilityLesson, tabsAccessibilityLesson, componentFocusManagementLesson, ariaWhenNeededLesson, accessibleComponentsAssessmentLesson, accessibleComponentsAssessmentQuiz, improveLeaveLessonDialogChallenge, buildCourseResourcesDisclosureChallenge, buildCourseDetailTabsChallenge, focusSavedLessonNoteConfirmationChallenge, chooseNativeHtmlAndAriaSupportChallenge, buildAccessibleDeleteNoteDialogCheckpointChallenge } from "./level-15-accessibility/accessible-components";
 import { accessibilityTestingPreferencesModule, colorContrastLesson, accessibleFormErrorsLesson, reducedMotionLesson, screenReaderBasicsLesson, accessibilityTestingToolsLesson, accessibilityTestingPreferencesAssessmentLesson, accessibilityTestingPreferencesAssessmentQuiz, fixCourseContrastStatesChallenge, improveCourseEnrollmentErrorsChallenge, reduceCourseCardMotionChallenge, testCourseEnrollmentWithAccessibleQueriesChallenge, buildAccessibleCourseSignupCheckpointChallenge } from "./level-15-accessibility/accessibility-testing-preferences";
+import { featureBasedStructureBoundariesModule, featureFoldersLesson, sharedComponentsLesson, serviceLayerLesson, typesAndContentBoundariesLesson, dependencyBoundariesLesson, featureBasedStructureAssessmentLesson, featureBasedStructureAssessmentQuiz, organizeCourseFeatureFolderChallenge, placeSharedAndCourseComponentsChallenge, extractCourseServiceFunctionChallenge, placeCourseTypesAndContentChallenge, fixCourseFeatureDependencyChallenge, refactorCourseFeatureBoundariesCheckpointChallenge } from "./level-16-frontend-architecture/feature-based-structure-boundaries";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -97,6 +98,7 @@ export { renderingCostHydrationModule, hydrationCostLesson, serverVsClientRender
 export { semanticReviewKeyboardNavigationModule, semanticHtmlReviewLesson, tabOrderLesson, focusVisibilityLesson, skipLinksLesson, keyboardTrapsLesson, semanticKeyboardNavigationAssessmentLesson, semanticKeyboardNavigationAssessmentQuiz, auditCoursePageSemanticsChallenge, fixCourseTabOrderChallenge, addCourseFocusVisibleChallenge, buildSkipToMainLinkChallenge, fixCourseNotesKeyboardExitChallenge, buildKeyboardReadyCoursePageCheckpointChallenge } from "./level-15-accessibility/semantic-review-keyboard-navigation";
 export { accessibleComponentsModule, modalAccessibilityLesson, dropdownAccessibilityLesson, tabsAccessibilityLesson, componentFocusManagementLesson, ariaWhenNeededLesson, accessibleComponentsAssessmentLesson, accessibleComponentsAssessmentQuiz, improveLeaveLessonDialogChallenge, buildCourseResourcesDisclosureChallenge, buildCourseDetailTabsChallenge, focusSavedLessonNoteConfirmationChallenge, chooseNativeHtmlAndAriaSupportChallenge, buildAccessibleDeleteNoteDialogCheckpointChallenge } from "./level-15-accessibility/accessible-components";
 export { accessibilityTestingPreferencesModule, colorContrastLesson, accessibleFormErrorsLesson, reducedMotionLesson, screenReaderBasicsLesson, accessibilityTestingToolsLesson, accessibilityTestingPreferencesAssessmentLesson, accessibilityTestingPreferencesAssessmentQuiz, fixCourseContrastStatesChallenge, improveCourseEnrollmentErrorsChallenge, reduceCourseCardMotionChallenge, testCourseEnrollmentWithAccessibleQueriesChallenge, buildAccessibleCourseSignupCheckpointChallenge } from "./level-15-accessibility/accessibility-testing-preferences";
+export { featureBasedStructureBoundariesModule, featureFoldersLesson, sharedComponentsLesson, serviceLayerLesson, typesAndContentBoundariesLesson, dependencyBoundariesLesson, featureBasedStructureAssessmentLesson, featureBasedStructureAssessmentQuiz, organizeCourseFeatureFolderChallenge, placeSharedAndCourseComponentsChallenge, extractCourseServiceFunctionChallenge, placeCourseTypesAndContentChallenge, fixCourseFeatureDependencyChallenge, refactorCourseFeatureBoundariesCheckpointChallenge } from "./level-16-frontend-architecture/feature-based-structure-boundaries";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -148,6 +150,7 @@ export const frontendEngineeringModules = [
   semanticReviewKeyboardNavigationModule,
   accessibleComponentsModule,
   accessibilityTestingPreferencesModule,
+  featureBasedStructureBoundariesModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -423,6 +426,12 @@ export const frontendEngineeringLessons = [
   screenReaderBasicsLesson,
   accessibilityTestingToolsLesson,
   accessibilityTestingPreferencesAssessmentLesson,
+  featureFoldersLesson,
+  sharedComponentsLesson,
+  serviceLayerLesson,
+  typesAndContentBoundariesLesson,
+  dependencyBoundariesLesson,
+  featureBasedStructureAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -482,6 +491,7 @@ export const frontendEngineeringQuizzes = [
   semanticKeyboardNavigationAssessmentQuiz,
   accessibleComponentsAssessmentQuiz,
   accessibilityTestingPreferencesAssessmentQuiz,
+  featureBasedStructureAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -690,4 +700,10 @@ export const frontendEngineeringChallenges = [
   reduceCourseCardMotionChallenge,
   testCourseEnrollmentWithAccessibleQueriesChallenge,
   buildAccessibleCourseSignupCheckpointChallenge,
+  organizeCourseFeatureFolderChallenge,
+  placeSharedAndCourseComponentsChallenge,
+  extractCourseServiceFunctionChallenge,
+  placeCourseTypesAndContentChallenge,
+  fixCourseFeatureDependencyChallenge,
+  refactorCourseFeatureBoundariesCheckpointChallenge,
 ];

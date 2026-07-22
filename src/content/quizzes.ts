@@ -58,6 +58,7 @@ export {
   semanticKeyboardNavigationAssessmentQuiz,
   accessibleComponentsAssessmentQuiz,
   accessibilityTestingPreferencesAssessmentQuiz,
+  featureBasedStructureAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
