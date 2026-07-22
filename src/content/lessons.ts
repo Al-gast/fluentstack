@@ -229,6 +229,11 @@ export {
   testingUserEventsLesson,
   testingAccessibleQueriesLesson,
   unitComponentTestingAssessmentLesson,
+  integrationTestScopeLesson,
+  mswBasicsLesson,
+  testingApiLoadingErrorSuccessLesson,
+  authAdjacentTestCasesLesson,
+  integrationApiMockingAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

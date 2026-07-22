@@ -171,6 +171,11 @@ export {
   testCourseBookmarkUserEventChallenge,
   testProfileFormWithAccessibleQueriesChallenge,
   buildBookmarkComponentBehaviorTestChallenge,
+  chooseCourseCatalogIntegrationBoundaryChallenge,
+  mockCourseCatalogApiResponseChallenge,
+  testCourseCatalogApiStatesChallenge,
+  testSessionAwareCourseAccessChallenge,
+  buildCourseApiIntegrationCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

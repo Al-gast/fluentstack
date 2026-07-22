@@ -43,6 +43,7 @@ export {
   validationUxAccessibleErrorsModule,
   serverStateThinkingModule,
   unitComponentTestingModule,
+  integrationApiMockingModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

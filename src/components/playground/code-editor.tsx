@@ -20,6 +20,10 @@ let didConfigureTypeScriptDefaults = false;
 const reactTypeDefinitions = `
 declare module "react" {
   export type ReactNode = unknown;
+  export function useEffect(
+    effect: () => void | (() => void),
+    dependencies?: unknown[],
+  ): void;
   export function useState<T>(
     initialState: T | (() => T),
   ): [T, (nextState: T | ((previousState: T) => T)) => void];
@@ -91,6 +95,9 @@ declare module "vitest" {
   export function describe(name: string, callback: TestCallback): void;
   export function it(name: string, callback: TestCallback): void;
   export const test: typeof it;
+  export function beforeAll(callback: TestCallback): void;
+  export function afterEach(callback: TestCallback): void;
+  export function afterAll(callback: TestCallback): void;
   export function expect(actual: unknown): {
     toBe(expected: unknown): void;
     toEqual(expected: unknown): void;
@@ -105,8 +112,10 @@ declare module "@testing-library/react" {
   export function render(ui: unknown): { unmount(): void };
   export const screen: {
     getByRole(role: string, options?: { name?: string | RegExp }): unknown;
+    findByRole(role: string, options?: { name?: string | RegExp }): Promise<unknown>;
     getByLabelText(text: string | RegExp): unknown;
     getByText(text: string | RegExp): unknown;
+    findByText(text: string | RegExp): Promise<unknown>;
     queryByRole(role: string, options?: { name?: string | RegExp }): unknown;
   };
 }
@@ -125,6 +134,26 @@ declare module "@testing-library/user-event" {
 }
 
 declare module "@testing-library/jest-dom/vitest" {}
+
+declare module "msw" {
+  export class HttpResponse {
+    constructor(body?: BodyInit | null, init?: { status?: number });
+    static json(body: unknown, init?: { status?: number }): HttpResponse;
+  }
+
+  export const http: {
+    get(path: string, resolver: () => HttpResponse): unknown;
+  };
+}
+
+declare module "msw/node" {
+  export function setupServer(...handlers: unknown[]): {
+    listen(): void;
+    resetHandlers(): void;
+    close(): void;
+    use(...handlers: unknown[]): void;
+  };
+}
 
 declare module "zod" {
   export interface ZodType<Output = unknown> {

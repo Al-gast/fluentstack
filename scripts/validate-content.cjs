@@ -67,6 +67,7 @@ const expectedFrontendModuleOrder = [
   "validation-ux-accessible-errors",
   "server-state-thinking",
   "unit-component-testing",
+  "integration-api-mocking",
 ];
 
 function resolveTsPath(basePath) {

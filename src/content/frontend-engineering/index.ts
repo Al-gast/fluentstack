@@ -39,6 +39,7 @@ import { reactHookFormZodModule, reactHookFormRegistrationLesson, zodFormSchemaL
 import { validationUxAccessibleErrorsModule, validationInlineErrorsLesson, validationSummaryErrorsLesson, validationFocusManagementLesson, validationDisabledStateLesson, validationSuccessStateLesson, validationUxAccessibleErrorsAssessmentLesson, validationUxAccessibleErrorsAssessmentQuiz, showUsefulInlineProfileErrorChallenge, addProfileErrorSummaryChallenge, focusFirstInvalidProfileFieldChallenge, addProfilePendingSubmitStateChallenge, showProfileSaveSuccessFeedbackChallenge, buildAccessibleProfileValidationCheckpointChallenge } from "./level-12-forms-validation-data-fetching/validation-ux-accessible-errors";
 import { serverStateThinkingModule, serverStateVsClientStateLesson, serverStateLoadingErrorEmptyLesson, serverStateMappingApiResponsesLesson, serverStateOptimisticUiBasicsLesson, serverStateThinkingAssessmentLesson, serverStateThinkingAssessmentQuiz, classifyCourseServerAndClientStateChallenge, renderCourseServerStateFlowChallenge, mapCourseApiResponseToCardModelChallenge, addOptimisticCourseBookmarkRollbackChallenge, buildCourseServerStateCheckpointChallenge } from "./level-12-forms-validation-data-fetching/server-state-thinking";
 import { unitComponentTestingModule, testingMindsetLesson, vitestBasicsLesson, reactTestingLibraryLesson, testingUserEventsLesson, testingAccessibleQueriesLesson, unitComponentTestingAssessmentLesson, unitComponentTestingAssessmentQuiz, writeCourseStatusBehaviorTestChallenge, writeFormatDurationVitestTestChallenge, testProfileStatusVisibleOutputChallenge, testCourseBookmarkUserEventChallenge, testProfileFormWithAccessibleQueriesChallenge, buildBookmarkComponentBehaviorTestChallenge } from "./level-13-testing/unit-component-testing";
+import { integrationApiMockingModule, integrationTestScopeLesson, mswBasicsLesson, testingApiLoadingErrorSuccessLesson, authAdjacentTestCasesLesson, integrationApiMockingAssessmentLesson, integrationApiMockingAssessmentQuiz, chooseCourseCatalogIntegrationBoundaryChallenge, mockCourseCatalogApiResponseChallenge, testCourseCatalogApiStatesChallenge, testSessionAwareCourseAccessChallenge, buildCourseApiIntegrationCheckpointChallenge } from "./level-13-testing/integration-api-mocking";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -81,6 +82,7 @@ export { reactHookFormZodModule, reactHookFormRegistrationLesson, zodFormSchemaL
 export { validationUxAccessibleErrorsModule, validationInlineErrorsLesson, validationSummaryErrorsLesson, validationFocusManagementLesson, validationDisabledStateLesson, validationSuccessStateLesson, validationUxAccessibleErrorsAssessmentLesson, validationUxAccessibleErrorsAssessmentQuiz, showUsefulInlineProfileErrorChallenge, addProfileErrorSummaryChallenge, focusFirstInvalidProfileFieldChallenge, addProfilePendingSubmitStateChallenge, showProfileSaveSuccessFeedbackChallenge, buildAccessibleProfileValidationCheckpointChallenge } from "./level-12-forms-validation-data-fetching/validation-ux-accessible-errors";
 export { serverStateThinkingModule, serverStateVsClientStateLesson, serverStateLoadingErrorEmptyLesson, serverStateMappingApiResponsesLesson, serverStateOptimisticUiBasicsLesson, serverStateThinkingAssessmentLesson, serverStateThinkingAssessmentQuiz, classifyCourseServerAndClientStateChallenge, renderCourseServerStateFlowChallenge, mapCourseApiResponseToCardModelChallenge, addOptimisticCourseBookmarkRollbackChallenge, buildCourseServerStateCheckpointChallenge } from "./level-12-forms-validation-data-fetching/server-state-thinking";
 export { unitComponentTestingModule, testingMindsetLesson, vitestBasicsLesson, reactTestingLibraryLesson, testingUserEventsLesson, testingAccessibleQueriesLesson, unitComponentTestingAssessmentLesson, unitComponentTestingAssessmentQuiz, writeCourseStatusBehaviorTestChallenge, writeFormatDurationVitestTestChallenge, testProfileStatusVisibleOutputChallenge, testCourseBookmarkUserEventChallenge, testProfileFormWithAccessibleQueriesChallenge, buildBookmarkComponentBehaviorTestChallenge } from "./level-13-testing/unit-component-testing";
+export { integrationApiMockingModule, integrationTestScopeLesson, mswBasicsLesson, testingApiLoadingErrorSuccessLesson, authAdjacentTestCasesLesson, integrationApiMockingAssessmentLesson, integrationApiMockingAssessmentQuiz, chooseCourseCatalogIntegrationBoundaryChallenge, mockCourseCatalogApiResponseChallenge, testCourseCatalogApiStatesChallenge, testSessionAwareCourseAccessChallenge, buildCourseApiIntegrationCheckpointChallenge } from "./level-13-testing/integration-api-mocking";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -124,6 +126,7 @@ export const frontendEngineeringModules = [
   validationUxAccessibleErrorsModule,
   serverStateThinkingModule,
   unitComponentTestingModule,
+  integrationApiMockingModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -354,6 +357,11 @@ export const frontendEngineeringLessons = [
   testingUserEventsLesson,
   testingAccessibleQueriesLesson,
   unitComponentTestingAssessmentLesson,
+  integrationTestScopeLesson,
+  mswBasicsLesson,
+  testingApiLoadingErrorSuccessLesson,
+  authAdjacentTestCasesLesson,
+  integrationApiMockingAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -405,6 +413,7 @@ export const frontendEngineeringQuizzes = [
   validationUxAccessibleErrorsAssessmentQuiz,
   serverStateThinkingAssessmentQuiz,
   unitComponentTestingAssessmentQuiz,
+  integrationApiMockingAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -577,4 +586,9 @@ export const frontendEngineeringChallenges = [
   testCourseBookmarkUserEventChallenge,
   testProfileFormWithAccessibleQueriesChallenge,
   buildBookmarkComponentBehaviorTestChallenge,
+  chooseCourseCatalogIntegrationBoundaryChallenge,
+  mockCourseCatalogApiResponseChallenge,
+  testCourseCatalogApiStatesChallenge,
+  testSessionAwareCourseAccessChallenge,
+  buildCourseApiIntegrationCheckpointChallenge,
 ];

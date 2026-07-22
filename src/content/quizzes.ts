@@ -50,6 +50,7 @@ export {
   validationUxAccessibleErrorsAssessmentQuiz,
   serverStateThinkingAssessmentQuiz,
   unitComponentTestingAssessmentQuiz,
+  integrationApiMockingAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
