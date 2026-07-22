@@ -32,6 +32,7 @@ declare module "react" {
     callback: T,
     dependencies: unknown[],
   ): T;
+  export function useRef<T>(initialValue: T | null): { current: T | null };
   export function memo<T>(component: T): T;
 }
 

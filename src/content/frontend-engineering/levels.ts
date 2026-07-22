@@ -177,4 +177,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "rendering-cost-hydration",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 15,
+    stage: "advanced",
+    title: "Accessibility",
+    description:
+      "Membangun dan mengaudit UI yang tetap dapat dipahami serta dioperasikan dengan keyboard, semantic HTML, dan focus feedback yang jelas.",
+    moduleIds: ["semantic-review-keyboard-navigation"],
+  },
 ];

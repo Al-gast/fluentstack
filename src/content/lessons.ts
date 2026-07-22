@@ -256,6 +256,12 @@ export {
   clientComponentBoundariesLesson,
   expensiveRerendersLesson,
   renderingCostHydrationAssessmentLesson,
+  semanticHtmlReviewLesson,
+  tabOrderLesson,
+  focusVisibilityLesson,
+  skipLinksLesson,
+  keyboardTrapsLesson,
+  semanticKeyboardNavigationAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

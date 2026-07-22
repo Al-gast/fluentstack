@@ -190,6 +190,12 @@ export {
   buildCourseFilterClientIslandChallenge,
   memoizeMeasuredLessonFilterChallenge,
   buildRenderingCostCheckpointChallenge,
+  auditCoursePageSemanticsChallenge,
+  fixCourseTabOrderChallenge,
+  addCourseFocusVisibleChallenge,
+  buildSkipToMainLinkChallenge,
+  fixCourseNotesKeyboardExitChallenge,
+  buildKeyboardReadyCoursePageCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

@@ -48,6 +48,7 @@ export {
   coreWebVitalsModule,
   assetBundleOptimizationModule,
   renderingCostHydrationModule,
+  semanticReviewKeyboardNavigationModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

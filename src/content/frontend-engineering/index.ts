@@ -44,6 +44,7 @@ import { e2eTestingStrategyModule, whatE2eShouldCoverLesson, playwrightBasicsLes
 import { coreWebVitalsModule, lcpLesson, inpLesson, clsLesson, lighthouseFieldVsLabDataLesson, performanceBudgetLesson, coreWebVitalsAssessmentLesson, coreWebVitalsAssessmentQuiz } from "./level-14-performance/core-web-vitals";
 import { assetBundleOptimizationModule, imageOptimizationLesson, fontOptimizationLesson, bundleAwarenessLesson, codeSplittingLesson, dynamicImportsLesson, assetBundleOptimizationAssessmentLesson, assetBundleOptimizationAssessmentQuiz, optimizeCourseHeroImageChallenge, configureLearningFontWithNextFontChallenge, splitCourseInsightsPanelChallenge, loadCourseSearchLibraryOnDemandChallenge, buildOptimizedCoursePageCheckpointChallenge } from "./level-14-performance/asset-bundle-optimization";
 import { renderingCostHydrationModule, hydrationCostLesson, serverVsClientRenderingDecisionsLesson, clientComponentBoundariesLesson, expensiveRerendersLesson, renderingCostHydrationAssessmentLesson, renderingCostHydrationAssessmentQuiz, classifyCourseRenderingBoundariesChallenge, buildCourseFilterClientIslandChallenge, memoizeMeasuredLessonFilterChallenge, buildRenderingCostCheckpointChallenge } from "./level-14-performance/rendering-cost-hydration";
+import { semanticReviewKeyboardNavigationModule, semanticHtmlReviewLesson, tabOrderLesson, focusVisibilityLesson, skipLinksLesson, keyboardTrapsLesson, semanticKeyboardNavigationAssessmentLesson, semanticKeyboardNavigationAssessmentQuiz, auditCoursePageSemanticsChallenge, fixCourseTabOrderChallenge, addCourseFocusVisibleChallenge, buildSkipToMainLinkChallenge, fixCourseNotesKeyboardExitChallenge, buildKeyboardReadyCoursePageCheckpointChallenge } from "./level-15-accessibility/semantic-review-keyboard-navigation";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -91,6 +92,7 @@ export { e2eTestingStrategyModule, whatE2eShouldCoverLesson, playwrightBasicsLes
 export { coreWebVitalsModule, lcpLesson, inpLesson, clsLesson, lighthouseFieldVsLabDataLesson, performanceBudgetLesson, coreWebVitalsAssessmentLesson, coreWebVitalsAssessmentQuiz } from "./level-14-performance/core-web-vitals";
 export { assetBundleOptimizationModule, imageOptimizationLesson, fontOptimizationLesson, bundleAwarenessLesson, codeSplittingLesson, dynamicImportsLesson, assetBundleOptimizationAssessmentLesson, assetBundleOptimizationAssessmentQuiz, optimizeCourseHeroImageChallenge, configureLearningFontWithNextFontChallenge, splitCourseInsightsPanelChallenge, loadCourseSearchLibraryOnDemandChallenge, buildOptimizedCoursePageCheckpointChallenge } from "./level-14-performance/asset-bundle-optimization";
 export { renderingCostHydrationModule, hydrationCostLesson, serverVsClientRenderingDecisionsLesson, clientComponentBoundariesLesson, expensiveRerendersLesson, renderingCostHydrationAssessmentLesson, renderingCostHydrationAssessmentQuiz, classifyCourseRenderingBoundariesChallenge, buildCourseFilterClientIslandChallenge, memoizeMeasuredLessonFilterChallenge, buildRenderingCostCheckpointChallenge } from "./level-14-performance/rendering-cost-hydration";
+export { semanticReviewKeyboardNavigationModule, semanticHtmlReviewLesson, tabOrderLesson, focusVisibilityLesson, skipLinksLesson, keyboardTrapsLesson, semanticKeyboardNavigationAssessmentLesson, semanticKeyboardNavigationAssessmentQuiz, auditCoursePageSemanticsChallenge, fixCourseTabOrderChallenge, addCourseFocusVisibleChallenge, buildSkipToMainLinkChallenge, fixCourseNotesKeyboardExitChallenge, buildKeyboardReadyCoursePageCheckpointChallenge } from "./level-15-accessibility/semantic-review-keyboard-navigation";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -139,6 +141,7 @@ export const frontendEngineeringModules = [
   coreWebVitalsModule,
   assetBundleOptimizationModule,
   renderingCostHydrationModule,
+  semanticReviewKeyboardNavigationModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -396,6 +399,12 @@ export const frontendEngineeringLessons = [
   clientComponentBoundariesLesson,
   expensiveRerendersLesson,
   renderingCostHydrationAssessmentLesson,
+  semanticHtmlReviewLesson,
+  tabOrderLesson,
+  focusVisibilityLesson,
+  skipLinksLesson,
+  keyboardTrapsLesson,
+  semanticKeyboardNavigationAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -452,6 +461,7 @@ export const frontendEngineeringQuizzes = [
   coreWebVitalsAssessmentQuiz,
   assetBundleOptimizationAssessmentQuiz,
   renderingCostHydrationAssessmentQuiz,
+  semanticKeyboardNavigationAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -643,4 +653,10 @@ export const frontendEngineeringChallenges = [
   buildCourseFilterClientIslandChallenge,
   memoizeMeasuredLessonFilterChallenge,
   buildRenderingCostCheckpointChallenge,
+  auditCoursePageSemanticsChallenge,
+  fixCourseTabOrderChallenge,
+  addCourseFocusVisibleChallenge,
+  buildSkipToMainLinkChallenge,
+  fixCourseNotesKeyboardExitChallenge,
+  buildKeyboardReadyCoursePageCheckpointChallenge,
 ];
