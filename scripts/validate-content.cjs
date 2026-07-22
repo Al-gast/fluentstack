@@ -72,6 +72,7 @@ const expectedFrontendModuleOrder = [
   "e2e-testing-strategy",
   "core-web-vitals",
   "asset-bundle-optimization",
+  "rendering-cost-hydration",
 ];
 
 function resolveTsPath(basePath) {

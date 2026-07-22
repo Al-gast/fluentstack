@@ -251,6 +251,11 @@ export {
   codeSplittingLesson,
   dynamicImportsLesson,
   assetBundleOptimizationAssessmentLesson,
+  hydrationCostLesson,
+  serverVsClientRenderingDecisionsLesson,
+  clientComponentBoundariesLesson,
+  expensiveRerendersLesson,
+  renderingCostHydrationAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

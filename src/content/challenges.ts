@@ -186,6 +186,10 @@ export {
   splitCourseInsightsPanelChallenge,
   loadCourseSearchLibraryOnDemandChallenge,
   buildOptimizedCoursePageCheckpointChallenge,
+  classifyCourseRenderingBoundariesChallenge,
+  buildCourseFilterClientIslandChallenge,
+  memoizeMeasuredLessonFilterChallenge,
+  buildRenderingCostCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

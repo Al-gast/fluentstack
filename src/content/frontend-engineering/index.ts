@@ -43,6 +43,7 @@ import { integrationApiMockingModule, integrationTestScopeLesson, mswBasicsLesso
 import { e2eTestingStrategyModule, whatE2eShouldCoverLesson, playwrightBasicsLesson, criticalUserJourneysLesson, flakyTestCausesLesson, e2eTestingStrategyAssessmentLesson, e2eTestingStrategyAssessmentQuiz, chooseCourseBookmarkE2eJourneyChallenge, writeFirstPlaywrightLessonTestChallenge, testCourseNavigationJourneyChallenge, fixFlakyCourseSaveTestChallenge, buildCriticalLessonJourneyCheckpointChallenge } from "./level-13-testing/e2e-testing-strategy";
 import { coreWebVitalsModule, lcpLesson, inpLesson, clsLesson, lighthouseFieldVsLabDataLesson, performanceBudgetLesson, coreWebVitalsAssessmentLesson, coreWebVitalsAssessmentQuiz } from "./level-14-performance/core-web-vitals";
 import { assetBundleOptimizationModule, imageOptimizationLesson, fontOptimizationLesson, bundleAwarenessLesson, codeSplittingLesson, dynamicImportsLesson, assetBundleOptimizationAssessmentLesson, assetBundleOptimizationAssessmentQuiz, optimizeCourseHeroImageChallenge, configureLearningFontWithNextFontChallenge, splitCourseInsightsPanelChallenge, loadCourseSearchLibraryOnDemandChallenge, buildOptimizedCoursePageCheckpointChallenge } from "./level-14-performance/asset-bundle-optimization";
+import { renderingCostHydrationModule, hydrationCostLesson, serverVsClientRenderingDecisionsLesson, clientComponentBoundariesLesson, expensiveRerendersLesson, renderingCostHydrationAssessmentLesson, renderingCostHydrationAssessmentQuiz, classifyCourseRenderingBoundariesChallenge, buildCourseFilterClientIslandChallenge, memoizeMeasuredLessonFilterChallenge, buildRenderingCostCheckpointChallenge } from "./level-14-performance/rendering-cost-hydration";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -89,6 +90,7 @@ export { integrationApiMockingModule, integrationTestScopeLesson, mswBasicsLesso
 export { e2eTestingStrategyModule, whatE2eShouldCoverLesson, playwrightBasicsLesson, criticalUserJourneysLesson, flakyTestCausesLesson, e2eTestingStrategyAssessmentLesson, e2eTestingStrategyAssessmentQuiz, chooseCourseBookmarkE2eJourneyChallenge, writeFirstPlaywrightLessonTestChallenge, testCourseNavigationJourneyChallenge, fixFlakyCourseSaveTestChallenge, buildCriticalLessonJourneyCheckpointChallenge } from "./level-13-testing/e2e-testing-strategy";
 export { coreWebVitalsModule, lcpLesson, inpLesson, clsLesson, lighthouseFieldVsLabDataLesson, performanceBudgetLesson, coreWebVitalsAssessmentLesson, coreWebVitalsAssessmentQuiz } from "./level-14-performance/core-web-vitals";
 export { assetBundleOptimizationModule, imageOptimizationLesson, fontOptimizationLesson, bundleAwarenessLesson, codeSplittingLesson, dynamicImportsLesson, assetBundleOptimizationAssessmentLesson, assetBundleOptimizationAssessmentQuiz, optimizeCourseHeroImageChallenge, configureLearningFontWithNextFontChallenge, splitCourseInsightsPanelChallenge, loadCourseSearchLibraryOnDemandChallenge, buildOptimizedCoursePageCheckpointChallenge } from "./level-14-performance/asset-bundle-optimization";
+export { renderingCostHydrationModule, hydrationCostLesson, serverVsClientRenderingDecisionsLesson, clientComponentBoundariesLesson, expensiveRerendersLesson, renderingCostHydrationAssessmentLesson, renderingCostHydrationAssessmentQuiz, classifyCourseRenderingBoundariesChallenge, buildCourseFilterClientIslandChallenge, memoizeMeasuredLessonFilterChallenge, buildRenderingCostCheckpointChallenge } from "./level-14-performance/rendering-cost-hydration";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -136,6 +138,7 @@ export const frontendEngineeringModules = [
   e2eTestingStrategyModule,
   coreWebVitalsModule,
   assetBundleOptimizationModule,
+  renderingCostHydrationModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -388,6 +391,11 @@ export const frontendEngineeringLessons = [
   codeSplittingLesson,
   dynamicImportsLesson,
   assetBundleOptimizationAssessmentLesson,
+  hydrationCostLesson,
+  serverVsClientRenderingDecisionsLesson,
+  clientComponentBoundariesLesson,
+  expensiveRerendersLesson,
+  renderingCostHydrationAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -443,6 +451,7 @@ export const frontendEngineeringQuizzes = [
   e2eTestingStrategyAssessmentQuiz,
   coreWebVitalsAssessmentQuiz,
   assetBundleOptimizationAssessmentQuiz,
+  renderingCostHydrationAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -630,4 +639,8 @@ export const frontendEngineeringChallenges = [
   splitCourseInsightsPanelChallenge,
   loadCourseSearchLibraryOnDemandChallenge,
   buildOptimizedCoursePageCheckpointChallenge,
+  classifyCourseRenderingBoundariesChallenge,
+  buildCourseFilterClientIslandChallenge,
+  memoizeMeasuredLessonFilterChallenge,
+  buildRenderingCostCheckpointChallenge,
 ];

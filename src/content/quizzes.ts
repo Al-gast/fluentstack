@@ -54,6 +54,7 @@ export {
   e2eTestingStrategyAssessmentQuiz,
   coreWebVitalsAssessmentQuiz,
   assetBundleOptimizationAssessmentQuiz,
+  renderingCostHydrationAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

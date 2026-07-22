@@ -27,6 +27,12 @@ declare module "react" {
   export function useState<T>(
     initialState: T | (() => T),
   ): [T, (nextState: T | ((previousState: T) => T)) => void];
+  export function useMemo<T>(calculateValue: () => T, dependencies: unknown[]): T;
+  export function useCallback<T extends (...args: any[]) => any>(
+    callback: T,
+    dependencies: unknown[],
+  ): T;
+  export function memo<T>(component: T): T;
 }
 
 declare module "react/jsx-runtime" {
