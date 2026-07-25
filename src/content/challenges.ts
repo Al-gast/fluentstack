@@ -229,6 +229,12 @@ export {
   buildCourseButtonVariantsChallenge,
   buildCourseCardVariantsChallenge,
   buildTokenDrivenCourseUiCheckpointChallenge,
+  buildCourseTextFieldChallenge,
+  buildCourseResultsTableChallenge,
+  auditCourseConfirmDialogChallenge,
+  buildCourseToastStatusChallenge,
+  buildCourseFilterSelectChallenge,
+  buildCourseInviteFormCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

@@ -210,6 +210,6 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     title: "Design System",
     description:
       "Membangun token visual dan UI primitive yang konsisten, jelas, serta tetap dapat diakses saat product berkembang.",
-    moduleIds: ["design-tokens-and-variants"],
+    moduleIds: ["design-tokens-and-variants", "product-components"],
   },
 ];

@@ -7,7 +7,7 @@ export const frontendEngineeringTrack: Track = {
   description:
     "Belajar fondasi frontend lewat lesson, quiz, dan coding practice yang langsung bisa dicoba.",
   level: "beginner",
-  estimatedHours: 390,
+  estimatedHours: 398,
   moduleIds: [
     "web-foundations",
     "html-basics",
@@ -62,6 +62,7 @@ export const frontendEngineeringTrack: Track = {
     "state-and-data-strategy",
     "component-api-and-documentation",
     "design-tokens-and-variants",
+    "product-components",
   ],
   skillTags: ["HTML", "CSS", "JavaScript", "Frontend"],
 };

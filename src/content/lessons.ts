@@ -298,6 +298,12 @@ export {
   buttonVariantsLesson,
   cardVariantsLesson,
   designTokensVariantsAssessmentLesson,
+  formComponentsLesson,
+  tableComponentsLesson,
+  productModalLesson,
+  toastComponentsLesson,
+  tabsSelectComponentsLesson,
+  productComponentsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

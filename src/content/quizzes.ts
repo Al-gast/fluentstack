@@ -62,6 +62,7 @@ export {
   stateAndDataStrategyAssessmentQuiz,
   componentApiDocumentationAssessmentQuiz,
   designTokensVariantsAssessmentQuiz,
+  productComponentsAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

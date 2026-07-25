@@ -51,6 +51,7 @@ import { featureBasedStructureBoundariesModule, featureFoldersLesson, sharedComp
 import { stateAndDataStrategyModule, architectureServerStateClientStateLesson, architectureUrlStateLesson, architectureLocalStateLesson, architecturePersistenceBoundariesLesson, architectureErrorStrategyLesson, stateAndDataStrategyAssessmentLesson, stateAndDataStrategyAssessmentQuiz, classifyCourseStateOwnersChallenge, moveCourseFilterToUrlStateChallenge, keepCoursePanelStateLocalChallenge, chooseCoursePersistenceBoundaryChallenge, mapCourseErrorRecoveryChallenge, buildCourseStateDataStrategyCheckpointChallenge } from "./level-16-frontend-architecture/state-and-data-strategy";
 import { componentApiAndDocumentationModule, componentApiDesignLesson, componentPropNamingLesson, contentDrivenComponentRenderingLesson, componentUsageExamplesLesson, componentDocumentationNotesLesson, componentApiDocumentationAssessmentLesson, componentApiDocumentationAssessmentQuiz, improveCourseInfoCardApiChallenge, renameCourseStatusPropsChallenge, renderCourseResourcesFromContentChallenge, designCourseNoticeCardApiCheckpointChallenge } from "./level-16-frontend-architecture/component-api-and-documentation";
 import { designTokensAndVariantsModule, designTokensLesson, colorSpacingTokensLesson, radiusTypographyTokensLesson, buttonVariantsLesson, cardVariantsLesson, designTokensVariantsAssessmentLesson, designTokensVariantsAssessmentQuiz, nameCourseCardDesignTokensChallenge, createCourseColorSpacingTokensChallenge, addCourseRadiusTypographyTokensChallenge, buildCourseButtonVariantsChallenge, buildCourseCardVariantsChallenge, buildTokenDrivenCourseUiCheckpointChallenge } from "./level-17-design-system/design-tokens-and-variants";
+import { productComponentsModule, formComponentsLesson, tableComponentsLesson, productModalLesson, toastComponentsLesson, tabsSelectComponentsLesson, productComponentsAssessmentLesson, productComponentsAssessmentQuiz, buildCourseTextFieldChallenge, buildCourseResultsTableChallenge, auditCourseConfirmDialogChallenge, buildCourseToastStatusChallenge, buildCourseFilterSelectChallenge, buildCourseInviteFormCheckpointChallenge } from "./level-17-design-system/product-components";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -105,6 +106,7 @@ export { featureBasedStructureBoundariesModule, featureFoldersLesson, sharedComp
 export { stateAndDataStrategyModule, architectureServerStateClientStateLesson, architectureUrlStateLesson, architectureLocalStateLesson, architecturePersistenceBoundariesLesson, architectureErrorStrategyLesson, stateAndDataStrategyAssessmentLesson, stateAndDataStrategyAssessmentQuiz, classifyCourseStateOwnersChallenge, moveCourseFilterToUrlStateChallenge, keepCoursePanelStateLocalChallenge, chooseCoursePersistenceBoundaryChallenge, mapCourseErrorRecoveryChallenge, buildCourseStateDataStrategyCheckpointChallenge } from "./level-16-frontend-architecture/state-and-data-strategy";
 export { componentApiAndDocumentationModule, componentApiDesignLesson, componentPropNamingLesson, contentDrivenComponentRenderingLesson, componentUsageExamplesLesson, componentDocumentationNotesLesson, componentApiDocumentationAssessmentLesson, componentApiDocumentationAssessmentQuiz, improveCourseInfoCardApiChallenge, renameCourseStatusPropsChallenge, renderCourseResourcesFromContentChallenge, designCourseNoticeCardApiCheckpointChallenge } from "./level-16-frontend-architecture/component-api-and-documentation";
 export { designTokensAndVariantsModule, designTokensLesson, colorSpacingTokensLesson, radiusTypographyTokensLesson, buttonVariantsLesson, cardVariantsLesson, designTokensVariantsAssessmentLesson, designTokensVariantsAssessmentQuiz, nameCourseCardDesignTokensChallenge, createCourseColorSpacingTokensChallenge, addCourseRadiusTypographyTokensChallenge, buildCourseButtonVariantsChallenge, buildCourseCardVariantsChallenge, buildTokenDrivenCourseUiCheckpointChallenge } from "./level-17-design-system/design-tokens-and-variants";
+export { productComponentsModule, formComponentsLesson, tableComponentsLesson, productModalLesson, toastComponentsLesson, tabsSelectComponentsLesson, productComponentsAssessmentLesson, productComponentsAssessmentQuiz, buildCourseTextFieldChallenge, buildCourseResultsTableChallenge, auditCourseConfirmDialogChallenge, buildCourseToastStatusChallenge, buildCourseFilterSelectChallenge, buildCourseInviteFormCheckpointChallenge } from "./level-17-design-system/product-components";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -160,6 +162,7 @@ export const frontendEngineeringModules = [
   stateAndDataStrategyModule,
   componentApiAndDocumentationModule,
   designTokensAndVariantsModule,
+  productComponentsModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -459,6 +462,12 @@ export const frontendEngineeringLessons = [
   buttonVariantsLesson,
   cardVariantsLesson,
   designTokensVariantsAssessmentLesson,
+  formComponentsLesson,
+  tableComponentsLesson,
+  productModalLesson,
+  toastComponentsLesson,
+  tabsSelectComponentsLesson,
+  productComponentsAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -522,6 +531,7 @@ export const frontendEngineeringQuizzes = [
   stateAndDataStrategyAssessmentQuiz,
   componentApiDocumentationAssessmentQuiz,
   designTokensVariantsAssessmentQuiz,
+  productComponentsAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -752,4 +762,10 @@ export const frontendEngineeringChallenges = [
   buildCourseButtonVariantsChallenge,
   buildCourseCardVariantsChallenge,
   buildTokenDrivenCourseUiCheckpointChallenge,
+  buildCourseTextFieldChallenge,
+  buildCourseResultsTableChallenge,
+  auditCourseConfirmDialogChallenge,
+  buildCourseToastStatusChallenge,
+  buildCourseFilterSelectChallenge,
+  buildCourseInviteFormCheckpointChallenge,
 ];
