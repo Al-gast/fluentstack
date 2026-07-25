@@ -50,6 +50,7 @@ import { accessibilityTestingPreferencesModule, colorContrastLesson, accessibleF
 import { featureBasedStructureBoundariesModule, featureFoldersLesson, sharedComponentsLesson, serviceLayerLesson, typesAndContentBoundariesLesson, dependencyBoundariesLesson, featureBasedStructureAssessmentLesson, featureBasedStructureAssessmentQuiz, organizeCourseFeatureFolderChallenge, placeSharedAndCourseComponentsChallenge, extractCourseServiceFunctionChallenge, placeCourseTypesAndContentChallenge, fixCourseFeatureDependencyChallenge, refactorCourseFeatureBoundariesCheckpointChallenge } from "./level-16-frontend-architecture/feature-based-structure-boundaries";
 import { stateAndDataStrategyModule, architectureServerStateClientStateLesson, architectureUrlStateLesson, architectureLocalStateLesson, architecturePersistenceBoundariesLesson, architectureErrorStrategyLesson, stateAndDataStrategyAssessmentLesson, stateAndDataStrategyAssessmentQuiz, classifyCourseStateOwnersChallenge, moveCourseFilterToUrlStateChallenge, keepCoursePanelStateLocalChallenge, chooseCoursePersistenceBoundaryChallenge, mapCourseErrorRecoveryChallenge, buildCourseStateDataStrategyCheckpointChallenge } from "./level-16-frontend-architecture/state-and-data-strategy";
 import { componentApiAndDocumentationModule, componentApiDesignLesson, componentPropNamingLesson, contentDrivenComponentRenderingLesson, componentUsageExamplesLesson, componentDocumentationNotesLesson, componentApiDocumentationAssessmentLesson, componentApiDocumentationAssessmentQuiz, improveCourseInfoCardApiChallenge, renameCourseStatusPropsChallenge, renderCourseResourcesFromContentChallenge, designCourseNoticeCardApiCheckpointChallenge } from "./level-16-frontend-architecture/component-api-and-documentation";
+import { designTokensAndVariantsModule, designTokensLesson, colorSpacingTokensLesson, radiusTypographyTokensLesson, buttonVariantsLesson, cardVariantsLesson, designTokensVariantsAssessmentLesson, designTokensVariantsAssessmentQuiz, nameCourseCardDesignTokensChallenge, createCourseColorSpacingTokensChallenge, addCourseRadiusTypographyTokensChallenge, buildCourseButtonVariantsChallenge, buildCourseCardVariantsChallenge, buildTokenDrivenCourseUiCheckpointChallenge } from "./level-17-design-system/design-tokens-and-variants";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -103,6 +104,7 @@ export { accessibilityTestingPreferencesModule, colorContrastLesson, accessibleF
 export { featureBasedStructureBoundariesModule, featureFoldersLesson, sharedComponentsLesson, serviceLayerLesson, typesAndContentBoundariesLesson, dependencyBoundariesLesson, featureBasedStructureAssessmentLesson, featureBasedStructureAssessmentQuiz, organizeCourseFeatureFolderChallenge, placeSharedAndCourseComponentsChallenge, extractCourseServiceFunctionChallenge, placeCourseTypesAndContentChallenge, fixCourseFeatureDependencyChallenge, refactorCourseFeatureBoundariesCheckpointChallenge } from "./level-16-frontend-architecture/feature-based-structure-boundaries";
 export { stateAndDataStrategyModule, architectureServerStateClientStateLesson, architectureUrlStateLesson, architectureLocalStateLesson, architecturePersistenceBoundariesLesson, architectureErrorStrategyLesson, stateAndDataStrategyAssessmentLesson, stateAndDataStrategyAssessmentQuiz, classifyCourseStateOwnersChallenge, moveCourseFilterToUrlStateChallenge, keepCoursePanelStateLocalChallenge, chooseCoursePersistenceBoundaryChallenge, mapCourseErrorRecoveryChallenge, buildCourseStateDataStrategyCheckpointChallenge } from "./level-16-frontend-architecture/state-and-data-strategy";
 export { componentApiAndDocumentationModule, componentApiDesignLesson, componentPropNamingLesson, contentDrivenComponentRenderingLesson, componentUsageExamplesLesson, componentDocumentationNotesLesson, componentApiDocumentationAssessmentLesson, componentApiDocumentationAssessmentQuiz, improveCourseInfoCardApiChallenge, renameCourseStatusPropsChallenge, renderCourseResourcesFromContentChallenge, designCourseNoticeCardApiCheckpointChallenge } from "./level-16-frontend-architecture/component-api-and-documentation";
+export { designTokensAndVariantsModule, designTokensLesson, colorSpacingTokensLesson, radiusTypographyTokensLesson, buttonVariantsLesson, cardVariantsLesson, designTokensVariantsAssessmentLesson, designTokensVariantsAssessmentQuiz, nameCourseCardDesignTokensChallenge, createCourseColorSpacingTokensChallenge, addCourseRadiusTypographyTokensChallenge, buildCourseButtonVariantsChallenge, buildCourseCardVariantsChallenge, buildTokenDrivenCourseUiCheckpointChallenge } from "./level-17-design-system/design-tokens-and-variants";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -157,6 +159,7 @@ export const frontendEngineeringModules = [
   featureBasedStructureBoundariesModule,
   stateAndDataStrategyModule,
   componentApiAndDocumentationModule,
+  designTokensAndVariantsModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -450,6 +453,12 @@ export const frontendEngineeringLessons = [
   componentUsageExamplesLesson,
   componentDocumentationNotesLesson,
   componentApiDocumentationAssessmentLesson,
+  designTokensLesson,
+  colorSpacingTokensLesson,
+  radiusTypographyTokensLesson,
+  buttonVariantsLesson,
+  cardVariantsLesson,
+  designTokensVariantsAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -512,6 +521,7 @@ export const frontendEngineeringQuizzes = [
   featureBasedStructureAssessmentQuiz,
   stateAndDataStrategyAssessmentQuiz,
   componentApiDocumentationAssessmentQuiz,
+  designTokensVariantsAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -736,4 +746,10 @@ export const frontendEngineeringChallenges = [
   renameCourseStatusPropsChallenge,
   renderCourseResourcesFromContentChallenge,
   designCourseNoticeCardApiCheckpointChallenge,
+  nameCourseCardDesignTokensChallenge,
+  createCourseColorSpacingTokensChallenge,
+  addCourseRadiusTypographyTokensChallenge,
+  buildCourseButtonVariantsChallenge,
+  buildCourseCardVariantsChallenge,
+  buildTokenDrivenCourseUiCheckpointChallenge,
 ];

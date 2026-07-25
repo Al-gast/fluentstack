@@ -223,6 +223,12 @@ export {
   renameCourseStatusPropsChallenge,
   renderCourseResourcesFromContentChallenge,
   designCourseNoticeCardApiCheckpointChallenge,
+  nameCourseCardDesignTokensChallenge,
+  createCourseColorSpacingTokensChallenge,
+  addCourseRadiusTypographyTokensChallenge,
+  buildCourseButtonVariantsChallenge,
+  buildCourseCardVariantsChallenge,
+  buildTokenDrivenCourseUiCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

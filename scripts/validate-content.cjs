@@ -79,6 +79,7 @@ const expectedFrontendModuleOrder = [
   "feature-based-structure-boundaries",
   "state-and-data-strategy",
   "component-api-and-documentation",
+  "design-tokens-and-variants",
 ];
 
 function resolveTsPath(basePath) {

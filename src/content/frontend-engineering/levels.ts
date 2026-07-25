@@ -203,4 +203,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "component-api-and-documentation",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 17,
+    stage: "advanced",
+    title: "Design System",
+    description:
+      "Membangun token visual dan UI primitive yang konsisten, jelas, serta tetap dapat diakses saat product berkembang.",
+    moduleIds: ["design-tokens-and-variants"],
+  },
 ];

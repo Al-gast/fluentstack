@@ -292,6 +292,12 @@ export {
   componentUsageExamplesLesson,
   componentDocumentationNotesLesson,
   componentApiDocumentationAssessmentLesson,
+  designTokensLesson,
+  colorSpacingTokensLesson,
+  radiusTypographyTokensLesson,
+  buttonVariantsLesson,
+  cardVariantsLesson,
+  designTokensVariantsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

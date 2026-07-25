@@ -54,6 +54,7 @@ export {
   featureBasedStructureBoundariesModule,
   stateAndDataStrategyModule,
   componentApiAndDocumentationModule,
+  designTokensAndVariantsModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

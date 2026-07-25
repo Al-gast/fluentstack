@@ -61,6 +61,7 @@ export {
   featureBasedStructureAssessmentQuiz,
   stateAndDataStrategyAssessmentQuiz,
   componentApiDocumentationAssessmentQuiz,
+  designTokensVariantsAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
