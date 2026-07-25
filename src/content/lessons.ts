@@ -280,6 +280,12 @@ export {
   typesAndContentBoundariesLesson,
   dependencyBoundariesLesson,
   featureBasedStructureAssessmentLesson,
+  architectureServerStateClientStateLesson,
+  architectureUrlStateLesson,
+  architectureLocalStateLesson,
+  architecturePersistenceBoundariesLesson,
+  architectureErrorStrategyLesson,
+  stateAndDataStrategyAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

@@ -197,6 +197,9 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     title: "Frontend Architecture",
     description:
       "Mengatur feature frontend agar component, service, type, content, dan dependency tetap mudah dipahami saat product berkembang.",
-    moduleIds: ["feature-based-structure-boundaries"],
+    moduleIds: [
+      "feature-based-structure-boundaries",
+      "state-and-data-strategy",
+    ],
   },
 ];

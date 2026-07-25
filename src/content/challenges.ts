@@ -213,6 +213,12 @@ export {
   placeCourseTypesAndContentChallenge,
   fixCourseFeatureDependencyChallenge,
   refactorCourseFeatureBoundariesCheckpointChallenge,
+  classifyCourseStateOwnersChallenge,
+  moveCourseFilterToUrlStateChallenge,
+  keepCoursePanelStateLocalChallenge,
+  chooseCoursePersistenceBoundaryChallenge,
+  mapCourseErrorRecoveryChallenge,
+  buildCourseStateDataStrategyCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

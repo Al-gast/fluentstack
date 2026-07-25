@@ -77,6 +77,7 @@ const expectedFrontendModuleOrder = [
   "accessible-components",
   "accessibility-testing-preferences",
   "feature-based-structure-boundaries",
+  "state-and-data-strategy",
 ];
 
 function resolveTsPath(basePath) {
