@@ -60,6 +60,7 @@ export {
   accessibilityTestingPreferencesAssessmentQuiz,
   featureBasedStructureAssessmentQuiz,
   stateAndDataStrategyAssessmentQuiz,
+  componentApiDocumentationAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

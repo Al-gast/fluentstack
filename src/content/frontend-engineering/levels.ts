@@ -200,6 +200,7 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     moduleIds: [
       "feature-based-structure-boundaries",
       "state-and-data-strategy",
+      "component-api-and-documentation",
     ],
   },
 ];

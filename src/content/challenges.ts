@@ -219,6 +219,10 @@ export {
   chooseCoursePersistenceBoundaryChallenge,
   mapCourseErrorRecoveryChallenge,
   buildCourseStateDataStrategyCheckpointChallenge,
+  improveCourseInfoCardApiChallenge,
+  renameCourseStatusPropsChallenge,
+  renderCourseResourcesFromContentChallenge,
+  designCourseNoticeCardApiCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

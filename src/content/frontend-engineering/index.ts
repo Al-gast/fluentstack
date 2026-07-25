@@ -49,6 +49,7 @@ import { accessibleComponentsModule, modalAccessibilityLesson, dropdownAccessibi
 import { accessibilityTestingPreferencesModule, colorContrastLesson, accessibleFormErrorsLesson, reducedMotionLesson, screenReaderBasicsLesson, accessibilityTestingToolsLesson, accessibilityTestingPreferencesAssessmentLesson, accessibilityTestingPreferencesAssessmentQuiz, fixCourseContrastStatesChallenge, improveCourseEnrollmentErrorsChallenge, reduceCourseCardMotionChallenge, testCourseEnrollmentWithAccessibleQueriesChallenge, buildAccessibleCourseSignupCheckpointChallenge } from "./level-15-accessibility/accessibility-testing-preferences";
 import { featureBasedStructureBoundariesModule, featureFoldersLesson, sharedComponentsLesson, serviceLayerLesson, typesAndContentBoundariesLesson, dependencyBoundariesLesson, featureBasedStructureAssessmentLesson, featureBasedStructureAssessmentQuiz, organizeCourseFeatureFolderChallenge, placeSharedAndCourseComponentsChallenge, extractCourseServiceFunctionChallenge, placeCourseTypesAndContentChallenge, fixCourseFeatureDependencyChallenge, refactorCourseFeatureBoundariesCheckpointChallenge } from "./level-16-frontend-architecture/feature-based-structure-boundaries";
 import { stateAndDataStrategyModule, architectureServerStateClientStateLesson, architectureUrlStateLesson, architectureLocalStateLesson, architecturePersistenceBoundariesLesson, architectureErrorStrategyLesson, stateAndDataStrategyAssessmentLesson, stateAndDataStrategyAssessmentQuiz, classifyCourseStateOwnersChallenge, moveCourseFilterToUrlStateChallenge, keepCoursePanelStateLocalChallenge, chooseCoursePersistenceBoundaryChallenge, mapCourseErrorRecoveryChallenge, buildCourseStateDataStrategyCheckpointChallenge } from "./level-16-frontend-architecture/state-and-data-strategy";
+import { componentApiAndDocumentationModule, componentApiDesignLesson, componentPropNamingLesson, contentDrivenComponentRenderingLesson, componentUsageExamplesLesson, componentDocumentationNotesLesson, componentApiDocumentationAssessmentLesson, componentApiDocumentationAssessmentQuiz, improveCourseInfoCardApiChallenge, renameCourseStatusPropsChallenge, renderCourseResourcesFromContentChallenge, designCourseNoticeCardApiCheckpointChallenge } from "./level-16-frontend-architecture/component-api-and-documentation";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -101,6 +102,7 @@ export { accessibleComponentsModule, modalAccessibilityLesson, dropdownAccessibi
 export { accessibilityTestingPreferencesModule, colorContrastLesson, accessibleFormErrorsLesson, reducedMotionLesson, screenReaderBasicsLesson, accessibilityTestingToolsLesson, accessibilityTestingPreferencesAssessmentLesson, accessibilityTestingPreferencesAssessmentQuiz, fixCourseContrastStatesChallenge, improveCourseEnrollmentErrorsChallenge, reduceCourseCardMotionChallenge, testCourseEnrollmentWithAccessibleQueriesChallenge, buildAccessibleCourseSignupCheckpointChallenge } from "./level-15-accessibility/accessibility-testing-preferences";
 export { featureBasedStructureBoundariesModule, featureFoldersLesson, sharedComponentsLesson, serviceLayerLesson, typesAndContentBoundariesLesson, dependencyBoundariesLesson, featureBasedStructureAssessmentLesson, featureBasedStructureAssessmentQuiz, organizeCourseFeatureFolderChallenge, placeSharedAndCourseComponentsChallenge, extractCourseServiceFunctionChallenge, placeCourseTypesAndContentChallenge, fixCourseFeatureDependencyChallenge, refactorCourseFeatureBoundariesCheckpointChallenge } from "./level-16-frontend-architecture/feature-based-structure-boundaries";
 export { stateAndDataStrategyModule, architectureServerStateClientStateLesson, architectureUrlStateLesson, architectureLocalStateLesson, architecturePersistenceBoundariesLesson, architectureErrorStrategyLesson, stateAndDataStrategyAssessmentLesson, stateAndDataStrategyAssessmentQuiz, classifyCourseStateOwnersChallenge, moveCourseFilterToUrlStateChallenge, keepCoursePanelStateLocalChallenge, chooseCoursePersistenceBoundaryChallenge, mapCourseErrorRecoveryChallenge, buildCourseStateDataStrategyCheckpointChallenge } from "./level-16-frontend-architecture/state-and-data-strategy";
+export { componentApiAndDocumentationModule, componentApiDesignLesson, componentPropNamingLesson, contentDrivenComponentRenderingLesson, componentUsageExamplesLesson, componentDocumentationNotesLesson, componentApiDocumentationAssessmentLesson, componentApiDocumentationAssessmentQuiz, improveCourseInfoCardApiChallenge, renameCourseStatusPropsChallenge, renderCourseResourcesFromContentChallenge, designCourseNoticeCardApiCheckpointChallenge } from "./level-16-frontend-architecture/component-api-and-documentation";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -154,6 +156,7 @@ export const frontendEngineeringModules = [
   accessibilityTestingPreferencesModule,
   featureBasedStructureBoundariesModule,
   stateAndDataStrategyModule,
+  componentApiAndDocumentationModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -441,6 +444,12 @@ export const frontendEngineeringLessons = [
   architecturePersistenceBoundariesLesson,
   architectureErrorStrategyLesson,
   stateAndDataStrategyAssessmentLesson,
+  componentApiDesignLesson,
+  componentPropNamingLesson,
+  contentDrivenComponentRenderingLesson,
+  componentUsageExamplesLesson,
+  componentDocumentationNotesLesson,
+  componentApiDocumentationAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -502,6 +511,7 @@ export const frontendEngineeringQuizzes = [
   accessibilityTestingPreferencesAssessmentQuiz,
   featureBasedStructureAssessmentQuiz,
   stateAndDataStrategyAssessmentQuiz,
+  componentApiDocumentationAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -722,4 +732,8 @@ export const frontendEngineeringChallenges = [
   chooseCoursePersistenceBoundaryChallenge,
   mapCourseErrorRecoveryChallenge,
   buildCourseStateDataStrategyCheckpointChallenge,
+  improveCourseInfoCardApiChallenge,
+  renameCourseStatusPropsChallenge,
+  renderCourseResourcesFromContentChallenge,
+  designCourseNoticeCardApiCheckpointChallenge,
 ];

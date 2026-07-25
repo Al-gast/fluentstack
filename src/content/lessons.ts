@@ -286,6 +286,12 @@ export {
   architecturePersistenceBoundariesLesson,
   architectureErrorStrategyLesson,
   stateAndDataStrategyAssessmentLesson,
+  componentApiDesignLesson,
+  componentPropNamingLesson,
+  contentDrivenComponentRenderingLesson,
+  componentUsageExamplesLesson,
+  componentDocumentationNotesLesson,
+  componentApiDocumentationAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

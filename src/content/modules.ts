@@ -53,6 +53,7 @@ export {
   accessibilityTestingPreferencesModule,
   featureBasedStructureBoundariesModule,
   stateAndDataStrategyModule,
+  componentApiAndDocumentationModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {
