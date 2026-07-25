@@ -304,6 +304,12 @@ export {
   toastComponentsLesson,
   tabsSelectComponentsLesson,
   productComponentsAssessmentLesson,
+  storybookBasicsLesson,
+  componentStoriesLesson,
+  storybookAccessibilityChecksLesson,
+  packageStructureBasicsLesson,
+  componentChangelogThinkingLesson,
+  storybookPackageBasicsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

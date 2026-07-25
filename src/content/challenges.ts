@@ -235,6 +235,10 @@ export {
   buildCourseToastStatusChallenge,
   buildCourseFilterSelectChallenge,
   buildCourseInviteFormCheckpointChallenge,
+  writeCourseButtonStoriesChallenge,
+  configureCourseButtonA11yStoriesChallenge,
+  organizeCourseUiPackageExportsChallenge,
+  documentCourseTextFieldStorybookCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

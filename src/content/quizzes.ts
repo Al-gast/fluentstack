@@ -63,6 +63,7 @@ export {
   componentApiDocumentationAssessmentQuiz,
   designTokensVariantsAssessmentQuiz,
   productComponentsAssessmentQuiz,
+  storybookPackageBasicsAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
