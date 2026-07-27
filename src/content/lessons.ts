@@ -323,6 +323,12 @@ export {
   csrfLesson,
   secureCookiesLesson,
   authBrowserSecurityAssessmentLesson,
+  sqlBasicsLesson,
+  postgresqlBasicsLesson,
+  supabaseOrPrismaBasicsLesson,
+  redisBasicsLesson,
+  fileUploadConceptsLesson,
+  dataInfrastructureAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

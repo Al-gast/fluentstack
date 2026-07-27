@@ -249,6 +249,12 @@ export {
   describeCourseNoteCsrfBoundaryChallenge,
   readSecureSessionCookieAttributesChallenge,
   diagnoseAuthBrowserBoundaryCheckpointChallenge,
+  readCourseCatalogQueryChallenge,
+  mapCourseNoteRelationChallenge,
+  chooseCourseDataBoundaryChallenge,
+  classifyCourseInfrastructureUseCasesChallenge,
+  mapCourseAttachmentUploadFlowChallenge,
+  diagnoseCourseDataInfrastructureCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

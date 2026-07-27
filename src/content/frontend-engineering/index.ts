@@ -55,6 +55,7 @@ import { productComponentsModule, formComponentsLesson, tableComponentsLesson, p
 import { storybookPackageBasicsModule, storybookBasicsLesson, componentStoriesLesson, storybookAccessibilityChecksLesson, packageStructureBasicsLesson, componentChangelogThinkingLesson, storybookPackageBasicsAssessmentLesson, storybookPackageBasicsAssessmentQuiz, writeCourseButtonStoriesChallenge, configureCourseButtonA11yStoriesChallenge, organizeCourseUiPackageExportsChallenge, documentCourseTextFieldStorybookCheckpointChallenge } from "./level-17-design-system/storybook-package-basics";
 import { apiFundamentalsModule, restApiBasicsLesson, graphqlBasicsLesson, httpStatusCodesLesson, apiRequestResponseShapeLesson, apiPaginationWebhooksLesson, apiFundamentalsAssessmentLesson, apiFundamentalsAssessmentQuiz, readCourseRestRequestChallenge, selectCourseGraphqlFieldsChallenge, mapCourseStatusToUiChallenge, typeAndMapCourseApiResponseChallenge, mapCourseCursorPageChallenge, analyzeCourseApiContractCheckpointChallenge } from "./level-18-backend-basics/api-fundamentals";
 import { authCookiesBrowserSecurityModule, authConceptsLesson, cookiesLesson, jwtVsSessionLesson, corsLesson, csrfLesson, secureCookiesLesson, authBrowserSecurityAssessmentLesson, authBrowserSecurityAssessmentQuiz, diagnoseCourseCorsBoundaryChallenge, describeCourseNoteCsrfBoundaryChallenge, readSecureSessionCookieAttributesChallenge, diagnoseAuthBrowserBoundaryCheckpointChallenge } from "./level-18-backend-basics/auth-cookies-browser-security";
+import { dataInfrastructureBasicsModule, sqlBasicsLesson, postgresqlBasicsLesson, supabaseOrPrismaBasicsLesson, redisBasicsLesson, fileUploadConceptsLesson, dataInfrastructureAssessmentLesson, dataInfrastructureAssessmentQuiz, readCourseCatalogQueryChallenge, mapCourseNoteRelationChallenge, chooseCourseDataBoundaryChallenge, classifyCourseInfrastructureUseCasesChallenge, mapCourseAttachmentUploadFlowChallenge, diagnoseCourseDataInfrastructureCheckpointChallenge } from "./level-18-backend-basics/data-infrastructure-basics";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -113,6 +114,7 @@ export { productComponentsModule, formComponentsLesson, tableComponentsLesson, p
 export { storybookPackageBasicsModule, storybookBasicsLesson, componentStoriesLesson, storybookAccessibilityChecksLesson, packageStructureBasicsLesson, componentChangelogThinkingLesson, storybookPackageBasicsAssessmentLesson, storybookPackageBasicsAssessmentQuiz, writeCourseButtonStoriesChallenge, configureCourseButtonA11yStoriesChallenge, organizeCourseUiPackageExportsChallenge, documentCourseTextFieldStorybookCheckpointChallenge } from "./level-17-design-system/storybook-package-basics";
 export { apiFundamentalsModule, restApiBasicsLesson, graphqlBasicsLesson, httpStatusCodesLesson, apiRequestResponseShapeLesson, apiPaginationWebhooksLesson, apiFundamentalsAssessmentLesson, apiFundamentalsAssessmentQuiz, readCourseRestRequestChallenge, selectCourseGraphqlFieldsChallenge, mapCourseStatusToUiChallenge, typeAndMapCourseApiResponseChallenge, mapCourseCursorPageChallenge, analyzeCourseApiContractCheckpointChallenge } from "./level-18-backend-basics/api-fundamentals";
 export { authCookiesBrowserSecurityModule, authConceptsLesson, cookiesLesson, jwtVsSessionLesson, corsLesson, csrfLesson, secureCookiesLesson, authBrowserSecurityAssessmentLesson, authBrowserSecurityAssessmentQuiz, diagnoseCourseCorsBoundaryChallenge, describeCourseNoteCsrfBoundaryChallenge, readSecureSessionCookieAttributesChallenge, diagnoseAuthBrowserBoundaryCheckpointChallenge } from "./level-18-backend-basics/auth-cookies-browser-security";
+export { dataInfrastructureBasicsModule, sqlBasicsLesson, postgresqlBasicsLesson, supabaseOrPrismaBasicsLesson, redisBasicsLesson, fileUploadConceptsLesson, dataInfrastructureAssessmentLesson, dataInfrastructureAssessmentQuiz, readCourseCatalogQueryChallenge, mapCourseNoteRelationChallenge, chooseCourseDataBoundaryChallenge, classifyCourseInfrastructureUseCasesChallenge, mapCourseAttachmentUploadFlowChallenge, diagnoseCourseDataInfrastructureCheckpointChallenge } from "./level-18-backend-basics/data-infrastructure-basics";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -172,6 +174,7 @@ export const frontendEngineeringModules = [
   storybookPackageBasicsModule,
   apiFundamentalsModule,
   authCookiesBrowserSecurityModule,
+  dataInfrastructureBasicsModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -496,6 +499,12 @@ export const frontendEngineeringLessons = [
   csrfLesson,
   secureCookiesLesson,
   authBrowserSecurityAssessmentLesson,
+  sqlBasicsLesson,
+  postgresqlBasicsLesson,
+  supabaseOrPrismaBasicsLesson,
+  redisBasicsLesson,
+  fileUploadConceptsLesson,
+  dataInfrastructureAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -563,6 +572,7 @@ export const frontendEngineeringQuizzes = [
   storybookPackageBasicsAssessmentQuiz,
   apiFundamentalsAssessmentQuiz,
   authBrowserSecurityAssessmentQuiz,
+  dataInfrastructureAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -813,4 +823,10 @@ export const frontendEngineeringChallenges = [
   describeCourseNoteCsrfBoundaryChallenge,
   readSecureSessionCookieAttributesChallenge,
   diagnoseAuthBrowserBoundaryCheckpointChallenge,
+  readCourseCatalogQueryChallenge,
+  mapCourseNoteRelationChallenge,
+  chooseCourseDataBoundaryChallenge,
+  classifyCourseInfrastructureUseCasesChallenge,
+  mapCourseAttachmentUploadFlowChallenge,
+  diagnoseCourseDataInfrastructureCheckpointChallenge,
 ];

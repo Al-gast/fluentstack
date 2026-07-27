@@ -226,6 +226,7 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     moduleIds: [
       "api-fundamentals",
       "auth-cookies-browser-security-boundaries",
+      "data-infrastructure-basics",
     ],
   },
 ];

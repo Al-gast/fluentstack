@@ -66,6 +66,7 @@ export {
   storybookPackageBasicsAssessmentQuiz,
   apiFundamentalsAssessmentQuiz,
   authBrowserSecurityAssessmentQuiz,
+  dataInfrastructureAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 
