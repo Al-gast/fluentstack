@@ -56,6 +56,7 @@ import { storybookPackageBasicsModule, storybookBasicsLesson, componentStoriesLe
 import { apiFundamentalsModule, restApiBasicsLesson, graphqlBasicsLesson, httpStatusCodesLesson, apiRequestResponseShapeLesson, apiPaginationWebhooksLesson, apiFundamentalsAssessmentLesson, apiFundamentalsAssessmentQuiz, readCourseRestRequestChallenge, selectCourseGraphqlFieldsChallenge, mapCourseStatusToUiChallenge, typeAndMapCourseApiResponseChallenge, mapCourseCursorPageChallenge, analyzeCourseApiContractCheckpointChallenge } from "./level-18-backend-basics/api-fundamentals";
 import { authCookiesBrowserSecurityModule, authConceptsLesson, cookiesLesson, jwtVsSessionLesson, corsLesson, csrfLesson, secureCookiesLesson, authBrowserSecurityAssessmentLesson, authBrowserSecurityAssessmentQuiz, diagnoseCourseCorsBoundaryChallenge, describeCourseNoteCsrfBoundaryChallenge, readSecureSessionCookieAttributesChallenge, diagnoseAuthBrowserBoundaryCheckpointChallenge } from "./level-18-backend-basics/auth-cookies-browser-security";
 import { dataInfrastructureBasicsModule, sqlBasicsLesson, postgresqlBasicsLesson, supabaseOrPrismaBasicsLesson, redisBasicsLesson, fileUploadConceptsLesson, dataInfrastructureAssessmentLesson, dataInfrastructureAssessmentQuiz, readCourseCatalogQueryChallenge, mapCourseNoteRelationChallenge, chooseCourseDataBoundaryChallenge, classifyCourseInfrastructureUseCasesChallenge, mapCourseAttachmentUploadFlowChallenge, diagnoseCourseDataInfrastructureCheckpointChallenge } from "./level-18-backend-basics/data-infrastructure-basics";
+import { browserAttackBasicsModule, xssBasicsLesson, browserCsrfBasicsLesson, corsRisksLesson, inputSanitizationLesson, dependencyVulnerabilitiesLesson, browserAttackBasicsAssessmentLesson, browserAttackBasicsAssessmentQuiz, identifySafeCourseReviewRenderingChallenge, explainCourseCsrfMutationBoundaryChallenge, classifyCourseCorsSecurityBoundaryChallenge, decideCourseInputHandlingBoundaryChallenge, reviewCoursePackageRiskChallenge, diagnoseCourseBrowserRiskCheckpointChallenge } from "./level-19-security/browser-attack-basics";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -115,6 +116,7 @@ export { storybookPackageBasicsModule, storybookBasicsLesson, componentStoriesLe
 export { apiFundamentalsModule, restApiBasicsLesson, graphqlBasicsLesson, httpStatusCodesLesson, apiRequestResponseShapeLesson, apiPaginationWebhooksLesson, apiFundamentalsAssessmentLesson, apiFundamentalsAssessmentQuiz, readCourseRestRequestChallenge, selectCourseGraphqlFieldsChallenge, mapCourseStatusToUiChallenge, typeAndMapCourseApiResponseChallenge, mapCourseCursorPageChallenge, analyzeCourseApiContractCheckpointChallenge } from "./level-18-backend-basics/api-fundamentals";
 export { authCookiesBrowserSecurityModule, authConceptsLesson, cookiesLesson, jwtVsSessionLesson, corsLesson, csrfLesson, secureCookiesLesson, authBrowserSecurityAssessmentLesson, authBrowserSecurityAssessmentQuiz, diagnoseCourseCorsBoundaryChallenge, describeCourseNoteCsrfBoundaryChallenge, readSecureSessionCookieAttributesChallenge, diagnoseAuthBrowserBoundaryCheckpointChallenge } from "./level-18-backend-basics/auth-cookies-browser-security";
 export { dataInfrastructureBasicsModule, sqlBasicsLesson, postgresqlBasicsLesson, supabaseOrPrismaBasicsLesson, redisBasicsLesson, fileUploadConceptsLesson, dataInfrastructureAssessmentLesson, dataInfrastructureAssessmentQuiz, readCourseCatalogQueryChallenge, mapCourseNoteRelationChallenge, chooseCourseDataBoundaryChallenge, classifyCourseInfrastructureUseCasesChallenge, mapCourseAttachmentUploadFlowChallenge, diagnoseCourseDataInfrastructureCheckpointChallenge } from "./level-18-backend-basics/data-infrastructure-basics";
+export { browserAttackBasicsModule, xssBasicsLesson, browserCsrfBasicsLesson, corsRisksLesson, inputSanitizationLesson, dependencyVulnerabilitiesLesson, browserAttackBasicsAssessmentLesson, browserAttackBasicsAssessmentQuiz, identifySafeCourseReviewRenderingChallenge, explainCourseCsrfMutationBoundaryChallenge, classifyCourseCorsSecurityBoundaryChallenge, decideCourseInputHandlingBoundaryChallenge, reviewCoursePackageRiskChallenge, diagnoseCourseBrowserRiskCheckpointChallenge } from "./level-19-security/browser-attack-basics";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -175,6 +177,7 @@ export const frontendEngineeringModules = [
   apiFundamentalsModule,
   authCookiesBrowserSecurityModule,
   dataInfrastructureBasicsModule,
+  browserAttackBasicsModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -505,6 +508,12 @@ export const frontendEngineeringLessons = [
   redisBasicsLesson,
   fileUploadConceptsLesson,
   dataInfrastructureAssessmentLesson,
+  xssBasicsLesson,
+  browserCsrfBasicsLesson,
+  corsRisksLesson,
+  inputSanitizationLesson,
+  dependencyVulnerabilitiesLesson,
+  browserAttackBasicsAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -573,6 +582,7 @@ export const frontendEngineeringQuizzes = [
   apiFundamentalsAssessmentQuiz,
   authBrowserSecurityAssessmentQuiz,
   dataInfrastructureAssessmentQuiz,
+  browserAttackBasicsAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -829,4 +839,10 @@ export const frontendEngineeringChallenges = [
   classifyCourseInfrastructureUseCasesChallenge,
   mapCourseAttachmentUploadFlowChallenge,
   diagnoseCourseDataInfrastructureCheckpointChallenge,
+  identifySafeCourseReviewRenderingChallenge,
+  explainCourseCsrfMutationBoundaryChallenge,
+  classifyCourseCorsSecurityBoundaryChallenge,
+  decideCourseInputHandlingBoundaryChallenge,
+  reviewCoursePackageRiskChallenge,
+  diagnoseCourseBrowserRiskCheckpointChallenge,
 ];

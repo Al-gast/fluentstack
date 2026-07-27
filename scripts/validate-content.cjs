@@ -85,6 +85,7 @@ const expectedFrontendModuleOrder = [
   "api-fundamentals",
   "auth-cookies-browser-security-boundaries",
   "data-infrastructure-basics",
+  "browser-attack-basics",
 ];
 
 function resolveTsPath(basePath) {

@@ -60,6 +60,7 @@ export {
   apiFundamentalsModule,
   authCookiesBrowserSecurityModule,
   dataInfrastructureBasicsModule,
+  browserAttackBasicsModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

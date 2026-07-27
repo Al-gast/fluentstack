@@ -329,6 +329,12 @@ export {
   redisBasicsLesson,
   fileUploadConceptsLesson,
   dataInfrastructureAssessmentLesson,
+  xssBasicsLesson,
+  browserCsrfBasicsLesson,
+  corsRisksLesson,
+  inputSanitizationLesson,
+  dependencyVulnerabilitiesLesson,
+  browserAttackBasicsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

@@ -255,6 +255,12 @@ export {
   classifyCourseInfrastructureUseCasesChallenge,
   mapCourseAttachmentUploadFlowChallenge,
   diagnoseCourseDataInfrastructureCheckpointChallenge,
+  identifySafeCourseReviewRenderingChallenge,
+  explainCourseCsrfMutationBoundaryChallenge,
+  classifyCourseCorsSecurityBoundaryChallenge,
+  decideCourseInputHandlingBoundaryChallenge,
+  reviewCoursePackageRiskChallenge,
+  diagnoseCourseBrowserRiskCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

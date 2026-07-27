@@ -229,4 +229,15 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "data-infrastructure-basics",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 19,
+    stage: "advanced",
+    title: "Security Basics",
+    description:
+      "Mengenali risk browser, credential, permission, dan dependency agar frontend memilih default yang lebih aman serta mengkomunikasikan concern dengan jelas.",
+    moduleIds: [
+      "browser-attack-basics",
+    ],
+  },
 ];
