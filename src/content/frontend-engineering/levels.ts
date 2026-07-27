@@ -223,6 +223,9 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
     title: "Backend Basics for Frontend Engineers",
     description:
       "Membaca API, auth boundary, dan data integration agar frontend dapat terhubung, di-debug, serta dikomunikasikan dengan benar.",
-    moduleIds: ["api-fundamentals"],
+    moduleIds: [
+      "api-fundamentals",
+      "auth-cookies-browser-security-boundaries",
+    ],
   },
 ];

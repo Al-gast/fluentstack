@@ -54,6 +54,7 @@ import { designTokensAndVariantsModule, designTokensLesson, colorSpacingTokensLe
 import { productComponentsModule, formComponentsLesson, tableComponentsLesson, productModalLesson, toastComponentsLesson, tabsSelectComponentsLesson, productComponentsAssessmentLesson, productComponentsAssessmentQuiz, buildCourseTextFieldChallenge, buildCourseResultsTableChallenge, auditCourseConfirmDialogChallenge, buildCourseToastStatusChallenge, buildCourseFilterSelectChallenge, buildCourseInviteFormCheckpointChallenge } from "./level-17-design-system/product-components";
 import { storybookPackageBasicsModule, storybookBasicsLesson, componentStoriesLesson, storybookAccessibilityChecksLesson, packageStructureBasicsLesson, componentChangelogThinkingLesson, storybookPackageBasicsAssessmentLesson, storybookPackageBasicsAssessmentQuiz, writeCourseButtonStoriesChallenge, configureCourseButtonA11yStoriesChallenge, organizeCourseUiPackageExportsChallenge, documentCourseTextFieldStorybookCheckpointChallenge } from "./level-17-design-system/storybook-package-basics";
 import { apiFundamentalsModule, restApiBasicsLesson, graphqlBasicsLesson, httpStatusCodesLesson, apiRequestResponseShapeLesson, apiPaginationWebhooksLesson, apiFundamentalsAssessmentLesson, apiFundamentalsAssessmentQuiz, readCourseRestRequestChallenge, selectCourseGraphqlFieldsChallenge, mapCourseStatusToUiChallenge, typeAndMapCourseApiResponseChallenge, mapCourseCursorPageChallenge, analyzeCourseApiContractCheckpointChallenge } from "./level-18-backend-basics/api-fundamentals";
+import { authCookiesBrowserSecurityModule, authConceptsLesson, cookiesLesson, jwtVsSessionLesson, corsLesson, csrfLesson, secureCookiesLesson, authBrowserSecurityAssessmentLesson, authBrowserSecurityAssessmentQuiz, diagnoseCourseCorsBoundaryChallenge, describeCourseNoteCsrfBoundaryChallenge, readSecureSessionCookieAttributesChallenge, diagnoseAuthBrowserBoundaryCheckpointChallenge } from "./level-18-backend-basics/auth-cookies-browser-security";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -111,6 +112,7 @@ export { designTokensAndVariantsModule, designTokensLesson, colorSpacingTokensLe
 export { productComponentsModule, formComponentsLesson, tableComponentsLesson, productModalLesson, toastComponentsLesson, tabsSelectComponentsLesson, productComponentsAssessmentLesson, productComponentsAssessmentQuiz, buildCourseTextFieldChallenge, buildCourseResultsTableChallenge, auditCourseConfirmDialogChallenge, buildCourseToastStatusChallenge, buildCourseFilterSelectChallenge, buildCourseInviteFormCheckpointChallenge } from "./level-17-design-system/product-components";
 export { storybookPackageBasicsModule, storybookBasicsLesson, componentStoriesLesson, storybookAccessibilityChecksLesson, packageStructureBasicsLesson, componentChangelogThinkingLesson, storybookPackageBasicsAssessmentLesson, storybookPackageBasicsAssessmentQuiz, writeCourseButtonStoriesChallenge, configureCourseButtonA11yStoriesChallenge, organizeCourseUiPackageExportsChallenge, documentCourseTextFieldStorybookCheckpointChallenge } from "./level-17-design-system/storybook-package-basics";
 export { apiFundamentalsModule, restApiBasicsLesson, graphqlBasicsLesson, httpStatusCodesLesson, apiRequestResponseShapeLesson, apiPaginationWebhooksLesson, apiFundamentalsAssessmentLesson, apiFundamentalsAssessmentQuiz, readCourseRestRequestChallenge, selectCourseGraphqlFieldsChallenge, mapCourseStatusToUiChallenge, typeAndMapCourseApiResponseChallenge, mapCourseCursorPageChallenge, analyzeCourseApiContractCheckpointChallenge } from "./level-18-backend-basics/api-fundamentals";
+export { authCookiesBrowserSecurityModule, authConceptsLesson, cookiesLesson, jwtVsSessionLesson, corsLesson, csrfLesson, secureCookiesLesson, authBrowserSecurityAssessmentLesson, authBrowserSecurityAssessmentQuiz, diagnoseCourseCorsBoundaryChallenge, describeCourseNoteCsrfBoundaryChallenge, readSecureSessionCookieAttributesChallenge, diagnoseAuthBrowserBoundaryCheckpointChallenge } from "./level-18-backend-basics/auth-cookies-browser-security";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -169,6 +171,7 @@ export const frontendEngineeringModules = [
   productComponentsModule,
   storybookPackageBasicsModule,
   apiFundamentalsModule,
+  authCookiesBrowserSecurityModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -486,6 +489,13 @@ export const frontendEngineeringLessons = [
   apiRequestResponseShapeLesson,
   apiPaginationWebhooksLesson,
   apiFundamentalsAssessmentLesson,
+  authConceptsLesson,
+  cookiesLesson,
+  jwtVsSessionLesson,
+  corsLesson,
+  csrfLesson,
+  secureCookiesLesson,
+  authBrowserSecurityAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -552,6 +562,7 @@ export const frontendEngineeringQuizzes = [
   productComponentsAssessmentQuiz,
   storybookPackageBasicsAssessmentQuiz,
   apiFundamentalsAssessmentQuiz,
+  authBrowserSecurityAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -798,4 +809,8 @@ export const frontendEngineeringChallenges = [
   typeAndMapCourseApiResponseChallenge,
   mapCourseCursorPageChallenge,
   analyzeCourseApiContractCheckpointChallenge,
+  diagnoseCourseCorsBoundaryChallenge,
+  describeCourseNoteCsrfBoundaryChallenge,
+  readSecureSessionCookieAttributesChallenge,
+  diagnoseAuthBrowserBoundaryCheckpointChallenge,
 ];

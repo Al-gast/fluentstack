@@ -316,6 +316,13 @@ export {
   apiRequestResponseShapeLesson,
   apiPaginationWebhooksLesson,
   apiFundamentalsAssessmentLesson,
+  authConceptsLesson,
+  cookiesLesson,
+  jwtVsSessionLesson,
+  corsLesson,
+  csrfLesson,
+  secureCookiesLesson,
+  authBrowserSecurityAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

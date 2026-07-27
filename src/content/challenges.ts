@@ -245,6 +245,10 @@ export {
   typeAndMapCourseApiResponseChallenge,
   mapCourseCursorPageChallenge,
   analyzeCourseApiContractCheckpointChallenge,
+  diagnoseCourseCorsBoundaryChallenge,
+  describeCourseNoteCsrfBoundaryChallenge,
+  readSecureSessionCookieAttributesChallenge,
+  diagnoseAuthBrowserBoundaryCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

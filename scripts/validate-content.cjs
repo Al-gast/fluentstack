@@ -83,6 +83,7 @@ const expectedFrontendModuleOrder = [
   "product-components",
   "storybook-package-basics",
   "api-fundamentals",
+  "auth-cookies-browser-security-boundaries",
 ];
 
 function resolveTsPath(basePath) {
