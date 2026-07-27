@@ -68,6 +68,7 @@ export {
   authBrowserSecurityAssessmentQuiz,
   dataInfrastructureAssessmentQuiz,
   browserAttackBasicsAssessmentQuiz,
+  secretsTokensPermissionsAssessmentQuiz,
 } from "@/content/frontend-engineering";
 
 

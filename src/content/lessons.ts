@@ -335,6 +335,12 @@ export {
   inputSanitizationLesson,
   dependencyVulnerabilitiesLesson,
   browserAttackBasicsAssessmentLesson,
+  envLeakageLesson,
+  tokenStorageLesson,
+  permissionSecureCookiesLesson,
+  permissionUiLesson,
+  authGuardsLesson,
+  secretsTokensPermissionsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

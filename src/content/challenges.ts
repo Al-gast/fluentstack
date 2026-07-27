@@ -261,6 +261,12 @@ export {
   decideCourseInputHandlingBoundaryChallenge,
   reviewCoursePackageRiskChallenge,
   diagnoseCourseBrowserRiskCheckpointChallenge,
+  classifyCourseEnvironmentBoundariesChallenge,
+  explainCourseTokenStorageTradeoffsChallenge,
+  readCourseSecureCookieContractChallenge,
+  designCoursePermissionUiBoundaryChallenge,
+  classifyCourseAuthGuardBoundaryChallenge,
+  diagnoseCourseSecretsPermissionCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 

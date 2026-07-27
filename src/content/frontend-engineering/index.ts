@@ -57,6 +57,7 @@ import { apiFundamentalsModule, restApiBasicsLesson, graphqlBasicsLesson, httpSt
 import { authCookiesBrowserSecurityModule, authConceptsLesson, cookiesLesson, jwtVsSessionLesson, corsLesson, csrfLesson, secureCookiesLesson, authBrowserSecurityAssessmentLesson, authBrowserSecurityAssessmentQuiz, diagnoseCourseCorsBoundaryChallenge, describeCourseNoteCsrfBoundaryChallenge, readSecureSessionCookieAttributesChallenge, diagnoseAuthBrowserBoundaryCheckpointChallenge } from "./level-18-backend-basics/auth-cookies-browser-security";
 import { dataInfrastructureBasicsModule, sqlBasicsLesson, postgresqlBasicsLesson, supabaseOrPrismaBasicsLesson, redisBasicsLesson, fileUploadConceptsLesson, dataInfrastructureAssessmentLesson, dataInfrastructureAssessmentQuiz, readCourseCatalogQueryChallenge, mapCourseNoteRelationChallenge, chooseCourseDataBoundaryChallenge, classifyCourseInfrastructureUseCasesChallenge, mapCourseAttachmentUploadFlowChallenge, diagnoseCourseDataInfrastructureCheckpointChallenge } from "./level-18-backend-basics/data-infrastructure-basics";
 import { browserAttackBasicsModule, xssBasicsLesson, browserCsrfBasicsLesson, corsRisksLesson, inputSanitizationLesson, dependencyVulnerabilitiesLesson, browserAttackBasicsAssessmentLesson, browserAttackBasicsAssessmentQuiz, identifySafeCourseReviewRenderingChallenge, explainCourseCsrfMutationBoundaryChallenge, classifyCourseCorsSecurityBoundaryChallenge, decideCourseInputHandlingBoundaryChallenge, reviewCoursePackageRiskChallenge, diagnoseCourseBrowserRiskCheckpointChallenge } from "./level-19-security/browser-attack-basics";
+import { secretsTokensPermissionsModule, envLeakageLesson, tokenStorageLesson, permissionSecureCookiesLesson, permissionUiLesson, authGuardsLesson, secretsTokensPermissionsAssessmentLesson, secretsTokensPermissionsAssessmentQuiz, classifyCourseEnvironmentBoundariesChallenge, explainCourseTokenStorageTradeoffsChallenge, readCourseSecureCookieContractChallenge, designCoursePermissionUiBoundaryChallenge, classifyCourseAuthGuardBoundaryChallenge, diagnoseCourseSecretsPermissionCheckpointChallenge } from "./level-19-security/secrets-tokens-permissions";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -117,6 +118,7 @@ export { apiFundamentalsModule, restApiBasicsLesson, graphqlBasicsLesson, httpSt
 export { authCookiesBrowserSecurityModule, authConceptsLesson, cookiesLesson, jwtVsSessionLesson, corsLesson, csrfLesson, secureCookiesLesson, authBrowserSecurityAssessmentLesson, authBrowserSecurityAssessmentQuiz, diagnoseCourseCorsBoundaryChallenge, describeCourseNoteCsrfBoundaryChallenge, readSecureSessionCookieAttributesChallenge, diagnoseAuthBrowserBoundaryCheckpointChallenge } from "./level-18-backend-basics/auth-cookies-browser-security";
 export { dataInfrastructureBasicsModule, sqlBasicsLesson, postgresqlBasicsLesson, supabaseOrPrismaBasicsLesson, redisBasicsLesson, fileUploadConceptsLesson, dataInfrastructureAssessmentLesson, dataInfrastructureAssessmentQuiz, readCourseCatalogQueryChallenge, mapCourseNoteRelationChallenge, chooseCourseDataBoundaryChallenge, classifyCourseInfrastructureUseCasesChallenge, mapCourseAttachmentUploadFlowChallenge, diagnoseCourseDataInfrastructureCheckpointChallenge } from "./level-18-backend-basics/data-infrastructure-basics";
 export { browserAttackBasicsModule, xssBasicsLesson, browserCsrfBasicsLesson, corsRisksLesson, inputSanitizationLesson, dependencyVulnerabilitiesLesson, browserAttackBasicsAssessmentLesson, browserAttackBasicsAssessmentQuiz, identifySafeCourseReviewRenderingChallenge, explainCourseCsrfMutationBoundaryChallenge, classifyCourseCorsSecurityBoundaryChallenge, decideCourseInputHandlingBoundaryChallenge, reviewCoursePackageRiskChallenge, diagnoseCourseBrowserRiskCheckpointChallenge } from "./level-19-security/browser-attack-basics";
+export { secretsTokensPermissionsModule, envLeakageLesson, tokenStorageLesson, permissionSecureCookiesLesson, permissionUiLesson, authGuardsLesson, secretsTokensPermissionsAssessmentLesson, secretsTokensPermissionsAssessmentQuiz, classifyCourseEnvironmentBoundariesChallenge, explainCourseTokenStorageTradeoffsChallenge, readCourseSecureCookieContractChallenge, designCoursePermissionUiBoundaryChallenge, classifyCourseAuthGuardBoundaryChallenge, diagnoseCourseSecretsPermissionCheckpointChallenge } from "./level-19-security/secrets-tokens-permissions";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -178,6 +180,7 @@ export const frontendEngineeringModules = [
   authCookiesBrowserSecurityModule,
   dataInfrastructureBasicsModule,
   browserAttackBasicsModule,
+  secretsTokensPermissionsModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -514,6 +517,12 @@ export const frontendEngineeringLessons = [
   inputSanitizationLesson,
   dependencyVulnerabilitiesLesson,
   browserAttackBasicsAssessmentLesson,
+  envLeakageLesson,
+  tokenStorageLesson,
+  permissionSecureCookiesLesson,
+  permissionUiLesson,
+  authGuardsLesson,
+  secretsTokensPermissionsAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -583,6 +592,7 @@ export const frontendEngineeringQuizzes = [
   authBrowserSecurityAssessmentQuiz,
   dataInfrastructureAssessmentQuiz,
   browserAttackBasicsAssessmentQuiz,
+  secretsTokensPermissionsAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -845,4 +855,10 @@ export const frontendEngineeringChallenges = [
   decideCourseInputHandlingBoundaryChallenge,
   reviewCoursePackageRiskChallenge,
   diagnoseCourseBrowserRiskCheckpointChallenge,
+  classifyCourseEnvironmentBoundariesChallenge,
+  explainCourseTokenStorageTradeoffsChallenge,
+  readCourseSecureCookieContractChallenge,
+  designCoursePermissionUiBoundaryChallenge,
+  classifyCourseAuthGuardBoundaryChallenge,
+  diagnoseCourseSecretsPermissionCheckpointChallenge,
 ];

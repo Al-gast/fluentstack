@@ -238,6 +238,7 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "Mengenali risk browser, credential, permission, dan dependency agar frontend memilih default yang lebih aman serta mengkomunikasikan concern dengan jelas.",
     moduleIds: [
       "browser-attack-basics",
+      "secrets-tokens-permissions",
     ],
   },
 ];
