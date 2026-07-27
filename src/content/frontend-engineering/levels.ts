@@ -216,4 +216,13 @@ export const frontendCurriculumLevels: CurriculumLevel[] = [
       "storybook-package-basics",
     ],
   },
+  {
+    trackId: "frontend-engineering",
+    level: 18,
+    stage: "advanced",
+    title: "Backend Basics for Frontend Engineers",
+    description:
+      "Membaca API, auth boundary, dan data integration agar frontend dapat terhubung, di-debug, serta dikomunikasikan dengan benar.",
+    moduleIds: ["api-fundamentals"],
+  },
 ];

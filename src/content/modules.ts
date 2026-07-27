@@ -57,6 +57,7 @@ export {
   designTokensAndVariantsModule,
   productComponentsModule,
   storybookPackageBasicsModule,
+  apiFundamentalsModule,
 } from "@/content/frontend-engineering";
 
 export const englishForRemoteWorkModule: Module = {

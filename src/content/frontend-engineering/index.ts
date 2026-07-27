@@ -53,6 +53,7 @@ import { componentApiAndDocumentationModule, componentApiDesignLesson, component
 import { designTokensAndVariantsModule, designTokensLesson, colorSpacingTokensLesson, radiusTypographyTokensLesson, buttonVariantsLesson, cardVariantsLesson, designTokensVariantsAssessmentLesson, designTokensVariantsAssessmentQuiz, nameCourseCardDesignTokensChallenge, createCourseColorSpacingTokensChallenge, addCourseRadiusTypographyTokensChallenge, buildCourseButtonVariantsChallenge, buildCourseCardVariantsChallenge, buildTokenDrivenCourseUiCheckpointChallenge } from "./level-17-design-system/design-tokens-and-variants";
 import { productComponentsModule, formComponentsLesson, tableComponentsLesson, productModalLesson, toastComponentsLesson, tabsSelectComponentsLesson, productComponentsAssessmentLesson, productComponentsAssessmentQuiz, buildCourseTextFieldChallenge, buildCourseResultsTableChallenge, auditCourseConfirmDialogChallenge, buildCourseToastStatusChallenge, buildCourseFilterSelectChallenge, buildCourseInviteFormCheckpointChallenge } from "./level-17-design-system/product-components";
 import { storybookPackageBasicsModule, storybookBasicsLesson, componentStoriesLesson, storybookAccessibilityChecksLesson, packageStructureBasicsLesson, componentChangelogThinkingLesson, storybookPackageBasicsAssessmentLesson, storybookPackageBasicsAssessmentQuiz, writeCourseButtonStoriesChallenge, configureCourseButtonA11yStoriesChallenge, organizeCourseUiPackageExportsChallenge, documentCourseTextFieldStorybookCheckpointChallenge } from "./level-17-design-system/storybook-package-basics";
+import { apiFundamentalsModule, restApiBasicsLesson, graphqlBasicsLesson, httpStatusCodesLesson, apiRequestResponseShapeLesson, apiPaginationWebhooksLesson, apiFundamentalsAssessmentLesson, apiFundamentalsAssessmentQuiz, readCourseRestRequestChallenge, selectCourseGraphqlFieldsChallenge, mapCourseStatusToUiChallenge, typeAndMapCourseApiResponseChallenge, mapCourseCursorPageChallenge, analyzeCourseApiContractCheckpointChallenge } from "./level-18-backend-basics/api-fundamentals";
 
 export { webFoundationsModule, whatIsWebsiteAndWebPageLesson, howWebPageLoadsLesson, whatAreHtmlCssJavascriptLesson, htmlCssJsRolesLesson, indexCssJsFilesLesson, smallFrontendProjectStructureLesson, webFoundationsAssessmentLesson, whatIsWebsiteAndWebPageQuiz, howWebPageLoadsQuiz, whatAreHtmlCssJavascriptQuiz, htmlCssJsRolesQuiz, webFoundationsAssessmentQuiz } from "./level-01-web-foundations/web-foundations";
 export { htmlBasicsModule, htmlBasicStructureLesson, tagElementAttributeLesson, headingsParagraphsLinksImagesLesson, relativePathsBasicLesson, htmlBasicsAssessmentLesson, htmlBasicStructureQuiz, tagElementAttributeQuiz, htmlBasicsAssessmentQuiz, buildBasicHtmlPageChallenge, practiceTagElementAttributeChallenge, buildBasicContentPageChallenge, practiceRelativePathsChallenge, buildHtmlBasicsPageChallenge } from "./level-02-html-accessibility/html-basics";
@@ -109,6 +110,7 @@ export { componentApiAndDocumentationModule, componentApiDesignLesson, component
 export { designTokensAndVariantsModule, designTokensLesson, colorSpacingTokensLesson, radiusTypographyTokensLesson, buttonVariantsLesson, cardVariantsLesson, designTokensVariantsAssessmentLesson, designTokensVariantsAssessmentQuiz, nameCourseCardDesignTokensChallenge, createCourseColorSpacingTokensChallenge, addCourseRadiusTypographyTokensChallenge, buildCourseButtonVariantsChallenge, buildCourseCardVariantsChallenge, buildTokenDrivenCourseUiCheckpointChallenge } from "./level-17-design-system/design-tokens-and-variants";
 export { productComponentsModule, formComponentsLesson, tableComponentsLesson, productModalLesson, toastComponentsLesson, tabsSelectComponentsLesson, productComponentsAssessmentLesson, productComponentsAssessmentQuiz, buildCourseTextFieldChallenge, buildCourseResultsTableChallenge, auditCourseConfirmDialogChallenge, buildCourseToastStatusChallenge, buildCourseFilterSelectChallenge, buildCourseInviteFormCheckpointChallenge } from "./level-17-design-system/product-components";
 export { storybookPackageBasicsModule, storybookBasicsLesson, componentStoriesLesson, storybookAccessibilityChecksLesson, packageStructureBasicsLesson, componentChangelogThinkingLesson, storybookPackageBasicsAssessmentLesson, storybookPackageBasicsAssessmentQuiz, writeCourseButtonStoriesChallenge, configureCourseButtonA11yStoriesChallenge, organizeCourseUiPackageExportsChallenge, documentCourseTextFieldStorybookCheckpointChallenge } from "./level-17-design-system/storybook-package-basics";
+export { apiFundamentalsModule, restApiBasicsLesson, graphqlBasicsLesson, httpStatusCodesLesson, apiRequestResponseShapeLesson, apiPaginationWebhooksLesson, apiFundamentalsAssessmentLesson, apiFundamentalsAssessmentQuiz, readCourseRestRequestChallenge, selectCourseGraphqlFieldsChallenge, mapCourseStatusToUiChallenge, typeAndMapCourseApiResponseChallenge, mapCourseCursorPageChallenge, analyzeCourseApiContractCheckpointChallenge } from "./level-18-backend-basics/api-fundamentals";
 
 export const frontendEngineeringModules = [
   webFoundationsModule,
@@ -166,6 +168,7 @@ export const frontendEngineeringModules = [
   designTokensAndVariantsModule,
   productComponentsModule,
   storybookPackageBasicsModule,
+  apiFundamentalsModule,
 ];
 
 export const frontendEngineeringLessons = [
@@ -477,6 +480,12 @@ export const frontendEngineeringLessons = [
   packageStructureBasicsLesson,
   componentChangelogThinkingLesson,
   storybookPackageBasicsAssessmentLesson,
+  restApiBasicsLesson,
+  graphqlBasicsLesson,
+  httpStatusCodesLesson,
+  apiRequestResponseShapeLesson,
+  apiPaginationWebhooksLesson,
+  apiFundamentalsAssessmentLesson,
 ];
 
 export const frontendEngineeringQuizzes = [
@@ -542,6 +551,7 @@ export const frontendEngineeringQuizzes = [
   designTokensVariantsAssessmentQuiz,
   productComponentsAssessmentQuiz,
   storybookPackageBasicsAssessmentQuiz,
+  apiFundamentalsAssessmentQuiz,
 ];
 
 export const frontendEngineeringChallenges = [
@@ -782,4 +792,10 @@ export const frontendEngineeringChallenges = [
   configureCourseButtonA11yStoriesChallenge,
   organizeCourseUiPackageExportsChallenge,
   documentCourseTextFieldStorybookCheckpointChallenge,
+  readCourseRestRequestChallenge,
+  selectCourseGraphqlFieldsChallenge,
+  mapCourseStatusToUiChallenge,
+  typeAndMapCourseApiResponseChallenge,
+  mapCourseCursorPageChallenge,
+  analyzeCourseApiContractCheckpointChallenge,
 ];

@@ -310,6 +310,12 @@ export {
   packageStructureBasicsLesson,
   componentChangelogThinkingLesson,
   storybookPackageBasicsAssessmentLesson,
+  restApiBasicsLesson,
+  graphqlBasicsLesson,
+  httpStatusCodesLesson,
+  apiRequestResponseShapeLesson,
+  apiPaginationWebhooksLesson,
+  apiFundamentalsAssessmentLesson,
 } from "@/content/frontend-engineering";
 
 export const writingDailyUpdateLesson: Lesson = {

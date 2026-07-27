@@ -82,6 +82,7 @@ const expectedFrontendModuleOrder = [
   "design-tokens-and-variants",
   "product-components",
   "storybook-package-basics",
+  "api-fundamentals",
 ];
 
 function resolveTsPath(basePath) {

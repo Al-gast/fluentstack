@@ -239,6 +239,12 @@ export {
   configureCourseButtonA11yStoriesChallenge,
   organizeCourseUiPackageExportsChallenge,
   documentCourseTextFieldStorybookCheckpointChallenge,
+  readCourseRestRequestChallenge,
+  selectCourseGraphqlFieldsChallenge,
+  mapCourseStatusToUiChallenge,
+  typeAndMapCourseApiResponseChallenge,
+  mapCourseCursorPageChallenge,
+  analyzeCourseApiContractCheckpointChallenge,
 } from "@/content/frontend-engineering";
 
 
